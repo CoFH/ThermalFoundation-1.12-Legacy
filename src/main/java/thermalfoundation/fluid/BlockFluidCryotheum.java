@@ -1,0 +1,196 @@
+package thermalfoundation.fluid;
+
+import cofh.fluid.BlockFluidInteractive;
+import cofh.util.BlockHelper;
+import cofh.util.BlockWrapper;
+import cofh.util.ServerHelper;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialLiquid;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.monster.EntityBlaze;
+import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.monster.EntitySnowman;
+import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import thermalfoundation.ThermalFoundation;
+import thermalfoundation.block.TFBlocks;
+import thermalfoundation.util.DamageSources;
+
+public class BlockFluidCryotheum extends BlockFluidInteractive {
+
+	public static final int LEVELS = 5;
+	public static final Material materialFluidCryotheum = new MaterialLiquid(MapColor.iceColor);
+
+	private static boolean enableSourceFall = true;
+	private static boolean effect = true;
+
+	public BlockFluidCryotheum() {
+
+		super("thermalfoundation", TFFluids.fluidCryotheum, materialFluidCryotheum, "cryotheum");
+		setQuantaPerBlock(LEVELS);
+		setTickRate(30);
+
+		setHardness(1000F);
+		setLightOpacity(1);
+		setParticleColor(0.15F, 0.7F, 1.0F);
+
+		addInteraction(Blocks.grass, Blocks.dirt);
+		addInteraction(Blocks.water, Blocks.ice);
+		addInteraction(Blocks.flowing_water, Blocks.snow);
+		addInteraction(Blocks.lava, Blocks.obsidian);
+		addInteraction(Blocks.flowing_lava, Blocks.stone);
+		addInteraction(Blocks.leaves, Blocks.air);
+		addInteraction(Blocks.tallgrass, Blocks.air);
+		addInteraction(Blocks.fire, Blocks.air);
+		addInteraction(TFBlocks.blockFluidGlowstone, 0, Blocks.glowstone, 0);
+	}
+
+	@Override
+	public boolean preInit() {
+
+		String category = "tweak";
+		String comment = "Enable this for Fluid Cryotheum to be worse than lava, except cold.";
+		effect = ThermalFoundation.config.get(category, "Fluid.Cryotheum.Effect", true, comment);
+
+		comment = "Enable this for Fluid Cryotheum Source blocks to gradually fall downwards.";
+		enableSourceFall = ThermalFoundation.config.get(category, "Fluid.Cryotheum.Fall", enableSourceFall, comment);
+
+		GameRegistry.registerBlock(this, "FluidCryotheum");
+		return true;
+	}
+
+	@Override
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+
+		if (!effect) {
+			return;
+		}
+		if (entity.motionY < -0.05 || entity.motionY > 0.05) {
+			entity.motionY *= 0.05;
+		}
+		if (entity.motionZ < -0.05 || entity.motionZ > 0.05) {
+			entity.motionZ *= 0.05;
+		}
+		if (entity.motionX < -0.05 || entity.motionX > 0.05) {
+			entity.motionX *= 0.05;
+		}
+		if (ServerHelper.isClientWorld(world)) {
+			return;
+		}
+		if (world.getTotalWorldTime() % 8 != 0) {
+			return;
+		}
+		if (entity instanceof EntityZombie || entity instanceof EntityCreeper) {
+			entity.setDead();
+
+			EntitySnowman snowman = new EntitySnowman(world);
+			snowman.setLocationAndAngles(x + 0.5D, y + 1.0D, z + 0.5D, 0.0F, 0.0F);
+			world.spawnEntityInWorld(snowman);
+			// } else if (entity instanceof EntityBlizz) {
+
+		} else if (entity instanceof EntityBlaze) {
+			entity.attackEntityFrom(DamageSources.cryotheum, 10F);
+		} else {
+			entity.attackEntityFrom(DamageSources.cryotheum, 2.0F);
+		}
+	}
+
+	@Override
+	public int getLightValue(IBlockAccess world, int x, int y, int z) {
+
+		return TFFluids.fluidCryotheum.getLuminosity();
+	}
+
+	@Override
+	public void onBlockAdded(World world, int x, int y, int z) {
+
+		world.scheduleBlockUpdate(x, y, z, this, tickRate);
+	}
+
+	@Override
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+
+		world.scheduleBlockUpdate(x, y, z, this, tickRate);
+	}
+
+	@Override
+	public void updateTick(World world, int x, int y, int z, Random rand) {
+
+		if (effect) {
+			checkForInteraction(world, x, y, z);
+		}
+		if (world.getBlockMetadata(x, y, z) == 0) {
+			Block block = world.getBlock(x, y + densityDir, z);
+			int bMeta = world.getBlockMetadata(x, y + densityDir, z);
+
+			if (block == this && bMeta != 0) {
+				world.setBlock(x, y + densityDir, z, this, 0, 3);
+				world.setBlockToAir(x, y, z);
+				return;
+			}
+		}
+		super.updateTick(world, x, y, z, rand);
+	}
+
+	protected void checkForInteraction(World world, int x, int y, int z) {
+
+		if (world.getBlock(x, y, z) != this) {
+			return;
+		}
+		int x2 = x;
+		int y2 = y;
+		int z2 = z;
+		int result = -1;
+
+		for (int i = 0; i < 6; i++) {
+
+			x2 = x + BlockHelper.SIDE_COORD_MOD[i][0];
+			y2 = y + BlockHelper.SIDE_COORD_MOD[i][1];
+			z2 = z + BlockHelper.SIDE_COORD_MOD[i][2];
+
+			interactWithBlock(world, x2, y2, z2);
+
+			x2 += BlockHelper.SIDE_COORD_MOD[i][0];
+			z2 += BlockHelper.SIDE_COORD_MOD[i][2];
+
+			interactWithBlock(world, x2, y2, z2);
+		}
+		interactWithBlock(world, x - 1, y, z - 1);
+		interactWithBlock(world, x - 1, y, z + 1);
+		interactWithBlock(world, x + 1, y, z - 1);
+		interactWithBlock(world, x + 1, y, z + 1);
+	}
+
+	protected void interactWithBlock(World world, int x, int y, int z) {
+
+		Block block = world.getBlock(x, y, z);
+
+		if (block == Blocks.air || block == this) {
+			return;
+		}
+		int bMeta = world.getBlockMetadata(x, y, z);
+		BlockWrapper result;
+
+		if (hasInteraction(block, bMeta)) {
+			result = getInteraction(block, bMeta);
+			world.setBlock(x, y, z, result.block, result.metadata, 3);
+		} else if (world.isSideSolid(x, y, z, ForgeDirection.UP) && world.isAirBlock(x, y + 1, z)) {
+			world.setBlock(x, y + 1, z, Blocks.snow_layer, 0, 3);
+		}
+	}
+
+	protected void triggerInteractionEffects(World world, int x, int y, int z) {
+
+	}
+
+}

@@ -1,0 +1,101 @@
+#en_US
+
+death.attack.pyrotheum=%1$s mistook Pyrotheum for Water!
+death.attack.pyrotheum.player=%1$s burned alive trying to escape %2$s!
+death.attack.cryotheum=%1$s froze to death!
+death.attack.cryotheum.player=%1$s froze to death trying to escape %2$s!
+death.attack.mana=%1$s was torn apart by raw Mana!
+death.attack.mana.player=%1$s ran into another state of being attempting to escape %2$s!
+death.attack.blizz=%1$s met a frigid fate!
+
+entity.Blizz.name=Blizz
+
+fluid.redstone=Destabilized Redstone
+fluid.glowstone=Energized Glowstone
+fluid.ender=Resonant Ender
+fluid.pyrotheum=Blazing Pyrotheum
+fluid.cryotheum=Gelid Cryotheum
+fluid.coal=Liquifacted Coal
+fluid.steam=Steam
+
+item.thermalfoundation.bucket.bucketRedstone.name=Destabilized Redstone Bucket
+item.thermalfoundation.bucket.bucketGlowstone.name=Energized Glowstone Bucket
+item.thermalfoundation.bucket.bucketEnder.name=Resonant Ender Bucket
+item.thermalfoundation.bucket.bucketPyrotheum.name=Blazing Pyrotheum Bucket
+item.thermalfoundation.bucket.bucketCryotheum.name=Gelid Cryotheum Bucket
+item.thermalfoundation.bucket.bucketCoal.name=Liquifacted Coal Bucket
+
+item.thermalfoundation.material.dustIron.name=Pulverized Iron
+item.thermalfoundation.material.dustGold.name=Pulverized Gold
+item.thermalfoundation.material.dustCoal.name=Pulverized Coal
+item.thermalfoundation.material.dustObsidian.name=Pulverized Obsidian
+
+item.thermalfoundation.material.dustCopper.name=Pulverized Copper
+item.thermalfoundation.material.dustTin.name=Pulverized Tin
+item.thermalfoundation.material.dustSilver.name=Pulverized Silver
+item.thermalfoundation.material.dustLead.name=Pulverized Lead
+item.thermalfoundation.material.dustNickel.name=Pulverized Ferrous Metal
+item.thermalfoundation.material.dustPlatinum.name=Pulverized Shiny Metal
+item.thermalfoundation.material.dustElectrum.name=Electrum Blend
+item.thermalfoundation.material.dustInvar.name=Invar Blend
+item.thermalfoundation.material.dustBronze.name=Tinker's Alloy Blend
+item.thermalfoundation.material.dustEnderium.name=Enderium Blend
+
+item.thermalfoundation.material.ingotCopper.name=Copper Ingot
+item.thermalfoundation.material.ingotTin.name=Tin Ingot
+item.thermalfoundation.material.ingotSilver.name=Silver Ingot
+item.thermalfoundation.material.ingotLead.name=Lead Ingot
+item.thermalfoundation.material.ingotNickel.name=Ferrous Ingot
+item.thermalfoundation.material.ingotPlatinum.name=Shiny Ingot
+item.thermalfoundation.material.ingotElectrum.name=Electrum Ingot
+item.thermalfoundation.material.ingotInvar.name=Invar Ingot
+item.thermalfoundation.material.ingotBronze.name=Tinker's Alloy Ingot
+item.thermalfoundation.material.ingotEnderium.name=Enderium Ingot
+
+item.thermalfoundation.material.nuggetCopper.name=Copper Nugget
+item.thermalfoundation.material.nuggetTin.name=Tin Nugget
+item.thermalfoundation.material.nuggetSilver.name=Silver Nugget
+item.thermalfoundation.material.nuggetLead.name=Lead Nugget
+item.thermalfoundation.material.nuggetNickel.name=Ferrous Nugget
+item.thermalfoundation.material.nuggetPlatinum.name=Shiny Nugget
+item.thermalfoundation.material.nuggetElectrum.name=Electrum Nugget
+item.thermalfoundation.material.nuggetInvar.name=Invar Nugget
+item.thermalfoundation.material.nuggetBronze.name=Tinker's Alloy Nugget
+item.thermalfoundation.material.nuggetEnderium.name=Enderium Nugget
+
+item.thermalfoundation.material.dustSulfur.name=Sulfur
+item.thermalfoundation.material.dustNiter.name=Niter
+
+item.thermalfoundation.material.dustPyrotheum.name=Pyrotheum Dust
+item.thermalfoundation.material.dustCryotheum.name=Cryotheum Dust
+
+item.thermalfoundation.material.gearCopper.name=Copper Gear
+item.thermalfoundation.material.gearTin.name=Tin Gear
+item.thermalfoundation.material.gearElectrum.name=Electrum Gear
+item.thermalfoundation.material.gearInvar.name=Invar Gear
+item.thermalfoundation.material.gearBronze.name=Tinker's Alloy Gear
+item.thermalfoundation.material.gearEnderium.name=Enderium Gear
+
+item.thermalfoundation.material.rodBlizz.name=Blizz Rod
+item.thermalfoundation.material.dustBlizz.name=Blizz Powder
+
+itemGroup.thermalfoundation.creativeTabBlocks=Geo Logic: Blocks
+itemGroup.thermalfoundation.creativeTabItems=Geo Logic: Items
+
+tile.thermalfoundation.ore.copper.name=Copper Ore
+tile.thermalfoundation.ore.tin.name=Tin Ore
+tile.thermalfoundation.ore.silver.name=Silver Ore
+tile.thermalfoundation.ore.lead.name=Lead Ore
+tile.thermalfoundation.ore.nickel.name=Ferrous Ore
+tile.thermalfoundation.ore.platinum.name=Shiny Ore
+
+tile.thermalfoundation.storage.copper.name=Copper Block
+tile.thermalfoundation.storage.tin.name=Tin Block
+tile.thermalfoundation.storage.silver.name=Silver Block
+tile.thermalfoundation.storage.lead.name=Lead Block
+tile.thermalfoundation.storage.nickel.name=Ferrous Block
+tile.thermalfoundation.storage.platinum.name=Shiny Block
+tile.thermalfoundation.storage.electrum.name=Electrum Block
+tile.thermalfoundation.storage.invar.name=Invar Block
+tile.thermalfoundation.storage.bronze.name=Tinker's Alloy Block
+tile.thermalfoundation.storage.enderium.name=Enderium Block
