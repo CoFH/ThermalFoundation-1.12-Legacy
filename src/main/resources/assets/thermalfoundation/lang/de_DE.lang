@@ -79,8 +79,7 @@ item.thermalfoundation.material.gearEnderium.name=Enderiumzahnrad
 item.thermalfoundation.material.rodBlizz.name=Blizzrute
 item.thermalfoundation.material.dustBlizz.name=Blizzstaub
 
-itemGroup.thermalfoundation.creativeTabBlocks=Geo Logic: Blöcke
-itemGroup.thermalfoundation.creativeTabItems=Geo Logic: Items
+itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 
 tile.thermalfoundation.ore.copper.name=Kupfererz
 tile.thermalfoundation.ore.tin.name=Zinnerz

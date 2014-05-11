@@ -32,6 +32,15 @@ public class ProxyClient extends Proxy {
 	@SubscribeEvent
 	public void registerIcons(TextureStitchEvent.Pre event) {
 
+		if (event.map.getTextureType() == 0) {
+			registerFluidIcons(TFFluids.fluidRedstone, event.map);
+			registerFluidIcons(TFFluids.fluidGlowstone, event.map);
+			registerFluidIcons(TFFluids.fluidEnder, event.map);
+			registerFluidIcons(TFFluids.fluidPyrotheum, event.map);
+			registerFluidIcons(TFFluids.fluidCryotheum, event.map);
+			registerFluidIcons(TFFluids.fluidMana, event.map);
+			registerFluidIcons(TFFluids.fluidCoal, event.map);
+		}
 	}
 
 	@Override

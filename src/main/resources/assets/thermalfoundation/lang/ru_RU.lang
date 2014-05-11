@@ -79,8 +79,7 @@ item.thermalfoundation.material.gearEnderium.name=Шестерня из эндр
 item.thermalfoundation.material.rodBlizz.name=Blizz Rod
 item.thermalfoundation.material.dustBlizz.name=Blizz Powder
 
-itemGroup.thermalfoundation.creativeTabBlocks=Geo Logic: Блоки
-itemGroup.thermalfoundation.creativeTabItems=Geo Logic: Предметы
+itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 
 tile.thermalfoundation.ore.copper.name=Медная руда
 tile.thermalfoundation.ore.tin.name=Оловянная руда

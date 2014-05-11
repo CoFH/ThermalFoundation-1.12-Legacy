@@ -79,8 +79,7 @@ item.thermalfoundation.material.gearEnderium.name=末影齿轮
 item.thermalfoundation.material.rodBlizz.name=暴雪棒
 item.thermalfoundation.material.dustBlizz.name=暴雪粉
 
-itemGroup.thermalfoundation.creativeTabBlocks=热能扩展|方块
-itemGroup.thermalfoundation.creativeTabItems=热能扩展|物品
+itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 
 tile.thermalfoundation.ore.copper.name=铜矿石
 tile.thermalfoundation.ore.tin.name=锡矿石

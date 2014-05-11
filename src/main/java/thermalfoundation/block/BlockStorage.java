@@ -118,7 +118,7 @@ public class BlockStorage extends Block implements IInitializer {
 		blockInvar = new ItemStack(this, 1, 8);
 		blockBronze = new ItemStack(this, 1, 9);
 		blockSignalum = new ItemStack(this, 1, 10);
-		blockGlowmium = new ItemStack(this, 1, 11);
+		blockLumium = new ItemStack(this, 1, 11);
 		blockEnderium = new ItemStack(this, 1, 12);
 
 		ItemHelper.registerWithHandlers("blockCopper", blockCopper);
@@ -131,7 +131,7 @@ public class BlockStorage extends Block implements IInitializer {
 		ItemHelper.registerWithHandlers("blockInvar", blockInvar);
 		ItemHelper.registerWithHandlers("blockBronze", blockBronze);
 		ItemHelper.registerWithHandlers("blockSignalum", blockSignalum);
-		ItemHelper.registerWithHandlers("blockGlowmium", blockGlowmium);
+		ItemHelper.registerWithHandlers("blockLumium", blockLumium);
 		ItemHelper.registerWithHandlers("blockEnderium", blockEnderium);
 
 		return true;
@@ -157,14 +157,14 @@ public class BlockStorage extends Block implements IInitializer {
 		ItemHelper.addStorageRecipe(blockInvar, "ingotInvar");
 		ItemHelper.addStorageRecipe(blockBronze, "ingotBronze");
 		ItemHelper.addStorageRecipe(blockSignalum, "ingotSignalum");
-		ItemHelper.addStorageRecipe(blockGlowmium, "ingotGlowmium");
+		ItemHelper.addStorageRecipe(blockLumium, "ingotLumium");
 		ItemHelper.addStorageRecipe(blockEnderium, "ingotEnderium");
 
 		return true;
 	}
 
 	public static final String[] NAMES = { "copper", "tin", "silver", "lead", "nickel", "platinum", "mithril", "electrum", "invar", "bronze", "signalum",
-			"glowmium", "enderium" };
+			"lumium", "enderium" };
 	public static final int[] LIGHT = { 0, 0, 4, 0, 0, 0, 8, 0, 0, 0, 7, 15, 4 };
 	public static final float[] HARDNESS = { 5, 5, 5, 4, 10, 5, 30, 4, 20, 5, 5, 5, 40 };
 	public static final float[] RESISTANCE = { 6, 6, 6, 12, 6, 6, 120, 6, 12, 6, 9, 9, 120 };
@@ -181,7 +181,7 @@ public class BlockStorage extends Block implements IInitializer {
 	public static ItemStack blockInvar;
 	public static ItemStack blockBronze;
 	public static ItemStack blockSignalum;
-	public static ItemStack blockGlowmium;
+	public static ItemStack blockLumium;
 	public static ItemStack blockEnderium;
 
 }
