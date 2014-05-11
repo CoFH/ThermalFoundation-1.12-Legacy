@@ -256,7 +256,6 @@ public class EntityBlizz extends EntityMob {
 					}
 					if (this.firingState > 1) {
 						EntityLivingBase tgt = (EntityLivingBase) target;
-						float f1 = MathHelper.sqrt_float(distance) * 0.5F;
 						double dY = tgt.boundingBox.minY + tgt.height / 2.0F - (this.posY + this.height / 2.0F);
 						EntityBlizzSlowball ball = new EntityBlizzSlowball(this.worldObj, this);
 						ball.posY = this.posY + this.height / 2.0F + 0.5D;

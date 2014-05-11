@@ -3,6 +3,7 @@ package thermalfoundation.fluid;
 import cofh.fluid.BlockFluidInteractive;
 import cofh.util.BlockHelper;
 import cofh.util.BlockWrapper;
+import cofh.util.MathHelper;
 import cofh.util.ServerHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -13,17 +14,21 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntitySnowman;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Blocks;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import thermalfoundation.ThermalFoundation;
 import thermalfoundation.block.TFBlocks;
+import thermalfoundation.entity.monster.EntityBlizz;
 import thermalfoundation.util.DamageSources;
 
 public class BlockFluidCryotheum extends BlockFluidInteractive {
@@ -45,14 +50,18 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		setParticleColor(0.15F, 0.7F, 1.0F);
 
 		addInteraction(Blocks.grass, Blocks.dirt);
-		addInteraction(Blocks.water, Blocks.ice);
+		addInteraction(Blocks.water, 0, Blocks.ice);
+		addInteraction(Blocks.water, Blocks.snow);
+		addInteraction(Blocks.flowing_water, 0, Blocks.ice);
 		addInteraction(Blocks.flowing_water, Blocks.snow);
-		addInteraction(Blocks.lava, Blocks.obsidian);
+		addInteraction(Blocks.lava, 0, Blocks.obsidian);
+		addInteraction(Blocks.lava, Blocks.stone);
+		addInteraction(Blocks.flowing_lava, 0, Blocks.obsidian);
 		addInteraction(Blocks.flowing_lava, Blocks.stone);
 		addInteraction(Blocks.leaves, Blocks.air);
 		addInteraction(Blocks.tallgrass, Blocks.air);
 		addInteraction(Blocks.fire, Blocks.air);
-		addInteraction(TFBlocks.blockFluidGlowstone, 0, Blocks.glowstone, 0);
+		addInteraction(TFBlocks.blockFluidGlowstone, 0, Blocks.glowstone);
 	}
 
 	@Override
@@ -96,8 +105,9 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 			EntitySnowman snowman = new EntitySnowman(world);
 			snowman.setLocationAndAngles(x + 0.5D, y + 1.0D, z + 0.5D, 0.0F, 0.0F);
 			world.spawnEntityInWorld(snowman);
-			// } else if (entity instanceof EntityBlizz) {
-
+		} else if (entity instanceof EntityBlizz) {
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 6 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 6 * 20, 0));
 		} else if (entity instanceof EntityBlaze) {
 			entity.attackEntityFrom(DamageSources.cryotheum, 10F);
 		} else {
@@ -109,18 +119,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 	public int getLightValue(IBlockAccess world, int x, int y, int z) {
 
 		return TFFluids.fluidCryotheum.getLuminosity();
-	}
-
-	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
-
-		world.scheduleBlockUpdate(x, y, z, this, tickRate);
-	}
-
-	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-
-		world.scheduleBlockUpdate(x, y, z, this, tickRate);
 	}
 
 	@Override
@@ -184,6 +182,7 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		if (hasInteraction(block, bMeta)) {
 			result = getInteraction(block, bMeta);
 			world.setBlock(x, y, z, result.block, result.metadata, 3);
+			triggerInteractionEffects(world, x, y, z);
 		} else if (world.isSideSolid(x, y, z, ForgeDirection.UP) && world.isAirBlock(x, y + 1, z)) {
 			world.setBlock(x, y + 1, z, Blocks.snow_layer, 0, 3);
 		}
@@ -191,6 +190,12 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 
 	protected void triggerInteractionEffects(World world, int x, int y, int z) {
 
+		if (MathHelper.RANDOM.nextInt(10) == 0) {
+			// world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
+		}
+		for (int i = 0; i < 4; i++) {
+			world.spawnParticle("snowballpoof", x + Math.random(), y + 1.2D, z + Math.random(), 0.0D, 0.0D, 0.0D);
+		}
 	}
 
 }

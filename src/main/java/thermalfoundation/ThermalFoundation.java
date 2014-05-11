@@ -15,6 +15,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import java.io.File;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 
 import org.apache.logging.log4j.LogManager;
@@ -76,7 +77,7 @@ public class ThermalFoundation extends BaseMod {
 		TFItems.initialize();
 		TFBlocks.initialize();
 
-		proxy.registerEntities();
+		MinecraftForge.EVENT_BUS.register(proxy);
 	}
 
 	@EventHandler
@@ -86,6 +87,7 @@ public class ThermalFoundation extends BaseMod {
 		TFItems.postInit();
 		TFBlocks.postInit();
 
+		proxy.registerEntities();
 		proxy.registerRenderInformation();
 
 		config.cleanUp(false, true);

@@ -30,7 +30,7 @@ public class TFItems {
 		bucketEnder = itemBucket.addItem(2, "bucketEnder", 1);
 		bucketPyrotheum = itemBucket.addItem(3, "bucketPyrotheum", 2);
 		bucketCryotheum = itemBucket.addItem(4, "bucketCryotheum", 2);
-		bucketMana = itemBucket.addItem(5, "bucketMana", 2);
+		bucketMana = itemBucket.addItem(5, "bucketMana", 3);
 		bucketCoal = itemBucket.addItem(6, "bucketCoal");
 
 		/* Vanilla derived */

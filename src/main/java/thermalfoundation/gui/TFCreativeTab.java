@@ -20,7 +20,7 @@ public class TFCreativeTab extends CreativeTabs {
 	@SideOnly(Side.CLIENT)
 	public ItemStack getIconItemStack() {
 
-		return BlockOre.oreCopper;
+		return BlockOre.oreNickel;
 	}
 
 	@Override

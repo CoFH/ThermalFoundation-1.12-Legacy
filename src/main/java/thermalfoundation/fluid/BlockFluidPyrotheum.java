@@ -94,18 +94,6 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 	}
 
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
-
-		world.scheduleBlockUpdate(x, y, z, this, tickRate);
-	}
-
-	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-
-		world.scheduleBlockUpdate(x, y, z, this, tickRate);
-	}
-
-	@Override
 	public int getFireSpreadSpeed(IBlockAccess world, int x, int y, int z, ForgeDirection face) {
 
 		return effect ? 800 : 0;
