@@ -66,10 +66,10 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		if (!effect) {
 			return;
 		}
-		if (MathHelper.RANDOM.nextInt(100) != 0) {
-			return;
-		}
 		if (world.getTotalWorldTime() % 4 == 0) {
+			if (MathHelper.RANDOM.nextInt(100) != 0) {
+				return;
+			}
 			int x2 = x - 8 + world.rand.nextInt(17);
 			int y2 = y + world.rand.nextInt(8);
 			int z2 = z - 8 + world.rand.nextInt(17);
@@ -160,7 +160,11 @@ public class BlockFluidMana extends BlockFluidInteractive {
 			result = getInteraction(block, bMeta);
 			world.setBlock(x, y, z, result.block, result.metadata, 3);
 		} else if (world.isSideSolid(x, y, z, ForgeDirection.UP) && world.isAirBlock(x, y + 1, z)) {
-			// world.setBlock(x, y + 1, z, Blocks.snow_layer, 0, 3);
+			if (MathHelper.RANDOM.nextInt(2) == 0) {
+				world.setBlock(x, y + 1, z, Blocks.snow_layer, 0, 3);
+			} else {
+				world.setBlock(x, y + 1, z, Blocks.fire, 0, 3);
+			}
 		}
 	}
 

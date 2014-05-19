@@ -4,11 +4,14 @@ import cofh.core.CoFHProps;
 import cofh.mod.BaseMod;
 import cofh.updater.UpdateManager;
 import cofh.util.ConfigHandler;
+import cofh.world.FeatureParser;
+import cofh.world.WorldHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
@@ -26,7 +29,6 @@ import thermalfoundation.core.Proxy;
 import thermalfoundation.fluid.TFFluids;
 import thermalfoundation.gui.TFCreativeTab;
 import thermalfoundation.item.TFItems;
-import thermalfoundation.world.WorldHandler;
 
 @Mod(modid = ThermalFoundation.modId, name = ThermalFoundation.modName, version = ThermalFoundation.version, dependencies = ThermalFoundation.dependencies,
 		canBeDeactivated = false)
@@ -91,6 +93,16 @@ public class ThermalFoundation extends BaseMod {
 		proxy.registerRenderInformation();
 
 		config.cleanUp(false, true);
+	}
+
+	@EventHandler
+	public void loadComplete(FMLLoadCompleteEvent event) {
+
+		try {
+			FeatureParser.parseGenerationFile();
+		} catch (Throwable t) {
+			t.printStackTrace();
+		}
 	}
 
 	/* BaseMod */
