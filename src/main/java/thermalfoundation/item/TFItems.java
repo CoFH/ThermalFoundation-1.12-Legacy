@@ -4,12 +4,14 @@ import cofh.item.ItemBase;
 import cofh.item.ItemBucket;
 import cofh.util.ItemHelper;
 import cofh.util.fluid.BucketHandler;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import thermalfoundation.ThermalFoundation;
 import thermalfoundation.block.TFBlocks;
@@ -21,9 +23,6 @@ public class TFItems {
 
 		itemBucket = (ItemBucket) new ItemBucket("thermalfoundation").setUnlocalizedName("bucket").setCreativeTab(ThermalFoundation.tab);
 		itemMaterial = (ItemBase) new ItemBase("thermalfoundation").setUnlocalizedName("material").setCreativeTab(ThermalFoundation.tab);
-	}
-
-	public static void initialize() {
 
 		bucketRedstone = itemBucket.addItem(0, "bucketRedstone", 1);
 		bucketGlowstone = itemBucket.addItem(1, "bucketGlowstone", 1);
@@ -189,6 +188,9 @@ public class TFItems {
 		// OreDictionary.registerOre("gearSignalum", gearSignalum);
 		// OreDictionary.registerOre("gearLumium", gearLumium);
 		// OreDictionary.registerOre("gearEnderium", gearEnderium);
+	}
+
+	public static void initialize() {
 
 		ingotIron = new ItemStack(Items.iron_ingot);
 		ingotGold = new ItemStack(Items.gold_ingot);
@@ -208,9 +210,6 @@ public class TFItems {
 		FurnaceRecipes.smelting().func_151394_a(dustSignalum, ingotSignalum, 0.0F);
 		FurnaceRecipes.smelting().func_151394_a(dustLumium, ingotLumium, 0.0F);
 		// No Enderium
-	}
-
-	public static void postInit() {
 
 		BucketHandler.registerBucket(TFBlocks.blockFluidRedstone, 0, bucketRedstone);
 		BucketHandler.registerBucket(TFBlocks.blockFluidGlowstone, 0, bucketGlowstone);
@@ -227,6 +226,21 @@ public class TFItems {
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidCryotheum, bucketCryotheum, FluidContainerRegistry.EMPTY_BUCKET);
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidMana, bucketMana, FluidContainerRegistry.EMPTY_BUCKET);
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidCoal, bucketCoal, FluidContainerRegistry.EMPTY_BUCKET);
+	}
+
+	public static void postInit() {
+
+		/* Alloy Recipes */
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustElectrum, 2), new Object[] { "dustGold", "dustSilver" }));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustInvar, 3), new Object[] { "dustIron", "dustIron", "dustNickel" }));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustBronze, 4),
+				new Object[] { "dustCopper", "dustCopper", "dustCopper", "dustTin" }));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustSignalum, 4), new Object[] { "dustCopper", "dustCopper", "dustCopper",
+				"dustLead", bucketRedstone }));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustLumium, 4), new Object[] { "dustTin", "dustTin", "dustTin", "dustSilver",
+				bucketGlowstone }));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustEnderium, 4), new Object[] { "dustTin", "dustTin", "dustTin", "dustPlatinum",
+				bucketEnder }));
 	}
 
 	public static ItemBucket itemBucket;
