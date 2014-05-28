@@ -15,8 +15,9 @@ fluid.glowstone=充能液态荧石
 fluid.ender=谐振熔融末影珍珠
 fluid.pyrotheum=烈焰之炽焱
 fluid.cryotheum=极寒之凛冰
-fluid.coal=液态煤炭
+fluid.mana=Primal Mana
 fluid.steam=蒸汽
+fluid.coal=液态煤炭
 
 item.thermalfoundation.bucket.bucketRedstone.name=不稳定熔融红石桶
 item.thermalfoundation.bucket.bucketGlowstone.name=充能熔融荧石桶
@@ -80,6 +81,15 @@ item.thermalfoundation.material.rodBlizz.name=暴雪棒
 item.thermalfoundation.material.dustBlizz.name=暴雪粉
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
+
+tile.thermalfoundation.fluid.redstone.name=熔融红石
+tile.thermalfoundation.fluid.glowstone.name=充能液态荧石
+tile.thermalfoundation.fluid.ender.name=谐振熔融末影珍珠
+tile.thermalfoundation.fluid.pyrotheum.name=烈焰之炽焱
+tile.thermalfoundation.fluid.cryotheum.name=极寒之凛冰
+tile.thermalfoundation.fluid.mana.name=Primal Mana
+tile.thermalfoundation.fluid.steam.name=蒸汽
+tile.thermalfoundation.fluid.coal.name=液态煤炭
 
 tile.thermalfoundation.ore.copper.name=铜矿石
 tile.thermalfoundation.ore.tin.name=锡矿石

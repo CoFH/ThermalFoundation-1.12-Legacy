@@ -119,7 +119,7 @@ public class TFItems {
 		/* Additional Items */
 		dustPyrotheum = itemMaterial.addItem(512, "dustPyrotheum", 2);
 		dustCryotheum = itemMaterial.addItem(513, "dustCryotheum", 2);
-		dustMana = itemMaterial.addItem(513, "dustMana", 3);
+		dustMana = itemMaterial.addItem(514, "dustMana", 3);
 
 		/* Mob Drops */
 		rodBlizz = itemMaterial.addItem(1024, "rodBlizz");
@@ -235,9 +235,9 @@ public class TFItems {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustInvar, 3), new Object[] { "dustIron", "dustIron", "dustNickel" }));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustBronze, 4),
 				new Object[] { "dustCopper", "dustCopper", "dustCopper", "dustTin" }));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustSignalum, 4), new Object[] { "dustCopper", "dustCopper", "dustCopper",
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustSignalum, 8), new Object[] { "dustCopper", "dustCopper", "dustCopper",
 				"dustLead", bucketRedstone }));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustLumium, 4), new Object[] { "dustTin", "dustTin", "dustTin", "dustSilver",
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustLumium, 8), new Object[] { "dustTin", "dustTin", "dustTin", "dustSilver",
 				bucketGlowstone }));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustEnderium, 4), new Object[] { "dustTin", "dustTin", "dustTin", "dustPlatinum",
 				bucketEnder }));

@@ -14,6 +14,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
 import java.io.File;
 
@@ -103,6 +104,12 @@ public class ThermalFoundation extends BaseMod {
 		} catch (Throwable t) {
 			t.printStackTrace();
 		}
+	}
+
+	@EventHandler
+	public void serverStarting(FMLServerStartingEvent event) {
+
+		TFFluids.registerDispenserHandlers();
 	}
 
 	/* BaseMod */

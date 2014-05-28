@@ -3,7 +3,9 @@ package thermalfoundation.fluid;
 import cofh.fluid.BlockFluidCoFHBase;
 import cofh.util.ServerHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import java.util.Random;
+
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -14,7 +16,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
 import org.apache.logging.log4j.Level;
+
 import thermalfoundation.ThermalFoundation;
 
 public class BlockFluidGlowstone extends BlockFluidCoFHBase {
@@ -30,7 +34,6 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 	public BlockFluidGlowstone() {
 
 		super("thermalfoundation", TFFluids.fluidGlowstone, materialFluidGlowstone, "glowstone");
-		setDensity(-250);
 		setQuantaPerBlock(LEVELS);
 		setTickRate(20);
 

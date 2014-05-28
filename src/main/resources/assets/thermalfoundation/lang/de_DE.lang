@@ -15,8 +15,9 @@ fluid.glowstone=Energetisiertes Glowstone
 fluid.ender=Resonantes Ender
 fluid.pyrotheum=Flammentes Pyrotheum
 fluid.cryotheum=Gelenes Kryotheum
-fluid.coal=Verflüssigte Kohle
+fluid.mana=Primal Mana
 fluid.steam=Dampf
+fluid.coal=Verflüssigte Kohle
 
 item.thermalfoundation.bucket.bucketRedstone.name=Eimer mit Destabilisiertem Redstone
 item.thermalfoundation.bucket.bucketGlowstone.name=Eimer mit Energetisiertem Glowstone
@@ -80,6 +81,15 @@ item.thermalfoundation.material.rodBlizz.name=Blizzrute
 item.thermalfoundation.material.dustBlizz.name=Blizzstaub
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
+
+tile.thermalfoundation.fluid.redstone.name=Destabilisieres Redstone
+tile.thermalfoundation.fluid.glowstone.name=Energetisiertes Glowstone
+tile.thermalfoundation.fluid.ender.name=Resonantes Ender
+tile.thermalfoundation.fluid.pyrotheum.name=Flammendes Pyrotheum
+tile.thermalfoundation.fluid.cryotheum.name=Gelenes Kryotheum
+tile.thermalfoundation.fluid.mana.name=Primal Mana
+tile.thermalfoundation.fluid.steam.name=Dampf
+tile.thermalfoundation.fluid.coal.name=Verflüssigte Kohle
 
 tile.thermalfoundation.ore.copper.name=Kupfererz
 tile.thermalfoundation.ore.tin.name=Zinnerz

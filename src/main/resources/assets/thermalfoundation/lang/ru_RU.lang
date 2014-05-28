@@ -16,8 +16,8 @@ fluid.ender=Резонирующий эндериум
 fluid.pyrotheum=Пылающий пиротеум
 fluid.cryotheum=Ледяной криотеум
 fluid.mana=Изначальная мана
-fluid.coal=Разжиженный уголь
 fluid.steam=Пар
+fluid.coal=Разжиженный уголь
 
 item.thermalfoundation.bucket.bucketRedstone.name=Ведро дестабилизированного красного камня
 item.thermalfoundation.bucket.bucketGlowstone.name=Ведро заряженного светящегося камня
@@ -99,6 +99,15 @@ item.thermalfoundation.material.rodBlizz.name=Бурановый стержен�
 item.thermalfoundation.material.dustBlizz.name=Бурановый порошок
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
+
+tile.thermalfoundation.fluid.redstone.name=Дестабилизированный красный камень
+tile.thermalfoundation.fluid.glowstone.name=Заряженный светящийся камень
+tile.thermalfoundation.fluid.ender.name=Резонирующий эндериум
+tile.thermalfoundation.fluid.pyrotheum.name=Пылающий пиротеум
+tile.thermalfoundation.fluid.cryotheum.name=Ледяной криотеум
+tile.thermalfoundation.fluid.mana.name=Изначальная мана
+tile.thermalfoundation.fluid.steam.name=Пар
+tile.thermalfoundation.fluid.coal.name=Разжиженный уголь
 
 tile.thermalfoundation.ore.copper.name=Медная руда
 tile.thermalfoundation.ore.tin.name=Оловянная руда

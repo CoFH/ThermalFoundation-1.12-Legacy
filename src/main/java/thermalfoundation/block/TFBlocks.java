@@ -1,6 +1,7 @@
 package thermalfoundation.block;
 
 import cofh.fluid.BlockFluidCoFHBase;
+
 import thermalfoundation.fluid.BlockFluidCoal;
 import thermalfoundation.fluid.BlockFluidCryotheum;
 import thermalfoundation.fluid.BlockFluidEnder;
@@ -8,6 +9,7 @@ import thermalfoundation.fluid.BlockFluidGlowstone;
 import thermalfoundation.fluid.BlockFluidMana;
 import thermalfoundation.fluid.BlockFluidPyrotheum;
 import thermalfoundation.fluid.BlockFluidRedstone;
+import thermalfoundation.fluid.BlockFluidSteam;
 
 public class TFBlocks {
 
@@ -22,6 +24,7 @@ public class TFBlocks {
 		blockFluidPyrotheum = new BlockFluidPyrotheum();
 		blockFluidCryotheum = new BlockFluidCryotheum();
 		blockFluidMana = new BlockFluidMana();
+		blockFluidSteam = new BlockFluidSteam();
 		blockFluidCoal = new BlockFluidCoal();
 
 		blockOre.preInit();
@@ -33,6 +36,7 @@ public class TFBlocks {
 		blockFluidPyrotheum.preInit();
 		blockFluidCryotheum.preInit();
 		blockFluidMana.preInit();
+		blockFluidSteam.preInit();
 		blockFluidCoal.preInit();
 	}
 
@@ -54,6 +58,7 @@ public class TFBlocks {
 	public static BlockFluidCoFHBase blockFluidPyrotheum;
 	public static BlockFluidCoFHBase blockFluidCryotheum;
 	public static BlockFluidCoFHBase blockFluidMana;
+	public static BlockFluidCoFHBase blockFluidSteam;
 	public static BlockFluidCoFHBase blockFluidCoal;
 
 }

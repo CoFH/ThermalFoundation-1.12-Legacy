@@ -6,7 +6,9 @@ import cofh.util.BlockWrapper;
 import cofh.util.MathHelper;
 import cofh.util.ServerHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -23,6 +25,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
 import thermalfoundation.ThermalFoundation;
 import thermalfoundation.block.TFBlocks;
 import thermalfoundation.entity.monster.EntityBlizz;
@@ -148,7 +151,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		int result = -1;
 
 		for (int i = 0; i < 6; i++) {
-
 			x2 = x + BlockHelper.SIDE_COORD_MOD[i][0];
 			y2 = y + BlockHelper.SIDE_COORD_MOD[i][1];
 			z2 = z + BlockHelper.SIDE_COORD_MOD[i][2];

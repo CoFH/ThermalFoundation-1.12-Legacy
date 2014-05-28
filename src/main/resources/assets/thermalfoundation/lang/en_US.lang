@@ -16,8 +16,8 @@ fluid.ender=Resonant Ender
 fluid.pyrotheum=Blazing Pyrotheum
 fluid.cryotheum=Gelid Cryotheum
 fluid.mana=Primal Mana
-fluid.coal=Liquifacted Coal
 fluid.steam=Steam
+fluid.coal=Liquifacted Coal
 
 item.thermalfoundation.bucket.bucketRedstone.name=Destabilized Redstone Bucket
 item.thermalfoundation.bucket.bucketGlowstone.name=Energized Glowstone Bucket
@@ -99,6 +99,15 @@ item.thermalfoundation.material.rodBlizz.name=Blizz Rod
 item.thermalfoundation.material.dustBlizz.name=Blizz Powder
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
+
+tile.thermalfoundation.fluid.redstone.name=Destabilized Redstone
+tile.thermalfoundation.fluid.glowstone.name=Energized Glowstone
+tile.thermalfoundation.fluid.ender.name=Resonant Ender
+tile.thermalfoundation.fluid.pyrotheum.name=Blazing Pyrotheum
+tile.thermalfoundation.fluid.cryotheum.name=Gelid Cryotheum
+tile.thermalfoundation.fluid.mana.name=Primal Mana
+tile.thermalfoundation.fluid.steam.name=Steam
+tile.thermalfoundation.fluid.coal.name=Liquifacted Coal
 
 tile.thermalfoundation.ore.copper.name=Copper Ore
 tile.thermalfoundation.ore.tin.name=Tin Ore
