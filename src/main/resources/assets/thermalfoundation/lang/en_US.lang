@@ -1,11 +1,5 @@
 #en_US
 
-death.attack.pyrotheum=%1$s mistook Pyrotheum for Water!
-death.attack.pyrotheum.player=%1$s burned alive trying to escape %2$s!
-death.attack.cryotheum=%1$s froze to death!
-death.attack.cryotheum.player=%1$s froze to death trying to escape %2$s!
-death.attack.mana=%1$s was torn apart by raw Mana!
-death.attack.mana.player=%1$s ran into another state of being attempting to escape %2$s!
 death.attack.blizz=%1$s met a frigid fate!
 
 entity.Blizz.name=Blizz

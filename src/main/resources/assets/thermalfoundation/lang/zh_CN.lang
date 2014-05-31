@@ -1,11 +1,5 @@
 #zh_CN
 
-death.attack.pyrotheum=%1$s误以为炽焱是普通的水!
-death.attack.pyrotheum.player=%1$s逃离%2$s的魔爪时被烧死了!
-death.attack.cryotheum=%1$s冻死了!
-death.attack.cryotheum.player=%1$s逃离%2$s的魔爪时被冻死了!
-death.attack.mana=%1$s被原始的魔力撕得四分五裂!
-death.attack.mana.player==%1$s刚刚逃离%2$s的魔爪又一头栽进另一场危机中.
 death.attack.blizz==%1$s邂逅了冰冷的命运!
 
 entity.Blizz.name=暴雪

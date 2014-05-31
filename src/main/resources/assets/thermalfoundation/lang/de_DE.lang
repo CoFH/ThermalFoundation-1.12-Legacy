@@ -1,11 +1,5 @@
 #de_DE
 
-death.attack.pyrotheum=%1$s verwechelte Pyrotheum mit Wasser!
-death.attack.pyrotheum.player=%1$s wurde lebendig verbrannt, während er vor %2$s floh!
-death.attack.cryotheum=%1$s fror zu Tode!
-death.attack.cryotheum.player=%1$s fror zu Tode, während er vor %2$s floh!
-death.attack.mana=%1$s wurde von rohem Mana zerfetzt!
-death.attack.mana.player=%1$s floss in einen anderen Daseinszustand, während er vor %2$s floh!
 death.attack.blizz=%1$s fand einen frostigen Tod!
 
 entity.Blizz.name=Blizz

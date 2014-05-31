@@ -1,11 +1,5 @@
 #ru_RU
 
-death.attack.pyrotheum=%1$s принял пиротеум за воду!
-death.attack.pyrotheum.player=%1$s сгорел заживо, убегая от %2$s!
-death.attack.cryotheum=%1$s замёрз досмерти!
-death.attack.cryotheum.player=%1$s замёрз досмерти, убегая от %2$s!
-death.attack.mana=%1$s был разорван на части сырой маной!
-death.attack.mana.player=%1$s побежал не в то место, при попытке к бегству от %2$s!
 death.attack.blizz=%1$s встретил холодную судьбу!
 
 entity.Blizz.name=Буран

@@ -3,6 +3,7 @@ package thermalfoundation.fluid;
 import cofh.fluid.BlockFluidInteractive;
 import cofh.util.BlockHelper;
 import cofh.util.BlockWrapper;
+import cofh.util.DamageHelper;
 import cofh.util.MathHelper;
 import cofh.util.ServerHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -29,7 +30,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 import thermalfoundation.ThermalFoundation;
 import thermalfoundation.block.TFBlocks;
 import thermalfoundation.entity.monster.EntityBlizz;
-import thermalfoundation.util.DamageSources;
 
 public class BlockFluidCryotheum extends BlockFluidInteractive {
 
@@ -109,9 +109,9 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 6 * 20, 0));
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 6 * 20, 0));
 		} else if (entity instanceof EntityBlaze) {
-			entity.attackEntityFrom(DamageSources.cryotheum, 10F);
+			entity.attackEntityFrom(DamageHelper.cryotheum, 10F);
 		} else {
-			entity.attackEntityFrom(DamageSources.cryotheum, 2.0F);
+			entity.attackEntityFrom(DamageHelper.cryotheum, 2.0F);
 		}
 	}
 
