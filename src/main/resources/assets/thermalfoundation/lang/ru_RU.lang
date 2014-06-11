@@ -26,6 +26,11 @@ item.thermalfoundation.material.dustGold.name=Измельчённое золо�
 item.thermalfoundation.material.dustCoal.name=Измельчённый уголь
 item.thermalfoundation.material.dustObsidian.name=Измельчённый обсидиан
 
+item.thermalexpansion.material.dustSulfur.name=Сера
+item.thermalexpansion.material.dustNiter.name=Селитра
+
+item.thermalexpansion.material.crystalCinnabar.name=Киноварь
+
 item.thermalfoundation.material.dustCopper.name=Измельчённая медь
 item.thermalfoundation.material.dustTin.name=Измельчённое олово
 item.thermalfoundation.material.dustSilver.name=Измельчённое серебро

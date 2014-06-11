@@ -18,12 +18,18 @@ item.thermalfoundation.bucket.bucketGlowstone.name=Eimer mit Energetisiertem Glo
 item.thermalfoundation.bucket.bucketEnder.name=Eimer mit Resonantem Ender
 item.thermalfoundation.bucket.bucketPyrotheum.name=Eimer mit Flammendem Pyrotheum
 item.thermalfoundation.bucket.bucketCryotheum.name=Eimer mit Gelenem Kryotheum
+#item.thermalfoundation.bucket.bucketMana.name=
 item.thermalfoundation.bucket.bucketCoal.name=Eimer mit Verflüssigter Kohle
 
 item.thermalfoundation.material.dustIron.name=Pulverisiertes Eisen
 item.thermalfoundation.material.dustGold.name=Pulverisiertes Gold
 item.thermalfoundation.material.dustCoal.name=Pulverisierte Kohle
 item.thermalfoundation.material.dustObsidian.name=Pulverisiertes Obsidian
+
+item.thermalexpansion.material.dustSulfur.name=Schwefel
+item.thermalexpansion.material.dustNiter.name=Salpeter
+
+item.thermalexpansion.material.crystalCinnabar.name=Zinnober
 
 item.thermalfoundation.material.dustCopper.name=Pulverisiertes Kupfer
 item.thermalfoundation.material.dustTin.name=Pulverisiertes Zinn
@@ -58,8 +64,6 @@ item.thermalfoundation.material.nuggetInvar.name=Invarnugget
 item.thermalfoundation.material.nuggetBronze.name=Bastler-Legierungsnugget
 item.thermalfoundation.material.nuggetEnderium.name=Enderiumnugget
 
-item.thermalfoundation.material.dustSulfur.name=Schwefel
-item.thermalfoundation.material.dustNiter.name=Salpeter
 
 item.thermalfoundation.material.dustPyrotheum.name=Pyrotheumstaub
 item.thermalfoundation.material.dustCryotheum.name=Kryotheumstaub

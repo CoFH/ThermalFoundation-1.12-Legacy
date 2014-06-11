@@ -228,12 +228,12 @@ public class EntityBlizz extends EntityMob {
 			if (this.attackTime == 0) {
 				// BLIZZBALL FIGHT!!!! (or an animal)
 				if (target instanceof EntityBlizz || target.isCreatureType(EnumCreatureType.creature, false)) {
-					EntityBlizzBall snowball = new EntityBlizzBall(this.worldObj, this);
-					double dSY = target.posY + target.getEyeHeight() - 1.100000023841858D - snowball.posY;
+					EntityBlizzBall blizzBall = new EntityBlizzBall(this.worldObj, this);
+					double dSY = target.posY + target.getEyeHeight() - 1.100000023841858D - blizzBall.posY;
 					float f1 = MathHelper.sqrt_double(dX * dX + dZ * dZ) * 0.2F;
-					snowball.setThrowableHeading(dX, dSY + f1, dZ, 1.6F, 12.0F);
+					blizzBall.setThrowableHeading(dX, dSY + f1, dZ, 1.6F, 12.0F);
 					this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-					this.worldObj.spawnEntityInWorld(snowball);
+					this.worldObj.spawnEntityInWorld(blizzBall);
 
 					// Negate target so it re-selects nearest mob
 					this.setTarget(null);

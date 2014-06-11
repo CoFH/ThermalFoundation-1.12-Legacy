@@ -26,6 +26,11 @@ item.thermalfoundation.material.dustGold.name=Pulverized Gold
 item.thermalfoundation.material.dustCoal.name=Pulverized Coal
 item.thermalfoundation.material.dustObsidian.name=Pulverized Obsidian
 
+item.thermalfoundation.material.dustSulfur.name=Sulfur
+item.thermalfoundation.material.dustNiter.name=Niter
+
+item.thermalexpansion.material.crystalCinnabar.name=Cinnabar
+
 item.thermalfoundation.material.dustCopper.name=Pulverized Copper
 item.thermalfoundation.material.dustTin.name=Pulverized Tin
 item.thermalfoundation.material.dustSilver.name=Pulverized Silver
@@ -67,9 +72,6 @@ item.thermalfoundation.material.nuggetBronze.name=Tinker's Alloy Nugget
 item.thermalfoundation.material.nuggetSignalum.name=Signalum Nugget
 item.thermalfoundation.material.nuggetLumium.name=Lumium Nugget
 item.thermalfoundation.material.nuggetEnderium.name=Enderium Nugget
-
-item.thermalfoundation.material.dustSulfur.name=Sulfur
-item.thermalfoundation.material.dustNiter.name=Niter
 
 item.thermalfoundation.material.dustPyrotheum.name=Pyrotheum Dust
 item.thermalfoundation.material.dustCryotheum.name=Cryotheum Dust

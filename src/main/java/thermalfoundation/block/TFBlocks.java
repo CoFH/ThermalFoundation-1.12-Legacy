@@ -47,6 +47,7 @@ public class TFBlocks {
 	public static void postInit() {
 
 		blockOre.postInit();
+		blockStorage.postInit();
 	}
 
 	public static BlockOre blockOre;

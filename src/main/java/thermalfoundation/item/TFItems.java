@@ -10,7 +10,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import thermalfoundation.ThermalFoundation;
@@ -32,89 +31,76 @@ public class TFItems {
 		bucketMana = itemBucket.addItem(5, "bucketMana", 3);
 		bucketCoal = itemBucket.addItem(6, "bucketCoal");
 
-		/* Vanilla derived */
-		dustIron = itemMaterial.addItem(0, "dustIron");
-		dustGold = itemMaterial.addItem(1, "dustGold");
-		dustCoal = itemMaterial.addItem(2, "dustCoal");
-		dustObsidian = itemMaterial.addItem(4, "dustObsidian");
+		/* Vanilla Derived */
+		dustIron = itemMaterial.addOreDictItem(0, "dustIron");
+		dustGold = itemMaterial.addOreDictItem(1, "dustGold");
+		dustCoal = itemMaterial.addOreDictItem(2, "dustCoal");
+		dustObsidian = itemMaterial.addOreDictItem(4, "dustObsidian");
 
-		dustSulfur = itemMaterial.addItem(16, "dustSulfur");
-		dustNiter = itemMaterial.addItem(17, "dustNiter");
+		dustSulfur = itemMaterial.addOreDictItem(16, "dustSulfur");
+		dustNiter = itemMaterial.addOreDictItem(17, "dustNiter");
+
+		crystalCinnabar = itemMaterial.addOreDictItem(20, "crystalCinnabar");
 
 		/* Dusts */
-		dustCopper = itemMaterial.addItem(32, "dustCopper");
-		dustTin = itemMaterial.addItem(33, "dustTin");
-		dustSilver = itemMaterial.addItem(34, "dustSilver");
-		dustLead = itemMaterial.addItem(35, "dustLead");
-		dustNickel = itemMaterial.addItem(36, "dustNickel");
-		dustPlatinum = itemMaterial.addItem(37, "dustPlatinum", 1);
-		dustMithril = itemMaterial.addItem(38, "dustMithril", 2);
-		dustElectrum = itemMaterial.addItem(39, "dustElectrum");
-		dustInvar = itemMaterial.addItem(40, "dustInvar");
-		dustBronze = itemMaterial.addItem(41, "dustBronze");
-		dustSignalum = itemMaterial.addItem(42, "dustSignalum", 1);
-		dustLumium = itemMaterial.addItem(43, "dustLumium", 1);
-		dustEnderium = itemMaterial.addItem(44, "dustEnderium", 2);
+		dustCopper = itemMaterial.addOreDictItem(32, "dustCopper");
+		dustTin = itemMaterial.addOreDictItem(33, "dustTin");
+		dustSilver = itemMaterial.addOreDictItem(34, "dustSilver");
+		dustLead = itemMaterial.addOreDictItem(35, "dustLead");
+		dustNickel = itemMaterial.addOreDictItem(36, "dustNickel");
+		dustPlatinum = itemMaterial.addOreDictItem(37, "dustPlatinum", 1);
+		dustMithril = itemMaterial.addOreDictItem(38, "dustMithril", 2);
+		dustElectrum = itemMaterial.addOreDictItem(39, "dustElectrum");
+		dustInvar = itemMaterial.addOreDictItem(40, "dustInvar");
+		dustBronze = itemMaterial.addOreDictItem(41, "dustBronze");
+		dustSignalum = itemMaterial.addOreDictItem(42, "dustSignalum", 1);
+		dustLumium = itemMaterial.addOreDictItem(43, "dustLumium", 1);
+		dustEnderium = itemMaterial.addOreDictItem(44, "dustEnderium", 2);
 
 		/* Ingots */
-		ingotCopper = itemMaterial.addItem(64, "ingotCopper");
-		ingotTin = itemMaterial.addItem(65, "ingotTin");
-		ingotSilver = itemMaterial.addItem(66, "ingotSilver");
-		ingotLead = itemMaterial.addItem(67, "ingotLead");
-		ingotNickel = itemMaterial.addItem(68, "ingotNickel");
-		ingotPlatinum = itemMaterial.addItem(69, "ingotPlatinum", 1);
-		ingotMithril = itemMaterial.addItem(70, "ingotMithril", 2);
-		ingotElectrum = itemMaterial.addItem(71, "ingotElectrum");
-		ingotInvar = itemMaterial.addItem(72, "ingotInvar");
-		ingotBronze = itemMaterial.addItem(73, "ingotBronze");
-		ingotSignalum = itemMaterial.addItem(74, "ingotSignalum", 1);
-		ingotLumium = itemMaterial.addItem(75, "ingotLumium", 1);
-		ingotEnderium = itemMaterial.addItem(76, "ingotEnderium", 2);
+		ingotCopper = itemMaterial.addOreDictItem(64, "ingotCopper");
+		ingotTin = itemMaterial.addOreDictItem(65, "ingotTin");
+		ingotSilver = itemMaterial.addOreDictItem(66, "ingotSilver");
+		ingotLead = itemMaterial.addOreDictItem(67, "ingotLead");
+		ingotNickel = itemMaterial.addOreDictItem(68, "ingotNickel");
+		ingotPlatinum = itemMaterial.addOreDictItem(69, "ingotPlatinum", 1);
+		ingotMithril = itemMaterial.addOreDictItem(70, "ingotMithril", 2);
+		ingotElectrum = itemMaterial.addOreDictItem(71, "ingotElectrum");
+		ingotInvar = itemMaterial.addOreDictItem(72, "ingotInvar");
+		ingotBronze = itemMaterial.addOreDictItem(73, "ingotBronze");
+		ingotSignalum = itemMaterial.addOreDictItem(74, "ingotSignalum", 1);
+		ingotLumium = itemMaterial.addOreDictItem(75, "ingotLumium", 1);
+		ingotEnderium = itemMaterial.addOreDictItem(76, "ingotEnderium", 2);
 
 		/* Nuggets */
-		nuggetCopper = itemMaterial.addItem(96, "nuggetCopper");
-		nuggetTin = itemMaterial.addItem(97, "nuggetTin");
-		nuggetSilver = itemMaterial.addItem(98, "nuggetSilver");
-		nuggetLead = itemMaterial.addItem(99, "nuggetLead");
-		nuggetNickel = itemMaterial.addItem(100, "nuggetNickel");
-		nuggetPlatinum = itemMaterial.addItem(101, "nuggetPlatinum");
-		nuggetMithril = itemMaterial.addItem(102, "nuggetMithril");
-		nuggetElectrum = itemMaterial.addItem(103, "nuggetElectrum");
-		nuggetInvar = itemMaterial.addItem(104, "nuggetInvar");
-		nuggetBronze = itemMaterial.addItem(105, "nuggetBronze");
-		nuggetSignalum = itemMaterial.addItem(106, "nuggetSignalum", 1);
-		nuggetLumium = itemMaterial.addItem(107, "nuggetLumium", 1);
-		nuggetEnderium = itemMaterial.addItem(108, "nuggetEnderium", 2);
+		nuggetCopper = itemMaterial.addOreDictItem(96, "nuggetCopper");
+		nuggetTin = itemMaterial.addOreDictItem(97, "nuggetTin");
+		nuggetSilver = itemMaterial.addOreDictItem(98, "nuggetSilver");
+		nuggetLead = itemMaterial.addOreDictItem(99, "nuggetLead");
+		nuggetNickel = itemMaterial.addOreDictItem(100, "nuggetNickel");
+		nuggetPlatinum = itemMaterial.addOreDictItem(101, "nuggetPlatinum", 1);
+		nuggetMithril = itemMaterial.addOreDictItem(102, "nuggetMithril", 2);
+		nuggetElectrum = itemMaterial.addOreDictItem(103, "nuggetElectrum");
+		nuggetInvar = itemMaterial.addOreDictItem(104, "nuggetInvar");
+		nuggetBronze = itemMaterial.addOreDictItem(105, "nuggetBronze");
+		nuggetSignalum = itemMaterial.addOreDictItem(106, "nuggetSignalum", 1);
+		nuggetLumium = itemMaterial.addOreDictItem(107, "nuggetLumium", 1);
+		nuggetEnderium = itemMaterial.addOreDictItem(108, "nuggetEnderium", 2);
 
 		/* Gears */
-		gearCopper = itemMaterial.addItem(128, "gearCopper");
-		gearTin = itemMaterial.addItem(129, "gearTin");
-		// gearSilver = itemMaterial.addItem(130, "gearSilver");
-		// gearLead = itemMaterial.addItem(131, "gearLead");
-		// gearNickel = itemMaterial.addItem(132, "gearNickel");
-		// gearPlatinum = itemMaterial.addItem(133, "gearPlatinum");
-		// gearMithril = itemMaterial.addItem(134, "gearMithril");
-		gearElectrum = itemMaterial.addItem(135, "gearElectrum");
-		gearInvar = itemMaterial.addItem(136, "gearInvar");
-		gearBronze = itemMaterial.addItem(137, "gearBronze");
-		// gearSignalum = itemMaterial.addItem(138, "gearSignalum");
-		// gearLumium = itemMaterial.addItem(139, "gearLumium");
-		// gearEnderium = itemMaterial.addItem(140, "gearEnderium");
-
-		/* Gears */
-		ItemHelper.addGearRecipe(gearCopper, "ingotCopper");
-		ItemHelper.addGearRecipe(gearTin, "ingotTin");
-		// ItemHelper.addGearRecipe(gearSilver, "ingotSilver");
-		// ItemHelper.addGearRecipe(gearLead, "ingotLead");
-		// ItemHelper.addGearRecipe(gearNickel, "ingotNickel");
-		// ItemHelper.addGearRecipe(gearPlatinum, "ingotPlatinum");
-		// ItemHelper.addGearRecipe(gearMithril, "ingotMithril");
-		// ItemHelper.addGearRecipe(gearElectrum, "ingotElectrum");
-		ItemHelper.addGearRecipe(gearInvar, "ingotInvar");
-		ItemHelper.addGearRecipe(gearBronze, "ingotBronze");
-		// ItemHelper.addGearRecipe(gearSignalum, "ingotSignalum");
-		// ItemHelper.addGearRecipe(gearLumium, "ingotLumium");
-		// ItemHelper.addGearRecipe(gearEnderium, "ingotEnderium");
+		gearCopper = itemMaterial.addOreDictItem(128, "gearCopper");
+		gearTin = itemMaterial.addOreDictItem(129, "gearTin");
+		// gearSilver = itemMaterial.addOreDictItem(130, "gearSilver");
+		// gearLead = itemMaterial.addOreDictItem(131, "gearLead");
+		// gearNickel = itemMaterial.addOreDictItem(132, "gearNickel");
+		// gearPlatinum = itemMaterial.addOreDictItem(133, "gearPlatinum");
+		// gearMithril = itemMaterial.addOreDictItem(134, "gearMithril");
+		gearElectrum = itemMaterial.addOreDictItem(135, "gearElectrum");
+		gearInvar = itemMaterial.addOreDictItem(136, "gearInvar");
+		gearBronze = itemMaterial.addOreDictItem(137, "gearBronze");
+		// gearSignalum = itemMaterial.addOreDictItem(138, "gearSignalum", 1);
+		// gearLumium = itemMaterial.addOreDictItem(139, "gearLumium", 1);
+		// gearEnderium = itemMaterial.addOreDictItem(140, "gearEnderium", 2);
 
 		/* Additional Items */
 		dustPyrotheum = itemMaterial.addItem(512, "dustPyrotheum", 2);
@@ -124,70 +110,6 @@ public class TFItems {
 		/* Mob Drops */
 		rodBlizz = itemMaterial.addItem(1024, "rodBlizz");
 		dustBlizz = itemMaterial.addItem(1025, "dustBlizz");
-
-		OreDictionary.registerOre("dustSulfur", dustSulfur);
-		OreDictionary.registerOre("dustSaltpeter", dustNiter);
-
-		OreDictionary.registerOre("dustIron", dustIron);
-		OreDictionary.registerOre("dustGold", dustGold);
-		OreDictionary.registerOre("dustCoal", dustCoal);
-		OreDictionary.registerOre("dustObsidian", dustObsidian);
-
-		OreDictionary.registerOre("dustCopper", dustCopper);
-		OreDictionary.registerOre("dustTin", dustTin);
-		OreDictionary.registerOre("dustSilver", dustSilver);
-		OreDictionary.registerOre("dustLead", dustLead);
-		OreDictionary.registerOre("dustNickel", dustNickel);
-		OreDictionary.registerOre("dustPlatinum", dustPlatinum);
-		OreDictionary.registerOre("dustMithril", dustMithril);
-		OreDictionary.registerOre("dustElectrum", dustElectrum);
-		OreDictionary.registerOre("dustInvar", dustInvar);
-		OreDictionary.registerOre("dustBronze", dustBronze);
-		OreDictionary.registerOre("dustSignalum", dustSignalum);
-		OreDictionary.registerOre("dustLumium", dustLumium);
-		OreDictionary.registerOre("dustEnderium", dustEnderium);
-
-		OreDictionary.registerOre("ingotCopper", ingotCopper);
-		OreDictionary.registerOre("ingotTin", ingotTin);
-		OreDictionary.registerOre("ingotSilver", ingotSilver);
-		OreDictionary.registerOre("ingotLead", ingotLead);
-		OreDictionary.registerOre("ingotNickel", ingotNickel);
-		OreDictionary.registerOre("ingotPlatinum", ingotPlatinum);
-		OreDictionary.registerOre("ingotMithril", ingotMithril);
-		OreDictionary.registerOre("ingotElectrum", ingotElectrum);
-		OreDictionary.registerOre("ingotInvar", ingotInvar);
-		OreDictionary.registerOre("ingotBronze", ingotBronze);
-		OreDictionary.registerOre("ingotSignalum", ingotSignalum);
-		OreDictionary.registerOre("ingotLumium", ingotLumium);
-		OreDictionary.registerOre("ingotEnderium", ingotEnderium);
-
-		OreDictionary.registerOre("nuggetCopper", nuggetCopper);
-		OreDictionary.registerOre("nuggetTin", nuggetTin);
-		OreDictionary.registerOre("nuggetSilver", nuggetSilver);
-		OreDictionary.registerOre("nuggetLead", nuggetLead);
-		OreDictionary.registerOre("nuggetNickel", nuggetNickel);
-		OreDictionary.registerOre("nuggetPlatinum", nuggetPlatinum);
-		OreDictionary.registerOre("nuggetMithril", nuggetMithril);
-		OreDictionary.registerOre("nuggetElectrum", nuggetElectrum);
-		OreDictionary.registerOre("nuggetInvar", nuggetInvar);
-		OreDictionary.registerOre("nuggetBronze", nuggetBronze);
-		OreDictionary.registerOre("nuggetSignalum", nuggetSignalum);
-		OreDictionary.registerOre("nuggetLumium", nuggetLumium);
-		OreDictionary.registerOre("nuggetEnderium", nuggetEnderium);
-
-		OreDictionary.registerOre("gearCopper", gearCopper);
-		OreDictionary.registerOre("gearTin", gearTin);
-		// OreDictionary.registerOre("gearSilver", gearSilver);
-		// OreDictionary.registerOre("gearLead", gearLead);
-		// OreDictionary.registerOre("gearNickel", gearNickel);
-		// OreDictionary.registerOre("gearPlatinum", gearPlatinum);
-		// OreDictionary.registerOre("gearMithril", gearMithril);
-		OreDictionary.registerOre("gearElectrum", gearElectrum);
-		OreDictionary.registerOre("gearInvar", gearInvar);
-		OreDictionary.registerOre("gearBronze", gearBronze);
-		// OreDictionary.registerOre("gearSignalum", gearSignalum);
-		// OreDictionary.registerOre("gearLumium", gearLumium);
-		// OreDictionary.registerOre("gearEnderium", gearEnderium);
 	}
 
 	public static void initialize() {
@@ -241,6 +163,51 @@ public class TFItems {
 				bucketGlowstone }));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustEnderium, 4), new Object[] { "dustTin", "dustTin", "dustTin", "dustPlatinum",
 				bucketEnder }));
+
+		/* Storage */
+		ItemHelper.addReverseStorageRecipe(ingotCopper, "blockCopper");
+		ItemHelper.addReverseStorageRecipe(ingotTin, "blockTin");
+		ItemHelper.addReverseStorageRecipe(ingotSilver, "blockSilver");
+		ItemHelper.addReverseStorageRecipe(ingotLead, "blockLead");
+		ItemHelper.addReverseStorageRecipe(ingotNickel, "blockNickel");
+		ItemHelper.addReverseStorageRecipe(ingotPlatinum, "blockPlatinum");
+		ItemHelper.addReverseStorageRecipe(ingotMithril, "blockMithril");
+		ItemHelper.addReverseStorageRecipe(ingotElectrum, "blockElectrum");
+		ItemHelper.addReverseStorageRecipe(ingotInvar, "blockInvar");
+		ItemHelper.addReverseStorageRecipe(ingotBronze, "blockBronze");
+		ItemHelper.addReverseStorageRecipe(ingotSignalum, "blockSignalum");
+		ItemHelper.addReverseStorageRecipe(ingotLumium, "blockLumium");
+		ItemHelper.addReverseStorageRecipe(ingotEnderium, "blockEnderium");
+
+		ItemHelper.addReverseStorageRecipe(nuggetCopper, "ingotCopper");
+		ItemHelper.addReverseStorageRecipe(nuggetTin, "ingotTin");
+		ItemHelper.addReverseStorageRecipe(nuggetSilver, "ingotSilver");
+		ItemHelper.addReverseStorageRecipe(nuggetLead, "ingotLead");
+		ItemHelper.addReverseStorageRecipe(nuggetNickel, "ingotNickel");
+		ItemHelper.addReverseStorageRecipe(nuggetPlatinum, "ingotPlatinum");
+		ItemHelper.addReverseStorageRecipe(nuggetMithril, "ingotMithril");
+		ItemHelper.addReverseStorageRecipe(nuggetElectrum, "ingotElectrum");
+		ItemHelper.addReverseStorageRecipe(nuggetInvar, "ingotInvar");
+		ItemHelper.addReverseStorageRecipe(nuggetBronze, "ingotBronze");
+		ItemHelper.addReverseStorageRecipe(nuggetSignalum, "ingotSignalum");
+		ItemHelper.addReverseStorageRecipe(nuggetLumium, "ingotLumium");
+		ItemHelper.addReverseStorageRecipe(nuggetEnderium, "ingotEnderium");
+
+		/* Gears */
+		ItemHelper.addGearRecipe(gearCopper, "ingotCopper");
+		ItemHelper.addGearRecipe(gearTin, "ingotTin");
+		// ItemHelper.addGearRecipe(gearSilver, "ingotSilver");
+		// ItemHelper.addGearRecipe(gearLead, "ingotLead");
+		// ItemHelper.addGearRecipe(gearNickel, "ingotNickel");
+		// ItemHelper.addGearRecipe(gearPlatinum, "ingotPlatinum");
+		// ItemHelper.addGearRecipe(gearMithril, "ingotMithril");
+		// ItemHelper.addGearRecipe(gearElectrum, "ingotElectrum");
+		ItemHelper.addGearRecipe(gearInvar, "ingotInvar");
+		ItemHelper.addGearRecipe(gearBronze, "ingotBronze");
+		// ItemHelper.addGearRecipe(gearSignalum, "ingotSignalum");
+		// ItemHelper.addGearRecipe(gearLumium, "ingotLumium");
+		// ItemHelper.addGearRecipe(gearEnderium, "ingotEnderium");
+
 	}
 
 	public static ItemBucket itemBucket;
@@ -264,6 +231,8 @@ public class TFItems {
 
 	public static ItemStack dustSulfur;
 	public static ItemStack dustNiter;
+
+	public static ItemStack crystalCinnabar;
 
 	public static ItemStack ingotCopper;
 	public static ItemStack ingotTin;

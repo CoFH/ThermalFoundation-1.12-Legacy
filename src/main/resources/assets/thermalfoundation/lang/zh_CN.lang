@@ -25,6 +25,11 @@ item.thermalfoundation.material.dustGold.name=金粉
 item.thermalfoundation.material.dustCoal.name=煤粉
 item.thermalfoundation.material.dustObsidian.name=黑曜石粉
 
+item.thermalexpansion.material.dustSulfur.name=硫磺
+item.thermalexpansion.material.dustNiter.name=硝石
+
+item.thermalexpansion.material.crystalCinnabar.name=朱砂
+
 item.thermalfoundation.material.dustCopper.name=铜粉
 item.thermalfoundation.material.dustTin.name=锡粉
 item.thermalfoundation.material.dustSilver.name=银粉

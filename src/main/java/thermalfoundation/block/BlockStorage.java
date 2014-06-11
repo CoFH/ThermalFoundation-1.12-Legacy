@@ -127,6 +127,7 @@ public class BlockStorage extends Block implements IInitializer {
 		ItemHelper.registerWithHandlers("blockLead", blockLead);
 		ItemHelper.registerWithHandlers("blockNickel", blockNickel);
 		ItemHelper.registerWithHandlers("blockPlatinum", blockPlatinum);
+		ItemHelper.registerWithHandlers("blockMithril", blockMithril);
 		ItemHelper.registerWithHandlers("blockElectrum", blockElectrum);
 		ItemHelper.registerWithHandlers("blockInvar", blockInvar);
 		ItemHelper.registerWithHandlers("blockBronze", blockBronze);
