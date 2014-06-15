@@ -5,14 +5,11 @@ import cofh.core.CoFHProps;
 import cofh.mod.BaseMod;
 import cofh.updater.UpdateManager;
 import cofh.util.ConfigHandler;
-import cofh.world.FeatureParser;
-import cofh.world.WorldHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
@@ -65,7 +62,6 @@ public class ThermalFoundation extends BaseMod {
 		UpdateManager.registerUpdater(new UpdateManager(this, releaseURL));
 
 		config.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/ThermalFoundation.cfg")));
-		WorldHandler.initialize();
 
 		TFFluids.preInit();
 		TFItems.preInit();
@@ -95,16 +91,6 @@ public class ThermalFoundation extends BaseMod {
 		proxy.registerRenderInformation();
 
 		config.cleanUp(false, true);
-	}
-
-	@EventHandler
-	public void loadComplete(FMLLoadCompleteEvent event) {
-
-		try {
-			FeatureParser.parseGenerationFile();
-		} catch (Throwable t) {
-			t.printStackTrace();
-		}
 	}
 
 	@EventHandler

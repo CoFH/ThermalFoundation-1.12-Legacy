@@ -29,7 +29,7 @@ item.thermalfoundation.material.dustObsidian.name=Pulverized Obsidian
 item.thermalfoundation.material.dustSulfur.name=Sulfur
 item.thermalfoundation.material.dustNiter.name=Niter
 
-item.thermalexpansion.material.crystalCinnabar.name=Cinnabar
+item.thermalfoundation.material.crystalCinnabar.name=Cinnabar
 
 item.thermalfoundation.material.dustCopper.name=Pulverized Copper
 item.thermalfoundation.material.dustTin.name=Pulverized Tin

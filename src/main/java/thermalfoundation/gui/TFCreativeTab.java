@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import thermalfoundation.block.BlockOre;
+import thermalfoundation.item.TFItems;
 
 public class TFCreativeTab extends CreativeTabs {
 
@@ -20,7 +20,7 @@ public class TFCreativeTab extends CreativeTabs {
 	@SideOnly(Side.CLIENT)
 	public ItemStack getIconItemStack() {
 
-		return BlockOre.oreNickel;
+		return TFItems.bucketMana;
 	}
 
 	@Override

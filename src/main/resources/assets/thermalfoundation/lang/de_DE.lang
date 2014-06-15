@@ -26,10 +26,10 @@ item.thermalfoundation.material.dustGold.name=Pulverisiertes Gold
 item.thermalfoundation.material.dustCoal.name=Pulverisierte Kohle
 item.thermalfoundation.material.dustObsidian.name=Pulverisiertes Obsidian
 
-item.thermalexpansion.material.dustSulfur.name=Schwefel
-item.thermalexpansion.material.dustNiter.name=Salpeter
+item.thermalfoundation.material.dustSulfur.name=Schwefel
+item.thermalfoundation.material.dustNiter.name=Salpeter
 
-item.thermalexpansion.material.crystalCinnabar.name=Zinnober
+item.thermalfoundation.material.crystalCinnabar.name=Zinnober
 
 item.thermalfoundation.material.dustCopper.name=Pulverisiertes Kupfer
 item.thermalfoundation.material.dustTin.name=Pulverisiertes Zinn
