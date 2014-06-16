@@ -90,17 +90,17 @@ public class TFItems {
 		/* Gears */
 		gearCopper = itemMaterial.addOreDictItem(128, "gearCopper");
 		gearTin = itemMaterial.addOreDictItem(129, "gearTin");
-		// gearSilver = itemMaterial.addOreDictItem(130, "gearSilver");
-		// gearLead = itemMaterial.addOreDictItem(131, "gearLead");
-		// gearNickel = itemMaterial.addOreDictItem(132, "gearNickel");
-		// gearPlatinum = itemMaterial.addOreDictItem(133, "gearPlatinum");
-		// gearMithril = itemMaterial.addOreDictItem(134, "gearMithril");
+		gearSilver = itemMaterial.addOreDictItem(130, "gearSilver");
+		gearLead = itemMaterial.addOreDictItem(131, "gearLead");
+		gearNickel = itemMaterial.addOreDictItem(132, "gearNickel");
+		gearPlatinum = itemMaterial.addOreDictItem(133, "gearPlatinum");
+		gearMithril = itemMaterial.addOreDictItem(134, "gearMithril");
 		gearElectrum = itemMaterial.addOreDictItem(135, "gearElectrum");
 		gearInvar = itemMaterial.addOreDictItem(136, "gearInvar");
 		gearBronze = itemMaterial.addOreDictItem(137, "gearBronze");
-		// gearSignalum = itemMaterial.addOreDictItem(138, "gearSignalum", 1);
-		// gearLumium = itemMaterial.addOreDictItem(139, "gearLumium", 1);
-		// gearEnderium = itemMaterial.addOreDictItem(140, "gearEnderium", 2);
+		gearSignalum = itemMaterial.addOreDictItem(138, "gearSignalum", 1);
+		gearLumium = itemMaterial.addOreDictItem(139, "gearLumium", 1);
+		gearEnderium = itemMaterial.addOreDictItem(140, "gearEnderium", 2);
 
 		/* Additional Items */
 		dustPyrotheum = itemMaterial.addItem(512, "dustPyrotheum", 2);
