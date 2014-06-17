@@ -276,7 +276,7 @@
 	
 	<target name="setup-bon" depends="properties" unless="bon.exists">
 		<echo message="Downloading BON..."/>
-		<get src="https://github.com/skyboy/bearded-octo-nemesis/releases/download/1.0/BON.jar" dest="${reobf.cmd}"/>
+		<get src="https://github.com/skyboy/bearded-octo-nemesis/releases/download/1.1/BON.jar" dest="${reobf.cmd}"/>
 	</target>
 	
 	<macrodef name="update-languages">
