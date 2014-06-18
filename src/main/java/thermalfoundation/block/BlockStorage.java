@@ -166,10 +166,10 @@ public class BlockStorage extends Block implements IInitializer {
 
 	public static final String[] NAMES = { "copper", "tin", "silver", "lead", "nickel", "platinum", "mithril", "electrum", "invar", "bronze", "signalum",
 			"lumium", "enderium" };
-	public static final int[] LIGHT = { 0, 0, 4, 0, 0, 0, 8, 0, 0, 0, 7, 15, 4 };
+	public static final int[] LIGHT = { 0, 0, 4, 0, 0, 4, 8, 0, 0, 0, 7, 15, 4 };
 	public static final float[] HARDNESS = { 5, 5, 5, 4, 10, 5, 30, 4, 20, 5, 5, 5, 40 };
 	public static final float[] RESISTANCE = { 6, 6, 6, 12, 6, 6, 120, 6, 12, 6, 9, 9, 120 };
-	public static final int[] RARITY = { 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 1, 2 };
+	public static final int[] RARITY = { 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 1, 1, 2 };
 
 	public static ItemStack blockCopper;
 	public static ItemStack blockTin;
