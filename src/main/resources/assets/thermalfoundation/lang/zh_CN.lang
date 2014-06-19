@@ -9,7 +9,7 @@ fluid.glowstone=充能液态荧石
 fluid.ender=谐振熔融末影珍珠
 fluid.pyrotheum=烈焰之炽焱
 fluid.cryotheum=极寒之凛冰
-fluid.mana=Primal Mana
+fluid.mana=元始魔力
 fluid.steam=蒸汽
 fluid.coal=液态煤炭
 
@@ -18,6 +18,7 @@ item.thermalfoundation.bucket.bucketGlowstone.name=充能熔融荧石桶
 item.thermalfoundation.bucket.bucketEnder.name=谐振熔融末影珍珠桶
 item.thermalfoundation.bucket.bucketPyrotheum.name=烈焰之炽焱桶
 item.thermalfoundation.bucket.bucketCryotheum.name=极寒之凛冰桶
+item.thermalfoundation.bucket.bucketMana.name=元始魔力桶
 item.thermalfoundation.bucket.bucketCoal.name=液态煤炭桶
 
 item.thermalfoundation.material.dustIron.name=铁粉
@@ -36,9 +37,11 @@ item.thermalfoundation.material.dustSilver.name=银粉
 item.thermalfoundation.material.dustLead.name=铅粉
 item.thermalfoundation.material.dustNickel.name=镍粉
 item.thermalfoundation.material.dustPlatinum.name=铂粉
+item.thermalfoundation.material.dustMithril.name=注魔金属粉
 item.thermalfoundation.material.dustElectrum.name=琥珀金粉
 item.thermalfoundation.material.dustInvar.name=因瓦合金粉
 item.thermalfoundation.material.dustBronze.name=青铜粉
+item.thermalfoundation.material.dustLumium.name=流明粉
 item.thermalfoundation.material.dustEnderium.name=末影粉
 
 item.thermalfoundation.material.ingotCopper.name=铜锭
@@ -47,9 +50,11 @@ item.thermalfoundation.material.ingotSilver.name=银锭
 item.thermalfoundation.material.ingotLead.name=铅锭
 item.thermalfoundation.material.ingotNickel.name=镍锭
 item.thermalfoundation.material.ingotPlatinum.name=铂锭
+item.thermalfoundation.material.ingotMithril.name=注魔金属锭
 item.thermalfoundation.material.ingotElectrum.name=琥珀金锭
 item.thermalfoundation.material.ingotInvar.name=因瓦合金锭
 item.thermalfoundation.material.ingotBronze.name=青铜锭
+item.thermalfoundation.material.ingotLumium.name=流明锭
 item.thermalfoundation.material.ingotEnderium.name=末影锭
 
 item.thermalfoundation.material.nuggetCopper.name=铜粒
@@ -58,9 +63,11 @@ item.thermalfoundation.material.nuggetSilver.name=银粒
 item.thermalfoundation.material.nuggetLead.name=铅粒
 item.thermalfoundation.material.nuggetNickel.name=镍粒
 item.thermalfoundation.material.nuggetPlatinum.name=铂粒
+item.thermalfoundation.material.nuggetMithril.name=注魔金属粒
 item.thermalfoundation.material.nuggetElectrum.name=琥珀金粒
 item.thermalfoundation.material.nuggetInvar.name=因瓦合金粒
 item.thermalfoundation.material.nuggetBronze.name=青铜粒
+item.thermalfoundation.material.nuggetLumium.name=流明粒
 item.thermalfoundation.material.nuggetEnderium.name=末影粒
 
 item.thermalfoundation.material.dustSulfur.name=硫磺
@@ -68,25 +75,33 @@ item.thermalfoundation.material.dustNiter.name=硝石
 
 item.thermalfoundation.material.dustPyrotheum.name=炽焱粉
 item.thermalfoundation.material.dustCryotheum.name=凛冰粉
+item.thermalfoundation.material.dustMana.name=魔力粉
 
 item.thermalfoundation.material.gearCopper.name=铜齿轮
 item.thermalfoundation.material.gearTin.name=锡齿轮
+item.thermalfoundation.material.gearSilver.name=银齿轮
+item.thermalfoundation.material.gearLead.name=铅齿轮
+item.thermalfoundation.material.gearNickel.name=镍齿轮
+item.thermalfoundation.material.gearPlatinum.name=铂齿轮
+item.thermalfoundation.material.gearMithril.name=注魔金属齿轮
 item.thermalfoundation.material.gearElectrum.name=琥珀金齿轮
 item.thermalfoundation.material.gearInvar.name=因瓦合金齿轮
-item.thermalfoundation.material.gearBronze.name=
+item.thermalfoundation.material.gearBronze.name=青铜齿轮
+item.thermalfoundation.material.gearSignalum.name=信素齿轮
+item.thermalfoundation.material.gearLumium.name=流明齿轮
 item.thermalfoundation.material.gearEnderium.name=末影齿轮
 
 item.thermalfoundation.material.rodBlizz.name=暴雪棒
 item.thermalfoundation.material.dustBlizz.name=暴雪粉
 
-itemGroup.thermalfoundation.creativeTab=Thermal Foundation
+itemGroup.thermalfoundation.creativeTab=热力工坊
 
 tile.thermalfoundation.fluid.redstone.name=熔融红石
 tile.thermalfoundation.fluid.glowstone.name=充能液态荧石
 tile.thermalfoundation.fluid.ender.name=谐振熔融末影珍珠
 tile.thermalfoundation.fluid.pyrotheum.name=烈焰之炽焱
 tile.thermalfoundation.fluid.cryotheum.name=极寒之凛冰
-tile.thermalfoundation.fluid.mana.name=Primal Mana
+tile.thermalfoundation.fluid.mana.name=元始魔力
 tile.thermalfoundation.fluid.steam.name=蒸汽
 tile.thermalfoundation.fluid.coal.name=液态煤炭
 
@@ -96,6 +111,7 @@ tile.thermalfoundation.ore.silver.name=银矿石
 tile.thermalfoundation.ore.lead.name=铅矿石
 tile.thermalfoundation.ore.nickel.name=镍矿石
 tile.thermalfoundation.ore.platinum.name=铂矿石
+tile.thermalfoundation.ore.mithril.name=蕴魔矿
 
 tile.thermalfoundation.storage.copper.name=铜块
 tile.thermalfoundation.storage.tin.name=锡块
@@ -103,7 +119,10 @@ tile.thermalfoundation.storage.silver.name=银块
 tile.thermalfoundation.storage.lead.name=铅块
 tile.thermalfoundation.storage.nickel.name=镍块
 tile.thermalfoundation.storage.platinum.name=铂块
+tile.thermalfoundation.storage.mithril.name=注魔金属块
 tile.thermalfoundation.storage.electrum.name=琥珀金块
 tile.thermalfoundation.storage.invar.name=因瓦合金块
-tile.thermalfoundation.storage.bronze.name
+tile.thermalfoundation.storage.bronze.name=青铜块
+tile.thermalfoundation.storage.signalum.name=信素粉
+tile.thermalfoundation.storage.lumium.name=流明块
 tile.thermalfoundation.storage.enderium.name=末影块
