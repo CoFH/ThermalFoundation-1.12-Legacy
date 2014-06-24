@@ -18,7 +18,7 @@ public class ModelBlizz extends ModelBase {
 
 	public ModelBlizz() {
 
-		for (int i = 0; i < blizzSticks.length; ++i) {
+		for (int i = 0; i < blizzSticks.length; i++) {
 			blizzSticks[i] = new ModelRenderer(this, 0, 16);
 			blizzSticks[i].addBox(0.0F, 0.0F, 0.0F, 2, 8, 2);
 		}
@@ -32,7 +32,7 @@ public class ModelBlizz extends ModelBase {
 		setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
 		blizzHead.render(par7);
 
-		for (int i = 0; i < blizzSticks.length; ++i) {
+		for (int i = 0; i < blizzSticks.length; i++) {
 			blizzSticks[i].render(par7);
 		}
 	}
@@ -43,7 +43,7 @@ public class ModelBlizz extends ModelBase {
 		float f6 = par3 * (float) Math.PI * -0.1F;
 		int i;
 
-		for (i = 0; i < 4; ++i) {
+		for (i = 0; i < 4; i++) {
 			blizzSticks[i].rotationPointY = -2.0F + MathHelper.cos((i * 2 + par3) * 0.25F);
 			blizzSticks[i].rotationPointX = MathHelper.cos(f6) * 9.0F;
 			blizzSticks[i].rotationPointZ = MathHelper.sin(f6) * 9.0F;
@@ -51,7 +51,7 @@ public class ModelBlizz extends ModelBase {
 		}
 		f6 = ((float) Math.PI / 4F) + par3 * (float) Math.PI * 0.03F;
 
-		for (i = 4; i < 8; ++i) {
+		for (i = 4; i < 8; i++) {
 			blizzSticks[i].rotationPointY = 2.0F + MathHelper.cos((i * 2 + par3) * 0.25F);
 			blizzSticks[i].rotationPointX = MathHelper.cos(f6) * 7.0F;
 			blizzSticks[i].rotationPointZ = MathHelper.sin(f6) * 7.0F;
@@ -59,7 +59,7 @@ public class ModelBlizz extends ModelBase {
 		}
 		f6 = 0.47123894F + par3 * (float) Math.PI * -0.05F;
 
-		for (i = 8; i < 12; ++i) {
+		for (i = 8; i < 12; i++) {
 			blizzSticks[i].rotationPointY = 11.0F + MathHelper.cos((i * 1.5F + par3) * 0.5F);
 			blizzSticks[i].rotationPointX = MathHelper.cos(f6) * 5.0F;
 			blizzSticks[i].rotationPointZ = MathHelper.sin(f6) * 5.0F;

@@ -13,6 +13,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 
 import java.io.File;
 
@@ -26,6 +27,7 @@ import org.apache.logging.log4j.Logger;
 import thermalfoundation.block.TFBlocks;
 import thermalfoundation.core.Proxy;
 import thermalfoundation.fluid.TFFluids;
+import thermalfoundation.gui.GuiHandler;
 import thermalfoundation.gui.TFCreativeTab;
 import thermalfoundation.item.TFItems;
 
@@ -45,8 +47,10 @@ public class ThermalFoundation extends BaseMod {
 	@SidedProxy(clientSide = "thermalfoundation.core.ProxyClient", serverSide = "thermalfoundation.core.Proxy")
 	public static Proxy proxy;
 
-	public static final ConfigHandler config = new ConfigHandler(version);
 	public static final Logger log = LogManager.getLogger(modId);
+
+	public static final ConfigHandler config = new ConfigHandler(version);
+	public static final GuiHandler guiHandler = new GuiHandler();
 
 	public static final CreativeTabs tab = new TFCreativeTab();
 
@@ -77,6 +81,8 @@ public class ThermalFoundation extends BaseMod {
 		TFItems.initialize();
 		TFBlocks.initialize();
 
+		/* Register Handlers */
+		NetworkRegistry.INSTANCE.registerGuiHandler(instance, guiHandler);
 		MinecraftForge.EVENT_BUS.register(proxy);
 	}
 

@@ -10,6 +10,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import thermalfoundation.ThermalFoundation;
@@ -20,6 +21,7 @@ public class TFItems {
 
 	public static void preInit() {
 
+		itemLexicon = (ItemLexicon) new ItemLexicon().setUnlocalizedName("tool", "lexicon");
 		itemBucket = (ItemBucket) new ItemBucket("thermalfoundation").setUnlocalizedName("bucket").setCreativeTab(ThermalFoundation.tab);
 		itemMaterial = (ItemBase) new ItemBase("thermalfoundation").setUnlocalizedName("material").setCreativeTab(ThermalFoundation.tab);
 
@@ -31,6 +33,8 @@ public class TFItems {
 		bucketMana = itemBucket.addItem(5, "bucketMana", 3);
 		bucketCoal = itemBucket.addItem(6, "bucketCoal");
 
+		lexicon = itemLexicon.addItem(0, "lexicon");
+
 		/* Vanilla Derived */
 		dustIron = itemMaterial.addOreDictItem(0, "dustIron");
 		dustGold = itemMaterial.addOreDictItem(1, "dustGold");
@@ -38,7 +42,8 @@ public class TFItems {
 		dustObsidian = itemMaterial.addOreDictItem(4, "dustObsidian");
 
 		dustSulfur = itemMaterial.addOreDictItem(16, "dustSulfur");
-		dustNiter = itemMaterial.addOreDictItem(17, "dustNiter");
+		dustNiter = itemMaterial.addItem(17, "dustNiter");
+		OreDictionary.registerOre("dustSaltpeter", dustNiter);
 
 		crystalCinnabar = itemMaterial.addOreDictItem(20, "crystalCinnabar");
 
@@ -93,8 +98,8 @@ public class TFItems {
 		gearSilver = itemMaterial.addOreDictItem(130, "gearSilver");
 		gearLead = itemMaterial.addOreDictItem(131, "gearLead");
 		gearNickel = itemMaterial.addOreDictItem(132, "gearNickel");
-		gearPlatinum = itemMaterial.addOreDictItem(133, "gearPlatinum");
-		gearMithril = itemMaterial.addOreDictItem(134, "gearMithril");
+		gearPlatinum = itemMaterial.addOreDictItem(133, "gearPlatinum", 1);
+		gearMithril = itemMaterial.addOreDictItem(134, "gearMithril", 2);
 		gearElectrum = itemMaterial.addOreDictItem(135, "gearElectrum");
 		gearInvar = itemMaterial.addOreDictItem(136, "gearInvar");
 		gearBronze = itemMaterial.addOreDictItem(137, "gearBronze");
@@ -152,6 +157,12 @@ public class TFItems {
 
 	public static void postInit() {
 
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustPyrotheum, 2), new Object[] { "dustCoal", "dustSulfur", Items.redstone,
+				Items.blaze_powder }));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustCryotheum, 2), new Object[] { Items.snowball, "dustSaltpeter", Items.redstone,
+				dustBlizz }));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustBlizz, 2), new Object[] { rodBlizz }));
+
 		/* Alloy Recipes */
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustElectrum, 2), new Object[] { "dustGold", "dustSilver" }));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustInvar, 3), new Object[] { "dustIron", "dustIron", "dustNickel" }));
@@ -165,6 +176,20 @@ public class TFItems {
 				bucketEnder }));
 
 		/* Storage */
+		ItemHelper.addStorageRecipe(ingotCopper, "nuggetCopper");
+		ItemHelper.addStorageRecipe(ingotTin, "nuggetTin");
+		ItemHelper.addStorageRecipe(ingotSilver, "nuggetSilver");
+		ItemHelper.addStorageRecipe(ingotLead, "nuggetLead");
+		ItemHelper.addStorageRecipe(ingotNickel, "nuggetNickel");
+		ItemHelper.addStorageRecipe(ingotPlatinum, "nuggetPlatinum");
+		ItemHelper.addStorageRecipe(ingotMithril, "nuggetMithril");
+		ItemHelper.addStorageRecipe(ingotElectrum, "nuggetElectrum");
+		ItemHelper.addStorageRecipe(ingotInvar, "nuggetInvar");
+		ItemHelper.addStorageRecipe(ingotBronze, "nuggetBronze");
+		ItemHelper.addStorageRecipe(ingotSignalum, "nuggetSignalum");
+		ItemHelper.addStorageRecipe(ingotLumium, "nuggetLumium");
+		ItemHelper.addStorageRecipe(ingotEnderium, "nuggetEnderium");
+
 		ItemHelper.addReverseStorageRecipe(ingotCopper, "blockCopper");
 		ItemHelper.addReverseStorageRecipe(ingotTin, "blockTin");
 		ItemHelper.addReverseStorageRecipe(ingotSilver, "blockSilver");
@@ -196,21 +221,22 @@ public class TFItems {
 		/* Gears */
 		ItemHelper.addGearRecipe(gearCopper, "ingotCopper");
 		ItemHelper.addGearRecipe(gearTin, "ingotTin");
-		// ItemHelper.addGearRecipe(gearSilver, "ingotSilver");
-		// ItemHelper.addGearRecipe(gearLead, "ingotLead");
-		// ItemHelper.addGearRecipe(gearNickel, "ingotNickel");
-		// ItemHelper.addGearRecipe(gearPlatinum, "ingotPlatinum");
-		// ItemHelper.addGearRecipe(gearMithril, "ingotMithril");
-		// ItemHelper.addGearRecipe(gearElectrum, "ingotElectrum");
+		ItemHelper.addGearRecipe(gearSilver, "ingotSilver");
+		ItemHelper.addGearRecipe(gearLead, "ingotLead");
+		ItemHelper.addGearRecipe(gearNickel, "ingotNickel");
+		ItemHelper.addGearRecipe(gearPlatinum, "ingotPlatinum");
+		ItemHelper.addGearRecipe(gearMithril, "ingotMithril");
+		ItemHelper.addGearRecipe(gearElectrum, "ingotElectrum");
 		ItemHelper.addGearRecipe(gearInvar, "ingotInvar");
 		ItemHelper.addGearRecipe(gearBronze, "ingotBronze");
-		// ItemHelper.addGearRecipe(gearSignalum, "ingotSignalum");
-		// ItemHelper.addGearRecipe(gearLumium, "ingotLumium");
-		// ItemHelper.addGearRecipe(gearEnderium, "ingotEnderium");
+		ItemHelper.addGearRecipe(gearSignalum, "ingotSignalum");
+		ItemHelper.addGearRecipe(gearLumium, "ingotLumium");
+		ItemHelper.addGearRecipe(gearEnderium, "ingotEnderium");
 
 	}
 
 	public static ItemBucket itemBucket;
+	public static ItemLexicon itemLexicon;
 	public static ItemBase itemMaterial;
 
 	public static ItemStack bucketRedstone;
@@ -220,6 +246,8 @@ public class TFItems {
 	public static ItemStack bucketCryotheum;
 	public static ItemStack bucketMana;
 	public static ItemStack bucketCoal;
+
+	public static ItemStack lexicon;
 
 	public static ItemStack ingotIron;
 	public static ItemStack ingotGold;

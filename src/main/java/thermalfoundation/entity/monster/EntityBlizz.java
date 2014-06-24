@@ -155,7 +155,7 @@ public class EntityBlizz extends EntityMob {
 		if (!this.onGround && this.motionY < 0.0D) {
 			this.motionY *= 0.6D;
 		}
-		for (int i = 0; i < 2; ++i) {
+		for (int i = 0; i < 2; i++) {
 			this.worldObj.spawnParticle("snowballpoof", this.posX + (this.rand.nextDouble() - 0.5D) * this.width, this.posY + this.rand.nextDouble()
 					* (this.height * 0.2D), this.posZ + (this.rand.nextDouble() - 0.5D) * this.width, 0.0D, 0.0D, 0.0D);
 		}

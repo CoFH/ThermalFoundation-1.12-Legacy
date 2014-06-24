@@ -13,6 +13,14 @@ fluid.mana=Primal Mana
 fluid.steam=Steam
 fluid.coal=Liquifacted Coal
 
+info.thermalfoundation.lexicon1=Converts items to equivalent forms.
+info.thermalfoundation.lexicon2=Right click (open) to study.
+info.thermalfoundation.lexicon3=to gain wisdom!
+info.thermalfoundation.lexicon4=Right click (open) to transmute items.
+info.thermalfoundation.lexicon5=to forsake knowledge.
+item.thermalfoundation.tool.lexicon.name=Forge Lexicon
+item.thermalfoundation.tool.lexiconEmp.name=Forge Lexicon (Empowered)
+
 item.thermalfoundation.bucket.bucketRedstone.name=Destabilized Redstone Bucket
 item.thermalfoundation.bucket.bucketGlowstone.name=Energized Glowstone Bucket
 item.thermalfoundation.bucket.bucketEnder.name=Resonant Ender Bucket
