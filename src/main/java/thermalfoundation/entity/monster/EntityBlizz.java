@@ -180,8 +180,8 @@ public class EntityBlizz extends EntityMob {
 	 */
 	public Entity getClosestVictim(double dist) {
 
-		AxisAlignedBB aabb = AxisAlignedBB.getAABBPool().getAABB(this.posX - dist, this.posY - dist, this.posZ - dist, this.posX + dist, this.posY + dist,
-				this.posZ + dist);
+		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(this.posX - dist, this.posY - dist, this.posZ - dist, this.posX + dist, this.posY + dist, this.posZ
+				+ dist);
 		EntitySelectorInRangeByType entsel = new EntitySelectorInRangeByType(this, dist, EntityBlaze.class, EntityAnimal.class);
 
 		List<Entity> entities = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, aabb, entsel);
