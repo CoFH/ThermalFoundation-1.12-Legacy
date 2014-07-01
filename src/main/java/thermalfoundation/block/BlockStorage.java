@@ -1,7 +1,6 @@
 package thermalfoundation.block;
 
 import cofh.api.core.IInitializer;
-import cofh.render.IconRegistry;
 import cofh.util.ItemHelper;
 import cofh.util.StringHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -89,7 +88,7 @@ public class BlockStorage extends Block implements IInitializer {
 	@Override
 	public IIcon getIcon(int side, int metadata) {
 
-		return IconRegistry.getIcon("Storage", metadata);
+		return TEXTURES[metadata];
 	}
 
 	@Override
@@ -97,7 +96,7 @@ public class BlockStorage extends Block implements IInitializer {
 	public void registerBlockIcons(IIconRegister ir) {
 
 		for (int i = 0; i < NAMES.length; i++) {
-			IconRegistry.addIcon("Storage" + i, "thermalfoundation:storage/Block_" + StringHelper.titleCase(NAMES[i]), ir);
+			TEXTURES[i] = ir.registerIcon("thermalfoundation:storage/Block_" + StringHelper.titleCase(NAMES[i]));
 		}
 	}
 
@@ -166,6 +165,7 @@ public class BlockStorage extends Block implements IInitializer {
 
 	public static final String[] NAMES = { "copper", "tin", "silver", "lead", "nickel", "platinum", "mithril", "electrum", "invar", "bronze", "signalum",
 			"lumium", "enderium" };
+	public static final IIcon[] TEXTURES = new IIcon[NAMES.length];
 	public static final int[] LIGHT = { 0, 0, 4, 0, 0, 4, 8, 0, 0, 0, 7, 15, 4 };
 	public static final float[] HARDNESS = { 5, 5, 5, 4, 10, 5, 30, 4, 20, 5, 5, 5, 40 };
 	public static final float[] RESISTANCE = { 6, 6, 6, 12, 6, 6, 120, 6, 12, 6, 9, 9, 120 };

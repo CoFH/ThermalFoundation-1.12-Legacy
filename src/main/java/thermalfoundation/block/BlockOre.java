@@ -1,7 +1,6 @@
 package thermalfoundation.block;
 
 import cofh.api.core.IInitializer;
-import cofh.render.IconRegistry;
 import cofh.util.ItemHelper;
 import cofh.util.StringHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -63,7 +62,7 @@ public class BlockOre extends Block implements IInitializer {
 	@Override
 	public IIcon getIcon(int side, int metadata) {
 
-		return IconRegistry.getIcon("Ore", metadata);
+		return TEXTURES[metadata];
 	}
 
 	@Override
@@ -71,7 +70,7 @@ public class BlockOre extends Block implements IInitializer {
 	public void registerBlockIcons(IIconRegister ir) {
 
 		for (int i = 0; i < NAMES.length; i++) {
-			IconRegistry.addIcon("Ore" + i, "thermalfoundation:ore/Ore_" + StringHelper.titleCase(NAMES[i]), ir);
+			TEXTURES[i] = ir.registerIcon("thermalfoundation:ore/Ore_" + StringHelper.titleCase(NAMES[i]));
 		}
 	}
 
@@ -121,6 +120,7 @@ public class BlockOre extends Block implements IInitializer {
 	}
 
 	public static final String[] NAMES = { "copper", "tin", "silver", "lead", "nickel", "platinum", "mithril" };
+	public static final IIcon[] TEXTURES = new IIcon[NAMES.length];
 	public static final int[] LIGHT = { 0, 0, 4, 0, 0, 4, 8 };
 	public static final int[] RARITY = { 0, 0, 0, 0, 0, 1, 2 };
 
