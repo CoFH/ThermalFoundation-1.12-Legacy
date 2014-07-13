@@ -168,12 +168,12 @@ public class TFItems {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustInvar, 3), new Object[] { "dustIron", "dustIron", "dustNickel" }));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustBronze, 4),
 				new Object[] { "dustCopper", "dustCopper", "dustCopper", "dustTin" }));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustSignalum, 8), new Object[] { "dustCopper", "dustCopper", "dustCopper",
-				"dustLead", bucketRedstone }));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustLumium, 8), new Object[] { "dustTin", "dustTin", "dustTin", "dustSilver",
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustSignalum, 4), new Object[] { "dustCopper", "dustCopper", "dustCopper",
+				"dustSilver", bucketRedstone }));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustLumium, 4), new Object[] { "dustTin", "dustTin", "dustTin", "dustSilver",
 				bucketGlowstone }));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustEnderium, 4), new Object[] { "dustTin", "dustTin", "dustTin", "dustPlatinum",
-				bucketEnder }));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustEnderium, 4), new Object[] { "dustTin", "dustTin", "dustSilver",
+				"dustPlatinum", bucketEnder }));
 
 		/* Storage */
 		ItemHelper.addStorageRecipe(ingotCopper, "nuggetCopper");

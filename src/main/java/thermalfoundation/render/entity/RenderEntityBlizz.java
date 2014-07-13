@@ -1,6 +1,5 @@
 package thermalfoundation.render.entity;
 
-import cofh.core.CoFHProps;
 import cofh.util.HolidayHelper;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -28,10 +27,10 @@ public class RenderEntityBlizz extends RenderLiving {
 	public static void initialize() {
 
 		if (HolidayHelper.isChristmas()) {
-			texture = new ResourceLocation(CoFHProps.PATH_ENTITY + "xmas/Blizz.png");
+			texture = new ResourceLocation("thermalfoundation:textures/entity/" + "xmas/Blizz.png");
 			return;
 		}
-		texture = new ResourceLocation(CoFHProps.PATH_ENTITY + "Blizz.png");
+		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "Blizz.png");
 	}
 
 	public RenderEntityBlizz() {
