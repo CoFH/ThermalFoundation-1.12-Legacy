@@ -13,13 +13,13 @@
 	<!-- Version file -->
 	<property name="verclass.dir" value="${src.dir}/${class.pckg}" />
 	<property name="verclass.name" value="ThermalFoundation.java"/>
-	
+
 	<!-- Forge version -->
-	<property name="mc.version" value="1.7.2"/>
+	<property name="mc.version"  value="1.7.10"/>
 	<property name="forge.major" value="10"/>
-	<property name="forge.minor" value="12"/>
-	<property name="forge.patch" value="1"/>
-	<property name="forge.build" value="1084"/>
+	<property name="forge.minor" value="13"/>
+	<property name="forge.patch" value="0"/>
+	<property name="forge.build" value="1152"/>
 	
 	<!-- Packaging -->
 	<property name="dist.dir" value="${build.dir}/dist"/>
@@ -92,6 +92,9 @@
 	</target>
 
 	<target name="get-dependencies" unless="have.libs">
+		<delete dir="${lib.dir}/"/>
+		<mkdir dir="${lib.dir}/"/>
+
 		<echo message="Downloading CCL..."/>
 		<get src="http://files.minecraftforge.net/maven/codechicken/CodeChickenLib/1.7.2-1.1.0.73/CodeChickenLib-1.7.2-1.1.0.73-dev.jar" dest="${download.dir}/codechickenlib.jar"/>
 
@@ -399,6 +402,12 @@
 	<target name="rebuild">
 		<delete file="${forge.jar}" failonerror="false"/>
 		<delete dir="${forge.dir}"/>
+		<delete dir="${download.dir}"/>
+		<antcall target="install"/>
+	</target>
+
+	<target name="refresh-deps">
+		<delete dir="${lib.dir}"/>
 		<delete dir="${download.dir}"/>
 		<antcall target="install"/>
 	</target>

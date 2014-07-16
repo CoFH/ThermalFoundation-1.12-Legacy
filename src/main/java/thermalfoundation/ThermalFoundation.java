@@ -63,6 +63,8 @@ public class ThermalFoundation extends BaseMod {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
+		loadLang();
+
 		UpdateManager.registerUpdater(new UpdateManager(this, releaseURL));
 
 		config.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/ThermalFoundation.cfg")));
