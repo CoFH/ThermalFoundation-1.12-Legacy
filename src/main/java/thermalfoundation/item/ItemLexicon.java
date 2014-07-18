@@ -52,9 +52,9 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 	public String getUnlocalizedName(ItemStack stack) {
 
 		if (isEmpowered(stack)) {
-			return "item.thermalfoundation.tool.lexiconEmp";
+			return "item.thermalfoundation.tome.lexiconEmpowered";
 		}
-		return "item.thermalfoundation.tool.lexicon";
+		return "item.thermalfoundation.tome.lexicon";
 	}
 
 	@Override
@@ -67,22 +67,22 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
 
 		if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
-			list.add(StringHelper.shiftForInfo());
+			list.add(StringHelper.shiftForDetails());
 		}
 		if (!StringHelper.isShiftKeyDown()) {
 			return;
 		}
-		list.add(StringHelper.getInfoText("info.thermalfoundation.lexicon1"));
+		list.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.1"));
 
 		if (isEmpowered(stack)) {
-			list.add(StringHelper.localize("info.thermalfoundation.lexicon4") + StringHelper.END);
+			list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.4") + StringHelper.END);
 			list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
-					+ Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.lexicon5")
+					+ Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.5")
 					+ StringHelper.END);
 		} else {
-			list.add(StringHelper.localize("info.thermalfoundation.lexicon2") + StringHelper.END);
+			list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.2") + StringHelper.END);
 			list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
-					+ Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.lexicon3")
+					+ Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.3")
 					+ StringHelper.END);
 		}
 	}

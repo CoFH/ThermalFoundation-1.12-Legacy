@@ -1,6 +1,14 @@
 #en_US
 
 death.attack.blizz=%1$s met a frigid fate!
+death.attack.cryotheum=%1$s froze to death!
+death.attack.cryotheum.player=%1$s froze to death trying to escape %2$s!
+death.attack.flux=%1$s had their reality torn apart by Flux!
+death.attack.flux.player=%1$s was Fluxed to death by %2$s!
+death.attack.pyrotheum=%1$s mistook Pyrotheum for Water!
+death.attack.pyrotheum.player=%1$s burned alive trying to escape %2$s!
+death.attack.mana=%1$s was torn apart by raw Mana!
+death.attack.mana.player=%1$s ran into another state of being attempting to escape %2$s!
 
 entity.Blizz.name=Blizz
 
@@ -13,14 +21,6 @@ fluid.mana=Primal Mana
 fluid.steam=Steam
 fluid.coal=Liquifacted Coal
 
-info.thermalfoundation.lexicon1=Converts items to equivalent forms.
-info.thermalfoundation.lexicon2=Right click (open) to study.
-info.thermalfoundation.lexicon3=to gain wisdom!
-info.thermalfoundation.lexicon4=Right click (open) to transmute items.
-info.thermalfoundation.lexicon5=to forsake knowledge.
-item.thermalfoundation.tool.lexicon.name=Forge Lexicon
-item.thermalfoundation.tool.lexiconEmp.name=Forge Lexicon (Empowered)
-
 item.thermalfoundation.bucket.bucketRedstone.name=Destabilized Redstone Bucket
 item.thermalfoundation.bucket.bucketGlowstone.name=Energized Glowstone Bucket
 item.thermalfoundation.bucket.bucketEnder.name=Resonant Ender Bucket
@@ -29,10 +29,23 @@ item.thermalfoundation.bucket.bucketCryotheum.name=Gelid Cryotheum Bucket
 item.thermalfoundation.bucket.bucketMana.name=Primal Mana Bucket
 item.thermalfoundation.bucket.bucketCoal.name=Liquifacted Coal Bucket
 
+info.thermalfoundation.tome.lexicon.1=Converts items to equivalent forms.
+info.thermalfoundation.tome.lexicon.2=Right click (open) to study.
+info.thermalfoundation.tome.lexicon.3=to gain wisdom!
+info.thermalfoundation.tome.lexicon.4=Right click (open) to transmute items.
+info.thermalfoundation.tome.lexicon.5=to forsake knowledge.
+item.thermalfoundation.tome.lexicon.name=Forge Lexicon
+item.thermalfoundation.tome.lexiconEmpowered.name=Forge Lexicon (Empowered)
+
 item.thermalfoundation.material.dustIron.name=Pulverized Iron
 item.thermalfoundation.material.dustGold.name=Pulverized Gold
 item.thermalfoundation.material.dustCoal.name=Pulverized Coal
+item.thermalfoundation.material.dustCharcoal.name=Pulverized Charcoal
 item.thermalfoundation.material.dustObsidian.name=Pulverized Obsidian
+
+item.thermalfoundation.material.nuggetIron.name=Iron Nugget
+item.thermalfoundation.material.gearIron.name=Iron Gear
+item.thermalfoundation.material.gearGold.name=Gold Gear
 
 item.thermalfoundation.material.dustSulfur.name=Sulfur
 item.thermalfoundation.material.dustNiter.name=Niter

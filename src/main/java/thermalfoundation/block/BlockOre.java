@@ -15,7 +15,6 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
@@ -108,13 +107,13 @@ public class BlockOre extends Block implements IInitializer {
 	@Override
 	public boolean postInit() {
 
-		FurnaceRecipes.smelting().func_151394_a(oreCopper, TFItems.ingotCopper, 0.6F);
-		FurnaceRecipes.smelting().func_151394_a(oreTin, TFItems.ingotTin, 0.7F);
-		FurnaceRecipes.smelting().func_151394_a(oreSilver, TFItems.ingotSilver, 0.9F);
-		FurnaceRecipes.smelting().func_151394_a(oreLead, TFItems.ingotLead, 0.8F);
-		FurnaceRecipes.smelting().func_151394_a(oreNickel, TFItems.ingotNickel, 1.0F);
-		FurnaceRecipes.smelting().func_151394_a(orePlatinum, TFItems.ingotPlatinum, 1.0F);
-		FurnaceRecipes.smelting().func_151394_a(oreMithril, TFItems.ingotMithril, 1.5F);
+		GameRegistry.addSmelting(oreCopper, TFItems.ingotCopper, 0.6F);
+		GameRegistry.addSmelting(oreTin, TFItems.ingotTin, 0.7F);
+		GameRegistry.addSmelting(oreSilver, TFItems.ingotSilver, 0.9F);
+		GameRegistry.addSmelting(oreLead, TFItems.ingotLead, 0.8F);
+		GameRegistry.addSmelting(oreNickel, TFItems.ingotNickel, 1.0F);
+		GameRegistry.addSmelting(orePlatinum, TFItems.ingotPlatinum, 1.0F);
+		GameRegistry.addSmelting(oreMithril, TFItems.ingotMithril, 1.5F);
 
 		return true;
 	}

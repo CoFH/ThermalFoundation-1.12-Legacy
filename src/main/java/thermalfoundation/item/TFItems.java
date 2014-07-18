@@ -8,7 +8,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
@@ -21,7 +20,7 @@ public class TFItems {
 
 	public static void preInit() {
 
-		itemLexicon = (ItemLexicon) new ItemLexicon().setUnlocalizedName("tool", "lexicon");
+		itemLexicon = (ItemLexicon) new ItemLexicon().setUnlocalizedName("tome", "lexicon");
 		itemBucket = (ItemBucket) new ItemBucket("thermalfoundation").setUnlocalizedName("bucket").setCreativeTab(ThermalFoundation.tab);
 		itemMaterial = (ItemBase) new ItemBase("thermalfoundation").setUnlocalizedName("material").setCreativeTab(ThermalFoundation.tab);
 
@@ -39,7 +38,12 @@ public class TFItems {
 		dustIron = itemMaterial.addOreDictItem(0, "dustIron");
 		dustGold = itemMaterial.addOreDictItem(1, "dustGold");
 		dustCoal = itemMaterial.addOreDictItem(2, "dustCoal");
+		dustCharcoal = itemMaterial.addOreDictItem(3, "dustCharcoal");
 		dustObsidian = itemMaterial.addOreDictItem(4, "dustObsidian");
+
+		nuggetIron = itemMaterial.addOreDictItem(8, "nuggetIron");
+		gearIron = itemMaterial.addOreDictItem(12, "gearIron");
+		gearGold = itemMaterial.addOreDictItem(13, "gearGold");
 
 		dustSulfur = itemMaterial.addOreDictItem(16, "dustSulfur");
 		dustNiter = itemMaterial.addItem(17, "dustNiter");
@@ -122,20 +126,20 @@ public class TFItems {
 		ingotIron = new ItemStack(Items.iron_ingot);
 		ingotGold = new ItemStack(Items.gold_ingot);
 
-		FurnaceRecipes.smelting().func_151394_a(dustIron, ingotIron, 0.0F);
-		FurnaceRecipes.smelting().func_151394_a(dustGold, ingotGold, 0.0F);
-		FurnaceRecipes.smelting().func_151394_a(dustCopper, ingotCopper, 0.0F);
-		FurnaceRecipes.smelting().func_151394_a(dustTin, ingotTin, 0.0F);
-		FurnaceRecipes.smelting().func_151394_a(dustSilver, ingotSilver, 0.0F);
-		FurnaceRecipes.smelting().func_151394_a(dustLead, ingotLead, 0.0F);
-		FurnaceRecipes.smelting().func_151394_a(dustNickel, ingotNickel, 0.0F);
-		FurnaceRecipes.smelting().func_151394_a(dustPlatinum, ingotPlatinum, 0.0F);
+		GameRegistry.addSmelting(dustIron, ingotIron, 0.0F);
+		GameRegistry.addSmelting(dustGold, ingotGold, 0.0F);
+		GameRegistry.addSmelting(dustCopper, ingotCopper, 0.0F);
+		GameRegistry.addSmelting(dustTin, ingotTin, 0.0F);
+		GameRegistry.addSmelting(dustSilver, ingotSilver, 0.0F);
+		GameRegistry.addSmelting(dustLead, ingotLead, 0.0F);
+		GameRegistry.addSmelting(dustNickel, ingotNickel, 0.0F);
+		GameRegistry.addSmelting(dustPlatinum, ingotPlatinum, 0.0F);
 		// No Mithril
-		FurnaceRecipes.smelting().func_151394_a(dustElectrum, ingotElectrum, 0.0F);
-		FurnaceRecipes.smelting().func_151394_a(dustInvar, ingotInvar, 0.0F);
-		FurnaceRecipes.smelting().func_151394_a(dustBronze, ingotBronze, 0.0F);
-		FurnaceRecipes.smelting().func_151394_a(dustSignalum, ingotSignalum, 0.0F);
-		FurnaceRecipes.smelting().func_151394_a(dustLumium, ingotLumium, 0.0F);
+		GameRegistry.addSmelting(dustElectrum, ingotElectrum, 0.0F);
+		GameRegistry.addSmelting(dustInvar, ingotInvar, 0.0F);
+		GameRegistry.addSmelting(dustBronze, ingotBronze, 0.0F);
+		GameRegistry.addSmelting(dustSignalum, ingotSignalum, 0.0F);
+		GameRegistry.addSmelting(dustLumium, ingotLumium, 0.0F);
 		// No Enderium
 
 		BucketHandler.registerBucket(TFBlocks.blockFluidRedstone, 0, bucketRedstone);
@@ -176,6 +180,7 @@ public class TFItems {
 				"dustPlatinum", bucketEnder }));
 
 		/* Storage */
+		ItemHelper.addStorageRecipe(ingotIron, "nuggetIron");
 		ItemHelper.addStorageRecipe(ingotCopper, "nuggetCopper");
 		ItemHelper.addStorageRecipe(ingotTin, "nuggetTin");
 		ItemHelper.addStorageRecipe(ingotSilver, "nuggetSilver");
@@ -204,6 +209,7 @@ public class TFItems {
 		ItemHelper.addReverseStorageRecipe(ingotLumium, "blockLumium");
 		ItemHelper.addReverseStorageRecipe(ingotEnderium, "blockEnderium");
 
+		ItemHelper.addReverseStorageRecipe(nuggetIron, "ingotIron");
 		ItemHelper.addReverseStorageRecipe(nuggetCopper, "ingotCopper");
 		ItemHelper.addReverseStorageRecipe(nuggetTin, "ingotTin");
 		ItemHelper.addReverseStorageRecipe(nuggetSilver, "ingotSilver");
@@ -219,6 +225,8 @@ public class TFItems {
 		ItemHelper.addReverseStorageRecipe(nuggetEnderium, "ingotEnderium");
 
 		/* Gears */
+		ItemHelper.addGearRecipe(gearIron, "ingotIron");
+		ItemHelper.addGearRecipe(gearGold, "ingotGold");
 		ItemHelper.addGearRecipe(gearCopper, "ingotCopper");
 		ItemHelper.addGearRecipe(gearTin, "ingotTin");
 		ItemHelper.addGearRecipe(gearSilver, "ingotSilver");
@@ -255,7 +263,12 @@ public class TFItems {
 	public static ItemStack dustIron;
 	public static ItemStack dustGold;
 	public static ItemStack dustCoal;
+	public static ItemStack dustCharcoal;
 	public static ItemStack dustObsidian;
+
+	public static ItemStack nuggetIron;
+	public static ItemStack gearIron;
+	public static ItemStack gearGold;
 
 	public static ItemStack dustSulfur;
 	public static ItemStack dustNiter;
