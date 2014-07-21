@@ -35,15 +35,9 @@ public class TFItems {
 		lexicon = itemLexicon.addItem(0, "lexicon");
 
 		/* Vanilla Derived */
-		dustIron = itemMaterial.addOreDictItem(0, "dustIron");
-		dustGold = itemMaterial.addOreDictItem(1, "dustGold");
 		dustCoal = itemMaterial.addOreDictItem(2, "dustCoal");
 		dustCharcoal = itemMaterial.addOreDictItem(3, "dustCharcoal");
 		dustObsidian = itemMaterial.addOreDictItem(4, "dustObsidian");
-
-		nuggetIron = itemMaterial.addOreDictItem(8, "nuggetIron");
-		gearIron = itemMaterial.addOreDictItem(12, "gearIron");
-		gearGold = itemMaterial.addOreDictItem(13, "gearGold");
 
 		dustSulfur = itemMaterial.addOreDictItem(16, "dustSulfur");
 		dustNiter = itemMaterial.addItem(17, "dustNiter");
@@ -51,6 +45,8 @@ public class TFItems {
 
 		crystalCinnabar = itemMaterial.addOreDictItem(20, "crystalCinnabar");
 
+		dustIron = itemMaterial.addOreDictItem(0, "dustIron");
+		dustGold = itemMaterial.addOreDictItem(1, "dustGold");
 		/* Dusts */
 		dustCopper = itemMaterial.addOreDictItem(32, "dustCopper");
 		dustTin = itemMaterial.addOreDictItem(33, "dustTin");
@@ -81,6 +77,7 @@ public class TFItems {
 		ingotLumium = itemMaterial.addOreDictItem(75, "ingotLumium", 1);
 		ingotEnderium = itemMaterial.addOreDictItem(76, "ingotEnderium", 2);
 
+		nuggetIron = itemMaterial.addOreDictItem(8, "nuggetIron");
 		/* Nuggets */
 		nuggetCopper = itemMaterial.addOreDictItem(96, "nuggetCopper");
 		nuggetTin = itemMaterial.addOreDictItem(97, "nuggetTin");
@@ -96,6 +93,8 @@ public class TFItems {
 		nuggetLumium = itemMaterial.addOreDictItem(107, "nuggetLumium", 1);
 		nuggetEnderium = itemMaterial.addOreDictItem(108, "nuggetEnderium", 2);
 
+		gearIron = itemMaterial.addOreDictItem(12, "gearIron");
+		gearGold = itemMaterial.addOreDictItem(13, "gearGold");
 		/* Gears */
 		gearCopper = itemMaterial.addOreDictItem(128, "gearCopper");
 		gearTin = itemMaterial.addOreDictItem(129, "gearTin");
@@ -161,9 +160,9 @@ public class TFItems {
 
 	public static void postInit() {
 
-		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustPyrotheum, 2), new Object[] { "dustCoal", "dustSulfur", Items.redstone,
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustPyrotheum, 2), new Object[] { "dustCoal", "dustSulfur", "dustRedstone",
 				Items.blaze_powder }));
-		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustCryotheum, 2), new Object[] { Items.snowball, "dustSaltpeter", Items.redstone,
+		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustCryotheum, 2), new Object[] { Items.snowball, "dustSaltpeter", "dustRedstone",
 				dustBlizz }));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustBlizz, 2), new Object[] { rodBlizz }));
 
