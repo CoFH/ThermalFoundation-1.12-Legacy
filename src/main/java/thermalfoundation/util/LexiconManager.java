@@ -1,5 +1,6 @@
 package thermalfoundation.util;
 
+import cofh.core.CoFHProps;
 import cofh.util.ItemHelper;
 import cofh.util.ItemWrapper;
 import cofh.util.inventory.ComparableItemStackSafe;
@@ -40,9 +41,14 @@ public class LexiconManager {
 
 		comment = "This will generate a default list file depending on your list setting. This will ONLY generate if no list file already exists.";
 		writeDefaultFile = ThermalFoundation.config.get("general", "Lexicon.GenerateDefaultList", writeDefaultFile, comment);
+
+		comment = "This will echo all entries to the log.";
+		logEntries = ThermalFoundation.config.get("general", "Lexicon.LogEntries", logEntries, comment);
 	}
 
-	public static void initialize() {
+	public static void generateList() {
+
+		theList = isWhitelist ? new File(CoFHProps.configDir, "/cofh/Lexicon-Whitelist.cfg") : new File(CoFHProps.configDir, "/cofh/Lexicon-Blacklist.cfg");
 
 		boolean writingDefaultFile = false;
 		BufferedWriter out = null;
@@ -58,8 +64,8 @@ public class LexiconManager {
 				t.printStackTrace();
 			}
 		}
-		String[] registeredOreNames = OreDictionary.getOreNames();
 		if (writingDefaultFile) {
+			String[] registeredOreNames = OreDictionary.getOreNames();
 			for (int i = 0; i < registeredOreNames.length; i++) {
 				if ((isWhitelist) && (ComparableItemStackSafe.safeOreType(registeredOreNames[i]))) {
 					listNames.add(registeredOreNames[i]);
@@ -78,15 +84,6 @@ public class LexiconManager {
 			try {
 				for (int i = 0; i < defaultList.size(); i++) {
 					out.write((String) defaultList.get(i) + "\n");
-					if (logEntries) {
-						if (isWhitelist) {
-							ThermalFoundation.log.info("[Whitelist] Forge Lexicon will allow conversions for ALL items of type '" + (String) defaultList.get(i)
-									+ "'.");
-						} else {
-							ThermalFoundation.log.info("[Blacklist] Forge Lexicon will disable conversions for ALL items of type '"
-									+ (String) defaultList.get(i) + "'.");
-						}
-					}
 				}
 				out.close();
 				defaultList.clear();
@@ -96,10 +93,10 @@ public class LexiconManager {
 		}
 	}
 
-	public static void addAllListedOres(File listFile) {
+	public static void addAllListedOres() {
 
 		try {
-			if (!listFile.exists()) {
+			if (!theList.exists()) {
 				return;
 			}
 			if (isWhitelist) {
@@ -107,7 +104,7 @@ public class LexiconManager {
 			} else {
 				ThermalFoundation.log.info("[Blacklist] Reading established Blacklist from file.");
 			}
-			Scanner scan = new Scanner(listFile);
+			Scanner scan = new Scanner(theList);
 			String[] line = null;
 			String[] tokens = null;
 			while (scan.hasNext()) {
@@ -118,16 +115,16 @@ public class LexiconManager {
 					listNames.add(line[0]);
 					if (logEntries) {
 						if (isWhitelist) {
-							ThermalFoundation.log.info("[Whitelist] Forge Lexicon will allow conversions for ALL items of type '" + line[0] + "'.");
+							ThermalFoundation.log.info("[Whitelist] The Forge Lexicon will allow conversions for ALL items of type '" + line[0] + "'.");
 						} else {
-							ThermalFoundation.log.info("[Blacklist] Forge Lexicon will disable conversions for ALL items of type '" + line[0] + "'.");
+							ThermalFoundation.log.info("[Blacklist] The Forge Lexicon will disable conversions for ALL items of type '" + line[0] + "'.");
 						}
 					}
 				}
 			}
 			scan.close();
 		} catch (Throwable t) {
-			ThermalFoundation.log.warn("There is an error in the " + listFile.getName() + " file!");
+			ThermalFoundation.log.warn("There is an error in the " + theList.getName() + " file!");
 			t.printStackTrace();
 		}
 	}

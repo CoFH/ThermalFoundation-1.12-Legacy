@@ -4,6 +4,8 @@ import cofh.render.IconRegistry;
 import cofh.util.StringHelper;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -26,6 +28,7 @@ public class ProxyClient extends Proxy {
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void registerIcons(TextureStitchEvent.Pre event) {
 
@@ -42,6 +45,7 @@ public class ProxyClient extends Proxy {
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void initializeIcons(TextureStitchEvent.Post event) {
 

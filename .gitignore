@@ -17,13 +17,11 @@ local.properties
 .classpath
 .settings/
 .loadpath
-config/
 crash-reports/
 logs/
 mods/
 resourcepacks/
 saves/
-run/
 /options.txt
 
 # External tool builders
