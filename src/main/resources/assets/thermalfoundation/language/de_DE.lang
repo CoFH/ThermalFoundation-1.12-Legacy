@@ -1,0 +1,136 @@
+#de_DE
+
+death.attack.blizz=%1$s fand einen frostigen Tod!
+
+entity.Blizz.name=Blizz
+
+fluid.redstone=Destabilisiertes Redstone
+fluid.glowstone=Energetisiertes Glowstone
+fluid.ender=Resonantes Ender
+fluid.pyrotheum=Flammentes Pyrotheum
+fluid.cryotheum=Gelenes Kryotheum
+fluid.mana=Primal Mana
+fluid.steam=Dampf
+fluid.coal=Verflüssigte Kohle
+
+info.thermalfoundation.lexicon1=Verwandelt Items in äquivalente Formen.
+info.thermalfoundation.lexicon2=Rechtsklicke (öffne) zum Studieren.
+info.thermalfoundation.lexicon3=um weiser zu werden!
+info.thermalfoundation.lexicon4=Rechtsklicke (öffne), um Items zu verwandeln.
+info.thermalfoundation.lexicon5=um Wissen aufzugeben.
+item.thermalfoundation.tool.lexicon.name=Forge-Lexikon
+item.thermalfoundation.tool.lexiconEmp.name=Forge-Lexikon (Aktiviert)
+
+item.thermalfoundation.bucket.bucketRedstone.name=Eimer mit Destabilisiertem Redstone
+item.thermalfoundation.bucket.bucketGlowstone.name=Eimer mit Energetisiertem Glowstone
+item.thermalfoundation.bucket.bucketEnder.name=Eimer mit Resonantem Ender
+item.thermalfoundation.bucket.bucketPyrotheum.name=Eimer mit Flammendem Pyrotheum
+item.thermalfoundation.bucket.bucketCryotheum.name=Eimer mit Gelenem Kryotheum
+item.thermalfoundation.bucket.bucketMana.name=Eimer mit Primär-Mana
+item.thermalfoundation.bucket.bucketCoal.name=Eimer mit Verflüssigter Kohle
+
+item.thermalfoundation.material.dustIron.name=Pulverisiertes Eisen
+item.thermalfoundation.material.dustGold.name=Pulverisiertes Gold
+item.thermalfoundation.material.dustCoal.name=Pulverisierte Kohle
+item.thermalfoundation.material.dustObsidian.name=Pulverisiertes Obsidian
+
+item.thermalfoundation.material.dustSulfur.name=Schwefel
+item.thermalfoundation.material.dustNiter.name=Salpeter
+
+item.thermalfoundation.material.crystalCinnabar.name=Zinnober
+
+item.thermalfoundation.material.dustCopper.name=Pulverisiertes Kupfer
+item.thermalfoundation.material.dustTin.name=Pulverisiertes Zinn
+item.thermalfoundation.material.dustSilver.name=Pulverisiertes Silber
+item.thermalfoundation.material.dustLead.name=Pulverisiertes Blei
+item.thermalfoundation.material.dustNickel.name=Pulverisiertes Ferröses Metall
+item.thermalfoundation.material.dustPlatinum.name=Pulverisiertes Schillerndes Metall
+item.thermalfoundation.material.dustMithril.name=Pulverisiertes mit Mana infundiertes Metall
+item.thermalfoundation.material.dustElectrum.name=Elektrummischung
+item.thermalfoundation.material.dustInvar.name=Invarmischung
+item.thermalfoundation.material.dustBronze.name=Bastler-Legierungsmischung
+item.thermalfoundation.material.dustSignalum.name=Signalummischung
+item.thermalfoundation.material.dustLumium.name=Lumiummischung
+item.thermalfoundation.material.dustEnderium.name=Enderiummischung
+
+item.thermalfoundation.material.ingotCopper.name=Kupferbarren
+item.thermalfoundation.material.ingotTin.name=Zinnbarren
+item.thermalfoundation.material.ingotSilver.name=Silberbarren
+item.thermalfoundation.material.ingotLead.name=Bleibarren
+item.thermalfoundation.material.ingotNickel.name=Ferröser Barren
+item.thermalfoundation.material.ingotPlatinum.name=Schillernder Barren
+item.thermalfoundation.material.ingotMithril.name=Mit Mana infundierter Barren
+item.thermalfoundation.material.ingotElectrum.name=Elektrumbarren
+item.thermalfoundation.material.ingotInvar.name=Invarbarren
+item.thermalfoundation.material.ingotBronze.name=Bastler-Legierungsbarren
+item.thermalfoundation.material.ingotSignalum.name=Signalumbarren
+item.thermalfoundation.material.ingotLumium.name=Lumiumbarren
+item.thermalfoundation.material.ingotEnderium.name=Enderiumbarren
+
+item.thermalfoundation.material.nuggetCopper.name=Kupfernugget
+item.thermalfoundation.material.nuggetTin.name=Zinnnugget
+item.thermalfoundation.material.nuggetSilver.name=Silbernugget
+item.thermalfoundation.material.nuggetLead.name=Bleinugget
+item.thermalfoundation.material.nuggetNickel.name=Ferröser Nugget
+item.thermalfoundation.material.nuggetPlatinum.name=Schillerndes Nugget
+item.thermalfoundation.material.nuggetMithril.name=Mit Mana infundiertes Nugget
+item.thermalfoundation.material.nuggetElectrum.name=Elektrumnugget
+item.thermalfoundation.material.nuggetInvar.name=Invarnugget
+item.thermalfoundation.material.nuggetBronze.name=Bastler-Legierungsnugget
+item.thermalfoundation.material.nuggetSignalum.name=Signalumnugget
+item.thermalfoundation.material.nuggetLumium.name=Lumiumnugget
+item.thermalfoundation.material.nuggetEnderium.name=Enderiumnugget
+
+item.thermalfoundation.material.dustPyrotheum.name=Pyrotheumstaub
+item.thermalfoundation.material.dustCryotheum.name=Kryotheumstaub
+item.thermalfoundation.material.dustMana.name=Manastaub
+
+item.thermalfoundation.material.gearCopper.name=Kupferzahnrad
+item.thermalfoundation.material.gearTin.name=Zinnzahnrad
+item.thermalfoundation.material.gearSilver.name=Silberzahnrad
+item.thermalfoundation.material.gearLead.name=Bleizahnrad
+item.thermalfoundation.material.gearNickel.name=Ferröses Zahnrad
+item.thermalfoundation.material.gearPlatinum.name=Schillerndes Zahnrad
+item.thermalfoundation.material.gearMithril.name=Mit Mana infundiertes Zahnrad
+item.thermalfoundation.material.gearElectrum.name=Elektrumzahnrad
+item.thermalfoundation.material.gearInvar.name=Invarzahnrad
+item.thermalfoundation.material.gearBronze.name=Bastler-Legierungszahnrad
+item.thermalfoundation.material.gearSignalum.name=Signalumzahnrad
+item.thermalfoundation.material.gearLumium.name=Lumiumzahnrad
+item.thermalfoundation.material.gearEnderium.name=Enderiumzahnrad
+
+item.thermalfoundation.material.rodBlizz.name=Blizzrute
+item.thermalfoundation.material.dustBlizz.name=Blizzstaub
+
+itemGroup.thermalfoundation.creativeTab=Thermal Foundation
+
+tile.thermalfoundation.fluid.redstone.name=Destabilisieres Redstone
+tile.thermalfoundation.fluid.glowstone.name=Energetisiertes Glowstone
+tile.thermalfoundation.fluid.ender.name=Resonantes Ender
+tile.thermalfoundation.fluid.pyrotheum.name=Flammendes Pyrotheum
+tile.thermalfoundation.fluid.cryotheum.name=Gelenes Kryotheum
+tile.thermalfoundation.fluid.mana.name=Primal Mana
+tile.thermalfoundation.fluid.steam.name=Dampf
+tile.thermalfoundation.fluid.coal.name=Verflüssigte Kohle
+
+tile.thermalfoundation.ore.copper.name=Kupfererz
+tile.thermalfoundation.ore.tin.name=Zinnerz
+tile.thermalfoundation.ore.silver.name=Silbererz
+tile.thermalfoundation.ore.lead.name=Bleierz
+tile.thermalfoundation.ore.nickel.name=Ferröses Erz
+tile.thermalfoundation.ore.platinum.name=Schillerndes Erz
+tile.thermalfoundation.ore.mithril.name=Mit Mana infundiertes Erz
+
+tile.thermalfoundation.storage.copper.name=Kupferblock
+tile.thermalfoundation.storage.tin.name=Zinnblock
+tile.thermalfoundation.storage.silver.name=Silberblock
+tile.thermalfoundation.storage.lead.name=Bleiblock
+tile.thermalfoundation.storage.nickel.name=Ferröser Block
+tile.thermalfoundation.storage.platinum.name=Schillernder Block
+tile.thermalfoundation.storage.mithril.name=Mit Mana infundierter Block
+tile.thermalfoundation.storage.electrum.name=Elektrumblock
+tile.thermalfoundation.storage.invar.name=Invarblock
+tile.thermalfoundation.storage.bronze.name=Bastler-Legierungsblock
+tile.thermalfoundation.storage.signalum.name=Signalumblock
+tile.thermalfoundation.storage.lumium.name=Lumiumblock
+tile.thermalfoundation.storage.enderium.name=Enderiumblock

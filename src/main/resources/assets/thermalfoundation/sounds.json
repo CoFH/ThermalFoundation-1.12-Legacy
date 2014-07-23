@@ -1,0 +1,47 @@
+{
+    "mobBlizzAmbient": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/blizz/ambient",
+                "stream": false
+            }
+        ]
+    },
+    "mobBlizzAttack": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/blizz/attack",
+                "stream": false
+            }
+        ]
+    },
+    "mobBlizzBreathe0": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/blizz/breathe0",
+                "stream": false
+            }
+        ]
+    },
+    "mobBlizzBreathe1": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/blizz/breathe1",
+                "stream": false
+            }
+        ]
+    },
+    "mobBlizzBreathe2": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/blizz/breathe2",
+                "stream": false
+            }
+        ]
+    }
+}
