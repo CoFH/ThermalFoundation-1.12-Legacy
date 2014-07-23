@@ -57,22 +57,6 @@ public class ProxyClient extends Proxy {
 		RenderEntityBlizz.initialize();
 	}
 
-	// @SubscribeEvent
-	// public void initializeSounds(SoundLoadEvent event) {
-	//
-	// String folder = "mob/blizz/";
-	// String[] files = { "ambient", "breathe1", "breathe2", "breathe3", "spike1" };
-	//
-	// for (String sound : files) {
-	// try {
-	// event.manager.addSound(CoreUtils.getSoundName("thermalfoundation", folder + sound, true));
-	// thermalfoundation.log.info("Loaded sound: " + sound);
-	// } catch (Exception e) {
-	// thermalfoundation.log(Level.SEVERE, String.format("Unable to load sound: %s [[%s]]", folder + sound, e.toString()));
-	// }
-	// }
-	// }
-
 	public static void registerFluidIcons(Fluid fluid, IIconRegister ir) {
 
 		String name = StringHelper.titleCase(fluid.getName());

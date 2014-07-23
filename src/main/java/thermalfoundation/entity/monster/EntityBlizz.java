@@ -31,6 +31,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 
+import thermalfoundation.ThermalFoundation;
 import thermalfoundation.entity.projectile.EntityBlizzBall;
 import thermalfoundation.entity.projectile.EntityBlizzSlowball;
 import thermalfoundation.item.TFItems;
@@ -45,9 +46,9 @@ public class EntityBlizz extends EntityMob {
 		EntityRegistry.registerGlobalEntityID(EntityBlizz.class, "Blizz", entityId, 0xE0FBFF, 0x6BE6FF);
 
 		// Add Blizz spawn to snow/frozen biomes only if non-ocean/river
-		List<BiomeGenBase> validBiomes = Arrays.asList(BiomeDictionary.getBiomesForType(Type.FROZEN));
+		List<BiomeGenBase> validBiomes = Arrays.asList(BiomeDictionary.getBiomesForType(Type.SNOWY));
 		List<Type> types = Lists.newArrayList();
-		List<Type> fine = Lists.newArrayList(Type.END, Type.FROZEN);
+		List<Type> fine = Lists.newArrayList(Type.END, Type.SNOWY);
 		for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(Type.MAGICAL)) {
 			if (biome.isHighHumidity()) {
 				continue; // No high humidity biomes.
@@ -74,11 +75,12 @@ public class EntityBlizz extends EntityMob {
 	protected int heightOffsetUpdateTime;
 	protected int firingState;
 
-	protected static final String soundAmbient = CoreUtils.getSoundName("mob/blizz/cryosound");
-	protected static final String soundLiving = CoreUtils.getSoundName("mob/blizz/breathe");
-	protected static final String soundBall = CoreUtils.getSoundName("mob/blizz/ball");
+	public static final String SOUND_AMBIENT = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzAmbient");
+	public static final String SOUND_ATTACK = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzAttack");
+	public static final String SOUND_LIVING[] = { CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzBreathe0"),
+			CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzBreathe1"), CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzBreathe2") };
 
-	protected static final int soundAmbientFrequency = 42; // How often it does ambient sound loop
+	protected static final int SOUND_AMBIENT_FREQUENCY = 200; // How often it does ambient sound loop
 
 	public EntityBlizz(World world) {
 
@@ -103,7 +105,7 @@ public class EntityBlizz extends EntityMob {
 	@Override
 	protected String getLivingSound() {
 
-		return soundLiving;
+		return SOUND_LIVING[this.rand.nextInt(3)];
 	}
 
 	@Override
@@ -148,9 +150,9 @@ public class EntityBlizz extends EntityMob {
 				}
 			}
 		}
-		if (this.rand.nextInt(soundAmbientFrequency) == 0) {
-			this.worldObj.playSoundEffect(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, soundAmbient, 0.4F + 0.2F * this.rand.nextFloat(),
-					this.rand.nextFloat() * 0.7F + 0.3F);
+		if (this.rand.nextInt(SOUND_AMBIENT_FREQUENCY) == 0) {
+			this.worldObj.playSoundEffect(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, SOUND_AMBIENT, this.rand.nextFloat() * 0.3F + 0.4F,
+					this.rand.nextFloat() * 0.3F + 0.4F);
 		}
 		if (!this.onGround && this.motionY < 0.0D) {
 			this.motionY *= 0.6D;
@@ -232,7 +234,7 @@ public class EntityBlizz extends EntityMob {
 					double dSY = target.posY + target.getEyeHeight() - 1.100000023841858D - blizzBall.posY;
 					float f1 = MathHelper.sqrt_double(dX * dX + dZ * dZ) * 0.2F;
 					blizzBall.setThrowableHeading(dX, dSY + f1, dZ, 1.6F, 12.0F);
-					this.playSound("random.bow", 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+					this.playSound("random.bow", 1.0F, 1.0F / (this.rand.nextFloat() * 0.4F + 0.8F));
 					this.worldObj.spawnEntityInWorld(blizzBall);
 
 					// Negate target so it re-selects nearest mob
@@ -260,7 +262,7 @@ public class EntityBlizz extends EntityMob {
 						EntityBlizzSlowball ball = new EntityBlizzSlowball(this.worldObj, this);
 						ball.posY = this.posY + this.height / 2.0F + 0.5D;
 
-						this.playSound(soundBall, 2.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+						this.playSound(SOUND_ATTACK, 2.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 						this.worldObj.spawnEntityInWorld(ball);
 					}
 				}
@@ -271,7 +273,7 @@ public class EntityBlizz extends EntityMob {
 	}
 
 	@Override
-	protected void fall(float par1) {
+	protected void fall(float distance) {
 
 	}
 

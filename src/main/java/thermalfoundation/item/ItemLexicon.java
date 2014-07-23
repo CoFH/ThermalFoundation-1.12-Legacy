@@ -4,6 +4,7 @@ import cofh.api.item.IEmpowerableItem;
 import cofh.api.item.IInventoryContainerItem;
 import cofh.item.ItemBase;
 import cofh.util.CoreUtils;
+import cofh.util.ItemHelper;
 import cofh.util.KeyBindingEmpower;
 import cofh.util.ServerHelper;
 import cofh.util.StringHelper;
@@ -106,7 +107,7 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isCurrentItem) {
 
-		if (stack.getItemDamage() == 0) {
+		if (ItemHelper.getItemDamage(stack) == 0) {
 			return;
 		}
 		NBTTagCompound tag = entity.getEntityData();

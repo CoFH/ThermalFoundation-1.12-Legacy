@@ -1,17 +1,17 @@
 package thermalfoundation.network;
 
-import cofh.network.CoFHPacket;
+import cofh.network.PacketCoFHBase;
 import cofh.network.PacketHandler;
 
 import net.minecraft.entity.player.EntityPlayer;
 
 import thermalfoundation.ThermalFoundation;
 
-public class GenericTFPacket extends CoFHPacket {
+public class PacketTFBase extends PacketCoFHBase {
 
 	public static void initialize() {
 
-		PacketHandler.instance.registerPacket(GenericTFPacket.class);
+		PacketHandler.instance.registerPacket(PacketTFBase.class);
 	}
 
 	public enum PacketTypes {
@@ -34,9 +34,9 @@ public class GenericTFPacket extends CoFHPacket {
 		}
 	}
 
-	public static CoFHPacket getPacket(PacketTypes theType) {
+	public static PacketCoFHBase getPacket(PacketTypes theType) {
 
-		return new GenericTFPacket().addByte(theType.ordinal());
+		return new PacketTFBase().addByte(theType.ordinal());
 	}
 
 }
