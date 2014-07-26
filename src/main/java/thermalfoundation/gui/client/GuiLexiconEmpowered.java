@@ -1,6 +1,7 @@
 package thermalfoundation.gui.client;
 
 import cofh.gui.GuiBaseAdv;
+import cofh.util.StringHelper;
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -9,8 +10,9 @@ import thermalfoundation.gui.container.ContainerLexiconEmpowered;
 
 public class GuiLexiconEmpowered extends GuiBaseAdv {
 
-	static final String INFO = "Convert equivalent items according to an arcane set of rules laid down by higher powers.";
 	static final ResourceLocation TEXTURE = new ResourceLocation("thermalfoundation:textures/gui/LexiconConvert.png");
+
+	public String myInfo = "";
 
 	public GuiLexiconEmpowered(InventoryPlayer inventory, ContainerLexiconEmpowered container) {
 
@@ -24,12 +26,16 @@ public class GuiLexiconEmpowered extends GuiBaseAdv {
 
 		xSize = 206;
 		ySize = 204;
+
+		myInfo = StringHelper.localize("tab.thermalfoundation.lexicon.convert");
 	}
 
 	@Override
 	public void initGui() {
 
 		super.initGui();
+
+		// addTab(new TabInfo(this, myInfo));
 	}
 
 	@Override

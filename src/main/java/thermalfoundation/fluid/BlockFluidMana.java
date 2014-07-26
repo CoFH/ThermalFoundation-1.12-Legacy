@@ -89,7 +89,7 @@ public class BlockFluidMana extends BlockFluidInteractive {
 	@Override
 	public int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int side) {
 
-		return effect ? MathHelper.RANDOM.nextInt(15) : 0;
+		return effect ? 15 : 0;
 	}
 
 	@Override

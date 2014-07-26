@@ -117,6 +117,9 @@ item.thermalfoundation.material.dustBlizz.name=Blizz Powder
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 
+tab.thermalfoundation.lexicon.study=Consult the knowledge of the world and alter your personal destiny.
+tab.thermalfoundation.lexicon.convert=Convert equivalent items according to an arcane set of rules laid down by higher powers.
+
 tile.thermalfoundation.fluid.redstone.name=Destabilized Redstone
 tile.thermalfoundation.fluid.glowstone.name=Energized Glowstone
 tile.thermalfoundation.fluid.ender.name=Resonant Ender

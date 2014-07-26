@@ -5,10 +5,6 @@ import cofh.core.CoFHProps;
 import cofh.mod.BaseMod;
 import cofh.updater.UpdateManager;
 import cofh.util.ConfigHandler;
-import com.google.common.eventbus.EventBus;
-import com.google.common.eventbus.Subscribe;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.FMLModContainer;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -21,7 +17,6 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
 import java.io.File;
-import java.lang.reflect.Field;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
@@ -46,7 +41,7 @@ public class ThermalFoundation extends BaseMod {
 	public static final String modName = "Thermal Foundation";
 	public static final String version = "1.7.10R1.0.0B1";
 	public static final String dependencies = "required-after:CoFHCore@[" + CoFHCore.version + ",)";
-	public static final String releaseURL = "http://teamcofh.com/thermalfoundation/version/version.txt";
+	public static final String releaseURL = "https://github.com/CoFH/ThermalFoundation/VERSION";
 
 	@Instance(modId)
 	public static ThermalFoundation instance;
@@ -95,15 +90,6 @@ public class ThermalFoundation extends BaseMod {
 		/* Register Handlers */
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, guiHandler);
 		MinecraftForge.EVENT_BUS.register(proxy);
-
-		try {
-			Field eBus = FMLModContainer.class.getDeclaredField("eventBus");
-			eBus.setAccessible(true);
-			EventBus FMLbus = (EventBus) eBus.get(FMLCommonHandler.instance().findContainerFor(this));
-			FMLbus.register(this);
-		} catch (Throwable t) {
-			// pokemon!
-		}
 	}
 
 	@EventHandler
@@ -119,17 +105,31 @@ public class ThermalFoundation extends BaseMod {
 		config.cleanUp(false, true);
 	}
 
-	@Subscribe
+	@EventHandler
 	public void loadComplete(FMLLoadCompleteEvent event) {
 
 		LexiconManager.generateList();
 		LexiconManager.addAllListedOres();
+
+		cleanConfig(false);
 	}
 
 	@EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {
 
 		TFFluids.registerDispenserHandlers();
+	}
+
+	void cleanConfig(boolean preInit) {
+
+		if (preInit) {
+
+		}
+		String prefix = "config.thermalfoundation.";
+		String[] categoryNames = config.getCategoryNames().toArray(new String[config.getCategoryNames().size()]);
+		for (int i = 0; i < categoryNames.length; i++) {
+			config.getCategory(categoryNames[i]).setLanguageKey(prefix + categoryNames[i]).setRequiresMcRestart(true);
+		}
 	}
 
 	/* BaseMod */

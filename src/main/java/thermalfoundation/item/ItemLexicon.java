@@ -5,9 +5,7 @@ import cofh.api.item.IInventoryContainerItem;
 import cofh.item.ItemBase;
 import cofh.util.CoreUtils;
 import cofh.util.ItemHelper;
-import cofh.util.KeyBindingEmpower;
 import cofh.util.ServerHelper;
-import cofh.util.StringHelper;
 
 import java.util.List;
 
@@ -19,8 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-
-import org.lwjgl.input.Keyboard;
 
 import thermalfoundation.ThermalFoundation;
 import thermalfoundation.gui.GuiHandler;
@@ -67,25 +63,27 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
 
-		if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
-			list.add(StringHelper.shiftForDetails());
-		}
-		if (!StringHelper.isShiftKeyDown()) {
-			return;
-		}
-		list.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.1"));
+		list.add("UNIMPLEMENTED. This is a beta. ~KL");
 
-		if (isEmpowered(stack)) {
-			list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.4") + StringHelper.END);
-			list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
-					+ Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.5")
-					+ StringHelper.END);
-		} else {
-			list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.2") + StringHelper.END);
-			list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
-					+ Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.3")
-					+ StringHelper.END);
-		}
+		// if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
+		// list.add(StringHelper.shiftForDetails());
+		// }
+		// if (!StringHelper.isShiftKeyDown()) {
+		// return;
+		// }
+		// list.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.1"));
+		//
+		// if (isEmpowered(stack)) {
+		// list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.4") + StringHelper.END);
+		// list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
+		// + Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.5")
+		// + StringHelper.END);
+		// } else {
+		// list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.2") + StringHelper.END);
+		// list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
+		// + Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.3")
+		// + StringHelper.END);
+		// }
 	}
 
 	@Override
