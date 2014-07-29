@@ -1,6 +1,14 @@
 #ru_RU
 
 death.attack.blizz=%1$s встретил холодную судьбу!
+death.attack.cryotheum=%1$s замёрз досмерти!
+death.attack.cryotheum.player=%1$s замёрз досмерти, убегая от %2$s!
+death.attack.flux=%1$s был разодран флаксом!
+death.attack.flux.player=%1$s был зафлаксирован до смерти %2$s!
+death.attack.pyrotheum=%1$s принял пиротеум за воду!
+death.attack.pyrotheum.player=%1$s сгорел заживо, убегая от %2$s!
+death.attack.mana=%1$s был разорван на части сырой маной!
+death.attack.mana.player=%1$s побежал не в то место, при попытке к бегству от %2$s!
 
 entity.Blizz.name=Буран
 
@@ -21,10 +29,23 @@ item.thermalfoundation.bucket.bucketCryotheum.name=Ведро ледяного �
 item.thermalfoundation.bucket.bucketMana.name=Ведро изначальной маны
 item.thermalfoundation.bucket.bucketCoal.name=Ведро разжиженного угля
 
+info.cofh.lexicon1=Конвертирует предметы в их эквивалентные формы.
+info.cofh.lexicon2=ПКМ (открыть), чтобы изучить.
+info.cofh.lexicon3=Когда присядете, откройте, дабы обрести мудрость!
+info.cofh.lexicon4=ПКМ (открыть) для трансмутации предметов.
+info.cofh.lexicon5=Когда присядете, откройте, чтобы позабыть знания.
+item.cofh.tool.lexicon.name=Лексикон Forge
+item.cofh.tool.lexiconActive.name=Лексикон Forge (Активен)
+
 item.thermalfoundation.material.dustIron.name=Измельчённое железо
 item.thermalfoundation.material.dustGold.name=Измельчённое золото
 item.thermalfoundation.material.dustCoal.name=Измельчённый уголь
+item.thermalfoundation.material.dustCharcoal.name=Измельчённый древесный уголь
 item.thermalfoundation.material.dustObsidian.name=Измельчённый обсидиан
+
+item.thermalfoundation.material.nuggetIron.name=Железный самородок
+item.thermalfoundation.material.gearIron.name=Железная шестерня
+item.thermalfoundation.material.gearGold.name=Золотая шестерня
 
 item.thermalfoundation.material.dustSulfur.name=Сера
 item.thermalfoundation.material.dustNiter.name=Селитра
@@ -73,9 +94,6 @@ item.thermalfoundation.material.nuggetSignalum.name=Синаловый само�
 item.thermalfoundation.material.nuggetLumium.name=Ламиумовый самородок
 item.thermalfoundation.material.nuggetEnderium.name=Самородок эндриума
 
-item.thermalfoundation.material.dustSulfur.name=Сера
-item.thermalfoundation.material.dustNiter.name=Селитра
-
 item.thermalfoundation.material.dustPyrotheum.name=Пыль пиротеума
 item.thermalfoundation.material.dustCryotheum.name=Пыль криотеума
 item.thermalfoundation.material.dustMana.name=Пыль маны
@@ -98,6 +116,9 @@ item.thermalfoundation.material.rodBlizz.name=Бурановый стержен�
 item.thermalfoundation.material.dustBlizz.name=Бурановый порошок
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
+
+tab.thermalfoundation.lexicon.study=Обратитесь к знаниям мира и измените Вашу личную судьбу.
+tab.thermalfoundation.lexicon.convert=Преобразовывайте эквивалентные предметы согласно тайному набору правил, установленным высшими силам.
 
 tile.thermalfoundation.fluid.redstone.name=Дестабилизированный красный камень
 tile.thermalfoundation.fluid.glowstone.name=Заряженный светящийся камень
