@@ -41,7 +41,7 @@ public class ThermalFoundation extends BaseMod {
 	public static final String modName = "Thermal Foundation";
 	public static final String version = "1.7.10R1.0.0B1";
 	public static final String dependencies = "required-after:CoFHCore@[" + CoFHCore.version + ",)";
-	public static final String releaseURL = "http://github.com/CoFH/ThermalFoundation/blob/master/VERSION";
+	public static final String releaseURL = "https://raw.github.com/CoFH/ThermalFoundation/master/VERSION";
 
 	@Instance(modId)
 	public static ThermalFoundation instance;
