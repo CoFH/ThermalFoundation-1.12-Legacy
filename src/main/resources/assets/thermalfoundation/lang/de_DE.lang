@@ -29,11 +29,11 @@ item.thermalfoundation.bucket.bucketCryotheum.name=Eimer mit Gelenem Kryotheum
 item.thermalfoundation.bucket.bucketMana.name=Eimer mit Primärmana
 item.thermalfoundation.bucket.bucketCoal.name=Eimer mit Verflüssigter Kohle
 
-info.thermalfoundation.tome.lexicon.1=Konvertiert Items in gleichwertige Formen.
+info.thermalfoundation.tome.lexicon.1=Verwandelt Items in äquivalente Formen.
 info.thermalfoundation.tome.lexicon.2=Rechtsklicke (öffne), um es zu studieren.
-info.thermalfoundation.tome.lexicon.3=Nutze, während du schleichst, um an Weisheit zu kommen!
-info.thermalfoundation.tome.lexicon.4=Rechtsklicke (öffne), um Items zu transmutieren.
-info.thermalfoundation.tome.lexicon.5=Nutze, während du schleichst, um Wissen aufzugeben.
+info.thermalfoundation.tome.lexicon.3=um weiser zu werden!
+info.thermalfoundation.tome.lexicon.4=Rechtsklicke (öffne), um Items zu verwandeln.
+info.thermalfoundation.tome.lexicon.5=um Wissen aufzugeben.
 item.thermalfoundation.tome.lexicon.name=Forge-Lexikon
 item.thermalfoundation.tome.lexiconEmpowered.name=Forge-Lexikon (Aktiv)
 
