@@ -1,6 +1,14 @@
 #de_DE
 
 death.attack.blizz=%1$s fand einen frostigen Tod!
+death.attack.cryotheum=%1$s fror zu Tode!
+death.attack.cryotheum.player=%1$s fror zu Tode, während er vor %2$s floh!
+death.attack.flux=Die Realität von %1$s wurde durch Flux auseinandergerissen!
+death.attack.flux.player=%1$s wurde von %2$s zu Tode gefluxt!
+death.attack.pyrotheum=%1$s verwechelte Pyrotheum mit Wasser!
+death.attack.pyrotheum.player=%1$s wurde lebendig verbrannt, während er vor %2$s floh!
+death.attack.mana=%1$s wurde von rohem Mana zerfetzt!
+death.attack.mana.player=%1$s floss in einen anderen Daseinszustand, während er vor %2$s floh!
 
 entity.Blizz.name=Blizz
 
@@ -9,30 +17,35 @@ fluid.glowstone=Energetisiertes Glowstone
 fluid.ender=Resonantes Ender
 fluid.pyrotheum=Flammentes Pyrotheum
 fluid.cryotheum=Gelenes Kryotheum
-fluid.mana=Primal Mana
+fluid.mana=Primärmana
 fluid.steam=Dampf
 fluid.coal=Verflüssigte Kohle
-
-info.thermalfoundation.lexicon1=Verwandelt Items in äquivalente Formen.
-info.thermalfoundation.lexicon2=Rechtsklicke (öffne) zum Studieren.
-info.thermalfoundation.lexicon3=um weiser zu werden!
-info.thermalfoundation.lexicon4=Rechtsklicke (öffne), um Items zu verwandeln.
-info.thermalfoundation.lexicon5=um Wissen aufzugeben.
-item.thermalfoundation.tool.lexicon.name=Forge-Lexikon
-item.thermalfoundation.tool.lexiconEmp.name=Forge-Lexikon (Aktiviert)
 
 item.thermalfoundation.bucket.bucketRedstone.name=Eimer mit Destabilisiertem Redstone
 item.thermalfoundation.bucket.bucketGlowstone.name=Eimer mit Energetisiertem Glowstone
 item.thermalfoundation.bucket.bucketEnder.name=Eimer mit Resonantem Ender
 item.thermalfoundation.bucket.bucketPyrotheum.name=Eimer mit Flammendem Pyrotheum
 item.thermalfoundation.bucket.bucketCryotheum.name=Eimer mit Gelenem Kryotheum
-item.thermalfoundation.bucket.bucketMana.name=Eimer mit Primär-Mana
+item.thermalfoundation.bucket.bucketMana.name=Eimer mit Primärmana
 item.thermalfoundation.bucket.bucketCoal.name=Eimer mit Verflüssigter Kohle
+
+info.thermalfoundation.tome.lexicon.1=Konvertiert Items in gleichwertige Formen.
+info.thermalfoundation.tome.lexicon.2=Rechtsklicke (öffne), um es zu studieren.
+info.thermalfoundation.tome.lexicon.3=Nutze, während du schleichst, um an Weisheit zu kommen!
+info.thermalfoundation.tome.lexicon.4=Rechtsklicke (öffne), um Items zu transmutieren.
+info.thermalfoundation.tome.lexicon.5=Nutze, während du schleichst, um Wissen aufzugeben.
+item.thermalfoundation.tome.lexicon.name=Forge-Lexikon
+item.thermalfoundation.tome.lexiconEmpowered.name=Forge-Lexikon (Aktiv)
 
 item.thermalfoundation.material.dustIron.name=Pulverisiertes Eisen
 item.thermalfoundation.material.dustGold.name=Pulverisiertes Gold
 item.thermalfoundation.material.dustCoal.name=Pulverisierte Kohle
+item.thermalfoundation.material.dustCharcoal.name=Pulverisierte Holzkohle
 item.thermalfoundation.material.dustObsidian.name=Pulverisiertes Obsidian
+
+item.thermalfoundation.material.nuggetIron.name=Eisennugget
+item.thermalfoundation.material.gearIron.name=Eisenzahnrad
+item.thermalfoundation.material.gearGold.name=Goldzahnrad
 
 item.thermalfoundation.material.dustSulfur.name=Schwefel
 item.thermalfoundation.material.dustNiter.name=Salpeter
@@ -104,12 +117,15 @@ item.thermalfoundation.material.dustBlizz.name=Blizzstaub
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 
+tab.thermalfoundation.lexicon.study=Konsultiere das Wissen der Welt und ändere deine Bestimmung.
+tab.thermalfoundation.lexicon.convert=Wandelt gleichwertige Items in einander um, einem arkanen Regelwerk folgend, das von höheren Mächten festgelegt wurde.
+
 tile.thermalfoundation.fluid.redstone.name=Destabilisieres Redstone
 tile.thermalfoundation.fluid.glowstone.name=Energetisiertes Glowstone
 tile.thermalfoundation.fluid.ender.name=Resonantes Ender
 tile.thermalfoundation.fluid.pyrotheum.name=Flammendes Pyrotheum
 tile.thermalfoundation.fluid.cryotheum.name=Gelenes Kryotheum
-tile.thermalfoundation.fluid.mana.name=Primal Mana
+tile.thermalfoundation.fluid.mana.name=Primärmana
 tile.thermalfoundation.fluid.steam.name=Dampf
 tile.thermalfoundation.fluid.coal.name=Verflüssigte Kohle
 
