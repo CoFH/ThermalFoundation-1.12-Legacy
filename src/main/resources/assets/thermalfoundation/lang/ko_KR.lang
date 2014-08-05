@@ -1,0 +1,152 @@
+#ko_KR
+
+death.attack.blizz=%1$s가 혹한에 죽었습니다
+death.attack.cryotheum=%1$s가 얼어죽었습니다
+death.attack.cryotheum.player=%1$s는 %2$s에게서 탈출하기 위해 얼어죽을 수 밖에 없었습니다
+death.attack.flux=%1$s가 감전사했습니다
+death.attack.flux.player=%1$s가 %2$s에 의해 감전사당했습니다
+death.attack.pyrotheum=%1$s가 파이로시움을 물로 착각했습니다
+death.attack.pyrotheum.player=%1$s는 %2$s에게서 탈출하기 위해 산 채로 태워질 수 밖에 없었습니다
+death.attack.mana=%1$s가 마나 때문에 찢겨져 죽었습니다
+death.attack.mana.player=%1$s는 %2$s에게서 탈출하기 위해 다른 상태가 될 수 밖에 없었습니다
+
+entity.Blizz.name=블리즈
+
+fluid.redstone=불안정한 레드스톤
+fluid.glowstone=활력의 발광석
+fluid.ender=공명하는 엔더
+fluid.pyrotheum=불타오르는 파이로시움
+fluid.cryotheum=혹한의 크라이오시움
+fluid.mana=태초의 마나
+fluid.steam=증기
+fluid.coal=액화 석탄
+
+item.thermalfoundation.bucket.bucketRedstone.name=불안정한 레드스톤 양동이
+item.thermalfoundation.bucket.bucketGlowstone.name=활력의 발광석 양동이
+item.thermalfoundation.bucket.bucketEnder.name=공명하는 엔더 양동이
+item.thermalfoundation.bucket.bucketPyrotheum.name=불타오르는 파이로시움 양동이
+item.thermalfoundation.bucket.bucketCryotheum.name=혹한의 크라이오시움 양동이
+item.thermalfoundation.bucket.bucketMana.name=태초의 마나 양동이
+item.thermalfoundation.bucket.bucketCoal.name=액화 석탄 양동이
+
+info.thermalfoundation.tome.lexicon.1=아이템을 다른 형태의 같은 물질로 바꿉니다.
+info.thermalfoundation.tome.lexicon.2=공부하기 위해서는 오른쪽 클릭으로 여십시오.
+info.thermalfoundation.tome.lexicon.3=지혜를 얻는 것!
+info.thermalfoundation.tome.lexicon.4=아이템을 바꾸기 위해서 우클릭(열기)
+info.thermalfoundation.tome.lexicon.5=지식을 버리는 것.
+item.thermalfoundation.tome.lexicon.name=포지 렉시콘
+item.thermalfoundation.tome.lexiconEmpowered.name=포지 렉시콘 (권한 부여됨)
+
+item.thermalfoundation.material.dustIron.name=분쇄된 철
+item.thermalfoundation.material.dustGold.name=분쇄된 금
+item.thermalfoundation.material.dustCoal.name=분쇄된 석탄
+item.thermalfoundation.material.dustCharcoal.name=분쇄된 목탄
+item.thermalfoundation.material.dustObsidian.name=분쇄된  흑요석
+
+item.thermalfoundation.material.nuggetIron.name=철 조각
+item.thermalfoundation.material.gearIron.name=철 톱니바퀴
+item.thermalfoundation.material.gearGold.name=금 톱니바퀴
+
+item.thermalfoundation.material.dustSulfur.name=유황
+item.thermalfoundation.material.dustNiter.name=초석
+
+item.thermalfoundation.material.crystalCinnabar.name=진사
+
+item.thermalfoundation.material.dustCopper.name=분쇄된 구리
+item.thermalfoundation.material.dustTin.name=분쇄된 주석
+item.thermalfoundation.material.dustSilver.name=분쇄된 은
+item.thermalfoundation.material.dustLead.name=분쇄된 납
+item.thermalfoundation.material.dustNickel.name=분쇄된 페리우스
+item.thermalfoundation.material.dustPlatinum.name=분쇄된 샤이니 금속
+item.thermalfoundation.material.dustMithril.name=분쇄된 마나가 주입 된 금속
+item.thermalfoundation.material.dustElectrum.name=일렉트럼 블렌드
+item.thermalfoundation.material.dustInvar.name=인바 블렌드
+item.thermalfoundation.material.dustBronze.name=땜장이 합금 블렌드
+item.thermalfoundation.material.dustSignalum.name=시그날룸 블렌드
+item.thermalfoundation.material.dustLumium.name=루미눔 블렌드
+item.thermalfoundation.material.dustEnderium.name=엔더리움 블렌드
+
+item.thermalfoundation.material.ingotCopper.name=구리 주괴
+item.thermalfoundation.material.ingotTin.name=주석 주괴
+item.thermalfoundation.material.ingotSilver.name=은 주괴
+item.thermalfoundation.material.ingotLead.name=납 주괴
+item.thermalfoundation.material.ingotNickel.name=페리우스 주괴
+item.thermalfoundation.material.ingotPlatinum.name=샤이니 주괴
+item.thermalfoundation.material.ingotMithril.name=마나가 주입 된 주괴
+item.thermalfoundation.material.ingotElectrum.name=일렉트럼 주괴
+item.thermalfoundation.material.ingotInvar.name=인바 주괴
+item.thermalfoundation.material.ingotBronze.name=땜장이 합금 주괴
+item.thermalfoundation.material.ingotSignalum.name=시그날룸 주괴
+item.thermalfoundation.material.ingotLumium.name=루미눔 주괴
+item.thermalfoundation.material.ingotEnderium.name=엔더리움 주괴
+
+item.thermalfoundation.material.nuggetCopper.name=구리 조각
+item.thermalfoundation.material.nuggetTin.name=주석 조각
+item.thermalfoundation.material.nuggetSilver.name=은 조각
+item.thermalfoundation.material.nuggetLead.name=납 조각
+item.thermalfoundation.material.nuggetNickel.name=페리우스 조각
+item.thermalfoundation.material.nuggetPlatinum.name=샤이니 조각
+item.thermalfoundation.material.nuggetMithril.name=마나가 주입 된 조각
+item.thermalfoundation.material.nuggetElectrum.name=일렉트럼 조각
+item.thermalfoundation.material.nuggetInvar.name=인바 조각
+item.thermalfoundation.material.nuggetBronze.name=땜장이 합금 조각
+item.thermalfoundation.material.nuggetSignalum.name=시그날룸 조각
+item.thermalfoundation.material.nuggetLumium.name=루미눔 조각
+item.thermalfoundation.material.nuggetEnderium.name=엔더리움 조각
+
+item.thermalfoundation.material.dustPyrotheum.name=파이로세움 가루
+item.thermalfoundation.material.dustCryotheum.name=사이로세움 가루
+item.thermalfoundation.material.dustMana.name=마나 가루
+
+item.thermalfoundation.material.gearCopper.name=구리 톱니바퀴
+item.thermalfoundation.material.gearTin.name=주석 톱니바퀴
+item.thermalfoundation.material.gearSilver.name=은 기어
+item.thermalfoundation.material.gearLead.name=납 톱니바퀴
+item.thermalfoundation.material.gearNickel.name=페리우스 톱니바퀴
+item.thermalfoundation.material.gearPlatinum.name=샤이니 톱니바퀴
+item.thermalfoundation.material.gearMithril.name=마나가 주입 된 톱니바퀴
+item.thermalfoundation.material.gearElectrum.name=일렉트럼 톱니바퀴
+item.thermalfoundation.material.gearInvar.name=인바 톱니바퀴
+item.thermalfoundation.material.gearBronze.name=땜장이의 합금 톱니바퀴
+item.thermalfoundation.material.gearSignalum.name=시그날룸 톱니바퀴
+item.thermalfoundation.material.gearLumium.name=루미눔 톱니바퀴
+item.thermalfoundation.material.gearEnderium.name=엔더리움 톱니바퀴
+
+item.thermalfoundation.material.rodBlizz.name=블리즈 로드
+item.thermalfoundation.material.dustBlizz.name=블리즈 파우더
+
+itemGroup.thermalfoundation.creativeTab=써멀 파운데이션
+
+tab.thermalfoundation.lexicon.study=셰계의 지식을 찾고 당신의 개인적인 운명을 바꿉니다.
+tab.thermalfoundation.lexicon.convert=일련의 규칙에 의해 고도의 마법력으로 같은 아이템들을 바꿔줍니다.
+
+tile.thermalfoundation.fluid.redstone.name=불안정한 레드스톤
+tile.thermalfoundation.fluid.glowstone.name=활력의 발광석
+tile.thermalfoundation.fluid.ender.name=공명하는 엔더
+tile.thermalfoundation.fluid.pyrotheum.name=불타오르는 파이로세움
+tile.thermalfoundation.fluid.cryotheum.name=혹한의 크라이오시움
+tile.thermalfoundation.fluid.mana.name=태초의 마나
+tile.thermalfoundation.fluid.steam.name=증기
+tile.thermalfoundation.fluid.coal.name=액화 석탄
+
+tile.thermalfoundation.ore.copper.name=구리 광석
+tile.thermalfoundation.ore.tin.name=주석 광석
+tile.thermalfoundation.ore.silver.name=은 광석
+tile.thermalfoundation.ore.lead.name=납 광석
+tile.thermalfoundation.ore.nickel.name=페리우스 광석
+tile.thermalfoundation.ore.platinum.name=샤이니 광석
+tile.thermalfoundation.ore.mithril.name=마나가 주입 된 광석
+
+tile.thermalfoundation.storage.copper.name=구리 블럭
+tile.thermalfoundation.storage.tin.name=주석 블럭
+tile.thermalfoundation.storage.silver.name=은 블럭
+tile.thermalfoundation.storage.lead.name=납 블럭
+tile.thermalfoundation.storage.nickel.name=페리우스 블럭
+tile.thermalfoundation.storage.platinum.name=샤이니 블럭
+tile.thermalfoundation.storage.mithril.name=마나가 주입 된 블럭
+tile.thermalfoundation.storage.electrum.name=일렉트럼 블럭
+tile.thermalfoundation.storage.invar.name=인바 블럭
+tile.thermalfoundation.storage.bronze.name=땜장이 합금 블럭
+tile.thermalfoundation.storage.signalum.name=시그날룸 블럭
+tile.thermalfoundation.storage.lumium.name=루미눔 블럭
+tile.thermalfoundation.storage.enderium.name=엔더리움 블럭
