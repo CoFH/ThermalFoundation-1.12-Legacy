@@ -1,7 +1,7 @@
 package thermalfoundation.core;
 
-import cofh.render.IconRegistry;
-import cofh.util.StringHelper;
+import cofh.core.render.IconRegistry;
+import cofh.lib.util.helpers.StringHelper;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;

@@ -1,8 +1,8 @@
 package thermalfoundation.entity.projectile;
 
 import cofh.core.CoFHProps;
-import cofh.util.CoreUtils;
-import cofh.util.ServerHelper;
+import cofh.core.util.CoreUtils;
+import cofh.lib.util.helpers.ServerHelper;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

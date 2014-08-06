@@ -1,6 +1,6 @@
 package thermalfoundation.render.entity;
 
-import cofh.util.HolidayHelper;
+import cofh.lib.util.helpers.HolidayHelper;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

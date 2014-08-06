@@ -1,6 +1,6 @@
 package thermalfoundation.block;
 
-import cofh.fluid.BlockFluidCoFHBase;
+import cofh.core.fluid.BlockFluidCoFHBase;
 
 import thermalfoundation.fluid.BlockFluidCoal;
 import thermalfoundation.fluid.BlockFluidCryotheum;

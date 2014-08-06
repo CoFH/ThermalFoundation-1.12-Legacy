@@ -1,6 +1,6 @@
 package thermalfoundation.fluid;
 
-import cofh.fluid.BlockFluidCoFHBase;
+import cofh.core.fluid.BlockFluidCoFHBase;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.material.MapColor;

@@ -1,7 +1,7 @@
 package thermalfoundation.network;
 
-import cofh.network.PacketCoFHBase;
-import cofh.network.PacketHandler;
+import cofh.core.network.PacketCoFHBase;
+import cofh.core.network.PacketHandler;
 
 import net.minecraft.entity.player.EntityPlayer;
 

@@ -1,10 +1,10 @@
 package thermalfoundation.fluid;
 
-import cofh.fluid.BlockFluidInteractive;
-import cofh.util.BlockHelper;
-import cofh.util.BlockWrapper;
-import cofh.util.CoreUtils;
-import cofh.util.MathHelper;
+import cofh.core.fluid.BlockFluidInteractive;
+import cofh.core.util.CoreUtils;
+import cofh.lib.util.BlockWrapper;
+import cofh.lib.util.helpers.BlockHelper;
+import cofh.lib.util.helpers.MathHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import java.util.Random;

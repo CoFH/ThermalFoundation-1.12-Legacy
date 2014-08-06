@@ -1,7 +1,7 @@
 package thermalfoundation.gui.container;
 
-import cofh.gui.container.ContainerInventoryItem;
-import cofh.gui.slot.ISlotValidator;
+import cofh.lib.gui.container.ContainerInventoryItem;
+import cofh.lib.gui.slot.ISlotValidator;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

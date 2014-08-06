@@ -1,7 +1,7 @@
 package thermalfoundation.fluid;
 
-import cofh.util.fluid.DispenserEmptyBucketHandler;
-import cofh.util.fluid.DispenserFilledBucketHandler;
+import cofh.core.util.fluid.DispenserEmptyBucketHandler;
+import cofh.core.util.fluid.DispenserFilledBucketHandler;
 
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.init.Items;

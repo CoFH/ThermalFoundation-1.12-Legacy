@@ -1,7 +1,7 @@
 package thermalfoundation.fluid;
 
-import cofh.fluid.BlockFluidCoFHBase;
-import cofh.util.ServerHelper;
+import cofh.core.fluid.BlockFluidCoFHBase;
+import cofh.lib.util.helpers.ServerHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import java.util.Random;

@@ -1,9 +1,9 @@
 package thermalfoundation.item;
 
-import cofh.item.ItemBase;
-import cofh.item.ItemBucket;
-import cofh.util.ItemHelper;
-import cofh.util.fluid.BucketHandler;
+import cofh.core.item.ItemBase;
+import cofh.core.item.ItemBucket;
+import cofh.core.util.fluid.BucketHandler;
+import cofh.lib.util.helpers.ItemHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.init.Items;

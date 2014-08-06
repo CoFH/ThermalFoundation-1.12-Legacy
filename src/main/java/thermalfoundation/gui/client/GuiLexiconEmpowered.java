@@ -1,7 +1,7 @@
 package thermalfoundation.gui.client;
 
-import cofh.gui.GuiBaseAdv;
-import cofh.util.StringHelper;
+import cofh.core.gui.GuiBaseAdv;
+import cofh.lib.util.helpers.StringHelper;
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;

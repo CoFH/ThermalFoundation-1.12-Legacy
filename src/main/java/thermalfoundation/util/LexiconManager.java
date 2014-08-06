@@ -1,10 +1,10 @@
 package thermalfoundation.util;
 
 import cofh.core.CoFHProps;
-import cofh.util.ItemHelper;
-import cofh.util.ItemWrapper;
-import cofh.util.inventory.ComparableItemStackSafe;
-import cofh.util.oredict.OreDictionaryArbiter;
+import cofh.core.util.oredict.OreDictionaryArbiter;
+import cofh.lib.inventory.ComparableItemStackSafe;
+import cofh.lib.util.ItemWrapper;
+import cofh.lib.util.helpers.ItemHelper;
 
 import java.io.BufferedWriter;
 import java.io.File;

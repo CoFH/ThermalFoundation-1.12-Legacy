@@ -1,9 +1,9 @@
 package thermalfoundation.entity.monster;
 
-import cofh.entity.EntitySelectorInRangeByType;
-import cofh.util.CoreUtils;
-import cofh.util.ItemHelper;
-import cofh.util.ServerHelper;
+import cofh.core.entity.EntitySelectorInRangeByType;
+import cofh.core.util.CoreUtils;
+import cofh.lib.util.helpers.ItemHelper;
+import cofh.lib.util.helpers.ServerHelper;
 import com.google.common.collect.Lists;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.relauncher.Side;

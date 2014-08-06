@@ -1,6 +1,6 @@
 package thermalfoundation.util;
 
-import cofh.util.MathHelper;
+import cofh.lib.util.helpers.MathHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;

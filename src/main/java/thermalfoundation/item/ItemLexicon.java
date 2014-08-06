@@ -2,10 +2,10 @@ package thermalfoundation.item;
 
 import cofh.api.item.IEmpowerableItem;
 import cofh.api.item.IInventoryContainerItem;
-import cofh.item.ItemBase;
-import cofh.util.CoreUtils;
-import cofh.util.ItemHelper;
-import cofh.util.ServerHelper;
+import cofh.core.item.ItemBase;
+import cofh.core.util.CoreUtils;
+import cofh.lib.util.helpers.ItemHelper;
+import cofh.lib.util.helpers.ServerHelper;
 
 import java.util.List;
 

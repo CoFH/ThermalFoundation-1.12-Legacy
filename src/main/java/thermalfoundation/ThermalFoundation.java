@@ -2,9 +2,9 @@ package thermalfoundation;
 
 import cofh.CoFHCore;
 import cofh.core.CoFHProps;
+import cofh.core.util.ConfigHandler;
 import cofh.mod.BaseMod;
-import cofh.updater.UpdateManager;
-import cofh.util.ConfigHandler;
+import cofh.mod.updater.UpdateManager;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
