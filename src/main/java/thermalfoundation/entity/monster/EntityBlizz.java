@@ -42,9 +42,19 @@ public class EntityBlizz extends EntityMob {
 
 	public static void initialize() {
 
-		entityId = EntityRegistry.findGlobalUniqueEntityId();
-		EntityRegistry.registerGlobalEntityID(EntityBlizz.class, "Blizz", entityId, 0xE0FBFF, 0x6BE6FF);
-
+		try {
+			entityId = EntityRegistry.findGlobalUniqueEntityId();
+		} catch (Exception e) {
+			ThermalFoundation.log.error("Error - No Global Entity IDs remaining. This is REALLY bad. Using a mod-specific ID instead.", e);
+			entityId = CoreUtils.getEntityId();
+		}
+		try {
+			EntityRegistry.registerGlobalEntityID(EntityBlizz.class, "Blizz", entityId, 0xE0FBFF, 0x6BE6FF);
+		} catch (Exception e) {
+			ThermalFoundation.log.error("Another mod is improperly using the Entity Registry. This is REALLY bad. Using a mod-specific ID instead.", e);
+			entityId = CoreUtils.getEntityId();
+			EntityRegistry.registerGlobalEntityID(EntityBlizz.class, "Blizz", entityId, 0xE0FBFF, 0x6BE6FF);
+		}
 		// Add Blizz spawn to snow/frozen biomes only if non-ocean/river
 		List<BiomeGenBase> validBiomes = Arrays.asList(BiomeDictionary.getBiomesForType(Type.SNOWY));
 		List<Type> types = Lists.newArrayList();
