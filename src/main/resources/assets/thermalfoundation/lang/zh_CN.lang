@@ -1,6 +1,14 @@
 #zh_CN
 
-death.attack.blizz==%1$s邂逅了冰冷的命运!
+death.attack.blizz=%1$s 邂逅了冰冷的命运!
+death.attack.cryotheum=%1$s 冻死了!
+death.attack.cryotheum.player=%1$s 为了逃脱 %2$s 而被冻死了!
+death.attack.flux=%1$s 成功的被熔融了!
+death.attack.flux.player=%1$s 被 %2$s 熔融了!
+death.attack.pyrotheum=%1$s 误把烈焰之炽焱当成了水!
+death.attack.pyrotheum.player=%1$s 为了逃脱 %2$s 而被活活烧死!
+death.attack.mana=%1$s 被原始魔力撕碎了!
+death.attack.mana.player=%1$s 为了逃脱 %2$s 而被转换成了另一种态!
 
 entity.Blizz.name=暴雪
 
@@ -21,10 +29,23 @@ item.thermalfoundation.bucket.bucketCryotheum.name=极寒之凛冰桶
 item.thermalfoundation.bucket.bucketMana.name=元始魔力桶
 item.thermalfoundation.bucket.bucketCoal.name=液态煤炭桶
 
+info.thermalfoundation.tome.lexicon.1=将物品转换成它的等价形式.
+info.thermalfoundation.tome.lexicon.2=右键 (打开) 对此项目进行研究.
+info.thermalfoundation.tome.lexicon.3=获得智慧!
+info.thermalfoundation.tome.lexicon.4=右键 (打开) 来使物品变形.
+info.thermalfoundation.tome.lexicon.5=舍弃知识.
+item.thermalfoundation.tome.lexicon.name=铁匠辞典
+item.thermalfoundation.tome.lexiconEmpowered.name=铁匠辞典 (已授权)
+
 item.thermalfoundation.material.dustIron.name=铁粉
 item.thermalfoundation.material.dustGold.name=金粉
 item.thermalfoundation.material.dustCoal.name=煤粉
+item.thermalfoundation.material.dustCharcoal.name=炭粉
 item.thermalfoundation.material.dustObsidian.name=黑曜石粉
+
+item.thermalfoundation.material.nuggetIron.name=铁粒
+item.thermalfoundation.material.gearIron.name=铁齿轮
+item.thermalfoundation.material.gearGold.name=金齿轮
 
 item.thermalfoundation.material.dustSulfur.name=硫磺
 item.thermalfoundation.material.dustNiter.name=硝石
@@ -37,10 +58,11 @@ item.thermalfoundation.material.dustSilver.name=银粉
 item.thermalfoundation.material.dustLead.name=铅粉
 item.thermalfoundation.material.dustNickel.name=镍粉
 item.thermalfoundation.material.dustPlatinum.name=铂粉
-item.thermalfoundation.material.dustMithril.name=注魔金属粉
+item.thermalfoundation.material.dustMithril.name=注魔秘银粉
 item.thermalfoundation.material.dustElectrum.name=琥珀金粉
 item.thermalfoundation.material.dustInvar.name=因瓦合金粉
 item.thermalfoundation.material.dustBronze.name=青铜粉
+item.thermalfoundation.material.dustSignalum.name=信素粉
 item.thermalfoundation.material.dustLumium.name=流明粉
 item.thermalfoundation.material.dustEnderium.name=末影粉
 
@@ -50,10 +72,11 @@ item.thermalfoundation.material.ingotSilver.name=银锭
 item.thermalfoundation.material.ingotLead.name=铅锭
 item.thermalfoundation.material.ingotNickel.name=镍锭
 item.thermalfoundation.material.ingotPlatinum.name=铂锭
-item.thermalfoundation.material.ingotMithril.name=注魔金属锭
+item.thermalfoundation.material.ingotMithril.name=注魔秘银锭
 item.thermalfoundation.material.ingotElectrum.name=琥珀金锭
 item.thermalfoundation.material.ingotInvar.name=因瓦合金锭
 item.thermalfoundation.material.ingotBronze.name=青铜锭
+item.thermalfoundation.material.ingotSignalum.name=信素锭
 item.thermalfoundation.material.ingotLumium.name=流明锭
 item.thermalfoundation.material.ingotEnderium.name=末影锭
 
@@ -63,15 +86,13 @@ item.thermalfoundation.material.nuggetSilver.name=银粒
 item.thermalfoundation.material.nuggetLead.name=铅粒
 item.thermalfoundation.material.nuggetNickel.name=镍粒
 item.thermalfoundation.material.nuggetPlatinum.name=铂粒
-item.thermalfoundation.material.nuggetMithril.name=注魔金属粒
+item.thermalfoundation.material.nuggetMithril.name=注魔秘银粒
 item.thermalfoundation.material.nuggetElectrum.name=琥珀金粒
 item.thermalfoundation.material.nuggetInvar.name=因瓦合金粒
 item.thermalfoundation.material.nuggetBronze.name=青铜粒
+item.thermalfoundation.material.nuggetSignalum.name=信素粒
 item.thermalfoundation.material.nuggetLumium.name=流明粒
 item.thermalfoundation.material.nuggetEnderium.name=末影粒
-
-item.thermalfoundation.material.dustSulfur.name=硫磺
-item.thermalfoundation.material.dustNiter.name=硝石
 
 item.thermalfoundation.material.dustPyrotheum.name=炽焱粉
 item.thermalfoundation.material.dustCryotheum.name=凛冰粉
@@ -83,7 +104,7 @@ item.thermalfoundation.material.gearSilver.name=银齿轮
 item.thermalfoundation.material.gearLead.name=铅齿轮
 item.thermalfoundation.material.gearNickel.name=镍齿轮
 item.thermalfoundation.material.gearPlatinum.name=铂齿轮
-item.thermalfoundation.material.gearMithril.name=注魔金属齿轮
+item.thermalfoundation.material.gearMithril.name=注魔秘银齿轮
 item.thermalfoundation.material.gearElectrum.name=琥珀金齿轮
 item.thermalfoundation.material.gearInvar.name=因瓦合金齿轮
 item.thermalfoundation.material.gearBronze.name=青铜齿轮
@@ -95,6 +116,9 @@ item.thermalfoundation.material.rodBlizz.name=暴雪棒
 item.thermalfoundation.material.dustBlizz.name=暴雪粉
 
 itemGroup.thermalfoundation.creativeTab=热力工坊
+
+tab.thermalfoundation.lexicon.study=学习关于这个世界的知识, 然后改变你自己的命运.
+tab.thermalfoundation.lexicon.convert=你可以通过更强大的能量来转换等价物品.
 
 tile.thermalfoundation.fluid.redstone.name=熔融红石
 tile.thermalfoundation.fluid.glowstone.name=充能液态荧石
@@ -119,10 +143,10 @@ tile.thermalfoundation.storage.silver.name=银块
 tile.thermalfoundation.storage.lead.name=铅块
 tile.thermalfoundation.storage.nickel.name=镍块
 tile.thermalfoundation.storage.platinum.name=铂块
-tile.thermalfoundation.storage.mithril.name=注魔金属块
+tile.thermalfoundation.storage.mithril.name=注魔秘银块
 tile.thermalfoundation.storage.electrum.name=琥珀金块
 tile.thermalfoundation.storage.invar.name=因瓦合金块
 tile.thermalfoundation.storage.bronze.name=青铜块
-tile.thermalfoundation.storage.signalum.name=信素粉
+tile.thermalfoundation.storage.signalum.name=信素块
 tile.thermalfoundation.storage.lumium.name=流明块
 tile.thermalfoundation.storage.enderium.name=末影块
