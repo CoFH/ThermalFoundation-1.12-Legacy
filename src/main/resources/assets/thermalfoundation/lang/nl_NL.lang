@@ -1,0 +1,152 @@
+#nl_NL
+
+death.attack.blizz=%1$s vond een ijskoude dood!
+death.attack.cryotheum=%1$s vroor dood in ijskoude cryotheum!
+death.attack.cryotheum.player=%1$s vroor dood toen hij vluchtte voor %2$s!
+death.attack.flux=De realiteit van %1$s werd verscheurd door flux!
+death.attack.flux.player=%1$s werd door %2$s doodgefluxt!
+death.attack.pyrotheum=%1$s verwarde gloeiend hete pyrotheum met water!
+death.attack.pyrotheum.player=%1$s verbrandde levend in pyrotheum toen hij vluchtte voor %2$s!
+death.attack.mana=%1$s werd verscheurd door onbewerkte mana!
+death.attack.mana.player=%1$s rende een andere staat van zijn in toen hij vluchtte voor %2$s!
+
+entity.Blizz.name=Blizz
+
+fluid.redstone=Gedestabiliseerde redstone
+fluid.glowstone=Bekrachtigd gloeisteen
+fluid.ender=Resonante ender
+fluid.pyrotheum=Vlammende pyrotheum
+fluid.cryotheum=IJskoude cryotheum
+fluid.mana=Onbewerkte mana
+fluid.steam=Stoom
+fluid.coal=Vloeibare koolstof
+
+item.thermalfoundation.bucket.bucketRedstone.name=Emmer gedestabiliseerde redstone
+item.thermalfoundation.bucket.bucketGlowstone.name=Emmer bekrachtigd gloeisteen
+item.thermalfoundation.bucket.bucketEnder.name=Emmer resonante ender
+item.thermalfoundation.bucket.bucketPyrotheum.name=Emmer vlammende pyrotheum
+item.thermalfoundation.bucket.bucketCryotheum.name=Emmer ijskoude cryotheum
+item.thermalfoundation.bucket.bucketMana.name=Emmer onbewerkte mana
+item.thermalfoundation.bucket.bucketCoal.name=Emmer vloeibare koolstof
+
+info.thermalfoundation.tome.lexicon.1=Converteert items naar gelijke gedaantes.
+info.thermalfoundation.tome.lexicon.2=Rechtsklik (open) om te bestuderen.
+info.thermalfoundation.tome.lexicon.3=om wijsheid te vergaren!
+info.thermalfoundation.tome.lexicon.4=Rechtsklik (open) om items te transmuteren.
+info.thermalfoundation.tome.lexicon.5=om kennis te verliezen.
+item.thermalfoundation.tome.lexicon.name=Forge-lexicon
+item.thermalfoundation.tome.lexiconEmpowered.name=Forge-lexicon (Actief)
+
+item.thermalfoundation.material.dustIron.name=Verpulverd ijzer
+item.thermalfoundation.material.dustGold.name=Verpulverd goud
+item.thermalfoundation.material.dustCoal.name=Verpulverd steenkool
+item.thermalfoundation.material.dustCharcoal.name=Verpulverd houtskool
+item.thermalfoundation.material.dustObsidian.name=Verpulverd obsidiaan
+
+item.thermalfoundation.material.nuggetIron.name=IJzerklompje
+item.thermalfoundation.material.gearIron.name=IJzeren tandwiel
+item.thermalfoundation.material.gearGold.name=Gouden tandwiel
+
+item.thermalfoundation.material.dustSulfur.name=Zwavel
+item.thermalfoundation.material.dustNiter.name=Salpeter
+
+item.thermalfoundation.material.crystalCinnabar.name=Cinnaber
+
+item.thermalfoundation.material.dustCopper.name=Verpulverd koper
+item.thermalfoundation.material.dustTin.name=Verpulverd tin
+item.thermalfoundation.material.dustSilver.name=Verpulverd zilver
+item.thermalfoundation.material.dustLead.name=Verpulverd lood
+item.thermalfoundation.material.dustNickel.name=Verpulverd nikkel
+item.thermalfoundation.material.dustPlatinum.name=Verpulverd platinum
+item.thermalfoundation.material.dustMithril.name=Verpulverd mithril
+item.thermalfoundation.material.dustElectrum.name=Electrum-mengsel
+item.thermalfoundation.material.dustInvar.name=Invar-mengsel
+item.thermalfoundation.material.dustBronze.name=Bronzen mengsel
+item.thermalfoundation.material.dustSignalum.name=Signalum-mengsel
+item.thermalfoundation.material.dustLumium.name=Lumium-mengsel
+item.thermalfoundation.material.dustEnderium.name=Enderium-mengsel
+
+item.thermalfoundation.material.ingotCopper.name=Koperstaaf
+item.thermalfoundation.material.ingotTin.name=Tinstaaf
+item.thermalfoundation.material.ingotSilver.name=Zilverstaaf
+item.thermalfoundation.material.ingotLead.name=Loodstaaf
+item.thermalfoundation.material.ingotNickel.name=Nikkelstaaf
+item.thermalfoundation.material.ingotPlatinum.name=Platinumstaaf
+item.thermalfoundation.material.ingotMithril.name=Mithrilstaaf
+item.thermalfoundation.material.ingotElectrum.name=Electrumstaaf
+item.thermalfoundation.material.ingotInvar.name=Invarstaaf
+item.thermalfoundation.material.ingotBronze.name=Bronsstaaf
+item.thermalfoundation.material.ingotSignalum.name=Signalumstaaf
+item.thermalfoundation.material.ingotLumium.name=Lumiumstaaf
+item.thermalfoundation.material.ingotEnderium.name=Enderiumstaaf
+
+item.thermalfoundation.material.nuggetCopper.name=Koperklompje
+item.thermalfoundation.material.nuggetTin.name=Tinklompje
+item.thermalfoundation.material.nuggetSilver.name=Zilverklompje
+item.thermalfoundation.material.nuggetLead.name=Loodklompje
+item.thermalfoundation.material.nuggetNickel.name=Nikkelklompje
+item.thermalfoundation.material.nuggetPlatinum.name=Platinumklompje
+item.thermalfoundation.material.nuggetMithril.name=Mithrilklompje
+item.thermalfoundation.material.nuggetElectrum.name=Electrumklompje
+item.thermalfoundation.material.nuggetInvar.name=Invarklompje
+item.thermalfoundation.material.nuggetBronze.name=Bronsklompje
+item.thermalfoundation.material.nuggetSignalum.name=Signalumklompje
+item.thermalfoundation.material.nuggetLumium.name=Lumiumklompje
+item.thermalfoundation.material.nuggetEnderium.name=Enderiumklompje
+
+item.thermalfoundation.material.dustPyrotheum.name=Pyrotheumstof
+item.thermalfoundation.material.dustCryotheum.name=Cryotheumstof
+item.thermalfoundation.material.dustMana.name=Manastof
+
+item.thermalfoundation.material.gearCopper.name=Koperen tandwiel
+item.thermalfoundation.material.gearTin.name=Tinnen tandwiel
+item.thermalfoundation.material.gearSilver.name=Zilveren tandwiel
+item.thermalfoundation.material.gearLead.name=Loden tandwiel
+item.thermalfoundation.material.gearNickel.name=Nikkelen tandwiel
+item.thermalfoundation.material.gearPlatinum.name=Platinum tandwiel
+item.thermalfoundation.material.gearMithril.name=Mithril tandwiel
+item.thermalfoundation.material.gearElectrum.name=Electrum tandwiel
+item.thermalfoundation.material.gearInvar.name=Invar tandwiel
+item.thermalfoundation.material.gearBronze.name=Bronzen tandwiel
+item.thermalfoundation.material.gearSignalum.name=Signalum tandwiel
+item.thermalfoundation.material.gearLumium.name=Lumium tandwiel
+item.thermalfoundation.material.gearEnderium.name=Enderium tandwiel
+
+item.thermalfoundation.material.rodBlizz.name=Blizzstaf
+item.thermalfoundation.material.dustBlizz.name=Blizzpoeder
+
+itemGroup.thermalfoundation.creativeTab=Thermal Foundation
+
+tab.thermalfoundation.lexicon.study=Raadpleeg de kennis van de wereld en wijzig je persoonlijk lot.
+tab.thermalfoundation.lexicon.convert=Converteer gelijkwaardige items volgens een geheime reeks regels die door hogere machten zijn vastgesteld.
+
+tile.thermalfoundation.fluid.redstone.name=Gedestabiliseerde redstone
+tile.thermalfoundation.fluid.glowstone.name=Bekrachtigd gloeisteen
+tile.thermalfoundation.fluid.ender.name=Resonante ender
+tile.thermalfoundation.fluid.pyrotheum.name=Vlammende pyrotheum
+tile.thermalfoundation.fluid.cryotheum.name=IJskoude cryotheum
+tile.thermalfoundation.fluid.mana.name=Onbewerkte mana
+tile.thermalfoundation.fluid.steam.name=Stoom
+tile.thermalfoundation.fluid.coal.name=Vloeibare koolstof
+
+tile.thermalfoundation.ore.copper.name=Kopererts
+tile.thermalfoundation.ore.tin.name=Tinerts
+tile.thermalfoundation.ore.silver.name=Zilvererts
+tile.thermalfoundation.ore.lead.name=Looderts
+tile.thermalfoundation.ore.nickel.name=Nikkelerts
+tile.thermalfoundation.ore.platinum.name=Platinumerts
+tile.thermalfoundation.ore.mithril.name=Mithrilerts
+
+tile.thermalfoundation.storage.copper.name=Koperblok
+tile.thermalfoundation.storage.tin.name=Tinblok
+tile.thermalfoundation.storage.silver.name=Zilverblok
+tile.thermalfoundation.storage.lead.name=Loodblok
+tile.thermalfoundation.storage.nickel.name=Nikkelblok
+tile.thermalfoundation.storage.platinum.name=Platinumblok
+tile.thermalfoundation.storage.mithril.name=Mithrilblok
+tile.thermalfoundation.storage.electrum.name=Electrumblok
+tile.thermalfoundation.storage.invar.name=Invarblok
+tile.thermalfoundation.storage.bronze.name=Bronsblok
+tile.thermalfoundation.storage.signalum.name=Signalumblok
+tile.thermalfoundation.storage.lumium.name=Lumiumblok
+tile.thermalfoundation.storage.enderium.name=Enderiumblok
