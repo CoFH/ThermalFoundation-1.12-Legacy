@@ -35,7 +35,7 @@ info.thermalfoundation.tome.lexicon.3=지혜를 얻는 것!
 info.thermalfoundation.tome.lexicon.4=아이템을 바꾸기 위해서 우클릭(열기)
 info.thermalfoundation.tome.lexicon.5=지식을 버리는 것.
 item.thermalfoundation.tome.lexicon.name=포지 렉시콘
-item.thermalfoundation.tome.lexiconEmpowered.name=포지 렉시콘 (권한 부여됨)
+item.thermalfoundation.tome.lexiconEmpowered.name=포지 렉시콘 (권한 부여)
 
 item.thermalfoundation.material.dustIron.name=분쇄된 철
 item.thermalfoundation.material.dustGold.name=분쇄된 금
@@ -115,10 +115,10 @@ item.thermalfoundation.material.gearEnderium.name=엔더리움 톱니바퀴
 item.thermalfoundation.material.rodBlizz.name=블리즈 로드
 item.thermalfoundation.material.dustBlizz.name=블리즈 파우더
 
-itemGroup.thermalfoundation.creativeTab=써멀 파운데이션
+itemGroup.thermalfoundation.creativeTab=써멀 파운데이션[Thermal Foundation]
 
-tab.thermalfoundation.lexicon.study=셰계의 지식을 찾고 당신의 개인적인 운명을 바꿉니다.
-tab.thermalfoundation.lexicon.convert=일련의 규칙에 의해 고도의 마법력으로 같은 아이템들을 바꿔줍니다.
+tab.thermalfoundation.lexicon.study=세계의 지식을 찾고 당신의 운명을 바꿉니다.
+tab.thermalfoundation.lexicon.convert=일련의 규칙에 의해 고도의 마법력으로 같은 아이템종류일 경우 변환해줍니다.
 
 tile.thermalfoundation.fluid.redstone.name=불안정한 레드스톤
 tile.thermalfoundation.fluid.glowstone.name=활력의 발광석
