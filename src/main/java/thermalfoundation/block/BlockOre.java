@@ -107,13 +107,13 @@ public class BlockOre extends Block implements IInitializer {
 	@Override
 	public boolean postInit() {
 
-		GameRegistry.addSmelting(oreCopper, TFItems.ingotCopper, 0.6F);
-		GameRegistry.addSmelting(oreTin, TFItems.ingotTin, 0.7F);
-		GameRegistry.addSmelting(oreSilver, TFItems.ingotSilver, 0.9F);
-		GameRegistry.addSmelting(oreLead, TFItems.ingotLead, 0.8F);
-		GameRegistry.addSmelting(oreNickel, TFItems.ingotNickel, 1.0F);
-		GameRegistry.addSmelting(orePlatinum, TFItems.ingotPlatinum, 1.0F);
-		GameRegistry.addSmelting(oreMithril, TFItems.ingotMithril, 1.5F);
+		ItemHelper.addSmelting(TFItems.ingotCopper, oreCopper, 0.6F);
+		ItemHelper.addSmelting(TFItems.ingotTin, oreTin, 0.7F);
+		ItemHelper.addSmelting(TFItems.ingotSilver, oreSilver, 0.9F);
+		ItemHelper.addSmelting(TFItems.ingotLead, oreLead, 0.8F);
+		ItemHelper.addSmelting(TFItems.ingotNickel, oreNickel, 1.0F);
+		ItemHelper.addSmelting(TFItems.ingotPlatinum, orePlatinum, 1.0F);
+		ItemHelper.addSmelting(TFItems.ingotMithril, oreMithril, 1.5F);
 
 		return true;
 	}
