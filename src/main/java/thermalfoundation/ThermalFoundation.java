@@ -6,6 +6,7 @@ import cofh.core.util.ConfigHandler;
 import cofh.mod.BaseMod;
 import cofh.mod.updater.UpdateManager;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.CustomProperty;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
@@ -34,7 +35,8 @@ import thermalfoundation.item.TFItems;
 import thermalfoundation.util.LexiconManager;
 
 @Mod(modid = ThermalFoundation.modId, name = ThermalFoundation.modName, version = ThermalFoundation.version, dependencies = ThermalFoundation.dependencies,
-		canBeDeactivated = false)
+		canBeDeactivated = false,
+		customProperties = @CustomProperty(k = "cofhversion", v = "true"))
 public class ThermalFoundation extends BaseMod {
 
 	public static final String modId = "ThermalFoundation";
