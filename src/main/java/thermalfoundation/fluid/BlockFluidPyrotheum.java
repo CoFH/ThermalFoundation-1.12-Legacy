@@ -144,7 +144,6 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		int x2 = x;
 		int y2 = y;
 		int z2 = z;
-		int result = -1;
 
 		for (int i = 0; i < 6; i++) {
 			x2 = x + BlockHelper.SIDE_COORD_MOD[i][0];

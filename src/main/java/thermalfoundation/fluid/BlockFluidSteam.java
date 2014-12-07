@@ -12,7 +12,7 @@ public class BlockFluidSteam extends BlockFluidCoFHBase {
 	public static final int LEVELS = 8;
 	public static final Material materialFluidSteam = new MaterialLiquid(MapColor.silverColor);
 
-	private static boolean effect = true;
+	//private static boolean effect = true;
 
 	public BlockFluidSteam() {
 

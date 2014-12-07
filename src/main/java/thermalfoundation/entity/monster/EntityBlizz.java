@@ -14,7 +14,6 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityBlaze;
@@ -190,6 +189,7 @@ public class EntityBlizz extends EntityMob {
 	/**
 	 * Gets the closest victim to the point within the specified distance (distance can be set to less than 0 to not limit the distance). Args: x, y, z, dist
 	 */
+	@SuppressWarnings("unchecked")
 	public Entity getClosestVictim(double dist) {
 
 		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(this.posX - dist, this.posY - dist, this.posZ - dist, this.posX + dist, this.posY + dist, this.posZ
@@ -267,8 +267,8 @@ public class EntityBlizz extends EntityMob {
 						this.setInAttackMode(false); // Unflary sadness :(
 					}
 					if (this.firingState > 1) {
-						EntityLivingBase tgt = (EntityLivingBase) target;
-						double dY = tgt.boundingBox.minY + tgt.height / 2.0F - (this.posY + this.height / 2.0F);
+						//EntityLivingBase tgt = (EntityLivingBase) target;
+						//double dY = tgt.boundingBox.minY + tgt.height / 2.0F - (this.posY + this.height / 2.0F);
 						EntityBlizzSlowball ball = new EntityBlizzSlowball(this.worldObj, this);
 						ball.posY = this.posY + this.height / 2.0F + 0.5D;
 

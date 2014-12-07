@@ -43,6 +43,19 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		addInteraction(Blocks.dirt, 0, Blocks.grass);
 		addInteraction(Blocks.dirt, 1, Blocks.dirt, 2);
 		addInteraction(Blocks.glass, Blocks.sand);
+		addInteraction(Blocks.stained_glass, -1, Blocks.glass);
+		addInteraction(Blocks.diamond_ore, -1, TFBlocks.blockOre, 1);
+		addInteraction(Blocks.cauldron, -1, Blocks.carpet, 1);
+		addInteraction(Blocks.cactus, -1, Blocks.cake, 5);
+		addInteraction(Blocks.enchanting_table, -1, Blocks.brewing_stand, 0);
+		addInteraction(Blocks.bookshelf, 0, Blocks.chest, 0);
+		addInteraction(Blocks.ender_chest, -1, TFBlocks.blockFluidEnder, 1);
+		addInteraction(Blocks.dragon_egg, -1, Blocks.bedrock, 1);
+		addInteraction(Blocks.redstone_ore, -1, Blocks.lit_redstone_ore, 0);
+		addInteraction(Blocks.lapis_ore, -1, Blocks.lapis_block, 0);
+		addInteraction(Blocks.farmland, -1, Blocks.mycelium, 0);
+		for (int i = 8; i --> 0; )
+			addInteraction(Blocks.double_stone_slab, i, Blocks.double_stone_slab, i + 8);
 		addInteraction(TFBlocks.blockOre, 2, TFBlocks.blockOre, 6);
 		addInteraction(TFBlocks.blockOre, 3, Blocks.gold_ore);
 		addInteraction(TFBlocks.blockStorage, 2, TFBlocks.blockStorage, 6);
@@ -125,7 +138,6 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		int x2 = x;
 		int y2 = y;
 		int z2 = z;
-		int result = -1;
 
 		for (int i = 0; i < 6; i++) {
 			x2 = x + BlockHelper.SIDE_COORD_MOD[i][0];
