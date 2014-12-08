@@ -29,6 +29,7 @@ public class BlockFluidSteam extends BlockFluidCoFHBase {
 	public boolean preInit() {
 
 		GameRegistry.registerBlock(this, "FluidSteam");
+
 		return true;
 	}
 

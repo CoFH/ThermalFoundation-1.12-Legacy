@@ -48,6 +48,12 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		setHardness(1000F);
 		setLightOpacity(1);
 		setParticleColor(0.15F, 0.7F, 1.0F);
+	}
+
+	@Override
+	public boolean preInit() {
+
+		GameRegistry.registerBlock(this, "FluidCryotheum");
 
 		addInteraction(Blocks.grass, Blocks.dirt);
 		addInteraction(Blocks.water, 0, Blocks.ice);
@@ -62,10 +68,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		addInteraction(Blocks.tallgrass, Blocks.air);
 		addInteraction(Blocks.fire, Blocks.air);
 		addInteraction(TFBlocks.blockFluidGlowstone, 0, Blocks.glowstone);
-	}
-
-	@Override
-	public boolean preInit() {
 
 		String category = "tweak";
 		String comment = "Enable this for Fluid Cryotheum to be worse than lava, except cold.";
@@ -74,7 +76,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		comment = "Enable this for Fluid Cryotheum Source blocks to gradually fall downwards.";
 		enableSourceFall = ThermalFoundation.config.get(category, "Fluid.Cryotheum.Fall", enableSourceFall, comment);
 
-		GameRegistry.registerBlock(this, "FluidCryotheum");
 		return true;
 	}
 

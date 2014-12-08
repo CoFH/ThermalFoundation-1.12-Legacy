@@ -33,11 +33,12 @@ public class BlockFluidCoal extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
+		GameRegistry.registerBlock(this, "FluidCoal");
+
 		String category = "tweak";
 		String comment = "Enable this for Fluid Coal to be flammable.";
 		effect = ThermalFoundation.config.get(category, "Fluid.Coal.Flammable", true, comment);
 
-		GameRegistry.registerBlock(this, "FluidCoal");
 		return true;
 	}
 

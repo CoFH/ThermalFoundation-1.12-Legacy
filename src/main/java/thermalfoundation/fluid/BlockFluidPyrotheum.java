@@ -40,6 +40,12 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		setHardness(1000F);
 		setLightOpacity(1);
 		setParticleColor(1.0F, 0.7F, 0.15F);
+	}
+
+	@Override
+	public boolean preInit() {
+
+		GameRegistry.registerBlock(this, "FluidPyrotheum");
 
 		addInteraction(Blocks.cobblestone, Blocks.stone);
 		addInteraction(Blocks.grass, Blocks.dirt);
@@ -54,10 +60,6 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		for (int i = 0; i < 8; i++) {
 			addInteraction(Blocks.stone_stairs, i, Blocks.stone_brick_stairs, i);
 		}
-	}
-
-	@Override
-	public boolean preInit() {
 
 		String category = "tweak";
 		String comment = "Enable this for Fluid Pyrotheum to be worse than lava.";
@@ -66,7 +68,6 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		comment = "Enable this for Fluid Pyrotheum Source blocks to gradually fall downwards.";
 		enableSourceFall = ThermalFoundation.config.get(category, "Fluid.Pyrotheum.Fall", enableSourceFall, comment);
 
-		GameRegistry.registerBlock(this, "FluidPyrotheum");
 		return true;
 	}
 

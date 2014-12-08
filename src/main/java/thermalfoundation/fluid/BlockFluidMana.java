@@ -39,6 +39,12 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		setHardness(2000F);
 		setLightOpacity(2);
 		setParticleColor(0.2F, 0.0F, 0.4F);
+	}
+
+	@Override
+	public boolean preInit() {
+
+		GameRegistry.registerBlock(this, "FluidMana");
 
 		addInteraction(Blocks.dirt, 0, Blocks.grass);
 		addInteraction(Blocks.dirt, 1, Blocks.dirt, 2);
@@ -60,16 +66,11 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		addInteraction(TFBlocks.blockOre, 3, Blocks.gold_ore);
 		addInteraction(TFBlocks.blockStorage, 2, TFBlocks.blockStorage, 6);
 		addInteraction(TFBlocks.blockStorage, 3, Blocks.gold_block);
-	}
-
-	@Override
-	public boolean preInit() {
 
 		String category = "tweak";
 		String comment = "Enable this for Fluid Mana to do...things.";
 		effect = ThermalFoundation.config.get(category, "Fluid.Mana.Effect", true, comment);
 
-		GameRegistry.registerBlock(this, "FluidMana");
 		return true;
 	}
 
@@ -170,6 +171,7 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		if (hasInteraction(block, bMeta)) {
 			result = getInteraction(block, bMeta);
 			world.setBlock(x, y, z, result.block, result.metadata, 3);
+			triggerInteractionEffects(world, x, y, z);
 		} else if (world.isSideSolid(x, y, z, ForgeDirection.UP) && world.isAirBlock(x, y + 1, z)) {
 			if (MathHelper.RANDOM.nextInt(2) == 0) {
 				world.setBlock(x, y + 1, z, Blocks.snow_layer, 0, 3);
@@ -184,8 +186,8 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		if (MathHelper.RANDOM.nextInt(10) == 0) {
 			world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, "random.orb", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
 		}
-		for (int i = 0; i < 4; i++) {
-			world.spawnParticle("enchantmenttable", x + Math.random(), y + 1.2D, z + Math.random(), 0.0D, 0.0D, 0.0D);
+		for (int i = 0; i < 8; i++) {
+			world.spawnParticle("enchantmenttable", x + Math.random() * 1.1, y + 1.3D, z + Math.random() * 1.1, 0.0D, -0.5D, 0.0D);
 		}
 	}
 

@@ -33,11 +33,12 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
+		GameRegistry.registerBlock(this, "FluidRedstone");
+
 		String category = "tweak";
 		String comment = "Enable this for Fluid Redstone to emit a signal proportional to its fluid level.";
 		effect = ThermalFoundation.config.get(category, "Fluid.Redstone.Effect", true, comment);
 
-		GameRegistry.registerBlock(this, "FluidRedstone");
 		return true;
 	}
 

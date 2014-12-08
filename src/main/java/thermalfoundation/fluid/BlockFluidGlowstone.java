@@ -45,6 +45,8 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
+		GameRegistry.registerBlock(this, "FluidGlowstone");
+
 		String category = "tweak";
 		String comment = "Enable this for Fluid Glowstone to do...something.";
 		effect = ThermalFoundation.config.get(category, "Fluid.Glowstone.Effect", true, comment);
@@ -65,7 +67,7 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 			ThermalFoundation.log.log(Level.INFO, "'Fluid.Glowstone.MaxHeight' config value is out of acceptable range. Using default: " + maxGlowstoneHeight
 					+ ".");
 		}
-		GameRegistry.registerBlock(this, "FluidGlowstone");
+
 		return true;
 	}
 
