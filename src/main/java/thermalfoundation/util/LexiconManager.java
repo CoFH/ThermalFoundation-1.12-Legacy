@@ -23,10 +23,11 @@ import thermalfoundation.ThermalFoundation;
 
 public class LexiconManager {
 
+	@SuppressWarnings("unused")
 	private static LexiconManager instance = new LexiconManager();
 
-	private static HashSet<String> listNames = new HashSet();
-	private static HashSet<ItemWrapper> listOres = new HashSet();
+	private static HashSet<String> listNames = new HashSet<String>();
+	private static HashSet<ItemWrapper> listOres = new HashSet<ItemWrapper>();
 
 	public static boolean isWhitelist = true;
 	public static boolean logEntries = false;
@@ -46,13 +47,14 @@ public class LexiconManager {
 		logEntries = ThermalFoundation.config.get("general", "Lexicon.LogEntries", logEntries, comment);
 	}
 
+	@SuppressWarnings("resource")
 	public static void generateList() {
 
 		theList = isWhitelist ? new File(CoFHProps.configDir, "/cofh/Lexicon-Whitelist.cfg") : new File(CoFHProps.configDir, "/cofh/Lexicon-Blacklist.cfg");
 
 		boolean writingDefaultFile = false;
 		BufferedWriter out = null;
-		ArrayList defaultList = new ArrayList();
+		ArrayList<String> defaultList = new ArrayList<String>();
 
 		if ((writeDefaultFile) && (!theList.exists())) {
 			try {
@@ -83,7 +85,7 @@ public class LexiconManager {
 			}
 			try {
 				for (int i = 0; i < defaultList.size(); i++) {
-					out.write((String) defaultList.get(i) + "\n");
+					out.write(defaultList.get(i) + "\n");
 				}
 				out.close();
 				defaultList.clear();
