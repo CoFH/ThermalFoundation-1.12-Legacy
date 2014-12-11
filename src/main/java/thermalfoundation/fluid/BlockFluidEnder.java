@@ -8,7 +8,6 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -47,7 +46,7 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 
-		if (!effect) {
+		if (!effect || world.isRemote) {
 			return;
 		}
 		if (world.getTotalWorldTime() % 4 == 0) {
@@ -56,13 +55,7 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 			int z2 = z - 8 + world.rand.nextInt(17);
 
 			if (!world.getBlock(x2, y2, z2).getMaterial().isSolid()) {
-				if (entity instanceof EntityLivingBase) {
-					CoreUtils.teleportEntityTo((EntityLivingBase) entity, x2, y2, z2);
-				} else {
-					entity.setPosition(x2, y2, z2);
-					entity.worldObj.playSoundEffect(x2, y2, z2, "mob.endermen.portal", 1.0F, 1.0F);
-					entity.playSound("mob.endermen.portal", 1.0F, 1.0F);
-				}
+				CoreUtils.teleportEntityTo(entity, x2, y2, z2);
 			}
 		}
 	}
