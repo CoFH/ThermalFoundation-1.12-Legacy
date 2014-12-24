@@ -1,14 +1,16 @@
 package thermalfoundation.core;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntitySlime;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 
 import thermalfoundation.entity.monster.EntityBlizz;
 import thermalfoundation.entity.projectile.EntityBlizzBall;
 import thermalfoundation.entity.projectile.EntityBlizzSlowball;
+import thermalfoundation.item.TFItems;
 
 public class Proxy {
 
@@ -23,16 +25,16 @@ public class Proxy {
 
 	}
 
-	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
-	public void registerIcons(TextureStitchEvent.Pre event) {
+	public void livingDrops(LivingDropsEvent evt) {
 
-	}
-
-	@SideOnly(Side.CLIENT)
-	@SubscribeEvent
-	public void initializeIcons(TextureStitchEvent.Post event) {
-
+		Entity entity = evt.entity;
+		if (entity.isImmuneToFire()) {
+			boolean s = entity instanceof EntitySlime;
+			if (evt.entityLiving.getRNG().nextInt(6 + (s ? 16 : 0)) != 0)
+				return;
+			evt.drops.add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, TFItems.dustSulfur.copy()));
+		}
 	}
 
 }

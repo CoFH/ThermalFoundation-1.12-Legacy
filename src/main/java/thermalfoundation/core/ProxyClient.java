@@ -27,7 +27,6 @@ public class ProxyClient extends Proxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBlizzSlowball.class, new RenderSnowball(Items.snowball));
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void registerIcons(TextureStitchEvent.Pre event) {
@@ -44,7 +43,6 @@ public class ProxyClient extends Proxy {
 		}
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void initializeIcons(TextureStitchEvent.Post event) {
