@@ -153,7 +153,7 @@ item.thermalfoundation.armor.bronzeBoots.name=Tinker's Alloy Boots
 item.thermalfoundation.armor.invarHelmet.name=Invar Helmet
 item.thermalfoundation.armor.invarPlate.name=Invar Chestplate
 item.thermalfoundation.armor.invarLegs.name=Invar Leggings
-item.thermalfoundation.armor.invarBoots.name=Invar boots
+item.thermalfoundation.armor.invarBoots.name=Invar Boots
 
 item.thermalfoundation.armor.platinumHelmet.name=Shiny Helmet
 item.thermalfoundation.armor.platinumPlate.name=Shiny Chestplate
@@ -249,7 +249,6 @@ item.thermalfoundation.tool.platinumShears.name=Shiny Shears
 item.thermalfoundation.tool.platinumFishingRod.name=Shiny Fishing Rod
 item.thermalfoundation.tool.platinumSickle.name=Shiny Sickle
 item.thermalfoundation.tool.platinumBow.name=Shiny Bow
-
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation Tools
