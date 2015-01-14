@@ -115,7 +115,145 @@ item.thermalfoundation.material.gearEnderium.name=Enderium Gear
 item.thermalfoundation.material.rodBlizz.name=Blizz Rod
 item.thermalfoundation.material.dustBlizz.name=Blizz Powder
 
+item.thermalfoundation.armor.copperHelmet.name=Copper Helmet
+item.thermalfoundation.armor.copperPlate.name=Copper Chestplate
+item.thermalfoundation.armor.copperLegs.name=Copper Leggings
+item.thermalfoundation.armor.copperBoots.name=Copper Boots
+
+item.thermalfoundation.armor.tinHelmet.name=Tin Helmet
+item.thermalfoundation.armor.tinPlate.name=Tin Chestplate
+item.thermalfoundation.armor.tinLegs.name=Tin Leggings
+item.thermalfoundation.armor.tinBoots.name=Tin Boots
+
+item.thermalfoundation.armor.electrumHelmet.name=Electrum Helmet
+item.thermalfoundation.armor.electrumPlate.name=Electrum Chestplate
+item.thermalfoundation.armor.electrumLegs.name=Electrum Leggings
+item.thermalfoundation.armor.electrumBoots.name=Electrum Boots
+
+item.thermalfoundation.armor.leadHelmet.name=Lead Helmet
+item.thermalfoundation.armor.leadPlate.name=Lead Chestplate
+item.thermalfoundation.armor.leadLegs.name=Lead Leggings
+item.thermalfoundation.armor.leadBoots.name=Lead Boots
+
+item.thermalfoundation.armor.silverHelmet.name=Silver Helmet
+item.thermalfoundation.armor.silverPlate.name=Silver Chestplate
+item.thermalfoundation.armor.silverLegs.name=Silver Leggings
+item.thermalfoundation.armor.silverBoots.name=Silver Boots
+
+item.thermalfoundation.armor.nickelHelmet.name=Ferrous Helmet
+item.thermalfoundation.armor.nickelPlate.name=Ferrous Chestplate
+item.thermalfoundation.armor.nickelLegs.name=Ferrous Leggings
+item.thermalfoundation.armor.nickelBoots.name=Ferrous Boots
+
+item.thermalfoundation.armor.bronzeHelmet.name=Tinker's Alloy Helmet
+item.thermalfoundation.armor.bronzePlate.name=Tinker's Alloy Chestplate
+item.thermalfoundation.armor.bronzeLegs.name=Tinker's Alloy Leggings
+item.thermalfoundation.armor.bronzeBoots.name=Tinker's Alloy Boots
+
+item.thermalfoundation.armor.invarHelmet.name=Invar Helmet
+item.thermalfoundation.armor.invarPlate.name=Invar Chestplate
+item.thermalfoundation.armor.invarLegs.name=Invar Leggings
+item.thermalfoundation.armor.invarBoots.name=Invar boots
+
+item.thermalfoundation.armor.platinumHelmet.name=Shiny Helmet
+item.thermalfoundation.armor.platinumPlate.name=Shiny Chestplate
+item.thermalfoundation.armor.platinumLegs.name=Shiny Leggings
+item.thermalfoundation.armor.platinumBoots.name=Shiny Boots
+
+item.thermalfoundation.tool.copperSword.name=Copper Sword
+item.thermalfoundation.tool.copperShovel.name=Copper Shovel
+item.thermalfoundation.tool.copperPickaxe.name=Copper Pickaxe
+item.thermalfoundation.tool.copperAxe.name=Copper Axe
+item.thermalfoundation.tool.copperHoe.name=Copper Hoe
+item.thermalfoundation.tool.copperShears.name=Copper Shears
+item.thermalfoundation.tool.copperFishingRod.name=Copper Fishing Rod
+item.thermalfoundation.tool.copperSickle.name=Copper Sickle
+item.thermalfoundation.tool.copperBow.name=Copper Bow
+
+item.thermalfoundation.tool.tinSword.name=Tin Sword
+item.thermalfoundation.tool.tinShovel.name=Tin Shovel
+item.thermalfoundation.tool.tinPickaxe.name=Tin Pickaxe
+item.thermalfoundation.tool.tinAxe.name=Tin Axe
+item.thermalfoundation.tool.tinHoe.name=Tin Hoe
+item.thermalfoundation.tool.tinShears.name=Tin Shears
+item.thermalfoundation.tool.tinFishingRod.name=Tin Fishing Rod
+item.thermalfoundation.tool.tinSickle.name=Tin Sickle
+item.thermalfoundation.tool.tinBow.name=Tin Bow
+
+item.thermalfoundation.tool.electrumSword.name=Electrum Sword
+item.thermalfoundation.tool.electrumShovel.name=Electrum Shovel
+item.thermalfoundation.tool.electrumPickaxe.name=Electrum Pickaxe
+item.thermalfoundation.tool.electrumAxe.name=Electrum Axe
+item.thermalfoundation.tool.electrumHoe.name=Electrum Hoe
+item.thermalfoundation.tool.electrumShears.name=Electrum Shears
+item.thermalfoundation.tool.electrumFishingRod.name=Electrum Fishing Rod
+item.thermalfoundation.tool.electrumSickle.name=Electrum Sickle
+item.thermalfoundation.tool.electrumBow.name=Electrum Bow
+
+item.thermalfoundation.tool.leadSword.name=Lead Sword
+item.thermalfoundation.tool.leadShovel.name=Lead Shovel
+item.thermalfoundation.tool.leadPickaxe.name=Lead Pickaxe
+item.thermalfoundation.tool.leadAxe.name=Lead Axe
+item.thermalfoundation.tool.leadHoe.name=Lead Hoe
+item.thermalfoundation.tool.leadShears.name=Lead Shears
+item.thermalfoundation.tool.leadFishingRod.name=Lead Fishing Rod
+item.thermalfoundation.tool.leadSickle.name=Lead Sickle
+item.thermalfoundation.tool.leadBow.name=Lead Bow
+
+item.thermalfoundation.tool.silverSword.name=Silver Sword
+item.thermalfoundation.tool.silverShovel.name=Silver Shovel
+item.thermalfoundation.tool.silverPickaxe.name=Silver Pickaxe
+item.thermalfoundation.tool.silverAxe.name=Silver Axe
+item.thermalfoundation.tool.silverHoe.name=Silver Hoe
+item.thermalfoundation.tool.silverShears.name=Silver Shears
+item.thermalfoundation.tool.silverFishingRod.name=Silver Fishing Rod
+item.thermalfoundation.tool.silverSickle.name=Silver Sickle
+item.thermalfoundation.tool.silverBow.name=Silver Bow
+
+item.thermalfoundation.tool.nickelSword.name=Ferrous Sword
+item.thermalfoundation.tool.nickelShovel.name=Ferrous Shovel
+item.thermalfoundation.tool.nickelPickaxe.name=Ferrous Pickaxe
+item.thermalfoundation.tool.nickelAxe.name=Ferrous Axe
+item.thermalfoundation.tool.nickelHoe.name=Ferrous Hoe
+item.thermalfoundation.tool.nickelShears.name=Ferrous Shears
+item.thermalfoundation.tool.nickelFishingRod.name=Ferrous Fishing Rod
+item.thermalfoundation.tool.nickelSickle.name=Ferrous Sickle
+item.thermalfoundation.tool.nickelBow.name=Ferrous Bow
+
+item.thermalfoundation.tool.bronzeSword.name=Bronze Sword
+item.thermalfoundation.tool.bronzeShovel.name=Bronze Shovel
+item.thermalfoundation.tool.bronzePickaxe.name=Bronze Pickaxe
+item.thermalfoundation.tool.bronzeAxe.name=Bronze Axe
+item.thermalfoundation.tool.bronzeHoe.name=Bronze Hoe
+item.thermalfoundation.tool.bronzeShears.name=Bronze Shears
+item.thermalfoundation.tool.bronzeFishingRod.name=Bronze Fishing Rod
+item.thermalfoundation.tool.bronzeSickle.name=Bronze Sickle
+item.thermalfoundation.tool.bronzeBow.name=Bronze Bow
+
+item.thermalfoundation.tool.invarSword.name=Invar Sword
+item.thermalfoundation.tool.invarShovel.name=Invar Shovel
+item.thermalfoundation.tool.invarPickaxe.name=Invar Pickaxe
+item.thermalfoundation.tool.invarAxe.name=Invar Axe
+item.thermalfoundation.tool.invarHoe.name=Invar Hoe
+item.thermalfoundation.tool.invarShears.name=Invar Shears
+item.thermalfoundation.tool.invarFishingRod.name=Invar Fishing Rod
+item.thermalfoundation.tool.invarSickle.name=Invar Sickle
+item.thermalfoundation.tool.invarBow.name=Invar Bow
+
+item.thermalfoundation.tool.platinumSword.name=Shiny Sword
+item.thermalfoundation.tool.platinumShovel.name=Shiny Shovel
+item.thermalfoundation.tool.platinumPickaxe.name=Shiny Pickaxe
+item.thermalfoundation.tool.platinumAxe.name=Shiny Axe
+item.thermalfoundation.tool.platinumHoe.name=Shiny Hoe
+item.thermalfoundation.tool.platinumShears.name=Shiny Shears
+item.thermalfoundation.tool.platinumFishingRod.name=Shiny Fishing Rod
+item.thermalfoundation.tool.platinumSickle.name=Shiny Sickle
+item.thermalfoundation.tool.platinumBow.name=Shiny Bow
+
+
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
+itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation Tools
+itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation Armor
 
 tab.thermalfoundation.lexicon.study=Consult the knowledge of the world and alter your personal destiny.
 tab.thermalfoundation.lexicon.convert=Convert equivalent items according to an arcane set of rules laid down by higher powers.

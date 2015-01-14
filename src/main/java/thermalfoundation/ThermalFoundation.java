@@ -20,6 +20,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import java.io.File;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 
@@ -31,11 +32,12 @@ import thermalfoundation.core.Proxy;
 import thermalfoundation.fluid.TFFluids;
 import thermalfoundation.gui.GuiHandler;
 import thermalfoundation.gui.TFCreativeTab;
+import thermalfoundation.item.Equipment;
 import thermalfoundation.item.TFItems;
 import thermalfoundation.util.LexiconManager;
 
-@Mod(modid = ThermalFoundation.modId, name = ThermalFoundation.modName, version = ThermalFoundation.version, dependencies = ThermalFoundation.dependencies,
-		canBeDeactivated = false,
+@Mod(modid = ThermalFoundation.modId, name = ThermalFoundation.modName, version = ThermalFoundation.version,
+		dependencies = ThermalFoundation.dependencies, canBeDeactivated = false,
 		customProperties = @CustomProperty(k = "cofhversion", v = "true"))
 public class ThermalFoundation extends BaseMod {
 
@@ -56,7 +58,19 @@ public class ThermalFoundation extends BaseMod {
 	public static final ConfigHandler config = new ConfigHandler(version);
 	public static final GuiHandler guiHandler = new GuiHandler();
 
-	public static final CreativeTabs tab = new TFCreativeTab();
+	public static final CreativeTabs tabItems = new TFCreativeTab();
+	public static final CreativeTabs tabTools = new TFCreativeTab("Tools") {
+		@Override
+		protected ItemStack getStack() {
+			return Equipment.Invar.toolPickaxe;
+		}
+	};
+	public static final CreativeTabs tabArmor = new TFCreativeTab("Armor") {
+		@Override
+		protected ItemStack getStack() {
+			return Equipment.Invar.armorPlate;
+		}
+	};
 
 	/* INIT SEQUENCE */
 	public ThermalFoundation() {
@@ -76,6 +90,7 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.preInit();
 		TFItems.preInit();
 		TFBlocks.preInit();
+		Equipment.preInit();
 
 		LexiconManager.preInit();
 
@@ -88,6 +103,7 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.initialize();
 		TFItems.initialize();
 		TFBlocks.initialize();
+		Equipment.initialize();
 
 		/* Register Handlers */
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, guiHandler);
@@ -100,6 +116,7 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.postInit();
 		TFItems.postInit();
 		TFBlocks.postInit();
+		Equipment.postInit();
 
 		proxy.registerEntities();
 		proxy.registerRenderInformation();

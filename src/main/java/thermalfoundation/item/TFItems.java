@@ -21,8 +21,8 @@ public class TFItems {
 	public static void preInit() {
 
 		itemLexicon = (ItemLexicon) new ItemLexicon().setUnlocalizedName("tome", "lexicon");
-		itemBucket = (ItemBucket) new ItemBucket("thermalfoundation").setUnlocalizedName("bucket").setCreativeTab(ThermalFoundation.tab);
-		itemMaterial = (ItemBase) new ItemBase("thermalfoundation").setUnlocalizedName("material").setCreativeTab(ThermalFoundation.tab);
+		itemBucket = (ItemBucket) new ItemBucket("thermalfoundation").setUnlocalizedName("bucket").setCreativeTab(ThermalFoundation.tabItems);
+		itemMaterial = (ItemBase) new ItemBase("thermalfoundation").setUnlocalizedName("material").setCreativeTab(ThermalFoundation.tabItems);
 
 		bucketRedstone = itemBucket.addOreDictItem(0, "bucketRedstone", 1);
 		bucketGlowstone = itemBucket.addOreDictItem(1, "bucketGlowstone", 1);

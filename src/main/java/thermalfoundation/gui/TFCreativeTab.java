@@ -11,16 +11,28 @@ import thermalfoundation.item.TFItems;
 
 public class TFCreativeTab extends CreativeTabs {
 
+	private final String label;
+
 	public TFCreativeTab() {
 
-		super("ThermalFoundation");
+		this("");
+	}
+
+	public TFCreativeTab(String label) {
+
+		super("ThermalFoundation" + label);
+		this.label = label;
+	}
+
+	protected ItemStack getStack() {
+		return TFItems.lexicon;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ItemStack getIconItemStack() {
 
-		return TFItems.lexicon;
+		return getStack();
 	}
 
 	@Override
@@ -34,7 +46,7 @@ public class TFCreativeTab extends CreativeTabs {
 	@SideOnly(Side.CLIENT)
 	public String getTabLabel() {
 
-		return "thermalfoundation.creativeTab";
+		return "thermalfoundation.creativeTab" + label;
 	}
 
 }
