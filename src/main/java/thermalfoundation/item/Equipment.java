@@ -12,8 +12,6 @@ import cofh.core.item.tool.ItemSickleAdv;
 import cofh.core.item.tool.ItemSwordAdv;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-import java.util.UUID;
-
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item.ToolMaterial;
@@ -34,19 +32,26 @@ public enum Equipment {
 		@Override
 		protected final void createArmor() {
 
-			UUID weightID = UUID.fromString("D1F49626-D81F-493D-BC00-3E33C6580CE2");
-			UUID moveID = UUID.fromString("19AEB387-97BF-4A49-84C5-B4B95B561973");
-			final AttributeModifier knockbackBonus = new AttributeModifier(weightID, "lead weight bonus", .25, 0);
-			final AttributeModifier movementBonus = new AttributeModifier(moveID, "lead weight bonus", -.15, 2);
+			AttributeModifier knockbackBonus;
+			AttributeModifier movementBonus;
+
+			knockbackBonus = new AttributeModifier("lead weight bonus", .25, 0);
+			movementBonus = new AttributeModifier("lead weight bonus", -.15, 2);
 			itemHelmet = new ItemArmorAdv(ARMOR_MATERIAL, 0);
 			itemHelmet.putAttribute("generic.knockbackResistance", knockbackBonus);
 			itemHelmet.putAttribute("generic.movementSpeed", movementBonus);
+			knockbackBonus = new AttributeModifier("lead weight bonus", .25, 0);
+			movementBonus = new AttributeModifier("lead weight bonus", -.15, 2);
 			itemPlate = new ItemArmorAdv(ARMOR_MATERIAL, 1);
 			itemPlate.putAttribute("generic.knockbackResistance", knockbackBonus);
 			itemPlate.putAttribute("generic.movementSpeed", movementBonus);
+			knockbackBonus = new AttributeModifier("lead weight bonus", .25, 0);
+			movementBonus = new AttributeModifier("lead weight bonus", -.15, 2);
 			itemLegs = new ItemArmorAdv(ARMOR_MATERIAL, 2);
 			itemLegs.putAttribute("generic.knockbackResistance", knockbackBonus);
 			itemLegs.putAttribute("generic.movementSpeed", movementBonus);
+			knockbackBonus = new AttributeModifier("lead weight bonus", .25, 0);
+			movementBonus = new AttributeModifier("lead weight bonus", -.15, 2);
 			itemBoots = new ItemArmorAdv(ARMOR_MATERIAL, 3);
 			itemBoots.putAttribute("generic.knockbackResistance", knockbackBonus);
 			itemBoots.putAttribute("generic.movementSpeed", movementBonus);
@@ -60,19 +65,26 @@ public enum Equipment {
 		@Override
 		protected final void createArmor() {
 
-			UUID weightID = UUID.fromString("D1F49626-D81F-493D-BC00-3E33C6580CE2");
-			UUID moveID = UUID.fromString("19AEB387-97BF-4A49-84C5-B4B95B561973");
-			final AttributeModifier knockbackBonus = new AttributeModifier(weightID, "platinum weight bonus", .20, 0);
-			final AttributeModifier movementBonus = new AttributeModifier(moveID, "platinum weight bonus", -.08, 2);
+			AttributeModifier knockbackBonus;
+			AttributeModifier movementBonus;
+
+			knockbackBonus = new AttributeModifier("platinum weight bonus", .20, 0);
+			movementBonus = new AttributeModifier("platinum weight bonus", -.08, 2);
 			itemHelmet = new ItemArmorAdv(ARMOR_MATERIAL, 0);
 			itemHelmet.putAttribute("generic.knockbackResistance", knockbackBonus);
 			itemHelmet.putAttribute("generic.movementSpeed", movementBonus);
+			knockbackBonus = new AttributeModifier("platinum weight bonus", .20, 0);
+			movementBonus = new AttributeModifier("platinum weight bonus", -.08, 2);
 			itemPlate = new ItemArmorAdv(ARMOR_MATERIAL, 1);
 			itemPlate.putAttribute("generic.knockbackResistance", knockbackBonus);
 			itemPlate.putAttribute("generic.movementSpeed", movementBonus);
+			knockbackBonus = new AttributeModifier("platinum weight bonus", .20, 0);
+			movementBonus = new AttributeModifier("platinum weight bonus", -.08, 2);
 			itemLegs = new ItemArmorAdv(ARMOR_MATERIAL, 2);
 			itemLegs.putAttribute("generic.knockbackResistance", knockbackBonus);
 			itemLegs.putAttribute("generic.movementSpeed", movementBonus);
+			knockbackBonus = new AttributeModifier("platinum weight bonus", .20, 0);
+			movementBonus = new AttributeModifier("platinum weight bonus", -.08, 2);
 			itemBoots = new ItemArmorAdv(ARMOR_MATERIAL, 3);
 			itemBoots.putAttribute("generic.knockbackResistance", knockbackBonus);
 			itemBoots.putAttribute("generic.movementSpeed", movementBonus);
