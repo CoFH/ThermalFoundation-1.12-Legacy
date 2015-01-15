@@ -180,7 +180,7 @@ public enum Equipment {
 		enableTools[7] = ThermalFoundation.config.get(category, "Sickle", true);
 		enableTools[8] = ThermalFoundation.config.get(category, "Bow", true);
 
-		final String PATH_ARMOR = "thermalexpansion:textures/" + "armor/";
+		final String PATH_ARMOR = "thermalfoundation:textures/" + "armor/";
 		final String[] TEXTURE = { PATH_ARMOR + NAME + "_1.png", PATH_ARMOR + NAME + "_2.png" };
 		final String ARMOR_PATH = "thermalfoundation:armor/" + NAME;
 		final String TOOL_PATH = "thermalfoundation:tool/" + TYPE + "/";
