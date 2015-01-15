@@ -1,12 +1,13 @@
 package thermalfoundation.render.shader;
 
 import cofh.core.render.ShaderHelper;
+import cofh.lib.util.helpers.HolidayHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.ARBShaderObjects;
 
 public class ShaderStarfield {
-    public static final ResourceLocation starsTexture = new ResourceLocation("textures/entity/end_portal.png");
+    public static final ResourceLocation starsTexture = new ResourceLocation(HolidayHelper.isAprilFools() ? "thermalfoundation:textures/cageStarfield.png" : "textures/entity/end_portal.png");
 
     static {
         if (ShaderHelper.useShaders())
