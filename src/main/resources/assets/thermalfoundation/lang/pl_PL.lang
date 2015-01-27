@@ -6,9 +6,9 @@ death.attack.cryotheum.player=%1$s zamarzł usiłując uciec %2$s!
 death.attack.flux=Flux rozerwał %1$s rzeczywistość!
 death.attack.flux.player=%1$s został zafluxowany na śmierć przez %2$s!
 death.attack.pyrotheum=%1$s pomyliło się Pyrotheum z Wodą!
-death.attack.pyrotheum.player=%1$s spłonął żywcep usiłując ucieknąć %2$s!
-death.attack.mana=%1$s został rozerwany przez Manę w stanie czystym!
-death.attack.mana.player=%1$s wbiegł w inny stan usiłując ucieknąć %2$s!
+death.attack.pyrotheum.player=%1$s spłonął żywcem usiłując uciec %2$s!
+death.attack.mana=%1$s został rozerwany przez czystą Mane!
+death.attack.mana.player=%1$s wbiegł w inny stan usiłując uciec %2$s!
 
 entity.Blizz.name=Blizz
 
@@ -117,8 +117,8 @@ item.thermalfoundation.material.dustBlizz.name=Proch z Blizza
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 
-tab.thermalfoundation.lexicon.study=Skonsultuj się z wiedzą świata z zmień swoje przeznaczenie
-tab.thermalfoundation.lexicon.convert=Przekonwertuj wkwiwalentrne przedmioty zgodnie z arkanicznymi zasadami wyłożonymi przez wyższe moce.
+tab.thermalfoundation.lexicon.study=Skonsultuj się z wiedzą świata i zmień swoje przeznaczenie
+tab.thermalfoundation.lexicon.convert=Przekonwertuj równowartościowe przedmioty zgodnie z arkanicznymi zasadami ustalonymi przez wyższe moce.
 
 tile.thermalfoundation.fluid.redstone.name=Zdestabiizowany redstone
 tile.thermalfoundation.fluid.glowstone.name=Zenergizowany glowstone
