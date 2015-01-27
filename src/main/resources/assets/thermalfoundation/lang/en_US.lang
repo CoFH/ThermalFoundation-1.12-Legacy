@@ -168,7 +168,7 @@ item.thermalfoundation.tool.copperHoe.name=Copper Hoe
 item.thermalfoundation.tool.copperShears.name=Copper Shears
 item.thermalfoundation.tool.copperFishingRod.name=Copper Fishing Rod
 item.thermalfoundation.tool.copperSickle.name=Copper Sickle
-item.thermalfoundation.tool.copperBow.name=Copper Bow
+item.thermalfoundation.tool.copperBow.name=Copper Reinforced Bow
 
 item.thermalfoundation.tool.tinSword.name=Tin Sword
 item.thermalfoundation.tool.tinShovel.name=Tin Shovel
@@ -178,7 +178,7 @@ item.thermalfoundation.tool.tinHoe.name=Tin Hoe
 item.thermalfoundation.tool.tinShears.name=Tin Shears
 item.thermalfoundation.tool.tinFishingRod.name=Tin Fishing Rod
 item.thermalfoundation.tool.tinSickle.name=Tin Sickle
-item.thermalfoundation.tool.tinBow.name=Tin Bow
+item.thermalfoundation.tool.tinBow.name=Tin Reinforced Bow
 
 item.thermalfoundation.tool.electrumSword.name=Electrum Sword
 item.thermalfoundation.tool.electrumShovel.name=Electrum Shovel
@@ -188,7 +188,7 @@ item.thermalfoundation.tool.electrumHoe.name=Electrum Hoe
 item.thermalfoundation.tool.electrumShears.name=Electrum Shears
 item.thermalfoundation.tool.electrumFishingRod.name=Electrum Fishing Rod
 item.thermalfoundation.tool.electrumSickle.name=Electrum Sickle
-item.thermalfoundation.tool.electrumBow.name=Electrum Bow
+item.thermalfoundation.tool.electrumBow.name=Electrum Reinforced Bow
 
 item.thermalfoundation.tool.leadSword.name=Lead Sword
 item.thermalfoundation.tool.leadShovel.name=Lead Shovel
@@ -198,7 +198,7 @@ item.thermalfoundation.tool.leadHoe.name=Lead Hoe
 item.thermalfoundation.tool.leadShears.name=Lead Shears
 item.thermalfoundation.tool.leadFishingRod.name=Lead Fishing Rod
 item.thermalfoundation.tool.leadSickle.name=Lead Sickle
-item.thermalfoundation.tool.leadBow.name=Lead Bow
+item.thermalfoundation.tool.leadBow.name=Lead Reinforced Bow
 
 item.thermalfoundation.tool.silverSword.name=Silver Sword
 item.thermalfoundation.tool.silverShovel.name=Silver Shovel
@@ -208,7 +208,7 @@ item.thermalfoundation.tool.silverHoe.name=Silver Hoe
 item.thermalfoundation.tool.silverShears.name=Silver Shears
 item.thermalfoundation.tool.silverFishingRod.name=Silver Fishing Rod
 item.thermalfoundation.tool.silverSickle.name=Silver Sickle
-item.thermalfoundation.tool.silverBow.name=Silver Bow
+item.thermalfoundation.tool.silverBow.name=Silver Reinforced Bow
 
 item.thermalfoundation.tool.nickelSword.name=Ferrous Sword
 item.thermalfoundation.tool.nickelShovel.name=Ferrous Shovel
@@ -218,7 +218,7 @@ item.thermalfoundation.tool.nickelHoe.name=Ferrous Hoe
 item.thermalfoundation.tool.nickelShears.name=Ferrous Shears
 item.thermalfoundation.tool.nickelFishingRod.name=Ferrous Fishing Rod
 item.thermalfoundation.tool.nickelSickle.name=Ferrous Sickle
-item.thermalfoundation.tool.nickelBow.name=Ferrous Bow
+item.thermalfoundation.tool.nickelBow.name=Ferrous Reinforced Bow
 
 item.thermalfoundation.tool.bronzeSword.name=Bronze Sword
 item.thermalfoundation.tool.bronzeShovel.name=Bronze Shovel
@@ -228,7 +228,7 @@ item.thermalfoundation.tool.bronzeHoe.name=Bronze Hoe
 item.thermalfoundation.tool.bronzeShears.name=Bronze Shears
 item.thermalfoundation.tool.bronzeFishingRod.name=Bronze Fishing Rod
 item.thermalfoundation.tool.bronzeSickle.name=Bronze Sickle
-item.thermalfoundation.tool.bronzeBow.name=Bronze Bow
+item.thermalfoundation.tool.bronzeBow.name=Bronze Reinforced Bow
 
 item.thermalfoundation.tool.invarSword.name=Invar Sword
 item.thermalfoundation.tool.invarShovel.name=Invar Shovel
@@ -238,7 +238,7 @@ item.thermalfoundation.tool.invarHoe.name=Invar Hoe
 item.thermalfoundation.tool.invarShears.name=Invar Shears
 item.thermalfoundation.tool.invarFishingRod.name=Invar Fishing Rod
 item.thermalfoundation.tool.invarSickle.name=Invar Sickle
-item.thermalfoundation.tool.invarBow.name=Invar Bow
+item.thermalfoundation.tool.invarBow.name=Invar Reinforced Bow
 
 item.thermalfoundation.tool.platinumSword.name=Shiny Sword
 item.thermalfoundation.tool.platinumShovel.name=Shiny Shovel
@@ -248,7 +248,7 @@ item.thermalfoundation.tool.platinumHoe.name=Shiny Hoe
 item.thermalfoundation.tool.platinumShears.name=Shiny Shears
 item.thermalfoundation.tool.platinumFishingRod.name=Shiny Fishing Rod
 item.thermalfoundation.tool.platinumSickle.name=Shiny Sickle
-item.thermalfoundation.tool.platinumBow.name=Shiny Bow
+item.thermalfoundation.tool.platinumBow.name=Shiny Reinforced Bow
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation Tools
