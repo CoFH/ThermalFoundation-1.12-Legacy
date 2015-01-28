@@ -29,13 +29,13 @@ item.thermalfoundation.bucket.bucketCryotheum.name=Ведро ледяного �
 item.thermalfoundation.bucket.bucketMana.name=Ведро изначальной маны
 item.thermalfoundation.bucket.bucketCoal.name=Ведро разжиженного угля
 
-info.cofh.lexicon1=Конвертирует предметы в их эквивалентные формы.
-info.cofh.lexicon2=ПКМ (открыть), чтобы изучить.
-info.cofh.lexicon3=Когда присядете, откройте, дабы обрести мудрость!
-info.cofh.lexicon4=ПКМ (открыть) для трансмутации предметов.
-info.cofh.lexicon5=Когда присядете, откройте, чтобы позабыть знания.
-item.cofh.tool.lexicon.name=Лексикон Forge
-item.cofh.tool.lexiconActive.name=Лексикон Forge (Активен)
+info.thermalfoundation.tome.lexicon.1=Конвертирует предметы в их эквивалентные формы.
+info.thermalfoundation.tome.lexicon.2=ПКМ (открыть), чтобы изучить.
+info.thermalfoundation.tome.lexicon.3=Когда присядете, откройте, дабы обрести мудрость!
+info.thermalfoundation.tome.lexicon.4=ПКМ (открыть) для трансмутации предметов.
+info.thermalfoundation.tome.lexicon.5=Когда присядете, откройте, чтобы позабыть знания.
+item.thermalfoundation.tome.lexicon.name=Лексикон Forge
+item.thermalfoundation.tome.lexiconEmpowered.name=Лексикон Forge (Активен)
 
 item.thermalfoundation.material.dustIron.name=Измельчённое железо
 item.thermalfoundation.material.dustGold.name=Измельчённое золото
@@ -168,7 +168,7 @@ item.thermalfoundation.tool.copperHoe.name=Медная мотыга
 item.thermalfoundation.tool.copperShears.name=Медные ножницы
 item.thermalfoundation.tool.copperFishingRod.name=Медная удочка
 item.thermalfoundation.tool.copperSickle.name=Медный серп
-item.thermalfoundation.tool.copperBow.name=Медный лук
+item.thermalfoundation.tool.copperBow.name=Укреплённый медью лук
 
 item.thermalfoundation.tool.tinSword.name=Оловянный меч
 item.thermalfoundation.tool.tinShovel.name=Оловянная лопата
@@ -178,7 +178,7 @@ item.thermalfoundation.tool.tinHoe.name=Оловянная мотыга
 item.thermalfoundation.tool.tinShears.name=Оловянные ножницы
 item.thermalfoundation.tool.tinFishingRod.name=Оловянная удочка
 item.thermalfoundation.tool.tinSickle.name=Оловянный серп
-item.thermalfoundation.tool.tinBow.name=Оловянный лук
+item.thermalfoundation.tool.tinBow.name=Укреплённый оловом лук
 
 item.thermalfoundation.tool.electrumSword.name=Электрумовый меч
 item.thermalfoundation.tool.electrumShovel.name=Электрумовая лопата
@@ -188,7 +188,7 @@ item.thermalfoundation.tool.electrumHoe.name=Электрумовая мотыг
 item.thermalfoundation.tool.electrumShears.name=Электрумовые ножницы
 item.thermalfoundation.tool.electrumFishingRod.name=Электрумовая удочка
 item.thermalfoundation.tool.electrumSickle.name=Электрумовый серп
-item.thermalfoundation.tool.electrumBow.name=Электрумовый лук
+item.thermalfoundation.tool.electrumBow.name=Укреплённый электрумом лук
 
 item.thermalfoundation.tool.leadSword.name=Свинцовый меч
 item.thermalfoundation.tool.leadShovel.name=Свинцовая лопата
@@ -198,7 +198,7 @@ item.thermalfoundation.tool.leadHoe.name=Свинцовая мотыга
 item.thermalfoundation.tool.leadShears.name=Свинцовые ножницы
 item.thermalfoundation.tool.leadFishingRod.name=Свинцовая удочка
 item.thermalfoundation.tool.leadSickle.name=Свинцовый серп
-item.thermalfoundation.tool.leadBow.name=Свинцовый лук
+item.thermalfoundation.tool.leadBow.name=Укреплённый свинцом лук
 
 item.thermalfoundation.tool.silverSword.name=Серебряный меч
 item.thermalfoundation.tool.silverShovel.name=Серебряная лопата
@@ -208,7 +208,7 @@ item.thermalfoundation.tool.silverHoe.name=Серебряная мотыга
 item.thermalfoundation.tool.silverShears.name=Серебряные ножницы
 item.thermalfoundation.tool.silverFishingRod.name=Серебряная удочка
 item.thermalfoundation.tool.silverSickle.name=Серебряный серп
-item.thermalfoundation.tool.silverBow.name=Серебряный лук
+item.thermalfoundation.tool.silverBow.name=Укреплённый серебром лук
 
 item.thermalfoundation.tool.nickelSword.name=Никелевый меч
 item.thermalfoundation.tool.nickelShovel.name=Никелевая лопата
@@ -218,7 +218,7 @@ item.thermalfoundation.tool.nickelHoe.name=Никелевая мотыга
 item.thermalfoundation.tool.nickelShears.name=Никелевые ножницы
 item.thermalfoundation.tool.nickelFishingRod.name=Никелевая удочка
 item.thermalfoundation.tool.nickelSickle.name=Никелевый серп
-item.thermalfoundation.tool.nickelBow.name=Никелевый лук
+item.thermalfoundation.tool.nickelBow.name=Укреплённый никелем лук
 
 item.thermalfoundation.tool.bronzeSword.name=Бронзовый меч
 item.thermalfoundation.tool.bronzeShovel.name=Бронзовая лопата
@@ -228,7 +228,7 @@ item.thermalfoundation.tool.bronzeHoe.name=Бронзовая мотыга
 item.thermalfoundation.tool.bronzeShears.name=Бронзовые ножницы
 item.thermalfoundation.tool.bronzeFishingRod.name=Бронзовая удочка
 item.thermalfoundation.tool.bronzeSickle.name=Бронзовый серп
-item.thermalfoundation.tool.bronzeBow.name=Бронзовый лук
+item.thermalfoundation.tool.bronzeBow.name=Укреплённый бронзой лук
 
 item.thermalfoundation.tool.invarSword.name=Инваровый меч
 item.thermalfoundation.tool.invarShovel.name=Инваровая лопата
@@ -238,7 +238,7 @@ item.thermalfoundation.tool.invarHoe.name=Инваровая мотыга
 item.thermalfoundation.tool.invarShears.name=Инваровые ножницы
 item.thermalfoundation.tool.invarFishingRod.name=Инваровая удочка
 item.thermalfoundation.tool.invarSickle.name=Инваровый серп
-item.thermalfoundation.tool.invarBow.name=Инваровый лук
+item.thermalfoundation.tool.invarBow.name=Укреплённый инваром лук
 
 item.thermalfoundation.tool.platinumSword.name=Блестящий меч
 item.thermalfoundation.tool.platinumShovel.name=Блестящая лопата
@@ -248,7 +248,7 @@ item.thermalfoundation.tool.platinumHoe.name=Блестящая мотыга
 item.thermalfoundation.tool.platinumShears.name=Блестящие ножницы
 item.thermalfoundation.tool.platinumFishingRod.name=Блестящая удочка
 item.thermalfoundation.tool.platinumSickle.name=Блестящий серп
-item.thermalfoundation.tool.platinumBow.name=Блестящий лук
+item.thermalfoundation.tool.platinumBow.name=Укреплённый платиной лук
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Инструменты
