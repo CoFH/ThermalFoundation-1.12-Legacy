@@ -50,7 +50,7 @@ item.thermalfoundation.material.gearGold.name=Engrenagem de Ouro
 item.thermalfoundation.material.dustSulfur.name=Enxôfre
 item.thermalfoundation.material.dustNiter.name=Salitre
 
-item.thermalfoundation.material.crystalCinnabar.name=Cinábrio 
+item.thermalfoundation.material.crystalCinnabar.name=Cinábrio
 
 item.thermalfoundation.material.dustCopper.name=Cobre Pulverizado
 item.thermalfoundation.material.dustTin.name=Estanho Pulverizado
@@ -168,7 +168,7 @@ item.thermalfoundation.tool.copperHoe.name=Enxada de Cobre
 item.thermalfoundation.tool.copperShears.name=Tesoura de Cobre
 item.thermalfoundation.tool.copperFishingRod.name=Vara de Pescar de Cobre
 item.thermalfoundation.tool.copperSickle.name=Foice de Cobre
-item.thermalfoundation.tool.copperBow.name=Arco de Cobre
+item.thermalfoundation.tool.copperBow.name=Arco de Cobre Reforçado
 
 item.thermalfoundation.tool.tinSword.name=Espada de Estanho
 item.thermalfoundation.tool.tinShovel.name=Pá de Estanho
@@ -178,7 +178,7 @@ item.thermalfoundation.tool.tinHoe.name=Enxada de Estanho
 item.thermalfoundation.tool.tinShears.name=Tesoura de Estanho
 item.thermalfoundation.tool.tinFishingRod.name=Vara de Pescar de Estanho
 item.thermalfoundation.tool.tinSickle.name=Foice de Estanho
-item.thermalfoundation.tool.tinBow.name=Arco de Estanho
+item.thermalfoundation.tool.tinBow.name=Arco de Estanho Reforçado
 
 item.thermalfoundation.tool.electrumSword.name=Espada de Electrum
 item.thermalfoundation.tool.electrumShovel.name=Pá de Electrum
@@ -188,7 +188,7 @@ item.thermalfoundation.tool.electrumHoe.name=Enxada de Electrum
 item.thermalfoundation.tool.electrumShears.name=Tesoura de Electrum
 item.thermalfoundation.tool.electrumFishingRod.name=Vara de Pescar de Electrum
 item.thermalfoundation.tool.electrumSickle.name=Foice de Electrum
-item.thermalfoundation.tool.electrumBow.name=Arco de Electrum
+item.thermalfoundation.tool.electrumBow.name=Arco de Electrum Reforçado
 
 item.thermalfoundation.tool.leadSword.name=Espada de Chumbo
 item.thermalfoundation.tool.leadShovel.name=Pá de Chumbo
@@ -198,7 +198,7 @@ item.thermalfoundation.tool.leadHoe.name=Enxada de Chumbo
 item.thermalfoundation.tool.leadShears.name=Tesoura de Chumbo
 item.thermalfoundation.tool.leadFishingRod.name=Vara de Pescar de Chumbo
 item.thermalfoundation.tool.leadSickle.name=Foice de Chumbo
-item.thermalfoundation.tool.leadBow.name=Arco de Chumbo
+item.thermalfoundation.tool.leadBow.name=Arco de Chumbo Reforçado
 
 item.thermalfoundation.tool.silverSword.name=Espada de Prata
 item.thermalfoundation.tool.silverShovel.name=Pá de Prata
@@ -208,7 +208,7 @@ item.thermalfoundation.tool.silverHoe.name=Enxada de Prata
 item.thermalfoundation.tool.silverShears.name=Tesoura de Prata
 item.thermalfoundation.tool.silverFishingRod.name=Vara de Pescar de Prata
 item.thermalfoundation.tool.silverSickle.name=Foice de Prata
-item.thermalfoundation.tool.silverBow.name=Arco de Prata
+item.thermalfoundation.tool.silverBow.name=Arco de Prata Reforçado
 
 item.thermalfoundation.tool.nickelSword.name=Espada de Ferrous
 item.thermalfoundation.tool.nickelShovel.name=Pá de Ferrous
@@ -218,7 +218,7 @@ item.thermalfoundation.tool.nickelHoe.name=Enxada de Ferrous
 item.thermalfoundation.tool.nickelShears.name=Tesoura de Ferrous
 item.thermalfoundation.tool.nickelFishingRod.name=Vara de Pescar de Ferrous
 item.thermalfoundation.tool.nickelSickle.name=Foice de Ferrous
-item.thermalfoundation.tool.nickelBow.name=Arco de Ferrous
+item.thermalfoundation.tool.nickelBow.name=Arco de Ferrous Reforçado
 
 item.thermalfoundation.tool.bronzeSword.name=Espada de Bronze
 item.thermalfoundation.tool.bronzeShovel.name=Pá de Bronze
@@ -228,7 +228,7 @@ item.thermalfoundation.tool.bronzeHoe.name=Enxada de Bronze
 item.thermalfoundation.tool.bronzeShears.name=Tesoura de Bronze
 item.thermalfoundation.tool.bronzeFishingRod.name=Vara de Pescar de Bronze
 item.thermalfoundation.tool.bronzeSickle.name=Foice de Bronze
-item.thermalfoundation.tool.bronzeBow.name=Arco de Bronze
+item.thermalfoundation.tool.bronzeBow.name=Arco de Bronze Reforçado
 
 item.thermalfoundation.tool.invarSword.name=Espada de Invar
 item.thermalfoundation.tool.invarShovel.name=Pá de Invar
@@ -238,7 +238,7 @@ item.thermalfoundation.tool.invarHoe.name=Enxada de Invar
 item.thermalfoundation.tool.invarShears.name=Tesoura de Invar
 item.thermalfoundation.tool.invarFishingRod.name=Vara de Pescar de Invar
 item.thermalfoundation.tool.invarSickle.name=Foice de Invar
-item.thermalfoundation.tool.invarBow.name=Arco de Invar
+item.thermalfoundation.tool.invarBow.name=Arco de Invar Reforçado
 
 item.thermalfoundation.tool.platinumSword.name=Espada de Shiny
 item.thermalfoundation.tool.platinumShovel.name=Pá de Shiny
@@ -248,7 +248,7 @@ item.thermalfoundation.tool.platinumHoe.name=Enxada de Shiny
 item.thermalfoundation.tool.platinumShears.name=Tesoura de Shiny
 item.thermalfoundation.tool.platinumFishingRod.name=Vara de Pescar de Shiny
 item.thermalfoundation.tool.platinumSickle.name=Foice de Shiny
-item.thermalfoundation.tool.platinumBow.name=Arco de Shiny
+item.thermalfoundation.tool.platinumBow.name=Arco de Shiny Reforçado
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Ferramentas
