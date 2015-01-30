@@ -38,6 +38,7 @@ public class BlockStorage extends Block implements IInitializer {
 		setHarvestLevel("pickaxe", 1, 0);
 		setHarvestLevel("pickaxe", 1, 1);
 		setHarvestLevel("pickaxe", 3, 6);
+		setHarvestLevel("pickaxe", 3, 12);
 	}
 
 	@Override
@@ -169,7 +170,7 @@ public class BlockStorage extends Block implements IInitializer {
 	}
 
 	public static final String[] NAMES = { "copper", "tin", "silver", "lead", "nickel", "platinum", "mithril", "electrum", "invar", "bronze", "signalum",
-			"lumium", "enderium" };
+		"lumium", "enderium" };
 	public static final IIcon[] TEXTURES = new IIcon[NAMES.length];
 	public static final int[] LIGHT = { 0, 0, 4, 0, 0, 4, 8, 0, 0, 0, 7, 15, 4 };
 	public static final float[] HARDNESS = { 5, 5, 5, 4, 10, 5, 30, 4, 20, 5, 5, 5, 40 };
