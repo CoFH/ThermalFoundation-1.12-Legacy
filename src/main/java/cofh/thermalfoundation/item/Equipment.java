@@ -21,7 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-public enum TFEquipment {
+public enum Equipment {
 
 	/* Name, Level, Uses, Speed, Damage, Ench, Dura, Absorption */
 	Copper(1, 175, 4F, 0.5F, 6, 6, new int[] { 1, 3, 3, 1 }), Tin(1, 200, 4.5F, 1F, 7, 8, new int[] { 1, 4, 3, 1 }), Silver(2, 200, 6F, 1.5F, 20, 11,
@@ -128,7 +128,7 @@ public enum TFEquipment {
 	public ItemStack toolSickle;
 	public ItemStack toolBow;
 
-	private TFEquipment(int level, int uses, float speed, float damage, int enchant, int durability, int[] absorb) {
+	private Equipment(int level, int uses, float speed, float damage, int enchant, int durability, int[] absorb) {
 
 		TOOL_MATERIAL = EnumHelper.addToolMaterial("TF:" + name().toUpperCase(), level, uses, speed, damage, enchant);
 		ARMOR_MATERIAL = EnumHelper.addArmorMaterial("TF:" + name().toUpperCase(), durability, absorb, enchant);
@@ -307,21 +307,21 @@ public enum TFEquipment {
 
 	public static void preInit() {
 
-		for (TFEquipment e : values()) {
+		for (Equipment e : values()) {
 			e.preInitv();
 		}
 	}
 
 	public static void initialize() {
 
-		for (TFEquipment e : values()) {
+		for (Equipment e : values()) {
 			e.initializev();
 		}
 	}
 
 	public static void postInit() {
 
-		for (TFEquipment e : values()) {
+		for (Equipment e : values()) {
 			e.postInitv();
 		}
 	}

@@ -10,8 +10,6 @@ import cofh.thermalfoundation.fluid.BlockFluidPyrotheum;
 import cofh.thermalfoundation.fluid.BlockFluidRedstone;
 import cofh.thermalfoundation.fluid.BlockFluidSteam;
 
-import net.minecraftforge.oredict.OreDictionary;
-
 public class TFBlocks {
 
 	public static void preInit() {
@@ -43,9 +41,9 @@ public class TFBlocks {
 
 	public static void initialize() {
 
-		OreDictionary.registerOre("oreGold", BlockOre.oreCopper);
-		OreDictionary.registerOre("oreGold", BlockOre.oreTin);
-		OreDictionary.registerOre("oreGold", BlockOre.oreSilver);
+		// OreDictionary.registerOre("oreGold", BlockOre.oreCopper);
+		// OreDictionary.registerOre("oreGold", BlockOre.oreTin);
+		// OreDictionary.registerOre("oreGold", BlockOre.oreSilver);
 	}
 
 	public static void postInit() {

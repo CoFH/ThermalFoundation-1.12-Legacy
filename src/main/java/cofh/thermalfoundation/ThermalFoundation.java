@@ -10,7 +10,7 @@ import cofh.thermalfoundation.core.Proxy;
 import cofh.thermalfoundation.fluid.TFFluids;
 import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.gui.TFCreativeTab;
-import cofh.thermalfoundation.item.TFEquipment;
+import cofh.thermalfoundation.item.Equipment;
 import cofh.thermalfoundation.item.TFItems;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
@@ -61,7 +61,7 @@ public class ThermalFoundation extends BaseMod {
 		@Override
 		protected ItemStack getStack() {
 
-			return TFEquipment.Invar.toolPickaxe;
+			return Equipment.Invar.toolPickaxe;
 		}
 	};
 	public static final CreativeTabs tabArmor = new TFCreativeTab("Armor") {
@@ -69,7 +69,7 @@ public class ThermalFoundation extends BaseMod {
 		@Override
 		protected ItemStack getStack() {
 
-			return TFEquipment.Invar.armorPlate;
+			return Equipment.Invar.armorPlate;
 		}
 	};
 
@@ -89,7 +89,7 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.preInit();
 		TFItems.preInit();
 		TFBlocks.preInit();
-		TFEquipment.preInit();
+		Equipment.preInit();
 
 		LexiconManager.preInit();
 
@@ -102,7 +102,7 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.initialize();
 		TFItems.initialize();
 		TFBlocks.initialize();
-		TFEquipment.initialize();
+		Equipment.initialize();
 
 		/* Register Handlers */
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, guiHandler);
@@ -116,7 +116,7 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.postInit();
 		TFItems.postInit();
 		TFBlocks.postInit();
-		TFEquipment.postInit();
+		Equipment.postInit();
 
 		proxy.registerEntities();
 		proxy.registerRenderInformation();
