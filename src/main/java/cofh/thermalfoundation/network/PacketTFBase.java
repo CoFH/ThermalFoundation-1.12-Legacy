@@ -3,6 +3,8 @@ package cofh.thermalfoundation.network;
 import cofh.core.network.PacketCoFHBase;
 import cofh.core.network.PacketHandler;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.gui.container.ContainerLexiconTransmute;
+
 import net.minecraft.entity.player.EntityPlayer;
 
 public class PacketTFBase extends PacketCoFHBase {
@@ -13,7 +15,7 @@ public class PacketTFBase extends PacketCoFHBase {
 	}
 
 	public enum PacketTypes {
-		LEXICON_PREV_ORE, LEXICON_NEXT_ORE, LEXICON_PREV_NAME, LEXICON_NEXT_NAME
+		LEXICON_STUDY, LEXICON_TRANSMUTE, CONFIG_SYNC
 	}
 
 	@Override
@@ -23,6 +25,11 @@ public class PacketTFBase extends PacketCoFHBase {
 			int type = getByte();
 
 			switch (PacketTypes.values()[type]) {
+			case LEXICON_TRANSMUTE:
+				if (player.openContainer instanceof ContainerLexiconTransmute) {
+					((ContainerLexiconTransmute) player.openContainer).handlePacket(getByte());
+					return;
+				}
 			default:
 				ThermalFoundation.log.error("Unknown Packet! Internal: TFPH, ID: " + type);
 			}
@@ -35,6 +42,11 @@ public class PacketTFBase extends PacketCoFHBase {
 	public static PacketCoFHBase getPacket(PacketTypes theType) {
 
 		return new PacketTFBase().addByte(theType.ordinal());
+	}
+
+	public static void sendLexiconTransmutePacketToServer(int command) {
+
+		PacketHandler.sendToServer(getPacket(PacketTypes.LEXICON_TRANSMUTE).addByte(command));
 	}
 
 }

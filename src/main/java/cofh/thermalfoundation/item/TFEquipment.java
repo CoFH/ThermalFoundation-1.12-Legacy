@@ -12,6 +12,7 @@ import cofh.core.item.tool.ItemSickleAdv;
 import cofh.core.item.tool.ItemSwordAdv;
 import cofh.thermalfoundation.ThermalFoundation;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item.ToolMaterial;
@@ -20,13 +21,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-public enum Equipment {
+public enum TFEquipment {
 
-	/* Name,  Level, Uses, Speed, Damage, Ench, Dura, Absorption */
-	Copper(       1,  175,    4F,   0.5F,    6,    6, new int[] { 1, 3, 3, 1 }),
-	Tin(          1,  200,  4.5F,     1F,    7,    8, new int[] { 1, 4, 3, 1 }),
-	Silver(       2,  200,    6F,   1.5F,   20,   11, new int[] { 2, 4, 4, 1 }),
-	Lead(         1,  150,    5F,     1F,    9,   15, new int[] { 3, 5, 4, 2 }) {
+	/* Name, Level, Uses, Speed, Damage, Ench, Dura, Absorption */
+	Copper(1, 175, 4F, 0.5F, 6, 6, new int[] { 1, 3, 3, 1 }), Tin(1, 200, 4.5F, 1F, 7, 8, new int[] { 1, 4, 3, 1 }), Silver(2, 200, 6F, 1.5F, 20, 11,
+			new int[] { 2, 4, 4, 1 }), Lead(1, 150, 5F, 1F, 9, 15, new int[] { 3, 5, 4, 2 }) {
+
 		@Override
 		protected final void createArmor() {
 
@@ -55,11 +55,9 @@ public enum Equipment {
 			itemBoots.putAttribute("generic.movementSpeed", movementBonus);
 		}
 	},
-	Nickel(       2,  300,  6.5F,   2.5F,   18,   15, new int[] { 2, 5, 5, 2 }),
-	Electrum(     0,  100,   14F,   0.5F,   30,    8, new int[] { 2, 4, 4, 2 }),
-	Invar(        2,  450,    7F,     3F,   16,   25, new int[] { 2, 7, 5, 2 }),
-	Bronze(       2,  500,    6F,     2F,   15,   17, new int[] { 3, 6, 6, 2 }),
-	Platinum(     4, 1700,    9F,     4F,    9,   40, new int[] { 3, 8, 6, 3 }) {
+	Nickel(2, 300, 6.5F, 2.5F, 18, 15, new int[] { 2, 5, 5, 2 }), Electrum(0, 100, 14F, 0.5F, 30, 8, new int[] { 2, 4, 4, 2 }), Invar(2, 450, 7F, 3F, 16, 25,
+			new int[] { 2, 7, 5, 2 }), Bronze(2, 500, 6F, 2F, 15, 17, new int[] { 3, 6, 6, 2 }), Platinum(4, 1700, 9F, 4F, 9, 40, new int[] { 3, 8, 6, 3 }) {
+
 		@Override
 		protected final void createArmor() {
 
@@ -94,8 +92,8 @@ public enum Equipment {
 	public final ArmorMaterial ARMOR_MATERIAL;
 
 	private final String ingot;
-	private float arrowSpeed = 2.5f;
-	private float arrowDamage = 1.25f;
+	private final float arrowSpeed = 2.5f;
+	private final float arrowDamage = 1.25f;
 
 	public boolean enableArmor = true;
 	public boolean[] enableTools = new boolean[9];
@@ -130,10 +128,10 @@ public enum Equipment {
 	public ItemStack toolSickle;
 	public ItemStack toolBow;
 
-	private Equipment(int level, int uses, float speed, float damage, int enchant, int durability, int[] absorb) {
+	private TFEquipment(int level, int uses, float speed, float damage, int enchant, int durability, int[] absorb) {
 
-		TOOL_MATERIAL = EnumHelper.addToolMaterial("TF:"+name().toUpperCase(), level, uses, speed, damage, enchant);
-		ARMOR_MATERIAL = EnumHelper.addArmorMaterial("TF:"+name().toUpperCase(), durability, absorb, enchant);
+		TOOL_MATERIAL = EnumHelper.addToolMaterial("TF:" + name().toUpperCase(), level, uses, speed, damage, enchant);
+		ARMOR_MATERIAL = EnumHelper.addArmorMaterial("TF:" + name().toUpperCase(), durability, absorb, enchant);
 		ingot = "ingot" + name();
 	}
 
@@ -271,130 +269,61 @@ public enum Equipment {
 
 		// Armor
 		if (enableArmor) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(armorHelmet, new Object[] {
-					"III",
-					"I I",
-					'I', ingot
-			}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(armorPlate, new Object[] {
-					"I I",
-					"III",
-					"III",
-					'I', ingot
-			}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(armorLegs, new Object[] {
-					"III",
-					"I I",
-					"I I",
-					'I', ingot
-			}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(armorBoots, new Object[] {
-					"I I",
-					"I I",
-					'I', ingot
-			}));
+			GameRegistry.addRecipe(new ShapedOreRecipe(armorHelmet, new Object[] { "III", "I I", 'I', ingot }));
+			GameRegistry.addRecipe(new ShapedOreRecipe(armorPlate, new Object[] { "I I", "III", "III", 'I', ingot }));
+			GameRegistry.addRecipe(new ShapedOreRecipe(armorLegs, new Object[] { "III", "I I", "I I", 'I', ingot }));
+			GameRegistry.addRecipe(new ShapedOreRecipe(armorBoots, new Object[] { "I I", "I I", 'I', ingot }));
 		}
 
 		// Tools
 		if (enableTools[0]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolSword, new Object[] {
-					"I",
-					"I",
-					"S",
-					'I', ingot,
-					'S', "stickWood"
-			}));
+			GameRegistry.addRecipe(new ShapedOreRecipe(toolSword, new Object[] { "I", "I", "S", 'I', ingot, 'S', "stickWood" }));
 		}
 		if (enableTools[1]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolShovel, new Object[] {
-					"I",
-					"S",
-					"S",
-					'I', ingot,
-					'S', "stickWood"
-			}));
+			GameRegistry.addRecipe(new ShapedOreRecipe(toolShovel, new Object[] { "I", "S", "S", 'I', ingot, 'S', "stickWood" }));
 		}
 		if (enableTools[2]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolPickaxe, new Object[] {
-					"III",
-					" S ",
-					" S ",
-					'I', ingot,
-					'S', "stickWood"
-			}));
+			GameRegistry.addRecipe(new ShapedOreRecipe(toolPickaxe, new Object[] { "III", " S ", " S ", 'I', ingot, 'S', "stickWood" }));
 		}
 		if (enableTools[3]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolAxe, new Object[] {
-					"II",
-					"IS",
-					" S",
-					'I', ingot,
-					'S', "stickWood"
-			}));
+			GameRegistry.addRecipe(new ShapedOreRecipe(toolAxe, new Object[] { "II", "IS", " S", 'I', ingot, 'S', "stickWood" }));
 		}
 		if (enableTools[4]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolHoe, new Object[] {
-					"II",
-					" S",
-					" S",
-					'I', ingot,
-					'S', "stickWood"
-			}));
+			GameRegistry.addRecipe(new ShapedOreRecipe(toolHoe, new Object[] { "II", " S", " S", 'I', ingot, 'S', "stickWood" }));
 		}
 		if (enableTools[5]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolShears, new Object[] {
-					" I",
-					"I ",
-					'I', ingot
-			}));
+			GameRegistry.addRecipe(new ShapedOreRecipe(toolShears, new Object[] { " I", "I ", 'I', ingot }));
 		}
 		if (enableTools[6]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolFishingRod, new Object[] {
-					"  I",
-					" I#",
-					"S #",
-					'I', ingot,
-					'S', "stickWood",
-					'#', Items.string
-			}));
+			GameRegistry.addRecipe(new ShapedOreRecipe(toolFishingRod, new Object[] { "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', Items.string }));
 		}
 		if (enableTools[7]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolSickle, new Object[] {
-					" I ",
-					"  I",
-					"SI ",
-					'I', ingot,
-					'S', "stickWood"
-			}));
+			GameRegistry.addRecipe(new ShapedOreRecipe(toolSickle, new Object[] { " I ", "  I", "SI ", 'I', ingot, 'S', "stickWood" }));
 		}
 		if (enableTools[8]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolBow, new Object[] {
-					" I#",
-					"S #",
-					" I#",
-					'I', ingot,
-					'S', "stickWood",
-					'#', Items.string
-			}));
+			GameRegistry.addRecipe(new ShapedOreRecipe(toolBow, new Object[] { " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.string }));
 		}
 	}
 
 	public static void preInit() {
 
-		for (Equipment e : values())
+		for (TFEquipment e : values()) {
 			e.preInitv();
+		}
 	}
 
 	public static void initialize() {
 
-		for (Equipment e : values())
+		for (TFEquipment e : values()) {
 			e.initializev();
+		}
 	}
 
 	public static void postInit() {
 
-		for (Equipment e : values())
+		for (TFEquipment e : values()) {
 			e.postInitv();
+		}
 	}
 
 }

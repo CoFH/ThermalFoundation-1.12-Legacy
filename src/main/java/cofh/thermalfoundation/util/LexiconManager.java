@@ -22,7 +22,6 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class LexiconManager {
 
-	@SuppressWarnings("unused")
 	private static LexiconManager instance = new LexiconManager();
 
 	private static HashSet<String> listNames = new HashSet<String>();
@@ -46,7 +45,6 @@ public class LexiconManager {
 		logEntries = ThermalFoundation.config.get("general", "Lexicon.LogEntries", logEntries, comment);
 	}
 
-	@SuppressWarnings("resource")
 	public static void generateList() {
 
 		theList = isWhitelist ? new File(CoFHProps.configDir, "/cofh/thermalfoundation/lexicon-whitelist.cfg") : new File(CoFHProps.configDir,

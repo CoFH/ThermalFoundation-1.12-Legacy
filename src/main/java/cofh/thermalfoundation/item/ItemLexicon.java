@@ -4,11 +4,12 @@ import cofh.api.item.IEmpowerableItem;
 import cofh.api.item.IInventoryContainerItem;
 import cofh.core.item.ItemBase;
 import cofh.core.util.CoreUtils;
-import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.gui.GuiHandler;
+
 import java.util.List;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,7 +31,9 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 
-		list.add(new ItemStack(item, 1, 0));
+		ItemStack lexicon = new ItemStack(item, 1, 0);
+		setEmpoweredState(lexicon, false);
+		list.add(lexicon);
 	}
 
 	@Override
@@ -46,7 +49,7 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 	public String getUnlocalizedName(ItemStack stack) {
 
 		if (isEmpowered(stack)) {
-			return "item.thermalfoundation.tome.lexiconEmpowered";
+			return "item.thermalfoundation.tome.lexicon.empowered";
 		}
 		return "item.thermalfoundation.tome.lexicon";
 	}
@@ -59,8 +62,6 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
-
-		list.add("UNIMPLEMENTED. This is a beta. ~KL");
 
 		// if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
 		// list.add(StringHelper.shiftForDetails());
@@ -102,7 +103,7 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isCurrentItem) {
 
-		if (ItemHelper.getItemDamage(stack) == 0) {
+		if (!isEmpowered(stack)) {
 			return;
 		}
 		NBTTagCompound tag = entity.getEntityData();

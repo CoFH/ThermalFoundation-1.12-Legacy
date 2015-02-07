@@ -35,7 +35,7 @@ info.thermalfoundation.tome.lexicon.3=to gain wisdom!
 info.thermalfoundation.tome.lexicon.4=Right click (open) to transmute items.
 info.thermalfoundation.tome.lexicon.5=to forsake knowledge.
 item.thermalfoundation.tome.lexicon.name=Forge Lexicon
-item.thermalfoundation.tome.lexiconEmpowered.name=Forge Lexicon (Empowered)
+item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexicon (Empowered)
 
 item.thermalfoundation.material.dustIron.name=Pulverized Iron
 item.thermalfoundation.material.dustGold.name=Pulverized Gold
@@ -255,7 +255,7 @@ itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation Tools
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation Armor
 
 tab.thermalfoundation.lexicon.study=Consult the knowledge of the world and alter your personal destiny.
-tab.thermalfoundation.lexicon.convert=Convert equivalent items according to an arcane set of rules laid down by higher powers.
+tab.thermalfoundation.lexicon.transmute=Transmute equivalent items according to an arcane set of rules laid down by higher powers.
 
 tile.thermalfoundation.fluid.redstone.name=Destabilized Redstone
 tile.thermalfoundation.fluid.glowstone.name=Energized Glowstone

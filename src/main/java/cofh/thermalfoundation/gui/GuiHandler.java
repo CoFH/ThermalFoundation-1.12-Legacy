@@ -3,11 +3,12 @@ package cofh.thermalfoundation.gui;
 import cofh.core.block.TileCoFHBase;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.gui.client.GuiLexicon;
-import cofh.thermalfoundation.gui.client.GuiLexiconEmpowered;
+import cofh.thermalfoundation.gui.client.GuiLexiconTransmute;
 import cofh.thermalfoundation.gui.container.ContainerLexicon;
-import cofh.thermalfoundation.gui.container.ContainerLexiconEmpowered;
+import cofh.thermalfoundation.gui.container.ContainerLexiconTransmute;
 import cofh.thermalfoundation.item.ItemLexicon;
 import cpw.mods.fml.common.network.IGuiHandler;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -33,7 +34,7 @@ public class GuiHandler implements IGuiHandler {
 			}
 		case LEXICON_EMP_ID:
 			if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
-				return new GuiLexiconEmpowered(player.inventory, new ContainerLexiconEmpowered(player.getCurrentEquippedItem(), player.inventory));
+				return new GuiLexiconTransmute(player.inventory, new ContainerLexiconTransmute(player.inventory));
 			}
 		default:
 			return null;
@@ -55,7 +56,7 @@ public class GuiHandler implements IGuiHandler {
 			}
 		case LEXICON_EMP_ID:
 			if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
-				return new ContainerLexiconEmpowered(player.getCurrentEquippedItem(), player.inventory);
+				return new ContainerLexiconTransmute(player.inventory);
 			}
 		default:
 			return null;

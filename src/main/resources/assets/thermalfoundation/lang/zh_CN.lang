@@ -35,7 +35,7 @@ info.thermalfoundation.tome.lexicon.3=获得智慧!
 info.thermalfoundation.tome.lexicon.4=右键 (打开) 来使物品变形.
 info.thermalfoundation.tome.lexicon.5=舍弃知识.
 item.thermalfoundation.tome.lexicon.name=铁匠辞典
-item.thermalfoundation.tome.lexiconEmpowered.name=铁匠辞典 (已授权)
+item.thermalfoundation.tome.lexicon.empowered.name=铁匠辞典 (已授权)
 
 item.thermalfoundation.material.dustIron.name=铁粉
 item.thermalfoundation.material.dustGold.name=金粉
@@ -118,7 +118,7 @@ item.thermalfoundation.material.dustBlizz.name=暴雪粉
 itemGroup.thermalfoundation.creativeTab=热力基本
 
 tab.thermalfoundation.lexicon.study=学习关于这个世界的知识, 然后改变你自己的命运.
-tab.thermalfoundation.lexicon.convert=你可以通过更强大的能量来转换等价物品.
+tab.thermalfoundation.lexicon.transmute=你可以通过更强大的能量来转换等价物品.
 
 tile.thermalfoundation.fluid.redstone.name=熔融红石
 tile.thermalfoundation.fluid.glowstone.name=充能液态荧石

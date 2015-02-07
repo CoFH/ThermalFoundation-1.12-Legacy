@@ -35,7 +35,7 @@ info.thermalfoundation.tome.lexicon.3=per ottenere conoscenze!
 info.thermalfoundation.tome.lexicon.4=Click destro (apri) per trasmutare oggetti.
 info.thermalfoundation.tome.lexicon.5=per abbandonare conoscenze.
 item.thermalfoundation.tome.lexicon.name=Vocabolario Forge
-item.thermalfoundation.tome.lexiconEmpowered.name=Vocabolario Forge (potenziato)
+item.thermalfoundation.tome.lexicon.empowered.name=Vocabolario Forge (Potenziato)
 
 item.thermalfoundation.material.dustIron.name=Ferro polverizato
 item.thermalfoundation.material.dustGold.name=Oro polverizato
@@ -118,7 +118,7 @@ item.thermalfoundation.material.dustBlizz.name=Polvere di Folata
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 
 tab.thermalfoundation.lexicon.study=Consulta la conoscenza del mondo e altera il tuo destino.
-tab.thermalfoundation.lexicon.convert=Converti oggetti equivalenti secondo un insieme di regole arcane decise da potenze superiori.
+tab.thermalfoundation.lexicon.transmute=Converti oggetti equivalenti secondo un insieme di regole arcane decise da potenze superiori.
 
 tile.thermalfoundation.fluid.redstone.name=Pietrarossa destabilizata
 tile.thermalfoundation.fluid.glowstone.name=Luminite energizata

@@ -10,8 +10,9 @@ import cofh.thermalfoundation.core.Proxy;
 import cofh.thermalfoundation.fluid.TFFluids;
 import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.gui.TFCreativeTab;
-import cofh.thermalfoundation.item.Equipment;
+import cofh.thermalfoundation.item.TFEquipment;
 import cofh.thermalfoundation.item.TFItems;
+import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.CustomProperty;
@@ -24,19 +25,16 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-
 import java.io.File;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = ThermalFoundation.modId, name = ThermalFoundation.modName, version = ThermalFoundation.version, dependencies = ThermalFoundation.dependencies,
-canBeDeactivated = false, customProperties = @CustomProperty(k = "cofhversion", v = "true"))
+		canBeDeactivated = false, customProperties = @CustomProperty(k = "cofhversion", v = "true"))
 public class ThermalFoundation extends BaseMod {
 
 	public static final String modId = "ThermalFoundation";
@@ -44,6 +42,7 @@ public class ThermalFoundation extends BaseMod {
 	public static final String version = "1.7.10R1.0.0RC1";
 	public static final String dependencies = "required-after:CoFHCore@[" + CoFHCore.version + ",)";
 	public static final String releaseURL = "https://raw.github.com/CoFH/ThermalFoundation/master/VERSION";
+	public static final String modGuiFactory = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
 
 	@Instance(modId)
 	public static ThermalFoundation instance;
@@ -62,7 +61,7 @@ public class ThermalFoundation extends BaseMod {
 		@Override
 		protected ItemStack getStack() {
 
-			return Equipment.Invar.toolPickaxe;
+			return TFEquipment.Invar.toolPickaxe;
 		}
 	};
 	public static final CreativeTabs tabArmor = new TFCreativeTab("Armor") {
@@ -70,7 +69,7 @@ public class ThermalFoundation extends BaseMod {
 		@Override
 		protected ItemStack getStack() {
 
-			return Equipment.Invar.armorPlate;
+			return TFEquipment.Invar.armorPlate;
 		}
 	};
 
@@ -83,8 +82,6 @@ public class ThermalFoundation extends BaseMod {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
-		// loadLang();
-
 		UpdateManager.registerUpdater(new UpdateManager(this, releaseURL));
 
 		config.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/thermalfoundation/common.cfg")));
@@ -92,7 +89,7 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.preInit();
 		TFItems.preInit();
 		TFBlocks.preInit();
-		Equipment.preInit();
+		TFEquipment.preInit();
 
 		LexiconManager.preInit();
 
@@ -105,11 +102,12 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.initialize();
 		TFItems.initialize();
 		TFBlocks.initialize();
-		Equipment.initialize();
+		TFEquipment.initialize();
 
 		/* Register Handlers */
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, guiHandler);
 		MinecraftForge.EVENT_BUS.register(proxy);
+		PacketTFBase.initialize();
 	}
 
 	@EventHandler
@@ -118,7 +116,7 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.postInit();
 		TFItems.postInit();
 		TFBlocks.postInit();
-		Equipment.postInit();
+		TFEquipment.postInit();
 
 		proxy.registerEntities();
 		proxy.registerRenderInformation();

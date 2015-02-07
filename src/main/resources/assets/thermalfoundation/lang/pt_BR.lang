@@ -35,7 +35,7 @@ info.thermalfoundation.tome.lexicon.3=para ganhar sabedoria!
 info.thermalfoundation.tome.lexicon.4=Botão direito do mouse (abrir) para transmutar itens.
 info.thermalfoundation.tome.lexicon.5=a abandonar o conhecimento.
 item.thermalfoundation.tome.lexicon.name=Forge Lexicon
-item.thermalfoundation.tome.lexiconEmpowered.name=Forge Lexicon (Habilitado)
+item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexicon (Habilitado)
 
 item.thermalfoundation.material.dustIron.name=Ferro Pulverizado
 item.thermalfoundation.material.dustGold.name=Ouro Pulverizado

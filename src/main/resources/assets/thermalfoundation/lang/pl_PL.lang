@@ -35,7 +35,7 @@ info.thermalfoundation.tome.lexicon.3=by zdobyć mądrość!
 info.thermalfoundation.tome.lexicon.4=PPM (otwórz) by transmutować przedmioty.
 info.thermalfoundation.tome.lexicon.5=by porzucić wiedzę.
 item.thermalfoundation.tome.lexicon.name=Leksykon Forge'owy
-item.thermalfoundation.tome.lexiconEmpowered.name=Leksykon Forge'owy (mocarny)
+item.thermalfoundation.tome.lexicon.empowered.name=Leksykon Forge'owy (Mocarny)
 
 item.thermalfoundation.material.dustIron.name=Sproszkowane żelazo
 item.thermalfoundation.material.dustGold.name=Sproszkowane złoto
@@ -118,7 +118,7 @@ item.thermalfoundation.material.dustBlizz.name=Proch z Blizza
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 
 tab.thermalfoundation.lexicon.study=Skonsultuj się z wiedzą świata i zmień swoje przeznaczenie
-tab.thermalfoundation.lexicon.convert=Przekonwertuj równowartościowe przedmioty zgodnie z arkanicznymi zasadami ustalonymi przez wyższe moce.
+tab.thermalfoundation.lexicon.transmute=Przekonwertuj równowartościowe przedmioty zgodnie z arkanicznymi zasadami ustalonymi przez wyższe moce.
 
 tile.thermalfoundation.fluid.redstone.name=Zdestabiizowany redstone
 tile.thermalfoundation.fluid.glowstone.name=Zenergizowany glowstone

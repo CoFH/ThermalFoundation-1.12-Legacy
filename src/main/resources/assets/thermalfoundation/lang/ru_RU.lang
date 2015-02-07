@@ -35,7 +35,7 @@ info.thermalfoundation.tome.lexicon.3=Когда присядете, откро�
 info.thermalfoundation.tome.lexicon.4=ПКМ (открыть) для трансмутации предметов.
 info.thermalfoundation.tome.lexicon.5=Когда присядете, откройте, чтобы позабыть знания.
 item.thermalfoundation.tome.lexicon.name=Лексикон Forge
-item.thermalfoundation.tome.lexiconEmpowered.name=Лексикон Forge (Активен)
+item.thermalfoundation.tome.lexicon.empowered.name=Лексикон Forge (Активен)
 
 item.thermalfoundation.material.dustIron.name=Измельчённое железо
 item.thermalfoundation.material.dustGold.name=Измельчённое золото
@@ -255,7 +255,7 @@ itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Инструм�
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Броня
 
 tab.thermalfoundation.lexicon.study=Обратитесь к знаниям мира и измените Вашу личную судьбу.
-tab.thermalfoundation.lexicon.convert=Преобразовывайте эквивалентные предметы согласно тайному набору правил, установленным высшими силам.
+tab.thermalfoundation.lexicon.transmute=Преобразовывайте эквивалентные предметы согласно тайному набору правил, установленным высшими силам.
 
 tile.thermalfoundation.fluid.redstone.name=Дестабилизированный красный камень
 tile.thermalfoundation.fluid.glowstone.name=Заряженный светящийся камень

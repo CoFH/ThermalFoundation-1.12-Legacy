@@ -35,7 +35,7 @@ info.thermalfoundation.tome.lexicon.3=um weiser zu werden!
 info.thermalfoundation.tome.lexicon.4=Rechtsklicke (öffne), um Items zu verwandeln.
 info.thermalfoundation.tome.lexicon.5=um Wissen aufzugeben.
 item.thermalfoundation.tome.lexicon.name=Forge-Lexikon
-item.thermalfoundation.tome.lexiconEmpowered.name=Forge-Lexikon (Aktiv)
+item.thermalfoundation.tome.lexicon.empowered.name=Forge-Lexikon (Aktiv)
 
 item.thermalfoundation.material.dustIron.name=Pulverisiertes Eisen
 item.thermalfoundation.material.dustGold.name=Pulverisiertes Gold
@@ -118,7 +118,7 @@ item.thermalfoundation.material.dustBlizz.name=Blizzstaub
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 
 tab.thermalfoundation.lexicon.study=Konsultiere das Wissen der Welt und ändere deine Bestimmung.
-tab.thermalfoundation.lexicon.convert=Wandelt gleichwertige Items in einander um, einem arkanen Regelwerk folgend, das von höheren Mächten festgelegt wurde.
+tab.thermalfoundation.lexicon.transmute=Wandelt gleichwertige Items in einander um, einem arkanen Regelwerk folgend, das von höheren Mächten festgelegt wurde.
 
 tile.thermalfoundation.fluid.redstone.name=Destabilisieres Redstone
 tile.thermalfoundation.fluid.glowstone.name=Energetisiertes Glowstone
