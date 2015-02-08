@@ -3,6 +3,7 @@ package cofh.thermalfoundation.network;
 import cofh.core.network.PacketCoFHBase;
 import cofh.core.network.PacketHandler;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.gui.container.ContainerLexiconStudy;
 import cofh.thermalfoundation.gui.container.ContainerLexiconTransmute;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,11 +26,16 @@ public class PacketTFBase extends PacketCoFHBase {
 			int type = getByte();
 
 			switch (PacketTypes.values()[type]) {
+			case LEXICON_STUDY:
+				if (player.openContainer instanceof ContainerLexiconStudy) {
+					// ((ContainerLexiconStudy) player.openContainer).handlePacket(getByte());
+				}
+				return;
 			case LEXICON_TRANSMUTE:
 				if (player.openContainer instanceof ContainerLexiconTransmute) {
 					((ContainerLexiconTransmute) player.openContainer).handlePacket(getByte());
-					return;
 				}
+				return;
 			default:
 				ThermalFoundation.log.error("Unknown Packet! Internal: TFPH, ID: " + type);
 			}

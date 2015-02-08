@@ -4,7 +4,9 @@ import cofh.api.item.IEmpowerableItem;
 import cofh.api.item.IInventoryContainerItem;
 import cofh.core.item.ItemBase;
 import cofh.core.util.CoreUtils;
+import cofh.core.util.KeyBindingEmpower;
 import cofh.lib.util.helpers.ServerHelper;
+import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.gui.GuiHandler;
 
@@ -18,6 +20,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+
+import org.lwjgl.input.Keyboard;
 
 public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IEmpowerableItem {
 
@@ -63,25 +67,25 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
 
-		// if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
-		// list.add(StringHelper.shiftForDetails());
-		// }
-		// if (!StringHelper.isShiftKeyDown()) {
-		// return;
-		// }
-		// list.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.1"));
-		//
-		// if (isEmpowered(stack)) {
-		// list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.4") + StringHelper.END);
-		// list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
-		// + Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.5")
-		// + StringHelper.END);
-		// } else {
-		// list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.2") + StringHelper.END);
-		// list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
-		// + Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.3")
-		// + StringHelper.END);
-		// }
+		if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
+			list.add(StringHelper.shiftForDetails());
+		}
+		if (!StringHelper.isShiftKeyDown()) {
+			return;
+		}
+		list.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.1"));
+
+		if (isEmpowered(stack)) {
+			list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.4") + StringHelper.END);
+			list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
+					+ Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.5")
+					+ StringHelper.END);
+		} else {
+			list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.2") + StringHelper.END);
+			list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
+					+ Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.3")
+					+ StringHelper.END);
+		}
 	}
 
 	@Override
@@ -92,9 +96,9 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 		}
 		if (ServerHelper.isServerWorld(world)) {
 			if (isEmpowered(stack)) {
-				player.openGui(ThermalFoundation.instance, GuiHandler.LEXICON_EMP_ID, world, 0, 0, 0);
+				player.openGui(ThermalFoundation.instance, GuiHandler.LEXICON_TRANSMUTE_ID, world, 0, 0, 0);
 			} else {
-				player.openGui(ThermalFoundation.instance, GuiHandler.LEXICON_ID, world, 0, 0, 0);
+				player.openGui(ThermalFoundation.instance, GuiHandler.LEXICON_STUDY_ID, world, 0, 0, 0);
 			}
 		}
 		return stack;

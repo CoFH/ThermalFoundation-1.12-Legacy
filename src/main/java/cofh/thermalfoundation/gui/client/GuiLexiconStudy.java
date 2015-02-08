@@ -3,22 +3,22 @@ package cofh.thermalfoundation.gui.client;
 import cofh.core.gui.GuiBaseAdv;
 import cofh.core.gui.element.TabInfo;
 import cofh.lib.util.helpers.StringHelper;
-import cofh.thermalfoundation.gui.container.ContainerLexicon;
+import cofh.thermalfoundation.gui.container.ContainerLexiconStudy;
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
-public class GuiLexicon extends GuiBaseAdv {
+public class GuiLexiconStudy extends GuiBaseAdv {
 
 	static final ResourceLocation TEXTURE = new ResourceLocation("thermalfoundation:textures/gui/LexiconStudy.png");
 
 	public String myInfo = "";
 
-	public GuiLexicon(InventoryPlayer inventory, ContainerLexicon container) {
+	public GuiLexiconStudy(InventoryPlayer inventory, ContainerLexiconStudy container) {
 
 		super(container);
 		texture = TEXTURE;
-		name = "";
+		name = "gui.thermalfoundation.lexicon.study";
 		allowUserInput = false;
 
 		drawTitle = false;
@@ -50,6 +50,8 @@ public class GuiLexicon extends GuiBaseAdv {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y) {
+
+		fontRendererObj.drawString(StringHelper.localize(name), getCenteredOffset(StringHelper.localize(name)), 16, 0xddbb1d);
 
 		super.drawGuiContainerForegroundLayer(x, y);
 	}

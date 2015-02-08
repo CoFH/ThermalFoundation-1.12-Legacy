@@ -31,7 +31,7 @@ public class GuiLexiconTransmute extends GuiBaseAdv {
 		super(container);
 		lexicon = container;
 		texture = TEXTURE;
-		name = "";
+		name = "gui.thermalfoundation.lexicon.transmute";
 		allowUserInput = false;
 
 		drawTitle = false;
@@ -66,14 +66,14 @@ public class GuiLexiconTransmute extends GuiBaseAdv {
 	@Override
 	protected void updateElementInformation() {
 
-		if (lexicon.multipleOres()) {
+		if (lexicon.hasMultipleOres()) {
 			prevOre.setActive();
 			nextOre.setActive();
 		} else {
 			prevOre.setDisabled();
 			nextOre.setDisabled();
 		}
-		if (lexicon.multipleNames()) {
+		if (lexicon.hasMultipleNames()) {
 			prevName.setActive();
 			nextName.setActive();
 		} else {
@@ -106,9 +106,10 @@ public class GuiLexiconTransmute extends GuiBaseAdv {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y) {
 
+		fontRendererObj.drawString(StringHelper.localize(name), getCenteredOffset(StringHelper.localize(name)), 16, 0xddbb1d);
+		// 0xd2c0a3
 		if (lexicon != null) {
 			String oreName = lexicon.getOreName();
-
 			if (!oreName.equals(OreDictionaryArbiter.UNKNOWN)) {
 				fontRendererObj.drawString(oreName, getCenteredOffset(oreName), 88, 0xffffff);
 			}

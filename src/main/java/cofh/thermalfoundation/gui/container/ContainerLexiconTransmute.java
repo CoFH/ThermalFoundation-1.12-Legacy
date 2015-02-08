@@ -7,7 +7,6 @@ import cofh.lib.gui.slot.SlotRemoveOnly;
 import cofh.lib.gui.slot.SlotValidated;
 import cofh.lib.gui.slot.SlotViewOnly;
 import cofh.lib.util.helpers.ItemHelper;
-import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.util.LexiconManager;
 
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 	String oreName = OreDictionaryArbiter.UNKNOWN;
 	ItemStack oreStack;
 
-	boolean sendClientUpdate = true;
+	boolean syncClient = false;
 
 	public InventoryLexiconTransmute lexicon = new InventoryLexiconTransmute(this);
 
@@ -66,14 +65,19 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		}
 	}
 
-	private void reset() {
+	private String getCommonOreName(ItemStack ore1, ItemStack ore2) {
 
-		oreList = null;
-		nameList = null;
-		oreName = OreDictionaryArbiter.UNKNOWN;
-		oreSelection = -1;
-		nameSelection = -1;
-		oreStack = null;
+		ArrayList<String> nameList1 = OreDictionaryArbiter.getAllOreNames(ore1);
+		ArrayList<String> nameList2 = OreDictionaryArbiter.getAllOreNames(ore2);
+
+		for (String name1 : nameList1) {
+			for (String name2 : nameList2) {
+				if (name1.equals(name2)) {
+					return name1;
+				}
+			}
+		}
+		return OreDictionaryArbiter.UNKNOWN;
 	}
 
 	private boolean equivalentOres(ItemStack ore1, ItemStack ore2) {
@@ -97,87 +101,156 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		return false;
 	}
 
-	private String getCommonOreName(ItemStack ore1, ItemStack ore2) {
+	public String getOreName() {
 
-		ArrayList<String> nameList1 = OreDictionaryArbiter.getAllOreNames(ore1);
-		ArrayList<String> nameList2 = OreDictionaryArbiter.getAllOreNames(ore2);
+		return oreName;
+	}
 
-		for (String name1 : nameList1) {
-			for (String name2 : nameList2) {
-				if (name1.equals(name2)) {
-					return name1;
-				}
-			}
+	public boolean canTransmute() {
+
+		ItemStack input = lexicon.getStackInSlot(0);
+
+		if (!LexiconManager.validOre(input)) {
+			return false;
 		}
-		return OreDictionaryArbiter.UNKNOWN;
+		ItemStack entry = lexicon.getStackInSlot(2);
+
+		if (!LexiconManager.validOre(entry)) {
+			return false;
+		}
+		if (input.isItemEqual(entry)) {
+			return false;
+		}
+		if (!equivalentOres(input, entry)) {
+			return false;
+		}
+		ItemStack output = lexicon.getStackInSlot(1);
+
+		return output == null || (output.equals(entry) && output.stackSize < output.getMaxStackSize());
+	}
+
+	public boolean doTransmute() {
+
+		if (!canTransmute()) {
+			return false;
+		}
+		ItemStack input = lexicon.getStackInSlot(0);
+		ItemStack output = lexicon.getStackInSlot(1);
+		ItemStack entry = lexicon.getStackInSlot(2);
+
+		oreStack = ItemHelper.cloneStack(entry, 1);
+
+		if (output == null) {
+			output = ItemHelper.cloneStack(entry, input.stackSize);
+			input = null;
+		} else if (output.stackSize + input.stackSize > output.getMaxStackSize()) {
+			int diff = output.getMaxStackSize() - output.stackSize;
+			output.stackSize = output.getMaxStackSize();
+			input.stackSize -= diff;
+		} else {
+			output.stackSize += input.stackSize;
+			input = null;
+		}
+		lexicon.setInventorySlotContents(1, output);
+		lexicon.setInventorySlotContents(0, input);
+		return true;
+	}
+
+	public boolean hasMultipleOres() {
+
+		return oreList != null && oreList.size() > 1;
+	}
+
+	public boolean hasMultipleNames() {
+
+		return nameList != null && nameList.size() > 1;
+	}
+
+	public void prevOre() {
+
+		oreSelection += oreList.size() - 1;
+		oreSelection %= oreList.size();
+		lexicon.setInventorySlotContents(2, oreList.get(oreSelection));
+	}
+
+	public void nextOre() {
+
+		oreSelection++;
+		oreSelection %= oreList.size();
+		lexicon.setInventorySlotContents(2, oreList.get(oreSelection));
+	}
+
+	public void prevName() {
+
+		nameSelection += nameList.size() - 1;
+		nameSelection %= nameList.size();
+		oreName = nameList.get(nameSelection);
+		oreList = OreDictionaryArbiter.getOres(oreName);
+		oreSelection %= oreList.size();
+		lexicon.setInventorySlotContents(2, oreList.get(oreSelection));
+
+		syncClient = true;
+	}
+
+	public void nextName() {
+
+		nameSelection++;
+		nameSelection %= nameList.size();
+		oreName = nameList.get(nameSelection);
+		oreList = OreDictionaryArbiter.getOres(oreName);
+		oreSelection %= oreList.size();
+		lexicon.setInventorySlotContents(2, oreList.get(oreSelection));
+
+		syncClient = true;
+	}
+
+	public void handlePacket(byte command) {
+
+		switch (command) {
+		case ORE_PREV:
+			prevOre();
+			return;
+		case ORE_NEXT:
+			nextOre();
+			return;
+		case NAME_PREV:
+			prevName();
+			return;
+		case NAME_NEXT:
+			nextName();
+			return;
+		case TRANSMUTE:
+			doTransmute();
+			return;
+		default:
+
+		}
 	}
 
 	@Override
-	public void onContainerClosed(EntityPlayer player) {
+	public void detectAndSendChanges() {
 
-		super.onContainerClosed(player);
+		super.detectAndSendChanges();
 
-		ItemStack stack = this.lexicon.getStackInSlotOnClosing(0);
-		if (stack != null && !mergeItemStack(stack, 0, 36, true)) {
-			if (ServerHelper.isServerWorld(player.worldObj)) {
-				player.dropPlayerItemWithRandomChoice(stack, false);
+		for (int j = 0; j < this.crafters.size(); ++j) {
+			if (syncClient) {
+				((ICrafting) this.crafters.get(j)).sendProgressBarUpdate(this, 0, nameSelection);
+				((ICrafting) this.crafters.get(j)).sendProgressBarUpdate(this, 1, oreSelection);
+				syncClient = false;
 			}
 		}
 	}
 
 	@Override
-	public void onCraftMatrixChanged(IInventory inventory) {
+	public void updateProgressBar(int i, int j) {
 
-		ItemStack input = inventory.getStackInSlot(0);
-
-		if (input != null && (oreStack == null || !equivalentOres(input, oreStack))) {
-			// Probably shouldn't have to worry with the error checks due to slot validation, but whatever
-			nameList = OreDictionaryArbiter.getAllOreNames(input);
-
-			if (nameList == null) {
-				return;
-			}
-			oreName = nameList.get(0);
+		if (i == 0) {
+			nameSelection = j;
+			oreName = nameList.get(nameSelection);
 			oreList = OreDictionaryArbiter.getOres(oreName);
-
-			nameSelection = 0;
-			oreSelection = 0;
-			oreStack = ItemHelper.cloneStack(input, 1);
-
-			inventoryItemStacks.set(2, oreList.get(0));
-			inventory.setInventorySlotContents(2, oreList.get(0));
-
-		} else if (input != null && this.oreSelection == -1 && equivalentOres(input, oreStack)) {
-			// Lots of extra checks in here - in theory if we reach here, it's not going to fail
-			nameList = OreDictionaryArbiter.getAllOreNames(input);
-
-			if (nameList == null) {
-				return;
-			}
-			oreName = getCommonOreName(input, oreStack);
-			oreList = OreDictionaryArbiter.getOres(oreName);
-
-			oreSelection = 0;
-			nameSelection = 0;
-
-			for (int i = 0; i < nameList.size(); i++) {
-				if (oreName.equals(nameList.get(i))) {
-					nameSelection = i;
-					break;
-				}
-			}
-			for (int i = 0; i < oreList.size(); i++) {
-				if (oreStack.isItemEqual(oreList.get(i))) {
-					inventory.setInventorySlotContents(2, oreList.get(i));
-					oreSelection = i;
-					break;
-				}
-			}
-		} else if (input == null && oreStack != null && OreDictionaryArbiter.getAllOreNames(oreStack) == null) {
-			inventory.setInventorySlotContents(2, null);
-			reset();
+		} else if (i == 1) {
+			oreSelection = j;
 		}
-		super.onCraftMatrixChanged(inventory);
 	}
 
 	@Override
@@ -187,44 +260,63 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 	}
 
 	@Override
-	public void addCraftingToCrafters(ICrafting player) {
+	public void onContainerClosed(EntityPlayer player) {
 
-		super.addCraftingToCrafters(player);
-		player.sendProgressBarUpdate(this, 0, nameSelection);
-	}
+		super.onContainerClosed(player);
 
-	@Override
-	public void detectAndSendChanges() {
-
-		super.detectAndSendChanges();
-
-		for (int i = 0; i < crafters.size(); i++) {
-			ICrafting player = (ICrafting) crafters.get(i);
-
-			if (sendClientUpdate) {
-				player.sendProgressBarUpdate(this, 0, nameSelection);
-			}
+		ItemStack stack = this.lexicon.getStackInSlotOnClosing(0);
+		if (stack != null && !mergeItemStack(stack, 0, 36, false)) {
+			player.dropPlayerItemWithRandomChoice(stack, false);
 		}
-		sendClientUpdate = false;
 	}
 
 	@Override
-	public void updateProgressBar(int i, int j) {
+	public void onCraftMatrixChanged(IInventory inventory) {
 
-		ItemStack input = lexicon.getStackInSlot(0);
+		super.onCraftMatrixChanged(inventory);
 
-		if (oreStack != null) {
-			nameSelection = j;
-			if (input != null && LexiconManager.validOre(input)) {
-				nameList = OreDictionaryArbiter.getAllOreNames(input);
-				oreStack = ItemHelper.cloneStack(input, 1);
-			} else {
-				nameList = OreDictionaryArbiter.getAllOreNames(oreStack);
-			}
-			oreName = nameList.get(nameSelection);
-			oreList = OreDictionaryArbiter.getOres(oreName);
+		ItemStack input = inventory.getStackInSlot(0);
+
+		if (input == null || !ItemHelper.hasOreName(input)) {
+			// do nothing
 		} else {
-			reset();
+			// if there is an input and no prior transmute or the input has no common types with last transmute
+			if (!equivalentOres(input, oreStack)) {
+				nameList = OreDictionaryArbiter.getAllOreNames(input);
+
+				if (nameList == null) {
+					return;
+				}
+				// no existing/common types - start at 0
+				oreName = nameList.get(0);
+				oreList = OreDictionaryArbiter.getOres(oreName);
+
+				nameSelection = 0;
+				oreSelection = 0;
+				oreStack = ItemHelper.cloneStack(oreList.get(oreSelection), 1);
+
+				inventory.setInventorySlotContents(2, oreList.get(oreSelection));
+				// if the input DOES have a common type with the existing ore
+			} else {
+				nameList = OreDictionaryArbiter.getAllOreNames(input);
+
+				if (nameList == null) {
+					return;
+				}
+				// get the first common type
+				oreName = getCommonOreName(input, oreStack);
+				oreList = OreDictionaryArbiter.getOres(oreName);
+
+				nameSelection = 0;
+				oreSelection %= oreList.size();
+
+				for (int i = 0; i < nameList.size(); i++) {
+					if (oreName.equals(nameList.get(i))) {
+						nameSelection = i;
+						break;
+					}
+				}
+			}
 		}
 	}
 
@@ -236,7 +328,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		int invPlayer = 27;
 		int invFull = invPlayer + 9;
-		int invTile = invFull + lexicon.getSizeInventory();
+		int invTile = invFull + 1;
 
 		if (slot != null && slot.getHasStack()) {
 			ItemStack stackInSlot = slot.getStack();
@@ -317,130 +409,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		return slotFound;
 	}
 
-	public void doTransmute() {
-
-		if (!canTransmute()) {
-			return;
-		}
-		ItemStack input = lexicon.getStackInSlot(0);
-		ItemStack output = lexicon.getStackInSlot(1);
-		ItemStack entry = lexicon.getStackInSlot(2);
-
-		oreStack = ItemHelper.cloneStack(entry, 1);
-
-		if (output == null) {
-			output = ItemHelper.cloneStack(entry, input.stackSize);
-			input = null;
-		} else if (output.stackSize + input.stackSize > output.getMaxStackSize()) {
-			int diff = output.getMaxStackSize() - output.stackSize;
-			output.stackSize = output.getMaxStackSize();
-			input.stackSize -= diff;
-		} else {
-			output.stackSize += input.stackSize;
-			input = null;
-		}
-		lexicon.setInventorySlotContents(1, output);
-		lexicon.setInventorySlotContents(0, input);
-	}
-
-	public boolean canTransmute() {
-
-		ItemStack input = lexicon.getStackInSlot(0);
-
-		if (!LexiconManager.validOre(input)) {
-			return false;
-		}
-		ItemStack entry = lexicon.getStackInSlot(2);
-
-		if (!LexiconManager.validOre(entry)) {
-			return false;
-		}
-		if (input.isItemEqual(entry)) {
-			return false;
-		}
-		if (!equivalentOres(input, entry)) {
-			return false;
-		}
-		ItemStack output = lexicon.getStackInSlot(1);
-
-		return output == null || (output.equals(entry) && output.stackSize < output.getMaxStackSize());
-	}
-
-	public String getOreName() {
-
-		return oreName;
-	}
-
-	public boolean multipleOres() {
-
-		return oreList != null && oreList.size() > 1;
-	}
-
-	public boolean multipleNames() {
-
-		return nameList != null && nameList.size() > 1;
-	}
-
-	public void handlePacket(byte command) {
-
-		switch (command) {
-		case ORE_PREV:
-			if (oreList != null) {
-				oreSelection += oreList.size() - 1;
-				oreSelection %= oreList.size();
-				oreStack = oreList.get(oreSelection);
-				lexicon.setInventorySlotContents(2, oreStack);
-
-				sendClientUpdate = true;
-			}
-			return;
-		case ORE_NEXT:
-			if (oreList != null) {
-				oreSelection++;
-				oreSelection %= oreList.size();
-				oreStack = oreList.get(oreSelection);
-				lexicon.setInventorySlotContents(2, oreStack);
-
-				sendClientUpdate = true;
-			}
-			return;
-		case NAME_PREV:
-			if (nameList != null) {
-				nameSelection += nameList.size() - 1;
-				nameSelection %= nameList.size();
-				oreName = nameList.get(nameSelection);
-				oreList = OreDictionaryArbiter.getOres(oreName);
-				oreSelection %= oreList.size();
-				oreStack = oreList.get(oreSelection);
-				lexicon.setInventorySlotContents(2, oreStack);
-
-				sendClientUpdate = true;
-			}
-			return;
-		case NAME_NEXT:
-			if (nameList != null) {
-				nameSelection++;
-				nameSelection %= nameList.size();
-				oreName = nameList.get(nameSelection);
-				oreList = OreDictionaryArbiter.getOres(oreName);
-				oreSelection %= oreList.size();
-				oreStack = oreList.get(oreSelection);
-				lexicon.setInventorySlotContents(2, oreStack);
-
-				sendClientUpdate = true;
-			}
-			return;
-		case TRANSMUTE:
-			if (canTransmute()) {
-				doTransmute();
-			}
-			return;
-		default:
-		}
-	}
-
 	/* ISlotValidator */
-
 	@Override
 	public boolean isItemValid(ItemStack stack) {
 

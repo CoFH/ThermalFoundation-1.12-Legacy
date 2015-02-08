@@ -21,6 +21,9 @@ fluid.mana=Primal Mana
 fluid.steam=Steam
 fluid.coal=Liquifacted Coal
 
+gui.thermalfoundation.lexicon.study=Lexicon - Knowledge
+gui.thermalfoundation.lexicon.transmute=Lexicon - Transmutation
+
 item.thermalfoundation.bucket.bucketRedstone.name=Destabilized Redstone Bucket
 item.thermalfoundation.bucket.bucketGlowstone.name=Energized Glowstone Bucket
 item.thermalfoundation.bucket.bucketEnder.name=Resonant Ender Bucket

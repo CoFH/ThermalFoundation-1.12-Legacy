@@ -7,9 +7,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 
-public class ContainerLexicon extends ContainerInventoryItem implements ISlotValidator {
+public class ContainerLexiconStudy extends ContainerInventoryItem implements ISlotValidator {
 
-	public ContainerLexicon(ItemStack stack, InventoryPlayer inventory) {
+	public ContainerLexiconStudy(ItemStack stack, InventoryPlayer inventory) {
 
 		super(stack, inventory);
 

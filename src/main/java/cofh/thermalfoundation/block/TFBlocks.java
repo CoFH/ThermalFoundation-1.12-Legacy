@@ -41,9 +41,6 @@ public class TFBlocks {
 
 	public static void initialize() {
 
-		// OreDictionary.registerOre("oreGold", BlockOre.oreCopper);
-		// OreDictionary.registerOre("oreGold", BlockOre.oreTin);
-		// OreDictionary.registerOre("oreGold", BlockOre.oreSilver);
 	}
 
 	public static void postInit() {
