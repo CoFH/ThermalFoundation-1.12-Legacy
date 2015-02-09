@@ -4,7 +4,9 @@ import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import java.util.Random;
+
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -15,6 +17,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
 import org.apache.logging.log4j.Level;
 
 public class BlockFluidGlowstone extends BlockFluidCoFHBase {
@@ -43,19 +46,19 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 
 		GameRegistry.registerBlock(this, "FluidGlowstone");
 
-		String category = "tweak";
+		String category = "Fluid.Glowstone";
 		String comment = "Enable this for Fluid Glowstone to do...something.";
-		effect = ThermalFoundation.config.get(category, "Fluid.Glowstone.Effect", true, comment);
+		effect = ThermalFoundation.config.get(category, "Effect", true, comment);
 
 		comment = "Enable this for Fluid Glowstone Source blocks to condense back into solid Glowstone above a given y-value.";
-		enableSourceCondense = ThermalFoundation.config.get(category, "Fluid.Glowstone.Condense", enableSourceCondense, comment);
+		enableSourceCondense = ThermalFoundation.config.get(category, "Condense", enableSourceCondense, comment);
 
 		comment = "Enable this for Fluid Glowstone Source blocks to gradually float upwards.";
-		enableSourceFloat = ThermalFoundation.config.get(category, "Fluid.Glowstone.Float", enableSourceFloat, comment);
+		enableSourceFloat = ThermalFoundation.config.get(category, "Float", enableSourceFloat, comment);
 
 		int glowstoneHeight = maxGlowstoneHeight;
 		comment = "This adjusts the y-value where Fluid Glowstone will *always* condense, if that is enabled. It will also condense above 80% of this value, if it cannot flow.";
-		glowstoneHeight = ThermalFoundation.config.get(category, "Fluid.Glowstone.MaxHeight", maxGlowstoneHeight, comment);
+		glowstoneHeight = ThermalFoundation.config.get(category, "MaxHeight", maxGlowstoneHeight, comment);
 
 		if (glowstoneHeight >= maxGlowstoneHeight) {
 			maxGlowstoneHeight = glowstoneHeight;

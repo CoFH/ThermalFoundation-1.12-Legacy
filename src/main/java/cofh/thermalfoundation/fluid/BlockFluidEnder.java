@@ -4,6 +4,7 @@ import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.core.util.CoreUtils;
 import cofh.thermalfoundation.ThermalFoundation;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -34,9 +35,9 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 
 		GameRegistry.registerBlock(this, "FluidEnder");
 
-		String category = "tweak";
+		String category = "Fluid.Ender";
 		String comment = "Enable this for Fluid Ender to randomly teleport entities on contact.";
-		effect = ThermalFoundation.config.get(category, "Fluid.Ender.Effect", true, comment);
+		effect = ThermalFoundation.config.get(category, "Effect", true, comment);
 
 		return true;
 	}

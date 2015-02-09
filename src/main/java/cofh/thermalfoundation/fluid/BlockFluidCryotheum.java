@@ -10,7 +10,9 @@ import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.block.TFBlocks;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -66,12 +68,12 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		addInteraction(Blocks.fire, Blocks.air);
 		addInteraction(TFBlocks.blockFluidGlowstone, 0, Blocks.glowstone);
 
-		String category = "tweak";
+		String category = "Fluid.Cryotheum";
 		String comment = "Enable this for Fluid Cryotheum to be worse than lava, except cold.";
-		effect = ThermalFoundation.config.get(category, "Fluid.Cryotheum.Effect", true, comment);
+		effect = ThermalFoundation.config.get(category, "Effect", true, comment);
 
 		comment = "Enable this for Fluid Cryotheum Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.config.get(category, "Fluid.Cryotheum.Fall", enableSourceFall, comment);
+		enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment);
 
 		return true;
 	}

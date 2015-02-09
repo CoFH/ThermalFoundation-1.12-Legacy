@@ -7,7 +7,9 @@ import cofh.lib.util.helpers.MathHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -58,12 +60,12 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 			addInteraction(Blocks.stone_stairs, i, Blocks.stone_brick_stairs, i);
 		}
 
-		String category = "tweak";
+		String category = "Fluid.Pyrotheum";
 		String comment = "Enable this for Fluid Pyrotheum to be worse than lava.";
-		effect = ThermalFoundation.config.get(category, "Fluid.Pyrotheum.Effect", true, comment);
+		effect = ThermalFoundation.config.get(category, "Effect", true, comment);
 
 		comment = "Enable this for Fluid Pyrotheum Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.config.get(category, "Fluid.Pyrotheum.Fall", enableSourceFall, comment);
+		enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment);
 
 		return true;
 	}

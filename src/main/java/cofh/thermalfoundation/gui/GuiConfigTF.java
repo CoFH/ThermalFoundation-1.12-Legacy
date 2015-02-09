@@ -18,7 +18,7 @@ public class GuiConfigTF extends GuiConfig {
 		super(parentScreen, getConfigElements(parentScreen), ThermalFoundation.modId, false, false, ThermalFoundation.modName);
 	}
 
-	public static final String[] CATEGORIES = { "general", "item", "tweak" };
+	public static final String[] CATEGORIES = { "Equipment", "Fluid", "Lexicon" };
 
 	@SuppressWarnings("rawtypes")
 	private static List<IConfigElement> getConfigElements(GuiScreen parent) {

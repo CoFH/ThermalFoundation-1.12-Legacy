@@ -36,13 +36,13 @@ public class LexiconManager {
 	public static void preInit() {
 
 		String comment = "Set to true for a whitelist, FALSE for a blacklist";
-		isWhitelist = ThermalFoundation.config.get("general", "Lexicon.WhiteList", isWhitelist, comment);
+		isWhitelist = ThermalFoundation.config.get("Lexicon", "UseWhiteList", isWhitelist, comment);
 
 		comment = "This will generate a default list file depending on your list setting. This will ONLY generate if no list file already exists.";
-		writeDefaultFile = ThermalFoundation.config.get("general", "Lexicon.GenerateDefaultList", writeDefaultFile, comment);
+		writeDefaultFile = ThermalFoundation.config.get("Lexicon", "GenerateDefaultList", writeDefaultFile, comment);
 
-		comment = "This will echo all entries to the log.";
-		logEntries = ThermalFoundation.config.get("general", "Lexicon.LogEntries", logEntries, comment);
+		comment = "This will echo all entries to the system log.";
+		logEntries = ThermalFoundation.config.get("Lexicon", "LogEntries", logEntries, comment);
 	}
 
 	public static void generateList() {

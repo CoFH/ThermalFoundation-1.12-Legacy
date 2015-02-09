@@ -3,6 +3,7 @@ package cofh.thermalfoundation.fluid;
 import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.thermalfoundation.ThermalFoundation;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -33,9 +34,9 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 
 		GameRegistry.registerBlock(this, "FluidRedstone");
 
-		String category = "tweak";
+		String category = "Fluid.Redstone";
 		String comment = "Enable this for Fluid Redstone to emit a signal proportional to its fluid level.";
-		effect = ThermalFoundation.config.get(category, "Fluid.Redstone.Effect", true, comment);
+		effect = ThermalFoundation.config.get(category, "Effect", true, comment);
 
 		return true;
 	}

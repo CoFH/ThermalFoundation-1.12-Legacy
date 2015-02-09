@@ -8,7 +8,9 @@ import cofh.lib.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.block.TFBlocks;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -57,16 +59,16 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		addInteraction(Blocks.redstone_ore, -1, Blocks.lit_redstone_ore, 0);
 		addInteraction(Blocks.lapis_ore, -1, Blocks.lapis_block, 0);
 		addInteraction(Blocks.farmland, -1, Blocks.mycelium, 0);
-		for (int i = 8; i --> 0; )
+		for (int i = 8; i-- > 0;)
 			addInteraction(Blocks.double_stone_slab, i, Blocks.double_stone_slab, i + 8);
 		addInteraction(TFBlocks.blockOre, 2, TFBlocks.blockOre, 6);
 		addInteraction(TFBlocks.blockOre, 3, Blocks.gold_ore);
 		addInteraction(TFBlocks.blockStorage, 2, TFBlocks.blockStorage, 6);
 		addInteraction(TFBlocks.blockStorage, 3, Blocks.gold_block);
 
-		String category = "tweak";
+		String category = "Fluid.Mana";
 		String comment = "Enable this for Fluid Mana to do...things.";
-		effect = ThermalFoundation.config.get(category, "Fluid.Mana.Effect", true, comment);
+		effect = ThermalFoundation.config.get(category, "Effect", true, comment);
 
 		return true;
 	}

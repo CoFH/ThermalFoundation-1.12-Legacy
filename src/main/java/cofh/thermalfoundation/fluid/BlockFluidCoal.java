@@ -3,6 +3,7 @@ package cofh.thermalfoundation.fluid;
 import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.thermalfoundation.ThermalFoundation;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -33,9 +34,9 @@ public class BlockFluidCoal extends BlockFluidCoFHBase {
 
 		GameRegistry.registerBlock(this, "FluidCoal");
 
-		String category = "tweak";
+		String category = "Fluid.Coal";
 		String comment = "Enable this for Fluid Coal to be flammable.";
-		effect = ThermalFoundation.config.get(category, "Fluid.Coal.Flammable", true, comment);
+		effect = ThermalFoundation.config.get(category, "Flammable", true, comment);
 
 		return true;
 	}
