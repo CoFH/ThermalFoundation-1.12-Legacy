@@ -3,6 +3,7 @@ package cofh.thermalfoundation.fluid;
 import cofh.core.util.fluid.DispenserEmptyBucketHandler;
 import cofh.core.util.fluid.DispenserFilledBucketHandler;
 import cofh.thermalfoundation.item.TFItems;
+
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
@@ -20,7 +21,7 @@ public class TFFluids {
 		fluidPyrotheum = new Fluid("pyrotheum").setLuminosity(15).setDensity(2000).setViscosity(1200).setTemperature(4000).setRarity(EnumRarity.rare);
 		fluidCryotheum = new Fluid("cryotheum").setLuminosity(0).setDensity(4000).setViscosity(3000).setTemperature(50).setRarity(EnumRarity.rare);
 		fluidMana = new Fluid("mana").setLuminosity(15).setDensity(600).setViscosity(6000).setTemperature(350).setRarity(EnumRarity.epic);
-		fluidSteam = new Fluid("steam").setLuminosity(0).setDensity(-1000).setViscosity(200).setTemperature(1100).setGaseous(true);
+		fluidSteam = new Fluid("steam").setLuminosity(0).setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true);
 		fluidCoal = new Fluid("coal").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300);
 
 		FluidRegistry.registerFluid(fluidRedstone);
