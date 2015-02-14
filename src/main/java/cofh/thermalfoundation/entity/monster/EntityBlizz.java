@@ -1,20 +1,23 @@
 package cofh.thermalfoundation.entity.monster;
 
+import cofh.core.CoFHProps;
 import cofh.core.entity.EntitySelectorInRangeByType;
 import cofh.core.util.CoreUtils;
 import cofh.lib.util.helpers.ItemHelper;
+import cofh.lib.util.helpers.MathHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBall;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzSlowball;
 import cofh.thermalfoundation.item.TFItems;
-import com.google.common.collect.Lists;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import net.minecraft.block.Block;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -22,11 +25,10 @@ import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.MathHelper;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
@@ -34,44 +36,86 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class EntityBlizz extends EntityMob {
 
-	public static int entityId = -1;
+	static int entityId = -1;
+
+	static boolean enable = true;
+	static boolean restrictLightLevel = false;
+	static boolean useGlobalId = true;
+
+	static int spawnLightLevel = 8;
+
+	static int spawnWeight = 10;
+	static int spawnMin = 1;
+	static int spawnMax = 4;
+
+	static {
+		String category = "Mob.Blizz";
+		String comment = "";
+
+		comment = "Set this to false to disable Blizzes entirely. Jerk.";
+		enable = ThermalFoundation.config.get(category, "Enable", enable, comment);
+
+		comment = "Set this to false for the Blizz to use a mod-specific ID; this removes the Spawn Egg.";
+		useGlobalId = ThermalFoundation.config.get(category, "UseGlobalId", useGlobalId, comment);
+
+		category = "Mob.Blizz.Spawn";
+
+		comment = "Set this to true for Blizzes to only below the light level setting.";
+		restrictLightLevel = ThermalFoundation.config.get(category, "Light.Limit", restrictLightLevel, comment);
+
+		comment = "This sets the maximum light level Blizzes can spawn at, if restricted.";
+		spawnLightLevel = MathHelper.clampI(ThermalFoundation.config.get(category, "Light.Level", spawnLightLevel, comment), 0, 15);
+
+		comment = "This sets the minimum number of Blizzes that spawn in a group.";
+		spawnMin = MathHelper.clampI(ThermalFoundation.config.get(category, "MinGroupSize", spawnMin, comment), 1, 10);
+
+		comment = "This sets the maximum light number of Blizzes that spawn in a group.";
+		spawnMax = MathHelper.clampI(ThermalFoundation.config.get(category, "MaxGroupSize", spawnMax, comment), spawnMin, 24);
+
+		comment = "This sets the relative spawn weight for Blizzes.";
+		spawnWeight = ThermalFoundation.config.get(category, "SpawnWeight", spawnWeight, comment);
+	}
 
 	public static void initialize() {
 
-		try {
-			entityId = EntityRegistry.findGlobalUniqueEntityId();
-		} catch (Exception e) {
-			ThermalFoundation.log.error("Error - No Global Entity IDs remaining. This is REALLY bad. Using a mod-specific ID instead.", e);
-			entityId = CoreUtils.getEntityId();
+		if (!enable) {
+			return;
 		}
-		try {
-			EntityRegistry.registerGlobalEntityID(EntityBlizz.class, "Blizz", entityId, 0xE0FBFF, 0x6BE6FF);
-		} catch (Exception e) {
-			ThermalFoundation.log.error("Another mod is improperly using the Entity Registry. This is REALLY bad. Using a mod-specific ID instead.", e);
-			entityId = CoreUtils.getEntityId();
-			EntityRegistry.registerGlobalEntityID(EntityBlizz.class, "Blizz", entityId, 0xE0FBFF, 0x6BE6FF);
+		if (useGlobalId) {
+			try {
+				entityId = EntityRegistry.findGlobalUniqueEntityId();
+				try {
+					EntityRegistry.registerGlobalEntityID(EntityBlizz.class, "Blizz", entityId, 0xE0FBFF, 0x6BE6FF);
+				} catch (Exception e) {
+					ThermalFoundation.log.error("Another mod is improperly using the Entity Registry. This is REALLY bad. Using a mod-specific ID instead.", e);
+					useGlobalId = false;
+				}
+			} catch (Exception e) {
+				ThermalFoundation.log.error("Error - No Global Entity IDs remaining. This is REALLY bad. Using a mod-specific ID instead.", e);
+				useGlobalId = false;
+			}
+
 		}
-		// Add Blizz spawn to snow/frozen biomes only if non-ocean/river
-		List<BiomeGenBase> validBiomes = Arrays.asList(BiomeDictionary.getBiomesForType(Type.SNOWY));
-		List<Type> types = Lists.newArrayList();
-		List<Type> fine = Lists.newArrayList(Type.END, Type.SNOWY);
-		for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(Type.MAGICAL)) {
-			if (biome.isHighHumidity()) {
-				continue; // No high humidity biomes.
-			}
-			if (validBiomes.contains(biome)) {
-				continue; // Already have it.
-			}
-			types.clear();
-			types.addAll(Arrays.asList(BiomeDictionary.getTypesForBiome(biome))); // we don't want to modify the underlying array
-			types.removeAll(fine);
-			if (types.size() == 0) {
+		if (!useGlobalId) {
+			entityId = CoreUtils.getEntityId();
+			EntityRegistry.registerModEntity(EntityBlizz.class, "Blizz", entityId, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
+		}
+		// Add Blizz spawn to Cold biomes
+		List<BiomeGenBase> validBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.COLD)));
+
+		// Add Blizz spawn to Snowy biomes (in vanilla, all snowy are also cold)
+		for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(Type.SNOWY)) {
+			if (!validBiomes.contains(biome)) {
 				validBiomes.add(biome);
 			}
 		}
-		types.clear();
-
-		EntityRegistry.addSpawn(EntityBlizz.class, 4, 1, 3, EnumCreatureType.monster, validBiomes.toArray(new BiomeGenBase[0]));
+		// Remove Blizz spawn from End biomes
+		for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(Type.END)) {
+			if (validBiomes.contains(biome)) {
+				validBiomes.remove(biome);
+			}
+		}
+		EntityRegistry.addSpawn(EntityBlizz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.monster, validBiomes.toArray(new BiomeGenBase[0]));
 	}
 
 	/** Random offset used in floating behaviour */
@@ -239,7 +283,7 @@ public class EntityBlizz extends EntityMob {
 				if (target instanceof EntityBlizz || target.isCreatureType(EnumCreatureType.creature, false)) {
 					EntityBlizzBall blizzBall = new EntityBlizzBall(this.worldObj, this);
 					double dSY = target.posY + target.getEyeHeight() - 1.100000023841858D - blizzBall.posY;
-					float f1 = MathHelper.sqrt_double(dX * dX + dZ * dZ) * 0.2F;
+					double f1 = Math.sqrt(dX * dX + dZ * dZ) * 0.2F;
 					blizzBall.setThrowableHeading(dX, dSY + f1, dZ, 1.6F, 12.0F);
 					this.playSound("random.bow", 1.0F, 1.0F / (this.rand.nextFloat() * 0.4F + 0.8F));
 					this.worldObj.spawnEntityInWorld(blizzBall);
@@ -264,8 +308,8 @@ public class EntityBlizz extends EntityMob {
 						this.setInAttackMode(false); // Unflary sadness :(
 					}
 					if (this.firingState > 1) {
-						//EntityLivingBase tgt = (EntityLivingBase) target;
-						//double dY = tgt.boundingBox.minY + tgt.height / 2.0F - (this.posY + this.height / 2.0F);
+						// EntityLivingBase tgt = (EntityLivingBase) target;
+						// double dY = tgt.boundingBox.minY + tgt.height / 2.0F - (this.posY + this.height / 2.0F);
 						EntityBlizzSlowball ball = new EntityBlizzSlowball(this.worldObj, this);
 						ball.posY = this.posY + this.height / 2.0F + 0.5D;
 
@@ -325,24 +369,28 @@ public class EntityBlizz extends EntityMob {
 	}
 
 	@Override
-	public boolean getCanSpawnHere() {
-
-		int x = MathHelper.floor_double(this.posX);
-		int y = MathHelper.floor_double(this.boundingBox.minY);
-		int z = MathHelper.floor_double(this.posZ);
-
-		Block block = this.worldObj.getBlock(x, y - 1, z);
-
-		if (block == Blocks.snow || block == Blocks.ice || block == Blocks.snow_layer || block == Blocks.stone && super.isValidLightLevel()) {
-			return super.getCanSpawnHere();
-		}
-		return false;
-	}
-
-	@Override
 	protected boolean isValidLightLevel() {
 
-		return true;
+		if (!restrictLightLevel) {
+			return true;
+		}
+		int i = MathHelper.floor(this.posX);
+		int j = MathHelper.floor(this.boundingBox.minY);
+		int k = MathHelper.floor(this.posZ);
+
+		if (this.worldObj.getSavedLightValue(EnumSkyBlock.Sky, i, j, k) > this.rand.nextInt(32)) {
+			return false;
+		} else {
+			int l = this.worldObj.getBlockLightValue(i, j, k);
+
+			if (this.worldObj.isThundering()) {
+				int i1 = this.worldObj.skylightSubtracted;
+				this.worldObj.skylightSubtracted = 10;
+				l = this.worldObj.getBlockLightValue(i, j, k);
+				this.worldObj.skylightSubtracted = i1;
+			}
+			return l <= this.rand.nextInt(spawnLightLevel);
+		}
 	}
 
 }
