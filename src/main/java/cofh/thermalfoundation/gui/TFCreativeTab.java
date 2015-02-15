@@ -1,8 +1,9 @@
 package cofh.thermalfoundation.gui;
 
-import cofh.thermalfoundation.item.TFItems;
+import cofh.thermalfoundation.block.BlockOre;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,7 +24,8 @@ public class TFCreativeTab extends CreativeTabs {
 	}
 
 	protected ItemStack getStack() {
-		return TFItems.lexicon;
+
+		return BlockOre.oreCopper;
 	}
 
 	@Override

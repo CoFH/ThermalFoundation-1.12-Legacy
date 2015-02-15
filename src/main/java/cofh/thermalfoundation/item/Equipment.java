@@ -24,10 +24,10 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 public enum Equipment {
 
 	/* Name, Level, Uses, Speed, Damage, Ench, Dura, Absorption */
-	Copper(1, 175, 4F, 0.5F, 6, 6, new int[] { 1, 3, 3, 1 }),
-	Tin(1, 200, 4.5F, 1F, 7, 8, new int[] { 1, 4, 3, 1 }),
-	Silver(2, 200, 6F, 1.5F, 20, 11, new int[] { 2, 4, 4, 1 }),
-	Lead(1, 150, 5F, 1F, 9, 15, new int[] { 3, 5, 4, 2 }) {
+	Copper(1, 175, 4.0F, 0.5F, 6, 6, new int[] { 1, 3, 3, 1 }),
+	Tin(1, 200, 4.5F, 1.0F, 7, 8, new int[] { 1, 4, 3, 1 }),
+	Silver(2, 200, 6.0F, 1.5F, 20, 11, new int[] { 2, 4, 4, 1 }),
+	Lead(1, 150, 5F, 1.0F, 9, 15, new int[] { 3, 5, 4, 2 }) {
 
 		@Override
 		protected final void createArmor() {
@@ -58,10 +58,10 @@ public enum Equipment {
 		}
 	},
 	Nickel(2, 300, 6.5F, 2.5F, 18, 15, new int[] { 2, 5, 5, 2 }),
-	Electrum(0, 100, 14F, 0.5F, 30, 8, new int[] { 2, 4, 4, 2 }),
-	Invar(2, 450, 7F, 3F, 16, 25, new int[] { 2, 7, 5, 2 }),
-	Bronze(2, 500, 6F, 2F, 15, 17, new int[] { 3, 6, 6, 2 }),
-	Platinum(4, 1700, 9F, 4F, 9, 40, new int[] { 3, 8, 6, 3 }) {
+	Electrum(0, 100, 14.0F, 0.5F, 30, 8, new int[] { 2, 4, 4, 2 }),
+	Invar(2, 450, 7.0F, 3.0F, 16, 25, new int[] { 2, 7, 5, 2 }),
+	Bronze(2, 500, 6.0F, 2.0F, 15, 17, new int[] { 3, 6, 6, 2 }),
+	Platinum(4, 1700, 9.0F, 4.0F, 9, 40, new int[] { 3, 8, 6, 3 }) {
 
 		@Override
 		protected final void createArmor() {
@@ -97,8 +97,8 @@ public enum Equipment {
 	public final ArmorMaterial ARMOR_MATERIAL;
 
 	private final String ingot;
-	private final float arrowSpeed = 2.5f;
-	private final float arrowDamage = 1.25f;
+	private final float arrowSpeed = 2.5F;
+	private final float arrowDamage = 1.25F;
 
 	public boolean enableArmor = true;
 	public boolean[] enableTools = new boolean[9];

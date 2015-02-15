@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.item;
 
 import static cofh.lib.util.helpers.ItemHelper.ShapelessRecipe;
+
 import cofh.core.item.ItemBase;
 import cofh.core.item.ItemBucket;
 import cofh.core.util.fluid.BucketHandler;
@@ -8,6 +9,7 @@ import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.block.TFBlocks;
 import cofh.thermalfoundation.fluid.TFFluids;
+
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidContainerRegistry;
@@ -142,14 +144,10 @@ public class TFItems {
 	public static void postInit() {
 
 		// @formatter: off
-		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustPyrotheum, 2), new Object[] {
-			"dustCoal", "dustSulfur",
-			"dustRedstone", Items.blaze_powder
-		}));
-		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustCryotheum, 2), new Object[] {
-			Items.snowball, "dustSaltpeter",
-			"dustRedstone", "dustBlizz"
-		}));
+		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustPyrotheum, 2), new Object[] { "dustCoal", "dustSulfur", "dustRedstone",
+				Items.blaze_powder }));
+		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustCryotheum, 2), new Object[] { Items.snowball, "dustSaltpeter", "dustRedstone",
+				"dustBlizz" }));
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBlizz, 2), "rodBlizz"));
 		// @formatter: on
 
@@ -172,32 +170,15 @@ public class TFItems {
 
 		/* Alloy Recipes */
 		// @formatter: off
-		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustElectrum, 2), new Object[] {
-			"dustGold", "dustSilver"
-		}));
-		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustInvar, 3), new Object[] {
-			"dustIron", "dustIron",
-			"dustNickel"
-		}));
-		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBronze, 4), new Object[] {
-			"dustCopper", "dustCopper",
-			"dustCopper", "dustTin"
-		}));
-		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustSignalum, 4), new Object[] {
-			"dustCopper", "dustCopper",
-			"dustCopper", "dustSilver",
-			"bucketRedstone"
-		}));
-		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustLumium, 4), new Object[] {
-			"dustTin", "dustTin",
-			"dustTin", "dustSilver",
-			"bucketGlowstone"
-		}));
-		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustEnderium, 4), new Object[] {
-			"dustTin", "dustTin",
-			"dustSilver", "dustPlatinum",
-			"bucketEnder"
-		}));
+		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustElectrum, 2), new Object[] { "dustGold", "dustSilver" }));
+		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustInvar, 3), new Object[] { "dustIron", "dustIron", "dustNickel" }));
+		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBronze, 4), new Object[] { "dustCopper", "dustCopper", "dustCopper", "dustTin" }));
+		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustSignalum, 4), new Object[] { "dustCopper", "dustCopper", "dustCopper", "dustSilver",
+				"bucketRedstone" }));
+		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustLumium, 4), new Object[] { "dustTin", "dustTin", "dustTin", "dustSilver",
+				"bucketGlowstone" }));
+		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustEnderium, 4), new Object[] { "dustTin", "dustTin", "dustSilver", "dustPlatinum",
+				"bucketEnder" }));
 		// @formatter: on
 
 		/* Storage */

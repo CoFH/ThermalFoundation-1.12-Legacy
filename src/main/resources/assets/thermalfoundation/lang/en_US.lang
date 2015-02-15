@@ -254,8 +254,8 @@ item.thermalfoundation.tool.platinumSickle.name=Shiny Sickle
 item.thermalfoundation.tool.platinumBow.name=Shiny Reinforced Bow
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
-itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation Tools
-itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation Armor
+itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Tools
+itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armor
 
 tab.thermalfoundation.lexicon.study=Consult the knowledge of the world and alter your personal destiny.
 tab.thermalfoundation.lexicon.transmute=Transmute equivalent items according to an arcane set of rules laid down by higher powers.

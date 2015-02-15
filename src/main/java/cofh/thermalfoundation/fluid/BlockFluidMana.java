@@ -59,8 +59,9 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		addInteraction(Blocks.redstone_ore, -1, Blocks.lit_redstone_ore, 0);
 		addInteraction(Blocks.lapis_ore, -1, Blocks.lapis_block, 0);
 		addInteraction(Blocks.farmland, -1, Blocks.mycelium, 0);
-		for (int i = 8; i-- > 0;)
+		for (int i = 8; i-- > 0;) {
 			addInteraction(Blocks.double_stone_slab, i, Blocks.double_stone_slab, i + 8);
+		}
 		addInteraction(TFBlocks.blockOre, 2, TFBlocks.blockOre, 6);
 		addInteraction(TFBlocks.blockOre, 3, Blocks.gold_ore);
 		addInteraction(TFBlocks.blockStorage, 2, TFBlocks.blockStorage, 6);
