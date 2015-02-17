@@ -128,7 +128,7 @@ public class EntityBlizz extends EntityMob {
 	public static final String SOUND_AMBIENT = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzAmbient");
 	public static final String SOUND_ATTACK = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzAttack");
 	public static final String SOUND_LIVING[] = { CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzBreathe0"),
-		CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzBreathe1"), CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzBreathe2") };
+			CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzBreathe1"), CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzBreathe2") };
 
 	protected static final int SOUND_AMBIENT_FREQUENCY = 200; // How often it does ambient sound loop
 
