@@ -94,5 +94,45 @@
             -1,
             1
         ]
+    },
+    "platinum": {
+        "template": "uniform",
+        "chunkChance": 2,
+        "block": [
+            {"name": "ThermalFoundation:Ore", "metadata": 5, "weight": 80},
+            {"name": "ThermalFoundation:Ore", "metadata": 4, "weight": 20}
+        ],
+        "clusterSize": 8,
+        "numClusters": 1,
+        "minHeight": 5,
+        "maxHeight": 30,
+        "retrogen": "true",
+        "biomeRestriction": "none",
+        "biomes": [
+            "all"
+        ],
+        "dimensionRestriction": "blacklist",
+        "dimensions": [
+            -1,
+            1
+        ]
+    },
+    "copperHigh": {
+        "template": "uniform",
+        "block": "ThermalFoundation:Ore",
+        "clusterSize": 8,
+        "numClusters": 8,
+        "minHeight": 48,
+        "maxHeight": 96,
+        "retrogen": "true",
+        "biomeRestriction": "none",
+        "biomes": [
+            "all"
+        ],
+        "dimensionRestriction": "blacklist",
+        "dimensions": [
+            -1,
+            1
+        ]
     }
 }
