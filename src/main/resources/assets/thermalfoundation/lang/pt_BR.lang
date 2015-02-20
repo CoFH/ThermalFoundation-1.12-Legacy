@@ -21,6 +21,9 @@ fluid.mana=Mana Primordial
 fluid.steam=Vapor
 fluid.coal=Carvão Liquefeito
 
+gui.thermalfoundation.lexicon.study=Lexicon – Conhecimento
+gui.thermalfoundation.lexicon.transmute=Lexicon – Transmutação
+
 item.thermalfoundation.bucket.bucketRedstone.name=Balde de Redstone Desestabilizada
 item.thermalfoundation.bucket.bucketGlowstone.name=Balde de Pedra Brilhante Energizada
 item.thermalfoundation.bucket.bucketEnder.name=Balde de Ender Ressonante
@@ -254,8 +257,8 @@ itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Ferramentas
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armaduras
 
-tab.thermalfoundation.lexicon.study=Consultar o conhecimento do mundo e mudará o sue destino.
-tab.thermalfoundation.lexicon.convert=Converta itens equivalentes de acordo com um conjunto arcano de regras estabelecidas pelos mais altos poderes.
+tab.thermalfoundation.lexicon.study=Consultar o conhecimento do mundo e mudará o seu destino.
+tab.thermalfoundation.lexicon.transmute=Transmutar itens equivalentes de acordo com um conjunto arcano de regras estabelecidas pelos mais altos poderes.
 
 tile.thermalfoundation.fluid.redstone.name=Redstone Desestabilizada
 tile.thermalfoundation.fluid.glowstone.name=Pedra Luminosa Energizada
@@ -287,3 +290,6 @@ tile.thermalfoundation.storage.bronze.name=Bloco de Tinker's Alloy
 tile.thermalfoundation.storage.signalum.name=Bloco de Signalum
 tile.thermalfoundation.storage.lumium.name=Bloco de Lumium
 tile.thermalfoundation.storage.enderium.name=Bloco de Enderium
+
+
+# Localization File: Português Brasileiro (pt_BR) – por: Al-Myr	 /  Last Update: 20/2/2015 – por: Al-Myr
