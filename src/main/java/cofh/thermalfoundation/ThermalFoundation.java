@@ -38,12 +38,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = ThermalFoundation.modId, name = ThermalFoundation.modName, version = ThermalFoundation.version, dependencies = ThermalFoundation.dependencies,
-		guiFactory = ThermalFoundation.modGuiFactory, canBeDeactivated = false, customProperties = @CustomProperty(k = "cofhversion", v = "true"))
+guiFactory = ThermalFoundation.modGuiFactory, canBeDeactivated = false, customProperties = @CustomProperty(k = "cofhversion", v = "true"))
 public class ThermalFoundation extends BaseMod {
 
 	public static final String modId = "ThermalFoundation";
 	public static final String modName = "Thermal Foundation";
-	public static final String version = "1.7.10R1.0.0RC1";
+	public static final String version = "1.7.10R1.0.0RC2";
 	public static final String dependencies = "required-after:CoFHCore@[" + CoFHCore.version + ",)";
 	public static final String releaseURL = "https://raw.github.com/CoFH/ThermalFoundation/master/VERSION";
 	public static final String modGuiFactory = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
