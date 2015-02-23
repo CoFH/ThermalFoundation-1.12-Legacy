@@ -29,7 +29,7 @@ mat4 rotationMatrix(vec3 axis, float angle)
 void main() {
     // background colour
 
-    vec4 col = vec4(0.047, 0.035, 0.063, 1) + noise1(gl_FragCoord.xy) * vec4(0.0196, 0.0216, 0.0235, 0);
+    vec4 col = vec4(0.0568, 0.0458, 0.07475, 1);
     
     // get ray from camera to fragment
     vec4 dir = normalize(vec4( -position, 0));
