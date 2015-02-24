@@ -28,6 +28,8 @@ public class TFItems {
 		bucketEnder = itemBucket.addOreDictItem(2, "bucketEnder", 1);
 		bucketPyrotheum = itemBucket.addOreDictItem(3, "bucketPyrotheum", 2);
 		bucketCryotheum = itemBucket.addOreDictItem(4, "bucketCryotheum", 2);
+		// bucketAerotheum = itemBucket.addOreDictItem(7, "bucketAerotheum", 2);
+		// bucketPetrotheum = itemBucket.addOreDictItem(8, "bucketPetrotheum", 2);
 		bucketMana = itemBucket.addItem(5, "bucketMana", 3);
 		bucketCoal = itemBucket.addOreDictItem(6, "bucketCoal");
 
@@ -112,7 +114,9 @@ public class TFItems {
 		/* Additional Items */
 		dustPyrotheum = itemMaterial.addOreDictItem(512, "dustPyrotheum", 2);
 		dustCryotheum = itemMaterial.addOreDictItem(513, "dustCryotheum", 2);
-		dustMana = itemMaterial.addItem(514, "dustMana", 3);
+		// dustAerotheum = itemMaterial.addOreDictItem(514, "dustAerotheum", 2);
+		// dustPetrotheum = itemMaterial.addOreDictItem(515, "dustPetrotheum", 2);
+		dustMana = itemMaterial.addItem(516, "dustMana", 3);
 
 		/* Mob Drops */
 		rodBlizz = itemMaterial.addOreDictItem(1024, "rodBlizz");
@@ -129,6 +133,8 @@ public class TFItems {
 		BucketHandler.registerBucket(TFBlocks.blockFluidEnder, 0, bucketEnder);
 		BucketHandler.registerBucket(TFBlocks.blockFluidPyrotheum, 0, bucketPyrotheum);
 		BucketHandler.registerBucket(TFBlocks.blockFluidCryotheum, 0, bucketCryotheum);
+		// BucketHandler.registerBucket(TFBlocks.blockFluidAerotheum, 0, bucketAerotheum);
+		// BucketHandler.registerBucket(TFBlocks.blockFluidPetrotheum, 0, bucketPetrotheum);
 		BucketHandler.registerBucket(TFBlocks.blockFluidMana, 0, bucketMana);
 		BucketHandler.registerBucket(TFBlocks.blockFluidCoal, 0, bucketCoal);
 
@@ -137,6 +143,8 @@ public class TFItems {
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidEnder, bucketEnder, FluidContainerRegistry.EMPTY_BUCKET);
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidPyrotheum, bucketPyrotheum, FluidContainerRegistry.EMPTY_BUCKET);
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidCryotheum, bucketCryotheum, FluidContainerRegistry.EMPTY_BUCKET);
+		// FluidContainerRegistry.registerFluidContainer(TFFluids.fluidAerotheum, bucketAerotheum, FluidContainerRegistry.EMPTY_BUCKET);
+		// FluidContainerRegistry.registerFluidContainer(TFFluids.fluidPetrotheum, bucketPetrotheum, FluidContainerRegistry.EMPTY_BUCKET);
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidMana, bucketMana, FluidContainerRegistry.EMPTY_BUCKET);
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidCoal, bucketCoal, FluidContainerRegistry.EMPTY_BUCKET);
 	}
@@ -239,6 +247,8 @@ public class TFItems {
 	public static ItemStack bucketEnder;
 	public static ItemStack bucketPyrotheum;
 	public static ItemStack bucketCryotheum;
+	// public static ItemStack bucketAerotheum;
+	// public static ItemStack bucketPetrotheum;
 	public static ItemStack bucketMana;
 	public static ItemStack bucketCoal;
 
@@ -320,6 +330,8 @@ public class TFItems {
 
 	public static ItemStack dustPyrotheum;
 	public static ItemStack dustCryotheum;
+	// public static ItemStack dustAerotheum;
+	// public static ItemStack dustPetrotheum;
 	public static ItemStack dustMana;
 
 	public static ItemStack rodBlizz;

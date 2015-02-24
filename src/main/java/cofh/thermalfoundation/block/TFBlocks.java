@@ -22,6 +22,8 @@ public class TFBlocks {
 		blockFluidEnder = new BlockFluidEnder();
 		blockFluidPyrotheum = new BlockFluidPyrotheum();
 		blockFluidCryotheum = new BlockFluidCryotheum();
+		// blockFluidAerotheum = new BlockFluidAerotheum();
+		// blockFluidPetrotheum = new BlockFluidPetrotheum();
 		blockFluidMana = new BlockFluidMana();
 		blockFluidSteam = new BlockFluidSteam();
 		blockFluidCoal = new BlockFluidCoal();
@@ -34,6 +36,8 @@ public class TFBlocks {
 		blockFluidEnder.preInit();
 		blockFluidPyrotheum.preInit();
 		blockFluidCryotheum.preInit();
+		// blockFluidAerotheum.preInit();
+		// blockFluidPetrotheum.preInit();
 		blockFluidMana.preInit();
 		blockFluidSteam.preInit();
 		blockFluidCoal.preInit();
@@ -57,6 +61,8 @@ public class TFBlocks {
 	public static BlockFluidCoFHBase blockFluidEnder;
 	public static BlockFluidCoFHBase blockFluidPyrotheum;
 	public static BlockFluidCoFHBase blockFluidCryotheum;
+	public static BlockFluidCoFHBase blockFluidAerotheum;
+	public static BlockFluidCoFHBase blockFluidPetrotheum;
 	public static BlockFluidCoFHBase blockFluidMana;
 	public static BlockFluidCoFHBase blockFluidSteam;
 	public static BlockFluidCoFHBase blockFluidCoal;
