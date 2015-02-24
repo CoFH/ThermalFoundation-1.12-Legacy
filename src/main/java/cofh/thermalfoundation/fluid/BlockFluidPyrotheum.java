@@ -3,7 +3,6 @@ package cofh.thermalfoundation.fluid;
 import cofh.core.fluid.BlockFluidInteractive;
 import cofh.lib.util.BlockWrapper;
 import cofh.lib.util.helpers.BlockHelper;
-import cofh.lib.util.helpers.MathHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -23,6 +22,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockFluidPyrotheum extends BlockFluidInteractive {
+
+	Random random = new Random();
 
 	public static final int LEVELS = 5;
 	public static final Material materialFluidPyrotheum = new MaterialLiquid(MapColor.tntColor);
@@ -186,11 +187,11 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 
 	protected void triggerInteractionEffects(World world, int x, int y, int z) {
 
-		if (MathHelper.RANDOM.nextInt(10) == 0) {
+		if (random.nextInt(20) == 0) {
 			world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
 		}
 		for (int i = 0; i < 4; i++) {
-			world.spawnParticle("largesmoke", x + Math.random(), y + 1.2D, z + Math.random(), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("largesmoke", x + random.nextDouble(), y + 1.2D, z + random.nextDouble(), 0.0D, 0.0D, 0.0D);
 		}
 	}
 

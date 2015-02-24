@@ -14,12 +14,15 @@ public class TFFluids {
 
 	public static void preInit() {
 
-		fluidRedstone = new Fluid("redstone").setLuminosity(7).setDensity(1200).setViscosity(1500).setTemperature(350).setRarity(EnumRarity.uncommon);
-		fluidGlowstone = new Fluid("glowstone").setLuminosity(15).setDensity(-500).setViscosity(100).setTemperature(350).setGaseous(true)
+		fluidRedstone = new Fluid("redstone").setLuminosity(7).setDensity(1200).setViscosity(1500).setTemperature(300).setRarity(EnumRarity.uncommon);
+		fluidGlowstone = new Fluid("glowstone").setLuminosity(15).setDensity(-500).setViscosity(100).setTemperature(300).setGaseous(true)
 				.setRarity(EnumRarity.uncommon);
 		fluidEnder = new Fluid("ender").setLuminosity(3).setDensity(4000).setViscosity(3000).setTemperature(300).setRarity(EnumRarity.uncommon);
 		fluidPyrotheum = new Fluid("pyrotheum").setLuminosity(15).setDensity(2000).setViscosity(1200).setTemperature(4000).setRarity(EnumRarity.rare);
 		fluidCryotheum = new Fluid("cryotheum").setLuminosity(0).setDensity(4000).setViscosity(3000).setTemperature(50).setRarity(EnumRarity.rare);
+		// fluidAerotheum = new Fluid("aerotheum").setLuminosity(0).setDensity(-800).setViscosity(100).setTemperature(300).setGaseous(true)
+		// .setRarity(EnumRarity.rare);
+		// fluidPetrotheum = new Fluid("petrotheum").setLuminosity(0).setDensity(4000).setViscosity(1500).setTemperature(400).setRarity(EnumRarity.rare);
 		fluidMana = new Fluid("mana").setLuminosity(15).setDensity(600).setViscosity(6000).setTemperature(350).setRarity(EnumRarity.epic);
 		fluidSteam = new Fluid("steam").setLuminosity(0).setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true);
 		fluidCoal = new Fluid("coal").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300);
@@ -29,6 +32,8 @@ public class TFFluids {
 		FluidRegistry.registerFluid(fluidEnder);
 		FluidRegistry.registerFluid(fluidPyrotheum);
 		FluidRegistry.registerFluid(fluidCryotheum);
+		// FluidRegistry.registerFluid(fluidAerotheum);
+		// FluidRegistry.registerFluid(fluidPetrotheum);
 		FluidRegistry.registerFluid(fluidMana);
 		FluidRegistry.registerFluid(fluidSteam);
 		FluidRegistry.registerFluid(fluidCoal);
@@ -54,6 +59,8 @@ public class TFFluids {
 	public static Fluid fluidEnder;
 	public static Fluid fluidPyrotheum;
 	public static Fluid fluidCryotheum;
+	public static Fluid fluidAerotheum;
+	public static Fluid fluidPetrotheum;
 	public static Fluid fluidMana;
 	public static Fluid fluidSteam;
 	public static Fluid fluidCoal;

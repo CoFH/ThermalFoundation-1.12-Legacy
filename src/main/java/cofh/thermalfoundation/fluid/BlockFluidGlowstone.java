@@ -28,7 +28,7 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 	private static boolean effect = true;
 	private static boolean enableSourceCondense = true;
 	private static boolean enableSourceFloat = true;
-	private static int maxGlowstoneHeight = 120;
+	private static int maxHeight = 120;
 
 	public BlockFluidGlowstone() {
 
@@ -56,17 +56,15 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 		comment = "Enable this for Fluid Glowstone Source blocks to gradually float upwards.";
 		enableSourceFloat = ThermalFoundation.config.get(category, "Float", enableSourceFloat, comment);
 
-		int glowstoneHeight = maxGlowstoneHeight;
+		int cfgHeight;
 		comment = "This adjusts the y-value where Fluid Glowstone will *always* condense, if that is enabled. It will also condense above 80% of this value, if it cannot flow.";
-		glowstoneHeight = ThermalFoundation.config.get(category, "MaxHeight", maxGlowstoneHeight, comment);
+		cfgHeight = ThermalFoundation.config.get(category, "MaxHeight", maxHeight, comment);
 
-		if (glowstoneHeight >= maxGlowstoneHeight) {
-			maxGlowstoneHeight = glowstoneHeight;
+		if (cfgHeight >= maxHeight / 2) {
+			maxHeight = cfgHeight;
 		} else {
-			ThermalFoundation.log.log(Level.INFO, "'Fluid.Glowstone.MaxHeight' config value is out of acceptable range. Using default: " + maxGlowstoneHeight
-					+ ".");
+			ThermalFoundation.log.log(Level.INFO, "'Fluid.Glowstone.MaxHeight' config value is out of acceptable range. Using default: " + maxHeight + ".");
 		}
-
 		return true;
 	}
 
@@ -116,7 +114,7 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 					return;
 				}
 			}
-		} else if (y + densityDir > maxGlowstoneHeight) {
+		} else if (y + densityDir > maxHeight) {
 
 			int quantaRemaining = quantaPerBlock - world.getBlockMetadata(x, y, z);
 			int expQuanta = -101;
@@ -154,7 +152,7 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 	protected boolean shouldSourceBlockCondense(World world, int x, int y, int z) {
 
 		return enableSourceCondense
-				&& (y + densityDir > maxGlowstoneHeight || y + densityDir > world.getHeight() || y + densityDir > maxGlowstoneHeight * 0.8F
+				&& (y + densityDir > maxHeight || y + densityDir > world.getHeight() || y + densityDir > maxHeight * 0.8F
 						&& !canDisplace(world, x, y + densityDir, z));
 	}
 
