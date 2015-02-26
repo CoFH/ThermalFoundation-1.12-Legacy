@@ -23,6 +23,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public enum Equipment {
 
+	// @formatter:on
 	/* Name, Level, Uses, Speed, Damage, Ench, Dura, Absorption */
 	Copper(1, 175, 4.0F, 0.5F, 6, 6, new int[] { 1, 3, 3, 1 }),
 	Tin(1, 200, 4.5F, 1.0F, 7, 8, new int[] { 1, 4, 3, 1 }),
@@ -92,6 +93,7 @@ public enum Equipment {
 		}
 	},
 	;
+	// @formatter:off
 
 	public final ToolMaterial TOOL_MATERIAL;
 	public final ArmorMaterial ARMOR_MATERIAL;
