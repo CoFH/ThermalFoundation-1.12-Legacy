@@ -39,7 +39,7 @@ public class EntityBlizz extends EntityMob {
 	static int entityId = -1;
 
 	static boolean enable = true;
-	static boolean restrictLightLevel = false;
+	static boolean restrictLightLevel = true;
 	static boolean useGlobalId = true;
 
 	static int spawnLightLevel = 8;
@@ -60,7 +60,7 @@ public class EntityBlizz extends EntityMob {
 
 		category = "Mob.Blizz.Spawn";
 
-		comment = "Set this to true for Blizzes to only below the light level setting.";
+		comment = "Set this to false for Blizzes to spawn at any light level.";
 		restrictLightLevel = ThermalFoundation.config.get(category, "Light.Limit", restrictLightLevel, comment);
 
 		comment = "This sets the maximum light level Blizzes can spawn at, if restricted.";
