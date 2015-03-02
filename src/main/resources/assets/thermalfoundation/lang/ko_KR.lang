@@ -21,6 +21,9 @@ fluid.mana=태초의 마나
 fluid.steam=증기
 fluid.coal=액화 석탄
 
+gui.thermalfoundation.lexicon.study=사전 - 지식
+gui.thermalfoundation.lexicon.transmute=사전 - 변환
+
 item.thermalfoundation.bucket.bucketRedstone.name=불안정한 레드스톤 양동이
 item.thermalfoundation.bucket.bucketGlowstone.name=활력의 발광석 양동이
 item.thermalfoundation.bucket.bucketEnder.name=공명하는 엔더 양동이
@@ -115,7 +118,144 @@ item.thermalfoundation.material.gearEnderium.name=엔더리움 톱니바퀴
 item.thermalfoundation.material.rodBlizz.name=블리즈 로드
 item.thermalfoundation.material.dustBlizz.name=블리즈 파우더
 
+item.thermalfoundation.armor.copperHelmet.name=구리 핼맷
+item.thermalfoundation.armor.copperPlate.name=구리 갑옷
+item.thermalfoundation.armor.copperLegs.name=구리 레깅스
+item.thermalfoundation.armor.copperBoots.name=구리 부츠
+
+item.thermalfoundation.armor.tinHelmet.name=주석 핼맷
+item.thermalfoundation.armor.tinPlate.name=주석 갑옷
+item.thermalfoundation.armor.tinLegs.name=주석 레깅스
+item.thermalfoundation.armor.tinBoots.name=주석 부츠
+
+item.thermalfoundation.armor.electrumHelmet.name=일렉트럼 핼맷
+item.thermalfoundation.armor.electrumPlate.name=일렉트럼 갑옷
+item.thermalfoundation.armor.electrumLegs.name=일렉트럼 레깅스
+item.thermalfoundation.armor.electrumBoots.name=일렉트럼 부츠
+
+item.thermalfoundation.armor.leadHelmet.name=납 핼맷
+item.thermalfoundation.armor.leadPlate.name=납 갑옷
+item.thermalfoundation.armor.leadLegs.name=납 레깅스
+item.thermalfoundation.armor.leadBoots.name=납 부츠
+
+item.thermalfoundation.armor.silverHelmet.name=은 핼맷
+item.thermalfoundation.armor.silverPlate.name=은 갑옷
+item.thermalfoundation.armor.silverLegs.name=은 레깅스
+item.thermalfoundation.armor.silverBoots.name=은 부츠
+
+item.thermalfoundation.armor.nickelHelmet.name=페리우스 핼맷
+item.thermalfoundation.armor.nickelPlate.name=페리우스 갑옷
+item.thermalfoundation.armor.nickelLegs.name=페리우스 레깅스
+item.thermalfoundation.armor.nickelBoots.name=페리우스 부츠
+
+item.thermalfoundation.armor.bronzeHelmet.name=땜장이 합금 핼맷
+item.thermalfoundation.armor.bronzePlate.name=땜장이 합금 갑옷
+item.thermalfoundation.armor.bronzeLegs.name=땜장이 합금 레깅스
+item.thermalfoundation.armor.bronzeBoots.name=땜장이 합금 부츠
+
+item.thermalfoundation.armor.invarHelmet.name=인바 핼맷
+item.thermalfoundation.armor.invarPlate.name=인바 갑옷
+item.thermalfoundation.armor.invarLegs.name=인바 레깅스
+item.thermalfoundation.armor.invarBoots.name=인바 부츠
+
+item.thermalfoundation.armor.platinumHelmet.name=샤이니 핼맷
+item.thermalfoundation.armor.platinumPlate.name=샤이니 갑옷
+item.thermalfoundation.armor.platinumLegs.name=샤이니 레깅스
+item.thermalfoundation.armor.platinumBoots.name=샤이니 부츠
+
+item.thermalfoundation.tool.copperSword.name=구리 검
+item.thermalfoundation.tool.copperShovel.name=구리 삽
+item.thermalfoundation.tool.copperPickaxe.name=구리 곡괭이
+item.thermalfoundation.tool.copperAxe.name=구리 도끼
+item.thermalfoundation.tool.copperHoe.name=구리 괭이
+item.thermalfoundation.tool.copperShears.name=구리 가위
+item.thermalfoundation.tool.copperFishingRod.name=구리 낚싯대
+item.thermalfoundation.tool.copperSickle.name=구리 낫
+item.thermalfoundation.tool.copperBow.name=구리 강화 활
+
+item.thermalfoundation.tool.tinSword.name=주석 검
+item.thermalfoundation.tool.tinShovel.name=주석 삽
+item.thermalfoundation.tool.tinPickaxe.name=주석 곡괭이
+item.thermalfoundation.tool.tinAxe.name=주석 도끼
+item.thermalfoundation.tool.tinHoe.name=주석 괭이
+item.thermalfoundation.tool.tinShears.name=주석 가위
+item.thermalfoundation.tool.tinFishingRod.name=주석 낚싯대
+item.thermalfoundation.tool.tinSickle.name=주석 낫
+item.thermalfoundation.tool.tinBow.name=주석 강화 활
+
+item.thermalfoundation.tool.electrumSword.name=일렉트럼 검
+item.thermalfoundation.tool.electrumShovel.name=일렉트럼 삽
+item.thermalfoundation.tool.electrumPickaxe.name=일렉트럼 곡괭이
+item.thermalfoundation.tool.electrumAxe.name=일렉트럼 도끼
+item.thermalfoundation.tool.electrumHoe.name=일렉트럼 괭이
+item.thermalfoundation.tool.electrumShears.name=일렉트럼 가위
+item.thermalfoundation.tool.electrumFishingRod.name=일렉트럼 낚싯대
+item.thermalfoundation.tool.electrumSickle.name=일렉트럼 낫
+item.thermalfoundation.tool.electrumBow.name=일렉트럼 강화 활
+
+item.thermalfoundation.tool.leadSword.name=납 검
+item.thermalfoundation.tool.leadShovel.name=납 삽
+item.thermalfoundation.tool.leadPickaxe.name=납 곡괭이
+item.thermalfoundation.tool.leadAxe.name=납 도끼
+item.thermalfoundation.tool.leadHoe.name=납 괭이
+item.thermalfoundation.tool.leadShears.name=납 가위
+item.thermalfoundation.tool.leadFishingRod.name=납 낚싯대
+item.thermalfoundation.tool.leadSickle.name=납 낫
+item.thermalfoundation.tool.leadBow.name=납 강화 활
+
+item.thermalfoundation.tool.silverSword.name=은 검
+item.thermalfoundation.tool.silverShovel.name=은 삽
+item.thermalfoundation.tool.silverPickaxe.name=은 곡괭이
+item.thermalfoundation.tool.silverAxe.name=은 도끼
+item.thermalfoundation.tool.silverHoe.name=은 괭이
+item.thermalfoundation.tool.silverShears.name=은 가위
+item.thermalfoundation.tool.silverFishingRod.name=은 낚싯대
+item.thermalfoundation.tool.silverSickle.name=은 낫
+item.thermalfoundation.tool.silverBow.name=은 강화 활
+
+item.thermalfoundation.tool.nickelSword.name=페리우스 검
+item.thermalfoundation.tool.nickelShovel.name=페리우스 삽
+item.thermalfoundation.tool.nickelPickaxe.name=페리우스 곡괭이
+item.thermalfoundation.tool.nickelAxe.name=페리우스 도끼
+item.thermalfoundation.tool.nickelHoe.name=페리우스 괭이
+item.thermalfoundation.tool.nickelShears.name=페리우스 가위
+item.thermalfoundation.tool.nickelFishingRod.name=페리우스 낚싯대
+item.thermalfoundation.tool.nickelSickle.name=페리우스 낫
+item.thermalfoundation.tool.nickelBow.name=페리우스 강화 활
+
+item.thermalfoundation.tool.bronzeSword.name=청동 검
+item.thermalfoundation.tool.bronzeShovel.name=청동 삽
+item.thermalfoundation.tool.bronzePickaxe.name=청동 곡괭이
+item.thermalfoundation.tool.bronzeAxe.name=청동 도끼
+item.thermalfoundation.tool.bronzeHoe.name=청동 괭이
+item.thermalfoundation.tool.bronzeShears.name=청동 가위
+item.thermalfoundation.tool.bronzeFishingRod.name=청동 낚싯대
+item.thermalfoundation.tool.bronzeSickle.name=청동 낫
+item.thermalfoundation.tool.bronzeBow.name=청동 강화 활
+
+item.thermalfoundation.tool.invarSword.name=인바 검
+item.thermalfoundation.tool.invarShovel.name=인바 삽
+item.thermalfoundation.tool.invarPickaxe.name=인바 곡괭이
+item.thermalfoundation.tool.invarAxe.name=인바 도끼
+item.thermalfoundation.tool.invarHoe.name=인바 괭이
+item.thermalfoundation.tool.invarShears.name=인바 가위
+item.thermalfoundation.tool.invarFishingRod.name=인바 낚싯대
+item.thermalfoundation.tool.invarSickle.name=인바 낫
+item.thermalfoundation.tool.invarBow.name=인바 강화 활
+
+item.thermalfoundation.tool.platinumSword.name=샤이니 검
+item.thermalfoundation.tool.platinumShovel.name=샤이니 삽
+item.thermalfoundation.tool.platinumPickaxe.name=샤이니 곡괭이
+item.thermalfoundation.tool.platinumAxe.name=샤이니 도끼
+item.thermalfoundation.tool.platinumHoe.name=샤이니 괭이
+item.thermalfoundation.tool.platinumShears.name=샤이니 가위
+item.thermalfoundation.tool.platinumFishingRod.name=샤이니 낚싯대
+item.thermalfoundation.tool.platinumSickle.name=샤이니 낫
+item.thermalfoundation.tool.platinumBow.name=샤이니 강화 활
+
 itemGroup.thermalfoundation.creativeTab=써멀 파운데이션[Thermal Foundation]
+itemGroup.thermalfoundation.creativeTabTools=써멀 파운데이션[Thermal Foundation: Tools]
+itemGroup.thermalfoundation.creativeTabArmor=써멀 파운데이션[Thermal Foundation: Armor]
 
 tab.thermalfoundation.lexicon.study=세계의 지식을 찾고 당신의 운명을 바꿉니다.
 tab.thermalfoundation.lexicon.transmute=일련의 규칙에 의해 고도의 마법력으로 같은 아이템종류일 경우 변환해줍니다.
