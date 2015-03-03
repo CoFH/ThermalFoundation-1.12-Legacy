@@ -153,9 +153,9 @@ public class TFItems {
 
 		// @formatter: off
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustPyrotheum, 2), new Object[] { "dustCoal", "dustSulfur", "dustRedstone",
-			Items.blaze_powder }));
+				Items.blaze_powder }));
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustCryotheum, 2), new Object[] { Items.snowball, "dustSaltpeter", "dustRedstone",
-		"dustBlizz" }));
+				"dustBlizz" }));
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBlizz, 2), "rodBlizz"));
 		// @formatter: on
 
@@ -182,11 +182,11 @@ public class TFItems {
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustInvar, 3), new Object[] { "dustIron", "dustIron", "dustNickel" }));
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBronze, 4), new Object[] { "dustCopper", "dustCopper", "dustCopper", "dustTin" }));
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustSignalum, 4), new Object[] { "dustCopper", "dustCopper", "dustCopper", "dustSilver",
-		"bucketRedstone" }));
+				"bucketRedstone" }));
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustLumium, 4), new Object[] { "dustTin", "dustTin", "dustTin", "dustSilver",
-		"bucketGlowstone" }));
+				"bucketGlowstone" }));
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustEnderium, 4), new Object[] { "dustTin", "dustTin", "dustSilver", "dustPlatinum",
-		"bucketEnder" }));
+				"bucketEnder" }));
 		// @formatter: on
 
 		/* Storage */

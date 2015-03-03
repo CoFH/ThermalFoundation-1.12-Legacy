@@ -35,9 +35,9 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 
-		ItemStack lexicon = new ItemStack(item, 1, 0);
-		setEmpoweredState(lexicon, false);
-		list.add(lexicon);
+		// ItemStack lexicon = new ItemStack(item, 1, 0);
+		// setEmpoweredState(lexicon, false);
+		// list.add(lexicon);
 	}
 
 	@Override
