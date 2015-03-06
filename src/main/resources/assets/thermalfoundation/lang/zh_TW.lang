@@ -29,7 +29,7 @@ item.thermalfoundation.bucket.bucketGlowstone.name=充能的液態螢石桶
 item.thermalfoundation.bucket.bucketEnder.name=諧律的終界液桶
 item.thermalfoundation.bucket.bucketPyrotheum.name=高溫沸石液桶
 item.thermalfoundation.bucket.bucketCryotheum.name=低溫寒石液桶
-item.thermalfoundation.bucket.bucketMana.name==遠古魔力桶
+item.thermalfoundation.bucket.bucketMana.name=遠古魔力桶
 item.thermalfoundation.bucket.bucketCoal.name=液態煤炭桶
 
 info.thermalfoundation.tome.lexicon.1=將物品轉換成它的等值形式.
@@ -253,9 +253,9 @@ item.thermalfoundation.tool.platinumFishingRod.name=白金釣魚竿
 item.thermalfoundation.tool.platinumSickle.name=白金製鐮刀
 item.thermalfoundation.tool.platinumBow.name=白金強化弓
 
-itemGroup.thermalfoundation.creativeTab=精鍊機械基礎
-itemGroup.thermalfoundation.creativeTabTools=精鍊機械基礎|工具
-itemGroup.thermalfoundation.creativeTabArmor=精鍊機械基礎|裝備
+itemGroup.thermalfoundation.creativeTab=精煉機械基礎
+itemGroup.thermalfoundation.creativeTabTools=精煉機械基礎|工具
+itemGroup.thermalfoundation.creativeTabArmor=精煉機械基礎|裝備
 
 tab.thermalfoundation.lexicon.study=學習關於這個世界的知識, 然後改變你自己的命運.
 tab.thermalfoundation.lexicon.transmute=你可以通過更強大的能量來等價交換.
