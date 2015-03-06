@@ -29,7 +29,7 @@ item.thermalfoundation.bucket.bucketGlowstone.name=充能的液態螢石桶
 item.thermalfoundation.bucket.bucketEnder.name=諧律的終界液桶
 item.thermalfoundation.bucket.bucketPyrotheum.name=高溫沸石液桶
 item.thermalfoundation.bucket.bucketCryotheum.name=低溫寒石液桶
-item.thermalfoundation.bucket.bucketMana.name==遠古魔力桶
+item.thermalfoundation.bucket.bucketMana.name=遠古魔力桶
 item.thermalfoundation.bucket.bucketCoal.name=液態煤炭桶
 
 info.thermalfoundation.tome.lexicon.1=將物品轉換成它的等值形式.
