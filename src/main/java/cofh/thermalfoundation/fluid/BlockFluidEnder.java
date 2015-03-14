@@ -48,7 +48,7 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 		if (!effect || world.isRemote) {
 			return;
 		}
-		if (world.getTotalWorldTime() % 4 == 0) {
+		if (world.getTotalWorldTime() % 8 == 0) {
 			int x2 = x - 8 + world.rand.nextInt(17);
 			int y2 = y + world.rand.nextInt(8);
 			int z2 = z - 8 + world.rand.nextInt(17);
