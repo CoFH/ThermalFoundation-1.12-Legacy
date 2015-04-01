@@ -101,18 +101,20 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 			return;
 		}
 		if (entity instanceof EntityZombie || entity instanceof EntityCreeper) {
-			entity.setDead();
-
 			EntitySnowman snowman = new EntitySnowman(world);
-			snowman.setLocationAndAngles(x + 0.5D, y + 1.0D, z + 0.5D, 0.0F, 0.0F);
+			snowman.setLocationAndAngles(entity.posX, entity.posY, entity.posZ, entity.rotationYaw, entity.rotationPitch);
 			world.spawnEntityInWorld(snowman);
-		} else if (entity instanceof EntityBlizz) {
+
+			entity.setDead();
+		} else if (entity instanceof EntityBlizz || entity instanceof EntitySnowman) {
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 6 * 20, 0));
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 6 * 20, 0));
 		} else if (entity instanceof EntityBlaze) {
 			entity.attackEntityFrom(DamageHelper.cryotheum, 10F);
 		} else {
+			boolean t = entity.velocityChanged;
 			entity.attackEntityFrom(DamageHelper.cryotheum, 2.0F);
+			entity.velocityChanged = t;
 		}
 	}
 
