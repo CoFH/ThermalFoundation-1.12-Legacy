@@ -150,7 +150,7 @@ void main() {
 
     col = col * br + vec4(0.047, 0.035, 0.063, 1) * (1-br);
 
-    // increase the brightness of flashing conduits
+    // increase the brightness of flashing ducts
     col.rgb = clamp(col.rgb * (1+alpha*4),0,1);
 
     col.a = 1;

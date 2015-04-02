@@ -150,3 +150,16 @@ tile.thermalfoundation.storage.bronze.name=Bronsblok
 tile.thermalfoundation.storage.signalum.name=Signalumblok
 tile.thermalfoundation.storage.lumium.name=Lumiumblok
 tile.thermalfoundation.storage.enderium.name=Enderiumblok
+
+
+#Tinker's Construct Compatibility
+material.thermalfoundation.invar=Invar
+material.thermalfoundation.nickel=Nikkel
+material.thermalfoundation.lead=Lood
+material.thermalfoundation.lead.ability=Zwaar
+material.thermalfoundation.silver=Zilver
+material.thermalfoundation.silver.ability=Glimmend
+material.thermalfoundation.platinum=Platinum
+material.thermalfoundation.platinum.ability=Hoge Dichtheid
+material.thermalfoundation.electrum=Elektrum
+material.thermalfoundation.electrum.ability=Mooi

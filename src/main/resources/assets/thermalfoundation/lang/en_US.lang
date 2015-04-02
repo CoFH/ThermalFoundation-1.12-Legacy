@@ -290,3 +290,15 @@ tile.thermalfoundation.storage.bronze.name=Tinker's Alloy Block
 tile.thermalfoundation.storage.signalum.name=Signalum Block
 tile.thermalfoundation.storage.lumium.name=Lumium Block
 tile.thermalfoundation.storage.enderium.name=Enderium Block
+
+#Tinker's Construct Compatibility
+material.thermalfoundation.invar=Invar
+material.thermalfoundation.nickel=Ferrous
+material.thermalfoundation.lead=Lead
+material.thermalfoundation.lead.ability=Heavy
+material.thermalfoundation.silver=Silver
+material.thermalfoundation.silver.ability=Shiny
+material.thermalfoundation.platinum=Shiny
+material.thermalfoundation.platinum.ability=Dense
+material.thermalfoundation.electrum=Electrum
+material.thermalfoundation.electrum.ability=Fancy

@@ -290,3 +290,16 @@ tile.thermalfoundation.storage.bronze.name=青銅磚
 tile.thermalfoundation.storage.signalum.name=信素磚
 tile.thermalfoundation.storage.lumium.name=光素磚
 tile.thermalfoundation.storage.enderium.name=終界磚
+
+#Tinker's Construct Compatibility
+material.thermalfoundation.invar=殷鋼
+material.thermalfoundation.nickel=亞鐵
+material.thermalfoundation.lead=鉛
+material.thermalfoundation.lead.ability=沉重
+material.thermalfoundation.silver=銀
+material.thermalfoundation.silver.ability=閃亮
+material.thermalfoundation.platinum=鉑
+material.thermalfoundation.platinum.ability=茂密
+material.thermalfoundation.electrum=琥珀金
+material.thermalfoundation.electrum.ability=花俏
+

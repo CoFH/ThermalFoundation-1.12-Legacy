@@ -14,6 +14,7 @@ import cofh.thermalfoundation.gui.TFCreativeTab;
 import cofh.thermalfoundation.item.Equipment;
 import cofh.thermalfoundation.item.TFItems;
 import cofh.thermalfoundation.network.PacketTFBase;
+import cofh.thermalfoundation.plugins.TFPlugins;
 import cofh.thermalfoundation.util.LexiconManager;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.CustomProperty;
@@ -96,7 +97,7 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.preInit();
 		TFItems.preInit();
 		TFBlocks.preInit();
-		Equipment.preInit();
+		TFPlugins.preInit();
 
 		LexiconManager.preInit();
 
@@ -109,7 +110,7 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.initialize();
 		TFItems.initialize();
 		TFBlocks.initialize();
-		Equipment.initialize();
+		TFPlugins.initialize();
 
 		/* Init World Gen */
 		loadWorldGeneration();
@@ -126,7 +127,7 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.postInit();
 		TFItems.postInit();
 		TFBlocks.postInit();
-		Equipment.postInit();
+		TFPlugins.postInit();
 
 		proxy.registerEntities();
 		proxy.registerRenderInformation();

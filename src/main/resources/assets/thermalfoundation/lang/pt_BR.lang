@@ -292,4 +292,16 @@ tile.thermalfoundation.storage.lumium.name=Bloco de Lúmio
 tile.thermalfoundation.storage.enderium.name=Bloco de Endério
 
 
+#Tinker's Construct Compatibility
+material.thermalfoundation.invar=Invar
+material.thermalfoundation.nickel=Ferrous
+material.thermalfoundation.lead=Chumbo
+material.thermalfoundation.lead.ability=Pesado
+material.thermalfoundation.silver=Prata
+material.thermalfoundation.silver.ability=Brilhante
+material.thermalfoundation.platinum=Brilhante
+material.thermalfoundation.platinum.ability=Denso
+material.thermalfoundation.electrum=Electrum
+material.thermalfoundation.electrum.ability=Extravagante
+
 # Localization File: Português Brasileiro (pt_BR) – por: Al-Myr	 /  Last Update: 23/2/2015 – por: LorenzoDCC

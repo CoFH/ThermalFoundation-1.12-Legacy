@@ -121,6 +121,9 @@ public class TFItems {
 		/* Mob Drops */
 		rodBlizz = itemMaterial.addOreDictItem(1024, "rodBlizz");
 		dustBlizz = itemMaterial.addOreDictItem(1025, "dustBlizz");
+
+		/* Equipment */
+		Equipment.preInit();
 	}
 
 	public static void initialize() {
@@ -147,6 +150,9 @@ public class TFItems {
 		// FluidContainerRegistry.registerFluidContainer(TFFluids.fluidPetrotheum, bucketPetrotheum, FluidContainerRegistry.EMPTY_BUCKET);
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidMana, bucketMana, FluidContainerRegistry.EMPTY_BUCKET);
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidCoal, bucketCoal, FluidContainerRegistry.EMPTY_BUCKET);
+
+		/* Equipment */
+		Equipment.initialize();
 	}
 
 	public static void postInit() {
@@ -236,6 +242,8 @@ public class TFItems {
 		ItemHelper.addGearRecipe(gearLumium, "ingotLumium");
 		ItemHelper.addGearRecipe(gearEnderium, "ingotEnderium");
 
+		/* Equipment */
+		Equipment.postInit();
 	}
 
 	public static ItemBucket itemBucket;
