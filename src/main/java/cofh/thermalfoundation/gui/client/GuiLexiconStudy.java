@@ -32,12 +32,14 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 		}
 
 		@Override
-		public boolean onMouseWheel(int mouseX, int mouseY, int movement) {
+		protected void onScrollV(int newStartIndex) {
 
-			if (!StringHelper.isControlKeyDown()) {
-				oreSlider.onMouseWheel(mouseX, mouseY, movement);
-			}
-			return super.onMouseWheel(mouseX, mouseY, movement);
+			oreSlider.setValue(newStartIndex);
+		}
+
+		@Override
+		protected void onScrollH(int newStartIndex) {
+
 		}
 	};
 	SliderVertical oreSlider;
@@ -99,10 +101,6 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 			public void onValueChanged(int value) {
 
 				oreList.scrollToV(value);
-
-				if (!_isDragging) {
-					onStopDragging();
-				}
 			}
 		};
 		addElement(oreSlider);
