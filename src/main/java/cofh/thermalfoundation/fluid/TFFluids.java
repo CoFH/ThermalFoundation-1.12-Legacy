@@ -27,17 +27,16 @@ public class TFFluids {
 		fluidSteam = new Fluid("steam").setLuminosity(0).setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true);
 		fluidCoal = new Fluid("coal").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300);
 
-		FluidRegistry.registerFluid(fluidRedstone);
-		FluidRegistry.registerFluid(fluidGlowstone);
-		FluidRegistry.registerFluid(fluidEnder);
-		FluidRegistry.registerFluid(fluidPyrotheum);
-		FluidRegistry.registerFluid(fluidCryotheum);
-		// FluidRegistry.registerFluid(fluidAerotheum);
-		// FluidRegistry.registerFluid(fluidPetrotheum);
-		FluidRegistry.registerFluid(fluidMana);
-		FluidRegistry.registerFluid(fluidSteam);
-		FluidRegistry.registerFluid(fluidCoal);
-
+		registerFluid(fluidRedstone, "redstone");
+		registerFluid(fluidGlowstone, "glowstone");
+		registerFluid(fluidEnder, "ender");
+		registerFluid(fluidPyrotheum, "pyrotheum");
+		registerFluid(fluidCryotheum, "cryotheum");
+		// registerFluid(fluidAerotheum, "aerotheum");
+		// registerFluid(fluidPetrotheum, "petrotheum");
+		registerFluid(fluidMana, "mana");
+		registerFluid(fluidSteam, "steam");
+		registerFluid(fluidCoal, "coal");
 	}
 
 	public static void initialize() {
@@ -46,6 +45,12 @@ public class TFFluids {
 
 	public static void postInit() {
 
+	}
+
+	public static void registerFluid(Fluid fluid, String fluidName) {
+
+		FluidRegistry.registerFluid(fluid);
+		fluid = FluidRegistry.getFluid(fluidName);
 	}
 
 	public static void registerDispenserHandlers() {
