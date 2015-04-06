@@ -19,6 +19,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class BlockOre extends Block implements IInitializer {
 
@@ -93,6 +94,12 @@ public class BlockOre extends Block implements IInitializer {
 		ItemHelper.registerWithHandlers("oreNickel", oreNickel);
 		ItemHelper.registerWithHandlers("orePlatinum", orePlatinum);
 		ItemHelper.registerWithHandlers("oreMithril", oreMithril);
+
+		OreDictionary.registerOre("oreCopper", oreTin);
+		OreDictionary.registerOre("oreCopper", oreSilver);
+		OreDictionary.registerOre("oreCopper", oreLead);
+		OreDictionary.registerOre("oreCopper", oreNickel);
+		OreDictionary.registerOre("oreCopper", orePlatinum);
 
 		return true;
 	}

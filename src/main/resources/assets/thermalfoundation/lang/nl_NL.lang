@@ -117,8 +117,8 @@ item.thermalfoundation.material.dustBlizz.name=Blizzpoeder
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 
-tab.thermalfoundation.lexicon.study=Raadpleeg de kennis van de wereld en wijzig je persoonlijk lot.
-tab.thermalfoundation.lexicon.transmute=Converteer gelijkwaardige items volgens een geheime reeks regels die door hogere machten zijn vastgesteld.
+tab.thermalfoundation.lexicon.study.0=Raadpleeg de kennis van de wereld en wijzig je persoonlijk lot.
+tab.thermalfoundation.lexicon.transmute.0=Converteer gelijkwaardige items volgens een geheime reeks regels die door hogere machten zijn vastgesteld.
 
 tile.thermalfoundation.fluid.redstone.name=Gedestabiliseerde redstone
 tile.thermalfoundation.fluid.glowstone.name=Bekrachtigd gloeisteen

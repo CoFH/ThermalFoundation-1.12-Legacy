@@ -9,6 +9,7 @@ import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.gui.GuiHandler;
+import cofh.thermalfoundation.util.LexiconManager;
 
 import java.util.List;
 
@@ -35,9 +36,9 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 
-		// ItemStack lexicon = new ItemStack(item, 1, 0);
-		// setEmpoweredState(lexicon, false);
-		// list.add(lexicon);
+		ItemStack lexicon = new ItemStack(item, 1, 0);
+		setEmpoweredState(lexicon, false);
+		list.add(lexicon);
 	}
 
 	@Override
@@ -94,7 +95,7 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 		if (CoreUtils.isFakePlayer(player)) {
 			return stack;
 		}
-		if (ServerHelper.isServerWorld(world)) {
+		if (ServerHelper.isServerWorld(world) && LexiconManager.getSortedOreNames().size() > 0) {
 			if (isEmpowered(stack)) {
 				player.openGui(ThermalFoundation.instance, GuiHandler.LEXICON_TRANSMUTE_ID, world, 0, 0, 0);
 			} else {

@@ -13,6 +13,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,6 +27,7 @@ public class LexiconManager {
 
 	private static HashSet<String> listNames = new HashSet<String>();
 	private static HashSet<ItemWrapper> listOres = new HashSet<ItemWrapper>();
+	private static List<String> sortedNames = new ArrayList<String>();
 
 	public static boolean isWhitelist = true;
 	public static boolean logEntries = false;
@@ -43,6 +45,13 @@ public class LexiconManager {
 
 		comment = "This will echo all entries to the system log.";
 		logEntries = ThermalFoundation.config.get("Lexicon", "LogEntries", logEntries, comment);
+	}
+
+	public static void loadComplete() {
+
+		generateList();
+		addAllListedOres();
+		sortOreNames();
 	}
 
 	public static void generateList() {
@@ -67,10 +76,15 @@ public class LexiconManager {
 		if (writingDefaultFile) {
 			String[] registeredOreNames = OreDictionary.getOreNames();
 			for (int i = 0; i < registeredOreNames.length; i++) {
-				if ((isWhitelist) && (ComparableItemStackSafe.safeOreType(registeredOreNames[i]))) {
-					listNames.add(registeredOreNames[i]);
-					defaultList.add(registeredOreNames[i]);
-				} else if ((!isWhitelist) && (!ComparableItemStackSafe.safeOreType(registeredOreNames[i]))) {
+				if (isWhitelist && ComparableItemStackSafe.safeOreType(registeredOreNames[i])) {
+					if (registeredOreNames[i].contains("blockCloth") || registeredOreNames[i].contains("blockGlass")) {
+						// ignore Cloth and Glass
+					} else {
+						listNames.add(registeredOreNames[i]);
+						defaultList.add(registeredOreNames[i]);
+					}
+				} else if (!isWhitelist && !ComparableItemStackSafe.safeOreType(registeredOreNames[i]) || registeredOreNames[i].contains("blockCloth")
+						|| registeredOreNames[i].contains("blockGlass")) {
 					listNames.add(registeredOreNames[i]);
 					defaultList.add(registeredOreNames[i]);
 				}
@@ -129,10 +143,32 @@ public class LexiconManager {
 		}
 	}
 
+	public static void sortOreNames() {
+
+		String[] ores = OreDictionary.getOreNames();
+
+		for (int i = 0; i < ores.length; i++) {
+			if (validType(ores[i])) {
+				sortedNames.add(ores[i]);
+			}
+		}
+		Collections.sort(sortedNames);
+	}
+
+	public static List<String> getSortedOreNames() {
+
+		return sortedNames;
+	}
+
 	public static boolean validOre(ItemStack stack) {
 
 		return ItemHelper.hasOreName(stack) ? isWhitelist == (listOres.contains(new ItemWrapper(stack)) || listNames.contains(OreDictionaryArbiter
 				.getOreName(stack))) : false;
+	}
+
+	public static boolean validType(String oreName) {
+
+		return isWhitelist == listNames.contains(oreName);
 	}
 
 	public static ItemStack getPreferredStack(EntityPlayer player, ItemStack stack) {
@@ -152,6 +188,22 @@ public class LexiconManager {
 		return ItemHelper.cloneStack(OreDictionaryArbiter.getOres(stack).get(0), stack.stackSize);
 	}
 
+	public static ItemStack getPreferredStack(EntityPlayer player, String oreName) {
+
+		NBTTagCompound tag = player.getEntityData();
+		if (tag.hasKey("Lexicon")) {
+			NBTTagCompound lexicon = tag.getCompoundTag("Lexicon");
+
+			if (lexicon.hasKey(oreName)) {
+				ItemStack retStack = ItemStack.loadItemStackFromNBT(lexicon.getCompoundTag(oreName));
+				if (ItemHelper.isOreNameEqual(retStack, oreName)) {
+					return ItemHelper.cloneStack(retStack, 1);
+				}
+			}
+		}
+		return ItemHelper.cloneStack(OreDictionaryArbiter.getOres(oreName).get(0), 1);
+	}
+
 	public static void setPreferredStack(EntityPlayer player, ItemStack stack) {
 
 		NBTTagCompound tag = player.getEntityData();
@@ -161,6 +213,26 @@ public class LexiconManager {
 		lexicon.setTag(oreName, stack.writeToNBT(new NBTTagCompound()));
 
 		tag.setTag("Lexicon", lexicon);
+	}
+
+	public static void clearPreferredStack(EntityPlayer player, ItemStack stack) {
+
+		NBTTagCompound tag = player.getEntityData();
+
+		NBTTagCompound lexicon = tag.getCompoundTag("Lexicon");
+		String oreName = OreDictionaryArbiter.getOreName(stack);
+		lexicon.removeTag(oreName);
+
+		tag.setTag("Lexicon", lexicon);
+	}
+
+	public static boolean hasPreferredStack(EntityPlayer player, String oreName) {
+
+		NBTTagCompound tag = player.getEntityData();
+
+		NBTTagCompound lexicon = tag.getCompoundTag("Lexicon");
+
+		return lexicon.hasKey(oreName);
 	}
 
 }

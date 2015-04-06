@@ -15,6 +15,7 @@ import cofh.thermalfoundation.item.Equipment;
 import cofh.thermalfoundation.item.TFItems;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.plugins.TFPlugins;
+import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.LexiconManager;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.CustomProperty;
@@ -118,6 +119,7 @@ public class ThermalFoundation extends BaseMod {
 		/* Register Handlers */
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, guiHandler);
 		MinecraftForge.EVENT_BUS.register(proxy);
+		EventHandlerLexicon.initialize();
 		PacketTFBase.initialize();
 	}
 
@@ -138,8 +140,7 @@ public class ThermalFoundation extends BaseMod {
 	@EventHandler
 	public void loadComplete(FMLLoadCompleteEvent event) {
 
-		LexiconManager.generateList();
-		LexiconManager.addAllListedOres();
+		LexiconManager.loadComplete();
 
 		cleanConfig(false);
 	}

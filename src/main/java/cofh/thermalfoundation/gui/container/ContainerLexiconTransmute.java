@@ -7,6 +7,7 @@ import cofh.lib.gui.slot.SlotRemoveOnly;
 import cofh.lib.gui.slot.SlotValidated;
 import cofh.lib.gui.slot.SlotViewOnly;
 import cofh.lib.util.helpers.ItemHelper;
+import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
 
 import java.util.ArrayList;
@@ -36,17 +37,17 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 	boolean syncClient = false;
 
-	public InventoryLexiconTransmute lexicon = new InventoryLexiconTransmute(this);
+	public InventoryLexiconTransmute lexiconInv = new InventoryLexiconTransmute(this);
 
 	public ContainerLexiconTransmute(InventoryPlayer inventory) {
 
 		addPlayerSlotsToContainer(inventory, 23, 114);
 
-		addSlotToContainer(new SlotValidated(this, lexicon, 0, 59, 61));
-		addSlotToContainer(new SlotRemoveOnly(lexicon, 1, 131, 61));
-		addSlotToContainer(new SlotLocked(lexicon, 2, 95, 33));
+		addSlotToContainer(new SlotValidated(this, lexiconInv, 0, 59, 61));
+		addSlotToContainer(new SlotRemoveOnly(lexiconInv, 1, 131, 61));
+		addSlotToContainer(new SlotLocked(lexiconInv, 2, 95, 33));
 
-		onCraftMatrixChanged(lexicon);
+		onCraftMatrixChanged(lexiconInv);
 	}
 
 	private void addPlayerSlotsToContainer(InventoryPlayer inventory, int xOffset, int yOffset) {
@@ -108,12 +109,12 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 	public boolean canTransmute() {
 
-		ItemStack input = lexicon.getStackInSlot(0);
+		ItemStack input = lexiconInv.getStackInSlot(0);
 
 		if (!LexiconManager.validOre(input)) {
 			return false;
 		}
-		ItemStack entry = lexicon.getStackInSlot(2);
+		ItemStack entry = lexiconInv.getStackInSlot(2);
 
 		if (!LexiconManager.validOre(entry)) {
 			return false;
@@ -124,7 +125,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		if (!equivalentOres(input, entry)) {
 			return false;
 		}
-		ItemStack output = lexicon.getStackInSlot(1);
+		ItemStack output = lexiconInv.getStackInSlot(1);
 
 		return output == null || (output.equals(entry) && output.stackSize < output.getMaxStackSize());
 	}
@@ -134,9 +135,9 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		if (!canTransmute()) {
 			return false;
 		}
-		ItemStack input = lexicon.getStackInSlot(0);
-		ItemStack output = lexicon.getStackInSlot(1);
-		ItemStack entry = lexicon.getStackInSlot(2);
+		ItemStack input = lexiconInv.getStackInSlot(0);
+		ItemStack output = lexiconInv.getStackInSlot(1);
+		ItemStack entry = lexiconInv.getStackInSlot(2);
 
 		oreStack = ItemHelper.cloneStack(entry, 1);
 
@@ -151,8 +152,8 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 			output.stackSize += input.stackSize;
 			input = null;
 		}
-		lexicon.setInventorySlotContents(1, output);
-		lexicon.setInventorySlotContents(0, input);
+		lexiconInv.setInventorySlotContents(1, output);
+		lexiconInv.setInventorySlotContents(0, input);
 		return true;
 	}
 
@@ -170,14 +171,14 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		oreSelection += oreList.size() - 1;
 		oreSelection %= oreList.size();
-		lexicon.setInventorySlotContents(2, oreList.get(oreSelection));
+		lexiconInv.setInventorySlotContents(2, oreList.get(oreSelection));
 	}
 
 	public void nextOre() {
 
 		oreSelection++;
 		oreSelection %= oreList.size();
-		lexicon.setInventorySlotContents(2, oreList.get(oreSelection));
+		lexiconInv.setInventorySlotContents(2, oreList.get(oreSelection));
 	}
 
 	public void prevName() {
@@ -187,7 +188,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		oreName = nameList.get(nameSelection);
 		oreList = OreDictionaryArbiter.getOres(oreName);
 		oreSelection %= oreList.size();
-		lexicon.setInventorySlotContents(2, oreList.get(oreSelection));
+		lexiconInv.setInventorySlotContents(2, oreList.get(oreSelection));
 
 		syncClient = true;
 	}
@@ -199,14 +200,14 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		oreName = nameList.get(nameSelection);
 		oreList = OreDictionaryArbiter.getOres(oreName);
 		oreSelection %= oreList.size();
-		lexicon.setInventorySlotContents(2, oreList.get(oreSelection));
+		lexiconInv.setInventorySlotContents(2, oreList.get(oreSelection));
 
 		syncClient = true;
 	}
 
-	public void handlePacket(byte command) {
+	public void handlePacket(PacketTFBase payload) {
 
-		switch (command) {
+		switch (payload.getByte()) {
 		case ORE_PREV:
 			prevOre();
 			return;
@@ -256,7 +257,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 
-		return lexicon.isUseableByPlayer(player);
+		return lexiconInv.isUseableByPlayer(player);
 	}
 
 	@Override
@@ -264,7 +265,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		super.onContainerClosed(player);
 
-		ItemStack stack = this.lexicon.getStackInSlotOnClosing(0);
+		ItemStack stack = this.lexiconInv.getStackInSlotOnClosing(0);
 		if (stack != null && !mergeItemStack(stack, 0, 36, false)) {
 			player.dropPlayerItemWithRandomChoice(stack, false);
 		}

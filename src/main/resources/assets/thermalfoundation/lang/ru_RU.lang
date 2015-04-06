@@ -257,8 +257,8 @@ itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Инструменты
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Броня
 
-tab.thermalfoundation.lexicon.study=Обратитесь к знаниям мира и измените Вашу личную судьбу.
-tab.thermalfoundation.lexicon.transmute=Превращайте эквивалентные предметы согласно тайному набору правил, установленным высшими силам.
+tab.thermalfoundation.lexicon.study.0=Обратитесь к знаниям мира и измените Вашу личную судьбу.
+tab.thermalfoundation.lexicon.transmute.0=Превращайте эквивалентные предметы согласно тайному набору правил, установленным высшими силам.
 
 tile.thermalfoundation.fluid.redstone.name=Дестабилизированный красный камень
 tile.thermalfoundation.fluid.glowstone.name=Заряженный светящийся камень

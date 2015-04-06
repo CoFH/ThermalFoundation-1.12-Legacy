@@ -40,7 +40,8 @@ public class GuiLexiconTransmute extends GuiBaseAdv {
 		xSize = 206;
 		ySize = 204;
 
-		myInfo = StringHelper.localize("tab.thermalfoundation.lexicon.transmute");
+		myInfo = StringHelper.localize("tab.thermalfoundation.lexicon.transmute.0") + "\n\n"
+				+ StringHelper.localize("tab.thermalfoundation.lexicon.transmute.1");
 	}
 
 	@Override
@@ -54,7 +55,7 @@ public class GuiLexiconTransmute extends GuiBaseAdv {
 		nextOre = new ElementButton(this, 129, 31, "NextOre", 226, 0, 226, 20, 226, 40, 20, 20, TEX_PATH).setToolTipLocalized(true);
 		prevName = new ElementButton(this, 20, 81, "PrevName", 206, 0, 206, 20, 206, 40, 20, 20, TEX_PATH).setToolTipLocalized(true);
 		nextName = new ElementButton(this, 166, 81, "NextName", 226, 0, 226, 20, 226, 40, 20, 20, TEX_PATH).setToolTipLocalized(true);
-		transmute = new ElementButton(this, 83, 59, "Transmute", 206, 62, 206, 82, 206, 102, 40, 20, TEX_PATH).setToolTipLocalized(true);
+		transmute = new ElementButton(this, 83, 59, "Transmute", 206, 60, 206, 80, 206, 100, 40, 20, TEX_PATH).setToolTipLocalized(true);
 
 		addElement(prevOre);
 		addElement(nextOre);

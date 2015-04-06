@@ -3,6 +3,7 @@ package cofh.thermalfoundation.util;
 import cofh.lib.util.helpers.MathHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 import net.minecraft.init.Blocks;
@@ -23,7 +24,7 @@ public class EventHandlerLexicon {
 		MinecraftForge.EVENT_BUS.register(instance);
 	}
 
-	@SubscribeEvent
+	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void handleEntityItemPickupEvent(EntityItemPickupEvent event) {
 
 		ItemStack stack = event.item.getEntityItem();

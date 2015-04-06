@@ -117,8 +117,8 @@ item.thermalfoundation.material.dustBlizz.name=Proch z Blizza
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 
-tab.thermalfoundation.lexicon.study=Skonsultuj się z wiedzą świata i zmień swoje przeznaczenie
-tab.thermalfoundation.lexicon.transmute=Przekonwertuj równowartościowe przedmioty zgodnie z arkanicznymi zasadami ustalonymi przez wyższe moce.
+tab.thermalfoundation.lexicon.study.0=Skonsultuj się z wiedzą świata i zmień swoje przeznaczenie
+tab.thermalfoundation.lexicon.transmute.0=Przekonwertuj równowartościowe przedmioty zgodnie z arkanicznymi zasadami ustalonymi przez wyższe moce.
 
 tile.thermalfoundation.fluid.redstone.name=Zdestabiizowany redstone
 tile.thermalfoundation.fluid.glowstone.name=Zenergizowany glowstone

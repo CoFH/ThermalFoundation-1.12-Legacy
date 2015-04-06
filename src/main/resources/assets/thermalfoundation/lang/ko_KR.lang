@@ -257,8 +257,8 @@ itemGroup.thermalfoundation.creativeTab=써멀 파운데이션
 itemGroup.thermalfoundation.creativeTabTools=써멀 파운데이션: 도구
 itemGroup.thermalfoundation.creativeTabArmor=써멀 파운데이션: 갑주
 
-tab.thermalfoundation.lexicon.study=세계의 지식을 찾고 당신의 운명을 바꿉니다.
-tab.thermalfoundation.lexicon.transmute=일련의 규칙에 의해 고도의 마법력으로 같은 아이템종류일 경우 변환해줍니다.
+tab.thermalfoundation.lexicon.study.0=세계의 지식을 찾고 당신의 운명을 바꿉니다.
+tab.thermalfoundation.lexicon.transmute.0=일련의 규칙에 의해 고도의 마법력으로 같은 아이템종류일 경우 변환해줍니다.
 
 tile.thermalfoundation.fluid.redstone.name=불안정한 레드스톤
 tile.thermalfoundation.fluid.glowstone.name=활력의 발광석

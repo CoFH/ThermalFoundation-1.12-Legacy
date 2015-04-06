@@ -257,8 +257,8 @@ itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: attrezzi
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: armature
 
-tab.thermalfoundation.lexicon.study=Consulta la conoscenza del mondo e altera il tuo destino.
-tab.thermalfoundation.lexicon.transmute=Trasmuta oggetti equivalenti secondo regole arcane decise da potenze superiori.
+tab.thermalfoundation.lexicon.study.0=Consulta la conoscenza del mondo e altera il tuo destino.
+tab.thermalfoundation.lexicon.transmute.0=Trasmuta oggetti equivalenti secondo regole arcane decise da potenze superiori.
 
 tile.thermalfoundation.fluid.redstone.name=Pietrarossa destabilizata
 tile.thermalfoundation.fluid.glowstone.name=Luminite energizata

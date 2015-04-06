@@ -257,8 +257,8 @@ itemGroup.thermalfoundation.creativeTab=精煉機械基礎
 itemGroup.thermalfoundation.creativeTabTools=精煉機械基礎|工具
 itemGroup.thermalfoundation.creativeTabArmor=精煉機械基礎|裝備
 
-tab.thermalfoundation.lexicon.study=學習關於這個世界的知識, 然後改變你自己的命運.
-tab.thermalfoundation.lexicon.transmute=你可以通過更強大的能量來等價交換.
+tab.thermalfoundation.lexicon.study.0=學習關於這個世界的知識, 然後改變你自己的命運.
+tab.thermalfoundation.lexicon.transmute.0=你可以通過更強大的能量來等價交換.
 
 tile.thermalfoundation.fluid.redstone.name=不穩定的液態紅石
 tile.thermalfoundation.fluid.glowstone.name=充能液態螢石

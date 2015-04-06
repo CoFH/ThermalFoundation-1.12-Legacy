@@ -28,12 +28,12 @@ public class PacketTFBase extends PacketCoFHBase {
 			switch (PacketTypes.values()[type]) {
 			case LEXICON_STUDY:
 				if (player.openContainer instanceof ContainerLexiconStudy) {
-					// ((ContainerLexiconStudy) player.openContainer).handlePacket(getByte());
+					((ContainerLexiconStudy) player.openContainer).handlePacket(this);
 				}
 				return;
 			case LEXICON_TRANSMUTE:
 				if (player.openContainer instanceof ContainerLexiconTransmute) {
-					((ContainerLexiconTransmute) player.openContainer).handlePacket(getByte());
+					((ContainerLexiconTransmute) player.openContainer).handlePacket(this);
 				}
 				return;
 			default:
@@ -48,6 +48,16 @@ public class PacketTFBase extends PacketCoFHBase {
 	public static PacketCoFHBase getPacket(PacketTypes theType) {
 
 		return new PacketTFBase().addByte(theType.ordinal());
+	}
+
+	public static void sendLexiconStudyPacketToServer(int command) {
+
+		PacketHandler.sendToServer(getPacket(PacketTypes.LEXICON_STUDY).addByte(command));
+	}
+
+	public static void sendLexiconStudySelectPacketToServer(int command, String oreName) {
+
+		PacketHandler.sendToServer(getPacket(PacketTypes.LEXICON_STUDY).addByte(command).addString(oreName));
 	}
 
 	public static void sendLexiconTransmutePacketToServer(int command) {

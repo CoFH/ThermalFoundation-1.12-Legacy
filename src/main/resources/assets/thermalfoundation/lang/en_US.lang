@@ -257,8 +257,10 @@ itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Tools
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armor
 
-tab.thermalfoundation.lexicon.study=Consult the knowledge of the world and alter your personal destiny.
-tab.thermalfoundation.lexicon.transmute=Transmute equivalent items according to an arcane set of rules laid down by higher powers.
+tab.thermalfoundation.lexicon.study.0=Consult the knowledge of the world and alter your personal destiny.
+tab.thermalfoundation.lexicon.study.1=Empower the Lexicon to force the world to obey your choices.
+tab.thermalfoundation.lexicon.transmute.0=Transmute equivalent items according to an arcane set of rules laid down by higher powers.
+tab.thermalfoundation.lexicon.transmute.1=Quell the Lexicon to relinquish mastery over the world.
 
 tile.thermalfoundation.fluid.redstone.name=Destabilized Redstone
 tile.thermalfoundation.fluid.glowstone.name=Energized Glowstone

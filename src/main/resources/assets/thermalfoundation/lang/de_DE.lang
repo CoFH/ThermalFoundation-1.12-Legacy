@@ -117,8 +117,8 @@ item.thermalfoundation.material.dustBlizz.name=Blizzstaub
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 
-tab.thermalfoundation.lexicon.study=Konsultiere das Wissen der Welt und ändere deine Bestimmung.
-tab.thermalfoundation.lexicon.transmute=Wandelt gleichwertige Items in einander um, einem arkanen Regelwerk folgend, das von höheren Mächten festgelegt wurde.
+tab.thermalfoundation.lexicon.study.0=Konsultiere das Wissen der Welt und ändere deine Bestimmung.
+tab.thermalfoundation.lexicon.transmute.0=Wandelt gleichwertige Items in einander um, einem arkanen Regelwerk folgend, das von höheren Mächten festgelegt wurde.
 
 tile.thermalfoundation.fluid.redstone.name=Destabilisieres Redstone
 tile.thermalfoundation.fluid.glowstone.name=Energetisiertes Glowstone
