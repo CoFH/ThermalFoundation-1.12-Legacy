@@ -79,6 +79,8 @@
 				<available file="${lib.dir}/codechickenlib.jar" type="file"/>
 				<available file="${lib.dir}/CoFHLib.jar" type="file"/>
 				<available file="${lib.dir}/CoFHCore.jar" type="file"/>
+				<available file="${lib.dir}/MineFactoryReloaded.jar" type="file"/>
+				<available file="${lib.dir}/NEI.jar" type="file"/>
 			</and>
 		</condition>
 	</target>
@@ -98,6 +100,9 @@
 
 		<echo message="Downloading CCL..."/>
 		<get src="http://files.minecraftforge.net/maven/codechicken/CodeChickenLib/1.7.2-1.1.0.73/CodeChickenLib-1.7.2-1.1.0.73-dev.jar" dest="${download.dir}/codechickenlib.jar"/>
+
+		<echo message="Downloading NEI API... "/>
+		<get src="http://chickenbones.net/maven/codechicken/NotEnoughItems/1.7.10-1.0.2.15/NotEnoughItems-1.7.10-1.0.2.15-dev.jar" dest="${download.dir}/NEI.jar"/>
 
 		<echo message="Downloading CoFHLib... "/>
 		<get src="https://github.com/CoFH/CoFHLib/archive/master.zip" dest="${download.dir}/CoFHLib.zip"/>
@@ -133,6 +138,19 @@
 		<jar destfile="${download.dir}/CoFHCore.jar" compress="true" level="9" basedir="${compile.dir}"/>
 		<delete dir="${compile.dir}" failonerror="false"/>
 		<!-- End hack -->
+		
+		<echo message="Downloading MFR API.. "/>
+		<!-- Begin hack -->
+		<delete dir="${compile.dir}" failonerror="false"/>
+		<mkdir dir="${compile.dir}"/>
+		<javac srcdir="${api.dir}/" destdir="${compile.dir}"
+			target="1.6" source="1.6"
+			classpathref="mcp.classpath" debug="true" debuglevel="lines,source" includeAntRuntime="false">
+			<include name="powercrystals/minefactoryreloaded/api/**/*.java"/>
+		</javac>
+		<jar destfile="${download.dir}/MineFactoryReloaded.jar" compress="true" level="9" basedir="${compile.dir}"/>
+		<delete dir="${compile.dir}" failonerror="false"/>
+		<!-- End hack -->
 	</target>
 
 	<target name="extract-dependencies" depends="setup-forge,get-dependencies" unless="have.libs">
@@ -147,6 +165,12 @@
 		
 		<echo message="Extracting CoFHCore..."/>
 		<copy file="${download.dir}/CoFHCore.jar" todir="${lib.dir}"/>
+		
+		<echo message="Extracting NEI API... "/>
+		<copy file="${download.dir}/NEI.jar" todir="${lib.dir}"/>
+		
+		<echo message="Extracting MineFactoryReloaded..."/>
+		<copy file="${download.dir}/MineFactoryReloaded.jar" todir="${lib.dir}"/>
 	</target>
 	
 	<macrodef name="move-transformers"><sequential>
@@ -182,7 +206,9 @@
 			<update-languages/>
 			<echo file="${classes.dir}/vers.prop">${build.full}${build.number}</echo>
 			<jar destfile="${dist.dir}/${build.name}${build.full}@{build}.jar"
-				compress="true" level="9" basedir="${classes.dir}"/>
+				compress="true" level="9" basedir="${classes.dir}">
+				<zipfileset src="${lib.dir}/MineFactoryReloaded.jar"/>
+			</jar>
 		</sequential>
 	</macrodef>
 
