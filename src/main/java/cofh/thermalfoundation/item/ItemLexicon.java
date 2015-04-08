@@ -30,7 +30,7 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 
 		super("thermalfoundation");
 		setMaxStackSize(1);
-		setCreativeTab(ThermalFoundation.tabItems);
+		setCreativeTab(ThermalFoundation.tabCommon);
 	}
 
 	@Override

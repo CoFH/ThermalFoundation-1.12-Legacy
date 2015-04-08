@@ -172,6 +172,8 @@ public enum Equipment {
 
 		String category = "Equipment." + NAME;
 		enableArmor = ThermalFoundation.config.get(category, "Armor", true);
+		enableArmor &= !ThermalFoundation.disableAllArmor;
+
 		category += ".Tools";
 		enableTools[0] = ThermalFoundation.config.get(category, "Sword", true);
 		enableTools[1] = ThermalFoundation.config.get(category, "Shovel", true);
@@ -183,6 +185,10 @@ public enum Equipment {
 		enableTools[7] = ThermalFoundation.config.get(category, "Sickle", true);
 		enableTools[8] = ThermalFoundation.config.get(category, "Bow", true);
 
+		for (int i = 0; i < enableTools.length; i++) {
+			enableTools[i] &= !ThermalFoundation.disableAllTools;
+		}
+
 		final String PATH_ARMOR = "thermalfoundation:textures/" + "armor/";
 		final String[] TEXTURE = { PATH_ARMOR + NAME + "_1.png", PATH_ARMOR + NAME + "_2.png" };
 		final String ARMOR_PATH = "thermalfoundation:armor/" + TYPE + "/" + NAME;
@@ -191,32 +197,45 @@ public enum Equipment {
 		createArmor();
 		itemHelmet.setRepairIngot(ingot).setArmorTextures(TEXTURE).setUnlocalizedName(ARMOR + "Helmet");
 		itemHelmet.setTextureName(ARMOR_PATH + "Helmet").setCreativeTab(ThermalFoundation.tabArmor);
+		itemHelmet.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemPlate.setRepairIngot(ingot).setArmorTextures(TEXTURE).setUnlocalizedName(ARMOR + "Plate");
 		itemPlate.setTextureName(ARMOR_PATH + "Chestplate").setCreativeTab(ThermalFoundation.tabArmor);
+		itemPlate.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemLegs.setRepairIngot(ingot).setArmorTextures(TEXTURE).setUnlocalizedName(ARMOR + "Legs");
 		itemLegs.setTextureName(ARMOR_PATH + "Legs").setCreativeTab(ThermalFoundation.tabArmor);
+		itemLegs.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemBoots.setRepairIngot(ingot).setArmorTextures(TEXTURE).setUnlocalizedName(ARMOR + "Boots");
 		itemBoots.setTextureName(ARMOR_PATH + "Boots").setCreativeTab(ThermalFoundation.tabArmor);
+		itemBoots.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 
 		createTools();
 		itemSword.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sword");
 		itemSword.setTextureName(TOOL_PATH + "Sword").setCreativeTab(ThermalFoundation.tabTools);
+		itemSword.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemShovel.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shovel");
 		itemShovel.setTextureName(TOOL_PATH + "Shovel").setCreativeTab(ThermalFoundation.tabTools);
+		itemShovel.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemPickaxe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Pickaxe");
 		itemPickaxe.setTextureName(TOOL_PATH + "Pickaxe").setCreativeTab(ThermalFoundation.tabTools);
+		itemPickaxe.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemAxe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Axe");
 		itemAxe.setTextureName(TOOL_PATH + "Axe").setCreativeTab(ThermalFoundation.tabTools);
+		itemAxe.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemHoe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Hoe");
 		itemHoe.setTextureName(TOOL_PATH + "Hoe").setCreativeTab(ThermalFoundation.tabTools);
+		itemHoe.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemShears.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shears");
 		itemShears.setTextureName(TOOL_PATH + "Shears").setCreativeTab(ThermalFoundation.tabTools);
+		itemShears.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemFishingRod.setRepairIngot(ingot).setUnlocalizedName(TOOL + "FishingRod");
 		itemFishingRod.setTextureName(TOOL_PATH + "FishingRod").setCreativeTab(ThermalFoundation.tabTools);
+		itemFishingRod.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemSickle.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sickle");
 		itemSickle.setTextureName(TOOL_PATH + "Sickle").setCreativeTab(ThermalFoundation.tabTools);
+		itemSickle.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemBow.setRepairIngot(ingot).setArrowSpeed(arrowSpeed).setArrowDamage(arrowDamage).setUnlocalizedName(TOOL + "Bow");
 		itemBow.setTextureName(TOOL_PATH + "Bow").setCreativeTab(ThermalFoundation.tabTools);
+		itemBow.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 
 		GameRegistry.registerItem(itemHelmet, "armor.helmet" + NAME);
 		GameRegistry.registerItem(itemPlate, "armor.plate" + NAME);

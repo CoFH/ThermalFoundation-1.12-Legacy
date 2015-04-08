@@ -30,7 +30,7 @@ public class BlockStorage extends Block implements IInitializer {
 		setHardness(5.0F);
 		setResistance(10.0F);
 		setStepSound(soundTypeMetal);
-		setCreativeTab(ThermalFoundation.tabItems);
+		setCreativeTab(ThermalFoundation.tabCommon);
 		setBlockName("thermalfoundation.storage");
 
 		setHarvestLevel("pickaxe", 2);

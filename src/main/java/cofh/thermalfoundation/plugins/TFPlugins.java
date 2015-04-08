@@ -85,7 +85,7 @@ public class TFPlugins {
 	public static ArrayList<Plugin> pluginList = new ArrayList<Plugin>();
 
 	static {
-		// addPlugin("mfr.MFRPlugin", "MineFactoryReloaded");
+		addPlugin("mfr.MFRPlugin", "MineFactoryReloaded");
 		addPlugin("thaumcraft.ThaumcraftPlugin", "Thaumcraft");
 		addPlugin("tconstruct.TConstructPlugin", "Tinker's Construct");
 	}

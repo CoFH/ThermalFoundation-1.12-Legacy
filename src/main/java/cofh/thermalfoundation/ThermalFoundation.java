@@ -59,25 +59,16 @@ public class ThermalFoundation extends BaseMod {
 	public static final Logger log = LogManager.getLogger(modId);
 
 	public static final ConfigHandler config = new ConfigHandler(version);
+	public static final ConfigHandler configClient = new ConfigHandler(version);
 	public static final GuiHandler guiHandler = new GuiHandler();
 
-	public static final CreativeTabs tabItems = new TFCreativeTab();
-	public static final CreativeTabs tabTools = new TFCreativeTab("Tools") {
+	public static final CreativeTabs tabCommon = new TFCreativeTab();
+	public static CreativeTabs tabTools = CreativeTabs.tabTools;
+	public static CreativeTabs tabArmor = CreativeTabs.tabCombat;
 
-		@Override
-		protected ItemStack getStack() {
-
-			return Equipment.Invar.toolPickaxe;
-		}
-	};
-	public static final CreativeTabs tabArmor = new TFCreativeTab("Armor") {
-
-		@Override
-		protected ItemStack getStack() {
-
-			return Equipment.Invar.armorPlate;
-		}
-	};
+	public static boolean disableAllTools = false;
+	public static boolean disableAllArmor = false;
+	public static boolean showDisabledEquipment = true;
 
 	public static File worldGenOres;
 	public static final String worldGenInternalOres = "assets/thermalfoundation/world/ThermalFoundation-Ores.json";
@@ -94,6 +85,9 @@ public class ThermalFoundation extends BaseMod {
 		UpdateManager.registerUpdater(new UpdateManager(this, releaseURL, CoFHProps.DOWNLOAD_URL));
 
 		config.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/thermalfoundation/common.cfg"), true));
+		configClient.setConfiguration(new Configuration(new File(event.getModConfigurationDirectory(), "cofh/thermalfoundation/client.cfg"), true));
+
+		configOptions();
 
 		TFFluids.preInit();
 		TFItems.preInit();
@@ -135,6 +129,7 @@ public class ThermalFoundation extends BaseMod {
 		proxy.registerRenderInformation();
 
 		config.cleanUp(false, true);
+		configClient.cleanUp(false, true);
 	}
 
 	@EventHandler
@@ -151,6 +146,63 @@ public class ThermalFoundation extends BaseMod {
 		TFFluids.registerDispenserHandlers();
 	}
 
+	/* LOADING FUNCTIONS */
+	void configOptions() {
+
+		String category;
+		String comment;
+
+		category = "Interface.CreativeTab";
+		boolean armorTab = false;
+		boolean toolTab = false;
+
+		comment = "Set to TRUE to put Thermal Foundation Armor under the general \"Thermal Foundation\" Creative Tab.";
+		armorTab = configClient.get(category, "ArmorInCommonTab", armorTab);
+
+		comment = "Set to TRUE to put Thermal Foundation Tools under the general \"Thermal Foundation\" Creative Tab.";
+		toolTab = configClient.get(category, "ToolsInCommonTab", toolTab);
+
+		category = "Equipment";
+		comment = "Set to TRUE to disable ALL armor sets.";
+		disableAllArmor = config.get(category, "DisableAllArmor", disableAllArmor, comment);
+
+		comment = "Set to TRUE to disable ALL tool sets.";
+		disableAllTools = config.get(category, "DisableAllTools", disableAllTools, comment);
+
+		comment = "Set to FALSE to hide all disabled equipment from the Creative Tabs and NEI.";
+		showDisabledEquipment = config.get(category, "ShowDisabledEquipment", showDisabledEquipment, comment);
+
+		if (armorTab) {
+			tabArmor = tabCommon;
+		} else {
+			if (!disableAllArmor || (disableAllArmor && showDisabledEquipment)) {
+				tabArmor = new TFCreativeTab("Armor") {
+
+					@Override
+					protected ItemStack getStack() {
+
+						return Equipment.Invar.armorPlate;
+					}
+				};
+			}
+		}
+		if (toolTab) {
+			tabTools = tabCommon;
+		} else {
+			if (!disableAllTools || (disableAllTools && showDisabledEquipment)) {
+				tabTools = new TFCreativeTab("Tools") {
+
+					@Override
+					protected ItemStack getStack() {
+
+						return Equipment.Invar.toolPickaxe;
+					}
+				};
+			}
+		}
+
+	}
+
 	void cleanConfig(boolean preInit) {
 
 		if (preInit) {
@@ -160,6 +212,10 @@ public class ThermalFoundation extends BaseMod {
 		String[] categoryNames = config.getCategoryNames().toArray(new String[config.getCategoryNames().size()]);
 		for (int i = 0; i < categoryNames.length; i++) {
 			config.getCategory(categoryNames[i]).setLanguageKey(prefix + categoryNames[i]).setRequiresMcRestart(true);
+		}
+		categoryNames = configClient.getCategoryNames().toArray(new String[configClient.getCategoryNames().size()]);
+		for (int i = 0; i < categoryNames.length; i++) {
+			configClient.getCategory(categoryNames[i]).setLanguageKey(prefix + categoryNames[i]).setRequiresMcRestart(true);
 		}
 	}
 

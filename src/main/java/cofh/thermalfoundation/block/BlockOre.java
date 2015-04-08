@@ -28,7 +28,7 @@ public class BlockOre extends Block implements IInitializer {
 		setHardness(3.0F);
 		setResistance(5.0F);
 		setStepSound(soundTypeStone);
-		setCreativeTab(ThermalFoundation.tabItems);
+		setCreativeTab(ThermalFoundation.tabCommon);
 		setBlockName("thermalfoundation.ore");
 
 		setHarvestLevel("pickaxe", 2);
