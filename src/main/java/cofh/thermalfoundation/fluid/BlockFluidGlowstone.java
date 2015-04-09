@@ -34,7 +34,7 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 
 		super("thermalfoundation", TFFluids.fluidGlowstone, materialFluidGlowstone, "glowstone");
 		setQuantaPerBlock(LEVELS);
-		setTickRate(20);
+		setTickRate(10);
 
 		setHardness(1F);
 		setLightOpacity(0);

@@ -35,7 +35,7 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 
 		super("thermalfoundation", TFFluids.fluidPyrotheum, Material.lava, "pyrotheum");
 		setQuantaPerBlock(LEVELS);
-		setTickRate(25);
+		setTickRate(10);
 
 		setHardness(1000F);
 		setLightOpacity(1);

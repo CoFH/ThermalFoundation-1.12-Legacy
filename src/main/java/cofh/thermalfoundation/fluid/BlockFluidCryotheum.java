@@ -43,7 +43,7 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 
 		super("thermalfoundation", TFFluids.fluidCryotheum, materialFluidCryotheum, "cryotheum");
 		setQuantaPerBlock(LEVELS);
-		setTickRate(30);
+		setTickRate(15);
 
 		setHardness(1000F);
 		setLightOpacity(1);

@@ -35,7 +35,7 @@ public class EventHandlerLexicon {
 			return;
 		}
 		NBTTagCompound tag = event.entityPlayer.getEntityData(); // Cannot be null
-		if (event.entityPlayer.worldObj.getTotalWorldTime() - tag.getLong("LexiconUpdate") > 20) {
+		if (event.entityPlayer.worldObj.getTotalWorldTime() - tag.getLong("cofh.LexiconUpdate") > 20) {
 			return;
 		}
 		event.setResult(Event.Result.DENY);

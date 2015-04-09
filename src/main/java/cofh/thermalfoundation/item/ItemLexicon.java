@@ -112,7 +112,7 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 			return;
 		}
 		NBTTagCompound tag = entity.getEntityData();
-		tag.setLong("LexiconUpdate", entity.worldObj.getTotalWorldTime());
+		tag.setLong("cofh.LexiconUpdate", entity.worldObj.getTotalWorldTime());
 	}
 
 	/* IInventoryContainerItem */

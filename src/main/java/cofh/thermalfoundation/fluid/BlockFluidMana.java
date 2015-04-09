@@ -33,7 +33,7 @@ public class BlockFluidMana extends BlockFluidInteractive {
 
 		super("thermalfoundation", TFFluids.fluidMana, materialFluidMana, "mana");
 		setQuantaPerBlock(LEVELS);
-		setTickRate(20);
+		setTickRate(10);
 
 		setHardness(2000F);
 		setLightOpacity(2);

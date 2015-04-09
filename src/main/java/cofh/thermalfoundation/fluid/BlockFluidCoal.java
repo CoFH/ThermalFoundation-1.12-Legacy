@@ -22,7 +22,7 @@ public class BlockFluidCoal extends BlockFluidCoFHBase {
 
 		super("thermalfoundation", TFFluids.fluidCoal, Material.water, "coal");
 		setQuantaPerBlock(LEVELS);
-		setTickRate(30);
+		setTickRate(10);
 
 		setHardness(100F);
 		setLightOpacity(7);

@@ -18,7 +18,7 @@ public class BlockFluidSteam extends BlockFluidCoFHBase {
 
 		super("thermalfoundation", TFFluids.fluidSteam, materialFluidSteam, "steam");
 		setQuantaPerBlock(LEVELS);
-		setTickRate(4);
+		setTickRate(2);
 
 		setHardness(1F);
 		setLightOpacity(0);

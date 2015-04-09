@@ -23,7 +23,7 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 
 		super("thermalfoundation", TFFluids.fluidEnder, materialFluidEnder, "ender");
 		setQuantaPerBlock(LEVELS);
-		setTickRate(30);
+		setTickRate(20);
 
 		setHardness(2000F);
 		setLightOpacity(7);

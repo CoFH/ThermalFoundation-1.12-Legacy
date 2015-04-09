@@ -174,8 +174,8 @@ public class LexiconManager {
 	public static ItemStack getPreferredStack(EntityPlayer player, ItemStack stack) {
 
 		NBTTagCompound tag = player.getEntityData();
-		if (tag.hasKey("Lexicon")) {
-			NBTTagCompound lexicon = tag.getCompoundTag("Lexicon");
+		if (tag.hasKey("cofh.Lexicon")) {
+			NBTTagCompound lexicon = tag.getCompoundTag("cofh.Lexicon");
 			String oreName = OreDictionaryArbiter.getOreName(stack);
 
 			if (lexicon.hasKey(oreName)) {
@@ -191,8 +191,8 @@ public class LexiconManager {
 	public static ItemStack getPreferredStack(EntityPlayer player, String oreName) {
 
 		NBTTagCompound tag = player.getEntityData();
-		if (tag.hasKey("Lexicon")) {
-			NBTTagCompound lexicon = tag.getCompoundTag("Lexicon");
+		if (tag.hasKey("cofh.Lexicon")) {
+			NBTTagCompound lexicon = tag.getCompoundTag("cofh.Lexicon");
 
 			if (lexicon.hasKey(oreName)) {
 				ItemStack retStack = ItemStack.loadItemStackFromNBT(lexicon.getCompoundTag(oreName));
@@ -208,29 +208,29 @@ public class LexiconManager {
 
 		NBTTagCompound tag = player.getEntityData();
 
-		NBTTagCompound lexicon = tag.getCompoundTag("Lexicon");
+		NBTTagCompound lexicon = tag.getCompoundTag("cofh.Lexicon");
 		String oreName = OreDictionaryArbiter.getOreName(stack);
 		lexicon.setTag(oreName, stack.writeToNBT(new NBTTagCompound()));
 
-		tag.setTag("Lexicon", lexicon);
+		tag.setTag("cofh.Lexicon", lexicon);
 	}
 
 	public static void clearPreferredStack(EntityPlayer player, ItemStack stack) {
 
 		NBTTagCompound tag = player.getEntityData();
 
-		NBTTagCompound lexicon = tag.getCompoundTag("Lexicon");
+		NBTTagCompound lexicon = tag.getCompoundTag("cofh.Lexicon");
 		String oreName = OreDictionaryArbiter.getOreName(stack);
 		lexicon.removeTag(oreName);
 
-		tag.setTag("Lexicon", lexicon);
+		tag.setTag("cofh.Lexicon", lexicon);
 	}
 
 	public static boolean hasPreferredStack(EntityPlayer player, String oreName) {
 
 		NBTTagCompound tag = player.getEntityData();
 
-		NBTTagCompound lexicon = tag.getCompoundTag("Lexicon");
+		NBTTagCompound lexicon = tag.getCompoundTag("cofh.Lexicon");
 
 		return lexicon.hasKey(oreName);
 	}
