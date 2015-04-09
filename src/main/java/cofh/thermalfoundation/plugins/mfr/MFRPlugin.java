@@ -11,6 +11,8 @@ public class MFRPlugin {
 
 	public static void preInit() {
 
+		System.out.println("should work");
+
 		String comment;
 		String category = "Plugins.MineFactoryReloaded.Straw";
 
@@ -51,8 +53,12 @@ public class MFRPlugin {
 			if (strawCoal) {
 				FactoryRegistry.sendMessage("registerLiquidDrinkHandler", new ValuedItem("coal", DrinkHandlerCoal.instance));
 			}
-			ThermalFoundation.log.info("MineFactoryReloaded Plugin Enabled.");
 		}
+	}
+
+	public static void loadComplete() {
+
+		ThermalFoundation.log.info("Thermal Foundation: MineFactoryReloaded Plugin Enabled.");
 	}
 
 	public static boolean strawRedstone = true;

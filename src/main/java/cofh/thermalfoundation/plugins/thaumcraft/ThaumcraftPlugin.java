@@ -122,7 +122,7 @@ public class ThaumcraftPlugin {
 		parseAspects(TFItems.rodBlizz, "4 gelum, 2 praecantatio");
 		parseAspects(TFItems.dustBlizz, "2 gelum, 1 praecantatio");
 
-		ThermalFoundation.log.info("Thaumcraft Plugin Enabled.");
+		ThermalFoundation.log.info("Thermal Foundation: Thaumcraft Plugin Enabled.");
 	}
 
 }

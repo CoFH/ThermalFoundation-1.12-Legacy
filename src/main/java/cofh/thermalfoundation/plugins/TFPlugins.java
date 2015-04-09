@@ -14,7 +14,7 @@ public class TFPlugins {
 
 		public Plugin(String pluginPath) {
 
-			this.pluginPath = "cofh.thermalexpansion.plugins." + pluginPath;
+			this.pluginPath = "cofh.thermalfoundation.plugins." + pluginPath;
 		}
 
 		public void preInit() {
@@ -87,7 +87,7 @@ public class TFPlugins {
 	static {
 		addPlugin("mfr.MFRPlugin", "MineFactoryReloaded");
 		addPlugin("thaumcraft.ThaumcraftPlugin", "Thaumcraft");
-		addPlugin("tconstruct.TConstructPlugin", "Tinker's Construct");
+		addPlugin("tconstruct.TConstructPlugin", "TConstruct");
 	}
 
 	public static void preInit() {
