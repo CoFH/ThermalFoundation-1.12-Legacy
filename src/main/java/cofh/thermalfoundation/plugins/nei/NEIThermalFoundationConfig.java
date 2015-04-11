@@ -16,6 +16,7 @@ public class NEIThermalFoundationConfig implements IConfigureNEI {
 
 		// TODO: Temp until Lexicon is finished
 		API.hideItem(new ItemStack(TFItems.itemLexicon));
+		API.hideItem(new ItemStack(TFItems.itemLexicon, 1, 1));
 
 		if (ThermalFoundation.showDisabledEquipment) {
 			return;

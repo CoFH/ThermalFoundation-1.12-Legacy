@@ -99,7 +99,7 @@ public enum Equipment {
 	public final ArmorMaterial ARMOR_MATERIAL;
 
 	private final String ingot;
-	private float arrowSpeed = 2.0F;
+	private final float arrowSpeed = 2.0F;
 	private float arrowDamage = 1.0F;
 	private int luckModifier = 0;
 	private int speedModifier = 0;
@@ -148,7 +148,7 @@ public enum Equipment {
 		speedModifier = (int) (speed / 5);
 
 		/* Bow */
-		arrowSpeed = 2.0F + speed / 8F;
+		// arrowSpeed = 2.0F + speed / 8F;
 		arrowDamage = 1.0F + damage / 8F;
 	}
 
