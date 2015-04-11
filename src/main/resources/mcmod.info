@@ -5,7 +5,7 @@
         "description": "The foundation of a Thermally enhanced world!",
         "version": "${version}",
         "credits": "Team CoFH",
-        "logoFile": "/assets/thermalfoundation/textures/logo.png",
+        "logoFile": "assets/thermalfoundation/textures/logo.png",
         "mcversion": "${mcversion}",
         "url": "http://www.teamcofh.com",
         "updateUrl": "",
