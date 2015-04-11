@@ -62,7 +62,7 @@ public class ThermalFoundation extends BaseMod {
 	public static final ConfigHandler configClient = new ConfigHandler(version);
 	public static final GuiHandler guiHandler = new GuiHandler();
 
-	public static final CreativeTabs tabCommon = new TFCreativeTab();
+	public static CreativeTabs tabCommon;
 	public static CreativeTabs tabTools = CreativeTabs.tabTools;
 	public static CreativeTabs tabArmor = CreativeTabs.tabCombat;
 
@@ -87,6 +87,7 @@ public class ThermalFoundation extends BaseMod {
 		config.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/thermalfoundation/common.cfg"), true));
 		configClient.setConfiguration(new Configuration(new File(event.getModConfigurationDirectory(), "cofh/thermalfoundation/client.cfg"), true));
 
+		tabCommon = new TFCreativeTab();
 		configOptions();
 
 		TFFluids.preInit();

@@ -101,6 +101,8 @@ public enum Equipment {
 	private final String ingot;
 	private final float arrowSpeed = 2.5F;
 	private final float arrowDamage = 1.25F;
+	private int luckModifier = 0;
+	private int speedModifier = 0;
 
 	public boolean enableArmor = true;
 	public boolean[] enableTools = new boolean[9];
@@ -140,6 +142,8 @@ public enum Equipment {
 		TOOL_MATERIAL = EnumHelper.addToolMaterial("TF:" + name().toUpperCase(), level, uses, speed, damage, enchant);
 		ARMOR_MATERIAL = EnumHelper.addArmorMaterial("TF:" + name().toUpperCase(), durability, absorb, enchant);
 		ingot = "ingot" + name();
+		luckModifier = level / 2;
+		speedModifier = (int) (speed / 5);
 	}
 
 	protected void createArmor() {
@@ -229,6 +233,7 @@ public enum Equipment {
 		itemShears.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemFishingRod.setRepairIngot(ingot).setUnlocalizedName(TOOL + "FishingRod");
 		itemFishingRod.setTextureName(TOOL_PATH + "FishingRod").setCreativeTab(ThermalFoundation.tabTools);
+		itemFishingRod.setLuckModifier(luckModifier).setSpeedModifier(speedModifier);
 		itemFishingRod.setShowInCreative(enableArmor | ThermalFoundation.showDisabledEquipment);
 		itemSickle.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sickle");
 		itemSickle.setTextureName(TOOL_PATH + "Sickle").setCreativeTab(ThermalFoundation.tabTools);
