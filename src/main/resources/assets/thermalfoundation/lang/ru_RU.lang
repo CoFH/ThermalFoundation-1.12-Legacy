@@ -258,7 +258,9 @@ itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Инструм�
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Броня
 
 tab.thermalfoundation.lexicon.study.0=Обратитесь к знаниям мира и измените Вашу личную судьбу.
+tab.thermalfoundation.lexicon.study.1=Запитайте лексикон, чтобы заставить мир повиноваться Вашим взглядам.
 tab.thermalfoundation.lexicon.transmute.0=Превращайте эквивалентные предметы согласно тайному набору правил, установленным высшими силам.
+tab.thermalfoundation.lexicon.transmute.1=Отключите лексикон, чтобы отказаться от господства над миром.
 
 tile.thermalfoundation.fluid.redstone.name=Дестабилизированный красный камень
 tile.thermalfoundation.fluid.glowstone.name=Заряженный светящийся камень
@@ -288,7 +290,7 @@ tile.thermalfoundation.storage.electrum.name=Электрумовый блок
 tile.thermalfoundation.storage.invar.name=Инваровый блок
 tile.thermalfoundation.storage.bronze.name=Блок сплава инженера
 tile.thermalfoundation.storage.signalum.name=Синаловый блок
-tile.thermalfoundation.storage.lumium.name=Люмиумовый блок
+tile.thermalfoundation.storage.lumium.name=Ламиумовый блок
 tile.thermalfoundation.storage.enderium.name=Блок эндериума
 
 #Tinker's Construct Compatibility
