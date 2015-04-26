@@ -50,7 +50,7 @@ item.thermalfoundation.material.nuggetIron.name=Pepita di ferro
 item.thermalfoundation.material.gearIron.name=Ingranaggio di ferro
 item.thermalfoundation.material.gearGold.name=Ingranaggio d'oro
 
-item.thermalfoundation.material.dustSulfur.name=Solfuro
+item.thermalfoundation.material.dustSulfur.name=Zolfo
 item.thermalfoundation.material.dustNiter.name=Salnitro
 
 item.thermalfoundation.material.crystalCinnabar.name=Cinabro
@@ -258,7 +258,9 @@ itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: attrezzi
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: armature
 
 tab.thermalfoundation.lexicon.study.0=Consulta la conoscenza del mondo e altera il tuo destino.
+tab.thermalfoundation.lexicon.study.1=Dai potere al Vocabolario per forzare il mondo ad obbedirti.
 tab.thermalfoundation.lexicon.transmute.0=Trasmuta oggetti equivalenti secondo regole arcane decise da potenze superiori.
+tab.thermalfoundation.lexicon.transmute.1=Placa il Vocabolario per lasciare la padronanza sul mondo.
 
 tile.thermalfoundation.fluid.redstone.name=Pietrarossa destabilizata
 tile.thermalfoundation.fluid.glowstone.name=Luminite energizata
