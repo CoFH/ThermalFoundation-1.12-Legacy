@@ -259,7 +259,6 @@ itemGroup.thermalfoundation.creativeTabArmor=热力基本: 护甲
 
 tab.thermalfoundation.lexicon.study.0=学习关于这个世界的知识, 然后改变你自己的命运.
 tab.thermalfoundation.lexicon.transmute.0=你可以通过更强大的能量来转换等价物品.
-tab.thermalfoundation.lexicon.transmute.0=根据一系列由更高级当权者制定的奥术一般的原则,来转换等价物品.
 tab.thermalfoundation.lexicon.transmute.1=压制此辞典,迫使其放弃对世界的主宰.
 
 tile.thermalfoundation.fluid.redstone.name=熔融红石
