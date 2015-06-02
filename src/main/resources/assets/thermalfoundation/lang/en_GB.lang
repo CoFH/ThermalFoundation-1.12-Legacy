@@ -1,0 +1,30 @@
+#en_GB
+#*drinks tea angrily*
+
+fluid.redstone=Destabilised Redstone
+fluid.glowstone=Energised Glowstone
+
+item.thermalfoundation.bucket.bucketRedstone.name=Destabilised Redstone Bucket
+item.thermalfoundation.bucket.bucketGlowstone.name=Energised Glowstone Bucket
+
+item.thermalfoundation.material.dustIron.name=Pulverised Iron
+item.thermalfoundation.material.dustGold.name=Pulverised Gold
+item.thermalfoundation.material.dustCoal.name=Pulverised Coal
+item.thermalfoundation.material.dustCharcoal.name=Pulverised Charcoal
+item.thermalfoundation.material.dustObsidian.name=Pulverised Obsidian
+
+item.thermalfoundation.material.dustSulfur.name=Sulphur
+item.thermalfoundation.material.dustNiter.name=Nitre
+
+item.thermalfoundation.material.dustCopper.name=Pulverised Copper
+item.thermalfoundation.material.dustTin.name=Pulverised Tin
+item.thermalfoundation.material.dustSilver.name=Pulverised Silver
+item.thermalfoundation.material.dustLead.name=Pulverised Lead
+item.thermalfoundation.material.dustNickel.name=Pulverised Ferrous Metal
+item.thermalfoundation.material.dustPlatinum.name=Pulverised Shiny Metal
+item.thermalfoundation.material.dustMithril.name=Pulverised Mana Infused Metal
+
+itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armour
+
+tile.thermalfoundation.fluid.redstone.name=Destabilised Redstone
+tile.thermalfoundation.fluid.glowstone.name=Energised Glowstone
