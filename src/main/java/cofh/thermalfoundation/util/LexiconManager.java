@@ -32,6 +32,7 @@ public class LexiconManager {
 	public static boolean isWhitelist = true;
 	public static boolean logEntries = false;
 	public static boolean writeDefaultFile = true;
+	public static boolean alwaysWriteFile = false;
 
 	static File theList;
 
@@ -40,8 +41,11 @@ public class LexiconManager {
 		String comment = "Set to true for a whitelist, FALSE for a blacklist";
 		isWhitelist = ThermalFoundation.config.get("Lexicon", "UseWhiteList", isWhitelist, comment);
 
-		comment = "This will generate a default list file depending on your list setting. This will ONLY generate if no list file already exists.";
+		comment = "This will generate a default list file depending on your list setting. This will ONLY generate if no list file already exists OR you have also enabled list regeneration.";
 		writeDefaultFile = ThermalFoundation.config.get("Lexicon", "GenerateDefaultList", writeDefaultFile, comment);
+
+		comment = "This option will generate a fresh blacklist or whitelist EVERY time. This is not recommended, but is provided here as an option if you are satisfied with the defaults.";
+		alwaysWriteFile = ThermalFoundation.config.get("Lexicon", "AlwaysGenerateList", alwaysWriteFile, comment);
 
 		comment = "This will echo all entries to the system log.";
 		logEntries = ThermalFoundation.config.get("Lexicon", "LogEntries", logEntries, comment);
@@ -63,7 +67,10 @@ public class LexiconManager {
 		BufferedWriter out = null;
 		ArrayList<String> defaultList = new ArrayList<String>();
 
-		if ((writeDefaultFile) && (!theList.exists())) {
+		if (writeDefaultFile && alwaysWriteFile && theList.exists()) {
+			theList.delete();
+		}
+		if (writeDefaultFile && !theList.exists()) {
 			try {
 				writingDefaultFile = true;
 				theList.createNewFile();
@@ -148,7 +155,7 @@ public class LexiconManager {
 		String[] ores = OreDictionary.getOreNames();
 
 		for (int i = 0; i < ores.length; i++) {
-			if (validType(ores[i])) {
+			if (validType(ores[i]) && OreDictionaryArbiter.getOres(ores[i]) != null) {
 				sortedNames.add(ores[i]);
 			}
 		}
@@ -229,7 +236,6 @@ public class LexiconManager {
 	public static boolean hasPreferredStack(EntityPlayer player, String oreName) {
 
 		NBTTagCompound tag = player.getEntityData();
-
 		NBTTagCompound lexicon = tag.getCompoundTag("cofh.Lexicon");
 
 		return lexicon.hasKey(oreName);

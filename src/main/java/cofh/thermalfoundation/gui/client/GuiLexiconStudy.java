@@ -75,10 +75,10 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 
 		addTab(new TabInfo(this, myInfo).setOffsets(12, 10));
 
-		prevOre = new ElementButton(this, 57, 31, "PrevOre", 206, 0, 206, 20, 206, 40, 20, 20, TEX_PATH).setToolTipLocalized(true);
-		nextOre = new ElementButton(this, 129, 31, "NextOre", 226, 0, 226, 20, 226, 40, 20, 20, TEX_PATH).setToolTipLocalized(true);
-		setPreferredOre = new ElementButton(this, 78, 59, "SetPreferred", 206, 60, 206, 80, 206, 100, 20, 20, TEX_PATH).setToolTipLocalized(true);
-		clearPreferredOre = new ElementButton(this, 108, 59, "ClearPreferred", 226, 60, 226, 80, 226, 100, 20, 20, TEX_PATH).setToolTipLocalized(true);
+		prevOre = new ElementButton(this, 57, 31, "PrevOre", 206, 0, 206, 20, 206, 40, 20, 20, TEX_PATH);
+		nextOre = new ElementButton(this, 129, 31, "NextOre", 226, 0, 226, 20, 226, 40, 20, 20, TEX_PATH);
+		setPreferredOre = new ElementButton(this, 78, 59, "SetPreferred", 206, 60, 206, 80, 206, 100, 20, 20, TEX_PATH);
+		clearPreferredOre = new ElementButton(this, 108, 59, "ClearPreferred", 226, 60, 226, 80, 226, 100, 20, 20, TEX_PATH);
 
 		oreList.borderColor = new GuiColor(120, 120, 120, 0).getColor();
 		oreList.backgroundColor = new GuiColor(0, 0, 0, 48).getColor();
@@ -112,6 +112,8 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 		if (lexicon.hasMultipleOres()) {
 			prevOre.setActive();
 			nextOre.setActive();
+			prevOre.setToolTip("info.thermalfoundation.lexicon.prevEntry");
+			nextOre.setToolTip("info.thermalfoundation.lexicon.nextEntry");
 		} else {
 			prevOre.setDisabled();
 			nextOre.setDisabled();
@@ -120,13 +122,17 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 		}
 		if (lexicon.canSetPreferred()) {
 			setPreferredOre.setActive();
+			setPreferredOre.setToolTip("info.thermalfoundation.lexicon.setPreference");
 		} else {
 			setPreferredOre.setDisabled();
+			setPreferredOre.clearToolTip();
 		}
 		if (lexicon.hasPreferredOre()) {
 			clearPreferredOre.setActive();
+			clearPreferredOre.setToolTip("info.thermalfoundation.lexicon.clearPreference");
 		} else {
 			clearPreferredOre.setDisabled();
+			clearPreferredOre.clearToolTip();
 		}
 	}
 

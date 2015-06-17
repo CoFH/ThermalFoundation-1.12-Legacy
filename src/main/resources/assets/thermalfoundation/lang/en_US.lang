@@ -1,15 +1,19 @@
 #en_US
 
+death.attack.basalz=%1$s had their world rocked!
+death.attack.blitz=%1$s was tragically enlightened!
 death.attack.blizz=%1$s met a frigid fate!
 death.attack.cryotheum=%1$s froze to death!
 death.attack.cryotheum.player=%1$s froze to death trying to escape %2$s!
 death.attack.flux=%1$s had their reality torn apart by Flux!
 death.attack.flux.player=%1$s was Fluxed to death by %2$s!
-death.attack.pyrotheum=%1$s mistook Pyrotheum for Water!
-death.attack.pyrotheum.player=%1$s burned alive trying to escape %2$s!
 death.attack.mana=%1$s was torn apart by raw Mana!
 death.attack.mana.player=%1$s ran into another state of being attempting to escape %2$s!
+death.attack.pyrotheum=%1$s mistook Pyrotheum for Water!
+death.attack.pyrotheum.player=%1$s burned alive trying to escape %2$s!
 
+entity.Basalz.name=Basalz
+entity.Blitz.name=Blitz
 entity.Blizz.name=Blizz
 
 fluid.redstone=Destabilized Redstone
@@ -17,6 +21,8 @@ fluid.glowstone=Energized Glowstone
 fluid.ender=Resonant Ender
 fluid.pyrotheum=Blazing Pyrotheum
 fluid.cryotheum=Gelid Cryotheum
+fluid.aerotheum=Zephyrean Aerotheum
+fluid.petrotheum=Tectonic Petrotheum
 fluid.mana=Primal Mana
 fluid.steam=Steam
 fluid.coal=Liquifacted Coal
@@ -29,6 +35,8 @@ item.thermalfoundation.bucket.bucketGlowstone.name=Energized Glowstone Bucket
 item.thermalfoundation.bucket.bucketEnder.name=Resonant Ender Bucket
 item.thermalfoundation.bucket.bucketPyrotheum.name=Blazing Pyrotheum Bucket
 item.thermalfoundation.bucket.bucketCryotheum.name=Gelid Cryotheum Bucket
+item.thermalfoundation.bucket.bucketAerotheum.name=Zephyrean Aerotheum Bucket
+item.thermalfoundation.bucket.bucketPetrotheum.name=Tectonic Petrotheum Bucket
 item.thermalfoundation.bucket.bucketMana.name=Primal Mana Bucket
 item.thermalfoundation.bucket.bucketCoal.name=Liquifacted Coal Bucket
 
@@ -39,6 +47,12 @@ info.thermalfoundation.tome.lexicon.4=Right click (open) to transmute items.
 info.thermalfoundation.tome.lexicon.5=to forsake knowledge.
 item.thermalfoundation.tome.lexicon.name=Forge Lexicon
 item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexicon (Empowered)
+
+info.thermalfoundation.lexicon.clearPreference=Clear Preference
+info.thermalfoundation.lexicon.setPreference=Set Preference
+info.thermalfoundation.lexicon.nextEntry=Next Entry
+info.thermalfoundation.lexicon.prevEntry=Previous Entry
+info.thermalfoundation.lexicon.singleEntry=Only One Entry
 
 item.thermalfoundation.material.dustIron.name=Pulverized Iron
 item.thermalfoundation.material.dustGold.name=Pulverized Gold
@@ -99,6 +113,8 @@ item.thermalfoundation.material.nuggetEnderium.name=Enderium Nugget
 
 item.thermalfoundation.material.dustPyrotheum.name=Pyrotheum Dust
 item.thermalfoundation.material.dustCryotheum.name=Cryotheum Dust
+item.thermalfoundation.material.dustAerotheum.name=Aerotheum Dust
+item.thermalfoundation.material.dustPetrotheum.name=Petrotheum Dust
 item.thermalfoundation.material.dustMana.name=Mana Dust
 
 item.thermalfoundation.material.gearCopper.name=Copper Gear
@@ -267,6 +283,8 @@ tile.thermalfoundation.fluid.glowstone.name=Energized Glowstone
 tile.thermalfoundation.fluid.ender.name=Resonant Ender
 tile.thermalfoundation.fluid.pyrotheum.name=Blazing Pyrotheum
 tile.thermalfoundation.fluid.cryotheum.name=Gelid Cryotheum
+tile.thermalfoundation.fluid.aerotheum.name=Zephyrean Aerotheum
+tile.thermalfoundation.fluid.petrootheum.name=Tectonic Petrotheum
 tile.thermalfoundation.fluid.mana.name=Primal Mana
 tile.thermalfoundation.fluid.steam.name=Steam
 tile.thermalfoundation.fluid.coal.name=Liquifacted Coal

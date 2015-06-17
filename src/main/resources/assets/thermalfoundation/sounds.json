@@ -43,5 +43,95 @@
                 "stream": false
             }
         ]
+    },
+    "mobBlitzAmbient": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/blitz/ambient",
+                "stream": false
+            }
+        ]
+    },
+    "mobBlitzAttack": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/blitz/attack",
+                "stream": false
+            }
+        ]
+    },
+    "mobBlitzBreathe0": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/blitz/breathe0",
+                "stream": false
+            }
+        ]
+    },
+    "mobBlitzBreathe1": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/blitz/breathe1",
+                "stream": false
+            }
+        ]
+    },
+    "mobBlitzBreathe2": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/blitz/breathe2",
+                "stream": false
+            }
+        ]
+    },
+    "mobBasalzAmbient": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/basalz/ambient",
+                "stream": false
+            }
+        ]
+    },
+    "mobBasalzAttack": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/basalz/attack",
+                "stream": false
+            }
+        ]
+    },
+    "mobBasalzBreathe0": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/basalz/breathe0",
+                "stream": false
+            }
+        ]
+    },
+    "mobBasalzBreathe1": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/basalz/breathe1",
+                "stream": false
+            }
+        ]
+    },
+    "mobBasalzBreathe2": {
+        "category": "hostile",
+        "sounds": [
+            {
+                "name": "mob/basalz/breathe2",
+                "stream": false
+            }
+        ]
     }
 }

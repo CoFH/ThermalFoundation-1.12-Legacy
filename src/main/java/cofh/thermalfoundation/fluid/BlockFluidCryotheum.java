@@ -82,6 +82,8 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 
+		entity.extinguish();
+
 		if (!effect) {
 			return;
 		}
@@ -158,11 +160,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 			z2 = z + BlockHelper.SIDE_COORD_MOD[i][2];
 
 			interactWithBlock(world, x2, y2, z2);
-
-			x2 += BlockHelper.SIDE_COORD_MOD[i][0];
-			z2 += BlockHelper.SIDE_COORD_MOD[i][2];
-
-			interactWithBlock(world, x2, y2, z2);
 		}
 		interactWithBlock(world, x - 1, y, z - 1);
 		interactWithBlock(world, x - 1, y, z + 1);
@@ -183,7 +180,7 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		if (hasInteraction(block, bMeta)) {
 			result = getInteraction(block, bMeta);
 			world.setBlock(x, y, z, result.block, result.metadata, 3);
-			triggerInteractionEffects(world, x, y, z);
+			// triggerInteractionEffects(world, x, y, z);
 		} else if (world.isSideSolid(x, y, z, ForgeDirection.UP) && world.isAirBlock(x, y + 1, z)) {
 			world.setBlock(x, y + 1, z, Blocks.snow_layer, 0, 3);
 		}
@@ -191,12 +188,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 
 	protected void triggerInteractionEffects(World world, int x, int y, int z) {
 
-		// if (random.nextInt(20) == 0) {
-		// world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
-		// }
-		for (int i = 0; i < 4; i++) {
-			world.spawnParticle("snowballpoof", x + random.nextDouble(), y + 1.2D, z + random.nextDouble(), 0.0D, 0.0D, 0.0D);
-		}
 	}
 
 }

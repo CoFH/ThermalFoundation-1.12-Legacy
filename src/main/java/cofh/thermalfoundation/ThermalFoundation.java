@@ -57,7 +57,6 @@ public class ThermalFoundation extends BaseMod {
 	public static Proxy proxy;
 
 	public static final Logger log = LogManager.getLogger(modId);
-
 	public static final ConfigHandler config = new ConfigHandler(version);
 	public static final ConfigHandler configClient = new ConfigHandler(version);
 	public static final GuiHandler guiHandler = new GuiHandler();

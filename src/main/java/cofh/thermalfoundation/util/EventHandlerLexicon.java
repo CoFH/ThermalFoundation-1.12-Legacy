@@ -1,6 +1,5 @@
 package cofh.thermalfoundation.util;
 
-import cofh.lib.util.helpers.MathHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.EventPriority;
@@ -60,11 +59,6 @@ public class EventHandlerLexicon {
 			event.entityPlayer.triggerAchievement(AchievementList.blazeRod);
 		}
 		FMLCommonHandler.instance().firePlayerItemPickupEvent(event.entityPlayer, event.item);
-
-		event.item.playSound("note.harp", 0.5F, 1.0F);
-		event.entityPlayer.onItemPickup(event.item, stack.stackSize);
-		event.entityPlayer.worldObj.spawnParticle("enchantmenttable", event.item.posX, event.item.posY, event.item.posZ, MathHelper.RANDOM.nextFloat(),
-				MathHelper.RANDOM.nextFloat(), MathHelper.RANDOM.nextFloat());
 
 		if (stack.stackSize <= 0) {
 			event.item.setDead();

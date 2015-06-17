@@ -4,19 +4,12 @@ import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.item.Equipment;
-import cofh.thermalfoundation.item.TFItems;
-
-import net.minecraft.item.ItemStack;
 
 public class NEIThermalFoundationConfig implements IConfigureNEI {
 
 	/* IConfigureNEI */
 	@Override
 	public void loadConfig() {
-
-		// TODO: Temp until Lexicon is finished
-		API.hideItem(new ItemStack(TFItems.itemLexicon));
-		API.hideItem(new ItemStack(TFItems.itemLexicon, 1, 1));
 
 		if (ThermalFoundation.showDisabledEquipment) {
 			return;

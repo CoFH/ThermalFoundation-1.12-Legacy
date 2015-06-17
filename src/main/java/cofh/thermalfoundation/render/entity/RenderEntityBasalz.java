@@ -1,7 +1,6 @@
 package cofh.thermalfoundation.render.entity;
 
-import cofh.lib.util.helpers.HolidayHelper;
-import cofh.thermalfoundation.entity.monster.EntityBlizz;
+import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import cofh.thermalfoundation.render.model.ModelElemental;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -13,26 +12,22 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
-public class RenderEntityBlizz extends RenderLiving {
+public class RenderEntityBasalz extends RenderLiving {
 
-	public static final RenderEntityBlizz instance = new RenderEntityBlizz();
+	public static final RenderEntityBasalz instance = new RenderEntityBasalz();
 
 	static ResourceLocation texture;
 
 	static {
-		RenderingRegistry.registerEntityRenderingHandler(EntityBlizz.class, instance);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBasalz.class, instance);
 	}
 
 	public static void initialize() {
 
-		if (HolidayHelper.isChristmas()) {
-			texture = new ResourceLocation("thermalfoundation:textures/entity/" + "xmas/Blizz.png");
-			return;
-		}
-		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "Blizz.png");
+		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "Basalz.png");
 	}
 
-	public RenderEntityBlizz() {
+	public RenderEntityBasalz() {
 
 		super(ModelElemental.instance, 0.5F);
 	}
@@ -40,7 +35,7 @@ public class RenderEntityBlizz extends RenderLiving {
 	@Override
 	public void doRender(Entity entity, double d0, double d1, double d2, float f, float f1) {
 
-		doRenderBlizz((EntityBlizz) entity, d0, d1, d2, f, f1);
+		doRenderBasalz((EntityBasalz) entity, d0, d1, d2, f, f1);
 	}
 
 	@Override
@@ -52,10 +47,10 @@ public class RenderEntityBlizz extends RenderLiving {
 	@Override
 	public void doRender(EntityLivingBase entity, double d0, double d1, double d2, float f, float f1) {
 
-		this.doRenderBlizz((EntityBlizz) entity, d0, d1, d2, f, f1);
+		this.doRenderBasalz((EntityBasalz) entity, d0, d1, d2, f, f1);
 	}
 
-	protected void doRenderBlizz(EntityBlizz entity, double d0, double d1, double d2, float f, float f1) {
+	protected void doRenderBasalz(EntityBasalz entity, double d0, double d1, double d2, float f, float f1) {
 
 		super.doRender(entity, d0, d1, d2, f, f1);
 	}

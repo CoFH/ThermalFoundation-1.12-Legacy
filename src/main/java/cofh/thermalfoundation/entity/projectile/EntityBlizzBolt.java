@@ -23,63 +23,63 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class EntityBlizzSlowball extends EntityThrowable {
+public class EntityBlizzBolt extends EntityThrowable {
 
 	public static void initialize() {
 
-		EntityRegistry.registerModEntity(EntityBlizzSlowball.class, "blizzSlowball", CoreUtils.getEntityId(), ThermalFoundation.instance,
+		EntityRegistry.registerModEntity(EntityBlizzBolt.class, "blizzBolt", CoreUtils.getEntityId(), ThermalFoundation.instance,
 				CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
 	}
 
-	protected static class DamageSourceBlizzSlowball extends EntityDamageSource {
+	protected static class DamageSourceBlizz extends EntityDamageSource {
 
-		public DamageSourceBlizzSlowball() {
+		public DamageSourceBlizz() {
 
 			this(null);
 		}
 
-		public DamageSourceBlizzSlowball(Entity source) {
+		public DamageSourceBlizz(Entity source) {
 
 			super("blizz", source);
 		}
 
-		public static DamageSource causeDamage(EntityBlizzSlowball entityBall, Entity entitySource) {
+		public static DamageSource causeDamage(EntityBlizzBolt entityProj, Entity entitySource) {
 
-			return (new EntityDamageSourceIndirect("blizz", entityBall, entitySource == null ? entityBall : entitySource)).setProjectile();
+			return (new EntityDamageSourceIndirect("blizz", entityProj, entitySource == null ? entityProj : entitySource)).setProjectile();
 		}
 	}
 
-	protected static class PotionEffectBlizzSlowball extends PotionEffect {
+	protected static class PotionEffectBlizz extends PotionEffect {
 
-		public PotionEffectBlizzSlowball(int id, int duration, int amplifier, boolean isAmbient) {
+		public PotionEffectBlizz(int id, int duration, int amplifier, boolean isAmbient) {
 
 			super(id, duration, amplifier, isAmbient);
 			getCurativeItems().clear();
 		}
 
-		public PotionEffectBlizzSlowball(int duration, int amplifier) {
+		public PotionEffectBlizz(int duration, int amplifier) {
 
 			this(Potion.moveSlowdown.id, duration, amplifier, false);
 		}
 
 	}
 
-	public static DamageSource blizzSlowball = new DamageSourceBlizzSlowball();
-	public static PotionEffect ballSlow = new PotionEffectBlizzSlowball(5 * 20, 2);
+	public static DamageSource blizzDamage = new DamageSourceBlizz();
+	public static PotionEffect blizzEffect = new PotionEffectBlizz(5 * 20, 2);
 	public static double accelMultiplier = 0.2D;
 
 	/* Required Constructor */
-	public EntityBlizzSlowball(World world) {
+	public EntityBlizzBolt(World world) {
 
 		super(world);
 	}
 
-	public EntityBlizzSlowball(World world, EntityLivingBase thrower) {
+	public EntityBlizzBolt(World world, EntityLivingBase thrower) {
 
 		super(world, thrower);
 	}
 
-	public EntityBlizzSlowball(World world, double x, double y, double z) {
+	public EntityBlizzBolt(World world, double x, double y, double z) {
 
 		super(world, x, y, z);
 	}
@@ -90,12 +90,12 @@ public class EntityBlizzSlowball extends EntityThrowable {
 		if (ServerHelper.isServerWorld(worldObj)) {
 			if (pos.entityHit != null) {
 				if (pos.entityHit instanceof EntityBlizz) {
-					pos.entityHit.attackEntityFrom(DamageSourceBlizzSlowball.causeDamage(this, getThrower()), 0);
+					pos.entityHit.attackEntityFrom(DamageSourceBlizz.causeDamage(this, getThrower()), 0);
 				} else {
-					if (pos.entityHit.attackEntityFrom(DamageSourceBlizzSlowball.causeDamage(this, getThrower()), pos.entityHit.isImmuneToFire() ? 8F : 5F)
+					if (pos.entityHit.attackEntityFrom(DamageSourceBlizz.causeDamage(this, getThrower()), pos.entityHit.isImmuneToFire() ? 8F : 5F)
 							&& pos.entityHit instanceof EntityLivingBase) {
 						EntityLivingBase living = (EntityLivingBase) pos.entityHit;
-						living.addPotionEffect(new PotionEffect(EntityBlizzSlowball.ballSlow));
+						living.addPotionEffect(new PotionEffect(EntityBlizzBolt.blizzEffect));
 					}
 				}
 			} else {
@@ -113,7 +113,7 @@ public class EntityBlizzSlowball extends EntityThrowable {
 				}
 			}
 			for (int i = 0; i < 8; i++) {
-				worldObj.spawnParticle("snowballpoof", posX, posY, posZ, 0.0D, 0.0D, 0.0D);
+				worldObj.spawnParticle("snowballpoof", posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble());
 			}
 			setDead();
 		}

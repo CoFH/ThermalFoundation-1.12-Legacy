@@ -19,7 +19,7 @@ public class TFItems {
 
 	public static void preInit() {
 
-		itemLexicon = (ItemLexicon) new ItemLexicon().setUnlocalizedName("tome", "lexicon");
+		itemLexicon = (ItemLexicon) new ItemLexicon("lexicon").setUnlocalizedName("tome", "lexicon");
 		itemBucket = (ItemBucket) new ItemBucket("thermalfoundation").setUnlocalizedName("bucket").setCreativeTab(ThermalFoundation.tabCommon);
 		itemMaterial = (ItemBase) new ItemBase("thermalfoundation").setUnlocalizedName("material").setCreativeTab(ThermalFoundation.tabCommon);
 
@@ -33,7 +33,7 @@ public class TFItems {
 		bucketMana = itemBucket.addItem(5, "bucketMana", 3);
 		bucketCoal = itemBucket.addOreDictItem(6, "bucketCoal");
 
-		lexicon = itemLexicon.addItem(0, "lexicon");
+		lexicon = new ItemStack(itemLexicon);
 
 		/* Vanilla Derived */
 		dustCoal = itemMaterial.addOreDictItem(2, "dustCoal");
@@ -114,13 +114,17 @@ public class TFItems {
 		/* Additional Items */
 		dustPyrotheum = itemMaterial.addOreDictItem(512, "dustPyrotheum", 2);
 		dustCryotheum = itemMaterial.addOreDictItem(513, "dustCryotheum", 2);
-		// dustAerotheum = itemMaterial.addOreDictItem(514, "dustAerotheum", 2);
-		// dustPetrotheum = itemMaterial.addOreDictItem(515, "dustPetrotheum", 2);
+		dustAerotheum = itemMaterial.addOreDictItem(514, "dustAerotheum", 2);
+		dustPetrotheum = itemMaterial.addOreDictItem(515, "dustPetrotheum", 2);
 		dustMana = itemMaterial.addItem(516, "dustMana", 3);
 
 		/* Mob Drops */
 		rodBlizz = itemMaterial.addOreDictItem(1024, "rodBlizz");
 		dustBlizz = itemMaterial.addOreDictItem(1025, "dustBlizz");
+		// rodBlitz = itemMaterial.addOreDictItem(1026, "rodBlitz");
+		// dustBlitz = itemMaterial.addOreDictItem(1027, "dustBlitz");
+		// rodBasalz = itemMaterial.addOreDictItem(1028, "rodBasalz");
+		// dustBasalz = itemMaterial.addOreDictItem(1029, "dustBasalz");
 
 		/* Equipment */
 		Equipment.preInit();
@@ -157,12 +161,20 @@ public class TFItems {
 
 	public static void postInit() {
 
+		ItemHelper.addRecipe(ShapelessRecipe(itemLexicon, new Object[] { Items.book, "ingotIron", "ingotGold" }));
+
 		// @formatter: off
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustPyrotheum, 2), new Object[] { "dustCoal", "dustSulfur", "dustRedstone",
 				Items.blaze_powder }));
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustCryotheum, 2), new Object[] { Items.snowball, "dustSaltpeter", "dustRedstone",
 				"dustBlizz" }));
+		// ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustAerotheum, 2), new Object[] { "sand", "dustSaltpeter", "dustRedstone", "dustBlitz"
+		// }));
+		// ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustPetrotheum, 2), new Object[] { Items.clay_ball, "dustObsidian", "dustRedstone",
+		// "dustBasalz" }));
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBlizz, 2), "rodBlizz"));
+		// ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBlitz, 2), "rodBlitz"));
+		// ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBasalz, 2), "rodBasalz"));
 		// @formatter: on
 
 		/* Smelting */
@@ -338,11 +350,15 @@ public class TFItems {
 
 	public static ItemStack dustPyrotheum;
 	public static ItemStack dustCryotheum;
-	// public static ItemStack dustAerotheum;
-	// public static ItemStack dustPetrotheum;
+	public static ItemStack dustAerotheum;
+	public static ItemStack dustPetrotheum;
 	public static ItemStack dustMana;
 
 	public static ItemStack rodBlizz;
 	public static ItemStack dustBlizz;
+	public static ItemStack rodBlitz;
+	public static ItemStack dustBlitz;
+	public static ItemStack rodBasalz;
+	public static ItemStack dustBasalz;
 
 }

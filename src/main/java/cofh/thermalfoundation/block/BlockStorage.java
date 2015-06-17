@@ -97,6 +97,12 @@ public class BlockStorage extends Block implements IInitializer {
 	}
 
 	@Override
+	public boolean isNormalCube(IBlockAccess world, int x, int y, int z) {
+
+		return true;
+	}
+
+	@Override
 	public IIcon getIcon(int side, int metadata) {
 
 		return TEXTURES[metadata];

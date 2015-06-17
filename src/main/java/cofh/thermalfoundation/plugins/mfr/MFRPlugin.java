@@ -11,8 +11,6 @@ public class MFRPlugin {
 
 	public static void preInit() {
 
-		System.out.println("should work");
-
 		String comment;
 		String category = "Plugins.MineFactoryReloaded.Straw";
 

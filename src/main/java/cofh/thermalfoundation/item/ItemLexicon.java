@@ -2,19 +2,24 @@ package cofh.thermalfoundation.item;
 
 import cofh.api.item.IEmpowerableItem;
 import cofh.api.item.IInventoryContainerItem;
-import cofh.core.item.ItemBase;
 import cofh.core.util.CoreUtils;
 import cofh.core.util.KeyBindingEmpower;
+import cofh.lib.util.helpers.SecurityHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.util.LexiconManager;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import java.util.List;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
@@ -24,11 +29,16 @@ import net.minecraft.world.World;
 
 import org.lwjgl.input.Keyboard;
 
-public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IEmpowerableItem {
+public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpowerableItem {
 
-	public ItemLexicon() {
+	public String modName = "thermalfoundation";
+	public final String itemName;
 
-		super("thermalfoundation");
+	public ItemLexicon(String name) {
+
+		super();
+		this.itemName = name;
+		setMaxDamage(1);
 		setMaxStackSize(1);
 		setCreativeTab(ThermalFoundation.tabCommon);
 	}
@@ -36,33 +46,9 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 
-		// ItemStack lexicon = new ItemStack(item, 1, 0);
-		// setEmpoweredState(lexicon, false);
-		// list.add(lexicon);
-	}
-
-	@Override
-	public EnumRarity getRarity(ItemStack stack) {
-
-		if (isEmpowered(stack)) {
-			return EnumRarity.rare;
-		}
-		return EnumRarity.uncommon;
-	}
-
-	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-
-		if (isEmpowered(stack)) {
-			return "item.thermalfoundation.tome.lexicon.empowered";
-		}
-		return "item.thermalfoundation.tome.lexicon";
-	}
-
-	@Override
-	public boolean isFull3D() {
-
-		return true;
+		ItemStack lexicon = new ItemStack(item, 1, 0);
+		setEmpoweredState(lexicon, false);
+		list.add(lexicon);
 	}
 
 	@Override
@@ -90,6 +76,21 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 	}
 
 	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+
+		if (isEmpowered(stack)) {
+			return EnumRarity.rare;
+		}
+		return EnumRarity.uncommon;
+	}
+
+	@Override
+	public boolean isFull3D() {
+
+		return true;
+	}
+
+	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
 		if (CoreUtils.isFakePlayer(player)) {
@@ -113,6 +114,54 @@ public class ItemLexicon extends ItemBase implements IInventoryContainerItem, IE
 		}
 		NBTTagCompound tag = entity.getEntityData();
 		tag.setLong("cofh.LexiconUpdate", entity.worldObj.getTotalWorldTime());
+	}
+
+	@Override
+	public boolean hasCustomEntity(ItemStack stack) {
+
+		return SecurityHelper.isSecure(stack);
+	}
+
+	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+
+		if (isEmpowered(stack)) {
+			return "item.thermalfoundation.tome.lexicon.empowered";
+		}
+		return "item.thermalfoundation.tome.lexicon";
+	}
+
+	@Override
+	public Entity createEntity(World world, Entity location, ItemStack stack) {
+
+		if (SecurityHelper.isSecure(stack)) {
+			location.invulnerable = true;
+			location.isImmuneToFire = true;
+			((EntityItem) location).lifespan = Integer.MAX_VALUE;
+		}
+		return null;
+	}
+
+	@Override
+	public Item setUnlocalizedName(String name) {
+
+		GameRegistry.registerItem(this, name);
+		name = modName + "." + name;
+		return super.setUnlocalizedName(name);
+	}
+
+	public Item setUnlocalizedName(String textureName, String registrationName) {
+
+		GameRegistry.registerItem(this, registrationName);
+		textureName = modName + "." + textureName;
+		return super.setUnlocalizedName(textureName);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IIconRegister ir) {
+
+		this.itemIcon = ir.registerIcon(modName + ":" + getUnlocalizedName().replace("item." + modName + ".", "") + "/" + StringHelper.titleCase(itemName));
 	}
 
 	/* IInventoryContainerItem */
