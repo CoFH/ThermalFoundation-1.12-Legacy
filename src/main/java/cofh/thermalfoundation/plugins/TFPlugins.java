@@ -88,6 +88,7 @@ public class TFPlugins {
 		addPlugin("mfr.MFRPlugin", "MineFactoryReloaded");
 		addPlugin("thaumcraft.ThaumcraftPlugin", "Thaumcraft");
 		addPlugin("tconstruct.TConstructPlugin", "TConstruct");
+        addPlugin("ee3.EE3Plugin", "EE3");
 	}
 
 	public static void preInit() {
