@@ -68,7 +68,12 @@ public class EE3Helper {
 
     private static int[] getRatio(double prob, int i) {
         if (prob == (int) prob) return new int[]{(int) prob, 1};
-        int[] v = new int[]{(int) Math.ceil(prob * i), i};
+        int[] a = reduceRatio(new int[]{(int) Math.ceil(prob * i), i});
+        int[] b = reduceRatio(new int[]{(int) Math.floor(prob * i), i});
+        return a[1] < b[1] ? a : b;
+    }
+
+    private static int[] reduceRatio(int[] v) {
         int k = gcd(v[0], v[1]);
         v[0] /= k;
         v[1] /= k;
@@ -81,7 +86,7 @@ public class EE3Helper {
         if (prob == 1.0) {
             addRecipe(output, input);
         } else {
-            int[] ratio = getRatio(output.stackSize * prob, 20);
+            int[] ratio = getRatio(output.stackSize * prob, 16);
 
             ArrayList<ItemStack> multInput = new ArrayList<ItemStack>();
             for (int i = 0; i < ratio[1]; i++) {
