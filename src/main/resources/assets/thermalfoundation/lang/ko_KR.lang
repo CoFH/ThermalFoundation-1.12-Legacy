@@ -1,5 +1,7 @@
 #ko_KR
 
+death.attack.basalz=%1$s had their world rocked!
+death.attack.blitz=%1$s was tragically enlightened!
 death.attack.blizz=%1$s가 혹한에 죽었습니다
 death.attack.cryotheum=%1$s가 얼어죽었습니다
 death.attack.cryotheum.player=%1$s는 %2$s에게서 탈출하기 위해 얼어죽을 수 밖에 없었습니다
@@ -10,6 +12,8 @@ death.attack.pyrotheum.player=%1$s는 %2$s에게서 탈출하기 위해 산 채�
 death.attack.mana=%1$s가 마나 때문에 찢겨져 죽었습니다
 death.attack.mana.player=%1$s는 %2$s에게서 탈출하기 위해 다른 상태가 될 수 밖에 없었습니다
 
+entity.Basalz.name=바살즈
+entity.Blitz.name=블리츠
 entity.Blizz.name=블리즈
 
 fluid.redstone=불안정한 레드스톤
@@ -17,6 +21,8 @@ fluid.glowstone=활력의 발광석
 fluid.ender=공명하는 엔더
 fluid.pyrotheum=불타오르는 파이로시움
 fluid.cryotheum=혹한의 크라이오시움
+fluid.aerotheum=Zephyrean Aerotheum
+fluid.petrotheum=Tectonic Petrotheum
 fluid.mana=태초의 마나
 fluid.steam=증기
 fluid.coal=액화 석탄
@@ -29,6 +35,8 @@ item.thermalfoundation.bucket.bucketGlowstone.name=활력의 발광석 양동이
 item.thermalfoundation.bucket.bucketEnder.name=공명하는 엔더 양동이
 item.thermalfoundation.bucket.bucketPyrotheum.name=불타오르는 파이로시움 양동이
 item.thermalfoundation.bucket.bucketCryotheum.name=혹한의 크라이오시움 양동이
+item.thermalfoundation.bucket.bucketAerotheum.name=Zephyrean Aerotheum Bucket
+item.thermalfoundation.bucket.bucketPetrotheum.name=Tectonic Petrotheum Bucket
 item.thermalfoundation.bucket.bucketMana.name=태초의 마나 양동이
 item.thermalfoundation.bucket.bucketCoal.name=액화 석탄 양동이
 
@@ -39,6 +47,12 @@ info.thermalfoundation.tome.lexicon.4=아이템을 바꾸기 위해서 우클릭
 info.thermalfoundation.tome.lexicon.5=지식을 버리는 것.
 item.thermalfoundation.tome.lexicon.name=포지 렉시콘
 item.thermalfoundation.tome.lexicon.empowered.name=포지 렉시콘 (권한 부여)
+
+info.thermalfoundation.lexicon.clearPreference=Clear Preference
+info.thermalfoundation.lexicon.setPreference=Set Preference
+info.thermalfoundation.lexicon.nextEntry=Next Entry
+info.thermalfoundation.lexicon.prevEntry=Previous Entry
+info.thermalfoundation.lexicon.singleEntry=Only One Entry
 
 item.thermalfoundation.material.dustIron.name=분쇄된 철
 item.thermalfoundation.material.dustGold.name=분쇄된 금
@@ -60,7 +74,7 @@ item.thermalfoundation.material.dustTin.name=분쇄된 주석
 item.thermalfoundation.material.dustSilver.name=분쇄된 은
 item.thermalfoundation.material.dustLead.name=분쇄된 납
 item.thermalfoundation.material.dustNickel.name=분쇄된 니켈
-item.thermalfoundation.material.dustPlatinum.name=분쇄된 벡금
+item.thermalfoundation.material.dustPlatinum.name=분쇄된 백금
 item.thermalfoundation.material.dustMithril.name=분쇄된 미스릴
 item.thermalfoundation.material.dustElectrum.name=일렉트럼 혼합물
 item.thermalfoundation.material.dustInvar.name=인바 혼합물
@@ -99,6 +113,8 @@ item.thermalfoundation.material.nuggetEnderium.name=엔더륨 조각
 
 item.thermalfoundation.material.dustPyrotheum.name=파이로세움 가루
 item.thermalfoundation.material.dustCryotheum.name=사이로세움 가루
+item.thermalfoundation.material.dustAerotheum.name=Aerotheum Dust
+item.thermalfoundation.material.dustPetrotheum.name=Petrotheum Dust
 item.thermalfoundation.material.dustMana.name=마나 가루
 
 item.thermalfoundation.material.gearCopper.name=구리 톱니바퀴
@@ -258,13 +274,17 @@ itemGroup.thermalfoundation.creativeTabTools=써멀 파운데이션: 도구
 itemGroup.thermalfoundation.creativeTabArmor=써멀 파운데이션: 갑주
 
 tab.thermalfoundation.lexicon.study.0=세계의 지식을 찾고 당신의 운명을 바꿉니다.
+tab.thermalfoundation.lexicon.study.1=Empower the Lexicon to force the world to obey your choices.
 tab.thermalfoundation.lexicon.transmute.0=일련의 규칙에 의해 고도의 마법력으로 같은 아이템종류일 경우 변환해줍니다.
+tab.thermalfoundation.lexicon.transmute.1=Quell the Lexicon to relinquish mastery over the world.
 
 tile.thermalfoundation.fluid.redstone.name=불안정한 레드스톤
 tile.thermalfoundation.fluid.glowstone.name=활력의 발광석
 tile.thermalfoundation.fluid.ender.name=공명하는 엔더
 tile.thermalfoundation.fluid.pyrotheum.name=불타오르는 파이로세움
 tile.thermalfoundation.fluid.cryotheum.name=혹한의 크라이오시움
+tile.thermalfoundation.fluid.aerotheum.name=Zephyrean Aerotheum
+tile.thermalfoundation.fluid.petrootheum.name=Tectonic Petrotheum
 tile.thermalfoundation.fluid.mana.name=태초의 마나
 tile.thermalfoundation.fluid.steam.name=증기
 tile.thermalfoundation.fluid.coal.name=액화 석탄
