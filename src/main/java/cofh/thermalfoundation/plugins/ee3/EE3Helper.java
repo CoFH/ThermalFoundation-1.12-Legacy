@@ -52,14 +52,14 @@ public class EE3Helper {
 
     private static int gcd(int a, int b) {
         int temp;
-        if (b < a) {
-            temp = b;
-            b = a;
-            a = temp;
-        }
+        if (a == 0) return b;
+
+        if (b > a)
+            b = b % a;
+
         while (b > 0) {
             temp = b;
-            b = a % b; // % is remainder
+            b = a % b;
             a = temp;
         }
         return a;
@@ -70,7 +70,7 @@ public class EE3Helper {
         if (prob == (int) prob) return new int[]{(int) prob, 1};
         int[] a = reduceRatio(new int[]{(int) Math.ceil(prob * i), i});
         int[] b = reduceRatio(new int[]{(int) Math.floor(prob * i), i});
-        return a[1] < b[1] ? a : b;
+        return a[1] < b[1] ? a : b; //choose smaller denominator
     }
 
     private static int[] reduceRatio(int[] v) {
