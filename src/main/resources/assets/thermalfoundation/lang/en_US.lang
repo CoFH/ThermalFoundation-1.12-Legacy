@@ -133,6 +133,10 @@ item.thermalfoundation.material.gearEnderium.name=Enderium Gear
 
 item.thermalfoundation.material.rodBlizz.name=Blizz Rod
 item.thermalfoundation.material.dustBlizz.name=Blizz Powder
+item.thermalfoundation.material.rodBlitz.name=Blitz Rod
+item.thermalfoundation.material.dustBlitz.name=Blitz Powder
+item.thermalfoundation.material.rodBasalz.name=Basalz Rod
+item.thermalfoundation.material.dustBasalz.name=Basalz Powder
 
 item.thermalfoundation.armor.copperHelmet.name=Copper Helmet
 item.thermalfoundation.armor.copperPlate.name=Copper Chestplate

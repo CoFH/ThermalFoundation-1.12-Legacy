@@ -114,8 +114,8 @@ public class TFItems {
 		/* Additional Items */
 		dustPyrotheum = itemMaterial.addOreDictItem(512, "dustPyrotheum", 2);
 		dustCryotheum = itemMaterial.addOreDictItem(513, "dustCryotheum", 2);
-		dustAerotheum = itemMaterial.addOreDictItem(514, "dustAerotheum", 2);
-		dustPetrotheum = itemMaterial.addOreDictItem(515, "dustPetrotheum", 2);
+		// dustAerotheum = itemMaterial.addOreDictItem(514, "dustAerotheum", 2);
+		// dustPetrotheum = itemMaterial.addOreDictItem(515, "dustPetrotheum", 2);
 		dustMana = itemMaterial.addItem(516, "dustMana", 3);
 
 		/* Mob Drops */
