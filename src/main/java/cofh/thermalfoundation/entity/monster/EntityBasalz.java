@@ -124,7 +124,7 @@ public class EntityBasalz extends EntityMob {
 	public static final String SOUND_AMBIENT = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzAmbient");
 	public static final String SOUND_ATTACK = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzAttack");
 	public static final String SOUND_LIVING[] = { CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzBreathe0"),
-			CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzBreathe1"), CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzBreathe2") };
+			CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzBreathe1") };
 
 	protected static final int SOUND_AMBIENT_FREQUENCY = 400; // How often it does ambient sound loop
 
@@ -151,7 +151,7 @@ public class EntityBasalz extends EntityMob {
 	@Override
 	protected String getLivingSound() {
 
-		return SOUND_LIVING[this.rand.nextInt(3)];
+		return SOUND_LIVING[this.rand.nextInt(2)];
 	}
 
 	@Override

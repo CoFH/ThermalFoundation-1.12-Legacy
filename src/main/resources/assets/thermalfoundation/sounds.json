@@ -124,14 +124,5 @@
                 "stream": false
             }
         ]
-    },
-    "mobBasalzBreathe2": {
-        "category": "hostile",
-        "sounds": [
-            {
-                "name": "mob/basalz/breathe2",
-                "stream": false
-            }
-        ]
     }
 }

@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.item;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapelessRecipe;
+import static cofh.lib.util.helpers.ItemHelper.*;
 
 import cofh.core.item.ItemBase;
 import cofh.core.item.ItemBucket;
@@ -161,7 +161,8 @@ public class TFItems {
 
 	public static void postInit() {
 
-		ItemHelper.addRecipe(ShapelessRecipe(itemLexicon, new Object[] { Items.book, "ingotIron", "ingotGold" }));
+		ItemHelper.addRecipe(ShapedRecipe(itemLexicon, new Object[] { " D ", "GBI", " R ", 'D', Items.diamond, 'G', "ingotGold", 'B', Items.book, 'I',
+				"ingotIron", 'R', "dustRedstone" }));
 
 		// @formatter: off
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustPyrotheum, 2), new Object[] { "dustCoal", "dustSulfur", "dustRedstone",
