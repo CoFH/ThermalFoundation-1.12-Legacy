@@ -28,8 +28,8 @@ public class TFItems {
 		bucketEnder = itemBucket.addOreDictItem(2, "bucketEnder", 1);
 		bucketPyrotheum = itemBucket.addOreDictItem(3, "bucketPyrotheum", 2);
 		bucketCryotheum = itemBucket.addOreDictItem(4, "bucketCryotheum", 2);
-		// bucketAerotheum = itemBucket.addOreDictItem(7, "bucketAerotheum", 2);
-		// bucketPetrotheum = itemBucket.addOreDictItem(8, "bucketPetrotheum", 2);
+		bucketAerotheum = itemBucket.addOreDictItem(7, "bucketAerotheum", 2);
+		bucketPetrotheum = itemBucket.addOreDictItem(8, "bucketPetrotheum", 2);
 		bucketMana = itemBucket.addItem(5, "bucketMana", 3);
 		bucketCoal = itemBucket.addOreDictItem(6, "bucketCoal");
 
@@ -114,17 +114,17 @@ public class TFItems {
 		/* Additional Items */
 		dustPyrotheum = itemMaterial.addOreDictItem(512, "dustPyrotheum", 2);
 		dustCryotheum = itemMaterial.addOreDictItem(513, "dustCryotheum", 2);
-		// dustAerotheum = itemMaterial.addOreDictItem(514, "dustAerotheum", 2);
-		// dustPetrotheum = itemMaterial.addOreDictItem(515, "dustPetrotheum", 2);
+		dustAerotheum = itemMaterial.addOreDictItem(514, "dustAerotheum", 2);
+		dustPetrotheum = itemMaterial.addOreDictItem(515, "dustPetrotheum", 2);
 		dustMana = itemMaterial.addItem(516, "dustMana", 3);
 
 		/* Mob Drops */
 		rodBlizz = itemMaterial.addOreDictItem(1024, "rodBlizz");
 		dustBlizz = itemMaterial.addOreDictItem(1025, "dustBlizz");
-		// rodBlitz = itemMaterial.addOreDictItem(1026, "rodBlitz");
-		// dustBlitz = itemMaterial.addOreDictItem(1027, "dustBlitz");
-		// rodBasalz = itemMaterial.addOreDictItem(1028, "rodBasalz");
-		// dustBasalz = itemMaterial.addOreDictItem(1029, "dustBasalz");
+		rodBlitz = itemMaterial.addOreDictItem(1026, "rodBlitz");
+		dustBlitz = itemMaterial.addOreDictItem(1027, "dustBlitz");
+		rodBasalz = itemMaterial.addOreDictItem(1028, "rodBasalz");
+		dustBasalz = itemMaterial.addOreDictItem(1029, "dustBasalz");
 
 		/* Equipment */
 		Equipment.preInit();
@@ -140,8 +140,8 @@ public class TFItems {
 		BucketHandler.registerBucket(TFBlocks.blockFluidEnder, 0, bucketEnder);
 		BucketHandler.registerBucket(TFBlocks.blockFluidPyrotheum, 0, bucketPyrotheum);
 		BucketHandler.registerBucket(TFBlocks.blockFluidCryotheum, 0, bucketCryotheum);
-		// BucketHandler.registerBucket(TFBlocks.blockFluidAerotheum, 0, bucketAerotheum);
-		// BucketHandler.registerBucket(TFBlocks.blockFluidPetrotheum, 0, bucketPetrotheum);
+		BucketHandler.registerBucket(TFBlocks.blockFluidAerotheum, 0, bucketAerotheum);
+		BucketHandler.registerBucket(TFBlocks.blockFluidPetrotheum, 0, bucketPetrotheum);
 		BucketHandler.registerBucket(TFBlocks.blockFluidMana, 0, bucketMana);
 		BucketHandler.registerBucket(TFBlocks.blockFluidCoal, 0, bucketCoal);
 
@@ -150,8 +150,8 @@ public class TFItems {
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidEnder, bucketEnder, FluidContainerRegistry.EMPTY_BUCKET);
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidPyrotheum, bucketPyrotheum, FluidContainerRegistry.EMPTY_BUCKET);
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidCryotheum, bucketCryotheum, FluidContainerRegistry.EMPTY_BUCKET);
-		// FluidContainerRegistry.registerFluidContainer(TFFluids.fluidAerotheum, bucketAerotheum, FluidContainerRegistry.EMPTY_BUCKET);
-		// FluidContainerRegistry.registerFluidContainer(TFFluids.fluidPetrotheum, bucketPetrotheum, FluidContainerRegistry.EMPTY_BUCKET);
+		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidAerotheum, bucketAerotheum, FluidContainerRegistry.EMPTY_BUCKET);
+		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidPetrotheum, bucketPetrotheum, FluidContainerRegistry.EMPTY_BUCKET);
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidMana, bucketMana, FluidContainerRegistry.EMPTY_BUCKET);
 		FluidContainerRegistry.registerFluidContainer(TFFluids.fluidCoal, bucketCoal, FluidContainerRegistry.EMPTY_BUCKET);
 
@@ -168,13 +168,12 @@ public class TFItems {
 				Items.blaze_powder }));
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustCryotheum, 2), new Object[] { Items.snowball, "dustSaltpeter", "dustRedstone",
 				"dustBlizz" }));
-		// ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustAerotheum, 2), new Object[] { "sand", "dustSaltpeter", "dustRedstone", "dustBlitz"
-		// }));
-		// ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustPetrotheum, 2), new Object[] { Items.clay_ball, "dustObsidian", "dustRedstone",
-		// "dustBasalz" }));
+		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustAerotheum, 2), new Object[] { "sand", "dustSaltpeter", "dustRedstone", "dustBlitz" }));
+		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustPetrotheum, 2), new Object[] { Items.clay_ball, "dustObsidian", "dustRedstone",
+				"dustBasalz" }));
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBlizz, 2), "rodBlizz"));
-		// ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBlitz, 2), "rodBlitz"));
-		// ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBasalz, 2), "rodBasalz"));
+		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBlitz, 2), "rodBlitz"));
+		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustBasalz, 2), "rodBasalz"));
 		// @formatter: on
 
 		/* Smelting */
@@ -267,8 +266,8 @@ public class TFItems {
 	public static ItemStack bucketEnder;
 	public static ItemStack bucketPyrotheum;
 	public static ItemStack bucketCryotheum;
-	// public static ItemStack bucketAerotheum;
-	// public static ItemStack bucketPetrotheum;
+	public static ItemStack bucketAerotheum;
+	public static ItemStack bucketPetrotheum;
 	public static ItemStack bucketMana;
 	public static ItemStack bucketCoal;
 

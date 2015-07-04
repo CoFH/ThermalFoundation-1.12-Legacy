@@ -7,7 +7,6 @@ import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.MathHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
-import cofh.thermalfoundation.entity.projectile.EntityBlizzBall;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
 import cofh.thermalfoundation.item.TFItems;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -23,7 +22,6 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -234,7 +232,7 @@ public class EntityBlizz extends EntityMob {
 
 		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(this.posX - dist, this.posY - dist, this.posZ - dist, this.posX + dist, this.posY + dist, this.posZ
 				+ dist);
-		EntitySelectorInRangeByType entsel = new EntitySelectorInRangeByType(this, dist, EntityBlaze.class, EntityAnimal.class);
+		EntitySelectorInRangeByType entsel = new EntitySelectorInRangeByType(this, dist, EntityBlaze.class);
 		List<Entity> entities = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, aabb, entsel);
 		if (entities.isEmpty()) {
 			return null;
@@ -275,41 +273,25 @@ public class EntityBlizz extends EntityMob {
 			double dZ = target.posZ - this.posZ;
 
 			if (this.attackTime == 0) {
-				// BLIZZBALL FIGHT!!!! (or an animal)
-				if (target instanceof EntityBlizz || target.isCreatureType(EnumCreatureType.creature, false)) {
-					EntityBlizzBall blizzBall = new EntityBlizzBall(this.worldObj, this);
-					double dSY = target.posY + target.getEyeHeight() - 1.100000023841858D - blizzBall.posY;
-					double f1 = Math.sqrt(dX * dX + dZ * dZ) * 0.2F;
-					blizzBall.setThrowableHeading(dX, dSY + f1, dZ, 1.6F, 12.0F);
-					this.playSound("random.bow", 1.0F, 1.0F / (this.rand.nextFloat() * 0.4F + 0.8F));
-					this.worldObj.spawnEntityInWorld(blizzBall);
+				++this.firingState;
 
-					// Negate target so it re-selects nearest mob
-					this.setTarget(null);
-
-					this.attackTime = 80;
-					this.firingState = 0;
-					this.setInAttackMode(false);
+				if (this.firingState == 1) {
+					this.attackTime = 60;
+					this.setInAttackMode(true); // Flary goodness :D
+				} else if (this.firingState <= 4) {
+					this.attackTime = 6;
 				} else {
-					++this.firingState;
-
-					if (this.firingState == 1) {
-						this.attackTime = 60;
-						this.setInAttackMode(true); // Flary goodness :D
-					} else if (this.firingState <= 5) {
-						this.attackTime = 6;
-					} else {
-						this.attackTime = 80; // 100
-						this.firingState = 0;
-						this.setInAttackMode(false); // Unflary sadness :(
-					}
-					if (this.firingState > 1) {
-						EntityBlizzBolt bolt = new EntityBlizzBolt(this.worldObj, this);
-						bolt.posY = this.posY + this.height / 2.0F + 0.5D;
-						this.playSound(SOUND_ATTACK, 2.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
-						this.worldObj.spawnEntityInWorld(bolt);
-					}
+					this.attackTime = 80; // 100
+					this.firingState = 0;
+					this.setInAttackMode(false); // Unflary sadness :(
 				}
+				if (this.firingState > 1) {
+					EntityBlizzBolt bolt = new EntityBlizzBolt(this.worldObj, this);
+					bolt.posY = this.posY + this.height / 2.0F + 0.5D;
+					this.playSound(SOUND_ATTACK, 2.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+					this.worldObj.spawnEntityInWorld(bolt);
+				}
+				// }
 			}
 			this.rotationYaw = (float) (Math.atan2(dZ, dX) * 180.0D / Math.PI) - 90.0F;
 			this.hasAttacked = true;

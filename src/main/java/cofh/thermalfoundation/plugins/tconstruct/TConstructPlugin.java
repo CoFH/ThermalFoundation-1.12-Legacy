@@ -2,6 +2,7 @@ package cofh.thermalfoundation.plugins.tconstruct;
 
 import static cofh.lib.util.helpers.ItemHelper.cloneStack;
 
+import cofh.asm.relauncher.Strippable;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.item.TFItems;
 import cpw.mods.fml.common.event.FMLInterModComms;
@@ -236,6 +237,7 @@ public class TConstructPlugin {
 
 	}
 
+	@Strippable("mod:TConstruct")
 	public static void loadComplete() {
 
 		ThermalFoundation.log.info("Thermal Foundation: Tinker's Construct Plugin Enabled.");

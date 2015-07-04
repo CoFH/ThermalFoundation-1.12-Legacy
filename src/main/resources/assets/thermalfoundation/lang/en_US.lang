@@ -9,6 +9,8 @@ death.attack.flux=%1$s had their reality torn apart by Flux!
 death.attack.flux.player=%1$s was Fluxed to death by %2$s!
 death.attack.mana=%1$s was torn apart by raw Mana!
 death.attack.mana.player=%1$s ran into another state of being attempting to escape %2$s!
+death.attack.petrotheum=%1$s got all shook up!
+death.attack.petrotheum.player=%1$s shattered while trying to escape %2$s!
 death.attack.pyrotheum=%1$s mistook Pyrotheum for Water!
 death.attack.pyrotheum.player=%1$s burned alive trying to escape %2$s!
 

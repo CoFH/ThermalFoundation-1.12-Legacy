@@ -175,10 +175,9 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 			return;
 		}
 		int bMeta = world.getBlockMetadata(x, y, z);
-		BlockWrapper result;
 
 		if (hasInteraction(block, bMeta)) {
-			result = getInteraction(block, bMeta);
+			BlockWrapper result = getInteraction(block, bMeta);
 			world.setBlock(x, y, z, result.block, result.metadata, 3);
 			// triggerInteractionEffects(world, x, y, z);
 		} else if (world.isSideSolid(x, y, z, ForgeDirection.UP) && world.isAirBlock(x, y + 1, z)) {

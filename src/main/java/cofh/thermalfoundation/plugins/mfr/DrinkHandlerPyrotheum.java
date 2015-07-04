@@ -16,7 +16,7 @@ public class DrinkHandlerPyrotheum implements ILiquidDrinkHandler {
 	public void onDrink(EntityLivingBase player) {
 
 		player.attackEntityFrom(new InternalPyrotheumDamage(), 15);
-		player.setFire(30);
+		player.setFire(60);
 		NBTTagCompound tag = player.getEntityData();
 		tag.setLong("drankLavaTime", player.worldObj.getTotalWorldTime());
 	}

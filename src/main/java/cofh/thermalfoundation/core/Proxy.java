@@ -1,7 +1,10 @@
 package cofh.thermalfoundation.core;
 
+import cofh.thermalfoundation.entity.monster.EntityBasalz;
+import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
-import cofh.thermalfoundation.entity.projectile.EntityBlizzBall;
+import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
+import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
 import cofh.thermalfoundation.item.TFItems;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -16,12 +19,11 @@ public class Proxy {
 	public void registerEntities() {
 
 		EntityBlizz.initialize();
-		// EntityBlitz.initialize();
-		// EntityBasalz.initialize();
-		EntityBlizzBall.initialize();
+		EntityBlitz.initialize();
+		EntityBasalz.initialize();
 		EntityBlizzBolt.initialize();
-		// EntityBlitzBolt.initialize();
-		// EntityBasalzBolt.initialize();
+		EntityBlitzBolt.initialize();
+		EntityBasalzBolt.initialize();
 	}
 
 	public void registerRenderInformation() {

@@ -122,7 +122,7 @@ public class EntityBasalz extends EntityMob {
 	protected int firingState;
 
 	public static final String SOUND_AMBIENT = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzAmbient");
-	public static final String SOUND_ATTACK = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzzAttack");
+	public static final String SOUND_ATTACK = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzAttack");
 	public static final String SOUND_LIVING[] = { CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzBreathe0"),
 			CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzBreathe1"), CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzBreathe2") };
 
@@ -263,7 +263,7 @@ public class EntityBasalz extends EntityMob {
 				if (this.firingState == 1) {
 					this.attackTime = 60;
 					this.setInAttackMode(true); // Flary goodness :D
-				} else if (this.firingState <= 5) {
+				} else if (this.firingState <= 4) {
 					this.attackTime = 6;
 				} else {
 					this.attackTime = 80; // 100

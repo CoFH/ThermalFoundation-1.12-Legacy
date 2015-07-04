@@ -85,6 +85,12 @@ public class EntityBlizzBolt extends EntityThrowable {
 	}
 
 	@Override
+	protected float getGravityVelocity() {
+
+		return 0.0F;
+	}
+
+	@Override
 	protected void onImpact(MovingObjectPosition pos) {
 
 		if (ServerHelper.isServerWorld(worldObj)) {

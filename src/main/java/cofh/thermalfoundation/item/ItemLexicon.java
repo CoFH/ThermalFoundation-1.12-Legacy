@@ -27,8 +27,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-import org.lwjgl.input.Keyboard;
-
 public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpowerableItem {
 
 	public String modName = "thermalfoundation";
@@ -65,12 +63,12 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 		if (isEmpowered(stack)) {
 			list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.4") + StringHelper.END);
 			list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
-					+ Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.5")
+					+ StringHelper.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.5")
 					+ StringHelper.END);
 		} else {
 			list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.2") + StringHelper.END);
 			list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
-					+ Keyboard.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.3")
+					+ StringHelper.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.3")
 					+ StringHelper.END);
 		}
 	}

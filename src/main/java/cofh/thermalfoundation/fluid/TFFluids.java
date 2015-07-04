@@ -32,8 +32,8 @@ public class TFFluids {
 		registerFluid(fluidEnder, "ender");
 		registerFluid(fluidPyrotheum, "pyrotheum");
 		registerFluid(fluidCryotheum, "cryotheum");
-		// registerFluid(fluidAerotheum, "aerotheum");
-		// registerFluid(fluidPetrotheum, "petrotheum");
+		registerFluid(fluidAerotheum, "aerotheum");
+		registerFluid(fluidPetrotheum, "petrotheum");
 		registerFluid(fluidMana, "mana");
 		registerFluid(fluidSteam, "steam");
 		registerFluid(fluidCoal, "coal");

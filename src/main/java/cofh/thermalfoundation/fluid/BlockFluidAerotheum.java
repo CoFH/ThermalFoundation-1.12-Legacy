@@ -40,7 +40,7 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
 
 		setHardness(1F);
 		setLightOpacity(0);
-		setParticleColor(0.9F, 0.9F, 0.9F);
+		setParticleColor(0.65F, 0.65F, 0.48F);
 	}
 
 	@Override

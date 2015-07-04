@@ -10,8 +10,11 @@ import cofh.thermalfoundation.item.TFItems;
 
 public class ThaumcraftPlugin {
 
+	static boolean modPresent = false;
+
 	public static void preInit() {
 
+		// modPresent = EE3Helper.EE3_PRESENT;
 	}
 
 	public static void initialize() {

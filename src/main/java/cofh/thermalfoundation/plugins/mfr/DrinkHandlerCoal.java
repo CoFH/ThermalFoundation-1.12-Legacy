@@ -14,6 +14,7 @@ public class DrinkHandlerCoal implements ILiquidDrinkHandler {
 	public void onDrink(EntityLivingBase player) {
 
 		player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 60 * 20, 0));
+		player.addPotionEffect(new PotionEffect(Potion.blindness.id, 10 * 20, 0));
 	}
 
 }

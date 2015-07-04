@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidInteractive;
+import cofh.lib.util.BlockWrapper;
 import cofh.lib.util.helpers.BlockHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
@@ -38,7 +39,7 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
 		setHardness(1000F);
 		setLightOpacity(1);
-		setParticleColor(0.15F, 0.7F, 0.0F);
+		setParticleColor(0.4F, 0.3F, 0.2F);
 	}
 
 	@Override
@@ -71,9 +72,9 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 			return;
 		}
 		if (world.getTotalWorldTime() % 8 == 0 && entity instanceof EntityLivingBase && !((EntityLivingBase) entity).isEntityUndead()) {
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.digSpeed.id, 30 * 20, 3));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.digSpeed.id, 30 * 20, 2));
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.nightVision.id, 30 * 20, 0));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 1));
 		}
 	}
 
@@ -131,6 +132,9 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 			block.dropBlockAsItem(world, x, y, z, bMeta, 0);
 			world.setBlockToAir(x, y, z);
 			triggerInteractionEffects(world, x, y, z);
+		} else if (hasInteraction(block, bMeta)) {
+			BlockWrapper result = getInteraction(block, bMeta);
+			world.setBlock(x, y, z, result.block, result.metadata, 3);
 		}
 	}
 

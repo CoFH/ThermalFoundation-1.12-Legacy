@@ -1,11 +1,13 @@
 package cofh.thermalfoundation.block;
 
 import cofh.core.fluid.BlockFluidCoFHBase;
+import cofh.thermalfoundation.fluid.BlockFluidAerotheum;
 import cofh.thermalfoundation.fluid.BlockFluidCoal;
 import cofh.thermalfoundation.fluid.BlockFluidCryotheum;
 import cofh.thermalfoundation.fluid.BlockFluidEnder;
 import cofh.thermalfoundation.fluid.BlockFluidGlowstone;
 import cofh.thermalfoundation.fluid.BlockFluidMana;
+import cofh.thermalfoundation.fluid.BlockFluidPetrotheum;
 import cofh.thermalfoundation.fluid.BlockFluidPyrotheum;
 import cofh.thermalfoundation.fluid.BlockFluidRedstone;
 import cofh.thermalfoundation.fluid.BlockFluidSteam;
@@ -22,8 +24,8 @@ public class TFBlocks {
 		blockFluidEnder = new BlockFluidEnder();
 		blockFluidPyrotheum = new BlockFluidPyrotheum();
 		blockFluidCryotheum = new BlockFluidCryotheum();
-		// blockFluidAerotheum = new BlockFluidAerotheum();
-		// blockFluidPetrotheum = new BlockFluidPetrotheum();
+		blockFluidAerotheum = new BlockFluidAerotheum();
+		blockFluidPetrotheum = new BlockFluidPetrotheum();
 		blockFluidMana = new BlockFluidMana();
 		blockFluidSteam = new BlockFluidSteam();
 		blockFluidCoal = new BlockFluidCoal();
@@ -36,8 +38,8 @@ public class TFBlocks {
 		blockFluidEnder.preInit();
 		blockFluidPyrotheum.preInit();
 		blockFluidCryotheum.preInit();
-		// blockFluidAerotheum.preInit();
-		// blockFluidPetrotheum.preInit();
+		blockFluidAerotheum.preInit();
+		blockFluidPetrotheum.preInit();
 		blockFluidMana.preInit();
 		blockFluidSteam.preInit();
 		blockFluidCoal.preInit();

@@ -7,6 +7,7 @@ import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.MathHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.item.TFItems;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -150,8 +151,7 @@ public class EntityBlitz extends EntityMob {
 	@Override
 	protected String getLivingSound() {
 
-		// return SOUND_LIVING[this.rand.nextInt(3)];
-		return "";
+		return SOUND_LIVING[this.rand.nextInt(3)];
 	}
 
 	@Override
@@ -248,6 +248,44 @@ public class EntityBlitz extends EntityMob {
 	}
 
 	@Override
+	protected void attackEntity(Entity target, float distance) {
+
+		// Melee distance
+		if (this.attackTime <= 0 && distance < 2.0F && target.boundingBox.maxY > this.boundingBox.minY && target.boundingBox.minY < this.boundingBox.maxY) {
+			this.attackTime = 20;
+			this.attackEntityAsMob(target);
+		}
+		// Within range (30)
+		else if (distance < 30.0F) {
+			double dX = target.posX - this.posX;
+			double dZ = target.posZ - this.posZ;
+
+			if (this.attackTime == 0) {
+				++this.firingState;
+
+				if (this.firingState == 1) {
+					this.attackTime = 60;
+					this.setInAttackMode(true); // Flary goodness :D
+				} else if (this.firingState <= 4) {
+					this.attackTime = 6;
+				} else {
+					this.attackTime = 80; // 100
+					this.firingState = 0;
+					this.setInAttackMode(false); // Unflary sadness :(
+				}
+				if (this.firingState > 1) {
+					EntityBlitzBolt bolt = new EntityBlitzBolt(this.worldObj, this);
+					bolt.posY = this.posY + this.height / 2.0F + 0.5D;
+					this.playSound(SOUND_ATTACK, 2.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+					this.worldObj.spawnEntityInWorld(bolt);
+				}
+			}
+			this.rotationYaw = (float) (Math.atan2(dZ, dX) * 180.0D / Math.PI) - 90.0F;
+			this.hasAttacked = true;
+		}
+	}
+
+	@Override
 	protected void fall(float distance) {
 
 	}
@@ -257,10 +295,10 @@ public class EntityBlitz extends EntityMob {
 
 		if (wasHitByPlayer) {
 			int items = this.rand.nextInt(2 + looting);
-			// for (int i = 0; i < items; i++) {
-			// this.entityDropItem(ItemHelper.cloneStack(TFItems.dustObsidian, 1), 0);
-			// }
-			// items = this.rand.nextInt(2 + looting);
+			for (int i = 0; i < items; i++) {
+				this.entityDropItem(ItemHelper.cloneStack(TFItems.dustNiter, 1), 0);
+			}
+			items = this.rand.nextInt(2 + looting);
 			for (int i = 0; i < items; i++) {
 				this.entityDropItem(ItemHelper.cloneStack(TFItems.rodBlitz, 1), 0);
 			}
