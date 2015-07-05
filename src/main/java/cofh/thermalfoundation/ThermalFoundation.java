@@ -84,9 +84,11 @@ public class ThermalFoundation extends BaseMod {
 		UpdateManager.registerUpdater(new UpdateManager(this, releaseURL, CoFHProps.DOWNLOAD_URL));
 
 		config.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/thermalfoundation/common.cfg"), true));
-		configClient.setConfiguration(new Configuration(new File(event.getModConfigurationDirectory(), "cofh/thermalfoundation/client.cfg"), true));
+		configClient.setConfiguration(new Configuration(new File(CoFHProps.configDir, "cofh/thermalfoundation/client.cfg"), true));
 
 		tabCommon = new TFCreativeTab();
+
+		cleanConfig(true);
 		configOptions();
 
 		TFFluids.preInit();
@@ -95,8 +97,6 @@ public class ThermalFoundation extends BaseMod {
 		TFPlugins.preInit();
 
 		LexiconManager.preInit();
-
-		config.save();
 	}
 
 	@EventHandler
@@ -127,9 +127,6 @@ public class ThermalFoundation extends BaseMod {
 
 		proxy.registerEntities();
 		proxy.registerRenderInformation();
-
-		config.cleanUp(false, true);
-		configClient.cleanUp(false, true);
 	}
 
 	@EventHandler
@@ -137,7 +134,13 @@ public class ThermalFoundation extends BaseMod {
 
 		LexiconManager.loadComplete();
 
+		TFPlugins.loadComplete();
+
 		cleanConfig(false);
+		config.cleanUp(false, true);
+		configClient.cleanUp(false, true);
+
+		log.info("Load Complete.");
 	}
 
 	@EventHandler
