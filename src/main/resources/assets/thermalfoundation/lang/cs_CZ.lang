@@ -1,0 +1,330 @@
+#cs_CZ
+
+death.attack.basalz=%1$s ův svět se houpal!
+death.attack.blitz=%1$s byl tragicky ozářený!
+death.attack.blizz=%1$s potkal tragický osud!
+death.attack.cryotheum=%1$s umrzl k smrti!
+death.attack.cryotheum.player=%1$s umrzl k smrti při pokusu o únuk před %2$s!
+death.attack.flux=%1$s realitu roztrhal na kousky Flux!
+death.attack.flux.player=%2$s ufluxoval %1$s k smrti!
+death.attack.mana=%1$s byl roztrhaný na kousky surovou manou!
+death.attack.mana.player=%1$s se změnil v jiné skupenství bytí při pokusu o únik před %2$s!
+death.attack.petrotheum=%1$s vyletěl z kůže!
+death.attack.petrotheum.player=%1$s byl roztříštěn při pokusu o útěk před %2$s!
+death.attack.pyrotheum=%1$s si spletl pyrotheum s vodou!
+death.attack.pyrotheum.player=%1$s uhořel zaživa při pokusu o útěk před %2$s!
+
+entity.Basalz.name=Čedič
+entity.Blitz.name=Blesk
+entity.Blizz.name=Ledovák
+
+fluid.redstone=Destabilizovaný rudit
+fluid.glowstone=Nabitý světlit
+fluid.ender=Rezonující ender
+fluid.pyrotheum=Sálající pyrotheum
+fluid.cryotheum=Ledové cryotheum
+fluid.aerotheum=Vanoucí aerotheum
+fluid.petrotheum=Tektonické petrotheum
+fluid.mana=Pravá mana
+fluid.steam=Pára
+fluid.coal=Zkapalněné uhlí
+
+gui.thermalfoundation.lexicon.study=Lexikon - Znalosti
+gui.thermalfoundation.lexicon.transmute=Lexikon - Transmutace
+
+item.thermalfoundation.bucket.bucketRedstone.name=Kbelík destabilizovaného ruditu
+item.thermalfoundation.bucket.bucketGlowstone.name=Kbelík nabitého světlitu
+item.thermalfoundation.bucket.bucketEnder.name=Kbelík rezonujícího enderu
+item.thermalfoundation.bucket.bucketPyrotheum.name=Kbelík sálajícího pyrothea
+item.thermalfoundation.bucket.bucketCryotheum.name=Kbelík ledového cryothea
+item.thermalfoundation.bucket.bucketAerotheum.name=Kbelík vanoucího aerothea
+item.thermalfoundation.bucket.bucketPetrotheum.name=Kbelík tektonického petrothea
+item.thermalfoundation.bucket.bucketMana.name=Kbelík pravé many
+item.thermalfoundation.bucket.bucketCoal.name=Kbelík zkapalněného uhlí
+
+info.thermalfoundation.tome.lexicon.1=Přemění předměty do ekvivalentní formy.
+info.thermalfoundation.tome.lexicon.2=Klikni pravým tlačítkem myši pro studium.
+info.thermalfoundation.tome.lexicon.3=pro získání moudrosti!
+info.thermalfoundation.tome.lexicon.4=Klikni pravým tlačítkem myši pro transmutaci předmětů.
+info.thermalfoundation.tome.lexicon.5=pro opuštění znalostí.
+item.thermalfoundation.tome.lexicon.name=Kovářský lexikon
+item.thermalfoundation.tome.lexicon.empowered.name=Kovářský lexikon (Vylepšený)
+
+info.thermalfoundation.lexicon.clearPreference=Promazat nastavení
+info.thermalfoundation.lexicon.setPreference=Nastavit nastavení
+info.thermalfoundation.lexicon.nextEntry=Další položka
+info.thermalfoundation.lexicon.prevEntry=Předchozí položka
+info.thermalfoundation.lexicon.singleEntry=Pouze jedna položka
+
+item.thermalfoundation.material.dustIron.name=Rozemleté železo
+item.thermalfoundation.material.dustGold.name=Rozemleté zlato
+item.thermalfoundation.material.dustCoal.name=Rozemleté uhlí
+item.thermalfoundation.material.dustCharcoal.name=Rozemleté dřevěné uhlí
+item.thermalfoundation.material.dustObsidian.name=Rozemletý obsidian
+
+item.thermalfoundation.material.nuggetIron.name=Hrudka železa
+item.thermalfoundation.material.gearIron.name=Železné ozubené kolo
+item.thermalfoundation.material.gearGold.name=Zlaté ozubené kolo
+
+item.thermalfoundation.material.dustSulfur.name=Síra
+item.thermalfoundation.material.dustNiter.name=Ledek
+
+item.thermalfoundation.material.crystalCinnabar.name=Cinabarit
+
+item.thermalfoundation.material.dustCopper.name=Rozemletá měď
+item.thermalfoundation.material.dustTin.name=Rozemletý cín
+item.thermalfoundation.material.dustSilver.name=Rozemleté stříbro
+item.thermalfoundation.material.dustLead.name=Rozemleté olovo
+item.thermalfoundation.material.dustNickel.name=Rozemletý nikl
+item.thermalfoundation.material.dustPlatinum.name=Rozemletá platina
+item.thermalfoundation.material.dustMithril.name=Rozemletý mithril
+item.thermalfoundation.material.dustElectrum.name=Směs elektra
+item.thermalfoundation.material.dustInvar.name=Směs invaru
+item.thermalfoundation.material.dustBronze.name=Směs bronzu
+item.thermalfoundation.material.dustSignalum.name=Směs signálu
+item.thermalfoundation.material.dustLumium.name=Směs lumia
+item.thermalfoundation.material.dustEnderium.name=Směs enderia
+
+item.thermalfoundation.material.ingotCopper.name=Měděná cihlička
+item.thermalfoundation.material.ingotTin.name=Cínová cihlička
+item.thermalfoundation.material.ingotSilver.name=Stříbrná cihlička
+item.thermalfoundation.material.ingotLead.name=Olověná cihlička
+item.thermalfoundation.material.ingotNickel.name=Niklová cihlička
+item.thermalfoundation.material.ingotPlatinum.name=Platinová cihlička
+item.thermalfoundation.material.ingotMithril.name=Mithrilová cihlička
+item.thermalfoundation.material.ingotElectrum.name=Elektrová cihlička
+item.thermalfoundation.material.ingotInvar.name=Invarová cihlička
+item.thermalfoundation.material.ingotBronze.name=Bronzová cihlička
+item.thermalfoundation.material.ingotSignalum.name=Signálová cihlička
+item.thermalfoundation.material.ingotLumium.name=Lumiová cihlička
+item.thermalfoundation.material.ingotEnderium.name=Enderiová cihlička
+
+item.thermalfoundation.material.nuggetCopper.name=Měděná hrudka
+item.thermalfoundation.material.nuggetTin.name=Cínová hrudka
+item.thermalfoundation.material.nuggetSilver.name=Stříbrná hrudka
+item.thermalfoundation.material.nuggetLead.name=Olovová hrudka
+item.thermalfoundation.material.nuggetNickel.name=Niklová hrudka
+item.thermalfoundation.material.nuggetPlatinum.name=Platinová hrudka
+item.thermalfoundation.material.nuggetMithril.name=Mithrilová hrudka
+item.thermalfoundation.material.nuggetElectrum.name=Elektrová hrudka
+item.thermalfoundation.material.nuggetInvar.name=Invarová hrudka
+item.thermalfoundation.material.nuggetBronze.name=Bronzová hrudka
+item.thermalfoundation.material.nuggetSignalum.name=Signálová hrudka
+item.thermalfoundation.material.nuggetLumium.name=Lumiová hrudka
+item.thermalfoundation.material.nuggetEnderium.name=Enderiová hrudka
+
+item.thermalfoundation.material.dustPyrotheum.name=Pyrotheový prach
+item.thermalfoundation.material.dustCryotheum.name=Cryotheový prach
+item.thermalfoundation.material.dustAerotheum.name=Aerotheový prach
+item.thermalfoundation.material.dustPetrotheum.name=Perotheový prach
+item.thermalfoundation.material.dustMana.name=Manový prášek
+
+item.thermalfoundation.material.gearCopper.name=Měděné ozubené kolo
+item.thermalfoundation.material.gearTin.name=Cínové ozubené kolo
+item.thermalfoundation.material.gearSilver.name=Stříbrné ozubené kolo
+item.thermalfoundation.material.gearLead.name=Olovové ozubené kolo
+item.thermalfoundation.material.gearNickel.name=Niklové ozubené kolo
+item.thermalfoundation.material.gearPlatinum.name=Platinové ozubené kolo
+item.thermalfoundation.material.gearMithril.name=Mithrilové ozubené kolo
+item.thermalfoundation.material.gearElectrum.name=Elektrové ozubené kolo
+item.thermalfoundation.material.gearInvar.name=Invarové ozubené kolo
+item.thermalfoundation.material.gearBronze.name=Bronzové ozubené kolo
+item.thermalfoundation.material.gearSignalum.name=Signálové ozubené kolo
+item.thermalfoundation.material.gearLumium.name=Lumiové ozubené kolo
+item.thermalfoundation.material.gearEnderium.name=Enderiové ozubené kolo
+
+item.thermalfoundation.material.rodBlizz.name=Ledováková tyč
+item.thermalfoundation.material.dustBlizz.name=Ledovýkový prach
+item.thermalfoundation.material.rodBlitz.name=Blesková tyč
+item.thermalfoundation.material.dustBlitz.name=Bleskový prach
+item.thermalfoundation.material.rodBasalz.name=Čedičová tyč
+item.thermalfoundation.material.dustBasalz.name=Čedičový prach
+
+item.thermalfoundation.armor.copperHelmet.name=Měděná helma
+item.thermalfoundation.armor.copperPlate.name=Měděná vesta
+item.thermalfoundation.armor.copperLegs.name=Měděné kalhoty
+item.thermalfoundation.armor.copperBoots.name=Měděné boty
+
+item.thermalfoundation.armor.tinHelmet.name=Cínová helma
+item.thermalfoundation.armor.tinPlate.name=Cínová vesta
+item.thermalfoundation.armor.tinLegs.name=Cínové kalhoty
+item.thermalfoundation.armor.tinBoots.name=Cínové boty
+
+item.thermalfoundation.armor.electrumHelmet.name=Elektrová helma
+item.thermalfoundation.armor.electrumPlate.name=Elektrová vesta
+item.thermalfoundation.armor.electrumLegs.name=Elektrové kalhoty
+item.thermalfoundation.armor.electrumBoots.name=Elektrové boty
+
+item.thermalfoundation.armor.leadHelmet.name=Olověná helma
+item.thermalfoundation.armor.leadPlate.name=Olověná vesta
+item.thermalfoundation.armor.leadLegs.name=Olověné kalhoty
+item.thermalfoundation.armor.leadBoots.name=Olověné boty
+
+item.thermalfoundation.armor.silverHelmet.name=Stříbrná helma
+item.thermalfoundation.armor.silverPlate.name=Stříbrná vesta
+item.thermalfoundation.armor.silverLegs.name=Stříbrné kalhoty
+item.thermalfoundation.armor.silverBoots.name=Stříbrné boty
+
+item.thermalfoundation.armor.nickelHelmet.name=Niklová helma
+item.thermalfoundation.armor.nickelPlate.name=Niklová vesta
+item.thermalfoundation.armor.nickelLegs.name=Niklové kalhoty
+item.thermalfoundation.armor.nickelBoots.name=Niklové boty
+
+item.thermalfoundation.armor.bronzeHelmet.name=Bronzová helma
+item.thermalfoundation.armor.bronzePlate.name=Bronzová vesta
+item.thermalfoundation.armor.bronzeLegs.name=Bronzové kalhoty
+item.thermalfoundation.armor.bronzeBoots.name=Bronzové boty
+
+item.thermalfoundation.armor.invarHelmet.name=Invarová helma
+item.thermalfoundation.armor.invarPlate.name=Invarová vesta
+item.thermalfoundation.armor.invarLegs.name=Invarové kalhoty
+item.thermalfoundation.armor.invarBoots.name=Invarové boty
+
+item.thermalfoundation.armor.platinumHelmet.name=Platinová helma
+item.thermalfoundation.armor.platinumPlate.name=Platinová vesta
+item.thermalfoundation.armor.platinumLegs.name=Platinové kalhoty
+item.thermalfoundation.armor.platinumBoots.name=Platinové boty
+
+item.thermalfoundation.tool.copperSword.name=Měděný meč
+item.thermalfoundation.tool.copperShovel.name=Měděná lopata
+item.thermalfoundation.tool.copperPickaxe.name=Měděný krumpáč
+item.thermalfoundation.tool.copperAxe.name=Měděná sekera
+item.thermalfoundation.tool.copperHoe.name=Měděná motyka
+item.thermalfoundation.tool.copperShears.name=Měděné nůžky
+item.thermalfoundation.tool.copperFishingRod.name=Měděný rybářský prut
+item.thermalfoundation.tool.copperSickle.name=Měděný srp
+item.thermalfoundation.tool.copperBow.name=Měděný zesílený luk
+
+item.thermalfoundation.tool.tinSword.name=Cínový meč
+item.thermalfoundation.tool.tinShovel.name=Cínová lopata
+item.thermalfoundation.tool.tinPickaxe.name=Cínový krumpáč
+item.thermalfoundation.tool.tinAxe.name=Cínová sekera
+item.thermalfoundation.tool.tinHoe.name=Cínová motyka
+item.thermalfoundation.tool.tinShears.name=Cínové nůžky
+item.thermalfoundation.tool.tinFishingRod.name=Cínový rybářský prut
+item.thermalfoundation.tool.tinSickle.name=Cínový srp
+item.thermalfoundation.tool.tinBow.name=Cínový zesílený luk
+
+item.thermalfoundation.tool.electrumSword.name=Elektrový meč
+item.thermalfoundation.tool.electrumShovel.name=Elektrová lopata
+item.thermalfoundation.tool.electrumPickaxe.name=Elektrový krumpáč
+item.thermalfoundation.tool.electrumAxe.name=Elektrová sekera
+item.thermalfoundation.tool.electrumHoe.name=Elektrová motyka
+item.thermalfoundation.tool.electrumShears.name=Elektrové nůžky
+item.thermalfoundation.tool.electrumFishingRod.name=Elektrový rybářský prut
+item.thermalfoundation.tool.electrumSickle.name=Elektrový srp
+item.thermalfoundation.tool.electrumBow.name=Elektrový zesílený luk
+
+item.thermalfoundation.tool.leadSword.name=Olověný meč
+item.thermalfoundation.tool.leadShovel.name=Olověná lopata
+item.thermalfoundation.tool.leadPickaxe.name=Olověný krumpáč
+item.thermalfoundation.tool.leadAxe.name=Olověná sekera
+item.thermalfoundation.tool.leadHoe.name=Olověná motyka
+item.thermalfoundation.tool.leadShears.name=Olověné nůžky
+item.thermalfoundation.tool.leadFishingRod.name=Olověný rybářský prut
+item.thermalfoundation.tool.leadSickle.name=Olověný srp
+item.thermalfoundation.tool.leadBow.name=Olověný zesílený luk
+
+item.thermalfoundation.tool.silverSword.name=Stříbrný meč
+item.thermalfoundation.tool.silverShovel.name=Stříbrná lopata
+item.thermalfoundation.tool.silverPickaxe.name=Stříbrný krumpáč
+item.thermalfoundation.tool.silverAxe.name=Stříbrná sekera
+item.thermalfoundation.tool.silverHoe.name=Stříbrná motyka
+item.thermalfoundation.tool.silverShears.name=Stříbrné nůžky
+item.thermalfoundation.tool.silverFishingRod.name=Stříbrný rybářský prut
+item.thermalfoundation.tool.silverSickle.name=Stříbrný srp
+item.thermalfoundation.tool.silverBow.name=Stříbrný zesílený luk
+
+item.thermalfoundation.tool.nickelSword.name=Niklový meč
+item.thermalfoundation.tool.nickelShovel.name=Niklová lopata
+item.thermalfoundation.tool.nickelPickaxe.name=Niklový krumpáč
+item.thermalfoundation.tool.nickelAxe.name=Niklová sekera
+item.thermalfoundation.tool.nickelHoe.name=Niklová motyka
+item.thermalfoundation.tool.nickelShears.name=Niklové nůžky
+item.thermalfoundation.tool.nickelFishingRod.name=Niklový rybářský prut
+item.thermalfoundation.tool.nickelSickle.name=Niklový srp
+item.thermalfoundation.tool.nickelBow.name=Niklový zesílený luk
+
+item.thermalfoundation.tool.bronzeSword.name=Bronzový meč
+item.thermalfoundation.tool.bronzeShovel.name=Bronzová lopata
+item.thermalfoundation.tool.bronzePickaxe.name=Bronzový krumpáč
+item.thermalfoundation.tool.bronzeAxe.name=Bronzová sekera
+item.thermalfoundation.tool.bronzeHoe.name=Bronzová motyka
+item.thermalfoundation.tool.bronzeShears.name=Bronzové nůžky
+item.thermalfoundation.tool.bronzeFishingRod.name=Bronzový rybářský prut
+item.thermalfoundation.tool.bronzeSickle.name=Bronzový srp
+item.thermalfoundation.tool.bronzeBow.name=Bronzový zesílený luk
+
+item.thermalfoundation.tool.invarSword.name=Invarový meč
+item.thermalfoundation.tool.invarShovel.name=Invarová lopata
+item.thermalfoundation.tool.invarPickaxe.name=Invarový krumpáč
+item.thermalfoundation.tool.invarAxe.name=Invarová sekera
+item.thermalfoundation.tool.invarHoe.name=Invarová motyka
+item.thermalfoundation.tool.invarShears.name=Invarové nůžky
+item.thermalfoundation.tool.invarFishingRod.name=Invarový rybářský prut
+item.thermalfoundation.tool.invarSickle.name=Invarový srp
+item.thermalfoundation.tool.invarBow.name=Invarový zesílený luk
+
+item.thermalfoundation.tool.platinumSword.name=Platinový meč
+item.thermalfoundation.tool.platinumShovel.name=Platinová lopata
+item.thermalfoundation.tool.platinumPickaxe.name=Platinový krumpáč
+item.thermalfoundation.tool.platinumAxe.name=Platinová sekera
+item.thermalfoundation.tool.platinumHoe.name=Platinová motyka
+item.thermalfoundation.tool.platinumShears.name=Platinové nůžky
+item.thermalfoundation.tool.platinumFishingRod.name=Platinový rybářský prut
+item.thermalfoundation.tool.platinumSickle.name=Platinový srp
+item.thermalfoundation.tool.platinumBow.name=Platinový zesílený luk
+
+itemGroup.thermalfoundation.creativeTab=Thermal Foundation
+itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Nástroje
+itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Brnění
+
+tab.thermalfoundation.lexicon.study.0=Zkonzultuj světové znalosti a změn svůj vlastní osud.
+tab.thermalfoundation.lexicon.study.1=Vylepši lexikon pro donucení světa naslouchat svým přáním.
+tab.thermalfoundation.lexicon.transmute.0=Přeměň ekvivalentní předměty dle arkánového setu pravidel zanechaného vyššími silami.
+tab.thermalfoundation.lexicon.transmute.1=Použij lexikon pro získání moci nad celým světem.
+
+tile.thermalfoundation.fluid.redstone.name=Destabilizovaný rudit
+tile.thermalfoundation.fluid.glowstone.name=Nabitý světlit
+tile.thermalfoundation.fluid.ender.name=Rezonující ender
+tile.thermalfoundation.fluid.pyrotheum.name=Sálající pyrotheum
+tile.thermalfoundation.fluid.cryotheum.name=Ledové cryotheum
+tile.thermalfoundation.fluid.aerotheum.name=Vanoucí aerotheum
+tile.thermalfoundation.fluid.petrootheum.name=Tektonické petrotheum
+tile.thermalfoundation.fluid.mana.name=Pravá mana
+tile.thermalfoundation.fluid.steam.name=Pára
+tile.thermalfoundation.fluid.coal.name=Zkapalněné uhlí
+
+tile.thermalfoundation.ore.copper.name=Měděná ruda
+tile.thermalfoundation.ore.tin.name=Cínová ruda
+tile.thermalfoundation.ore.silver.name=Stříbrná ruda
+tile.thermalfoundation.ore.lead.name=Olovová ruda
+tile.thermalfoundation.ore.nickel.name=Niklová ruda
+tile.thermalfoundation.ore.platinum.name=Platinová ruda
+tile.thermalfoundation.ore.mithril.name=Mithrilová ruda
+
+tile.thermalfoundation.storage.copper.name=Měděný blok
+tile.thermalfoundation.storage.tin.name=Cínový blok
+tile.thermalfoundation.storage.silver.name=Stříbrný blok
+tile.thermalfoundation.storage.lead.name=Olověný blok
+tile.thermalfoundation.storage.nickel.name=Niklový blok
+tile.thermalfoundation.storage.platinum.name=Platinový blok
+tile.thermalfoundation.storage.mithril.name=Mithrilový blok
+tile.thermalfoundation.storage.electrum.name=Elektrový blok
+tile.thermalfoundation.storage.invar.name=Invarový blok
+tile.thermalfoundation.storage.bronze.name=Bronzový blok
+tile.thermalfoundation.storage.signalum.name=Signálový blok
+tile.thermalfoundation.storage.lumium.name=Lumiový blok
+tile.thermalfoundation.storage.enderium.name=Enderiový blok
+
+#Tinker's Construct Compatibility
+material.thermalfoundation.invar=Invar
+material.thermalfoundation.nickel=Nikl
+material.thermalfoundation.lead=Olovo
+material.thermalfoundation.lead.ability=Tíha
+material.thermalfoundation.silver=Stříbro
+material.thermalfoundation.silver.ability=Blištivost
+material.thermalfoundation.platinum=Platina
+material.thermalfoundation.platinum.ability=Hustota
+material.thermalfoundation.electrum=Elektrum
+material.thermalfoundation.electrum.ability=Krása
