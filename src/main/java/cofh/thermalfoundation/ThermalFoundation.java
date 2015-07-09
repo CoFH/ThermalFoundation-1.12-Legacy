@@ -8,6 +8,7 @@ import cofh.mod.BaseMod;
 import cofh.mod.updater.UpdateManager;
 import cofh.thermalfoundation.block.TFBlocks;
 import cofh.thermalfoundation.core.Proxy;
+import cofh.thermalfoundation.core.TFProps;
 import cofh.thermalfoundation.fluid.TFFluids;
 import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.gui.TFCreativeTab;
@@ -64,10 +65,6 @@ public class ThermalFoundation extends BaseMod {
 	public static CreativeTabs tabCommon;
 	public static CreativeTabs tabTools = CreativeTabs.tabTools;
 	public static CreativeTabs tabArmor = CreativeTabs.tabCombat;
-
-	public static boolean disableAllTools = false;
-	public static boolean disableAllArmor = false;
-	public static boolean showDisabledEquipment = true;
 
 	public static File worldGenOres;
 	public static final String worldGenInternalOres = "assets/thermalfoundation/world/ThermalFoundation-Ores.json";
@@ -155,6 +152,19 @@ public class ThermalFoundation extends BaseMod {
 		String category;
 		String comment;
 
+		/* Graphics */
+		TFProps.iconBlazePowder = ThermalFoundation.configClient.get("Icons", "BlazePowder", TFProps.iconBlazePowder,
+				"Set to FALSE to revert Blaze Powder to the default Minecraft icon.");
+
+		TFProps.renderStarfieldCage = ThermalFoundation.configClient.get("Render", "CageyEnder", TFProps.renderStarfieldCage,
+				"Set to TRUE for Ender devices to be a bit more Cagey year-round.");
+
+		/* Holidays */
+		category = "Holiday";
+		comment = "Set this to TRUE to disable April Foolishness.";
+		TFProps.holidayAprilFools = !config.get(category, "IHateApril", false, comment);
+
+		/* Interface */
 		category = "Interface.CreativeTab";
 		boolean armorTab = false;
 		boolean toolTab = false;
@@ -165,20 +175,21 @@ public class ThermalFoundation extends BaseMod {
 		comment = "Set to TRUE to put Thermal Foundation Tools under the general \"Thermal Foundation\" Creative Tab.";
 		toolTab = configClient.get(category, "ToolsInCommonTab", toolTab);
 
+		/* Equipment */
 		category = "Equipment";
 		comment = "Set to TRUE to disable ALL armor sets.";
-		disableAllArmor = config.get(category, "DisableAllArmor", disableAllArmor, comment);
+		TFProps.disableAllArmor = config.get(category, "DisableAllArmor", TFProps.disableAllArmor, comment);
 
 		comment = "Set to TRUE to disable ALL tool sets.";
-		disableAllTools = config.get(category, "DisableAllTools", disableAllTools, comment);
+		TFProps.disableAllTools = config.get(category, "DisableAllTools", TFProps.disableAllTools, comment);
 
 		comment = "Set to FALSE to hide all disabled equipment from the Creative Tabs and NEI.";
-		showDisabledEquipment = config.get(category, "ShowDisabledEquipment", showDisabledEquipment, comment);
+		TFProps.showDisabledEquipment = config.get(category, "ShowDisabledEquipment", TFProps.showDisabledEquipment, comment);
 
 		if (armorTab) {
 			tabArmor = tabCommon;
 		} else {
-			if (!disableAllArmor || (disableAllArmor && showDisabledEquipment)) {
+			if (!TFProps.disableAllArmor || (TFProps.disableAllArmor && TFProps.showDisabledEquipment)) {
 				tabArmor = new TFCreativeTab("Armor") {
 
 					@Override
@@ -192,7 +203,7 @@ public class ThermalFoundation extends BaseMod {
 		if (toolTab) {
 			tabTools = tabCommon;
 		} else {
-			if (!disableAllTools || (disableAllTools && showDisabledEquipment)) {
+			if (!TFProps.disableAllTools || (TFProps.disableAllTools && TFProps.showDisabledEquipment)) {
 				tabTools = new TFCreativeTab("Tools") {
 
 					@Override
@@ -222,7 +233,6 @@ public class ThermalFoundation extends BaseMod {
 		}
 	}
 
-	/* LOADING FUNCTIONS */
 	void loadWorldGeneration() {
 
 		if (!config

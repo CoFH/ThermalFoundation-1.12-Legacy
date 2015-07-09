@@ -87,7 +87,7 @@ public class EntityBlizzBolt extends EntityThrowable {
 	@Override
 	protected float getGravityVelocity() {
 
-		return 0.0F;
+		return 0.005F;
 	}
 
 	@Override

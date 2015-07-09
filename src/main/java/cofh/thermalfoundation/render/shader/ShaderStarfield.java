@@ -2,6 +2,7 @@ package cofh.thermalfoundation.render.shader;
 
 import cofh.core.render.ShaderHelper;
 import cofh.lib.util.helpers.HolidayHelper;
+import cofh.thermalfoundation.core.TFProps;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
@@ -10,8 +11,9 @@ import org.lwjgl.opengl.ARBShaderObjects;
 
 public class ShaderStarfield {
 
-	public static final ResourceLocation starsTexture = new ResourceLocation(HolidayHelper.isAprilFools() ? "thermalfoundation:textures/cageStarfield.png"
-			: "textures/entity/end_portal.png");
+	public static final ResourceLocation starsTexture = new ResourceLocation(
+			(TFProps.holidayAprilFools && HolidayHelper.isAprilFools()) || TFProps.renderStarfieldCage ? "thermalfoundation:textures/cageStarfield.png"
+					: "textures/entity/end_portal.png");
 
 	static {
 		if (ShaderHelper.useShaders()) {
@@ -22,6 +24,9 @@ public class ShaderStarfield {
 
 	public static EnderCallBack callback = new EnderCallBack();
 	public static int starfieldShader;
+
+	public static float prevAlpha = -1;
+	public static float alpha = 0;
 
 	public static class EnderCallBack extends ShaderHelper.ShaderCallback {
 
@@ -44,6 +49,4 @@ public class ShaderStarfield {
 		}
 	}
 
-	public static float prevAlpha = -1;
-	public static float alpha = 0;
 }

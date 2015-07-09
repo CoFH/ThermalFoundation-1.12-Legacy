@@ -2,7 +2,6 @@ package cofh.thermalfoundation.core;
 
 import cofh.core.render.IconRegistry;
 import cofh.lib.util.helpers.StringHelper;
-import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
@@ -28,8 +27,6 @@ public class ProxyClient extends Proxy {
 	static RenderEntityAsIcon renderBlitzBolt = new RenderEntityAsIcon();
 	static RenderEntityAsIcon renderBasalzBolt = new RenderEntityAsIcon();
 
-	static boolean iconBlazePowder = true;
-
 	@Override
 	public void registerRenderInformation() {
 
@@ -37,8 +34,6 @@ public class ProxyClient extends Proxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBlitzBolt.class, renderBlitzBolt);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBasalzBolt.class, renderBasalzBolt);
 
-		iconBlazePowder = ThermalFoundation.configClient.get("Icons", "BlazePowder", iconBlazePowder,
-				"Set to FALSE to revert Blaze Powder to the default Minecraft icon.");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -60,9 +55,8 @@ public class ProxyClient extends Proxy {
 			// projectile icons go here
 		}
 
-		if (iconBlazePowder) {
+		if (TFProps.iconBlazePowder) {
 			Items.blaze_powder.setTextureName("thermalfoundation:material/DustBlaze");
-			Items.blaze_powder.registerIcons(event.map);
 		}
 	}
 
@@ -88,6 +82,10 @@ public class ProxyClient extends Proxy {
 		renderBlizzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBlizz.getItemDamage()));
 		renderBlitzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBlitz.getItemDamage()));
 		renderBasalzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBasalz.getItemDamage()));
+
+		if (TFProps.iconBlazePowder) {
+			Items.blaze_powder.registerIcons(event.map);
+		}
 	}
 
 	public static void registerFluidIcons(Fluid fluid, IIconRegister ir) {

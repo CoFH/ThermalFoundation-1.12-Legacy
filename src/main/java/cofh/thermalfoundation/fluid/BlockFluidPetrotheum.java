@@ -30,6 +30,7 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
 	private static boolean enableSourceFall = true;
 	private static boolean effect = true;
+	private static boolean extreme = false;
 
 	public BlockFluidPetrotheum() {
 
@@ -47,11 +48,17 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
 		GameRegistry.registerBlock(this, "FluidPetrotheum");
 
-		// TODO: add interactions
+		addInteraction(Blocks.stone, Blocks.gravel);
+		addInteraction(Blocks.cobblestone, Blocks.gravel);
+		addInteraction(Blocks.stonebrick, Blocks.gravel);
+		addInteraction(Blocks.mossy_cobblestone, Blocks.gravel);
 
 		String category = "Fluid.Petrotheum";
-		String comment = "Enable this for Fluid Petrotheum to make things more in tune with the earth.";
-		effect = ThermalFoundation.config.get(category, "Effect", true, comment);
+		String comment = "Enable this for Fluid Petrotheum to break apart stone blocks.";
+		effect = ThermalFoundation.config.get(category, "Effect", effect, comment);
+
+		comment = "Enable this for Fluid Petrotheum to have an EXTREME effect on stone blocks.";
+		extreme = ThermalFoundation.config.get(category, "Effect.Extreme", extreme, comment);
 
 		comment = "Enable this for Fluid Petrotheum Source blocks to gradually fall downwards.";
 		enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment);
@@ -128,7 +135,7 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 			return;
 		}
 		int bMeta = world.getBlockMetadata(x, y, z);
-		if (block.getMaterial() == Material.rock) {
+		if (extreme && block.getMaterial() == Material.rock && block.getBlockHardness(world, x, y, z) > 0) {
 			block.dropBlockAsItem(world, x, y, z, bMeta, 0);
 			world.setBlockToAir(x, y, z);
 			triggerInteractionEffects(world, x, y, z);

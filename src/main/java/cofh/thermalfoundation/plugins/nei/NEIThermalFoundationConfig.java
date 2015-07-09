@@ -3,6 +3,7 @@ package cofh.thermalfoundation.plugins.nei;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.core.TFProps;
 import cofh.thermalfoundation.item.Equipment;
 
 public class NEIThermalFoundationConfig implements IConfigureNEI {
@@ -11,7 +12,7 @@ public class NEIThermalFoundationConfig implements IConfigureNEI {
 	@Override
 	public void loadConfig() {
 
-		if (ThermalFoundation.showDisabledEquipment) {
+		if (TFProps.showDisabledEquipment) {
 			return;
 		}
 		for (Equipment e : Equipment.values()) {

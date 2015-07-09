@@ -1,5 +1,8 @@
 package cofh.thermalfoundation.item;
 
+import baubles.api.BaubleType;
+import baubles.api.IBauble;
+
 import cofh.api.item.IEmpowerableItem;
 import cofh.api.item.IInventoryContainerItem;
 import cofh.core.util.CoreUtils;
@@ -19,6 +22,7 @@ import java.util.List;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
@@ -27,7 +31,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpowerableItem {
+public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpowerableItem, IBauble {
 
 	public String modName = "thermalfoundation";
 	public final String itemName;
@@ -194,6 +198,45 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 		} else {
 			player.worldObj.playSoundAtEntity(player, "random.orb", 0.2F, 0.6F);
 		}
+	}
+
+	/* IBauble */
+	@Override
+	public BaubleType getBaubleType(ItemStack itemstack) {
+
+		return BaubleType.BELT;
+	}
+
+	@Override
+	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
+
+		if (!isEmpowered(itemstack)) {
+			return;
+		}
+		NBTTagCompound tag = player.getEntityData();
+		tag.setLong("cofh.LexiconUpdate", player.worldObj.getTotalWorldTime());
+	}
+
+	@Override
+	public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
+
+	}
+
+	@Override
+	public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
+
+	}
+
+	@Override
+	public boolean canEquip(ItemStack itemstack, EntityLivingBase player) {
+
+		return true;
+	}
+
+	@Override
+	public boolean canUnequip(ItemStack itemstack, EntityLivingBase player) {
+
+		return true;
 	}
 
 }
