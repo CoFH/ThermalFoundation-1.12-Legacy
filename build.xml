@@ -19,8 +19,8 @@
 	<property name="mc.version"  value="1.7.10"/>
 	<property name="forge.major" value="10"/>
 	<property name="forge.minor" value="13"/>
-	<property name="forge.patch" value="1"/>
-	<property name="forge.build" value="1217"/>
+	<property name="forge.patch" value="4"/>
+	<property name="forge.build" value="1448"/>
 	
 	<!-- Packaging -->
 	<property name="dist.dir" value="${build.dir}/dist"/>
@@ -28,7 +28,7 @@
 	<property name="apiclasses.dir" value="${build.dir}/api-packaging"/>
 	
 	<!-- Forge paths -->
-	<property name="forge.version" value="${mc.version}-${forge.major}.${forge.minor}.${forge.patch}.${forge.build}"/>
+	<property name="forge.version" value="${mc.version}-${forge.major}.${forge.minor}.${forge.patch}.${forge.build}-${mc.version}"/>
 	<property name="forge.dir" value="${build.dir}/forge"/>
 	<property name="forgebuild.dir" value="${forge.dir}/build"/>
 	<property name="compile.dir" value="${forgebuild.dir}/tmp/compile"/>
@@ -87,7 +87,6 @@
 	</target>
 	
 	<!-- Dependency downloading -->
-
 	<target name="download-core" depends="properties" unless="forge.exists">
 		<echo message="Downloading CoFHCore... "/>
 		<get src="https://github.com/CoFH/CoFHCore/archive/master.zip" dest="${download.dir}/CoFHCore.zip"/>
@@ -102,11 +101,11 @@
 		<echo message="Downloading CCL..."/>
 		<get src="http://files.minecraftforge.net/maven/codechicken/CodeChickenLib/1.7.2-1.1.0.73/CodeChickenLib-1.7.2-1.1.0.73-dev.jar" dest="${download.dir}/codechickenlib.jar"/>
 
-		<echo message="Downloading NEI API... "/>
-		<get src="http://chickenbones.net/maven/codechicken/NotEnoughItems/1.7.10-1.0.2.15/NotEnoughItems-1.7.10-1.0.2.15-dev.jar" dest="${download.dir}/NEI.jar"/>
-
 		<echo message="Downloading CoFHLib... "/>
 		<get src="https://github.com/CoFH/CoFHLib/archive/master.zip" dest="${download.dir}/CoFHLib.zip"/>
+
+		<echo message="Downloading NEI API... "/>
+		<get src="http://chickenbones.net/maven/codechicken/NotEnoughItems/1.7.10-1.0.2.15/NotEnoughItems-1.7.10-1.0.2.15-dev.jar" dest="${download.dir}/NEI.jar"/>
 		<!-- Begin hack -->
 		<unzip src="${download.dir}/CoFHLib.zip" dest="${download.dir}"/>
 		<delete dir="${compile.dir}" failonerror="false"/>
@@ -134,6 +133,7 @@
 		      <classpath>
 				<fileset file="${download.dir}/codechickenlib.jar"/>
 				<fileset file="${download.dir}/CoFHLib.jar"/>
+				<fileset file="${download.dir}/NEI.jar"/>
 		      </classpath>
 		</javac>
 		<jar destfile="${download.dir}/CoFHCore.jar" compress="true" level="9" basedir="${compile.dir}"/>
@@ -147,6 +147,7 @@
 		<javac srcdir="${api.dir}/" destdir="${compile.dir}"
 			target="1.6" source="1.6"
 			classpathref="mcp.classpath" debug="true" debuglevel="lines,source" includeAntRuntime="false">
+			<include name="baubles/api/**/*.java"/>
 			<include name="powercrystals/minefactoryreloaded/api/**/*.java"/>
 		</javac>
 		<jar destfile="${download.dir}/MineFactoryReloaded.jar" compress="true" level="9" basedir="${compile.dir}"/>
@@ -167,11 +168,11 @@
 		<echo message="Extracting CoFHCore..."/>
 		<copy file="${download.dir}/CoFHCore.jar" todir="${lib.dir}"/>
 		
-		<echo message="Extracting NEI API... "/>
-		<copy file="${download.dir}/NEI.jar" todir="${lib.dir}"/>
-		
 		<echo message="Extracting MineFactoryReloaded..."/>
 		<copy file="${download.dir}/MineFactoryReloaded.jar" todir="${lib.dir}"/>
+
+		<echo message="Extracting NEI API... "/>
+		<copy file="${download.dir}/NEI.jar" todir="${lib.dir}"/>
 	</target>
 	
 	<macrodef name="move-transformers"><sequential>
