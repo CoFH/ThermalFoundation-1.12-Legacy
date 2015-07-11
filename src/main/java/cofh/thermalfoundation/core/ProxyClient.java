@@ -51,12 +51,12 @@ public class ProxyClient extends Proxy {
 			registerFluidIcons(TFFluids.fluidMana, event.map);
 			registerFluidIcons(TFFluids.fluidCoal, event.map);
 			registerFluidIcons(TFFluids.fluidSteam, event.map);
-		} else {
-			// projectile icons go here
-		}
 
-		if (TFProps.iconBlazePowder) {
-			Items.blaze_powder.setTextureName("thermalfoundation:material/DustBlaze");
+		} else if (event.map.getTextureType() == 1) {
+			if (TFProps.iconBlazePowder) {
+				Items.blaze_powder.setTextureName("thermalfoundation:material/DustBlaze");
+				Items.blaze_powder.registerIcons(event.map);
+			}
 		}
 	}
 
@@ -64,27 +64,25 @@ public class ProxyClient extends Proxy {
 	@SubscribeEvent
 	public void initializeIcons(TextureStitchEvent.Post event) {
 
-		setFluidIcons(TFFluids.fluidRedstone);
-		setFluidIcons(TFFluids.fluidGlowstone);
-		setFluidIcons(TFFluids.fluidEnder);
-		setFluidIcons(TFFluids.fluidPyrotheum);
-		setFluidIcons(TFFluids.fluidCryotheum);
-		setFluidIcons(TFFluids.fluidAerotheum);
-		setFluidIcons(TFFluids.fluidPetrotheum);
-		setFluidIcons(TFFluids.fluidMana);
-		setFluidIcons(TFFluids.fluidCoal);
-		setFluidIcons(TFFluids.fluidSteam);
+		if (event.map.getTextureType() == 0) {
+			setFluidIcons(TFFluids.fluidRedstone);
+			setFluidIcons(TFFluids.fluidGlowstone);
+			setFluidIcons(TFFluids.fluidEnder);
+			setFluidIcons(TFFluids.fluidPyrotheum);
+			setFluidIcons(TFFluids.fluidCryotheum);
+			setFluidIcons(TFFluids.fluidAerotheum);
+			setFluidIcons(TFFluids.fluidPetrotheum);
+			setFluidIcons(TFFluids.fluidMana);
+			setFluidIcons(TFFluids.fluidCoal);
+			setFluidIcons(TFFluids.fluidSteam);
+		} else if (event.map.getTextureType() == 1) {
+			RenderEntityBlizz.initialize();
+			RenderEntityBlitz.initialize();
+			RenderEntityBasalz.initialize();
 
-		RenderEntityBlizz.initialize();
-		RenderEntityBlitz.initialize();
-		RenderEntityBasalz.initialize();
-
-		renderBlizzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBlizz.getItemDamage()));
-		renderBlitzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBlitz.getItemDamage()));
-		renderBasalzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBasalz.getItemDamage()));
-
-		if (TFProps.iconBlazePowder) {
-			Items.blaze_powder.registerIcons(event.map);
+			renderBlizzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBlizz.getItemDamage()));
+			renderBlitzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBlitz.getItemDamage()));
+			renderBasalzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBasalz.getItemDamage()));
 		}
 	}
 
