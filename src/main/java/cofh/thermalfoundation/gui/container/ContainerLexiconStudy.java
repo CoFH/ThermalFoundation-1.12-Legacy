@@ -99,8 +99,6 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 	public void onSelectionChanged(String oreName) {
 
 		oreList = OreDictionaryArbiter.getOres(oreName);
-		System.out.println(oreName);
-
 		oreSelection = 0;
 
 		lexiconInv.setInventorySlotContents(0, oreList.get(oreSelection));
