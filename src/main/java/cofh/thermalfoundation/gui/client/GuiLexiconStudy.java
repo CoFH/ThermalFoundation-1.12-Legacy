@@ -44,8 +44,11 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 		}
 
 		@Override
-		protected boolean onEnter() {
+		public boolean onKeyTyped(char charTyped, int keyTyped) {
 
+			if (!super.onKeyTyped(charTyped, keyTyped)) {
+				return false;
+			}
 			if (textLength <= 0) {
 				buildFullOreList();
 			} else {
