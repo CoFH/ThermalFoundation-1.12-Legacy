@@ -11,6 +11,8 @@ public class TFProps {
 	public static boolean disableAllArmor = false;
 	public static boolean showDisabledEquipment = true;
 
+	public static int dustPyrotheumFuel = 24000;
+
 	/* Graphics */
 	public static boolean iconBlazePowder = true;
 	public static boolean renderStarfieldCage = false;

@@ -4,10 +4,12 @@ import static cofh.lib.util.helpers.ItemHelper.*;
 
 import cofh.core.item.ItemBase;
 import cofh.core.item.ItemBucket;
+import cofh.core.util.energy.FurnaceFuelHandler;
 import cofh.core.util.fluid.BucketHandler;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.block.TFBlocks;
+import cofh.thermalfoundation.core.TFProps;
 import cofh.thermalfoundation.fluid.TFFluids;
 
 import net.minecraft.init.Items;
@@ -34,6 +36,7 @@ public class TFItems {
 		bucketCoal = itemBucket.addOreDictItem(6, "bucketCoal");
 
 		lexicon = new ItemStack(itemLexicon);
+		itemLexicon.setEmpoweredState(lexicon, false);
 
 		/* Vanilla Derived */
 		dustCoal = itemMaterial.addOreDictItem(2, "dustCoal");
@@ -118,6 +121,8 @@ public class TFItems {
 		dustPetrotheum = itemMaterial.addOreDictItem(515, "dustPetrotheum", 2);
 		dustMana = itemMaterial.addItem(516, "dustMana", 3);
 
+		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
+
 		/* Mob Drops */
 		rodBlizz = itemMaterial.addOreDictItem(1024, "rodBlizz");
 		dustBlizz = itemMaterial.addOreDictItem(1025, "dustBlizz");
@@ -161,8 +166,8 @@ public class TFItems {
 
 	public static void postInit() {
 
-		ItemHelper.addRecipe(ShapedRecipe(itemLexicon, new Object[] { " D ", "GBI", " R ", 'D', Items.diamond, 'G', "ingotGold", 'B', Items.book, 'I',
-				"ingotIron", 'R', "dustRedstone" }));
+		ItemHelper.addRecipe(ShapedRecipe(lexicon, new Object[] { " D ", "GBI", " R ", 'D', Items.diamond, 'G', "ingotGold", 'B', Items.book, 'I', "ingotIron",
+				'R', "dustRedstone" }));
 
 		// @formatter: off
 		ItemHelper.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(dustPyrotheum, 2), new Object[] { "dustCoal", "dustSulfur", "dustRedstone",

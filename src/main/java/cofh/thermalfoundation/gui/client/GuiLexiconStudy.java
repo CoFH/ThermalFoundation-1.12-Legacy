@@ -5,6 +5,7 @@ import cofh.core.gui.element.TabInfo;
 import cofh.lib.gui.GuiColor;
 import cofh.lib.gui.element.ElementButton;
 import cofh.lib.gui.element.ElementListBox;
+import cofh.lib.gui.element.ElementTextField;
 import cofh.lib.gui.element.listbox.IListBoxElement;
 import cofh.lib.gui.element.listbox.ListBoxElementText;
 import cofh.lib.gui.element.listbox.SliderVertical;
@@ -16,19 +17,101 @@ import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
+import org.lwjgl.input.Keyboard;
+
 public class GuiLexiconStudy extends GuiBaseAdv {
 
 	static final String TEX_PATH = "thermalfoundation:textures/gui/LexiconStudy.png";
 	static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);
 
+	static final String SEARCH = "         <Search>";
+
 	public String myInfo = "";
 
-	ElementListBox oreList = new ElementListBox(this, 22, 84, 162, 104) {
+	ElementTextField searchBox = new ElementTextField(this, 42, 87, 124, 10) {
+
+		boolean searchUp = true;
+		boolean rightClick = false;
+
+		@Override
+		public ElementTextField setFocused(boolean focused) {
+
+			if (focused && searchUp) {
+				setText("");
+				searchUp = false;
+			}
+			return super.setFocused(focused);
+		}
+
+		@Override
+		protected boolean onEnter() {
+
+			if (textLength <= 0) {
+				buildFullOreList();
+			} else {
+				buildOreList(getText());
+			}
+			if (oreList.getElementCount() <= 0) {
+				oreList.setSelectedIndex(-1);
+			} else {
+				oreList.setSelectedIndex(0);
+			}
+			if (oreList.getSelectedElement() != null) {
+				lexicon.onSelectionChanged((String) oreList.getSelectedElement().getValue());
+			}
+			oreSlider.setLimits(0, oreList.getElementCount() - 8);
+			return true;
+		}
+
+		@Override
+		protected void onFocusLost() {
+
+			if (textLength <= 0) {
+				buildFullOreList();
+				oreSlider.setLimits(0, oreList.getElementCount() - 8);
+				setText(SEARCH);
+				searchUp = true;
+			}
+		}
+
+		@Override
+		public boolean onMousePressed(int mouseX, int mouseY, int mouseButton) {
+
+			if (mouseButton == 1) {
+				rightClick = true;
+				buildFullOreList();
+				oreList.setSelectedIndex(0);
+				oreSlider.setLimits(0, oreList.getElementCount() - 8);
+				setText("");
+				setFocused(true);
+			}
+			return super.onMousePressed(mouseX, mouseY, mouseButton);
+		}
+
+		@Override
+		public void onMouseReleased(int mouseX, int mouseY) {
+
+			if (rightClick) {
+				rightClick = false;
+			} else {
+				super.onMouseReleased(mouseX, mouseY);
+			}
+		}
+
+		@Override
+		public void drawBackground(int mouseX, int mouseY, float gameTicks) {
+
+		}
+	};
+
+	ElementListBox oreList = new ElementListBox(this, 22, 104, 162, 84) {
 
 		@Override
 		protected void onSelectionChanged(int newIndex, IListBoxElement newElement) {
 
-			lexicon.onSelectionChanged((String) newElement.getValue());
+			if (newIndex > -1) {
+				lexicon.onSelectionChanged((String) newElement.getValue());
+			}
 		}
 
 		@Override
@@ -88,14 +171,14 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 		addElement(setPreferredOre);
 		addElement(clearPreferredOre);
 
+		addElement(searchBox);
 		addElement(oreList);
 
-		for (String oreName : LexiconManager.getSortedOreNames()) {
-			oreList.add(new ListBoxElementText(oreName));
-		}
+		buildFullOreList();
 		lexicon.onSelectionChanged((String) oreList.getSelectedElement().getValue());
+		searchBox.setText(SEARCH);
 
-		oreSlider = new SliderVertical(this, 184, 85, 8, 102, oreList.getElementCount() - 10) {
+		oreSlider = new SliderVertical(this, 184, 105, 8, 82, oreList.getElementCount() - 8) {
 
 			@Override
 			public void onValueChanged(int value) {
@@ -104,6 +187,14 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 			}
 		};
 		addElement(oreSlider);
+		Keyboard.enableRepeatEvents(true);
+	}
+
+	@Override
+	public void onGuiClosed() {
+
+		Keyboard.enableRepeatEvents(false);
+		super.onGuiClosed();
 	}
 
 	@Override
@@ -156,6 +247,24 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 		fontRendererObj.drawString(StringHelper.localize(name), getCenteredOffset(StringHelper.localize(name)), 16, 0xddbb1d);
 
 		super.drawGuiContainerForegroundLayer(x, y);
+	}
+
+	protected void buildOreList(String search) {
+
+		oreList.removeAll();
+		for (String oreName : LexiconManager.getSortedOreNames()) {
+			if (oreName.toLowerCase().contains(search.toLowerCase())) {
+				oreList.add(new ListBoxElementText(oreName));
+			}
+		}
+	}
+
+	protected void buildFullOreList() {
+
+		oreList.removeAll();
+		for (String oreName : LexiconManager.getSortedOreNames()) {
+			oreList.add(new ListBoxElementText(oreName));
+		}
 	}
 
 }

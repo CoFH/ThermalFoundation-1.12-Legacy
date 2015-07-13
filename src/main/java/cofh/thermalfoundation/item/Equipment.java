@@ -1,5 +1,7 @@
 package cofh.thermalfoundation.item;
 
+import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
+
 import cofh.core.item.ItemArmorAdv;
 import cofh.core.item.tool.ItemAxeAdv;
 import cofh.core.item.tool.ItemBowAdv;
@@ -13,13 +15,13 @@ import cofh.core.item.tool.ItemSwordAdv;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.core.TFProps;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public enum Equipment {
 
@@ -314,39 +316,39 @@ public enum Equipment {
 
 		// Armor
 		if (enableArmor) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(armorHelmet, new Object[] { "III", "I I", 'I', ingot }));
-			GameRegistry.addRecipe(new ShapedOreRecipe(armorPlate, new Object[] { "I I", "III", "III", 'I', ingot }));
-			GameRegistry.addRecipe(new ShapedOreRecipe(armorLegs, new Object[] { "III", "I I", "I I", 'I', ingot }));
-			GameRegistry.addRecipe(new ShapedOreRecipe(armorBoots, new Object[] { "I I", "I I", 'I', ingot }));
+			GameRegistry.addRecipe(ShapedRecipe(armorHelmet, new Object[] { "III", "I I", 'I', ingot }));
+			GameRegistry.addRecipe(ShapedRecipe(armorPlate, new Object[] { "I I", "III", "III", 'I', ingot }));
+			GameRegistry.addRecipe(ShapedRecipe(armorLegs, new Object[] { "III", "I I", "I I", 'I', ingot }));
+			GameRegistry.addRecipe(ShapedRecipe(armorBoots, new Object[] { "I I", "I I", 'I', ingot }));
 		}
 
 		// Tools
 		if (enableTools[0]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolSword, new Object[] { "I", "I", "S", 'I', ingot, 'S', "stickWood" }));
+			GameRegistry.addRecipe(ShapedRecipe(toolSword, new Object[] { "I", "I", "S", 'I', ingot, 'S', "stickWood" }));
 		}
 		if (enableTools[1]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolShovel, new Object[] { "I", "S", "S", 'I', ingot, 'S', "stickWood" }));
+			GameRegistry.addRecipe(ShapedRecipe(toolShovel, new Object[] { "I", "S", "S", 'I', ingot, 'S', "stickWood" }));
 		}
 		if (enableTools[2]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolPickaxe, new Object[] { "III", " S ", " S ", 'I', ingot, 'S', "stickWood" }));
+			GameRegistry.addRecipe(ShapedRecipe(toolPickaxe, new Object[] { "III", " S ", " S ", 'I', ingot, 'S', "stickWood" }));
 		}
 		if (enableTools[3]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolAxe, new Object[] { "II", "IS", " S", 'I', ingot, 'S', "stickWood" }));
+			GameRegistry.addRecipe(ShapedRecipe(toolAxe, new Object[] { "II", "IS", " S", 'I', ingot, 'S', "stickWood" }));
 		}
 		if (enableTools[4]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolHoe, new Object[] { "II", " S", " S", 'I', ingot, 'S', "stickWood" }));
+			GameRegistry.addRecipe(ShapedRecipe(toolHoe, new Object[] { "II", " S", " S", 'I', ingot, 'S', "stickWood" }));
 		}
 		if (enableTools[5]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolShears, new Object[] { " I", "I ", 'I', ingot }));
+			GameRegistry.addRecipe(ShapedRecipe(toolShears, new Object[] { " I", "I ", 'I', ingot }));
 		}
 		if (enableTools[6]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolFishingRod, new Object[] { "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', Items.string }));
+			GameRegistry.addRecipe(ShapedRecipe(toolFishingRod, new Object[] { "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', Items.string }));
 		}
 		if (enableTools[7]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolSickle, new Object[] { " I ", "  I", "SI ", 'I', ingot, 'S', "stickWood" }));
+			GameRegistry.addRecipe(ShapedRecipe(toolSickle, new Object[] { " I ", "  I", "SI ", 'I', ingot, 'S', "stickWood" }));
 		}
 		if (enableTools[8]) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(toolBow, new Object[] { " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.string }));
+			GameRegistry.addRecipe(ShapedRecipe(toolBow, new Object[] { " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.string }));
 		}
 	}
 
