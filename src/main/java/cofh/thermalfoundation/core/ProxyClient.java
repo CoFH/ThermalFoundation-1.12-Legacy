@@ -3,6 +3,7 @@ package cofh.thermalfoundation.core;
 import cofh.core.render.IconRegistry;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
+import cofh.thermalfoundation.entity.projectile.EntityBlazeBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
 import cofh.thermalfoundation.fluid.TFFluids;
@@ -23,6 +24,7 @@ import net.minecraftforge.fluids.Fluid;
 
 public class ProxyClient extends Proxy {
 
+	static RenderEntityAsIcon renderBlazeBolt = new RenderEntityAsIcon();
 	static RenderEntityAsIcon renderBlizzBolt = new RenderEntityAsIcon();
 	static RenderEntityAsIcon renderBlitzBolt = new RenderEntityAsIcon();
 	static RenderEntityAsIcon renderBasalzBolt = new RenderEntityAsIcon();
@@ -30,6 +32,7 @@ public class ProxyClient extends Proxy {
 	@Override
 	public void registerRenderInformation() {
 
+		RenderingRegistry.registerEntityRenderingHandler(EntityBlazeBolt.class, renderBlazeBolt);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBlizzBolt.class, renderBlizzBolt);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBlitzBolt.class, renderBlitzBolt);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBasalzBolt.class, renderBasalzBolt);
@@ -53,6 +56,8 @@ public class ProxyClient extends Proxy {
 			registerFluidIcons(TFFluids.fluidSteam, event.map);
 
 		} else if (event.map.getTextureType() == 1) {
+			IconRegistry.addIcon("DustBlaze", "thermalfoundation:material/DustBlaze", event.map);
+
 			if (TFProps.iconBlazePowder) {
 				Items.blaze_powder.setTextureName("thermalfoundation:material/DustBlaze");
 				Items.blaze_powder.registerIcons(event.map);
@@ -80,6 +85,7 @@ public class ProxyClient extends Proxy {
 			RenderEntityBlitz.initialize();
 			RenderEntityBasalz.initialize();
 
+			renderBlazeBolt.setIcon(IconRegistry.getIcon("DustBlaze"));
 			renderBlizzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBlizz.getItemDamage()));
 			renderBlitzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBlitz.getItemDamage()));
 			renderBasalzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBasalz.getItemDamage()));

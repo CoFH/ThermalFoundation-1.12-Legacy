@@ -139,6 +139,7 @@ public class TFItems {
 
 		ingotIron = new ItemStack(Items.iron_ingot);
 		ingotGold = new ItemStack(Items.gold_ingot);
+		nuggetGold = new ItemStack(Items.gold_nugget);
 
 		BucketHandler.registerBucket(TFBlocks.blockFluidRedstone, 0, bucketRedstone);
 		BucketHandler.registerBucket(TFBlocks.blockFluidGlowstone, 0, bucketGlowstone);
@@ -281,6 +282,7 @@ public class TFItems {
 
 	public static ItemStack ingotIron;
 	public static ItemStack ingotGold;
+	public static ItemStack nuggetGold;
 
 	public static ItemStack dustIron;
 	public static ItemStack dustGold;
