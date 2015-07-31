@@ -11,9 +11,8 @@ import org.lwjgl.opengl.ARBShaderObjects;
 
 public class ShaderStarfield {
 
-	public static final ResourceLocation starsTexture = new ResourceLocation(
-			(TFProps.holidayAprilFools && HolidayHelper.isAprilFools()) || TFProps.renderStarfieldCage ? "thermalfoundation:textures/cageStarfield.png"
-					: "textures/entity/end_portal.png");
+	public static final ResourceLocation starsTexture = new ResourceLocation((TFProps.holidayAprilFools && HolidayHelper.isAprilFools())
+			|| TFProps.renderStarfieldCage ? "thermalfoundation:textures/cageStarfield.png" : "textures/entity/end_portal.png");
 
 	static {
 		if (ShaderHelper.useShaders()) {
