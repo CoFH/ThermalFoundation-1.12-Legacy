@@ -16,6 +16,8 @@ import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.core.TFProps;
 import cpw.mods.fml.common.registry.GameRegistry;
 
+import java.util.Locale;
+
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item.ToolMaterial;
@@ -141,8 +143,8 @@ public enum Equipment {
 
 	private Equipment(int level, int uses, float speed, float damage, int enchant, int durability, int[] absorb) {
 
-		TOOL_MATERIAL = EnumHelper.addToolMaterial("TF:" + name().toUpperCase(), level, uses, speed, damage, enchant);
-		ARMOR_MATERIAL = EnumHelper.addArmorMaterial("TF:" + name().toUpperCase(), durability, absorb, enchant);
+		TOOL_MATERIAL = EnumHelper.addToolMaterial("TF:" + name().toUpperCase(Locale.US), level, uses, speed, damage, enchant);
+		ARMOR_MATERIAL = EnumHelper.addArmorMaterial("TF:" + name().toUpperCase(Locale.US), durability, absorb, enchant);
 		ingot = "ingot" + name();
 
 		/* Fishing Rod */
@@ -178,7 +180,7 @@ public enum Equipment {
 	protected void preInitv() {
 
 		final String NAME = name();
-		final String TYPE = NAME.toLowerCase();
+		final String TYPE = NAME.toLowerCase(Locale.US);
 		final String ARMOR = "thermalfoundation.armor." + TYPE;
 		final String TOOL = "thermalfoundation.tool." + TYPE;
 

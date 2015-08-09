@@ -14,6 +14,8 @@ import cofh.thermalfoundation.gui.container.ContainerLexiconStudy;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
 
+import java.util.Locale;
+
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
@@ -256,7 +258,7 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 
 		oreList.removeAll();
 		for (String oreName : LexiconManager.getSortedOreNames()) {
-			if (oreName.toLowerCase().contains(search.toLowerCase())) {
+			if (oreName.toLowerCase(Locale.US).contains(search.toLowerCase(Locale.US))) {
 				oreList.add(new ListBoxElementText(oreName));
 			}
 		}
