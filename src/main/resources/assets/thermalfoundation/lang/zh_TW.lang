@@ -1,22 +1,30 @@
 #zh_TW
 
+death.attack.basalz=%1$s 的世界被撼動了!
+death.attack.blitz=%1$s was tragically enlightened!
 death.attack.blizz=%1$s 遭受凍結的命運!
 death.attack.cryotheum=%1$s 凍死了!
 death.attack.cryotheum.player=%1$s 為了逃脫 %2$s 的追殺而被凍死了!
 death.attack.flux=%1$s 真的變成流體的一部份了!
 death.attack.flux.player=%1$s 被 %2$s 熔解了!
+death.attack.mana=%1$s 被魔力捻碎了!
+death.attack.mana.player=%1$s 為了逃脫 %2$s 而被轉換成了另一種形態!
+death.attack.petrotheum=%1$s 被粉碎了!
+death.attack.petrotheum.player=%1$s 為了逃脫 %2$s 的追殺而被粉碎了!
 death.attack.pyrotheum=%1$s 誤把高溫沸石當成了水!
 death.attack.pyrotheum.player=%1$s 為了逃脫 %2$s 而被活活燒死!
-death.attack.mana=%1$s 被魔力捻碎了!
-death.attack.mana.player=%1$s 為了逃脫 %2$s 而被轉換成了另一種態!
 
+entity.Basalz.name=大地使者
+entity.Blitz.name=雷電使者
 entity.Blizz.name=寒冰使者
 
 fluid.redstone=不穩定的液態紅石
-fluid.glowstone=充能的液態螢石
-fluid.ender=諧律的終界液
-fluid.pyrotheum=高溫沸石
-fluid.cryotheum=低溫寒石
+fluid.glowstone=充能液態螢石
+fluid.ender=諧律終界液
+fluid.pyrotheum=高溫沸石液
+fluid.cryotheum=低溫寒石液
+fluid.aerotheum=天空風石液
+fluid.petrotheum=大地岩石液
 fluid.mana=遠古魔力
 fluid.steam=蒸汽
 fluid.coal=液態煤炭
@@ -25,25 +33,31 @@ gui.thermalfoundation.lexicon.study=辭典 - 知識
 gui.thermalfoundation.lexicon.transmute=辭典 - 變換
 
 item.thermalfoundation.bucket.bucketRedstone.name=不穩定的液態紅石桶
-item.thermalfoundation.bucket.bucketGlowstone.name=充能的液態螢石桶
-item.thermalfoundation.bucket.bucketEnder.name=諧律的終界液桶
+item.thermalfoundation.bucket.bucketGlowstone.name=充能液態螢石桶
+item.thermalfoundation.bucket.bucketEnder.name=諧律終界液桶
 item.thermalfoundation.bucket.bucketPyrotheum.name=高溫沸石液桶
 item.thermalfoundation.bucket.bucketCryotheum.name=低溫寒石液桶
 item.thermalfoundation.bucket.bucketMana.name=遠古魔力桶
 item.thermalfoundation.bucket.bucketCoal.name=液態煤炭桶
 
 info.thermalfoundation.tome.lexicon.1=將物品轉換成它的等值形式.
-info.thermalfoundation.tome.lexicon.2=右鍵 (打開) 對此項目進行研究.
+info.thermalfoundation.tome.lexicon.2=右鍵(打開)對此項目進行研究.
 info.thermalfoundation.tome.lexicon.3=獲得知識!
-info.thermalfoundation.tome.lexicon.4=右鍵 (打開) 來使物品變形.
+info.thermalfoundation.tome.lexicon.4=右鍵(打開)來使物品變形.
 info.thermalfoundation.tome.lexicon.5=捨棄知識.
 item.thermalfoundation.tome.lexicon.name=工匠辭典
-item.thermalfoundation.tome.lexicon.empowered.name=工匠辭典 (已授權)
+item.thermalfoundation.tome.lexicon.empowered.name=工匠辭典(已授權)
+
+info.thermalfoundation.lexicon.clearPreference=清空偏好值
+info.thermalfoundation.lexicon.setPreference=設定偏好值
+info.thermalfoundation.lexicon.nextEntry=下一條目
+info.thermalfoundation.lexicon.prevEntry=前一條目
+info.thermalfoundation.lexicon.singleEntry=只有一個條目
 
 item.thermalfoundation.material.dustIron.name=鐵粉
 item.thermalfoundation.material.dustGold.name=金粉
-item.thermalfoundation.material.dustCoal.name=煤粉
-item.thermalfoundation.material.dustCharcoal.name=炭粉
+item.thermalfoundation.material.dustCoal.name=煤炭粉
+item.thermalfoundation.material.dustCharcoal.name=木炭粉
 item.thermalfoundation.material.dustObsidian.name=黑曜石粉
 
 item.thermalfoundation.material.nuggetIron.name=鐵粒
@@ -59,8 +73,8 @@ item.thermalfoundation.material.dustCopper.name=銅粉
 item.thermalfoundation.material.dustTin.name=錫粉
 item.thermalfoundation.material.dustSilver.name=銀粉
 item.thermalfoundation.material.dustLead.name=鉛粉
-item.thermalfoundation.material.dustNickel.name=亞鐵粉
-item.thermalfoundation.material.dustPlatinum.name=鉑粉
+item.thermalfoundation.material.dustNickel.name=鎳粉
+item.thermalfoundation.material.dustPlatinum.name=白金粉
 item.thermalfoundation.material.dustMithril.name=注魔秘銀粉
 item.thermalfoundation.material.dustElectrum.name=琥珀金粉
 item.thermalfoundation.material.dustInvar.name=殷鋼粉
@@ -73,8 +87,8 @@ item.thermalfoundation.material.ingotCopper.name=銅錠
 item.thermalfoundation.material.ingotTin.name=錫錠
 item.thermalfoundation.material.ingotSilver.name=銀錠
 item.thermalfoundation.material.ingotLead.name=鉛錠
-item.thermalfoundation.material.ingotNickel.name=亞鐵錠
-item.thermalfoundation.material.ingotPlatinum.name=鉑錠
+item.thermalfoundation.material.ingotNickel.name=鎳錠
+item.thermalfoundation.material.ingotPlatinum.name=白金錠
 item.thermalfoundation.material.ingotMithril.name=注魔秘銀錠
 item.thermalfoundation.material.ingotElectrum.name=琥珀金錠
 item.thermalfoundation.material.ingotInvar.name=殷鋼錠
@@ -87,8 +101,8 @@ item.thermalfoundation.material.nuggetCopper.name=銅粒
 item.thermalfoundation.material.nuggetTin.name=錫粒
 item.thermalfoundation.material.nuggetSilver.name=銀粒
 item.thermalfoundation.material.nuggetLead.name=鉛粒
-item.thermalfoundation.material.nuggetNickel.name=亞鐵粒
-item.thermalfoundation.material.nuggetPlatinum.name=鉑粒
+item.thermalfoundation.material.nuggetNickel.name=鎳粒
+item.thermalfoundation.material.nuggetPlatinum.name=白金粒
 item.thermalfoundation.material.nuggetMithril.name=注魔秘銀粒
 item.thermalfoundation.material.nuggetElectrum.name=琥珀金粒
 item.thermalfoundation.material.nuggetInvar.name=殷鋼粒
@@ -99,14 +113,16 @@ item.thermalfoundation.material.nuggetEnderium.name=終界粒
 
 item.thermalfoundation.material.dustPyrotheum.name=高溫沸石粉
 item.thermalfoundation.material.dustCryotheum.name=低溫寒石粉
+item.thermalfoundation.material.dustAerotheum.name=天空風石粉
+item.thermalfoundation.material.dustPetrotheum.name=大地岩石粉
 item.thermalfoundation.material.dustMana.name=魔力粉
 
 item.thermalfoundation.material.gearCopper.name=銅齒輪
 item.thermalfoundation.material.gearTin.name=錫齒輪
 item.thermalfoundation.material.gearSilver.name=銀齒輪
 item.thermalfoundation.material.gearLead.name=鉛齒輪
-item.thermalfoundation.material.gearNickel.name=亞鐵齒輪
-item.thermalfoundation.material.gearPlatinum.name=鉑齒輪
+item.thermalfoundation.material.gearNickel.name=鎳齒輪
+item.thermalfoundation.material.gearPlatinum.name=白金齒輪
 item.thermalfoundation.material.gearMithril.name=注魔秘銀齒輪
 item.thermalfoundation.material.gearElectrum.name=琥珀金齒輪
 item.thermalfoundation.material.gearInvar.name=殷鋼齒輪
@@ -117,6 +133,10 @@ item.thermalfoundation.material.gearEnderium.name=終界齒輪
 
 item.thermalfoundation.material.rodBlizz.name=寒冰桿
 item.thermalfoundation.material.dustBlizz.name=寒冰粉
+item.thermalfoundation.material.rodBlitz.name=雷電桿
+item.thermalfoundation.material.dustBlitz.name=雷電粉
+item.thermalfoundation.material.rodBasalz.name=大地桿
+item.thermalfoundation.material.dustBasalz.name=大地粉
 
 item.thermalfoundation.armor.copperHelmet.name=銅製頭盔
 item.thermalfoundation.armor.copperPlate.name=銅製胸甲
@@ -143,10 +163,10 @@ item.thermalfoundation.armor.silverPlate.name=銀製胸甲
 item.thermalfoundation.armor.silverLegs.name=銀製護腿
 item.thermalfoundation.armor.silverBoots.name=銀製靴子
 
-item.thermalfoundation.armor.nickelHelmet.name=亞鐵頭盔
-item.thermalfoundation.armor.nickelPlate.name=亞鐵胸甲
-item.thermalfoundation.armor.nickelLegs.name=亞鐵護腿
-item.thermalfoundation.armor.nickelBoots.name=亞鐵靴子
+item.thermalfoundation.armor.nickelHelmet.name=鎳製頭盔
+item.thermalfoundation.armor.nickelPlate.name=鎳製胸甲
+item.thermalfoundation.armor.nickelLegs.name=鎳製護腿
+item.thermalfoundation.armor.nickelBoots.name=鎳製靴子
 
 item.thermalfoundation.armor.bronzeHelmet.name=青銅頭盔
 item.thermalfoundation.armor.bronzePlate.name=青銅胸甲
@@ -213,15 +233,15 @@ item.thermalfoundation.tool.silverFishingRod.name=銀製釣魚竿
 item.thermalfoundation.tool.silverSickle.name=銀製鐮刀
 item.thermalfoundation.tool.silverBow.name=銀製強化弓
 
-item.thermalfoundation.tool.nickelSword.name=亞鐵劍
-item.thermalfoundation.tool.nickelShovel.name=亞鐵鏟
-item.thermalfoundation.tool.nickelPickaxe.name=亞鐵鎬
-item.thermalfoundation.tool.nickelAxe.name=亞鐵斧
-item.thermalfoundation.tool.nickelHoe.name=亞鐵鋤頭
-item.thermalfoundation.tool.nickelShears.name=亞鐵剪刀
-item.thermalfoundation.tool.nickelFishingRod.name=亞鐵釣魚竿
-item.thermalfoundation.tool.nickelSickle.name=亞鐵鐮刀
-item.thermalfoundation.tool.nickelBow.name=亞鐵強化弓
+item.thermalfoundation.tool.nickelSword.name=鎳劍
+item.thermalfoundation.tool.nickelShovel.name=鎳鏟
+item.thermalfoundation.tool.nickelPickaxe.name=鎳鎬
+item.thermalfoundation.tool.nickelAxe.name=鎳斧
+item.thermalfoundation.tool.nickelHoe.name=鎳製鋤頭
+item.thermalfoundation.tool.nickelShears.name=鎳製剪刀
+item.thermalfoundation.tool.nickelFishingRod.name=鎳製釣魚竿
+item.thermalfoundation.tool.nickelSickle.name=鎳製鐮刀
+item.thermalfoundation.tool.nickelBow.name=鎳強化弓
 
 item.thermalfoundation.tool.bronzeSword.name=青銅劍
 item.thermalfoundation.tool.bronzeShovel.name=青銅鏟
@@ -262,27 +282,27 @@ tab.thermalfoundation.lexicon.transmute.0=你可以通過更強大的能量來�
 
 tile.thermalfoundation.fluid.redstone.name=不穩定的液態紅石
 tile.thermalfoundation.fluid.glowstone.name=充能液態螢石
-tile.thermalfoundation.fluid.ender.name=諧律的終界液
-tile.thermalfoundation.fluid.pyrotheum.name=高溫沸石
-tile.thermalfoundation.fluid.cryotheum.name=低溫寒石
+tile.thermalfoundation.fluid.ender.name=諧律終界液
+tile.thermalfoundation.fluid.pyrotheum.name=高溫沸石液
+tile.thermalfoundation.fluid.cryotheum.name=低溫寒石液
 tile.thermalfoundation.fluid.mana.name=遠古魔力
 tile.thermalfoundation.fluid.steam.name=蒸汽
 tile.thermalfoundation.fluid.coal.name=液態煤炭
 
-tile.thermalfoundation.ore.copper.name=銅礦石
-tile.thermalfoundation.ore.tin.name=錫礦石
-tile.thermalfoundation.ore.silver.name=銀礦石
-tile.thermalfoundation.ore.lead.name=鉛礦石
-tile.thermalfoundation.ore.nickel.name=亞鐵礦石
-tile.thermalfoundation.ore.platinum.name=鉑礦石
+tile.thermalfoundation.ore.copper.name=銅礦
+tile.thermalfoundation.ore.tin.name=錫礦
+tile.thermalfoundation.ore.silver.name=銀礦
+tile.thermalfoundation.ore.lead.name=鉛礦
+tile.thermalfoundation.ore.nickel.name=鎳礦
+tile.thermalfoundation.ore.platinum.name=白金礦
 tile.thermalfoundation.ore.mithril.name=蘊魔礦
 
 tile.thermalfoundation.storage.copper.name=銅磚
 tile.thermalfoundation.storage.tin.name=錫磚
 tile.thermalfoundation.storage.silver.name=銀磚
 tile.thermalfoundation.storage.lead.name=鉛磚
-tile.thermalfoundation.storage.nickel.name=亞鐵磚
-tile.thermalfoundation.storage.platinum.name=鉑磚
+tile.thermalfoundation.storage.nickel.name=鎳磚
+tile.thermalfoundation.storage.platinum.name=白金磚
 tile.thermalfoundation.storage.mithril.name=注魔秘銀磚
 tile.thermalfoundation.storage.electrum.name=琥珀金磚
 tile.thermalfoundation.storage.invar.name=殷鋼磚
@@ -293,12 +313,12 @@ tile.thermalfoundation.storage.enderium.name=終界磚
 
 #Tinker's Construct Compatibility
 material.thermalfoundation.invar=殷鋼
-material.thermalfoundation.nickel=亞鐵
+material.thermalfoundation.nickel=鎳
 material.thermalfoundation.lead=鉛
 material.thermalfoundation.lead.ability=沉重
 material.thermalfoundation.silver=銀
 material.thermalfoundation.silver.ability=閃亮
-material.thermalfoundation.platinum=鉑
+material.thermalfoundation.platinum=白金
 material.thermalfoundation.platinum.ability=茂密
 material.thermalfoundation.electrum=琥珀金
 material.thermalfoundation.electrum.ability=花俏
