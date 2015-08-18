@@ -26,13 +26,12 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 	static final String TEX_PATH = "thermalfoundation:textures/gui/LexiconStudy.png";
 	static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);
 
-	static final String SEARCH = "         <Search>";
-
+	public String searchLocal = "<" + StringHelper.localize("info.thermalfoundation.lexicon.search") + ">";
 	public String myInfo = "";
 
 	ElementTextField searchBox = new ElementTextField(this, 42, 87, 124, 10) {
 
-		boolean searchUp = true;
+		public boolean searchUp = true;
 		boolean rightClick = false;
 
 		@Override
@@ -74,7 +73,7 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 			if (textLength <= 0) {
 				buildFullOreList();
 				oreSlider.setLimits(0, oreList.getElementCount() - 8);
-				setText(SEARCH);
+				setText("");
 				searchUp = true;
 			}
 		}
@@ -181,7 +180,6 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 
 		buildFullOreList();
 		lexicon.onSelectionChanged((String) oreList.getSelectedElement().getValue());
-		searchBox.setText(SEARCH);
 
 		oreSlider = new SliderVertical(this, 184, 105, 8, 82, oreList.getElementCount() - 8) {
 
@@ -251,6 +249,11 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 
 		fontRendererObj.drawString(StringHelper.localize(name), getCenteredOffset(StringHelper.localize(name)), 16, 0xddbb1d);
 
+		if (searchBox.isFocused()) {
+
+		} else if (searchBox.getText().isEmpty()) {
+			fontRendererObj.drawString(searchLocal, getCenteredOffset(searchLocal), 88, 0xe0e0e0);
+		}
 		super.drawGuiContainerForegroundLayer(x, y);
 	}
 

@@ -55,6 +55,7 @@ info.thermalfoundation.lexicon.setPreference=Set Preference
 info.thermalfoundation.lexicon.nextEntry=Next Entry
 info.thermalfoundation.lexicon.prevEntry=Previous Entry
 info.thermalfoundation.lexicon.singleEntry=Only One Entry
+info.thermalfoundation.lexicon.search=Search
 
 item.thermalfoundation.material.dustIron.name=Pulverized Iron
 item.thermalfoundation.material.dustGold.name=Pulverized Gold
