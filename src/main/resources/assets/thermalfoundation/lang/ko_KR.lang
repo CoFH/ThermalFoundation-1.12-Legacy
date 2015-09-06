@@ -2,15 +2,17 @@
 
 death.attack.basalz=%1$s had their world rocked!
 death.attack.blitz=%1$s was tragically enlightened!
-death.attack.blizz=%1$s가 혹한에 죽었습니다
-death.attack.cryotheum=%1$s가 얼어죽었습니다
-death.attack.cryotheum.player=%1$s는 %2$s에게서 탈출하기 위해 얼어죽을 수 밖에 없었습니다
-death.attack.flux=%1$s가 감전사했습니다
-death.attack.flux.player=%1$s가 %2$s에 의해 감전사당했습니다
-death.attack.pyrotheum=%1$s가 파이로시움을 물로 착각했습니다
-death.attack.pyrotheum.player=%1$s는 %2$s에게서 탈출하기 위해 산 채로 태워질 수 밖에 없었습니다
-death.attack.mana=%1$s가 마나 때문에 찢겨져 죽었습니다
-death.attack.mana.player=%1$s는 %2$s에게서 탈출하기 위해 다른 상태가 될 수 밖에 없었습니다
+death.attack.blizz=%1$s가 혹한에 죽었습니다!
+death.attack.cryotheum=%1$s가 얼어죽었습니다!
+death.attack.cryotheum.player=%1$s는 %2$s에게서 탈출하기 위해 얼어죽을 수 밖에 없었습니다!
+death.attack.flux=%1$s가 감전사했습니다!
+death.attack.flux.player=%1$s가 %2$s에 의해 감전사당했습니다!
+death.attack.mana=%1$s가 마나 때문에 찢겨져 죽었습니다!
+death.attack.mana.player=%1$s는 %2$s에게서 탈출하기 위해 다른 상태가 될 수 밖에 없었습니다!
+death.attack.petrotheum=%1$s got all shook up!
+death.attack.petrotheum.player=%1$s shattered while trying to escape %2$s!
+death.attack.pyrotheum=%1$s가 파이로시움을 물로 착각했습니다!
+death.attack.pyrotheum.player=%1$s는 %2$s에게서 탈출하기 위해 산 채로 태워질 수 밖에 없었습니다!
 
 entity.Basalz.name=바살즈
 entity.Blitz.name=블리츠
@@ -48,11 +50,12 @@ info.thermalfoundation.tome.lexicon.5=지식을 버리는 것.
 item.thermalfoundation.tome.lexicon.name=포지 렉시콘
 item.thermalfoundation.tome.lexicon.empowered.name=포지 렉시콘 (권한 부여)
 
-info.thermalfoundation.lexicon.clearPreference=Clear Preference
-info.thermalfoundation.lexicon.setPreference=Set Preference
-info.thermalfoundation.lexicon.nextEntry=Next Entry
-info.thermalfoundation.lexicon.prevEntry=Previous Entry
-info.thermalfoundation.lexicon.singleEntry=Only One Entry
+info.thermalfoundation.lexicon.clearPreference=설정 취소
+info.thermalfoundation.lexicon.setPreference=설정
+info.thermalfoundation.lexicon.nextEntry=다음 항목
+info.thermalfoundation.lexicon.prevEntry=이전 항목
+info.thermalfoundation.lexicon.singleEntry=단일 항목
+info.thermalfoundation.lexicon.search=검색
 
 item.thermalfoundation.material.dustIron.name=분쇄된 철
 item.thermalfoundation.material.dustGold.name=분쇄된 금
@@ -133,6 +136,10 @@ item.thermalfoundation.material.gearEnderium.name=엔더륨 톱니바퀴
 
 item.thermalfoundation.material.rodBlizz.name=블리즈 막대
 item.thermalfoundation.material.dustBlizz.name=블리즈 가루
+item.thermalfoundation.material.rodBlitz.name=블리츠 막대
+item.thermalfoundation.material.dustBlitz.name=블리츠 가루
+item.thermalfoundation.material.rodBasalz.name=바살즈 막대
+item.thermalfoundation.material.dustBasalz.name=바살즈 가루
 
 item.thermalfoundation.armor.copperHelmet.name=구리 투구
 item.thermalfoundation.armor.copperPlate.name=구리 갑옷
