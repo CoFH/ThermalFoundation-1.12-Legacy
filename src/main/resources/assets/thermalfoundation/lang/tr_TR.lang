@@ -1,5 +1,5 @@
 #tr_TR
-#Chqy45Tm
+#A536Ngr5
 
 death.attack.basalz=%1$s taşa döndü!
 death.attack.blitz=%1$s trajik bir biçimde aydınlandı!
@@ -56,6 +56,7 @@ info.thermalfoundation.lexicon.setPreference=Seçimi Ayarla
 info.thermalfoundation.lexicon.nextEntry=Sonraki Girdi
 info.thermalfoundation.lexicon.prevEntry=Önceki Girdi
 info.thermalfoundation.lexicon.singleEntry=Sadece Bir Girdi
+info.thermalfoundation.lexicon.search=Ara
 
 item.thermalfoundation.material.dustIron.name=Öğütülmüş Demir
 item.thermalfoundation.material.dustGold.name=Öğütülmüş Altın
