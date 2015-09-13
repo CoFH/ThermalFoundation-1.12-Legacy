@@ -9,7 +9,13 @@ death.attack.pyrotheum=%1$s verwechelte Pyrotheum mit Wasser!
 death.attack.pyrotheum.player=%1$s wurde lebendig verbrannt, während er vor %2$s floh!
 death.attack.mana=%1$s wurde von rohem Mana zerfetzt!
 death.attack.mana.player=%1$s floss in einen anderen Daseinszustand, während er vor %2$s floh!
+death.attack.petrotheum=%1$s got all shook up!
+death.attack.petrotheum.player=%1$s zerschmettert auf der Flucht von %2$s!
+death.attack.pyrotheum=%1$s verweckstelte Pyrotheum mit Water!
+death.attack.pyrotheum.player=%1$s burned alive trying to escape %2$s!
 
+entity.Basalz.name=Basalz
+entity.Blitz.name=Blitz
 entity.Blizz.name=Blizz
 
 fluid.redstone=Destabilisiertes Redstone
@@ -17,17 +23,24 @@ fluid.glowstone=Energetisiertes Glowstone
 fluid.ender=Resonantes Ender
 fluid.pyrotheum=Flammentes Pyrotheum
 fluid.cryotheum=Gelenes Kryotheum
+fluid.aerotheum=Zephyrean Aerotheum
+fluid.petrotheum=Tektonisches Petrotheum
 fluid.mana=Primärmana
 fluid.steam=Dampf
 fluid.coal=Verflüssigte Kohle
 
-item.thermalfoundation.bucket.bucketRedstone.name=Eimer mit Destabilisiertem Redstone
-item.thermalfoundation.bucket.bucketGlowstone.name=Eimer mit Energetisiertem Glowstone
-item.thermalfoundation.bucket.bucketEnder.name=Eimer mit Resonantem Ender
-item.thermalfoundation.bucket.bucketPyrotheum.name=Eimer mit Flammendem Pyrotheum
-item.thermalfoundation.bucket.bucketCryotheum.name=Eimer mit Gelenem Kryotheum
+gui.thermalfoundation.lexicon.study=Lexikon - Wissen
+gui.thermalfoundation.lexicon.transmute=Lexicon - Verwandlung
+
+item.thermalfoundation.bucket.bucketRedstone.name=Eimer mit destabilisiertem Redstone
+item.thermalfoundation.bucket.bucketGlowstone.name=Eimer mit energetisiertem Glowstone
+item.thermalfoundation.bucket.bucketEnder.name=Eimer mit resonantem Ender
+item.thermalfoundation.bucket.bucketPyrotheum.name=Eimer mit flammendem Pyrotheum
+item.thermalfoundation.bucket.bucketCryotheum.name=Eimer mit gelenem Kryotheum
+item.thermalfoundation.bucket.bucketAerotheum.name=Eimer mit Zephyrean Aerotheum
+item.thermalfoundation.bucket.bucketPetrotheum.name=Eimer mit tektonischem Petrotheum
 item.thermalfoundation.bucket.bucketMana.name=Eimer mit Primärmana
-item.thermalfoundation.bucket.bucketCoal.name=Eimer mit Verflüssigter Kohle
+item.thermalfoundation.bucket.bucketCoal.name=Eimer mit verflüssigter Kohle
 
 info.thermalfoundation.tome.lexicon.1=Verwandelt Items in äquivalente Formen.
 info.thermalfoundation.tome.lexicon.2=Rechtsklicke (öffne), um es zu studieren.
@@ -36,6 +49,12 @@ info.thermalfoundation.tome.lexicon.4=Rechtsklicke (öffne), um Items zu verwand
 info.thermalfoundation.tome.lexicon.5=um Wissen aufzugeben.
 item.thermalfoundation.tome.lexicon.name=Forge-Lexikon
 item.thermalfoundation.tome.lexicon.empowered.name=Forge-Lexikon (Aktiv)
+
+info.thermalfoundation.lexicon.clearPreference=Deutlicher Vorzug
+info.thermalfoundation.lexicon.setPreference=Gesetzter Vorzug
+info.thermalfoundation.lexicon.nextEntry=Nächster Eintrag
+info.thermalfoundation.lexicon.prevEntry=Vorheriger Eintrag
+info.thermalfoundation.lexicon.singleEntry=Nur ein Eintrag
 
 item.thermalfoundation.material.dustIron.name=Pulverisiertes Eisen
 item.thermalfoundation.material.dustGold.name=Pulverisiertes Gold
@@ -96,6 +115,8 @@ item.thermalfoundation.material.nuggetEnderium.name=Enderiumnugget
 
 item.thermalfoundation.material.dustPyrotheum.name=Pyrotheumstaub
 item.thermalfoundation.material.dustCryotheum.name=Kryotheumstaub
+item.thermalfoundation.material.dustAerotheum.name=Aerotheumstaub
+item.thermalfoundation.material.dustPetrotheum.name=Petrotheumstaub
 item.thermalfoundation.material.dustMana.name=Manastaub
 
 item.thermalfoundation.material.gearCopper.name=Kupferzahnrad
@@ -114,17 +135,162 @@ item.thermalfoundation.material.gearEnderium.name=Enderiumzahnrad
 
 item.thermalfoundation.material.rodBlizz.name=Blizzrute
 item.thermalfoundation.material.dustBlizz.name=Blizzstaub
+item.thermalfoundation.material.rodBlitz.name=Blizzrute
+item.thermalfoundation.material.dustBlitz.name=Blizzstaub
+item.thermalfoundation.material.rodBasalz.name=Basalzrute
+item.thermalfoundation.material.dustBasalz.name=Basalzstaub
+
+item.thermalfoundation.armor.copperHelmet.name=Kupferhelm
+item.thermalfoundation.armor.copperPlate.name=Kupferrüstung
+item.thermalfoundation.armor.copperLegs.name=Kupferhose
+item.thermalfoundation.armor.copperBoots.name=Kupferschuhe
+
+item.thermalfoundation.armor.tinHelmet.name=Zinnhelm
+item.thermalfoundation.armor.tinPlate.name=Zinnrüstung
+item.thermalfoundation.armor.tinLegs.name=Zinnhose
+item.thermalfoundation.armor.tinBoots.name=Zinnschuhe
+
+item.thermalfoundation.armor.electrumHelmet.name=Elektrumhelm
+item.thermalfoundation.armor.electrumPlate.name=Elektrumrüstung
+item.thermalfoundation.armor.electrumLegs.name=Elektrumhose
+item.thermalfoundation.armor.electrumBoots.name=Elektrumschuhe
+
+item.thermalfoundation.armor.leadHelmet.name=Bleihelm
+item.thermalfoundation.armor.leadPlate.name=Bleirüstung
+item.thermalfoundation.armor.leadLegs.name=Bleihose
+item.thermalfoundation.armor.leadBoots.name=Bleischuhe
+
+item.thermalfoundation.armor.silverHelmet.name=Silberhelm
+item.thermalfoundation.armor.silverPlate.name=Silberrüstung
+item.thermalfoundation.armor.silverLegs.name=Silberhose
+item.thermalfoundation.armor.silverBoots.name=Silberschuhe
+
+item.thermalfoundation.armor.nickelHelmet.name=Nickelhelm
+item.thermalfoundation.armor.nickelPlate.name=Nickelrüstung
+item.thermalfoundation.armor.nickelLegs.name=Nickelhose
+item.thermalfoundation.armor.nickelBoots.name=Nickelschuhe
+
+item.thermalfoundation.armor.bronzeHelmet.name=Bronzehelm
+item.thermalfoundation.armor.bronzePlate.name=Bronzerüstung
+item.thermalfoundation.armor.bronzeLegs.name=Bronzehose
+item.thermalfoundation.armor.bronzeBoots.name=Bronzeschuhe
+
+item.thermalfoundation.armor.invarHelmet.name=Invarhelm
+item.thermalfoundation.armor.invarPlate.name=Invarrüstung
+item.thermalfoundation.armor.invarLegs.name=Invarhose
+item.thermalfoundation.armor.invarBoots.name=Invarschuhe
+
+item.thermalfoundation.armor.platinumHelmet.name=Platinhelm
+item.thermalfoundation.armor.platinumPlate.name=Platinrüstung
+item.thermalfoundation.armor.platinumLegs.name=Platinhose
+item.thermalfoundation.armor.platinumBoots.name=Platinschuhe
+
+item.thermalfoundation.tool.copperSword.name=Kupferschwert
+item.thermalfoundation.tool.copperShovel.name=Kupferschaufel
+item.thermalfoundation.tool.copperPickaxe.name=Kupferspitzhacke
+item.thermalfoundation.tool.copperAxe.name=Kupferaxt
+item.thermalfoundation.tool.copperHoe.name=Kupferhacke
+item.thermalfoundation.tool.copperShears.name=Kupferschere
+item.thermalfoundation.tool.copperFishingRod.name=Kupferangel
+item.thermalfoundation.tool.copperSickle.name=Kupfersichel
+item.thermalfoundation.tool.copperBow.name=Verstärkter Kupferbogen
+
+item.thermalfoundation.tool.tinSword.name=Zinnschwert
+item.thermalfoundation.tool.tinShovel.name=Zinnschaufel
+item.thermalfoundation.tool.tinPickaxe.name=Zinnspitzhacke
+item.thermalfoundation.tool.tinAxe.name=Zinnaxt
+item.thermalfoundation.tool.tinHoe.name=Zinnhacke
+item.thermalfoundation.tool.tinShears.name=Zinnschere
+item.thermalfoundation.tool.tinFishingRod.name=Zinnangel
+item.thermalfoundation.tool.tinSickle.name=Zinnsichel
+item.thermalfoundation.tool.tinBow.name=Verstärkter Zinnbogen
+
+item.thermalfoundation.tool.electrumSword.name=Elektrumschwert
+item.thermalfoundation.tool.electrumShovel.name=Elektrumschaufel
+item.thermalfoundation.tool.electrumPickaxe.name=Elektrumspitzhacke
+item.thermalfoundation.tool.electrumAxe.name=Elektrumaxt
+item.thermalfoundation.tool.electrumHoe.name=Elektrumhacke
+item.thermalfoundation.tool.electrumShears.name=Elektrumschere
+item.thermalfoundation.tool.electrumFishingRod.name=Elektrumangel
+item.thermalfoundation.tool.electrumSickle.name=Elektrumsichel
+item.thermalfoundation.tool.electrumBow.name=Verstärkter Eleltrumbogen
+
+item.thermalfoundation.tool.leadSword.name=Bleischwert
+item.thermalfoundation.tool.leadShovel.name=Bleischaufel
+item.thermalfoundation.tool.leadPickaxe.name=Bleispitzhacke
+item.thermalfoundation.tool.leadAxe.name=Blaiaxt
+item.thermalfoundation.tool.leadHoe.name=Blaihacke
+item.thermalfoundation.tool.leadShears.name=Bleischere
+item.thermalfoundation.tool.leadFishingRod.name=Bleiangel
+item.thermalfoundation.tool.leadSickle.name=Bleisichel
+item.thermalfoundation.tool.leadBow.name=Verstärkter Bleibogen
+
+item.thermalfoundation.tool.silverSword.name=Silberschwert
+item.thermalfoundation.tool.silverShovel.name=Silberschaufel
+item.thermalfoundation.tool.silverPickaxe.name=Silberspitzhacke
+item.thermalfoundation.tool.silverAxe.name=Silberaxt
+item.thermalfoundation.tool.silverHoe.name=Silberhacke
+item.thermalfoundation.tool.silverShears.name=Silberschere
+item.thermalfoundation.tool.silverFishingRod.name=Silberangel
+item.thermalfoundation.tool.silverSickle.name=Silbersichel
+item.thermalfoundation.tool.silverBow.name=Verstärkter Silberbogen
+
+item.thermalfoundation.tool.nickelSword.name=NickelsSchwert
+item.thermalfoundation.tool.nickelShovel.name=Nickelschaufel
+item.thermalfoundation.tool.nickelPickaxe.name=Nickelspitzhacke
+item.thermalfoundation.tool.nickelAxe.name=Nickelaxt
+item.thermalfoundation.tool.nickelHoe.name=Nickelhacke
+item.thermalfoundation.tool.nickelShears.name=Nickelschere
+item.thermalfoundation.tool.nickelFishingRod.name=Nickelangel
+item.thermalfoundation.tool.nickelSickle.name=Nickelsichel
+item.thermalfoundation.tool.nickelBow.name=Verstärkter Nickelbogen
+
+item.thermalfoundation.tool.bronzeSword.name=Bronzeschwert
+item.thermalfoundation.tool.bronzeShovel.name=Bronzeschaufel
+item.thermalfoundation.tool.bronzePickaxe.name=Bronzespitzhacke
+item.thermalfoundation.tool.bronzeAxe.name=Bronzeaxt
+item.thermalfoundation.tool.bronzeHoe.name=Bronzehacke
+item.thermalfoundation.tool.bronzeShears.name=Bronzeschere
+item.thermalfoundation.tool.bronzeFishingRod.name=Bronzeangel
+item.thermalfoundation.tool.bronzeSickle.name=Bronzesichel
+item.thermalfoundation.tool.bronzeBow.name=Verstärkter Bronzebogen
+
+item.thermalfoundation.tool.invarSword.name=Invarschwert
+item.thermalfoundation.tool.invarShovel.name=Invarschaufel
+item.thermalfoundation.tool.invarPickaxe.name=Invarspitzhacke
+item.thermalfoundation.tool.invarAxe.name=Invaraxt
+item.thermalfoundation.tool.invarHoe.name=Invarhacke
+item.thermalfoundation.tool.invarShears.name=Invarschere
+item.thermalfoundation.tool.invarFishingRod.name=Invarangel
+item.thermalfoundation.tool.invarSickle.name=Invarsichel
+item.thermalfoundation.tool.invarBow.name=Verstärkter Invarbogen
+
+item.thermalfoundation.tool.platinumSword.name=Platinschwert
+item.thermalfoundation.tool.platinumShovel.name=Platinschaufel
+item.thermalfoundation.tool.platinumPickaxe.name=Platinspitzhacke
+item.thermalfoundation.tool.platinumAxe.name=Platinaxt
+item.thermalfoundation.tool.platinumHoe.name=Platinhacke
+item.thermalfoundation.tool.platinumShears.name=Platinschere
+item.thermalfoundation.tool.platinumFishingRod.name=Platinangel
+item.thermalfoundation.tool.platinumSickle.name=Platinsichel
+item.thermalfoundation.tool.platinumBow.name=Verstärkter Platinbogen
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
+itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Tools
+itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Rüstung
 
-tab.thermalfoundation.lexicon.study.0=Konsultiere das Wissen der Welt und ändere deine Bestimmung.
+tab.thermalfoundation.lexicon.study.0=Erlange das Wissen der Welt und ändere deine Bestimmung.
+tab.thermalfoundation.lexicon.study.1=Stärken Sie das Lexikon, um die Welt zu zwingen, Dir zu gehorchen.
 tab.thermalfoundation.lexicon.transmute.0=Wandelt gleichwertige Items in einander um, einem arkanen Regelwerk folgend, das von höheren Mächten festgelegt wurde.
+tab.thermalfoundation.lexicon.transmute.1=Unterdrücke das Lexicon um auf die Herrschaft über die Welt zu verzichten.
 
 tile.thermalfoundation.fluid.redstone.name=Destabilisieres Redstone
 tile.thermalfoundation.fluid.glowstone.name=Energetisiertes Glowstone
 tile.thermalfoundation.fluid.ender.name=Resonantes Ender
 tile.thermalfoundation.fluid.pyrotheum.name=Flammendes Pyrotheum
 tile.thermalfoundation.fluid.cryotheum.name=Gelenes Kryotheum
+tile.thermalfoundation.fluid.aerotheum.name=Zephyrean Aerotheum
+tile.thermalfoundation.fluid.petrootheum.name=Tektonisches Petrotheum
 tile.thermalfoundation.fluid.mana.name=Primärmana
 tile.thermalfoundation.fluid.steam.name=Dampf
 tile.thermalfoundation.fluid.coal.name=Verflüssigte Kohle
@@ -133,20 +299,32 @@ tile.thermalfoundation.ore.copper.name=Kupfererz
 tile.thermalfoundation.ore.tin.name=Zinnerz
 tile.thermalfoundation.ore.silver.name=Silbererz
 tile.thermalfoundation.ore.lead.name=Bleierz
-tile.thermalfoundation.ore.nickel.name=Ferröses Erz
-tile.thermalfoundation.ore.platinum.name=Schillerndes Erz
-tile.thermalfoundation.ore.mithril.name=Mit Mana infundiertes Erz
+tile.thermalfoundation.ore.nickel.name=Nickelerz
+tile.thermalfoundation.ore.platinum.name=Platinerz
+tile.thermalfoundation.ore.mithril.name=Mithrilerz
 
 tile.thermalfoundation.storage.copper.name=Kupferblock
 tile.thermalfoundation.storage.tin.name=Zinnblock
 tile.thermalfoundation.storage.silver.name=Silberblock
 tile.thermalfoundation.storage.lead.name=Bleiblock
-tile.thermalfoundation.storage.nickel.name=Ferröser Block
-tile.thermalfoundation.storage.platinum.name=Schillernder Block
-tile.thermalfoundation.storage.mithril.name=Mit Mana infundierter Block
+tile.thermalfoundation.storage.nickel.name=Nickelblock
+tile.thermalfoundation.storage.platinum.name=Platinblock
+tile.thermalfoundation.storage.mithril.name=Mithrilblock
 tile.thermalfoundation.storage.electrum.name=Elektrumblock
 tile.thermalfoundation.storage.invar.name=Invarblock
 tile.thermalfoundation.storage.bronze.name=Bronzeblock
 tile.thermalfoundation.storage.signalum.name=Signalumblock
 tile.thermalfoundation.storage.lumium.name=Lumiumblock
 tile.thermalfoundation.storage.enderium.name=Enderiumblock
+
+#Tinker's Construct Compatibility
+material.thermalfoundation.invar=Invar
+material.thermalfoundation.nickel=Nickel
+material.thermalfoundation.lead=Blei
+material.thermalfoundation.lead.ability=Schwer
+material.thermalfoundation.silver=Silber
+material.thermalfoundation.silver.ability=Glänzend
+material.thermalfoundation.platinum=Platin
+material.thermalfoundation.platinum.ability=Dicht
+material.thermalfoundation.electrum=Elektrum
+material.thermalfoundation.electrum.ability=Phantastisch
