@@ -17,6 +17,7 @@ import cofh.thermalfoundation.item.TFItems;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.plugins.TFPlugins;
 import cofh.thermalfoundation.util.EventHandlerLexicon;
+import cofh.thermalfoundation.util.IMCHandler;
 import cofh.thermalfoundation.util.LexiconManager;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.CustomProperty;
@@ -24,6 +25,8 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
+import cpw.mods.fml.common.event.FMLInterModComms.IMCEvent;
 import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -46,7 +49,7 @@ public class ThermalFoundation extends BaseMod {
 
 	public static final String modId = "ThermalFoundation";
 	public static final String modName = "Thermal Foundation";
-	public static final String version = "1.7.10R1.2.1B1";
+	public static final String version = "1.7.10R1.2.1";
 	public static final String dependencies = "required-after:CoFHCore@[" + CoFHCore.version + ",)";
 	public static final String releaseURL = "https://raw.github.com/CoFH/Version/master/ThermalFoundation";
 	public static final String modGuiFactory = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
@@ -129,6 +132,8 @@ public class ThermalFoundation extends BaseMod {
 	@EventHandler
 	public void loadComplete(FMLLoadCompleteEvent event) {
 
+		IMCHandler.instance.handleIMC(FMLInterModComms.fetchRuntimeMessages(this));
+
 		LexiconManager.loadComplete();
 
 		TFPlugins.loadComplete();
@@ -137,13 +142,19 @@ public class ThermalFoundation extends BaseMod {
 		config.cleanUp(false, true);
 		configClient.cleanUp(false, true);
 
-		log.info("Load Complete.");
+		log.info("Thermal Foundation: Load Complete.");
 	}
 
 	@EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {
 
 		TFFluids.registerDispenserHandlers();
+	}
+
+	@EventHandler
+	public void handleIMC(IMCEvent theIMC) {
+
+		IMCHandler.instance.handleIMC(theIMC.getMessages());
 	}
 
 	/* LOADING FUNCTIONS */

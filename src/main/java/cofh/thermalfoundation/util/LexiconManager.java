@@ -26,7 +26,7 @@ public class LexiconManager {
 	private static LexiconManager instance = new LexiconManager();
 
 	private static HashSet<String> listNames = new HashSet<String>();
-	private static HashSet<ItemWrapper> listOres = new HashSet<ItemWrapper>();
+	private static HashSet<ItemWrapper> blacklistStacks = new HashSet<ItemWrapper>();
 	private static List<String> sortedNames = new ArrayList<String>();
 
 	public static boolean isWhitelist = true;
@@ -169,8 +169,10 @@ public class LexiconManager {
 
 	public static boolean validOre(ItemStack stack) {
 
-		return ItemHelper.hasOreName(stack) ? isWhitelist == (listOres.contains(new ItemWrapper(stack)) || listNames.contains(OreDictionaryArbiter
-				.getOreName(stack))) : false;
+		if (blacklistStacks.contains(new ItemWrapper(stack))) {
+			return false;
+		}
+		return ItemHelper.hasOreName(stack) ? isWhitelist == listNames.contains(OreDictionaryArbiter.getOreName(stack)) : false;
 	}
 
 	public static boolean validType(String oreName) {
@@ -178,6 +180,7 @@ public class LexiconManager {
 		return isWhitelist == listNames.contains(oreName);
 	}
 
+	/* Player Interaction */
 	public static ItemStack getPreferredStack(EntityPlayer player, ItemStack stack) {
 
 		NBTTagCompound tag = player.getEntityData();
@@ -241,4 +244,20 @@ public class LexiconManager {
 		return lexicon.hasKey(oreName);
 	}
 
+	/* Entry Management */
+	public static boolean addBlacklistEntry(ItemStack stack) {
+
+		if (stack == null) {
+			return false;
+		}
+		return blacklistStacks.add(new ItemWrapper(stack));
+	}
+
+	public static boolean removeBlacklistEntry(ItemStack stack) {
+
+		if (stack == null) {
+			return false;
+		}
+		return blacklistStacks.remove(new ItemWrapper(stack));
+	}
 }

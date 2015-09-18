@@ -37,7 +37,6 @@ public class ShaderStarfield {
 				ARBShaderObjects.glUniform1fARB(alpha, ShaderStarfield.alpha);
 				prevAlpha = ShaderStarfield.alpha;
 			}
-
 			Minecraft mc = Minecraft.getMinecraft();
 
 			int x = ARBShaderObjects.glGetUniformLocationARB(shader, "yaw");

@@ -5,6 +5,7 @@ import cpw.mods.fml.common.event.FMLInterModComms.IMCMessage;
 
 import java.util.List;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class IMCHandler {
@@ -19,16 +20,13 @@ public class IMCHandler {
 				if (theMessage.isNBTMessage()) {
 					theNBT = theMessage.getNBTValue();
 
-					// if (theMessage.key.equalsIgnoreCase("FurnaceRecipe")) {
-					// FurnaceManager.addRecipe(theNBT.getInteger("energy"), ItemStack.loadItemStackFromNBT(theNBT.getCompoundTag("input")), ItemStack
-					// .loadItemStackFromNBT(theNBT.getCompoundTag("output")), theNBT.hasKey("overwrite") ? theNBT.getBoolean("overwrite") : false);
-					// continue;
-					// }
-					//
-					// else if (theMessage.key.equalsIgnoreCase("RemoveFurnaceRecipe")) {
-					// FurnaceManager.removeRecipe(ItemStack.loadItemStackFromNBT(theNBT.getCompoundTag("input")));
-					// continue;
-					// }
+					if (theMessage.key.equalsIgnoreCase("AddLexiconBlacklistEntry")) {
+						LexiconManager.addBlacklistEntry(ItemStack.loadItemStackFromNBT(theNBT.getCompoundTag("entry")));
+						continue;
+					} else if (theMessage.key.equalsIgnoreCase("RemoveLexiconBlacklistEntry")) {
+						LexiconManager.removeBlacklistEntry(ItemStack.loadItemStackFromNBT(theNBT.getCompoundTag("entry")));
+						continue;
+					}
 					ThermalFoundation.log.warn("Thermal Foundation received an invalid IMC from " + theMessage.getSender() + "! Key was " + theMessage.key);
 				}
 			} catch (Exception e) {
