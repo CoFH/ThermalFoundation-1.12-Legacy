@@ -93,11 +93,11 @@ public class TFPlugins {
 
 	public static void preInit() {
 
-		ThermalFoundation.log.info("Loading Plugins...");
+		ThermalFoundation.log.info("Thermal Foundation: Loading Plugins...");
 		for (int i = 0; i < pluginList.size(); i++) {
 			pluginList.get(i).preInit();
 		}
-		ThermalFoundation.log.info("Finished Loading Plugins.");
+		ThermalFoundation.log.info("Thermal Foundation: Finished Loading Plugins.");
 	}
 
 	public static void initialize() {

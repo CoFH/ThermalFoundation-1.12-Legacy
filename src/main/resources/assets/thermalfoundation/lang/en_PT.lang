@@ -1,0 +1,133 @@
+#en_PT
+
+fluid.ender=Resonant Endarr
+fluid.aerotheum=Zephyrean Arrotheum
+
+item.thermalfoundation.bucket.bucketEnder.name=Resonant Endarr Bucket
+item.thermalfoundation.bucket.bucketAerotheum.name=Zephyrean Arrotheum Bucket
+
+item.thermalfoundation.material.dustIron.name=Pulvarrized Iron
+item.thermalfoundation.material.dustGold.name=Pulvarrized Gold
+item.thermalfoundation.material.dustCoal.name=Pulvarrized Coal
+item.thermalfoundation.material.dustCharcoal.name=Pulvarrized Charrcoal
+item.thermalfoundation.material.dustObsidian.name=Pulvarrized Obsidian
+
+item.thermalfoundation.material.nuggetIron.name=Iron Nugget
+item.thermalfoundation.material.gearIron.name=Iron Gearr
+item.thermalfoundation.material.gearGold.name=Gold Gearr
+
+item.thermalfoundation.material.dustSulfur.name=Sulfur
+item.thermalfoundation.material.dustNiter.name=Nitarr
+
+item.thermalfoundation.material.crystalCinnabar.name=Cinnabarr
+
+item.thermalfoundation.material.dustCopper.name=Pulvarrized Copparr
+item.thermalfoundation.material.dustTin.name=Pulvarrized Tin
+item.thermalfoundation.material.dustSilver.name=Pulvarrized Silvarr
+item.thermalfoundation.material.dustLead.name=Pulvarrized Lead
+item.thermalfoundation.material.dustNickel.name=Pulvarrized Ferrous Metal
+item.thermalfoundation.material.dustPlatinum.name=Pulvarrized Shiny Metal
+item.thermalfoundation.material.dustMithril.name=Pulvarrized Mana Infused Metal
+item.thermalfoundation.material.dustInvar.name=Invarr Blend
+
+item.thermalfoundation.material.ingotCopper.name=Copparr Barrr
+item.thermalfoundation.material.ingotTin.name=Tin Barrr
+item.thermalfoundation.material.ingotSilver.name=Silvarr Barrr
+item.thermalfoundation.material.ingotLead.name=Lead Barrr
+item.thermalfoundation.material.ingotNickel.name=Ferrous Barrr
+item.thermalfoundation.material.ingotPlatinum.name=Shiny Barrr
+item.thermalfoundation.material.ingotMithril.name=Mana Infused Barrr
+item.thermalfoundation.material.ingotElectrum.name=Electrum Barrr
+item.thermalfoundation.material.ingotInvar.name=Invarr Barrr
+item.thermalfoundation.material.ingotBronze.name=Bronze Barrr
+item.thermalfoundation.material.ingotSignalum.name=Signalum Barrr
+item.thermalfoundation.material.ingotLumium.name=Lumium Barrr
+item.thermalfoundation.material.ingotEnderium.name=Enderium Barrr
+
+item.thermalfoundation.material.nuggetCopper.name=Copparr Nugget
+item.thermalfoundation.material.nuggetSilver.name=Silvarr Nugget
+item.thermalfoundation.material.nuggetInvar.name=Invarr Nugget
+
+item.thermalfoundation.material.gearCopper.name=Copparr Gearr
+item.thermalfoundation.material.gearTin.name=Tin Gearr
+item.thermalfoundation.material.gearSilver.name=Silvarr Gearr
+item.thermalfoundation.material.gearLead.name=Lead Gearr
+item.thermalfoundation.material.gearNickel.name=Ferrous Gearr
+item.thermalfoundation.material.gearPlatinum.name=Shiny Gearr
+item.thermalfoundation.material.gearMithril.name=Mana Infused Gearr
+item.thermalfoundation.material.gearElectrum.name=Electrum Gearr
+item.thermalfoundation.material.gearInvar.name=Invarr Gearr
+item.thermalfoundation.material.gearBronze.name=Bronze Gearr
+item.thermalfoundation.material.gearSignalum.name=Signalum Gearr
+item.thermalfoundation.material.gearLumium.name=Lumium Gearr
+item.thermalfoundation.material.gearEnderium.name=Enderium Gearr
+
+item.thermalfoundation.material.dustBlizz.name=Blizz Powdarr
+item.thermalfoundation.material.dustBlitz.name=Blitz Powdarr
+item.thermalfoundation.material.dustBasalz.name=Basalz Powdarr
+
+item.thermalfoundation.armor.copperHelmet.name=Copparr Helmet
+item.thermalfoundation.armor.copperPlate.name=Copparr Chestplate
+item.thermalfoundation.armor.copperLegs.name=Copparr Leggings
+item.thermalfoundation.armor.copperBoots.name=Copparr Boots
+
+item.thermalfoundation.armor.silverHelmet.name=Silvarr Helmet
+item.thermalfoundation.armor.silverPlate.name=Silvarr Chestplate
+item.thermalfoundation.armor.silverLegs.name=Silvarr Leggings
+item.thermalfoundation.armor.silverBoots.name=Silvarr Boots
+
+item.thermalfoundation.armor.invarHelmet.name=Invarr Helmet
+item.thermalfoundation.armor.invarPlate.name=Invarr Chestplate
+item.thermalfoundation.armor.invarLegs.name=Invarr Leggings
+item.thermalfoundation.armor.invarBoots.name=Invarr Boots
+
+item.thermalfoundation.tool.copperSword.name=Copparr Sword
+item.thermalfoundation.tool.copperShovel.name=Copparr Shovel
+item.thermalfoundation.tool.copperPickaxe.name=Copparr Pickaxe
+item.thermalfoundation.tool.copperAxe.name=Copparr Axe
+item.thermalfoundation.tool.copperHoe.name=Copparr Hoe
+item.thermalfoundation.tool.copperShears.name=Copparr Shears
+item.thermalfoundation.tool.copperFishingRod.name=Copparr Fishing Rod
+item.thermalfoundation.tool.copperSickle.name=Copparr Sickle
+item.thermalfoundation.tool.copperBow.name=Copparr Reinforced Bow
+
+item.thermalfoundation.tool.silverSword.name=Silvarr Sword
+item.thermalfoundation.tool.silverShovel.name=Silvarr Shovel
+item.thermalfoundation.tool.silverPickaxe.name=Silvarr Pickaxe
+item.thermalfoundation.tool.silverAxe.name=Silvarr Axe
+item.thermalfoundation.tool.silverHoe.name=Silvarr Hoe
+item.thermalfoundation.tool.silverShears.name=Silvarr Shears
+item.thermalfoundation.tool.silverFishingRod.name=Silvarr Fishing Rod
+item.thermalfoundation.tool.silverSickle.name=Silvarr Sickle
+item.thermalfoundation.tool.silverBow.name=Silvarr Reinforced Bow
+
+item.thermalfoundation.tool.invarSword.name=Invarr Sword
+item.thermalfoundation.tool.invarShovel.name=Invarr Shovel
+item.thermalfoundation.tool.invarPickaxe.name=Invarr Pickaxe
+item.thermalfoundation.tool.invarAxe.name=Invarr Axe
+item.thermalfoundation.tool.invarHoe.name=Invarr Hoe
+item.thermalfoundation.tool.invarShears.name=Invarr Shears
+item.thermalfoundation.tool.invarFishingRod.name=Invarr Fishing Rod
+item.thermalfoundation.tool.invarSickle.name=Invarr Sickle
+item.thermalfoundation.tool.invarBow.name=Invarr Reinforced Bow
+
+itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Arrmor
+
+tile.thermalfoundation.fluid.ender.name=Resonant Endarr
+tile.thermalfoundation.fluid.aerotheum.name=Zephyrean Arrotheum
+
+tile.thermalfoundation.ore.copper.name=Buried Copparr
+tile.thermalfoundation.ore.tin.name=Buried Tin
+tile.thermalfoundation.ore.silver.name=Buried Silvarr
+tile.thermalfoundation.ore.lead.name=Buried Lead
+tile.thermalfoundation.ore.nickel.name=Buried Ferrous Metal
+tile.thermalfoundation.ore.platinum.name=Buried Shiny Metal
+tile.thermalfoundation.ore.mithril.name=Buried Mana Infused Metal
+
+tile.thermalfoundation.storage.copper.name=Copparr Block
+tile.thermalfoundation.storage.silver.name=Silvarr Block
+tile.thermalfoundation.storage.invar.name=Invarr Block
+
+#Tinker's Construct Compatibility
+material.thermalfoundation.invar=Invarr
+material.thermalfoundation.silver=Silvarr
