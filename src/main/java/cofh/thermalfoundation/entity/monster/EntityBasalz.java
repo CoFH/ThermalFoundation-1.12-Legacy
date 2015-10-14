@@ -228,6 +228,7 @@ public class EntityBasalz extends EntityMob {
 		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(this.posX - dist, this.posY - dist, this.posZ - dist, this.posX + dist, this.posY + dist, this.posZ
 				+ dist);
 		EntitySelectorInRangeByType entsel = new EntitySelectorInRangeByType(this, dist, EntityVillager.class);
+		// TODO: should this target INpc instead?
 		List<Entity> entities = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, aabb, entsel);
 		if (entities.isEmpty()) {
 			return null;
