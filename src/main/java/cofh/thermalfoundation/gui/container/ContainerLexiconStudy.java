@@ -179,4 +179,10 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 		return null;
 	}
 
+	@Override
+	protected int getPlayerInventoryVerticalOffset() {
+
+		return 84;
+	}
+
 }
