@@ -1,5 +1,7 @@
 # Slovak translations for the mod 'Thermal Foundation', if this translations get outdated, contact me on Twitter @leSamoSK
 
+death.attack.basalz=%1$s bol ukameňovaný!
+death.attack.blitz=%1$s bol tragicky osvietený!
 death.attack.blizz=%1$s stretol mrazivý osud!
 death.attack.cryotheum=%1$s zamrzol!
 death.attack.cryotheum.player=%1$s zamrzol pri úteku od %2$s!
@@ -7,9 +9,13 @@ death.attack.flux=%1$s mal roztrhanú realitu fluxom!
 death.attack.flux.player=%2$s ufluxoval %1$s k smrti!
 death.attack.pyrotheum=%1$s si pomýlil pyroteum s vodou!
 death.attack.pyrotheum.player=%1$s zhorel zaživa pri úteku od %2$s!
+death.attack.petrotheum=%1$s bol rozložený!
+death.attack.petrotheum.player=%1$s sa roztrieštil pri úteku od %2$s!
 death.attack.mana=%1$s bol roztrhaný surovou manou!
 death.attack.mana.player=%1$s zmenil skupenstvo pri úteku od %2$s!
 
+# entity.Basalz.name=Basalz
+# entity.Blitz.name=Blitz
 entity.Blizz.name=Ľadovák
 
 fluid.redstone=Destabilizovaný rudit
@@ -18,6 +24,8 @@ fluid.ender=Zvučné endérium
 fluid.pyrotheum=Sálajúce pyroteum
 fluid.cryotheum=Ľadové kryoteum
 fluid.mana=Mana
+fluid.aerotheum=Zafírske aeroteum
+fluid.petrotheum=Tektonické petroteum
 fluid.steam=Para
 fluid.coal=Tekuté uhlie
 
@@ -29,16 +37,25 @@ item.thermalfoundation.bucket.bucketGlowstone.name=Vedro nabitého svietivca
 item.thermalfoundation.bucket.bucketEnder.name=Vedro zvučného endéria
 item.thermalfoundation.bucket.bucketPyrotheum.name=Vedro sálajúceho pyrotea
 item.thermalfoundation.bucket.bucketCryotheum.name=Vedro ľadového kryotea
+item.thermalfoundation.bucket.bucketAerotheum.name=Vedro zafírskeho aerotea
+item.thermalfoundation.bucket.bucketPetrotheum.name=Vedro tektonického petrotea
 item.thermalfoundation.bucket.bucketMana.name=Vedro many
 item.thermalfoundation.bucket.bucketCoal.name=Vedro tekutého uhlia
 
-info.thermalfoundation.tome.lexicon.1=Converts items to equivalent forms.
-info.thermalfoundation.tome.lexicon.2=Right click (open) to study.
-info.thermalfoundation.tome.lexicon.3=to gain wisdom!
-info.thermalfoundation.tome.lexicon.4=Right click (open) to transmute items.
-info.thermalfoundation.tome.lexicon.5=to forsake knowledge.
-item.thermalfoundation.tome.lexicon.name=Forge Lexicon
-item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexicon (Empowered)
+info.thermalfoundation.tome.lexicon.1=Konvertuje predmety na ich ekvivalentné formy.
+info.thermalfoundation.tome.lexicon.2=Pravým tlačidlom myši začnete študovať.
+info.thermalfoundation.tome.lexicon.3=na získanie rozumu!
+info.thermalfoundation.tome.lexicon.4=Pravým tlačidlom myši začnete transmutovať.
+info.thermalfoundation.tome.lexicon.5=na stratenie znalostí.
+item.thermalfoundation.tome.lexicon.name=Forge Lexikón
+item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexikón (Nabitý)
+
+info.thermalfoundation.lexicon.clearPreference=Vymazať preferencie
+info.thermalfoundation.lexicon.setPreference=Nastaviť preferencie
+info.thermalfoundation.lexicon.nextEntry=Ďalší vstup
+info.thermalfoundation.lexicon.prevEntry=Predchadzajúci vstup
+info.thermalfoundation.lexicon.singleEntry=Iba jeden vstup
+info.thermalfoundation.lexicon.search=Hľadať
 
 item.thermalfoundation.material.dustIron.name=Práškové železo
 item.thermalfoundation.material.dustGold.name=Práškové zlato
@@ -99,6 +116,8 @@ item.thermalfoundation.material.nuggetEnderium.name=Enderový nuget
 
 item.thermalfoundation.material.dustPyrotheum.name=Práškové pyroteum
 item.thermalfoundation.material.dustCryotheum.name=Práškové kryoteum
+item.thermalfoundation.material.dustAerotheum.name=Práškové aeroteum
+item.thermalfoundation.material.dustPetrotheum.name=Práškové petroteum
 item.thermalfoundation.material.dustMana.name=Práškový mithril
 
 item.thermalfoundation.material.gearCopper.name=Medené ozubené koleso
@@ -116,7 +135,11 @@ item.thermalfoundation.material.gearLumium.name=Lumiové ozubené koleso
 item.thermalfoundation.material.gearEnderium.name=Enderové ozubené koleso
 
 item.thermalfoundation.material.rodBlizz.name=Ľadová tyč
-item.thermalfoundation.material.dustBlizz.name=Ľadový prášok
+item.thermalfoundation.material.dustBlizz.name=Ľadový prach
+# item.thermalfoundation.material.rodBlitz.name=Blitz Rod
+# item.thermalfoundation.material.dustBlitz.name=Blitz Powder
+# item.thermalfoundation.material.rodBasalz.name=Basalz Rod
+# item.thermalfoundation.material.dustBasalz.name=Basalz Powder
 
 item.thermalfoundation.armor.copperHelmet.name=Medená prilba
 item.thermalfoundation.armor.copperPlate.name=Medené brnenie
@@ -267,6 +290,8 @@ tile.thermalfoundation.fluid.glowstone.name=Nabitý svietivec
 tile.thermalfoundation.fluid.ender.name=Zvučné endérium
 tile.thermalfoundation.fluid.pyrotheum.name=Sálajúce pyroteum
 tile.thermalfoundation.fluid.cryotheum.name=Ľadové kryoteum
+tile.thermalfoundation.fluid.aerotheum.name=Zafírske aeroteum
+tile.thermalfoundation.fluid.petrotheum.name=Tektonické petroteum
 tile.thermalfoundation.fluid.mana.name=Mana
 tile.thermalfoundation.fluid.steam.name=Para
 tile.thermalfoundation.fluid.coal.name=Tekuté uhlie
