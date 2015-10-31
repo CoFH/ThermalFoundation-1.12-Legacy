@@ -32,7 +32,7 @@ public enum Equipment {
 	Copper(      1,  175,  4.0F,   0.5F,    6,    6, new int[] { 1, 3, 3, 1 }),
 	Tin(         1,  200,  4.5F,   1.0F,    7,    8, new int[] { 1, 4, 3, 1 }),
 	Silver(      2,  200,  6.0F,   1.5F,   20,   11, new int[] { 2, 4, 4, 1 }),
-	Lead(        1,  150,    5F,   1.0F,    9,   15, new int[] { 3, 5, 4, 2 }) {
+	Lead(        1,  150,    5F,   1.0F,    9,   15, new int[] { 2, 5, 4, 3 }) {
 
 		@Override
 		protected final void createArmor() {
@@ -64,8 +64,8 @@ public enum Equipment {
 	},
 	Nickel(      2,  300,  6.5F,   2.5F,   18,   15, new int[] { 2, 5, 5, 2 }),
 	Electrum(    0,  100, 14.0F,   0.5F,   30,    8, new int[] { 2, 4, 4, 2 }),
-	Invar(       2,  450,  7.0F,   3.0F,   16,   25, new int[] { 2, 7, 5, 2 }),
-	Bronze(      2,  500,  6.0F,   2.0F,   15,   17, new int[] { 3, 6, 6, 2 }),
+	Invar(       2,  450,  7.0F,   3.0F,   16,   21, new int[] { 2, 7, 5, 2 }),
+	Bronze(      2,  500,  6.0F,   2.0F,   15,   18, new int[] { 3, 6, 6, 2 }),
 	Platinum(    4, 1700,  9.0F,   4.0F,    9,   40, new int[] { 3, 8, 6, 3 }) {
 
 		@Override
@@ -79,12 +79,12 @@ public enum Equipment {
 			itemHelmet = new ItemArmorAdv(ARMOR_MATERIAL, 0);
 			itemHelmet.putAttribute("generic.knockbackResistance", knockbackBonus);
 			itemHelmet.putAttribute("generic.movementSpeed", movementBonus);
-			knockbackBonus = new AttributeModifier("platinum weight bonus", .20, 0);
+			knockbackBonus = new AttributeModifier("platinum weight bonus", .25, 0);
 			movementBonus = new AttributeModifier("platinum weight bonus", -.08, 2);
 			itemPlate = new ItemArmorAdv(ARMOR_MATERIAL, 1);
 			itemPlate.putAttribute("generic.knockbackResistance", knockbackBonus);
 			itemPlate.putAttribute("generic.movementSpeed", movementBonus);
-			knockbackBonus = new AttributeModifier("platinum weight bonus", .20, 0);
+			knockbackBonus = new AttributeModifier("platinum weight bonus", .25, 0);
 			movementBonus = new AttributeModifier("platinum weight bonus", -.08, 2);
 			itemLegs = new ItemArmorAdv(ARMOR_MATERIAL, 2);
 			itemLegs.putAttribute("generic.knockbackResistance", knockbackBonus);
