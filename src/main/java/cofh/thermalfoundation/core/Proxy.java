@@ -34,7 +34,7 @@ public class Proxy {
 	public void livingDrops(LivingDropsEvent evt) {
 
 		Entity entity = evt.entity;
-		if (entity.isImmuneToFire()) {
+		if (entity.isImmuneToFire() && TFProps.dropSulfurFireImmune) {
 			boolean s = entity instanceof EntitySlime;
 			if (evt.entityLiving.getRNG().nextInt(6 + (s ? 16 : 0)) != 0) {
 				return;

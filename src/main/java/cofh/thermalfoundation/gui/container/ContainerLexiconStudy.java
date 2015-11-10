@@ -3,6 +3,7 @@ package cofh.thermalfoundation.gui.container;
 import cofh.core.util.oredict.OreDictionaryArbiter;
 import cofh.lib.gui.container.ContainerInventoryItem;
 import cofh.lib.gui.slot.SlotLocked;
+import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
 
@@ -99,9 +100,16 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 	public void onSelectionChanged(String oreName) {
 
 		oreList = OreDictionaryArbiter.getOres(oreName);
-		oreSelection = 0;
-
-		lexiconInv.setInventorySlotContents(0, oreList.get(oreSelection));
+		if (LexiconManager.hasPreferredStack(player, oreName)) {
+			ItemStack ore = LexiconManager.getPreferredStack(player, oreName);
+			lexiconInv.setInventorySlotContents(0, ore);
+			for (int i = 0; i < oreList.size(); i++) {
+				if (ItemHelper.itemsIdentical(oreList.get(i), ore)) {
+					oreSelection = i;
+					break;
+				}
+			}
+		}
 		PacketTFBase.sendLexiconStudySelectPacketToServer(ContainerLexiconStudy.SELECT_ORE, (oreName));
 	}
 
@@ -127,7 +135,7 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 				ItemStack ore = LexiconManager.getPreferredStack(player, oreName);
 				lexiconInv.setInventorySlotContents(0, ore);
 				for (int i = 0; i < oreList.size(); i++) {
-					if (oreList.get(i) == ore) {
+					if (ItemHelper.itemsIdentical(oreList.get(i), ore)) {
 						oreSelection = i;
 						break;
 					}

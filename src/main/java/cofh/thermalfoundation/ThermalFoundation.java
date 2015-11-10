@@ -166,19 +166,18 @@ public class ThermalFoundation extends BaseMod {
 		String category;
 		String comment;
 
-		/* Graphics */
-		TFProps.iconBlazePowder = ThermalFoundation.configClient.get("Icons", "BlazePowder", TFProps.iconBlazePowder,
-				"Set to FALSE to revert Blaze Powder to the default Minecraft icon.");
+		/* GENERAL */
+		comment = "If TRUE, Fire-Immune mobs have a chance to drop Sulfur.";
+		TFProps.dropSulfurFireImmune = ThermalFoundation.config.get("General", "FireImmuneDropSulfur", TFProps.dropSulfurFireImmune, comment);
 
-		TFProps.renderStarfieldCage = ThermalFoundation.configClient.get("Render", "CageyEnder", TFProps.renderStarfieldCage,
-				"Set to TRUE for Ender devices to be a bit more Cagey year-round.");
+		/* GRAPHICS */
+		comment = "Set to FALSE to revert Blaze Powder to the default Minecraft icon.";
+		TFProps.iconBlazePowder = ThermalFoundation.configClient.get("Icons", "BlazePowder", TFProps.iconBlazePowder, comment);
 
-		/* Holidays */
-		category = "Holiday";
-		comment = "Set this to TRUE to disable April Foolishness.";
-		TFProps.holidayAprilFools = !config.get(category, "IHateApril", false, comment);
+		comment = "Set to TRUE for Ender devices to be a bit more Cagey year-round.";
+		TFProps.renderStarfieldCage = ThermalFoundation.configClient.get("Render", "CageyEnder", TFProps.renderStarfieldCage, comment);
 
-		/* Interface */
+		/* INTERFACE */
 		category = "Interface.CreativeTab";
 		boolean armorTab = false;
 		boolean toolTab = false;
@@ -189,7 +188,7 @@ public class ThermalFoundation extends BaseMod {
 		comment = "Set to TRUE to put Thermal Foundation Tools under the general \"Thermal Foundation\" Creative Tab.";
 		toolTab = configClient.get(category, "ToolsInCommonTab", toolTab);
 
-		/* Equipment */
+		/* EQUIPMENT */
 		category = "Equipment";
 		comment = "Set to TRUE to disable ALL armor sets.";
 		TFProps.disableAllArmor = config.get(category, "DisableAllArmor", TFProps.disableAllArmor, comment);
