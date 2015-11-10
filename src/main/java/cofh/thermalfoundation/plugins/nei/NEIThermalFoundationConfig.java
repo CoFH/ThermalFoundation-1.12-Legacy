@@ -6,6 +6,9 @@ import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.core.TFProps;
 import cofh.thermalfoundation.item.Equipment;
 
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+
 public class NEIThermalFoundationConfig implements IConfigureNEI {
 
 	/* IConfigureNEI */
@@ -17,37 +20,37 @@ public class NEIThermalFoundationConfig implements IConfigureNEI {
 		}
 		for (Equipment e : Equipment.values()) {
 			if (!e.enableArmor) {
-				API.hideItem(e.armorHelmet);
-				API.hideItem(e.armorPlate);
-				API.hideItem(e.armorLegs);
-				API.hideItem(e.armorBoots);
+				API.hideItem(new ItemStack(e.armorHelmet.getItem(), 1, OreDictionary.WILDCARD_VALUE));
+				API.hideItem(new ItemStack(e.armorPlate.getItem(), 1, OreDictionary.WILDCARD_VALUE));
+				API.hideItem(new ItemStack(e.armorLegs.getItem(), 1, OreDictionary.WILDCARD_VALUE));
+				API.hideItem(new ItemStack(e.armorBoots.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
 			if (!e.enableTools[0]) {
-				API.hideItem(e.toolSword);
+				API.hideItem(new ItemStack(e.toolSword.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
 			if (!e.enableTools[1]) {
-				API.hideItem(e.toolShovel);
+				API.hideItem(new ItemStack(e.toolShovel.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
 			if (!e.enableTools[2]) {
-				API.hideItem(e.toolPickaxe);
+				API.hideItem(new ItemStack(e.toolPickaxe.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
 			if (!e.enableTools[3]) {
-				API.hideItem(e.toolAxe);
+				API.hideItem(new ItemStack(e.toolAxe.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
 			if (!e.enableTools[4]) {
-				API.hideItem(e.toolHoe);
+				API.hideItem(new ItemStack(e.toolHoe.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
 			if (!e.enableTools[5]) {
-				API.hideItem(e.toolShears);
+				API.hideItem(new ItemStack(e.toolShears.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
 			if (!e.enableTools[6]) {
-				API.hideItem(e.toolFishingRod);
+				API.hideItem(new ItemStack(e.toolFishingRod.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
 			if (!e.enableTools[7]) {
-				API.hideItem(e.toolSickle);
+				API.hideItem(new ItemStack(e.toolSickle.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
 			if (!e.enableTools[8]) {
-				API.hideItem(e.toolBow);
+				API.hideItem(new ItemStack(e.toolBow.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
 		}
 	}
