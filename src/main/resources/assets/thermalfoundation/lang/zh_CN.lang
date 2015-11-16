@@ -24,7 +24,7 @@ fluid.ender=谐振熔融末影珍珠
 fluid.pyrotheum=烈焰之炽焱
 fluid.cryotheum=极寒之凛冰
 fluid.aerotheum=飘扬之狂风
-fluid.petrotheum=底土之泥石
+fluid.petrotheum=沉降之泥石
 fluid.mana=元始魔力
 fluid.steam=蒸汽
 fluid.coal=液态煤炭
@@ -38,7 +38,7 @@ item.thermalfoundation.bucket.bucketEnder.name=谐振熔融末影珍珠桶
 item.thermalfoundation.bucket.bucketPyrotheum.name=烈焰之炽焱桶
 item.thermalfoundation.bucket.bucketCryotheum.name=极寒之凛冰桶
 item.thermalfoundation.bucket.bucketAerotheum.name=飘扬之狂风桶
-item.thermalfoundation.bucket.bucketPetrotheum.name=底土之泥石桶
+item.thermalfoundation.bucket.bucketPetrotheum.name=沉降之泥石桶
 item.thermalfoundation.bucket.bucketMana.name=元始魔力桶
 item.thermalfoundation.bucket.bucketCoal.name=液态煤炭桶
 
