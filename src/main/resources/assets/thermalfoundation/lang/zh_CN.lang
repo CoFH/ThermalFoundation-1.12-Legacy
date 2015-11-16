@@ -1,5 +1,7 @@
 #zh_CN
 
+death.attack.basalz=%1$s 为世界所震撼!
+death.attack.blitz=%1$s 得到了悲剧的启蒙!
 death.attack.blizz=%1$s 邂逅了冰冷的命运!
 death.attack.cryotheum=%1$s 冻死了!
 death.attack.cryotheum.player=%1$s 为了逃脱 %2$s 而被冻死了!
@@ -9,7 +11,11 @@ death.attack.pyrotheum=%1$s 误把烈焰之炽焱当成了水!
 death.attack.pyrotheum.player=%1$s 为了逃脱 %2$s 而被活活烧死!
 death.attack.mana=%1$s 被原始魔力撕碎了!
 death.attack.mana.player=%1$s 为了逃脱 %2$s 而被转换成了另一种态!
+death.attack.petrotheum=%1$s 被彻底震撼!
+death.attack.petrotheum.player=%1$s 为了逃脱 %2$s 而被活活撕碎!
 
+entity.Basalz.name=玄武
+entity.Blitz.name=风雷
 entity.Blizz.name=暴雪
 
 fluid.redstone=不稳定熔融红石
@@ -17,6 +23,8 @@ fluid.glowstone=充能液态荧石
 fluid.ender=谐振熔融末影珍珠
 fluid.pyrotheum=烈焰之炽焱
 fluid.cryotheum=极寒之凛冰
+fluid.aerotheum=飘扬之狂风
+fluid.petrotheum=沉降之泥石
 fluid.mana=元始魔力
 fluid.steam=蒸汽
 fluid.coal=液态煤炭
@@ -29,6 +37,8 @@ item.thermalfoundation.bucket.bucketGlowstone.name=充能熔融荧石桶
 item.thermalfoundation.bucket.bucketEnder.name=谐振熔融末影珍珠桶
 item.thermalfoundation.bucket.bucketPyrotheum.name=烈焰之炽焱桶
 item.thermalfoundation.bucket.bucketCryotheum.name=极寒之凛冰桶
+item.thermalfoundation.bucket.bucketAerotheum.name=飘扬之狂风桶
+item.thermalfoundation.bucket.bucketPetrotheum.name=沉降之泥石桶
 item.thermalfoundation.bucket.bucketMana.name=元始魔力桶
 item.thermalfoundation.bucket.bucketCoal.name=液态煤炭桶
 
@@ -99,6 +109,8 @@ item.thermalfoundation.material.nuggetEnderium.name=末影粒
 
 item.thermalfoundation.material.dustPyrotheum.name=炽焱粉
 item.thermalfoundation.material.dustCryotheum.name=凛冰粉
+item.thermalfoundation.material.dustAerotheum.name=狂风粉
+item.thermalfoundation.material.dustPetrotheum.name=泥石粉
 item.thermalfoundation.material.dustMana.name=魔力粉
 
 item.thermalfoundation.material.gearCopper.name=铜齿轮
@@ -117,6 +129,10 @@ item.thermalfoundation.material.gearEnderium.name=末影齿轮
 
 item.thermalfoundation.material.rodBlizz.name=暴雪棒
 item.thermalfoundation.material.dustBlizz.name=暴雪粉
+item.thermalfoundation.material.rodBlitz.name=风雷棒
+item.thermalfoundation.material.dustBlitz.name=风雷粉
+item.thermalfoundation.material.rodBasalz.name=玄武棒
+item.thermalfoundation.material.dustBasalz.name=玄武粉
 
 item.thermalfoundation.armor.copperHelmet.name=铜头盔
 item.thermalfoundation.armor.copperPlate.name=铜胸甲
@@ -266,6 +282,8 @@ tile.thermalfoundation.fluid.glowstone.name=充能液态荧石
 tile.thermalfoundation.fluid.ender.name=谐振熔融末影珍珠
 tile.thermalfoundation.fluid.pyrotheum.name=烈焰之炽焱
 tile.thermalfoundation.fluid.cryotheum.name=极寒之凛冰
+tile.thermalfoundation.fluid.aerotheum.name=飘扬之狂风
+tile.thermalfoundation.fluid.petrotheum.name=坚土之泥石
 tile.thermalfoundation.fluid.mana.name=元始魔力
 tile.thermalfoundation.fluid.steam.name=蒸汽
 tile.thermalfoundation.fluid.coal.name=液态煤炭
