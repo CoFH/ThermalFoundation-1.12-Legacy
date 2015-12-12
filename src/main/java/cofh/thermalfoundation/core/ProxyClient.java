@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.core;
 
 import cofh.core.render.IconRegistry;
+import cofh.lib.render.RenderFluidOverlayItem;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlazeBolt;
@@ -19,6 +20,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Items;
+import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.fluids.Fluid;
 
@@ -37,6 +39,7 @@ public class ProxyClient extends Proxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBlitzBolt.class, renderBlitzBolt);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBasalzBolt.class, renderBasalzBolt);
 
+		MinecraftForgeClient.registerItemRenderer(TFItems.itemBucket, new RenderFluidOverlayItem());
 	}
 
 	@SideOnly(Side.CLIENT)
