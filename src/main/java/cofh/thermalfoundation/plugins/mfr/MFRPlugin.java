@@ -25,7 +25,7 @@ public class MFRPlugin {
 
 		comment = "This controls the maximum distance (in blocks) a player will teleport from drinking Ender. (Min: 8, Max: 65536)";
 		strawEnderRange = ThermalFoundation.config.get(category, "Ender.Range", strawEnderRange, comment);
-		strawEnderRange = MathHelper.clampI(strawEnderRange, 8, 65536);
+		strawEnderRange = MathHelper.clamp(strawEnderRange, 8, 65536);
 	}
 
 	public static void initialize() {

@@ -60,13 +60,13 @@ public class EntityBlitz extends EntityMob {
 		restrictLightLevel = ThermalFoundation.config.get(category, "Light.Limit", restrictLightLevel, comment);
 
 		comment = "This sets the maximum light level Blitzes can spawn at, if restricted.";
-		spawnLightLevel = MathHelper.clampI(ThermalFoundation.config.get(category, "Light.Level", spawnLightLevel, comment), 0, 15);
+		spawnLightLevel = MathHelper.clamp(ThermalFoundation.config.get(category, "Light.Level", spawnLightLevel, comment), 0, 15);
 
 		comment = "This sets the minimum number of Blitzes that spawn in a group.";
-		spawnMin = MathHelper.clampI(ThermalFoundation.config.get(category, "MinGroupSize", spawnMin, comment), 1, 10);
+		spawnMin = MathHelper.clamp(ThermalFoundation.config.get(category, "MinGroupSize", spawnMin, comment), 1, 10);
 
 		comment = "This sets the maximum light number of Blitzes that spawn in a group.";
-		spawnMax = MathHelper.clampI(ThermalFoundation.config.get(category, "MaxGroupSize", spawnMax, comment), spawnMin, 24);
+		spawnMax = MathHelper.clamp(ThermalFoundation.config.get(category, "MaxGroupSize", spawnMax, comment), spawnMin, 24);
 
 		comment = "This sets the relative spawn weight for Blitzes.";
 		spawnWeight = ThermalFoundation.config.get(category, "SpawnWeight", spawnWeight, comment);
