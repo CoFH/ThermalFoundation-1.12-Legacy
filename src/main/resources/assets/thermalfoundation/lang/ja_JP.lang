@@ -19,7 +19,7 @@ entity.Blitz.name=ブリッツ
 entity.Blizz.name=ブリーズ
 
 fluid.redstone=励起レッドストーン
-fluid.glowstone=活性化グローストーン
+fluid.glowstone=活性化グロウストーン
 fluid.ender=共鳴エンダーパール
 fluid.pyrotheum=燃え盛るパイロジウム
 fluid.cryotheum=凍て付くクリオジウム
@@ -33,7 +33,7 @@ gui.thermalfoundation.lexicon.study=Lexicon - Knowledge
 gui.thermalfoundation.lexicon.transmute=Lexicon - Transmutation
 
 item.thermalfoundation.bucket.bucketRedstone.name=励起レッドストーン入りバケツ
-item.thermalfoundation.bucket.bucketGlowstone.name=活性化グローストーン入りバケツ
+item.thermalfoundation.bucket.bucketGlowstone.name=活性化グロウストーン入りバケツ
 item.thermalfoundation.bucket.bucketEnder.name=共鳴エンダーパール入りバケツ
 item.thermalfoundation.bucket.bucketPyrotheum.name=燃え盛るパイロジウム入りバケツ
 item.thermalfoundation.bucket.bucketCryotheum.name=凍て付くクリオジウム入りバケツ
@@ -164,7 +164,7 @@ item.thermalfoundation.armor.leadBoots.name=鉛のブーツ
 item.thermalfoundation.armor.silverHelmet.name=銀のヘルメット
 item.thermalfoundation.armor.silverPlate.name=銀のチェストプレート
 item.thermalfoundation.armor.silverLegs.name=銀のレギンス
-item.thermalfoundation.armor.silverBoots.name=ぎんのブーツ
+item.thermalfoundation.armor.silverBoots.name=銀のブーツ
 
 item.thermalfoundation.armor.nickelHelmet.name=フェロースのヘルメット
 item.thermalfoundation.armor.nickelPlate.name=フェロースのチェストプレート
