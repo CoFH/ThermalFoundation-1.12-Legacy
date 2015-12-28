@@ -29,7 +29,7 @@ public enum Equipment {
 
 	// @formatter:off
 	/* Name, Level, Uses, Speed, Damage, Ench, Dura, Absorption */
-	Copper(      1,  175,  4.0F,   0.5F,    6,    6, new int[] { 1, 3, 3, 1 }),
+	Copper(      1,  175,  4.0F,  0.75F,    6,    6, new int[] { 1, 3, 3, 1 }),
 	Tin(         1,  200,  4.5F,   1.0F,    7,    8, new int[] { 1, 4, 3, 1 }),
 	Silver(      2,  200,  6.0F,   1.5F,   20,   11, new int[] { 2, 4, 4, 1 }),
 	Lead(        1,  150,    5F,   1.0F,    9,   15, new int[] { 2, 5, 4, 3 }) {
@@ -225,40 +225,40 @@ public enum Equipment {
 		createTools();
 		itemSword.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sword");
 		itemSword.setTextureName(TOOL_PATH + "Sword").setCreativeTab(ThermalFoundation.tabTools);
-		itemSword.setShowInCreative(enableArmor | TFProps.showDisabledEquipment);
+		itemSword.setShowInCreative(enableTools[0] | TFProps.showDisabledEquipment);
 
 		itemShovel.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shovel");
 		itemShovel.setTextureName(TOOL_PATH + "Shovel").setCreativeTab(ThermalFoundation.tabTools);
-		itemShovel.setShowInCreative(enableArmor | TFProps.showDisabledEquipment);
+		itemShovel.setShowInCreative(enableTools[1] | TFProps.showDisabledEquipment);
 
 		itemPickaxe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Pickaxe");
 		itemPickaxe.setTextureName(TOOL_PATH + "Pickaxe").setCreativeTab(ThermalFoundation.tabTools);
-		itemPickaxe.setShowInCreative(enableArmor | TFProps.showDisabledEquipment);
+		itemPickaxe.setShowInCreative(enableTools[2] | TFProps.showDisabledEquipment);
 
 		itemAxe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Axe");
 		itemAxe.setTextureName(TOOL_PATH + "Axe").setCreativeTab(ThermalFoundation.tabTools);
-		itemAxe.setShowInCreative(enableArmor | TFProps.showDisabledEquipment);
+		itemAxe.setShowInCreative(enableTools[3] | TFProps.showDisabledEquipment);
 
 		itemHoe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Hoe");
 		itemHoe.setTextureName(TOOL_PATH + "Hoe").setCreativeTab(ThermalFoundation.tabTools);
-		itemHoe.setShowInCreative(enableArmor | TFProps.showDisabledEquipment);
+		itemHoe.setShowInCreative(enableTools[4] | TFProps.showDisabledEquipment);
 
 		itemShears.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shears");
 		itemShears.setTextureName(TOOL_PATH + "Shears").setCreativeTab(ThermalFoundation.tabTools);
-		itemShears.setShowInCreative(enableArmor | TFProps.showDisabledEquipment);
+		itemShears.setShowInCreative(enableTools[5] | TFProps.showDisabledEquipment);
 
 		itemFishingRod.setRepairIngot(ingot).setUnlocalizedName(TOOL + "FishingRod");
 		itemFishingRod.setTextureName(TOOL_PATH + "FishingRod").setCreativeTab(ThermalFoundation.tabTools);
 		itemFishingRod.setLuckModifier(luckModifier).setSpeedModifier(speedModifier);
-		itemFishingRod.setShowInCreative(enableArmor | TFProps.showDisabledEquipment);
+		itemFishingRod.setShowInCreative(enableTools[6] | TFProps.showDisabledEquipment);
 
 		itemSickle.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sickle");
 		itemSickle.setTextureName(TOOL_PATH + "Sickle").setCreativeTab(ThermalFoundation.tabTools);
-		itemSickle.setShowInCreative(enableArmor | TFProps.showDisabledEquipment);
+		itemSickle.setShowInCreative(enableTools[7] | TFProps.showDisabledEquipment);
 
 		itemBow.setRepairIngot(ingot).setArrowSpeed(arrowSpeed).setArrowDamage(arrowDamage).setUnlocalizedName(TOOL + "Bow");
 		itemBow.setTextureName(TOOL_PATH + "Bow").setCreativeTab(ThermalFoundation.tabTools);
-		itemBow.setShowInCreative(enableArmor | TFProps.showDisabledEquipment);
+		itemBow.setShowInCreative(enableTools[8] | TFProps.showDisabledEquipment);
 
 		GameRegistry.registerItem(itemHelmet, "armor.helmet" + NAME);
 		GameRegistry.registerItem(itemPlate, "armor.plate" + NAME);
