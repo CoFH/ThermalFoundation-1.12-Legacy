@@ -1,15 +1,21 @@
 #ru_RU
 
+death.attack.basalz=%1$s потерял свой мирок!
+death.attack.blitz=%1$s трагически просветился!
 death.attack.blizz=%1$s встретил холодную судьбу!
 death.attack.cryotheum=%1$s замёрз досмерти!
 death.attack.cryotheum.player=%1$s замёрз досмерти, убегая от %2$s!
 death.attack.flux=%1$s был разодран флаксом!
 death.attack.flux.player=%1$s был зафлаксирован до смерти игроком %2$s!
-death.attack.pyrotheum=%1$s принял пиротеум за воду!
-death.attack.pyrotheum.player=%1$s сгорел заживо, убегая от %2$s!
 death.attack.mana=%1$s был разорван на части сырой маной!
 death.attack.mana.player=%1$s побежал не в то место, убегая от %2$s!
+death.attack.petrotheum=%1$s весь встряхнулся!
+death.attack.petrotheum.player=%1$s разбился, убегая от %2$s!
+death.attack.pyrotheum=%1$s принял пиротеум за воду!
+death.attack.pyrotheum.player=%1$s сгорел заживо, убегая от %2$s!
 
+entity.Basalz.name=Basalz
+entity.Blitz.name=Blitz
 entity.Blizz.name=Буран
 
 fluid.redstone=Дестабилизированный красный камень
@@ -17,6 +23,8 @@ fluid.glowstone=Заряженный светящийся камень
 fluid.ender=Резонирующий эндериум
 fluid.pyrotheum=Пылающий пиротеум
 fluid.cryotheum=Ледяной криотеум
+fluid.aerotheum=Невесомый аэротеум
+fluid.petrotheum=Тектонический петротеум
 fluid.mana=Изначальная мана
 fluid.steam=Пар
 fluid.coal=Разжиженный уголь
@@ -29,6 +37,8 @@ item.thermalfoundation.bucket.bucketGlowstone.name=Ведро заряженно
 item.thermalfoundation.bucket.bucketEnder.name=Ведро резонирующего эндериума
 item.thermalfoundation.bucket.bucketPyrotheum.name=Ведро пылающего пиротеума
 item.thermalfoundation.bucket.bucketCryotheum.name=Ведро ледяного криотеума
+item.thermalfoundation.bucket.bucketAerotheum.name=Ведро невесомого аэротеума
+item.thermalfoundation.bucket.bucketPetrotheum.name=Ведро тектонического петротеума
 item.thermalfoundation.bucket.bucketMana.name=Ведро изначальной маны
 item.thermalfoundation.bucket.bucketCoal.name=Ведро разжиженного угля
 
@@ -39,6 +49,13 @@ info.thermalfoundation.tome.lexicon.4=ПКМ (открыть) для транс�
 info.thermalfoundation.tome.lexicon.5=Когда присядете, откройте, чтобы позабыть знания.
 item.thermalfoundation.tome.lexicon.name=Лексикон Forge
 item.thermalfoundation.tome.lexicon.empowered.name=Лексикон Forge (Активен)
+
+info.thermalfoundation.lexicon.clearPreference=Очистить предпочтение
+info.thermalfoundation.lexicon.setPreference=Установить предпочтение
+info.thermalfoundation.lexicon.nextEntry=След. запись
+info.thermalfoundation.lexicon.prevEntry=Пред. запись
+info.thermalfoundation.lexicon.singleEntry=Единственная запись
+info.thermalfoundation.lexicon.search=Поиск
 
 item.thermalfoundation.material.dustIron.name=Измельчённое железо
 item.thermalfoundation.material.dustGold.name=Измельчённое золото
@@ -99,6 +116,8 @@ item.thermalfoundation.material.nuggetEnderium.name=Самородок энде�
 
 item.thermalfoundation.material.dustPyrotheum.name=Пыль пиротеума
 item.thermalfoundation.material.dustCryotheum.name=Пыль криотеума
+item.thermalfoundation.material.dustAerotheum.name=Пыль аэротеума
+item.thermalfoundation.material.dustPetrotheum.name=Пыль петротеума
 item.thermalfoundation.material.dustMana.name=Пыль маны
 
 item.thermalfoundation.material.gearCopper.name=Медная шестерня
@@ -117,6 +136,10 @@ item.thermalfoundation.material.gearEnderium.name=Шестерня из энде
 
 item.thermalfoundation.material.rodBlizz.name=Бурановый стержень
 item.thermalfoundation.material.dustBlizz.name=Бурановый порошок
+item.thermalfoundation.material.rodBlitz.name=Blitz Rod
+item.thermalfoundation.material.dustBlitz.name=Blitz Powder
+item.thermalfoundation.material.rodBasalz.name=Basalz Rod
+item.thermalfoundation.material.dustBasalz.name=Basalz Powder
 
 item.thermalfoundation.armor.copperHelmet.name=Медный шлем
 item.thermalfoundation.armor.copperPlate.name=Медная кираса
@@ -267,6 +290,8 @@ tile.thermalfoundation.fluid.glowstone.name=Заряженный светящи�
 tile.thermalfoundation.fluid.ender.name=Резонирующий эндериум
 tile.thermalfoundation.fluid.pyrotheum.name=Пылающий пиротеум
 tile.thermalfoundation.fluid.cryotheum.name=Ледяной криотеум
+tile.thermalfoundation.fluid.aerotheum.name=Невесомый аэротеум
+tile.thermalfoundation.fluid.petrotheum.name=Тектонический петротеум
 tile.thermalfoundation.fluid.mana.name=Изначальная мана
 tile.thermalfoundation.fluid.steam.name=Пар
 tile.thermalfoundation.fluid.coal.name=Разжиженный уголь
