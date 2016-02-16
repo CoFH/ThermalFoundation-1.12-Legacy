@@ -7,21 +7,21 @@ fluid.glowstone=Glowstone Energisé
 item.thermalfoundation.bucket.bucketRedstone.name=Seau de Redstone Déstabilisé
 item.thermalfoundation.bucket.bucketGlowstone.name=Seau de Glowstone Energisé
 
-item.thermalfoundation.material.dustIron.name=Fer Broyé
-item.thermalfoundation.material.dustGold.name=Or Broyé
-item.thermalfoundation.material.dustCoal.name=Charbon Broyé
-item.thermalfoundation.material.dustCharcoal.name=Charbon de Bois Broyé
-item.thermalfoundation.material.dustObsidian.name=Obsidienne Broyé
+item.thermalfoundation.material.dustIron.name=Poudre de Fer
+item.thermalfoundation.material.dustGold.name=Poudre d'Or
+item.thermalfoundation.material.dustCoal.name=Poudre de Charbon
+item.thermalfoundation.material.dustCharcoal.name=Poudre de Charbon Charbon de Bois
+item.thermalfoundation.material.dustObsidian.name=Poudre d'Obsidienne
 
 item.thermalfoundation.material.dustSulfur.name=Soufre
 item.thermalfoundation.material.dustNiter.name=Nitrate de Potassium
 
-item.thermalfoundation.material.dustCopper.name=Cuivre Broyé
-item.thermalfoundation.material.dustTin.name=Etain Broyé
-item.thermalfoundation.material.dustSilver.name=Argent Broyé
-item.thermalfoundation.material.dustLead.name=Plomb Broyé
-item.thermalfoundation.material.dustNickel.name=Métal Ferreux Broyé
-item.thermalfoundation.material.dustPlatinum.name=Métal Brillant Broyé
+item.thermalfoundation.material.dustCopper.name=Poudre de Cuivre
+item.thermalfoundation.material.dustTin.name=Poudre d'Etain
+item.thermalfoundation.material.dustSilver.name=Poudre d'Argent
+item.thermalfoundation.material.dustLead.name=Poudre de Plomb
+item.thermalfoundation.material.dustNickel.name=Poudre de Métal Ferreux
+item.thermalfoundation.material.dustPlatinum.name=Poudre de Métal Brillant
 item.thermalfoundation.material.dustMithril.name=Métal de Mana Instable Broyé
 
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armure
