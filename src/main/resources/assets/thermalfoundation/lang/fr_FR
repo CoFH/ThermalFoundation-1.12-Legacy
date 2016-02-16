@@ -1,0 +1,30 @@
+#fr_FR
+#*Boit un coup de rouge et tu dormiras mieux*
+
+fluid.redstone=Redstone Déstabilisé
+fluid.glowstone=Glowstone Energisé
+
+item.thermalfoundation.bucket.bucketRedstone.name=Seau de Restone Déstabilisé
+item.thermalfoundation.bucket.bucketGlowstone.name=Seau de Glowstone Energisé
+
+item.thermalfoundation.material.dustIron.name=Fer Broyé
+item.thermalfoundation.material.dustGold.name=Or Broyé
+item.thermalfoundation.material.dustCoal.name=Charbon Broyé
+item.thermalfoundation.material.dustCharcoal.name=Charbon de Bois Broyé
+item.thermalfoundation.material.dustObsidian.name=Obsidienne Broyé
+
+item.thermalfoundation.material.dustSulfur.name=Soufre
+item.thermalfoundation.material.dustNiter.name=Nitrate de Potassium
+
+item.thermalfoundation.material.dustCopper.name=Cuivre Broyé
+item.thermalfoundation.material.dustTin.name=Etain Broyé
+item.thermalfoundation.material.dustSilver.name=Argent Broyé
+item.thermalfoundation.material.dustLead.name=Plomb Broyé
+item.thermalfoundation.material.dustNickel.name=Métal Ferreux Broyé
+item.thermalfoundation.material.dustPlatinum.name=Métal Brillant Broyé
+item.thermalfoundation.material.dustMithril.name=Métal de Mana Instable Broyé
+
+itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armure
+
+tile.thermalfoundation.fluid.redstone.name=Redstone Déstabilisé
+tile.thermalfoundation.fluid.glowstone.name=Glowstone Energisé
