@@ -4,7 +4,7 @@
 fluid.redstone=Redstone Déstabilisé
 fluid.glowstone=Glowstone Energisé
 
-item.thermalfoundation.bucket.bucketRedstone.name=Seau de Restone Déstabilisé
+item.thermalfoundation.bucket.bucketRedstone.name=Seau de Redstone Déstabilisé
 item.thermalfoundation.bucket.bucketGlowstone.name=Seau de Glowstone Energisé
 
 item.thermalfoundation.material.dustIron.name=Fer Broyé
