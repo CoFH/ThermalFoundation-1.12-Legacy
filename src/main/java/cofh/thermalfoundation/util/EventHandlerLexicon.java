@@ -27,10 +27,7 @@ public class EventHandlerLexicon {
 	public void handleEntityItemPickupEvent(EntityItemPickupEvent event) {
 
 		ItemStack stack = event.item.getEntityItem();
-		if (stack == null) {
-			return;
-		}
-		if (!LexiconManager.validOre(stack)) {
+		if (stack == null || !LexiconManager.validOre(stack)) {
 			return;
 		}
 		NBTTagCompound tag = event.entityPlayer.getEntityData(); // Cannot be null

@@ -171,7 +171,7 @@ public class LexiconManager {
 
 	public static boolean validOre(ItemStack stack) {
 
-		if (blacklistStacks.contains(new ItemWrapper(stack))) {
+		if (blacklistStacks.contains(new ItemWrapper(stack)) || ItemHelper.getItemDamage(stack) == OreDictionary.WILDCARD_VALUE) {
 			return false;
 		}
 		return ItemHelper.hasOreName(stack) ? isWhitelist == listNames.contains(OreDictionaryArbiter.getOreName(stack)) : false;
@@ -197,7 +197,12 @@ public class LexiconManager {
 				}
 			}
 		}
-		return ItemHelper.cloneStack(OreDictionaryArbiter.getOres(stack).get(0), stack.stackSize);
+		ItemStack defaultStack = OreDictionaryArbiter.getOres(stack).get(0);
+
+		if (ItemHelper.getItemDamage(defaultStack) == OreDictionary.WILDCARD_VALUE) {
+			return stack;
+		}
+		return ItemHelper.cloneStack(defaultStack, stack.stackSize);
 	}
 
 	public static ItemStack getPreferredStack(EntityPlayer player, String oreName) {

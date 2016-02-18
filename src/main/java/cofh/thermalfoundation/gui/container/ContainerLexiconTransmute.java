@@ -111,12 +111,12 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		ItemStack input = lexiconInv.getStackInSlot(0);
 
-		if (!LexiconManager.validOre(input)) {
+		if (input == null || !LexiconManager.validOre(input)) {
 			return false;
 		}
 		ItemStack entry = lexiconInv.getStackInSlot(2);
 
-		if (!LexiconManager.validOre(entry)) {
+		if (entry == null || !LexiconManager.validOre(entry)) {
 			return false;
 		}
 		if (input.isItemEqual(entry)) {
