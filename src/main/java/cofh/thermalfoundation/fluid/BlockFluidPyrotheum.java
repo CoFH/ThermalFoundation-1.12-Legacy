@@ -124,7 +124,7 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		if (effect) {
 			checkForInteraction(world, x, y, z);
 		}
-		if (world.getBlockMetadata(x, y, z) == 0) {
+		if (enableSourceFall && world.getBlockMetadata(x, y, z) == 0) {
 			Block block = world.getBlock(x, y + densityDir, z);
 			int bMeta = world.getBlockMetadata(x, y + densityDir, z);
 
