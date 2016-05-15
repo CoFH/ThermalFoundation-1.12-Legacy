@@ -40,10 +40,13 @@ public class TFItems {
 
 		/* Vanilla Derived */
 		dustCoal = itemMaterial.addOreDictItem(2, "dustCoal");
+		OreDictionary.registerOre("dyeBlack", dustCoal.copy());
 		dustCharcoal = itemMaterial.addOreDictItem(3, "dustCharcoal");
+		OreDictionary.registerOre("dyeBlack", dustCharcoal.copy());
 		dustObsidian = itemMaterial.addOreDictItem(4, "dustObsidian");
 
 		dustSulfur = itemMaterial.addOreDictItem(16, "dustSulfur");
+		OreDictionary.registerOre("dyeYellow", dustSulfur.copy());
 		dustNiter = itemMaterial.addItem(17, "dustNiter");
 		OreDictionary.registerOre("dustSaltpeter", dustNiter);
 
