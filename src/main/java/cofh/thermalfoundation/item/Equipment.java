@@ -356,6 +356,7 @@ public enum Equipment {
 
 	public static void preInit() {
 
+		VanillaEquipment.preInit();
 		for (Equipment e : values()) {
 			e.preInitv();
 		}
@@ -363,6 +364,7 @@ public enum Equipment {
 
 	public static void initialize() {
 
+		VanillaEquipment.initialize();
 		for (Equipment e : values()) {
 			e.initializev();
 		}
@@ -370,6 +372,7 @@ public enum Equipment {
 
 	public static void postInit() {
 
+		VanillaEquipment.postInit();
 		for (Equipment e : values()) {
 			e.postInitv();
 		}

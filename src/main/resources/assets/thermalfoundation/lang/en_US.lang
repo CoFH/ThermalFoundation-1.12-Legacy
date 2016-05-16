@@ -276,6 +276,28 @@ item.thermalfoundation.tool.platinumFishingRod.name=Shiny Fishing Rod
 item.thermalfoundation.tool.platinumSickle.name=Shiny Sickle
 item.thermalfoundation.tool.platinumBow.name=Shiny Reinforced Bow
 
+item.thermalfoundation.tool.woodShears.name=Wood Shears
+item.thermalfoundation.tool.woodSickle.name=Wood Sickle
+
+item.thermalfoundation.tool.stoneShears.name=Stone Shears
+item.thermalfoundation.tool.stoneFishingRod.name=Stone Fishing Rod
+item.thermalfoundation.tool.stoneSickle.name=Stone Sickle
+item.thermalfoundation.tool.stoneBow.name=Stone Reinforced Bow
+
+item.thermalfoundation.tool.ironFishingRod.name=Iron Fishing Rod
+item.thermalfoundation.tool.ironSickle.name=Iron Sickle
+item.thermalfoundation.tool.ironBow.name=Iron Reinforced Bow
+
+item.thermalfoundation.tool.goldShears.name=Gold Shears
+item.thermalfoundation.tool.goldFishingRod.name=Gold Fishing Rod
+item.thermalfoundation.tool.goldSickle.name=Gold Sickle
+item.thermalfoundation.tool.goldBow.name=Gold Reinforced Bow
+
+item.thermalfoundation.tool.diamondShears.name=Diamond Shears
+item.thermalfoundation.tool.diamondFishingRod.name=Diamond Fishing Rod
+item.thermalfoundation.tool.diamondSickle.name=Diamond Sickle
+item.thermalfoundation.tool.diamondBow.name=Diamond Reinforced Bow
+
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Tools
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armor
