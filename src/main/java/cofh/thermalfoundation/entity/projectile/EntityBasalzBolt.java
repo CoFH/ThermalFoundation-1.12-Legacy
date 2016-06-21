@@ -5,9 +5,6 @@ import cofh.core.util.CoreUtils;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,8 +14,12 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityBasalzBolt extends EntityThrowable {
 
@@ -28,43 +29,10 @@ public class EntityBasalzBolt extends EntityThrowable {
 				CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
 	}
 
-	protected static class DamageSourceBasalz extends EntityDamageSource {
-
-		public DamageSourceBasalz() {
-
-			this(null);
-		}
-
-		public DamageSourceBasalz(Entity source) {
-
-			super("basalz", source);
-		}
-
-		public static DamageSource causeDamage(EntityBasalzBolt entityProj, Entity entitySource) {
-
-			return (new EntityDamageSourceIndirect("basalz", entityProj, entitySource == null ? entityProj : entitySource)).setProjectile();
-		}
-	}
-
-	protected static class PotionEffectBasalz extends PotionEffect {
-
-		public PotionEffectBasalz(int id, int duration, int amplifier, boolean isAmbient) {
-
-			super(id, duration, amplifier, isAmbient);
-			getCurativeItems().clear();
-		}
-
-		public PotionEffectBasalz(int duration, int amplifier) {
-
-			this(Potion.weakness.id, duration, amplifier, false);
-		}
-
-	}
-
 	public static DamageSource basalzDamage = new DamageSourceBasalz();
 	public static PotionEffect basalzEffect = new PotionEffectBasalz(5 * 20, 2);
 
-	/* Required Constructor */
+	/* REQUIRED CONSTRUCTOR */
 	public EntityBasalzBolt(World world) {
 
 		super(world);
@@ -101,7 +69,8 @@ public class EntityBasalzBolt extends EntityThrowable {
 				}
 			}
 			for (int i = 0; i < 8; i++) {
-				worldObj.spawnParticle("explode", posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble());
+				worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(),
+						this.rand.nextDouble(), new int[0]);
 			}
 			setDead();
 		}
@@ -112,6 +81,40 @@ public class EntityBasalzBolt extends EntityThrowable {
 	public int getBrightnessForRender(float f) {
 
 		return 0xF000F0;
+	}
+
+	/* DAMAGE SOURCE */
+	protected static class DamageSourceBasalz extends EntityDamageSource {
+
+		public DamageSourceBasalz() {
+
+			this(null);
+		}
+
+		public DamageSourceBasalz(Entity source) {
+
+			super("basalz", source);
+		}
+
+		public static DamageSource causeDamage(EntityBasalzBolt entityProj, Entity entitySource) {
+
+			return (new EntityDamageSourceIndirect("basalz", entityProj, entitySource == null ? entityProj : entitySource)).setProjectile();
+		}
+	}
+
+	protected static class PotionEffectBasalz extends PotionEffect {
+
+		public PotionEffectBasalz(int id, int duration, int amplifier) {
+
+			super(id, duration, amplifier, true, false);
+			getCurativeItems().clear();
+		}
+
+		public PotionEffectBasalz(int duration, int amplifier) {
+
+			this(Potion.weakness.id, duration, amplifier);
+		}
+
 	}
 
 }

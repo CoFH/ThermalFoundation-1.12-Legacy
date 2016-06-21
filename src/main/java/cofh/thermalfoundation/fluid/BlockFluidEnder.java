@@ -3,14 +3,16 @@ package cofh.thermalfoundation.fluid;
 import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.core.util.CoreUtils;
 import cofh.thermalfoundation.ThermalFoundation;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockFluidEnder extends BlockFluidCoFHBase {
 
@@ -19,9 +21,9 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 
 	private static boolean effect = true;
 
-	public BlockFluidEnder() {
+	public BlockFluidEnder(Fluid fluid) {
 
-		super("thermalfoundation", TFFluids.fluidEnder, materialFluidEnder, "ender");
+		super(fluid, materialFluidEnder, "thermalfoundation", "ender");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(20);
 
@@ -31,38 +33,31 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 	}
 
 	@Override
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+
+		if (!effect || world.isRemote) {
+			return;
+		}
+		if (world.getTotalWorldTime() % 8 == 0) {
+			BlockPos pos2 = pos.add(-8 + world.rand.nextInt(17), world.rand.nextInt(8), -8 + world.rand.nextInt(17));
+
+			if (!world.getBlockState(pos2).getBlock().getMaterial().isSolid()) {
+				CoreUtils.teleportEntityTo(entity, pos2.getX(), pos2.getY(), pos2.getZ());
+			}
+		}
+	}
+
+	/* IInitializer */
+	@Override
 	public boolean preInit() {
 
 		GameRegistry.registerBlock(this, "FluidEnder");
 
 		String category = "Fluid.Ender";
 		String comment = "Enable this for Fluid Ender to randomly teleport entities on contact.";
-		effect = ThermalFoundation.config.get(category, "Effect", true, comment);
+		effect = ThermalFoundation.CONFIG.get(category, "Effect", true, comment);
 
 		return true;
-	}
-
-	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
-
-		if (!effect || world.isRemote) {
-			return;
-		}
-		if (world.getTotalWorldTime() % 8 == 0) {
-			int x2 = x - 8 + world.rand.nextInt(17);
-			int y2 = y + world.rand.nextInt(8);
-			int z2 = z - 8 + world.rand.nextInt(17);
-
-			if (!world.getBlock(x2, y2, z2).getMaterial().isSolid()) {
-				CoreUtils.teleportEntityTo(entity, x2, y2, z2);
-			}
-		}
-	}
-
-	@Override
-	public int getLightValue(IBlockAccess world, int x, int y, int z) {
-
-		return TFFluids.fluidEnder.getLuminosity();
 	}
 
 }

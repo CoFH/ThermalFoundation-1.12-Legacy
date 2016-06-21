@@ -2,14 +2,18 @@ package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.thermalfoundation.ThermalFoundation;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockFluidRedstone extends BlockFluidCoFHBase {
 
@@ -18,9 +22,9 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 
 	private static boolean effect = true;
 
-	public BlockFluidRedstone() {
+	public BlockFluidRedstone(Fluid fluid) {
 
-		super("thermalfoundation", TFFluids.fluidRedstone, Material.water, "redstone");
+		super(fluid, Material.water, "thermalfoundation", "redstone");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(5);
 
@@ -30,20 +34,14 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 	}
 
 	@Override
-	public boolean preInit() {
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 
-		GameRegistry.registerBlock(this, "FluidRedstone");
-
-		String category = "Fluid.Redstone";
-		String comment = "Enable this for Fluid Redstone to emit a signal proportional to its fluid level.";
-		effect = ThermalFoundation.config.get(category, "Effect", true, comment);
-
-		return true;
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+	public int getWeakPower(IBlockAccess world, BlockPos pos, IBlockState state, EnumFacing side) {
 
+		return effect ? getMetaFromState(state) * 2 + 1 : 0;
 	}
 
 	@Override
@@ -52,16 +50,17 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 		return effect;
 	}
 
+	/* IInitializer */
 	@Override
-	public int isProvidingWeakPower(IBlockAccess world, int x, int y, int z, int side) {
+	public boolean preInit() {
 
-		return effect ? world.getBlockMetadata(x, y, z) * 2 + 1 : 0;
-	}
+		GameRegistry.registerBlock(this, "FluidRedstone");
 
-	@Override
-	public int getLightValue(IBlockAccess world, int x, int y, int z) {
+		String category = "Fluid.Redstone";
+		String comment = "Enable this for Fluid Redstone to emit a signal proportional to its fluid level.";
+		effect = ThermalFoundation.CONFIG.get(category, "Effect", true, comment);
 
-		return TFFluids.fluidRedstone.getLuminosity();
+		return true;
 	}
 
 }

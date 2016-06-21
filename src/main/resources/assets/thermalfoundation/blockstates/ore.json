@@ -1,0 +1,32 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"model": "cube_all"
+	},
+	"variants": {
+		"type": {
+			"copper": {
+				"textures": { "all": "thermalfoundation:blocks/ore_copper" }
+			},
+			"tin": {
+				"textures": { "all": "thermalfoundation:blocks/ore_tin" }
+			},
+			"silver": {
+				"textures": { "all": "thermalfoundation:blocks/ore_silver" }
+			},
+			"lead": {
+				"textures": { "all": "thermalfoundation:blocks/ore_lead" }
+			},
+			"nickel": {
+				"textures": { "all": "thermalfoundation:blocks/ore_nickel" }
+			},
+			"platinum": {
+				"textures": { "all": "thermalfoundation:blocks/ore_platinum" }
+			},
+			"mithril": {
+				"textures": { "all": "thermalfoundation:blocks/ore_mithril" }
+			}
+		}
+	}
+}

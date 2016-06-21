@@ -14,9 +14,9 @@ death.attack.petrotheum.player=%1$s shattered while trying to escape %2$s!
 death.attack.pyrotheum=%1$s mistook Pyrotheum for Water!
 death.attack.pyrotheum.player=%1$s burned alive trying to escape %2$s!
 
-entity.Basalz.name=Basalz
-entity.Blitz.name=Blitz
-entity.Blizz.name=Blizz
+entity.thermalfoundation.basalz.name=Basalz
+entity.thermalfoundation.blitz.name=Blitz
+entity.thermalfoundation.blizz.name=Blizz
 
 fluid.redstone=Destabilized Redstone
 fluid.glowstone=Energized Glowstone
@@ -32,6 +32,26 @@ fluid.coal=Liquifacted Coal
 gui.thermalfoundation.lexicon.study=Lexicon - Knowledge
 gui.thermalfoundation.lexicon.transmute=Lexicon - Transmutation
 
+info.thermalfoundation.lexicon.clearPreference=Clear Preference
+info.thermalfoundation.lexicon.setPreference=Set Preference
+info.thermalfoundation.lexicon.nextEntry=Next Entry
+info.thermalfoundation.lexicon.prevEntry=Previous Entry
+info.thermalfoundation.lexicon.singleEntry=Only One Entry
+info.thermalfoundation.lexicon.search=Search
+
+info.thermalfoundation.diagram.erase=Use while sneaking to erase.
+info.thermalfoundation.diagram.redprint.0=Use on a device to copy its settings.
+info.thermalfoundation.diagram.redprint.1=Use on a device to transfer stored settings.
+
+info.thermalfoundation.tool.multimeter.0=Provides information about things.
+info.thermalfoundation.tool.multimeter.1=Use while sneaking to configure some devices.
+
+info.thermalfoundation.tome.lexicon.0=Converts items to equivalent forms.
+info.thermalfoundation.tome.lexicon.1=Right click (open) to study.
+info.thermalfoundation.tome.lexicon.2=to gain wisdom!
+info.thermalfoundation.tome.lexicon.3=Right click (open) to transmute items.
+info.thermalfoundation.tome.lexicon.4=to forsake knowledge.
+
 item.thermalfoundation.bucket.bucketRedstone.name=Destabilized Redstone Bucket
 item.thermalfoundation.bucket.bucketGlowstone.name=Energized Glowstone Bucket
 item.thermalfoundation.bucket.bucketEnder.name=Resonant Ender Bucket
@@ -42,20 +62,9 @@ item.thermalfoundation.bucket.bucketPetrotheum.name=Tectonic Petrotheum Bucket
 item.thermalfoundation.bucket.bucketMana.name=Primal Mana Bucket
 item.thermalfoundation.bucket.bucketCoal.name=Liquifacted Coal Bucket
 
-info.thermalfoundation.tome.lexicon.1=Converts items to equivalent forms.
-info.thermalfoundation.tome.lexicon.2=Right click (open) to study.
-info.thermalfoundation.tome.lexicon.3=to gain wisdom!
-info.thermalfoundation.tome.lexicon.4=Right click (open) to transmute items.
-info.thermalfoundation.tome.lexicon.5=to forsake knowledge.
-item.thermalfoundation.tome.lexicon.name=Forge Lexicon
-item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexicon (Empowered)
-
-info.thermalfoundation.lexicon.clearPreference=Clear Preference
-info.thermalfoundation.lexicon.setPreference=Set Preference
-info.thermalfoundation.lexicon.nextEntry=Next Entry
-info.thermalfoundation.lexicon.prevEntry=Previous Entry
-info.thermalfoundation.lexicon.singleEntry=Only One Entry
-info.thermalfoundation.lexicon.search=Search
+item.thermalfoundation.fertilizer.fertilizerBasic.name=Phyto-Gro
+item.thermalfoundation.fertilizer.fertilizerRich.name=Rich Phyto-Gro
+item.thermalfoundation.fertilizer.fertilizerFlux.name=Fluxed Phyto-Gro
 
 item.thermalfoundation.material.dustIron.name=Pulverized Iron
 item.thermalfoundation.material.dustGold.name=Pulverized Gold
@@ -70,6 +79,11 @@ item.thermalfoundation.material.gearGold.name=Gold Gear
 item.thermalfoundation.material.dustSulfur.name=Sulfur
 item.thermalfoundation.material.dustNiter.name=Niter
 
+item.thermalfoundation.material.dustWood.name=Sawdust
+item.thermalfoundation.material.dustWoodCompressed.name=Compressed Sawdust
+
+item.thermalfoundation.material.crystalSlag.name=Slag
+item.thermalfoundation.material.crystalSlagRich.name=Rich Slag
 item.thermalfoundation.material.crystalCinnabar.name=Cinnabar
 
 item.thermalfoundation.material.dustCopper.name=Pulverized Copper
@@ -134,12 +148,27 @@ item.thermalfoundation.material.gearSignalum.name=Signalum Gear
 item.thermalfoundation.material.gearLumium.name=Lumium Gear
 item.thermalfoundation.material.gearEnderium.name=Enderium Gear
 
+item.thermalfoundation.material.pneumaticServo.name=Pneumatic Servo
+item.thermalfoundation.material.powerCoilGold.name=Redstone Reception Coil
+item.thermalfoundation.material.powerCoilSilver.name=Redstone Transmission Coil
+item.thermalfoundation.material.powerCoilElectrum.name=Redstone Conductance Coil
+
 item.thermalfoundation.material.rodBlizz.name=Blizz Rod
 item.thermalfoundation.material.dustBlizz.name=Blizz Powder
 item.thermalfoundation.material.rodBlitz.name=Blitz Rod
 item.thermalfoundation.material.dustBlitz.name=Blitz Powder
 item.thermalfoundation.material.rodBasalz.name=Basalz Rod
 item.thermalfoundation.material.dustBasalz.name=Basalz Powder
+
+item.thermalfoundation.tome.lexicon.name=Forge Lexicon
+item.thermalfoundation.tome.lexicon_empowered.name=Forge Lexicon (Empowered)
+
+item.thermalfoundation.diagram.schematic.name=Schematic
+item.thermalfoundation.diagram.pattern.name=Pattern
+item.thermalfoundation.diagram.redprint.name=Redprint
+
+item.thermalfoundation.tool.multimeter.name=Multimeter
+item.thermalfoundation.tool.wrenchBasic.name=Crescent Hammer
 
 item.thermalfoundation.armor.copperHelmet.name=Copper Helmet
 item.thermalfoundation.armor.copperPlate.name=Copper Chestplate
@@ -276,28 +305,6 @@ item.thermalfoundation.tool.platinumFishingRod.name=Shiny Fishing Rod
 item.thermalfoundation.tool.platinumSickle.name=Shiny Sickle
 item.thermalfoundation.tool.platinumBow.name=Shiny Reinforced Bow
 
-item.thermalfoundation.tool.woodShears.name=Wood Shears
-item.thermalfoundation.tool.woodSickle.name=Wood Sickle
-
-item.thermalfoundation.tool.stoneShears.name=Stone Shears
-item.thermalfoundation.tool.stoneFishingRod.name=Stone Fishing Rod
-item.thermalfoundation.tool.stoneSickle.name=Stone Sickle
-item.thermalfoundation.tool.stoneBow.name=Stone Reinforced Bow
-
-item.thermalfoundation.tool.ironFishingRod.name=Iron Fishing Rod
-item.thermalfoundation.tool.ironSickle.name=Iron Sickle
-item.thermalfoundation.tool.ironBow.name=Iron Reinforced Bow
-
-item.thermalfoundation.tool.goldShears.name=Gold Shears
-item.thermalfoundation.tool.goldFishingRod.name=Gold Fishing Rod
-item.thermalfoundation.tool.goldSickle.name=Gold Sickle
-item.thermalfoundation.tool.goldBow.name=Gold Reinforced Bow
-
-item.thermalfoundation.tool.diamondShears.name=Diamond Shears
-item.thermalfoundation.tool.diamondFishingRod.name=Diamond Fishing Rod
-item.thermalfoundation.tool.diamondSickle.name=Diamond Sickle
-item.thermalfoundation.tool.diamondBow.name=Diamond Reinforced Bow
-
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Tools
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armor
@@ -325,6 +332,37 @@ tile.thermalfoundation.ore.lead.name=Lead Ore
 tile.thermalfoundation.ore.nickel.name=Ferrous Ore
 tile.thermalfoundation.ore.platinum.name=Shiny Ore
 tile.thermalfoundation.ore.mithril.name=Mana Infused Ore
+
+tile.thermalfoundation.glass.copper.name=Hardened Copper Glass
+tile.thermalfoundation.glass.tin.name=Hardened Tin Glass
+tile.thermalfoundation.glass.silver.name=Hardened Silver Glass
+tile.thermalfoundation.glass.lead.name=Hardened Glass
+tile.thermalfoundation.glass.nickel.name=Hardened Ferrous Glass
+tile.thermalfoundation.glass.platinum.name=Hardened Shiny Glass
+tile.thermalfoundation.glass.mithril.name=Hardened Mana Infused Glass
+tile.thermalfoundation.glass.electrum.name=Hardened Electrum Glass
+tile.thermalfoundation.glass.invar.name=Hardened Invar Glass
+tile.thermalfoundation.glass.bronze.name=Hardened Bronze Glass
+tile.thermalfoundation.glass.signalum.name=Hardened Signalum Glass
+tile.thermalfoundation.glass.lumium.name=Hardened Lumium Glass
+tile.thermalfoundation.glass.enderium.name=Hardened Enderium Glass
+
+tile.thermalfoundation.rockwool.black.name=Black Rockwool
+tile.thermalfoundation.rockwool.red.name=Red Rockwool
+tile.thermalfoundation.rockwool.green.name=Green Rockwool
+tile.thermalfoundation.rockwool.brown.name=Brown Rockwool
+tile.thermalfoundation.rockwool.blue.name=Blue Rockwool
+tile.thermalfoundation.rockwool.purple.name=Purple Rockwool
+tile.thermalfoundation.rockwool.cyan.name=Cyan Rockwool
+tile.thermalfoundation.rockwool.silver.name=Light Gray Rockwool
+tile.thermalfoundation.rockwool.gray.name=Gray Rockwool
+tile.thermalfoundation.rockwool.pink.name=Pink Rockwool
+tile.thermalfoundation.rockwool.lime.name=Lime Rockwool
+tile.thermalfoundation.rockwool.yellow.name=Yellow Rockwool
+tile.thermalfoundation.rockwool.light_blue.name=Light Blue Rockwool
+tile.thermalfoundation.rockwool.magenta.name=Magenta Rockwool
+tile.thermalfoundation.rockwool.orange.name=Orange Rockwool
+tile.thermalfoundation.rockwool.white.name=White Rockwool
 
 tile.thermalfoundation.storage.copper.name=Copper Block
 tile.thermalfoundation.storage.tin.name=Tin Block

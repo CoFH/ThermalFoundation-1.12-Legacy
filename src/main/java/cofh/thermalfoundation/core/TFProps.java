@@ -13,10 +13,9 @@ public class TFProps {
 
 	public static boolean dropSulfurFireImmune = true;
 
-	public static int dustPyrotheumFuel = 24000;
+	public static int dustPyrotheumFuel = 30000;
 
 	/* Graphics */
 	public static boolean iconBlazePowder = true;
-	public static boolean renderStarfieldCage = false;
 
 }

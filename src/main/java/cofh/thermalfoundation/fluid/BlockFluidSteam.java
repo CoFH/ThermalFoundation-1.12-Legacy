@@ -1,11 +1,12 @@
 package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidCoFHBase;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockFluidSteam extends BlockFluidCoFHBase {
 
@@ -14,9 +15,9 @@ public class BlockFluidSteam extends BlockFluidCoFHBase {
 
 	// private static boolean effect = true;
 
-	public BlockFluidSteam() {
+	public BlockFluidSteam(Fluid fluid) {
 
-		super("thermalfoundation", TFFluids.fluidSteam, materialFluidSteam, "steam");
+		super(fluid, materialFluidSteam, "thermalfoundation", "steam");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(2);
 

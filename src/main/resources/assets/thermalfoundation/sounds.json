@@ -1,5 +1,5 @@
 {
-    "mobBlizzAmbient": {
+    "mob_blizz_ambient": {
         "category": "hostile",
         "sounds": [
             {
@@ -8,7 +8,7 @@
             }
         ]
     },
-    "mobBlizzAttack": {
+    "mob_blizz_attack": {
         "category": "hostile",
         "sounds": [
             {
@@ -17,7 +17,7 @@
             }
         ]
     },
-    "mobBlizzBreathe0": {
+    "mob_blizz_breathe0": {
         "category": "hostile",
         "sounds": [
             {
@@ -26,7 +26,7 @@
             }
         ]
     },
-    "mobBlizzBreathe1": {
+    "mob_blizz_breathe1": {
         "category": "hostile",
         "sounds": [
             {
@@ -35,7 +35,7 @@
             }
         ]
     },
-    "mobBlizzBreathe2": {
+    "mob_blizz_breathe2": {
         "category": "hostile",
         "sounds": [
             {
@@ -44,7 +44,7 @@
             }
         ]
     },
-        "mobBlitzAmbient": {
+        "mob_blitz_ambient": {
         "category": "hostile",
         "sounds": [
             {
@@ -53,7 +53,7 @@
             }
         ]
     },
-    "mobBlitzAttack": {
+    "mob_blitz_attack": {
         "category": "hostile",
         "sounds": [
             {
@@ -62,7 +62,7 @@
             }
         ]
     },
-    "mobBlitzBreathe0": {
+    "mob_blitz_breathe0": {
         "category": "hostile",
         "sounds": [
             {
@@ -71,7 +71,7 @@
             }
         ]
     },
-    "mobBlitzBreathe1": {
+    "mob_blitz_breathe1": {
         "category": "hostile",
         "sounds": [
             {
@@ -80,7 +80,7 @@
             }
         ]
     },
-    "mobBlitzBreathe2": {
+    "mob_blitz_breathe2": {
         "category": "hostile",
         "sounds": [
             {
@@ -89,7 +89,7 @@
             }
         ]
     },
-    "mobBasalzAmbient": {
+    "mob_basalz_ambient": {
         "category": "hostile",
         "sounds": [
             {
@@ -98,7 +98,7 @@
             }
         ]
     },
-    "mobBasalzAttack": {
+    "mob_basalz_attack": {
         "category": "hostile",
         "sounds": [
             {
@@ -107,7 +107,7 @@
             }
         ]
     },
-    "mobBasalzBreathe0": {
+    "mob_basalz_breathe0": {
         "category": "hostile",
         "sounds": [
             {
@@ -116,7 +116,7 @@
             }
         ]
     },
-    "mobBasalzBreathe1": {
+    "mob_basalz_breathe1": {
         "category": "hostile",
         "sounds": [
             {

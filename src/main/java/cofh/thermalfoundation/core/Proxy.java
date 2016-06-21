@@ -6,16 +6,28 @@ import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
-import cofh.thermalfoundation.item.TFItems;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class Proxy {
 
+	/* INIT */
+	public void preInit(FMLPreInitializationEvent event) {
+
+		registerEntities();
+	}
+
+	public void initialize(FMLInitializationEvent event) {
+
+	}
+
+	public void postInit(FMLPostInitializationEvent event) {
+
+	}
+
+	/* REGISTRATION */
 	public void registerEntities() {
 
 		EntityBlizz.initialize();
@@ -26,21 +38,6 @@ public class Proxy {
 		EntityBasalzBolt.initialize();
 	}
 
-	public void registerRenderInformation() {
-
-	}
-
-	@SubscribeEvent
-	public void livingDrops(LivingDropsEvent evt) {
-
-		Entity entity = evt.entity;
-		if (entity.isImmuneToFire() && TFProps.dropSulfurFireImmune) {
-			boolean s = entity instanceof EntitySlime;
-			if (evt.entityLiving.getRNG().nextInt(6 + (s ? 16 : 0)) != 0) {
-				return;
-			}
-			evt.drops.add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, TFItems.dustSulfur.copy()));
-		}
-	}
+	/* HELPERS */
 
 }

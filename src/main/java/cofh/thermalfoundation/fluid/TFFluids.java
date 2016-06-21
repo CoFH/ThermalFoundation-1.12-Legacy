@@ -1,32 +1,72 @@
 package cofh.thermalfoundation.fluid;
 
-import cofh.core.util.fluid.DispenserEmptyBucketHandler;
-import cofh.core.util.fluid.DispenserFilledBucketHandler;
-import cofh.thermalfoundation.item.TFItems;
+import cofh.api.core.IInitializer;
+import cofh.core.fluid.BlockFluidCoFHBase;
+import cofh.core.fluid.FluidCoFHBase;
+import cofh.thermalfoundation.core.ProxyClient;
 
-import net.minecraft.block.BlockDispenser;
-import net.minecraft.init.Items;
+import java.util.ArrayList;
+
 import net.minecraft.item.EnumRarity;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
 public class TFFluids {
 
+	private TFFluids() {
+
+	}
+
 	public static void preInit() {
 
-		fluidRedstone = new Fluid("redstone").setLuminosity(7).setDensity(1200).setViscosity(1500).setTemperature(300).setRarity(EnumRarity.uncommon);
-		fluidGlowstone = new Fluid("glowstone").setLuminosity(15).setDensity(-500).setViscosity(100).setTemperature(300).setGaseous(true)
-				.setRarity(EnumRarity.uncommon);
-		fluidEnder = new Fluid("ender").setLuminosity(3).setDensity(4000).setViscosity(3000).setTemperature(300).setRarity(EnumRarity.uncommon);
-		fluidPyrotheum = new Fluid("pyrotheum").setLuminosity(15).setDensity(2000).setViscosity(1200).setTemperature(4000).setRarity(EnumRarity.rare);
-		fluidCryotheum = new Fluid("cryotheum").setLuminosity(0).setDensity(4000).setViscosity(3000).setTemperature(50).setRarity(EnumRarity.rare);
-		fluidAerotheum = new Fluid("aerotheum").setLuminosity(0).setDensity(-800).setViscosity(100).setTemperature(300).setGaseous(true)
-				.setRarity(EnumRarity.rare);
-		fluidPetrotheum = new Fluid("petrotheum").setLuminosity(0).setDensity(4000).setViscosity(1500).setTemperature(400).setRarity(EnumRarity.rare);
-		fluidMana = new Fluid("mana").setLuminosity(15).setDensity(600).setViscosity(6000).setTemperature(350).setRarity(EnumRarity.epic);
-		fluidSteam = new Fluid("steam").setLuminosity(0).setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true);
-		fluidCoal = new Fluid("coal").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300);
+		registerAllFluids();
+		registerAllFluidBlocks();
+		createBuckets();
 
+		for (int i = 0; i < initList.size(); i++) {
+			initList.get(i).preInit();
+		}
+
+	}
+
+	public static void initialize() {
+
+		for (int i = 0; i < initList.size(); i++) {
+			initList.get(i).initialize();
+		}
+	}
+
+	public static void postInit() {
+
+		for (int i = 0; i < initList.size(); i++) {
+			initList.get(i).postInit();
+		}
+	}
+
+	/* HELPERS */
+	public static void registerAllFluids() {
+
+		fluidSteam = new FluidCoFHBase("steam", "thermalfoundation").setLuminosity(0).setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true);
+		fluidCoal = new FluidCoFHBase("coal", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300);
+		fluidRedstone = new FluidCoFHBase("redstone", "thermalfoundation").setLuminosity(7).setDensity(1200).setViscosity(1500).setTemperature(300)
+				.setRarity(EnumRarity.UNCOMMON);
+		fluidGlowstone = new FluidCoFHBase("glowstone", "thermalfoundation").setLuminosity(15).setDensity(-500).setViscosity(100).setTemperature(300)
+				.setGaseous(true).setRarity(EnumRarity.UNCOMMON);
+		fluidEnder = new FluidCoFHBase("ender", "thermalfoundation").setLuminosity(3).setDensity(4000).setViscosity(3000).setTemperature(300)
+				.setRarity(EnumRarity.UNCOMMON);
+		fluidPyrotheum = new FluidCoFHBase("pyrotheum", "thermalfoundation").setLuminosity(15).setDensity(2000).setViscosity(1200).setTemperature(4000)
+				.setRarity(EnumRarity.RARE);
+		fluidCryotheum = new FluidCoFHBase("cryotheum", "thermalfoundation").setLuminosity(0).setDensity(4000).setViscosity(3000).setTemperature(50)
+				.setRarity(EnumRarity.RARE);
+		fluidAerotheum = new FluidCoFHBase("aerotheum", "thermalfoundation").setLuminosity(0).setDensity(-800).setViscosity(100).setTemperature(300)
+				.setGaseous(true).setRarity(EnumRarity.RARE);
+		fluidPetrotheum = new FluidCoFHBase("petrotheum", "thermalfoundation").setLuminosity(0).setDensity(4000).setViscosity(1500).setTemperature(400)
+				.setRarity(EnumRarity.RARE);
+		fluidMana = new FluidCoFHBase("mana", "thermalfoundation").setLuminosity(15).setDensity(600).setViscosity(6000).setTemperature(350)
+				.setRarity(EnumRarity.EPIC);
+
+		registerFluid(fluidSteam, "steam");
+		registerFluid(fluidCoal, "coal");
 		registerFluid(fluidRedstone, "redstone");
 		registerFluid(fluidGlowstone, "glowstone");
 		registerFluid(fluidEnder, "ender");
@@ -35,16 +75,20 @@ public class TFFluids {
 		registerFluid(fluidAerotheum, "aerotheum");
 		registerFluid(fluidPetrotheum, "petrotheum");
 		registerFluid(fluidMana, "mana");
-		registerFluid(fluidSteam, "steam");
-		registerFluid(fluidCoal, "coal");
 	}
 
-	public static void initialize() {
+	public static void registerAllFluidBlocks() {
 
-	}
-
-	public static void postInit() {
-
+		registerFluidBlock(blockFluidSteam, new BlockFluidSteam(fluidSteam));
+		registerFluidBlock(blockFluidCoal, new BlockFluidCoal(fluidCoal));
+		registerFluidBlock(blockFluidRedstone, new BlockFluidRedstone(fluidRedstone));
+		registerFluidBlock(blockFluidGlowstone, new BlockFluidGlowstone(fluidGlowstone));
+		registerFluidBlock(blockFluidEnder, new BlockFluidEnder(fluidEnder));
+		registerFluidBlock(blockFluidPyrotheum, new BlockFluidPyrotheum(fluidPyrotheum));
+		registerFluidBlock(blockFluidCryotheum, new BlockFluidCryotheum(fluidCryotheum));
+		registerFluidBlock(blockFluidAerotheum, new BlockFluidAerotheum(fluidAerotheum));
+		registerFluidBlock(blockFluidPetrotheum, new BlockFluidPetrotheum(fluidPetrotheum));
+		registerFluidBlock(blockFluidMana, new BlockFluidMana(fluidMana));
 	}
 
 	public static void registerFluid(Fluid fluid, String fluidName) {
@@ -55,12 +99,34 @@ public class TFFluids {
 		fluid = FluidRegistry.getFluid(fluidName);
 	}
 
-	public static void registerDispenserHandlers() {
+	public static void registerFluidBlock(BlockFluidCoFHBase block, BlockFluidCoFHBase block2) {
 
-		BlockDispenser.dispenseBehaviorRegistry.putObject(TFItems.itemBucket, new DispenserFilledBucketHandler());
-		BlockDispenser.dispenseBehaviorRegistry.putObject(Items.bucket, new DispenserEmptyBucketHandler());
+		block = block2;
+
+		initList.add(block);
+
+		ProxyClient.modelList.add(block);
 	}
 
+	public static void createBuckets() {
+
+		FluidRegistry.addBucketForFluid(fluidSteam);
+		FluidRegistry.addBucketForFluid(fluidCoal);
+		FluidRegistry.addBucketForFluid(fluidRedstone);
+		FluidRegistry.addBucketForFluid(fluidGlowstone);
+		FluidRegistry.addBucketForFluid(fluidEnder);
+		FluidRegistry.addBucketForFluid(fluidPyrotheum);
+		FluidRegistry.addBucketForFluid(fluidCryotheum);
+		FluidRegistry.addBucketForFluid(fluidAerotheum);
+		FluidRegistry.addBucketForFluid(fluidPetrotheum);
+		FluidRegistry.addBucketForFluid(fluidMana);
+	}
+
+	static ArrayList<IInitializer> initList = new ArrayList<IInitializer>();
+
+	/* REFERENCES */
+	public static Fluid fluidSteam;
+	public static Fluid fluidCoal;
 	public static Fluid fluidRedstone;
 	public static Fluid fluidGlowstone;
 	public static Fluid fluidEnder;
@@ -69,7 +135,16 @@ public class TFFluids {
 	public static Fluid fluidAerotheum;
 	public static Fluid fluidPetrotheum;
 	public static Fluid fluidMana;
-	public static Fluid fluidSteam;
-	public static Fluid fluidCoal;
+
+	public static BlockFluidCoFHBase blockFluidSteam;
+	public static BlockFluidCoFHBase blockFluidCoal;
+	public static BlockFluidCoFHBase blockFluidRedstone;
+	public static BlockFluidCoFHBase blockFluidGlowstone;
+	public static BlockFluidCoFHBase blockFluidEnder;
+	public static BlockFluidCoFHBase blockFluidPyrotheum;
+	public static BlockFluidCoFHBase blockFluidCryotheum;
+	public static BlockFluidCoFHBase blockFluidAerotheum;
+	public static BlockFluidCoFHBase blockFluidPetrotheum;
+	public static BlockFluidCoFHBase blockFluidMana;
 
 }
