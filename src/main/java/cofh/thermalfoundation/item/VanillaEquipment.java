@@ -33,7 +33,7 @@ public enum VanillaEquipment {
     		itemBow = Items.bow;
     	}
     },
-    Stone,
+    Stone(ToolMaterial.STONE, "cobblestone"),
     Iron {
 
     	@Override
