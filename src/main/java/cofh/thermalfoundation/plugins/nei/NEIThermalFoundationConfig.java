@@ -5,6 +5,7 @@ import codechicken.nei.api.IConfigureNEI;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.core.TFProps;
 import cofh.thermalfoundation.item.Equipment;
+import cofh.thermalfoundation.item.VanillaEquipment;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -40,6 +41,20 @@ public class NEIThermalFoundationConfig implements IConfigureNEI {
 			if (!e.enableTools[4]) {
 				API.hideItem(new ItemStack(e.toolHoe.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
+			if (!e.enableTools[5]) {
+				API.hideItem(new ItemStack(e.toolShears.getItem(), 1, OreDictionary.WILDCARD_VALUE));
+			}
+			if (!e.enableTools[6]) {
+				API.hideItem(new ItemStack(e.toolFishingRod.getItem(), 1, OreDictionary.WILDCARD_VALUE));
+			}
+			if (!e.enableTools[7]) {
+				API.hideItem(new ItemStack(e.toolSickle.getItem(), 1, OreDictionary.WILDCARD_VALUE));
+			}
+			if (!e.enableTools[8]) {
+				API.hideItem(new ItemStack(e.toolBow.getItem(), 1, OreDictionary.WILDCARD_VALUE));
+			}
+		}
+		for (VanillaEquipment e : VanillaEquipment.values()) {
 			if (!e.enableTools[5]) {
 				API.hideItem(new ItemStack(e.toolShears.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
