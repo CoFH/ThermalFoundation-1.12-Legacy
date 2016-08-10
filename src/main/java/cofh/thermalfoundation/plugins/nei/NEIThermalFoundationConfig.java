@@ -55,16 +55,16 @@ public class NEIThermalFoundationConfig implements IConfigureNEI {
 			}
 		}
 		for (VanillaEquipment e : VanillaEquipment.values()) {
-			if (!e.enableTools[5]) {
+			if (!e.enableTools[0]) {
 				API.hideItem(new ItemStack(e.toolShears.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
-			if (!e.enableTools[6]) {
+			if (!e.enableTools[1]) {
 				API.hideItem(new ItemStack(e.toolFishingRod.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
-			if (!e.enableTools[7]) {
+			if (!e.enableTools[2]) {
 				API.hideItem(new ItemStack(e.toolSickle.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
-			if (!e.enableTools[8]) {
+			if (!e.enableTools[3]) {
 				API.hideItem(new ItemStack(e.toolBow.getItem(), 1, OreDictionary.WILDCARD_VALUE));
 			}
 		}
