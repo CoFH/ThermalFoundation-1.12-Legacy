@@ -8,6 +8,7 @@ import cofh.thermalfoundation.core.ProxyClient;
 import java.util.ArrayList;
 
 import net.minecraft.item.EnumRarity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 

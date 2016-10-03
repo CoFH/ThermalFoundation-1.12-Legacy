@@ -22,13 +22,15 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class EntityBlitz extends EntityElemental {
 
@@ -43,7 +45,12 @@ public class EntityBlitz extends EntityElemental {
 	static int spawnMin = 1;
 	static int spawnMax = 4;
 
-	static String soundAttack = CoreUtils.getSoundName(ThermalFoundation.modId, "mob_blitz_attack");
+	private static final SoundEvent attackSound = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blitz_attack");
+	private static final SoundEvent ambientSound0 = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blitz_breathe0");
+	private static final SoundEvent ambientSound1 = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blitz_breathe1");
+	private static final SoundEvent ambientSound2 = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blitz_breathe2");
+	private static final SoundEvent specialAmbientSound = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blitz_ambient");
+	private static final SoundEvent[] ambientSounds = new SoundEvent[] {ambientSound0, ambientSound1, ambientSound2};
 
 	static {
 		String category = "Mob.Blitz";
@@ -80,21 +87,27 @@ public class EntityBlitz extends EntityElemental {
 				0xF0F8FF, 0xFFEFD5);
 
 		// Add Blitz spawn to Plains biomes
-		List<BiomeGenBase> validBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.PLAINS)));
+		List<Biome> validBiomes = new ArrayList<Biome>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.PLAINS)));
 
 		// Add Blitz spawn to Sandy biomes
-		for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(Type.SANDY)) {
+		for (Biome biome : BiomeDictionary.getBiomesForType(Type.SANDY)) {
 			if (!validBiomes.contains(biome)) {
 				validBiomes.add(biome);
 			}
 		}
 		// Remove Blitz spawn from End biomes
-		for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(Type.END)) {
+		for (Biome biome : BiomeDictionary.getBiomesForType(Type.END)) {
 			if (validBiomes.contains(biome)) {
 				validBiomes.remove(biome);
 			}
 		}
-		EntityRegistry.addSpawn(EntityBlitz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new BiomeGenBase[0]));
+		EntityRegistry.addSpawn(EntityBlitz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[0]));
+
+		GameRegistry.register(attackSound);
+		GameRegistry.register(ambientSound0);
+		GameRegistry.register(ambientSound1);
+		GameRegistry.register(ambientSound2);
+		GameRegistry.register(specialAmbientSound);
 	}
 
 	public EntityBlitz(World world) {
@@ -108,12 +121,20 @@ public class EntityBlitz extends EntityElemental {
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 
-		soundAmbient = CoreUtils.getSoundName(ThermalFoundation.modId, "mob_blitz_ambient");
-		soundLiving = new String[] { CoreUtils.getSoundName(ThermalFoundation.modId, "mob_blitz_breathe0"),
-				CoreUtils.getSoundName(ThermalFoundation.modId, "mob_blitz_breathe1"), CoreUtils.getSoundName(ThermalFoundation.modId, "mob_blitz_breathe2") };
-
 		ambientParticle = EnumParticleTypes.CLOUD;
 
+	}
+
+	@Override
+	protected SoundEvent[] getAmbientSounds() {
+
+		return ambientSounds;
+	}
+
+	@Override
+	protected SoundEvent getSpecialAmbientSound() {
+
+		return specialAmbientSound;
 	}
 
 	@Override
@@ -210,13 +231,13 @@ public class EntityBlitz extends EntityElemental {
 
 					if (this.field_179467_b > 1) {
 						double f = Math.sqrt(Math.sqrt(d0)) * 0.5F;
-						this.blitz.worldObj.playAuxSFXAtEntity((EntityPlayer) null, 1009, new BlockPos((int) this.blitz.posX, (int) this.blitz.posY,
+						this.blitz.worldObj.playEvent(null, 1009, new BlockPos((int) this.blitz.posX, (int) this.blitz.posY,
 								(int) this.blitz.posZ), 0);
 
 						for (int i = 0; i < 1; ++i) {
 							EntityBlitzBolt bolt = new EntityBlitzBolt(this.blitz.worldObj, this.blitz);
 							bolt.posY = this.blitz.posY + this.blitz.height / 2.0F + 0.5D;
-							this.blitz.playSound(soundAttack, 2.0F, (this.blitz.rand.nextFloat() - this.blitz.rand.nextFloat()) * 0.2F + 1.0F);
+							this.blitz.playSound(attackSound, 2.0F, (this.blitz.rand.nextFloat() - this.blitz.rand.nextFloat()) * 0.2F + 1.0F);
 							this.blitz.worldObj.spawnEntityInWorld(bolt);
 						}
 					}

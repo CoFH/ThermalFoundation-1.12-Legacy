@@ -11,19 +11,20 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
     }
 }
 
-apply plugin: 'forge'
+apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.7.10R1.2.0"
+version = "1.10.2A0.0.1"
 group = "thermalfoundation"
 archivesBaseName = "ThermalFoundation"
 
 minecraft {
-    version = "1.7.10-10.13.4.1448"
-    runDir = "eclipse/assets"
+    mappings = "snapshot_20160912"
+    version = "1.10.2-12.18.1.2094"
+    runDir = "run"
 }
 
 processResources

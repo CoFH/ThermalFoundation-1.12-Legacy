@@ -9,13 +9,14 @@ import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -55,15 +56,15 @@ public class EntityBasalzBolt extends EntityThrowable {
 	}
 
 	@Override
-	protected void onImpact(MovingObjectPosition pos) {
+	protected void onImpact(RayTraceResult rayTrace) {
 
 		if (ServerHelper.isServerWorld(worldObj)) {
-			if (pos.entityHit != null) {
-				if (pos.entityHit instanceof EntityBasalz) {
-					pos.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 0);
+			if (rayTrace.entityHit != null) {
+				if (rayTrace.entityHit instanceof EntityBasalz) {
+					rayTrace.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 0);
 				} else {
-					if (pos.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 5F) && pos.entityHit instanceof EntityLivingBase) {
-						EntityLivingBase living = (EntityLivingBase) pos.entityHit;
+					if (rayTrace.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 5F) && rayTrace.entityHit instanceof EntityLivingBase) {
+						EntityLivingBase living = (EntityLivingBase) rayTrace.entityHit;
 						living.addPotionEffect(new PotionEffect(EntityBasalzBolt.basalzEffect));
 					}
 				}
@@ -104,15 +105,15 @@ public class EntityBasalzBolt extends EntityThrowable {
 
 	protected static class PotionEffectBasalz extends PotionEffect {
 
-		public PotionEffectBasalz(int id, int duration, int amplifier) {
+		public PotionEffectBasalz(Potion potion, int duration, int amplifier) {
 
-			super(id, duration, amplifier, true, false);
+			super(potion, duration, amplifier, true, false);
 			getCurativeItems().clear();
 		}
 
 		public PotionEffectBasalz(int duration, int amplifier) {
 
-			this(Potion.weakness.id, duration, amplifier);
+			this(MobEffects.WEAKNESS, duration, amplifier);
 		}
 
 	}

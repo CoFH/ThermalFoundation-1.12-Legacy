@@ -2,16 +2,18 @@ package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidCoFHBase;
 
+import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockFluidSteam extends BlockFluidCoFHBase {
 
 	public static final int LEVELS = 8;
-	public static final Material materialFluidSteam = new MaterialLiquid(MapColor.silverColor);
+	public static final Material materialFluidSteam = new MaterialLiquid(MapColor.SILVER);
 
 	// private static boolean effect = true;
 
@@ -29,7 +31,7 @@ public class BlockFluidSteam extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, "FluidSteam");
+		GameRegistry.register(this, new ResourceLocation(ThermalFoundation.modId, "FluidSteam"));
 
 		return true;
 	}

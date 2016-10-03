@@ -1,11 +1,13 @@
 package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidCoFHBase;
+import cofh.core.util.RegistryHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 
 import java.util.Random;
 
+import cofh.thermalfoundation.block.ItemBlockStorage;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -14,9 +16,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -28,7 +32,7 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
 	//Random random = new Random();
 
 	public static final int LEVELS = 6;
-	public static final Material materialFluidAerotheum = new MaterialLiquid(MapColor.airColor);
+	public static final Material materialFluidAerotheum = new MaterialLiquid(MapColor.AIR);
 
 	private static boolean effect = true;
 	private static boolean enableSourceDissipate = true;
@@ -89,8 +93,8 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
 			return;
 		}
 		if (world.getTotalWorldTime() % 8 == 0 && entity instanceof EntityLivingBase && !((EntityLivingBase) entity).isEntityUndead()) {
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.invisibility.id, 3 * 20, 0));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 30 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 3 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 30 * 20, 0));
 		}
 	}
 
@@ -100,7 +104,7 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
 		if (getMetaFromState(state) == 0) {
 			if (rand.nextInt(3) == 0) {
 				if (shouldSourceBlockDissipate(world, pos)) {
-					world.setBlockState(pos, Blocks.glowstone.getDefaultState(), 2);
+					world.setBlockState(pos, Blocks.GLOWSTONE.getDefaultState(), 2);
 					return;
 				}
 				if (shouldSourceBlockFloat(world, pos)) {
@@ -152,7 +156,7 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, "FluidAerotheum");
+		GameRegistry.register(this, new ResourceLocation(ThermalFoundation.modId, "FluidAerotheum"));
 
 		String category = "Fluid.Aerotheum";
 		String comment = "Enable this for Fluid Aerotheum to do...things.";

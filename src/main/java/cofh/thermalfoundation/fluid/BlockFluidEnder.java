@@ -9,7 +9,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -17,7 +18,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class BlockFluidEnder extends BlockFluidCoFHBase {
 
 	public static final int LEVELS = 4;
-	public static final Material materialFluidEnder = new MaterialLiquid(MapColor.greenColor);
+	public static final Material materialFluidEnder = new MaterialLiquid(MapColor.GREEN);
 
 	private static boolean effect = true;
 
@@ -41,7 +42,7 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 		if (world.getTotalWorldTime() % 8 == 0) {
 			BlockPos pos2 = pos.add(-8 + world.rand.nextInt(17), world.rand.nextInt(8), -8 + world.rand.nextInt(17));
 
-			if (!world.getBlockState(pos2).getBlock().getMaterial().isSolid()) {
+			if (!world.getBlockState(pos2).getMaterial().isSolid()) {
 				CoreUtils.teleportEntityTo(entity, pos2.getX(), pos2.getY(), pos2.getZ());
 			}
 		}
@@ -51,7 +52,7 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, "FluidEnder");
+		GameRegistry.register(this, new ResourceLocation(ThermalFoundation.modId, "FluidEnder"));
 
 		String category = "Fluid.Ender";
 		String comment = "Enable this for Fluid Ender to randomly teleport entities on contact.";

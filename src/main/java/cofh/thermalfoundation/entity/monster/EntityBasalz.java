@@ -22,13 +22,15 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class EntityBasalz extends EntityElemental {
 
@@ -43,7 +45,11 @@ public class EntityBasalz extends EntityElemental {
 	static int spawnMin = 1;
 	static int spawnMax = 4;
 
-	static String soundAttack = CoreUtils.getSoundName(ThermalFoundation.modId, "mob_basalz_attack");
+	private static final SoundEvent attackSound = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_basalz_attack");
+	private static final SoundEvent ambientSound0 = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_basalz_breathe0");
+	private static final SoundEvent ambientSound1 = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_basalz_breathe1");
+	private static final SoundEvent specialAmbientSound = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_basalz_ambient");
+	private static final SoundEvent[] ambientSounds = new SoundEvent[] {ambientSound0, ambientSound1};
 
 	static {
 		String category = "Mob.Basalz";
@@ -80,21 +86,26 @@ public class EntityBasalz extends EntityElemental {
 				0x606060, 0xB3ABA3);
 
 		// Add Basalz spawn to Mountain biomes
-		List<BiomeGenBase> validBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.MOUNTAIN)));
+		List<Biome> validBiomes = new ArrayList<Biome>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.MOUNTAIN)));
 
 		// Add Basalz spawn to Wasteland biomes
-		for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(Type.WASTELAND)) {
+		for (Biome biome : BiomeDictionary.getBiomesForType(Type.WASTELAND)) {
 			if (!validBiomes.contains(biome)) {
 				validBiomes.add(biome);
 			}
 		}
 		// Remove Basalz spawn from End biomes
-		for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(Type.END)) {
+		for (Biome biome : BiomeDictionary.getBiomesForType(Type.END)) {
 			if (validBiomes.contains(biome)) {
 				validBiomes.remove(biome);
 			}
 		}
-		EntityRegistry.addSpawn(EntityBasalz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new BiomeGenBase[0]));
+		EntityRegistry.addSpawn(EntityBasalz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[0]));
+
+		GameRegistry.register(attackSound);
+		GameRegistry.register(ambientSound0);
+		GameRegistry.register(ambientSound1);
+		GameRegistry.register(specialAmbientSound);
 	}
 
 	public EntityBasalz(World world) {
@@ -108,11 +119,19 @@ public class EntityBasalz extends EntityElemental {
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 
-		soundAmbient = CoreUtils.getSoundName(ThermalFoundation.modId, "mob_basalz_ambient");
-		soundLiving = new String[] { CoreUtils.getSoundName(ThermalFoundation.modId, "mob_basalz_breathe0"),
-				CoreUtils.getSoundName(ThermalFoundation.modId, "mob_basalz_breathe1") };
-
 		ambientParticle = EnumParticleTypes.TOWN_AURA;
+	}
+
+	@Override
+	protected SoundEvent[] getAmbientSounds() {
+
+		return ambientSounds;
+	}
+
+	@Override
+	protected SoundEvent getSpecialAmbientSound() {
+
+		return specialAmbientSound;
 	}
 
 	@Override
@@ -209,13 +228,13 @@ public class EntityBasalz extends EntityElemental {
 
 					if (this.field_179467_b > 1) {
 						double f = Math.sqrt(Math.sqrt(d0)) * 0.5F;
-						this.basalz.worldObj.playAuxSFXAtEntity((EntityPlayer) null, 1009, new BlockPos((int) this.basalz.posX, (int) this.basalz.posY,
+						this.basalz.worldObj.playEvent(null, 1009, new BlockPos((int) this.basalz.posX, (int) this.basalz.posY,
 								(int) this.basalz.posZ), 0);
 
 						for (int i = 0; i < 1; ++i) {
 							EntityBasalzBolt bolt = new EntityBasalzBolt(this.basalz.worldObj, this.basalz);
 							bolt.posY = this.basalz.posY + this.basalz.height / 2.0F + 0.5D;
-							this.basalz.playSound(soundAttack, 2.0F, (this.basalz.rand.nextFloat() - this.basalz.rand.nextFloat()) * 0.2F + 1.0F);
+							this.basalz.playSound(attackSound, 2.0F, (this.basalz.rand.nextFloat() - this.basalz.rand.nextFloat()) * 0.2F + 1.0F);
 							this.basalz.worldObj.spawnEntityInWorld(bolt);
 						}
 					}

@@ -5,23 +5,26 @@ import static cofh.lib.util.helpers.ItemHelper.*;
 import cofh.api.core.IInitializer;
 import cofh.api.core.IModelRegister;
 import cofh.core.block.BlockCoFHBase;
+import cofh.core.util.RegistryHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 
 import java.util.List;
 
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving.SpawnPlacementType;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.Explosion;
@@ -38,14 +41,14 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 
 	public BlockStorage() {
 
-		super(Material.iron, "thermalfoundation");
+		super(Material.IRON, "thermalfoundation");
 
 		setUnlocalizedName("storage");
 		setCreativeTab(ThermalFoundation.tabCommon);
 
 		setHardness(5.0F);
 		setResistance(10.0F);
-		setStepSound(soundTypeMetal);
+		setSoundType(SoundType.METAL);
 		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.COPPER));
 
 		setHarvestLevel("pickaxe", 2);
@@ -56,9 +59,9 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 	}
 
 	@Override
-	protected BlockState createBlockState() {
+	protected BlockStateContainer createBlockState() {
 
-		return new BlockState(this, new IProperty[] { VARIANT });
+		return new BlockStateContainer(this, new IProperty[] { VARIANT });
 	}
 
 	@Override
@@ -68,13 +71,6 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
 			list.add(new ItemStack(item, 1, i));
 		}
-	}
-
-	@Override
-	public int getDamageValue(World world, BlockPos pos) {
-
-		IBlockState state = world.getBlockState(pos);
-		return state.getBlock() != this ? 0 : state.getValue(VARIANT).getMetadata();
 	}
 
 	@Override
@@ -96,22 +92,20 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 	}
 
 	@Override
-	public int getLightValue(IBlockAccess world, BlockPos pos) {
+	public int getLightValue(IBlockState state) {
 
-		IBlockState state = world.getBlockState(pos);
 		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
 	}
 
 	@Override
-	public int getWeakPower(IBlockAccess world, BlockPos pos, IBlockState state, EnumFacing side) {
+	public int getWeakPower(IBlockState state, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
 
 		return getMetaFromState(state) == Type.SIGNALUM.getMetadata() ? 15 : 0;
 	}
 
 	@Override
-	public float getBlockHardness(World world, BlockPos pos) {
+	public float getBlockHardness(IBlockState state, World world, BlockPos pos) {
 
-		IBlockState state = world.getBlockState(pos);
 		return Type.byMetadata(state.getBlock().getMetaFromState(state)).hardness;
 	}
 
@@ -123,13 +117,13 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 	}
 
 	@Override
-	public boolean canCreatureSpawn(IBlockAccess world, BlockPos pos, SpawnPlacementType type) {
+	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, SpawnPlacementType type) {
 
 		return false;
 	}
 
 	@Override
-	public boolean canProvidePower() {
+	public boolean canProvidePower(IBlockState state) {
 
 		return true;
 	}
@@ -141,7 +135,7 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 	}
 
 	@Override
-	public boolean isNormalCube(IBlockAccess world, BlockPos pos) {
+	public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
 
 		return true;
 	}
@@ -161,7 +155,7 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, ItemBlockStorage.class, "storage");
+		RegistryHelper.registerBlockAndItem(this, new ResourceLocation(ThermalFoundation.modId, "storage"), ItemBlockStorage::new);
 
 		blockCopper = new ItemStack(this, 1, Type.COPPER.getMetadata());
 		blockTin = new ItemStack(this, 1, Type.TIN.getMetadata());

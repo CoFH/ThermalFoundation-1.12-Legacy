@@ -6,7 +6,8 @@ import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -16,13 +17,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class BlockFluidCoal extends BlockFluidCoFHBase {
 
 	public static final int LEVELS = 6;
-	public static final Material materialFluidCoal = new MaterialLiquid(MapColor.grayColor);
+	public static final Material materialFluidCoal = new MaterialLiquid(MapColor.GRAY);
 
 	private static boolean effect = true;
 
 	public BlockFluidCoal(Fluid fluid) {
 
-		super(fluid, Material.water, "thermalfoundation", "coal");
+		super(fluid, Material.WATER, "thermalfoundation", "coal");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(10);
 
@@ -59,7 +60,7 @@ public class BlockFluidCoal extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, "FluidCoal");
+		GameRegistry.register(this, new ResourceLocation(ThermalFoundation.modId, "FluidCoal"));
 
 		String category = "Fluid.Coal";
 		String comment = "Enable this for Fluid Coal to be flammable.";

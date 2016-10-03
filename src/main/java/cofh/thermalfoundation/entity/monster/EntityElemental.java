@@ -5,15 +5,23 @@ import cofh.lib.util.helpers.ServerHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.util.BlockPos;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
+
 public abstract class EntityElemental extends EntityMob {
 
+	private static final DataParameter<Boolean> IN_ATTACK_MODE = EntityDataManager.createKey(EntityElemental.class, DataSerializers.BOOLEAN);
 	protected static final int SOUND_AMBIENT_FREQUENCY = 400; // How often it does ambient sound loop
 
 	/** Random offset used in floating behavior */
@@ -21,9 +29,6 @@ public abstract class EntityElemental extends EntityMob {
 
 	/** ticks until heightOffset is randomized */
 	protected int heightOffsetUpdateTime;
-
-	protected String soundAmbient;
-	protected String soundLiving[];
 
 	protected EnumParticleTypes ambientParticle;
 
@@ -37,34 +42,37 @@ public abstract class EntityElemental extends EntityMob {
 	protected void applyEntityAttributes() {
 
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(6.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23000000417232513D);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(48.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
 	}
 
 	@Override
 	protected void entityInit() {
 
 		super.entityInit();
-		this.dataWatcher.addObject(16, new Byte((byte) 0));
+		this.dataManager.set(IN_ATTACK_MODE, false);
+	}
+
+	@Nullable
+	@Override
+	protected SoundEvent getAmbientSound() {
+
+		return getAmbientSounds()[this.rand.nextInt(getAmbientSounds().length)];
+	}
+
+	protected abstract SoundEvent[] getAmbientSounds();
+
+	@Override
+	protected SoundEvent getHurtSound() {
+
+		return SoundEvents.ENTITY_BLAZE_HURT;
 	}
 
 	@Override
-	protected String getLivingSound() {
+	protected SoundEvent getDeathSound() {
 
-		return soundLiving[this.rand.nextInt(soundLiving.length)];
-	}
-
-	@Override
-	protected String getHurtSound() {
-
-		return "mob.blaze.hit";
-	}
-
-	@Override
-	protected String getDeathSound() {
-
-		return "mob.blaze.death";
+		return SoundEvents.ENTITY_BLAZE_DEATH;
 	}
 
 	@Override
@@ -88,8 +96,7 @@ public abstract class EntityElemental extends EntityMob {
 		}
 		if (ServerHelper.isClientWorld(worldObj)) {
 			if (this.rand.nextInt(SOUND_AMBIENT_FREQUENCY) == 0) {
-				this.worldObj.playSoundEffect(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, soundAmbient, this.rand.nextFloat() * 0.2F + 0.1F,
-						this.rand.nextFloat() * 0.3F + 0.4F);
+				this.playSound(getSpecialAmbientSound(), this.rand.nextFloat() * 0.2F + 0.1F, this.rand.nextFloat() * 0.3F + 0.4F);
 			}
 			for (int i = 0; i < 2; i++) {
 				this.worldObj.spawnParticle(ambientParticle, this.posX + (this.rand.nextDouble() - 0.5D) * this.width, this.posY + this.rand.nextDouble()
@@ -98,6 +105,8 @@ public abstract class EntityElemental extends EntityMob {
 		}
 		super.onLivingUpdate();
 	}
+
+	protected abstract SoundEvent getSpecialAmbientSound();
 
 	@Override
 	protected void updateAITasks() {
@@ -123,19 +132,12 @@ public abstract class EntityElemental extends EntityMob {
 
 	public boolean isInAttackMode() {
 
-		return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
+		return this.dataManager.get(IN_ATTACK_MODE);
 	}
 
 	public void setInAttackMode(boolean mode) {
 
-		byte b0 = this.dataWatcher.getWatchableObjectByte(16);
-
-		if (mode) {
-			b0 = (byte) (b0 | 1);
-		} else {
-			b0 &= -2;
-		}
-		this.dataWatcher.updateObject(16, Byte.valueOf(b0));
+		this.dataManager.set(IN_ATTACK_MODE, mode);
 	}
 
 	protected abstract boolean restrictLightLevel();

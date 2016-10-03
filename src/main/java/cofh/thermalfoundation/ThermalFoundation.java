@@ -53,8 +53,8 @@ public class ThermalFoundation {
 	public static final ConfigHandler CONFIG_CLIENT = new ConfigHandler(version);
 
 	public static CreativeTabs tabCommon = new CreativeTabTF();
-	public static CreativeTabs tabTools = CreativeTabs.tabTools;
-	public static CreativeTabs tabArmor = CreativeTabs.tabCombat;
+	public static CreativeTabs tabTools = CreativeTabs.TOOLS;
+	public static CreativeTabs tabArmor = CreativeTabs.COMBAT;
 
 	public static File worldGenOres;
 	public static final String WORLD_GEN_PATH = "assets/thermalfoundation/world/";
