@@ -31,7 +31,7 @@ public class BlockFluidSteam extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.register(this, new ResourceLocation(ThermalFoundation.modId, "FluidSteam"));
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "FluidSteam")));
 
 		return true;
 	}

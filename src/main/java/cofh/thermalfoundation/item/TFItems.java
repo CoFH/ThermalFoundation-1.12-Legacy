@@ -18,18 +18,21 @@ public class TFItems {
 		itemDiagram = new ItemDiagram();
 		itemFertilizer = new ItemFertilizer();
 		itemMaterial = new ItemMaterial();
+		itemSecurity = new ItemSecurity();
 
 		initList.add(itemWrench);
 		initList.add(itemMeter);
 		initList.add(itemDiagram);
 		initList.add(itemFertilizer);
 		initList.add(itemMaterial);
+		initList.add(itemSecurity);
 
 		ProxyClient.modelList.add(itemWrench);
 		ProxyClient.modelList.add(itemMeter);
 		ProxyClient.modelList.add(itemDiagram);
 		ProxyClient.modelList.add(itemFertilizer);
 		ProxyClient.modelList.add(itemMaterial);
+		ProxyClient.modelList.add(itemSecurity);
 
 		for (int i = 0; i < initList.size(); i++) {
 			initList.get(i).preInit();
@@ -62,5 +65,6 @@ public class TFItems {
 	public static ItemDiagram itemDiagram;
 	public static ItemFertilizer itemFertilizer;
 	public static ItemMaterial itemMaterial;
+	public static ItemSecurity itemSecurity;
 
 }

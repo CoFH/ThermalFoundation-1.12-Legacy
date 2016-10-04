@@ -3,6 +3,7 @@ package cofh.thermalfoundation;
 import cofh.CoFHCore;
 import cofh.core.CoFHProps;
 import cofh.core.util.ConfigHandler;
+import cofh.core.util.CoreUtils;
 import cofh.thermalfoundation.block.TFBlocks;
 import cofh.thermalfoundation.core.Proxy;
 import cofh.thermalfoundation.fluid.TFFluids;
@@ -13,6 +14,7 @@ import java.io.File;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.CustomProperty;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -34,8 +36,8 @@ public class ThermalFoundation {
 
 	public static final String modId = "thermalfoundation";
 	public static final String modName = "Thermal Foundation";
-	public static final String version = "1.8.9R1.3.0";
-	public static final String version_max = "1.8.9R1.4.0";
+	public static final String version = "1.10.2A0.0.1";
+	public static final String version_max = "1.10.2A0.0.1";
 	public static final String dependencies = CoFHCore.version_group;
 	public static final String modGuiFactory = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
 
@@ -59,6 +61,11 @@ public class ThermalFoundation {
 	public static File worldGenOres;
 	public static final String WORLD_GEN_PATH = "assets/thermalfoundation/world/";
 	public static final String WORLD_GEN_FILE = "thermalfoundation_ores.json";
+
+	static {
+
+		FluidRegistry.enableUniversalBucket();
+	}
 
 	/* INIT SEQUENCE */
 	public ThermalFoundation() {
@@ -86,6 +93,8 @@ public class ThermalFoundation {
 		TFItems.initialize();
 		TFFluids.initialize();
 
+		loadWorldGeneration();
+
 		proxy.initialize(event);
 	}
 
@@ -106,6 +115,36 @@ public class ThermalFoundation {
 		CONFIG_CLIENT.cleanUp(false, true);
 
 		LOG.info(modName + ": Load Complete.");
+	}
+
+	void loadWorldGeneration() {
+
+		if (!CONFIG
+				.get("World",
+						"GenerateDefaultFiles",
+						true,
+						"If enabled, Thermal Foundation will create default world generation files - if it cannot find existing ones. Only disable this if you know what you are doing.")) {
+			return;
+		}
+		worldGenOres = new File(CoFHProps.configDir, "/cofh/world/ThermalFoundation-Ores.json");
+		boolean failConvert = false;
+
+		File oldGen = new File(CoFHProps.configDir, "/cofh/world/ThermalExpansion-Ores.json");
+
+		if (oldGen.exists()) {
+			if (oldGen.renameTo(worldGenOres)) {
+				LOG.warn("Thermal Foundation was unable to convert existing world generation! This is really bad - your files are probably write protected and you need to handle it now!");
+				failConvert = true;
+			}
+		}
+		if (!worldGenOres.exists() && !failConvert) {
+			try {
+				worldGenOres.createNewFile();
+				CoreUtils.copyFileUsingStream(WORLD_GEN_PATH + WORLD_GEN_FILE, worldGenOres);
+			} catch (Throwable t) {
+				t.printStackTrace();
+			}
+		}
 	}
 
 	@EventHandler

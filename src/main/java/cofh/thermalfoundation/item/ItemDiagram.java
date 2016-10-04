@@ -3,6 +3,7 @@ package cofh.thermalfoundation.item;
 import static cofh.lib.util.helpers.ItemHelper.*;
 
 import cofh.api.core.IInitializer;
+import cofh.api.core.IModelRegister;
 import cofh.api.tileentity.IPortableData;
 import cofh.core.item.ItemCoFHBase;
 import cofh.core.util.StateMapper;
@@ -30,10 +31,11 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemDiagram extends ItemCoFHBase implements IInitializer {
+public class ItemDiagram extends ItemCoFHBase implements IInitializer, IModelRegister {
 
 	public ItemDiagram() {
 
@@ -71,7 +73,7 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 	@Override
 	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-		return player.canPlayerEdit(pos.offset(side), side, stack) ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
+		return player.canPlayerEdit(pos.offset(side), side, stack) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
 	}
 
 	@Override
@@ -181,6 +183,8 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 		schematic = addItem(Type.SCHEMATIC.ordinal(), "schematic");
 		redprint = addItem(Type.REDPRINT.ordinal(), "redprint");
 
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "diagram")));
+
 		return true;
 	}
 
@@ -193,8 +197,8 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 	@Override
 	public boolean postInit() {
 
-		addRecipe(ShapelessRecipe(schematic, new Object[] { Items.paper, Items.paper, "dyeBlue" }));
-		addRecipe(ShapelessRecipe(redprint, new Object[] { Items.paper, Items.paper, "dustRedstone" }));
+		addRecipe(ShapelessRecipe(schematic, new Object[] { Items.PAPER, Items.PAPER, "dyeBlue" }));
+		addRecipe(ShapelessRecipe(redprint, new Object[] { Items.PAPER, Items.PAPER, "dustRedstone" }));
 
 		return true;
 	}

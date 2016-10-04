@@ -22,6 +22,7 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
@@ -102,10 +103,10 @@ public class EntityBasalz extends EntityElemental {
 		}
 		EntityRegistry.addSpawn(EntityBasalz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[0]));
 
-		GameRegistry.register(attackSound);
-		GameRegistry.register(ambientSound0);
-		GameRegistry.register(ambientSound1);
-		GameRegistry.register(specialAmbientSound);
+		GameRegistry.register(attackSound.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_basalz_attack")));
+		GameRegistry.register(ambientSound0.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_basalz_breathe0")));
+		GameRegistry.register(ambientSound1.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_basalz_breathe1")));
+		GameRegistry.register(specialAmbientSound.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_basalz_ambient")));
 	}
 
 	public EntityBasalz(World world) {

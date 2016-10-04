@@ -142,7 +142,7 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.register(this, new ResourceLocation(ThermalFoundation.modId, "FluidGlowstone"));
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "FluidGlowstone")));
 
 		String category = "Fluid.Glowstone";
 		String comment = "Enable this for Fluid Glowstone to do...something.";

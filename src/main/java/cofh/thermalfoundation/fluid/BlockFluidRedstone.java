@@ -55,7 +55,7 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.register(this, new ResourceLocation(ThermalFoundation.modId, "FluidRedstone"));
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "FluidRedstone")));
 
 		String category = "Fluid.Redstone";
 		String comment = "Enable this for Fluid Redstone to emit a signal proportional to its fluid level.";

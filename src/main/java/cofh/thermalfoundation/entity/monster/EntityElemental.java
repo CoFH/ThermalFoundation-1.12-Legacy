@@ -51,7 +51,7 @@ public abstract class EntityElemental extends EntityMob {
 	protected void entityInit() {
 
 		super.entityInit();
-		this.dataManager.set(IN_ATTACK_MODE, false);
+		this.dataManager.register(IN_ATTACK_MODE, false);
 	}
 
 	@Nullable

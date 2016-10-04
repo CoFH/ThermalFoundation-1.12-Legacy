@@ -21,6 +21,9 @@ version = "1.10.2A0.0.1"
 group = "thermalfoundation"
 archivesBaseName = "ThermalFoundation"
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 minecraft {
     mappings = "snapshot_20160912"
     version = "1.10.2-12.18.1.2094"

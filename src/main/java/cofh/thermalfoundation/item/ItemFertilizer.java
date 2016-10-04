@@ -3,21 +3,34 @@ package cofh.thermalfoundation.item;
 import static cofh.lib.util.helpers.ItemHelper.*;
 
 import cofh.api.core.IInitializer;
+import cofh.api.core.IModelRegister;
 import cofh.core.item.ItemCoFHBase;
+import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
+import java.util.Map;
+
+public class ItemFertilizer extends ItemCoFHBase implements IInitializer, IModelRegister {
 
 	public ItemFertilizer() {
 
@@ -28,18 +41,18 @@ public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
 	}
 
 	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 
 		if (!player.canPlayerEdit(pos.offset(side), side, stack)) {
-			return false;
+			return EnumActionResult.FAIL;
 		}
 		int radius = 1 + ItemHelper.getItemDamage(stack);
 		int potency = 2 + ItemHelper.getItemDamage(stack);
 
 		if (onApplyBonemeal(stack, world, pos, player, radius, potency)) {
-			return true;
+			return EnumActionResult.SUCCESS;
 		}
-		return false;
+		return EnumActionResult.PASS;
 	}
 
 	public static boolean onApplyBonemeal(ItemStack stack, World world, BlockPos pos, EntityPlayer player, int radius, int potency) {
@@ -80,13 +93,27 @@ public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
 						for (int i = 0; i < potency; i++) {
 							growable.grow(world, world.rand, pos, state);
 						}
-						world.playAuxSFX(2005, pos, 0);
+						world.playEvent(2005, pos, 0);
 					}
 				}
 				return true;
 			}
 		}
 		return false;
+	}
+
+	/* IModelRegister */
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerModels() {
+
+		StateMapper mapper = new StateMapper(modName, "fertilizer", name);
+		ModelBakery.registerItemVariants(this);
+		ModelLoader.setCustomMeshDefinition(this, mapper);
+
+		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
+			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "fertilizer", entry.getValue().name));
+		}
 	}
 
 	/* IInitializer */
@@ -96,6 +123,8 @@ public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
 		fertilizerBasic = addItem(0, "fertilizerBasic");
 		fertilizerRich = addItem(1, "fertilizerRich");
 		//fertilizerFlux = addItem(2, "fertilizerFlux");
+
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "fertilizer")));
 
 		return true;
 	}

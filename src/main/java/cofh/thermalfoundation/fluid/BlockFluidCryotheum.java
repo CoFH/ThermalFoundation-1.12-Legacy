@@ -155,7 +155,7 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.register(this, new ResourceLocation(ThermalFoundation.modId, "FluidCryotheum"));
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "FluidCryotheum")));
 
 		addInteraction(Blocks.GRASS, Blocks.DIRT);
 		addInteraction(Blocks.WATER, 0, Blocks.ICE);

@@ -156,7 +156,7 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.register(this, new ResourceLocation(ThermalFoundation.modId, "FluidAerotheum"));
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "FluidAerotheum")));
 
 		String category = "Fluid.Aerotheum";
 		String comment = "Enable this for Fluid Aerotheum to do...things.";

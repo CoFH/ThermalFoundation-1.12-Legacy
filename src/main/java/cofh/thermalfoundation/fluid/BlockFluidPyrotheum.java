@@ -157,7 +157,7 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.register(this, new ResourceLocation(ThermalFoundation.modId, "FluidPyrotheum"));
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "FluidPyrotheum")));
 
 		addInteraction(Blocks.COBBLESTONE, Blocks.STONE);
 		addInteraction(Blocks.GRASS, Blocks.DIRT);

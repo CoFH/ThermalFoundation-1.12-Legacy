@@ -52,7 +52,7 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.register(this, new ResourceLocation(ThermalFoundation.modId, "FluidEnder"));
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "FluidEnder")));
 
 		String category = "Fluid.Ender";
 		String comment = "Enable this for Fluid Ender to randomly teleport entities on contact.";
