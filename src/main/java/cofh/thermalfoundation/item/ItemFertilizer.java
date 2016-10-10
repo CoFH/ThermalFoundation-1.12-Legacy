@@ -122,7 +122,7 @@ public class ItemFertilizer extends ItemCoFHBase implements IInitializer, IModel
 
 		fertilizerBasic = addItem(0, "fertilizerBasic");
 		fertilizerRich = addItem(1, "fertilizerRich");
-		//fertilizerFlux = addItem(2, "fertilizerFlux");
+		//fertilizerFlux = addItem(2, "fertilizerFlux"); TODO add flux fertilizer
 
 		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "fertilizer")));
 
