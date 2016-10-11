@@ -16,6 +16,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -149,7 +150,7 @@ public class BlockFluidMana extends BlockFluidInteractive {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, "FluidMana");
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "FluidMana")));
 
 		addInteraction(Blocks.DIRT, 0, Blocks.GRASS);
 		addInteraction(Blocks.DIRT, 1, Blocks.DIRT, 2);
