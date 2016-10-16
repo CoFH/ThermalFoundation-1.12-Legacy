@@ -124,6 +124,7 @@ public enum VanillaEquipment implements IModelRegister {
 		if (shears instanceof ItemShearsAdv) {
 			ItemShearsAdv itemShears = (ItemShearsAdv) this.shears;
 			itemShears.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shears");
+			itemShears.setCreativeTab(ThermalFoundation.tabTools);
 			itemShears.setShowInCreative(enableTools[0] | TFProps.showDisabledEquipment);
 			GameRegistry.register(itemShears.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.shears" + NAME)));
 		}
@@ -131,18 +132,21 @@ public enum VanillaEquipment implements IModelRegister {
 		if (fishingRod instanceof ItemFishingRodAdv) {
 			ItemFishingRodAdv itemFishingRod = (ItemFishingRodAdv) this.fishingRod;
 			itemFishingRod.setRepairIngot(ingot).setUnlocalizedName(TOOL + "FishingRod");
+			itemFishingRod.setCreativeTab(ThermalFoundation.tabTools);
 			itemFishingRod.setLuckModifier(luckModifier).setSpeedModifier(speedModifier);
 			itemFishingRod.setShowInCreative(enableTools[1] | TFProps.showDisabledEquipment);
 			GameRegistry.register(itemFishingRod.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.fishingRod" + NAME)));
 		}
 
 		sickle.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sickle");
+		sickle.setCreativeTab(ThermalFoundation.tabTools);
 		sickle.setShowInCreative(enableTools[2] | TFProps.showDisabledEquipment);
 		GameRegistry.register(sickle.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.sickle" + NAME)));
 
 		if (bow instanceof ItemBowAdv) {
 			ItemBowAdv itemBow = (ItemBowAdv) this.bow;
 			itemBow.setRepairIngot(ingot).setArrowSpeed(arrowSpeed).setArrowDamage(arrowDamage).setUnlocalizedName(TOOL + "Bow");
+			itemBow.setCreativeTab(ThermalFoundation.tabTools);
 			itemBow.setShowInCreative(enableTools[3] | TFProps.showDisabledEquipment);
 			GameRegistry.register(itemBow.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.bow" + NAME)));
 		}

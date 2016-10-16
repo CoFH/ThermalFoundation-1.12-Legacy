@@ -21,7 +21,7 @@ public class TFItems {
 		itemMaterial = new ItemMaterial();
 		itemSecurity = new ItemSecurity();
 
-		VanillaEquipment.preInit();
+		Equipment.preInit();
 
 		initList.add(itemWrench);
 		initList.add(itemMeter);
@@ -44,7 +44,7 @@ public class TFItems {
 
 	public static void initialize() {
 
-		VanillaEquipment.initialize();
+		Equipment.initialize();
 
 		for (int i = 0; i < initList.size(); i++) {
 			initList.get(i).initialize();
@@ -53,7 +53,7 @@ public class TFItems {
 
 	public static void postInit() {
 
-		VanillaEquipment.postInit();
+		Equipment.postInit();
 
 		for (int i = 0; i < initList.size(); i++) {
 			initList.get(i).postInit();
