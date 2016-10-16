@@ -1,0 +1,36 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-item",
+		"model": "forge:item-layer"
+	},
+	"variants": {
+		"wood_shears": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/wood/shears" }
+		}],
+		"wood_sickle": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/wood/sickle" }
+		}],
+		"stone_shears": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/stone/shears" }
+		}],
+		"stone_sickle": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/stone/sickle" }
+		}],
+		"iron_sickle": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/iron/sickle" }
+		}],
+		"diamond_shears": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/diamond/shears" }
+		}],
+		"diamond_sickle": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/diamond/sickle" }
+		}],
+		"gold_shears": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/gold/shears" }
+		}],
+		"gold_sickle": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/gold/sickle" }
+		}]
+	}
+}

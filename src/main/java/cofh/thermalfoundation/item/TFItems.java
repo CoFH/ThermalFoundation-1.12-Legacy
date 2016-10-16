@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.item;
 
 import cofh.api.core.IInitializer;
+import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.core.ProxyClient;
 
 import java.util.ArrayList;
@@ -20,6 +21,8 @@ public class TFItems {
 		itemMaterial = new ItemMaterial();
 		itemSecurity = new ItemSecurity();
 
+		VanillaEquipment.preInit();
+
 		initList.add(itemWrench);
 		initList.add(itemMeter);
 		initList.add(itemDiagram);
@@ -27,12 +30,12 @@ public class TFItems {
 		initList.add(itemMaterial);
 		initList.add(itemSecurity);
 
-		ProxyClient.modelList.add(itemWrench);
-		ProxyClient.modelList.add(itemMeter);
-		ProxyClient.modelList.add(itemDiagram);
-		ProxyClient.modelList.add(itemFertilizer);
-		ProxyClient.modelList.add(itemMaterial);
-		ProxyClient.modelList.add(itemSecurity);
+		ThermalFoundation.proxy.addModelRegister(itemWrench);
+		ThermalFoundation.proxy.addModelRegister(itemMeter);
+		ThermalFoundation.proxy.addModelRegister(itemDiagram);
+		ThermalFoundation.proxy.addModelRegister(itemFertilizer);
+		ThermalFoundation.proxy.addModelRegister(itemMaterial);
+		ThermalFoundation.proxy.addModelRegister(itemSecurity);
 
 		for (int i = 0; i < initList.size(); i++) {
 			initList.get(i).preInit();
@@ -41,12 +44,16 @@ public class TFItems {
 
 	public static void initialize() {
 
+		VanillaEquipment.initialize();
+
 		for (int i = 0; i < initList.size(); i++) {
 			initList.get(i).initialize();
 		}
 	}
 
 	public static void postInit() {
+
+		VanillaEquipment.postInit();
 
 		for (int i = 0; i < initList.size(); i++) {
 			initList.get(i).postInit();

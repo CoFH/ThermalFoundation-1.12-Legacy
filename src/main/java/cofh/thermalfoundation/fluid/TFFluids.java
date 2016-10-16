@@ -3,6 +3,7 @@ package cofh.thermalfoundation.fluid;
 import cofh.api.core.IInitializer;
 import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.core.fluid.FluidCoFHBase;
+import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.core.ProxyClient;
 
 import java.util.ArrayList;
@@ -109,7 +110,7 @@ public class TFFluids {
 
 		initList.add(block);
 
-		ProxyClient.modelList.add(block);
+		ThermalFoundation.proxy.addModelRegister(block);
 	}
 
 	public static void createBuckets() {

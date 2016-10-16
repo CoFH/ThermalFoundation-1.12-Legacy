@@ -1,5 +1,6 @@
 package cofh.thermalfoundation.core;
 
+import cofh.api.core.IModelRegister;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
@@ -36,6 +37,10 @@ public class Proxy {
 		EntityBlizzBolt.initialize();
 		EntityBlitzBolt.initialize();
 		EntityBasalzBolt.initialize();
+	}
+
+	public void addModelRegister(IModelRegister modelRegister) {
+
 	}
 
 	/* HELPERS */
