@@ -133,6 +133,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer, IModelRe
 		gearEnderium = addOreDictItem(140, "gearEnderium", EnumRarity.RARE);
 
 		/* Parts */
+		pneumaticServo = addItem(256, "pneumaticServo");
 		powerCoilGold = addItem(257, "powerCoilGold");
 		powerCoilSilver = addItem(258, "powerCoilSilver");
 		powerCoilElectrum = addItem(259, "powerCoilElectrum");
@@ -243,6 +244,30 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer, IModelRe
 		addGearRecipe(gearEnderium, "ingotEnderium");
 
 		/* Parts */
+		String category = "General";
+		boolean servosAllowSilver = ThermalFoundation.CONFIG.get(category, "PneumaticServo.AllowSilver", false);
+		boolean servosAllowInvar = ThermalFoundation.CONFIG.get(category, "PneumaticServo.AllowInvar", false);
+		boolean servosAllowBronze = ThermalFoundation.CONFIG.get(category, "PneumaticServo.AllowBronze", false);
+		boolean servosAllowSteel = ThermalFoundation.CONFIG.get(category, "PneumaticServo.AllowSteel", false);
+
+		GameRegistry.addRecipe(ShapedRecipe(pneumaticServo, new Object[] { " I ", "GRG", " I ", 'R', "dustRedstone", 'G', "blockGlass", 'I', "ingotIron" }));
+
+		if (servosAllowSilver) {
+			GameRegistry.addRecipe(ShapedRecipe(pneumaticServo,
+					new Object[] { " I ", "GRG", " I ", 'R', "dustRedstone", 'G', "blockGlass", 'I', "ingotSilver" }));
+		}
+		if (servosAllowInvar) {
+			GameRegistry
+					.addRecipe(ShapedRecipe(pneumaticServo, new Object[] { " I ", "GRG", " I ", 'R', "dustRedstone", 'G', "blockGlass", 'I', "ingotInvar" }));
+		}
+		if (servosAllowBronze) {
+			GameRegistry.addRecipe(ShapedRecipe(pneumaticServo,
+					new Object[] { " I ", "GRG", " I ", 'R', "dustRedstone", 'G', "blockGlass", 'I', "ingotBronze" }));
+		}
+		if (servosAllowSteel) {
+			GameRegistry
+					.addRecipe(ShapedRecipe(pneumaticServo, new Object[] { " I ", "GRG", " I ", 'R', "dustRedstone", 'G', "blockGlass", 'I', "ingotSteel" }));
+		}
 		addRecipe(ShapedRecipe(powerCoilGold, new Object[] { "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotGold" }));
 		addRecipe(ShapedRecipe(powerCoilSilver, new Object[] { "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotSilver" }));
 		addRecipe(ShapedRecipe(powerCoilElectrum, new Object[] { "R  ", " G ", "  R", 'R', "dustRedstone", 'G', "ingotElectrum" }));
