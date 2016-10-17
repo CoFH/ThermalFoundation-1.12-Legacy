@@ -33,11 +33,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public enum Equipment implements IModelRegister {
 
 	// @formatter:off
-	/* Name, Level, Uses, Speed, Damage, Ench, Dura, Absorption, Toughness */
-	Copper(      1,  175,  4.0F,  0.75F,    6,    6, new int[] { 1, 3, 3, 1 }, 0.0F),
-	Tin(         1,  200,  4.5F,   1.0F,    7,    8, new int[] { 1, 4, 3, 1 }, 0.0F),
-	Silver(      2,  200,  6.0F,   1.5F,   20,   11, new int[] { 2, 4, 4, 1 }, 0.0F),
-	Lead(        1,  150,    5F,   1.0F,    9,   15, new int[] { 2, 5, 4, 3 }, 0.0F) {
+	/* Name, Level, Uses, Speed, Damage, Ench, Dura, Absorption, Toughness, Axe Attack Speed */
+	Copper(      1,  175,  4.0F,  0.75F,    6,    6, new int[] { 1, 3, 3, 1 }, 0.0F, -3.2F),
+	Tin(         1,  200,  4.5F,   1.0F,    7,    8, new int[] { 1, 4, 3, 1 }, 0.0F, -3.1F),
+	Silver(      2,  200,  6.0F,   1.5F,   20,   11, new int[] { 2, 4, 4, 1 }, 0.0F, -3.1F),
+	Lead(        1,  150,    5F,   1.0F,    9,   15, new int[] { 2, 5, 4, 3 }, 0.0F, -3.1F) {
 
 		@Override
 		protected final void createArmor() {
@@ -67,11 +67,11 @@ public enum Equipment implements IModelRegister {
 			boots.putAttribute("generic.movementSpeed", movementBonus);
 		}
 	},
-	Nickel(      2,  300,  6.5F,   2.5F,   18,   15, new int[] { 2, 5, 5, 2 }, 0.0F),
-	Electrum(    0,  100, 14.0F,   0.5F,   30,    8, new int[] { 2, 4, 4, 2 }, 1.0F),
-	Invar(       2,  450,  7.0F,   3.0F,   16,   21, new int[] { 2, 7, 5, 2 }, 1.0F),
-	Bronze(      2,  500,  6.0F,   2.0F,   15,   18, new int[] { 3, 6, 6, 2 }, 1.0F),
-	Platinum(    4, 1700,  9.0F,   4.0F,    9,   40, new int[] { 3, 8, 6, 3 }, 2.0F) {
+	Nickel(      2,  300,  6.5F,   2.5F,   18,   15, new int[] { 2, 5, 5, 2 }, 0.0F, -3.1F),
+	Electrum(    0,  100, 14.0F,   0.5F,   30,    8, new int[] { 2, 4, 4, 2 }, 1.0F, -3.0F),
+	Invar(       2,  450,  7.0F,   3.0F,   16,   21, new int[] { 2, 7, 5, 2 }, 1.0F, -3.0F),
+	Bronze(      2,  500,  6.0F,   2.0F,   15,   18, new int[] { 3, 6, 6, 2 }, 1.0F, -3.0F),
+	Platinum(    4, 1700,  9.0F,   4.0F,    9,   40, new int[] { 3, 8, 6, 3 }, 2.0F, -2.9F) {
 
 		@Override
 		protected final void createArmor() {
@@ -112,6 +112,7 @@ public enum Equipment implements IModelRegister {
 	private float arrowDamage = 1.0F;
 	private int luckModifier = 0;
 	private int speedModifier = 0;
+	private float axeAttackSpeed = -3.2F;
 
 	public boolean enableArmor = true;
 	public boolean[] enableTools = new boolean[9];
@@ -131,7 +132,7 @@ public enum Equipment implements IModelRegister {
 	public ItemSickleAdv sickle;
 	public ItemBowAdv bow;
 
-	Equipment(int level, int uses, float speed, float damage, int enchant, int durability, int[] absorb, float toughness) {
+	Equipment(int level, int uses, float speed, float damage, int enchant, int durability, int[] absorb, float toughness, float axeAttackSpeed) {
 
 		TOOL_MATERIAL = EnumHelper.addToolMaterial("TF:" + name().toUpperCase(Locale.US), level, uses, speed, damage, enchant);
 		ARMOR_MATERIAL = EnumHelper.addArmorMaterial("TF:" + name().toUpperCase(Locale.US), "TF:" + name().toLowerCase(Locale.US), durability, absorb, enchant, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, toughness);
@@ -144,6 +145,8 @@ public enum Equipment implements IModelRegister {
 		/* Bow */
 		// arrowSpeed = 2.0F + speed / 8F;
 		arrowDamage = 1.0F + damage / 8F;
+
+		this.axeAttackSpeed = axeAttackSpeed;
 	}
 
 	protected void createArmor() {
@@ -159,7 +162,7 @@ public enum Equipment implements IModelRegister {
 		sword = new ItemSwordAdv(TOOL_MATERIAL);
 		shovel = new ItemShovelAdv(TOOL_MATERIAL);
 		pickaxe = new ItemPickaxeAdv(TOOL_MATERIAL);
-		axe = new ItemAxeAdv(TOOL_MATERIAL);
+		axe = new ItemAxeAdv(TOOL_MATERIAL, axeAttackSpeed);
 		hoe = new ItemHoeAdv(TOOL_MATERIAL);
 		shears = new ItemShearsAdv(TOOL_MATERIAL);
 		fishingRod = new ItemFishingRodAdv(TOOL_MATERIAL);
@@ -172,7 +175,7 @@ public enum Equipment implements IModelRegister {
 		final String NAME = name();
 		final String TYPE = NAME.toLowerCase(Locale.US);
 		final String ARMOR = "thermalfoundation.armor." + TYPE;
-		final String TOOL = "thermalfoundation.tool." + TYPE;
+		final String EQUIPMENT = "thermalfoundation.equipment." + TYPE;
 
 		String category = "Equipment." + NAME;
 		enableArmor = ThermalFoundation.CONFIG.get(category, "Armor", true);
@@ -211,40 +214,40 @@ public enum Equipment implements IModelRegister {
 		boots.setShowInCreative(enableArmor | TFProps.showDisabledEquipment);
 
 		createTools();
-		sword.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sword");
+		sword.setRepairIngot(ingot).setUnlocalizedName(EQUIPMENT + "Sword");
 		sword.setCreativeTab(ThermalFoundation.tabTools);
 		sword.setShowInCreative(enableTools[0] | TFProps.showDisabledEquipment);
 
-		shovel.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shovel");
+		shovel.setRepairIngot(ingot).setUnlocalizedName(EQUIPMENT + "Shovel");
 		shovel.setCreativeTab(ThermalFoundation.tabTools);
 		shovel.setShowInCreative(enableTools[1] | TFProps.showDisabledEquipment);
 
-		pickaxe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Pickaxe");
+		pickaxe.setRepairIngot(ingot).setUnlocalizedName(EQUIPMENT + "Pickaxe");
 		pickaxe.setCreativeTab(ThermalFoundation.tabTools);
 		pickaxe.setShowInCreative(enableTools[2] | TFProps.showDisabledEquipment);
 
-		axe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Axe");
+		axe.setRepairIngot(ingot).setUnlocalizedName(EQUIPMENT + "Axe");
 		axe.setCreativeTab(ThermalFoundation.tabTools);
 		axe.setShowInCreative(enableTools[3] | TFProps.showDisabledEquipment);
 
-		hoe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Hoe");
+		hoe.setRepairIngot(ingot).setUnlocalizedName(EQUIPMENT + "Hoe");
 		hoe.setCreativeTab(ThermalFoundation.tabTools);
 		hoe.setShowInCreative(enableTools[4] | TFProps.showDisabledEquipment);
 
-		shears.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shears");
+		shears.setRepairIngot(ingot).setUnlocalizedName(EQUIPMENT + "Shears");
 		shears.setCreativeTab(ThermalFoundation.tabTools);
 		shears.setShowInCreative(enableTools[5] | TFProps.showDisabledEquipment);
 
-		fishingRod.setRepairIngot(ingot).setUnlocalizedName(TOOL + "FishingRod");
+		fishingRod.setRepairIngot(ingot).setUnlocalizedName(EQUIPMENT + "FishingRod");
 		fishingRod.setCreativeTab(ThermalFoundation.tabTools);
 		fishingRod.setLuckModifier(luckModifier).setSpeedModifier(speedModifier);
 		fishingRod.setShowInCreative(enableTools[6] | TFProps.showDisabledEquipment);
 
-		sickle.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sickle");
+		sickle.setRepairIngot(ingot).setUnlocalizedName(EQUIPMENT + "Sickle");
 		sickle.setCreativeTab(ThermalFoundation.tabTools);
 		sickle.setShowInCreative(enableTools[7] | TFProps.showDisabledEquipment);
 
-		bow.setRepairIngot(ingot).setArrowSpeed(arrowSpeed).setArrowDamage(arrowDamage).setUnlocalizedName(TOOL + "Bow");
+		bow.setRepairIngot(ingot).setArrowSpeed(arrowSpeed).setArrowDamage(arrowDamage).setUnlocalizedName(EQUIPMENT + "Bow");
 		bow.setCreativeTab(ThermalFoundation.tabTools);
 		bow.setShowInCreative(enableTools[8] | TFProps.showDisabledEquipment);
 
@@ -253,15 +256,15 @@ public enum Equipment implements IModelRegister {
 		GameRegistry.register(legs.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "armor.legs" + NAME)));
 		GameRegistry.register(boots.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "armor.boots" + NAME)));
 
-		GameRegistry.register(sword.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "tool.sword" + NAME)));
-		GameRegistry.register(shovel.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "tool.shovel" + NAME)));
-		GameRegistry.register(pickaxe.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "tool.pickaxe" + NAME)));
-		GameRegistry.register(axe.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "tool.axe" + NAME)));
-		GameRegistry.register(hoe.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "tool.hoe" + NAME)));
-		GameRegistry.register(shears.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "tool.shears" + NAME)));
-		GameRegistry.register(fishingRod.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "tool.fishingRod" + NAME)));
-		GameRegistry.register(sickle.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "tool.sickle" + NAME)));
-		GameRegistry.register(bow.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "tool.bow" + NAME)));
+		GameRegistry.register(sword.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.sword" + NAME)));
+		GameRegistry.register(shovel.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.shovel" + NAME)));
+		GameRegistry.register(pickaxe.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.pickaxe" + NAME)));
+		GameRegistry.register(axe.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.axe" + NAME)));
+		GameRegistry.register(hoe.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.hoe" + NAME)));
+		GameRegistry.register(shears.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.shears" + NAME)));
+		GameRegistry.register(fishingRod.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.fishingRod" + NAME)));
+		GameRegistry.register(sickle.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.sickle" + NAME)));
+		GameRegistry.register(bow.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "equipment.bow" + NAME)));
 
 		ThermalFoundation.proxy.addModelRegister(this);
 	}
