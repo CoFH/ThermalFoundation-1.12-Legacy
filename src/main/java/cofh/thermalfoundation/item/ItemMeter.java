@@ -155,10 +155,6 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer, IModelRegis
 	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 
-		StateMapper mapper = new StateMapper(modName, "tool", name);
-		ModelBakery.registerItemVariants(this);
-		ModelLoader.setCustomMeshDefinition(this, mapper);
-
 		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
 			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
 		}

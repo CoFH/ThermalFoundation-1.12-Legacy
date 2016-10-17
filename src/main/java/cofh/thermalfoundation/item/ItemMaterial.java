@@ -40,10 +40,6 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer, IModelRe
 	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 
-		StateMapper mapper = new StateMapper(modName, "material", name);
-		ModelBakery.registerItemVariants(this);
-		ModelLoader.setCustomMeshDefinition(this, mapper);
-
 		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
 			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "material", entry.getValue().name));
 		}
