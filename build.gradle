@@ -17,12 +17,23 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
+repositories {
+    ivy {
+        name "Baubles"
+        artifactPattern "http://addons-origin.cursecdn.com/files/${baubles_cf}/[module]-[revision].[ext]"
+    }
+}
+
 version = "1.10.2A0.0.1"
 group = "thermalfoundation"
 archivesBaseName = "ThermalFoundation"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+dependencies {
+    compile name: 'Baubles', version: baubles_version, ext: 'jar'
+}
 
 minecraft {
     mappings = "snapshot_20160912"

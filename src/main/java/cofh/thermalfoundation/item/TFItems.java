@@ -20,6 +20,7 @@ public class TFItems {
 		itemFertilizer = new ItemFertilizer();
 		itemMaterial = new ItemMaterial();
 		itemSecurity = new ItemSecurity();
+		itemLexicon = new ItemLexicon();
 
 		Equipment.preInit();
 
@@ -29,6 +30,7 @@ public class TFItems {
 		initList.add(itemFertilizer);
 		initList.add(itemMaterial);
 		initList.add(itemSecurity);
+		initList.add(itemLexicon);
 
 		ThermalFoundation.proxy.addModelRegister(itemWrench);
 		ThermalFoundation.proxy.addModelRegister(itemMeter);
@@ -36,6 +38,7 @@ public class TFItems {
 		ThermalFoundation.proxy.addModelRegister(itemFertilizer);
 		ThermalFoundation.proxy.addModelRegister(itemMaterial);
 		ThermalFoundation.proxy.addModelRegister(itemSecurity);
+		ThermalFoundation.proxy.addModelRegister(itemLexicon);
 
 		for (int i = 0; i < initList.size(); i++) {
 			initList.get(i).preInit();
@@ -61,17 +64,18 @@ public class TFItems {
 	}
 
 	// TODO: FIX
-	//	public static ItemBucket itemBucket;
-	//	public static ItemLexicon itemLexicon;
 
 	static ArrayList<IInitializer> initList = new ArrayList<IInitializer>();
 
 	/* REFERENCES */
 	public static ItemWrench itemWrench;
+
 	public static ItemMeter itemMeter;
 	public static ItemDiagram itemDiagram;
 	public static ItemFertilizer itemFertilizer;
 	public static ItemMaterial itemMaterial;
 	public static ItemSecurity itemSecurity;
+	public static ItemLexicon itemLexicon;
+	//	public static ItemBucket itemBucket;
 
 }

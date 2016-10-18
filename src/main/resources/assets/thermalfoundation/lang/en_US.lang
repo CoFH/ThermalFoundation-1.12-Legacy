@@ -161,7 +161,7 @@ item.thermalfoundation.material.rodBasalz.name=Basalz Rod
 item.thermalfoundation.material.dustBasalz.name=Basalz Powder
 
 item.thermalfoundation.tome.lexicon.name=Forge Lexicon
-item.thermalfoundation.tome.lexicon_empowered.name=Forge Lexicon (Empowered)
+item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexicon (Empowered)
 
 item.thermalfoundation.diagram.schematic.name=Schematic
 item.thermalfoundation.diagram.pattern.name=Pattern

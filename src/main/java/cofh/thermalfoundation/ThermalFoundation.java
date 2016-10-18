@@ -8,10 +8,14 @@ import cofh.thermalfoundation.block.TFBlocks;
 import cofh.thermalfoundation.core.Proxy;
 import cofh.thermalfoundation.fluid.TFFluids;
 import cofh.thermalfoundation.gui.CreativeTabTF;
+import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.item.TFItems;
 
 import java.io.File;
 
+import cofh.thermalfoundation.network.PacketTFBase;
+import cofh.thermalfoundation.util.lexicon.EventHandlerLexicon;
+import cofh.thermalfoundation.util.lexicon.LexiconManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -27,6 +31,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -53,6 +58,7 @@ public class ThermalFoundation {
 	public static final Logger LOG = LogManager.getLogger(modId);
 	public static final ConfigHandler CONFIG = new ConfigHandler(version);
 	public static final ConfigHandler CONFIG_CLIENT = new ConfigHandler(version);
+	public static final GuiHandler GUI = new GuiHandler();
 
 	public static CreativeTabs tabCommon = new CreativeTabTF();
 	public static CreativeTabs tabTools = CreativeTabs.TOOLS;
@@ -83,6 +89,8 @@ public class ThermalFoundation {
 		TFItems.preInit();
 		TFFluids.preInit();
 
+		LexiconManager.preInit();
+
 		proxy.preInit(event);
 	}
 
@@ -93,7 +101,13 @@ public class ThermalFoundation {
 		TFItems.initialize();
 		TFFluids.initialize();
 
+		/* Init World Gen */
 		loadWorldGeneration();
+
+		/* Register Handlers */
+		NetworkRegistry.INSTANCE.registerGuiHandler(instance, GUI);
+		EventHandlerLexicon.initialize();
+		PacketTFBase.initialize();
 
 		proxy.initialize(event);
 	}
@@ -110,6 +124,8 @@ public class ThermalFoundation {
 
 	@EventHandler
 	public void loadComplete(FMLLoadCompleteEvent event) {
+
+		LexiconManager.loadComplete();
 
 		CONFIG.cleanUp(false, true);
 		CONFIG_CLIENT.cleanUp(false, true);
