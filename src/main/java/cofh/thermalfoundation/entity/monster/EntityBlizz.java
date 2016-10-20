@@ -30,10 +30,13 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import javax.annotation.Nullable;
 
 public class EntityBlizz extends EntityElemental {
 
@@ -48,6 +51,7 @@ public class EntityBlizz extends EntityElemental {
 	static int spawnMin = 1;
 	static int spawnMax = 4;
 
+	private static final ResourceLocation LOOT_TABLE_BLIZZ = new ResourceLocation(ThermalFoundation.modId, "entities/blizz");
 	private static final SoundEvent attackSound = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blizz_attack");
 	private static final SoundEvent ambientSound0 = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blizz_breathe0");
 	private static final SoundEvent ambientSound1 = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blizz_breathe1");
@@ -106,6 +110,8 @@ public class EntityBlizz extends EntityElemental {
 		}
 		EntityRegistry.addSpawn(EntityBlizz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[0]));
 
+		LootTableList.register(LOOT_TABLE_BLIZZ);
+
 		GameRegistry.register(attackSound.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_blizz_attack")));
 		GameRegistry.register(ambientSound0.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_blizz_breathe0")));
 		GameRegistry.register(ambientSound1.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_blizz_breathe1")));
@@ -138,19 +144,10 @@ public class EntityBlizz extends EntityElemental {
 		return specialAmbientSound;
 	}
 
+	@Nullable
 	@Override
-	protected void dropFewItems(boolean wasHitByPlayer, int looting) {
-
-		if (wasHitByPlayer) {
-			int items = this.rand.nextInt(4 + looting);
-			for (int i = 0; i < items; i++) {
-				this.entityDropItem(new ItemStack(Items.SNOWBALL), 0);
-			}
-			items = this.rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				this.entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBlizz, 1), 0);
-			}
-		}
+	protected ResourceLocation getLootTable() {
+		return LOOT_TABLE_BLIZZ;
 	}
 
 	@Override

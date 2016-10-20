@@ -28,10 +28,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import javax.annotation.Nullable;
 
 public class EntityBasalz extends EntityElemental {
 
@@ -46,6 +49,7 @@ public class EntityBasalz extends EntityElemental {
 	static int spawnMin = 1;
 	static int spawnMax = 4;
 
+	private static final ResourceLocation LOOT_TABLE_BASALZ = new ResourceLocation(ThermalFoundation.modId, "entities/basalz");
 	private static final SoundEvent attackSound = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_basalz_attack");
 	private static final SoundEvent ambientSound0 = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_basalz_breathe0");
 	private static final SoundEvent ambientSound1 = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_basalz_breathe1");
@@ -103,6 +107,8 @@ public class EntityBasalz extends EntityElemental {
 		}
 		EntityRegistry.addSpawn(EntityBasalz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[0]));
 
+		LootTableList.register(LOOT_TABLE_BASALZ);
+
 		GameRegistry.register(attackSound.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_basalz_attack")));
 		GameRegistry.register(ambientSound0.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_basalz_breathe0")));
 		GameRegistry.register(ambientSound1.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_basalz_breathe1")));
@@ -123,6 +129,12 @@ public class EntityBasalz extends EntityElemental {
 		ambientParticle = EnumParticleTypes.TOWN_AURA;
 	}
 
+	@Nullable
+	@Override
+	protected ResourceLocation getLootTable() {
+		return LOOT_TABLE_BASALZ;
+	}
+
 	@Override
 	protected SoundEvent[] getAmbientSounds() {
 
@@ -133,21 +145,6 @@ public class EntityBasalz extends EntityElemental {
 	protected SoundEvent getSpecialAmbientSound() {
 
 		return specialAmbientSound;
-	}
-
-	@Override
-	protected void dropFewItems(boolean wasHitByPlayer, int looting) {
-
-		if (wasHitByPlayer) {
-			int items = this.rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				this.entityDropItem(ItemHelper.cloneStack(ItemMaterial.dustObsidian, 1), 0);
-			}
-			items = this.rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				this.entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBasalz, 1), 0);
-			}
-		}
 	}
 
 	@Override
