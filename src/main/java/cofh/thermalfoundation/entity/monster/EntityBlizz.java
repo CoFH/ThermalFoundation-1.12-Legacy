@@ -5,6 +5,7 @@ import cofh.core.util.CoreUtils;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
 import cofh.thermalfoundation.item.ItemMaterial;
 
@@ -22,6 +23,7 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -163,90 +165,23 @@ public class EntityBlizz extends EntityElemental {
 	}
 
 	/* ATTACK */
-	static class AIBlizzballAttack extends EntityAIBase {
+	static class AIBlizzballAttack extends AIElementalboltAttack {
 
-		private final EntityBlizz blizz;
-		private int field_179467_b;
-		private int field_179468_c;
+		public AIBlizzballAttack(EntityElemental entity) {
 
-		public AIBlizzballAttack(EntityBlizz entity) {
-
-			this.blizz = entity;
-			this.setMutexBits(3);
+			super(entity);
 		}
 
 		@Override
-		public boolean shouldExecute() {
+		protected EntityThrowable getBolt(World world, EntityElemental elemental) {
 
-			EntityLivingBase entitylivingbase = this.blizz.getAttackTarget();
-			return entitylivingbase != null && entitylivingbase.isEntityAlive();
+			return new EntityBlizzBolt(world, elemental);
 		}
 
 		@Override
-		public void startExecuting() {
+		protected SoundEvent getAttackSound() {
 
-			this.field_179467_b = 0;
-		}
-
-		@Override
-		public void resetTask() {
-
-			this.blizz.setInAttackMode(false);
-		}
-
-		@Override
-		public void updateTask() {
-
-			--this.field_179468_c;
-			EntityLivingBase entitylivingbase = this.blizz.getAttackTarget();
-			double d0 = this.blizz.getDistanceSqToEntity(entitylivingbase);
-
-			if (d0 < 4.0D) {
-				if (this.field_179468_c <= 0) {
-					this.field_179468_c = 20;
-					this.blizz.attackEntityAsMob(entitylivingbase);
-				}
-
-				this.blizz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
-			} else if (d0 < 256.0D) {
-				double d1 = entitylivingbase.posX - this.blizz.posX;
-				double d2 = entitylivingbase.getEntityBoundingBox().minY + entitylivingbase.height / 2.0F - (this.blizz.posY + this.blizz.height / 2.0F);
-				double d3 = entitylivingbase.posZ - this.blizz.posZ;
-
-				if (this.field_179468_c <= 0) {
-					++this.field_179467_b;
-
-					if (this.field_179467_b == 1) {
-						this.field_179468_c = 60;
-						this.blizz.setInAttackMode(true);
-					} else if (this.field_179467_b <= 4) {
-						this.field_179468_c = 6;
-					} else {
-						this.field_179468_c = 100;
-						this.field_179467_b = 0;
-						this.blizz.setInAttackMode(false);
-					}
-
-					if (this.field_179467_b > 1) {
-						double f = Math.sqrt(Math.sqrt(d0)) * 0.5F;
-						this.blizz.worldObj.playEvent(null, 1009, new BlockPos((int) this.blizz.posX, (int) this.blizz.posY,
-								(int) this.blizz.posZ), 0);
-
-						for (int i = 0; i < 1; ++i) {
-							EntityBlizzBolt bolt = new EntityBlizzBolt(this.blizz.worldObj, this.blizz);
-							bolt.posY = this.blizz.posY + this.blizz.height / 2.0F + 0.5D;
-							this.blizz.playSound(attackSound, 2.0F, (this.blizz.rand.nextFloat() - this.blizz.rand.nextFloat()) * 0.2F + 1.0F);
-							this.blizz.worldObj.spawnEntityInWorld(bolt);
-						}
-					}
-				}
-				this.blizz.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
-			} else {
-				this.blizz.getNavigator().clearPathEntity();
-				this.blizz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
-			}
-			super.updateTask();
+			return attackSound;
 		}
 	}
-
 }

@@ -2,29 +2,15 @@ package cofh.thermalfoundation.entity.monster;
 
 import cofh.core.CoFHProps;
 import cofh.core.util.CoreUtils;
-import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
-import cofh.thermalfoundation.item.ItemMaterial;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -35,6 +21,9 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class EntityBlitz extends EntityElemental {
 
@@ -163,90 +152,23 @@ public class EntityBlitz extends EntityElemental {
 	}
 
 	/* ATTACK */
-	static class AIBlitzballAttack extends EntityAIBase {
+	static class AIBlitzballAttack extends AIElementalboltAttack {
 
-		private final EntityBlitz blitz;
-		private int field_179467_b;
-		private int field_179468_c;
+		public AIBlitzballAttack(EntityElemental entity) {
 
-		public AIBlitzballAttack(EntityBlitz entity) {
-
-			this.blitz = entity;
-			this.setMutexBits(3);
+			super(entity);
 		}
 
 		@Override
-		public boolean shouldExecute() {
+		protected EntityThrowable getBolt(World world, EntityElemental elemental) {
 
-			EntityLivingBase entitylivingbase = this.blitz.getAttackTarget();
-			return entitylivingbase != null && entitylivingbase.isEntityAlive();
+			return new EntityBlitzBolt(world, elemental);
 		}
 
 		@Override
-		public void startExecuting() {
+		protected SoundEvent getAttackSound() {
 
-			this.field_179467_b = 0;
-		}
-
-		@Override
-		public void resetTask() {
-
-			this.blitz.setInAttackMode(false);
-		}
-
-		@Override
-		public void updateTask() {
-
-			--this.field_179468_c;
-			EntityLivingBase entitylivingbase = this.blitz.getAttackTarget();
-			double d0 = this.blitz.getDistanceSqToEntity(entitylivingbase);
-
-			if (d0 < 4.0D) {
-				if (this.field_179468_c <= 0) {
-					this.field_179468_c = 20;
-					this.blitz.attackEntityAsMob(entitylivingbase);
-				}
-
-				this.blitz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
-			} else if (d0 < 256.0D) {
-				double d1 = entitylivingbase.posX - this.blitz.posX;
-				double d2 = entitylivingbase.getEntityBoundingBox().minY + entitylivingbase.height / 2.0F - (this.blitz.posY + this.blitz.height / 2.0F);
-				double d3 = entitylivingbase.posZ - this.blitz.posZ;
-
-				if (this.field_179468_c <= 0) {
-					++this.field_179467_b;
-
-					if (this.field_179467_b == 1) {
-						this.field_179468_c = 60;
-						this.blitz.setInAttackMode(true);
-					} else if (this.field_179467_b <= 4) {
-						this.field_179468_c = 6;
-					} else {
-						this.field_179468_c = 100;
-						this.field_179467_b = 0;
-						this.blitz.setInAttackMode(false);
-					}
-
-					if (this.field_179467_b > 1) {
-						double f = Math.sqrt(Math.sqrt(d0)) * 0.5F;
-						this.blitz.worldObj.playEvent(null, 1009, new BlockPos((int) this.blitz.posX, (int) this.blitz.posY,
-								(int) this.blitz.posZ), 0);
-
-						for (int i = 0; i < 1; ++i) {
-							EntityBlitzBolt bolt = new EntityBlitzBolt(this.blitz.worldObj, this.blitz);
-							bolt.posY = this.blitz.posY + this.blitz.height / 2.0F + 0.5D;
-							this.blitz.playSound(attackSound, 2.0F, (this.blitz.rand.nextFloat() - this.blitz.rand.nextFloat()) * 0.2F + 1.0F);
-							this.blitz.worldObj.spawnEntityInWorld(bolt);
-						}
-					}
-				}
-				this.blitz.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
-			} else {
-				this.blitz.getNavigator().clearPathEntity();
-				this.blitz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
-			}
-			super.updateTask();
+			return attackSound;
 		}
 	}
-
 }

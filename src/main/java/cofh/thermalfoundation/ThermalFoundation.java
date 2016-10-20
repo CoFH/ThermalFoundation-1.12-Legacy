@@ -152,8 +152,11 @@ public class ThermalFoundation {
 		TFProps.dropSulfurFireImmune = ThermalFoundation.CONFIG.get("General", "FireImmuneDropSulfur", TFProps.dropSulfurFireImmune, comment);
 
 		/* GRAPHICS */
+		//TODO implement blaze dust texture override
+/*
 		comment = "Set to FALSE to revert Blaze Powder to the default Minecraft icon.";
 		TFProps.iconBlazePowder = ThermalFoundation.CONFIG_CLIENT.get("Icons", "BlazePowder", TFProps.iconBlazePowder, comment);
+*/
 
 		//TODO figure out where cagey stuff goes - sounds more like TE directly
 /*

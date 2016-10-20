@@ -2,30 +2,16 @@ package cofh.thermalfoundation.entity.monster;
 
 import cofh.core.CoFHProps;
 import cofh.core.util.CoreUtils;
-import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
-import cofh.thermalfoundation.item.ItemMaterial;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.storage.loot.LootTableList;
@@ -35,6 +21,9 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class EntityBasalz extends EntityElemental {
 
@@ -118,7 +107,7 @@ public class EntityBasalz extends EntityElemental {
 	public EntityBasalz(World world) {
 
 		super(world);
-		this.tasks.addTask(4, new EntityBasalz.AIBasalzballAttack(this));
+		this.tasks.addTask(4, new AIBasalzballAttack(this));
 		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
 		this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
 		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -159,90 +148,23 @@ public class EntityBasalz extends EntityElemental {
 		return spawnLightLevel;
 	}
 
-	/* ATTACK */
-	static class AIBasalzballAttack extends EntityAIBase {
+	private class AIBasalzballAttack extends AIElementalboltAttack {
 
-		private final EntityBasalz basalz;
-		private int field_179467_b;
-		private int field_179468_c;
+		public AIBasalzballAttack(EntityElemental entity) {
 
-		public AIBasalzballAttack(EntityBasalz entity) {
-
-			this.basalz = entity;
-			this.setMutexBits(3);
+			super(entity);
 		}
 
 		@Override
-		public boolean shouldExecute() {
+		protected EntityThrowable getBolt(World world, EntityElemental elemental) {
 
-			EntityLivingBase entitylivingbase = this.basalz.getAttackTarget();
-			return entitylivingbase != null && entitylivingbase.isEntityAlive();
+			return new EntityBasalzBolt(world, elemental);
 		}
 
 		@Override
-		public void startExecuting() {
+		protected SoundEvent getAttackSound() {
 
-			this.field_179467_b = 0;
-		}
-
-		@Override
-		public void resetTask() {
-
-			this.basalz.setInAttackMode(false);
-		}
-
-		@Override
-		public void updateTask() {
-
-			--this.field_179468_c;
-			EntityLivingBase entitylivingbase = this.basalz.getAttackTarget();
-			double d0 = this.basalz.getDistanceSqToEntity(entitylivingbase);
-
-			if (d0 < 4.0D) {
-				if (this.field_179468_c <= 0) {
-					this.field_179468_c = 20;
-					this.basalz.attackEntityAsMob(entitylivingbase);
-				}
-
-				this.basalz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
-			} else if (d0 < 256.0D) {
-				double d1 = entitylivingbase.posX - this.basalz.posX;
-				double d2 = entitylivingbase.getEntityBoundingBox().minY + entitylivingbase.height / 2.0F - (this.basalz.posY + this.basalz.height / 2.0F);
-				double d3 = entitylivingbase.posZ - this.basalz.posZ;
-
-				if (this.field_179468_c <= 0) {
-					++this.field_179467_b;
-
-					if (this.field_179467_b == 1) {
-						this.field_179468_c = 60;
-						this.basalz.setInAttackMode(true);
-					} else if (this.field_179467_b <= 4) {
-						this.field_179468_c = 6;
-					} else {
-						this.field_179468_c = 100;
-						this.field_179467_b = 0;
-						this.basalz.setInAttackMode(false);
-					}
-
-					if (this.field_179467_b > 1) {
-						double f = Math.sqrt(Math.sqrt(d0)) * 0.5F;
-						this.basalz.worldObj.playEvent(null, 1009, new BlockPos((int) this.basalz.posX, (int) this.basalz.posY,
-								(int) this.basalz.posZ), 0);
-
-						for (int i = 0; i < 1; ++i) {
-							EntityBasalzBolt bolt = new EntityBasalzBolt(this.basalz.worldObj, this.basalz);
-							bolt.posY = this.basalz.posY + this.basalz.height / 2.0F + 0.5D;
-							this.basalz.playSound(attackSound, 2.0F, (this.basalz.rand.nextFloat() - this.basalz.rand.nextFloat()) * 0.2F + 1.0F);
-							this.basalz.worldObj.spawnEntityInWorld(bolt);
-						}
-					}
-				}
-				this.basalz.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
-			} else {
-				this.basalz.getNavigator().clearPathEntity();
-				this.basalz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
-			}
-			super.updateTask();
+			return attackSound;
 		}
 	}
 }
