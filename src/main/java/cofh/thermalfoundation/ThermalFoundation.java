@@ -6,9 +6,11 @@ import cofh.core.util.ConfigHandler;
 import cofh.core.util.CoreUtils;
 import cofh.thermalfoundation.block.TFBlocks;
 import cofh.thermalfoundation.core.Proxy;
+import cofh.thermalfoundation.core.TFProps;
 import cofh.thermalfoundation.fluid.TFFluids;
 import cofh.thermalfoundation.gui.CreativeTabTF;
 import cofh.thermalfoundation.gui.GuiHandler;
+import cofh.thermalfoundation.item.Equipment;
 import cofh.thermalfoundation.item.TFItems;
 
 import java.io.File;
@@ -17,6 +19,7 @@ import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.lexicon.EventHandlerLexicon;
 import cofh.thermalfoundation.util.lexicon.LexiconManager;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -85,6 +88,9 @@ public class ThermalFoundation {
 		CONFIG.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/thermalfoundation/common.cfg"), true));
 		CONFIG_CLIENT.setConfiguration(new Configuration(new File(CoFHProps.configDir, "cofh/thermalfoundation/client.cfg"), true));
 
+		cleanConfig(true);
+		configOptions();
+
 		TFBlocks.preInit();
 		TFItems.preInit();
 		TFFluids.preInit();
@@ -127,10 +133,101 @@ public class ThermalFoundation {
 
 		LexiconManager.loadComplete();
 
+		cleanConfig(false);
+
 		CONFIG.cleanUp(false, true);
 		CONFIG_CLIENT.cleanUp(false, true);
 
 		LOG.info(modName + ": Load Complete.");
+	}
+
+	/* LOADING FUNCTIONS */
+	void configOptions() {
+
+		String category;
+		String comment;
+
+		/* GENERAL */
+		comment = "If TRUE, Fire-Immune mobs have a chance to drop Sulfur.";
+		TFProps.dropSulfurFireImmune = ThermalFoundation.CONFIG.get("General", "FireImmuneDropSulfur", TFProps.dropSulfurFireImmune, comment);
+
+		/* GRAPHICS */
+		comment = "Set to FALSE to revert Blaze Powder to the default Minecraft icon.";
+		TFProps.iconBlazePowder = ThermalFoundation.CONFIG_CLIENT.get("Icons", "BlazePowder", TFProps.iconBlazePowder, comment);
+
+		//TODO figure out where cagey stuff goes - sounds more like TE directly
+/*
+		comment = "Set to TRUE for Ender devices to be a bit more Cagey year-round.";
+		TFProps.renderStarfieldCage = ThermalFoundation.CONFIG_CLIENT.get("Render", "CageyEnder", TFProps.renderStarfieldCage, comment);
+*/
+
+		/* INTERFACE */
+		category = "Interface.CreativeTab";
+		boolean armorTab = false;
+		boolean toolTab = false;
+
+		comment = "Set to TRUE to put Thermal Foundation Armor under the general \"Thermal Foundation\" Creative Tab.";
+		armorTab = CONFIG_CLIENT.get(category, "ArmorInCommonTab", armorTab);
+
+		comment = "Set to TRUE to put Thermal Foundation Tools under the general \"Thermal Foundation\" Creative Tab.";
+		toolTab = CONFIG_CLIENT.get(category, "ToolsInCommonTab", toolTab);
+
+		/* EQUIPMENT */
+		category = "Equipment";
+		comment = "Set to TRUE to disable ALL armor sets.";
+		TFProps.disableAllArmor = CONFIG.get(category, "DisableAllArmor", TFProps.disableAllArmor, comment);
+
+		comment = "Set to TRUE to disable ALL tool sets.";
+		TFProps.disableAllTools = CONFIG.get(category, "DisableAllTools", TFProps.disableAllTools, comment);
+
+		comment = "Set to FALSE to hide all disabled equipment from the Creative Tabs and NEI.";
+		TFProps.showDisabledEquipment = CONFIG.get(category, "ShowDisabledEquipment", TFProps.showDisabledEquipment, comment);
+
+		if (armorTab) {
+			tabArmor = tabCommon;
+		} else {
+			if (!TFProps.disableAllArmor || (TFProps.disableAllArmor && TFProps.showDisabledEquipment)) {
+				tabArmor = new CreativeTabTF("Armor") {
+
+					@Override
+					protected ItemStack getStack() {
+
+						return new ItemStack(Equipment.Invar.plate);
+					}
+				};
+			}
+		}
+		if (toolTab) {
+			tabTools = tabCommon;
+		} else {
+			if (!TFProps.disableAllTools || (TFProps.disableAllTools && TFProps.showDisabledEquipment)) {
+				tabTools = new CreativeTabTF("Tools") {
+
+					@Override
+					protected ItemStack getStack() {
+
+						return new ItemStack(Equipment.Invar.pickaxe);
+					}
+				};
+			}
+		}
+
+	}
+
+	void cleanConfig(boolean preInit) {
+
+		if (preInit) {
+
+		}
+		String prefix = "config.thermalfoundation.";
+		String[] categoryNames = CONFIG.getCategoryNames().toArray(new String[CONFIG.getCategoryNames().size()]);
+		for (int i = 0; i < categoryNames.length; i++) {
+			CONFIG.getCategory(categoryNames[i]).setLanguageKey(prefix + categoryNames[i]).setRequiresMcRestart(true);
+		}
+		categoryNames = CONFIG_CLIENT.getCategoryNames().toArray(new String[CONFIG_CLIENT.getCategoryNames().size()]);
+		for (int i = 0; i < categoryNames.length; i++) {
+			CONFIG_CLIENT.getCategory(categoryNames[i]).setLanguageKey(prefix + categoryNames[i]).setRequiresMcRestart(true);
+		}
 	}
 
 	void loadWorldGeneration() {
