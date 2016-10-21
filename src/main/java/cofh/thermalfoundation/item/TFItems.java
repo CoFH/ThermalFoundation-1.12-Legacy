@@ -129,6 +129,7 @@ public class TFItems {
         itemLexicon = (ItemLexicon) new ItemLexicon("lexicon").setUnlocalizedName("tome", "lexicon");
         itemBucket = (ItemBucket) new ItemBucket("thermalfoundation").setUnlocalizedName("bucket").setCreativeTab(ThermalFoundation.tabCommon);
         itemMaterial = new ItemMultiType(ThermalFoundation.tabCommon, "material");
+        GameRegistry.register(itemMaterial);
 
         bucketRedstone = itemBucket.addOreDictItem(0, "bucketRedstone", 1);
         bucketGlowstone = itemBucket.addOreDictItem(1, "bucketGlowstone", 1);

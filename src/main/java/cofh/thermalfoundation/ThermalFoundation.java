@@ -1,7 +1,7 @@
 package cofh.thermalfoundation;
 
 import cofh.thermalfoundation.block.TFBlocks;
-import cofh.thermalfoundation.core.Proxy;
+import cofh.thermalfoundation.core.CommonProxy;
 import cofh.thermalfoundation.core.TFProps;
 import cofh.thermalfoundation.fluid.TFFluids;
 import cofh.thermalfoundation.gui.GuiHandler;
@@ -15,7 +15,6 @@ import cofh.thermalfoundation.util.IMCHandler;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
@@ -49,8 +48,8 @@ public class ThermalFoundation {
     @Instance(modId)
     public static ThermalFoundation instance;
 
-    @SidedProxy(clientSide = "cofh.thermalfoundation.core.ProxyClient", serverSide = "cofh.thermalfoundation.core.Proxy")
-    public static Proxy proxy;
+    @SidedProxy(clientSide = "cofh.thermalfoundation.core.ClientProxy", serverSide = "cofh.thermalfoundation.core.CommonProxy")
+    public static CommonProxy proxy;
 
     public static final Logger log = LogManager.getLogger(modId);
     public static File configDir;
@@ -89,6 +88,8 @@ public class ThermalFoundation {
         TFPlugins.preInit();
 
         LexiconManager.preInit();
+
+        proxy.preInit();
     }
 
     @EventHandler
@@ -107,6 +108,8 @@ public class ThermalFoundation {
         MinecraftForge.EVENT_BUS.register(proxy);
         EventHandlerLexicon.initialize();
         PacketTFBase.initialize();
+
+        proxy.init();
     }
 
     @EventHandler
@@ -119,6 +122,8 @@ public class ThermalFoundation {
 
         proxy.registerEntities();
         proxy.registerRenderInformation();
+
+        proxy.post();
     }
 
     @EventHandler

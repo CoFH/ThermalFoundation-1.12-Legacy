@@ -14,7 +14,13 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 
-public class Proxy {
+public class CommonProxy {
+
+	public void preInit() {}
+
+	public void init() {}
+
+	public void post() {}
 
 	public void registerEntities() {
 

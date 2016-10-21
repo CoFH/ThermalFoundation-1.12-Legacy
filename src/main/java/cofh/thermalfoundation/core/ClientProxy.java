@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.core;
 
 import codechicken.lib.render.CCIconRegister;
+import cofh.thermalfoundation.item.TFItems;
 import cofh.thermalfoundation.render.entity.RenderEntityBasalz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlitz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlizz;
@@ -14,8 +15,27 @@ import java.util.Locale;
 
 ;
 
-public class ProxyClient extends Proxy {
-//TODO Rendering stuff
+public class ClientProxy extends CommonProxy {
+
+    @Override
+    public void preInit() {
+        super.preInit();
+
+
+        TFItems.itemMaterial.registerModelVariants();
+    }
+
+    @Override
+    public void init() {
+        super.init();
+    }
+
+    @Override
+    public void post() {
+        super.post();
+    }
+
+    //TODO Rendering stuff
 //    static RenderEntityAsIcon renderBlazeBolt = new RenderEntityAsIcon();
 //    static RenderEntityAsIcon renderBlizzBolt = new RenderEntityAsIcon();
 //    static RenderEntityAsIcon renderBlitzBolt = new RenderEntityAsIcon();
