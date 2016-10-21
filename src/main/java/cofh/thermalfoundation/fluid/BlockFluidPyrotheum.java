@@ -134,7 +134,7 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 
     protected void checkForInteraction(World world, BlockPos pos) {
 
-        if (world.getBlockState(pos) != this) {
+        if (world.getBlockState(pos).getBlock() != this) {
             return;
         }
 
