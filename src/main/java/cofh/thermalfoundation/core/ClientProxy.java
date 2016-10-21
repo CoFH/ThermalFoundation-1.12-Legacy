@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.core;
 
 import codechicken.lib.render.CCIconRegister;
+import cofh.thermalfoundation.block.TFBlocks;
 import cofh.thermalfoundation.item.TFItems;
 import cofh.thermalfoundation.render.entity.RenderEntityBasalz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlitz;
@@ -23,6 +24,8 @@ public class ClientProxy extends CommonProxy {
 
 
         TFItems.itemMaterial.registerModelVariants();
+        TFBlocks.blockOre.registerModels();
+        TFBlocks.blockStorage.registerModels();
     }
 
     @Override

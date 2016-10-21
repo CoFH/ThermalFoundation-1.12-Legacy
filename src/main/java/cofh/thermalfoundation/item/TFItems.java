@@ -128,7 +128,8 @@ public class TFItems {
 
         itemLexicon = (ItemLexicon) new ItemLexicon("lexicon").setUnlocalizedName("tome", "lexicon");
         itemBucket = (ItemBucket) new ItemBucket("thermalfoundation").setUnlocalizedName("bucket").setCreativeTab(ThermalFoundation.tabCommon);
-        itemMaterial = new ItemMultiType(ThermalFoundation.tabCommon, "material");
+
+        itemMaterial = new ItemMultiType(ThermalFoundation.tabCommon, "material").setUnlocalizedName("thermalfoundation.material.");
         GameRegistry.register(itemMaterial);
 
         bucketRedstone = itemBucket.addOreDictItem(0, "bucketRedstone", 1);
@@ -275,7 +276,6 @@ public class TFItems {
     }
 
     public static void postInit() {
-
         GameRegistry.addRecipe(new ShapedOreRecipe(lexicon, " D ", "GBI", " R ", 'D', Items.DIAMOND, 'G', "ingotGold", 'B', Items.BOOK, 'I', "ingotIron", 'R', "dustRedstone"));
 
         // @formatter: off
@@ -289,20 +289,20 @@ public class TFItems {
         // @formatter: on
 
 		/* Smelting */
-        GameRegistry.addSmelting(ingotIron, dustIron, 0.0F);
-        GameRegistry.addSmelting(ingotGold, dustGold, 0.0F);
-        GameRegistry.addSmelting(ingotCopper, dustCopper, 0.0F);
-        GameRegistry.addSmelting(ingotTin, dustTin, 0.0F);
-        GameRegistry.addSmelting(ingotSilver, dustSilver, 0.0F);
-        GameRegistry.addSmelting(ingotLead, dustLead, 0.0F);
-        GameRegistry.addSmelting(ingotNickel, dustNickel, 0.0F);
-        GameRegistry.addSmelting(ingotPlatinum, dustPlatinum, 0.0F);
-        GameRegistry.addSmelting(ingotMithril, dustMithril, 0.0F);
-        GameRegistry.addSmelting(ingotElectrum, dustElectrum, 0.0F);
-        GameRegistry.addSmelting(ingotInvar, dustInvar, 0.0F);
-        GameRegistry.addSmelting(ingotBronze, dustBronze, 0.0F);
-        GameRegistry.addSmelting(ingotSignalum, dustSignalum, 0.0F);
-        GameRegistry.addSmelting(ingotLumium, dustLumium, 0.0F);
+        GameRegistry.addSmelting(dustIron, ingotIron, 0.0F);
+        GameRegistry.addSmelting(dustGold, ingotGold, 0.0F);
+        GameRegistry.addSmelting(dustCopper, ingotCopper, 0.0F);
+        GameRegistry.addSmelting(dustTin, ingotTin, 0.0F);
+        GameRegistry.addSmelting(dustSilver, ingotSilver, 0.0F);
+        GameRegistry.addSmelting(dustLead, ingotLead, 0.0F);
+        GameRegistry.addSmelting(dustNickel, ingotNickel, 0.0F);
+        GameRegistry.addSmelting(dustPlatinum, ingotPlatinum, 0.0F);
+        GameRegistry.addSmelting(dustMithril, ingotMithril, 0.0F);
+        GameRegistry.addSmelting(dustElectrum, ingotElectrum, 0.0F);
+        GameRegistry.addSmelting(dustInvar, ingotInvar, 0.0F);
+        GameRegistry.addSmelting(dustBronze, ingotBronze, 0.0F);
+        GameRegistry.addSmelting(dustSignalum, ingotSignalum, 0.0F);
+        GameRegistry.addSmelting(dustLumium, ingotLumium, 0.0F);
         // No Enderium
 
 		/* Alloy Recipes */

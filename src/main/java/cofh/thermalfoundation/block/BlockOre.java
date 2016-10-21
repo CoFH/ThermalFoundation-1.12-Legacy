@@ -2,18 +2,24 @@ package cofh.thermalfoundation.block;
 
 import codechicken.lib.block.property.PropertyString;
 import codechicken.lib.util.ArrayUtils;
+import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.item.TFItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
@@ -80,26 +86,15 @@ public class BlockOre extends Block {
         return getMetaFromState(state);
     }
 
-    //@Override
-    //public IIcon getIcon(int side, int metadata) {
-    //
-    //    return TEXTURES[metadata];
-    //}
-
-    //@Override
-    //@SideOnly(Side.CLIENT)
-    //public void registerBlockIcons(IIconRegister ir) {
-    //
-    //	for (int i = 0; i < NAMES.length; i++) {
-    //		TEXTURES[i] = ir.registerIcon("thermalfoundation:ore/Ore_" + StringHelper.titleCase(NAMES[i]));
-    //	}
-    //}
-
     /* IInitializer */
     //@Override
     public boolean preInit() {
+        this.setRegistryName("ore");
 
-        GameRegistry.registerBlock(this, ItemBlockOre.class, "Ore");
+        GameRegistry.register(this);
+        ItemBlockOre itemBlock = new ItemBlockOre(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
 
         oreCopper = new ItemStack(this, 1, 0);
         oreTin = new ItemStack(this, 1, 1);
@@ -109,13 +104,13 @@ public class BlockOre extends Block {
         orePlatinum = new ItemStack(this, 1, 5);
         oreMithril = new ItemStack(this, 1, 6);
 
-        //ItemHelper.registerWithHandlers("oreCopper", oreCopper);
-        //ItemHelper.registerWithHandlers("oreTin", oreTin);
-        //ItemHelper.registerWithHandlers("oreSilver", oreSilver);
-        //ItemHelper.registerWithHandlers("oreLead", oreLead);
-        //ItemHelper.registerWithHandlers("oreNickel", oreNickel);
-        //ItemHelper.registerWithHandlers("orePlatinum", orePlatinum);
-        //ItemHelper.registerWithHandlers("oreMithril", oreMithril);
+        ItemHelper.registerWithHandlers("oreCopper", oreCopper);
+        ItemHelper.registerWithHandlers("oreTin", oreTin);
+        ItemHelper.registerWithHandlers("oreSilver", oreSilver);
+        ItemHelper.registerWithHandlers("oreLead", oreLead);
+        ItemHelper.registerWithHandlers("oreNickel", oreNickel);
+        ItemHelper.registerWithHandlers("orePlatinum", orePlatinum);
+        ItemHelper.registerWithHandlers("oreMithril", oreMithril);
 
         return true;
     }
@@ -129,15 +124,22 @@ public class BlockOre extends Block {
     //@Override
     public boolean postInit() {
 
-        //ItemHelper.addSmelting(TFItems.ingotCopper, oreCopper, 0.6F);
-        //ItemHelper.addSmelting(TFItems.ingotTin, oreTin, 0.7F);
-        //ItemHelper.addSmelting(TFItems.ingotSilver, oreSilver, 0.9F);
-        //ItemHelper.addSmelting(TFItems.ingotLead, oreLead, 0.8F);
-        //ItemHelper.addSmelting(TFItems.ingotNickel, oreNickel, 1.0F);
-        //ItemHelper.addSmelting(TFItems.ingotPlatinum, orePlatinum, 1.0F);
-        //ItemHelper.addSmelting(TFItems.ingotMithril, oreMithril, 1.5F);
+        ItemHelper.addSmelting(TFItems.ingotCopper, oreCopper, 0.6F);
+        ItemHelper.addSmelting(TFItems.ingotTin, oreTin, 0.7F);
+        ItemHelper.addSmelting(TFItems.ingotSilver, oreSilver, 0.9F);
+        ItemHelper.addSmelting(TFItems.ingotLead, oreLead, 0.8F);
+        ItemHelper.addSmelting(TFItems.ingotNickel, oreNickel, 1.0F);
+        ItemHelper.addSmelting(TFItems.ingotPlatinum, orePlatinum, 1.0F);
+        ItemHelper.addSmelting(TFItems.ingotMithril, oreMithril, 1.5F);
 
         return true;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void registerModels() {
+        for (int i = 0; i < NAMES.length; i++) {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(this.getRegistryName(), "type=" + NAMES[i]));
+        }
     }
 
 }

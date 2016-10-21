@@ -2,12 +2,14 @@ package cofh.thermalfoundation.block;
 
 import codechicken.lib.block.property.PropertyString;
 import codechicken.lib.util.ArrayUtils;
+import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving.SpawnPlacementType;
@@ -18,7 +20,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
@@ -156,7 +161,12 @@ public class BlockStorage extends Block {
     //@Override
     public boolean preInit() {
 
-        GameRegistry.registerBlock(this, ItemBlockStorage.class, "Storage");
+        this.setRegistryName("storage");
+
+        GameRegistry.register(this);
+        ItemBlockStorage itemBlock = new ItemBlockStorage(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
 
         blockCopper = new ItemStack(this, 1, 0);
         blockTin = new ItemStack(this, 1, 1);
@@ -172,19 +182,19 @@ public class BlockStorage extends Block {
         blockLumium = new ItemStack(this, 1, 11);
         blockEnderium = new ItemStack(this, 1, 12);
 
-        //ItemHelper.registerWithHandlers("blockCopper", blockCopper);
-        //ItemHelper.registerWithHandlers("blockTin", blockTin);
-        //ItemHelper.registerWithHandlers("blockSilver", blockSilver);
-        //ItemHelper.registerWithHandlers("blockLead", blockLead);
-        //ItemHelper.registerWithHandlers("blockNickel", blockNickel);
-        //ItemHelper.registerWithHandlers("blockPlatinum", blockPlatinum);
-        //ItemHelper.registerWithHandlers("blockMithril", blockMithril);
-        //ItemHelper.registerWithHandlers("blockElectrum", blockElectrum);
-        //ItemHelper.registerWithHandlers("blockInvar", blockInvar);
-        //ItemHelper.registerWithHandlers("blockBronze", blockBronze);
-        //ItemHelper.registerWithHandlers("blockSignalum", blockSignalum);
-        //ItemHelper.registerWithHandlers("blockLumium", blockLumium);
-        //ItemHelper.registerWithHandlers("blockEnderium", blockEnderium);
+        ItemHelper.registerWithHandlers("blockCopper", blockCopper);
+        ItemHelper.registerWithHandlers("blockTin", blockTin);
+        ItemHelper.registerWithHandlers("blockSilver", blockSilver);
+        ItemHelper.registerWithHandlers("blockLead", blockLead);
+        ItemHelper.registerWithHandlers("blockNickel", blockNickel);
+        ItemHelper.registerWithHandlers("blockPlatinum", blockPlatinum);
+        ItemHelper.registerWithHandlers("blockMithril", blockMithril);
+        ItemHelper.registerWithHandlers("blockElectrum", blockElectrum);
+        ItemHelper.registerWithHandlers("blockInvar", blockInvar);
+        ItemHelper.registerWithHandlers("blockBronze", blockBronze);
+        ItemHelper.registerWithHandlers("blockSignalum", blockSignalum);
+        ItemHelper.registerWithHandlers("blockLumium", blockLumium);
+        ItemHelper.registerWithHandlers("blockEnderium", blockEnderium);
 
         return true;
     }
@@ -198,21 +208,28 @@ public class BlockStorage extends Block {
     //@Override
     public boolean postInit() {
 
-        //ItemHelper.addStorageRecipe(blockCopper, "ingotCopper");
-        //ItemHelper.addStorageRecipe(blockTin, "ingotTin");
-        //ItemHelper.addStorageRecipe(blockSilver, "ingotSilver");
-        //ItemHelper.addStorageRecipe(blockLead, "ingotLead");
-        //ItemHelper.addStorageRecipe(blockNickel, "ingotNickel");
-        //ItemHelper.addStorageRecipe(blockPlatinum, "ingotPlatinum");
-        //ItemHelper.addStorageRecipe(blockMithril, "ingotMithril");
-        //ItemHelper.addStorageRecipe(blockElectrum, "ingotElectrum");
-        //ItemHelper.addStorageRecipe(blockInvar, "ingotInvar");
-        //ItemHelper.addStorageRecipe(blockBronze, "ingotBronze");
-        //ItemHelper.addStorageRecipe(blockSignalum, "ingotSignalum");
-        //ItemHelper.addStorageRecipe(blockLumium, "ingotLumium");
-        //ItemHelper.addStorageRecipe(blockEnderium, "ingotEnderium");
+        ItemHelper.addStorageRecipe(blockCopper, "ingotCopper");
+        ItemHelper.addStorageRecipe(blockTin, "ingotTin");
+        ItemHelper.addStorageRecipe(blockSilver, "ingotSilver");
+        ItemHelper.addStorageRecipe(blockLead, "ingotLead");
+        ItemHelper.addStorageRecipe(blockNickel, "ingotNickel");
+        ItemHelper.addStorageRecipe(blockPlatinum, "ingotPlatinum");
+        ItemHelper.addStorageRecipe(blockMithril, "ingotMithril");
+        ItemHelper.addStorageRecipe(blockElectrum, "ingotElectrum");
+        ItemHelper.addStorageRecipe(blockInvar, "ingotInvar");
+        ItemHelper.addStorageRecipe(blockBronze, "ingotBronze");
+        ItemHelper.addStorageRecipe(blockSignalum, "ingotSignalum");
+        ItemHelper.addStorageRecipe(blockLumium, "ingotLumium");
+        ItemHelper.addStorageRecipe(blockEnderium, "ingotEnderium");
 
         return true;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void registerModels() {
+        for (int i = 0; i < NAMES.length; i++) {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(this.getRegistryName(), "type=" + NAMES[i]));
+        }
     }
 
 }
