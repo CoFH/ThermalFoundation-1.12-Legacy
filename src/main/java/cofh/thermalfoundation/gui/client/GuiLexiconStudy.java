@@ -23,7 +23,7 @@ import org.lwjgl.input.Keyboard;
 
 public class GuiLexiconStudy extends GuiBaseAdv {
 
-	static final String TEX_PATH = "thermalfoundation:textures/gui/LexiconStudy.png";
+	static final String TEX_PATH = "thermalfoundation:textures/gui/lexicon_study.png";
 	static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);
 
 	public String searchLocal = "<" + StringHelper.localize("info.thermalfoundation.lexicon.search") + ">";

@@ -3,16 +3,13 @@ package cofh.thermalfoundation.render.entity;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import cofh.thermalfoundation.render.model.ModelElemental;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
 public class RenderEntityBasalz extends RenderLiving<EntityBasalz> {
@@ -30,7 +27,7 @@ public class RenderEntityBasalz extends RenderLiving<EntityBasalz> {
 
 	public static void initialize() {
 
-		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "Basalz.png");
+		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "basalz.png");
 	}
 
 	public RenderEntityBasalz(RenderManager renderManager) {

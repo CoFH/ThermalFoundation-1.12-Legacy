@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiLexiconTransmute extends GuiBaseAdv {
 
-	static final String TEX_PATH = "thermalfoundation:textures/gui/LexiconTransmute.png";
+	static final String TEX_PATH = "thermalfoundation:textures/gui/lexicon_transmute.png";
 	static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);
 
 	public String myInfo = "";

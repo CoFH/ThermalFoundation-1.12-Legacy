@@ -29,10 +29,10 @@ public class RenderEntityBlizz extends RenderLiving<EntityBlizz> {
     public static void initialize() {
 
         if (HolidayHelper.isChristmas()) {
-            texture = new ResourceLocation("thermalfoundation:textures/entity/" + "xmas/Blizz.png");
+            texture = new ResourceLocation("thermalfoundation:textures/entity/" + "xmas/blizz.png");
             return;
         }
-        texture = new ResourceLocation("thermalfoundation:textures/entity/" + "Blizz.png");
+        texture = new ResourceLocation("thermalfoundation:textures/entity/" + "blizz.png");
     }
 
     public RenderEntityBlizz(RenderManager renderManager) {
