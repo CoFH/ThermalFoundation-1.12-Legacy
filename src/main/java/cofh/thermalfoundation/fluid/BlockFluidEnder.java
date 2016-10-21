@@ -3,6 +3,7 @@ package cofh.thermalfoundation.fluid;
 import codechicken.lib.util.CommonUtils;
 import codechicken.lib.util.EntityUtils;
 import codechicken.lib.vec.Vector3;
+import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -15,7 +16,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class BlockFluidEnder extends BlockFluidBase {
+public class BlockFluidEnder extends BlockFluidCoFHBase {
 
     public static final int LEVELS = 4;
     public static final Material materialFluidEnder = new MaterialLiquid(MapColor.GREEN);

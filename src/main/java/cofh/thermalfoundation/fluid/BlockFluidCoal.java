@@ -1,5 +1,6 @@
 package cofh.thermalfoundation.fluid;
 
+import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -10,7 +11,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class BlockFluidCoal extends BlockFluidBase {
+public class BlockFluidCoal extends BlockFluidCoFHBase {
 
     public static final int LEVELS = 6;
     public static final Material materialFluidCoal = new MaterialLiquid(MapColor.GRAY);

@@ -5,6 +5,9 @@ import cofh.core.util.CoreUtils;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
+import net.minecraft.init.MobEffects;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -17,7 +20,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class EntityBasalzBolt extends EntityThrowable {
@@ -48,15 +50,15 @@ public class EntityBasalzBolt extends EntityThrowable {
 
 	protected static class PotionEffectBasalz extends PotionEffect {
 
-		public PotionEffectBasalz(int id, int duration, int amplifier, boolean isAmbient) {
+		public PotionEffectBasalz(Potion potionIn, int durationIn, int amplifierIn, boolean ambientIn, boolean showParticlesIn) {
 
-			super(id, duration, amplifier, isAmbient);
+			super(potionIn, durationIn, amplifierIn, ambientIn, showParticlesIn);
 			getCurativeItems().clear();
-		}
+	}
 
 		public PotionEffectBasalz(int duration, int amplifier) {
 
-			this(Potion.weakness.id, duration, amplifier, false);
+			this(MobEffects.WEAKNESS, duration, amplifier, false, true);
 		}
 
 	}
@@ -87,21 +89,21 @@ public class EntityBasalzBolt extends EntityThrowable {
 	}
 
 	@Override
-	protected void onImpact(MovingObjectPosition pos) {
+	protected void onImpact(RayTraceResult traceResult) {
 
 		if (ServerHelper.isServerWorld(worldObj)) {
-			if (pos.entityHit != null) {
-				if (pos.entityHit instanceof EntityBasalz) {
-					pos.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 0);
+			if (traceResult.entityHit != null) {
+				if (traceResult.entityHit instanceof EntityBasalz) {
+					traceResult.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 0);
 				} else {
-					if (pos.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 5F) && pos.entityHit instanceof EntityLivingBase) {
-						EntityLivingBase living = (EntityLivingBase) pos.entityHit;
+					if (traceResult.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 5F) && traceResult.entityHit instanceof EntityLivingBase) {
+						EntityLivingBase living = (EntityLivingBase) traceResult.entityHit;
 						living.addPotionEffect(new PotionEffect(EntityBasalzBolt.basalzEffect));
 					}
 				}
 			}
 			for (int i = 0; i < 8; i++) {
-				worldObj.spawnParticle("explode", posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble());
+				worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble());
 			}
 			setDead();
 		}

@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.fluid;
 
 import codechicken.lib.util.CommonUtils;
+import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -19,7 +20,7 @@ import org.apache.logging.log4j.Level;
 
 import java.util.Random;
 
-public class BlockFluidGlowstone extends BlockFluidBase {
+public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 
     public static final int LEVELS = 6;
     public static final Material materialFluidGlowstone = new MaterialLiquid(MapColor.YELLOW);

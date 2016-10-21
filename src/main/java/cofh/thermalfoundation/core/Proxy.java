@@ -33,13 +33,13 @@ public class Proxy {
 	@SubscribeEvent
 	public void livingDrops(LivingDropsEvent evt) {
 
-		Entity entity = evt.entity;
+		Entity entity = evt.getEntity();
 		if (entity.isImmuneToFire() && TFProps.dropSulfurFireImmune) {
 			boolean s = entity instanceof EntitySlime;
-			if (evt.entityLiving.getRNG().nextInt(6 + (s ? 16 : 0)) != 0) {
+			if (evt.getEntityLiving().getRNG().nextInt(6 + (s ? 16 : 0)) != 0) {
 				return;
 			}
-			evt.drops.add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, TFItems.dustSulfur.copy()));
+			evt.getDrops().add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, TFItems.dustSulfur.copy()));
 		}
 	}
 

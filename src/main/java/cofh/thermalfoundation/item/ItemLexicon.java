@@ -2,7 +2,6 @@ package cofh.thermalfoundation.item;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
-
 import cofh.api.item.IEmpowerableItem;
 import cofh.api.item.IInventoryContainerItem;
 import cofh.core.util.CoreUtils;
@@ -13,23 +12,26 @@ import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.util.LexiconManager;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
-
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import java.util.List;
+
+//import net.minecraft.client.renderer.texture.IIconRegister;
 
 public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpowerableItem, IBauble {
 
@@ -81,9 +83,9 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 	public EnumRarity getRarity(ItemStack stack) {
 
 		if (isEmpowered(stack)) {
-			return EnumRarity.rare;
+			return EnumRarity.RARE;
 		}
-		return EnumRarity.uncommon;
+		return EnumRarity.UNCOMMON;
 	}
 
 	@Override
@@ -93,10 +95,10 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
 
 		if (CoreUtils.isFakePlayer(player)) {
-			return stack;
+			return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
 		}
 		if (ServerHelper.isServerWorld(world) && LexiconManager.getSortedOreNames().size() > 0) {
 			if (isEmpowered(stack)) {
@@ -105,7 +107,7 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 				player.openGui(ThermalFoundation.instance, GuiHandler.LEXICON_STUDY_ID, world, 0, 0, 0);
 			}
 		}
-		return stack;
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
 	}
 
 	@Override
@@ -159,12 +161,12 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 		return super.setUnlocalizedName(textureName);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister ir) {
-
-		this.itemIcon = ir.registerIcon(modName + ":" + getUnlocalizedName().replace("item." + modName + ".", "") + "/" + StringHelper.titleCase(itemName));
-	}
+//	@Override
+//	@SideOnly(Side.CLIENT)
+//	public void registerIcons(IIconRegister ir) {
+//
+//		this.itemIcon = ir.registerIcon(modName + ":" + getUnlocalizedName().replace("item." + modName + ".", "") + "/" + StringHelper.titleCase(itemName));
+//	}
 
 	/* IInventoryContainerItem */
 	@Override
@@ -176,27 +178,25 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 	/* IEmpowerableItem */
 	@Override
 	public boolean isEmpowered(ItemStack stack) {
-
-		return stack.stackTagCompound == null ? false : stack.stackTagCompound.getBoolean("Empowered");
+		return !stack.hasTagCompound() ? false : stack.getTagCompound().getBoolean("Empowered");
 	}
 
 	@Override
 	public boolean setEmpoweredState(ItemStack stack, boolean state) {
 
-		if (stack.stackTagCompound == null) {
+		if (!stack.hasTagCompound()) {
 			stack.setTagCompound(new NBTTagCompound());
 		}
-		stack.stackTagCompound.setBoolean("Empowered", state);
+		stack.getTagCompound().setBoolean("Empowered", state);
 		return true;
 	}
 
 	@Override
 	public void onStateChange(EntityPlayer player, ItemStack stack) {
-
 		if (isEmpowered(stack)) {
-			player.worldObj.playSoundAtEntity(player, "ambient.weather.thunder", 0.4F, 1.0F);
+			player.worldObj.playSound(player.posX, player.posY, player.posZ, SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.PLAYERS, 0.4F, 1.0F, false);
 		} else {
-			player.worldObj.playSoundAtEntity(player, "random.orb", 0.2F, 0.6F);
+			player.worldObj.playSound(player.posX, player.posY, player.posZ, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.2F, 0.6F, false);
 		}
 	}
 

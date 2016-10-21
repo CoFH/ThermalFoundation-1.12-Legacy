@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.fluid;
 
 import codechicken.lib.util.CommonUtils;
+import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -20,7 +21,7 @@ import org.apache.logging.log4j.Level;
 
 import java.util.Random;
 
-public class BlockFluidAerotheum extends BlockFluidBase {
+public class BlockFluidAerotheum extends BlockFluidCoFHBase {
 
     Random random = new Random();
 

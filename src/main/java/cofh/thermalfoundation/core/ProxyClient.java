@@ -1,21 +1,11 @@
 package cofh.thermalfoundation.core;
 
 import codechicken.lib.render.CCIconRegister;
-import codechicken.lib.texture.TextureUtils;
-import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
-import cofh.thermalfoundation.entity.projectile.EntityBlazeBolt;
-import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
-import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
-import cofh.thermalfoundation.fluid.TFFluids;
-import cofh.thermalfoundation.item.TFItems;
-import cofh.thermalfoundation.render.entity.RenderEntityAsIcon;
 import cofh.thermalfoundation.render.entity.RenderEntityBasalz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlitz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlizz;
-import net.minecraft.init.Items;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -25,19 +15,19 @@ import java.util.Locale;
 ;
 
 public class ProxyClient extends Proxy {
-
-    static RenderEntityAsIcon renderBlazeBolt = new RenderEntityAsIcon();
-    static RenderEntityAsIcon renderBlizzBolt = new RenderEntityAsIcon();
-    static RenderEntityAsIcon renderBlitzBolt = new RenderEntityAsIcon();
-    static RenderEntityAsIcon renderBasalzBolt = new RenderEntityAsIcon();
+//TODO Rendering stuff
+//    static RenderEntityAsIcon renderBlazeBolt = new RenderEntityAsIcon();
+//    static RenderEntityAsIcon renderBlizzBolt = new RenderEntityAsIcon();
+//    static RenderEntityAsIcon renderBlitzBolt = new RenderEntityAsIcon();
+//    static RenderEntityAsIcon renderBasalzBolt = new RenderEntityAsIcon();
 
     @Override
     public void registerRenderInformation() {
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityBlazeBolt.class, renderBlazeBolt);
-        RenderingRegistry.registerEntityRenderingHandler(EntityBlizzBolt.class, renderBlizzBolt);
-        RenderingRegistry.registerEntityRenderingHandler(EntityBlitzBolt.class, renderBlitzBolt);
-        RenderingRegistry.registerEntityRenderingHandler(EntityBasalzBolt.class, renderBasalzBolt);
+//        RenderingRegistry.registerEntityRenderingHandler(EntityBlazeBolt.class, renderBlazeBolt);
+//        RenderingRegistry.registerEntityRenderingHandler(EntityBlizzBolt.class, renderBlizzBolt);
+//        RenderingRegistry.registerEntityRenderingHandler(EntityBlitzBolt.class, renderBlitzBolt);
+//        RenderingRegistry.registerEntityRenderingHandler(EntityBasalzBolt.class, renderBasalzBolt);
 
         //MinecraftForgeClient.registerItemRenderer(TFItems.itemBucket, new RenderFluidOverlayItem());
     }
@@ -46,27 +36,27 @@ public class ProxyClient extends Proxy {
     @SubscribeEvent
     public void registerIcons(TextureStitchEvent.Pre event) {
 
-        if (event.map.getTextureType() == 0) {
-            registerFluidIcons(TFFluids.fluidRedstone, event.map);
-            registerFluidIcons(TFFluids.fluidGlowstone, event.map);
-            registerFluidIcons(TFFluids.fluidEnder, event.map);
-            registerFluidIcons(TFFluids.fluidPyrotheum, event.map);
-            registerFluidIcons(TFFluids.fluidCryotheum, event.map);
-            registerFluidIcons(TFFluids.fluidAerotheum, event.map);
-            registerFluidIcons(TFFluids.fluidPetrotheum, event.map);
-            registerFluidIcons(TFFluids.fluidMana, event.map);
-            registerFluidIcons(TFFluids.fluidCoal, event.map);
-            registerFluidIcons(TFFluids.fluidSteam, event.map);
-
-        } else if (event.map.getTextureType() == 1) {
-            CCIconRegister.registerTexture("thermalfoundation:material/DustBlaze");
-
-            if (TFProps.iconBlazePowder) {
-                //TODO Replace model location.
-                //Items.blaze_powder.setTextureName("thermalfoundation:material/DustBlaze");
-                //Items.blaze_powder.registerIcons(event.map);
-            }
-        }
+//        if (event.map.getTextureType() == 0) {
+//            registerFluidIcons(TFFluids.fluidRedstone, event.map);
+//            registerFluidIcons(TFFluids.fluidGlowstone, event.map);
+//            registerFluidIcons(TFFluids.fluidEnder, event.map);
+//            registerFluidIcons(TFFluids.fluidPyrotheum, event.map);
+//            registerFluidIcons(TFFluids.fluidCryotheum, event.map);
+//            registerFluidIcons(TFFluids.fluidAerotheum, event.map);
+//            registerFluidIcons(TFFluids.fluidPetrotheum, event.map);
+//            registerFluidIcons(TFFluids.fluidMana, event.map);
+//            registerFluidIcons(TFFluids.fluidCoal, event.map);
+//            registerFluidIcons(TFFluids.fluidSteam, event.map);
+//
+//        } else if (event.map.getTextureType() == 1) {
+//            CCIconRegister.registerTexture("thermalfoundation:material/DustBlaze");
+//
+//            if (TFProps.iconBlazePowder) {
+//                //TODO Replace model location.
+//                //Items.blaze_powder.setTextureName("thermalfoundation:material/DustBlaze");
+//                //Items.blaze_powder.registerIcons(event.map);
+//            }
+//        }
     }
 
     @SideOnly(Side.CLIENT)
@@ -76,10 +66,10 @@ public class ProxyClient extends Proxy {
         RenderEntityBlitz.initialize();
         RenderEntityBasalz.initialize();
 
-        renderBlazeBolt.setIcon(TextureUtils.getTexture("thermalfoundation:material/DustBlaze"));
-        renderBlizzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBlizz.getItemDamage()));
-        renderBlitzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBlitz.getItemDamage()));
-        renderBasalzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBasalz.getItemDamage()));
+//        renderBlazeBolt.setIcon(TextureUtils.getTexture("thermalfoundation:material/DustBlaze"));
+//        renderBlizzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBlizz.getItemDamage()));
+//        renderBlitzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBlitz.getItemDamage()));
+//        renderBasalzBolt.setIcon(TFItems.itemMaterial.getIconFromDamage(TFItems.dustBasalz.getItemDamage()));
     }
 
     public static void registerFluidIcons(Fluid fluid) {

@@ -1,5 +1,6 @@
 package cofh.thermalfoundation.fluid;
 
+import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
@@ -13,7 +14,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockFluidRedstone extends BlockFluidBase {
+public class BlockFluidRedstone extends BlockFluidCoFHBase {
 
 	public static final int LEVELS = 8;
 	public static final Material materialFluidRedstone = new MaterialLiquid(MapColor.RED);

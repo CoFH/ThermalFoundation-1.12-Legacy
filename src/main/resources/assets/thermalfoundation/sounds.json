@@ -3,7 +3,7 @@
         "category": "hostile",
         "sounds": [
             {
-                "name": "mob/blizz/ambient",
+                "name": "thermalfoundation:mob/blizz/ambient",
                 "stream": false
             }
         ]
@@ -12,43 +12,33 @@
         "category": "hostile",
         "sounds": [
             {
-                "name": "mob/blizz/attack",
+                "name": "thermalfoundation:mob/blizz/attack",
                 "stream": false
             }
         ]
     },
-    "mobBlizzBreathe0": {
+    "mobBlizzBreathe": {
         "category": "hostile",
         "sounds": [
             {
-                "name": "mob/blizz/breathe0",
+                "name": "thermalfoundation:mob/blizz/breathe0",
+                "stream": false
+            },
+            {
+                "name": "thermalfoundation:mob/blizz/breathe1",
+                "stream": false
+            },
+            {
+                "name": "thermalfoundation:mob/blizz/breathe2",
                 "stream": false
             }
         ]
     },
-    "mobBlizzBreathe1": {
+    "mobBlitzAmbient": {
         "category": "hostile",
         "sounds": [
             {
-                "name": "mob/blizz/breathe1",
-                "stream": false
-            }
-        ]
-    },
-    "mobBlizzBreathe2": {
-        "category": "hostile",
-        "sounds": [
-            {
-                "name": "mob/blizz/breathe2",
-                "stream": false
-            }
-        ]
-    },
-        "mobBlitzAmbient": {
-        "category": "hostile",
-        "sounds": [
-            {
-                "name": "mob/blitz/ambient",
+                "name": "thermalfoundation:mob/blitz/ambient",
                 "stream": false
             }
         ]
@@ -57,34 +47,24 @@
         "category": "hostile",
         "sounds": [
             {
-                "name": "mob/blitz/attack",
+                "name": "thermalfoundation:mob/blitz/attack",
                 "stream": false
             }
         ]
     },
-    "mobBlitzBreathe0": {
+    "mobBlitzBreathe": {
         "category": "hostile",
         "sounds": [
             {
-                "name": "mob/blitz/breathe0",
+                "name": "thermalfoundation:mob/blitz/breathe0",
                 "stream": false
-            }
-        ]
-    },
-    "mobBlitzBreathe1": {
-        "category": "hostile",
-        "sounds": [
+            },
             {
-                "name": "mob/blitz/breathe1",
+                "name": "thermalfoundation:mob/blitz/breathe1",
                 "stream": false
-            }
-        ]
-    },
-    "mobBlitzBreathe2": {
-        "category": "hostile",
-        "sounds": [
+            },
             {
-                "name": "mob/blitz/breathe2",
+                "name": "thermalfoundation:mob/blitz/breathe2",
                 "stream": false
             }
         ]
@@ -93,7 +73,7 @@
         "category": "hostile",
         "sounds": [
             {
-                "name": "mob/basalz/ambient",
+                "name": "thermalfoundation:mob/basalz/ambient",
                 "stream": false
             }
         ]
@@ -102,25 +82,20 @@
         "category": "hostile",
         "sounds": [
             {
-                "name": "mob/basalz/attack",
+                "name": "thermalfoundation:mob/basalz/attack",
                 "stream": false
             }
         ]
     },
-    "mobBasalzBreathe0": {
+    "mobBasalzBreathe": {
         "category": "hostile",
         "sounds": [
             {
-                "name": "mob/basalz/breathe0",
+                "name": "thermalfoundation:mob/basalz/breathe0",
                 "stream": false
-            }
-        ]
-    },
-    "mobBasalzBreathe1": {
-        "category": "hostile",
-        "sounds": [
+            },
             {
-                "name": "mob/basalz/breathe1",
+                "name": "thermalfoundation:mob/basalz/breathe1",
                 "stream": false
             }
         ]
