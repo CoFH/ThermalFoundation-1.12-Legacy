@@ -17,15 +17,16 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import java.util.Locale;
 
 import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
+import static cofh.thermalfoundation.item.TFItems.*;
 
 public enum Equipment {
 
 	// @formatter:off
 	/* Name, Level, Uses, Speed, Damage, Ench, Dura, Absorption */
-	Copper(      1,  175,  4.0F,  0.75F,    6,    6, new int[] { 1, 3, 3, 1 }),
-	Tin(         1,  200,  4.5F,   1.0F,    7,    8, new int[] { 1, 4, 3, 1 }),
-	Silver(      2,  200,  6.0F,   1.5F,   20,   11, new int[] { 2, 4, 4, 1 }),
-	Lead(        1,  150,    5F,   1.0F,    9,   15, new int[] { 2, 5, 4, 3 }) {
+	Copper(      1,  175,  4.0F,  0.75F,    6,    6, new int[] { 1, 3, 3, 1 }, dustCopper,   ingotCopper,   nuggetCopper),
+	Tin(         1,  200,  4.5F,   1.0F,    7,    8, new int[] { 1, 4, 3, 1 }, dustTin,      ingotTin,      nuggetTin),
+	Silver(      2,  200,  6.0F,   1.5F,   20,   11, new int[] { 2, 4, 4, 1 }, dustSilver,   ingotSilver,   nuggetSilver),
+	Lead(        1,  150,    5F,   1.0F,    9,   15, new int[] { 2, 5, 4, 3 }, dustLead,     ingotLead,     nuggetLead) {
 
 		@Override
 		protected final void createArmor() {
@@ -55,11 +56,11 @@ public enum Equipment {
 			itemBoots.putAttribute("generic.movementSpeed", movementBonus);
 		}
 	},
-	Nickel(      2,  300,  6.5F,   2.5F,   18,   15, new int[] { 2, 5, 5, 2 }),
-	Electrum(    0,  100, 14.0F,   0.5F,   30,    8, new int[] { 2, 4, 4, 2 }),
-	Invar(       2,  450,  7.0F,   3.0F,   16,   21, new int[] { 2, 7, 5, 2 }),
-	Bronze(      2,  500,  6.0F,   2.0F,   15,   18, new int[] { 3, 6, 6, 2 }),
-	Platinum(    4, 1700,  9.0F,   4.0F,    9,   40, new int[] { 3, 8, 6, 3 }) {
+	Nickel(      2,  300,  6.5F,   2.5F,   18,   15, new int[] { 2, 5, 5, 2 }, dustNickel,   ingotNickel,   nuggetNickel),
+	Electrum(    0,  100, 14.0F,   0.5F,   30,    8, new int[] { 2, 4, 4, 2 }, dustElectrum, ingotElectrum, nuggetElectrum),
+	Invar(       2,  450,  7.0F,   3.0F,   16,   21, new int[] { 2, 7, 5, 2 }, dustInvar,    ingotInvar,    nuggetInvar),
+	Bronze(      2,  500,  6.0F,   2.0F,   15,   18, new int[] { 3, 6, 6, 2 }, dustBronze,   ingotBronze,   nuggetBronze),
+	Platinum(    4, 1700,  9.0F,   4.0F,    9,   40, new int[] { 3, 8, 6, 3 }, dustPlatinum, ingotPlatinum, nuggetPlatinum) {
 
 		@Override
 		protected final void createArmor() {
@@ -104,6 +105,10 @@ public enum Equipment {
 	public boolean enableArmor = true;
 	public boolean[] enableTools = new boolean[9];
 
+    public ItemStack dustStack;
+    public ItemStack ingotStack;
+    public ItemStack nuggetStack;
+
 	public ItemArmorAdv itemHelmet;
 	public ItemArmorAdv itemPlate;
 	public ItemArmorAdv itemLegs;
@@ -134,7 +139,7 @@ public enum Equipment {
 	public ItemStack toolSickle;
 	public ItemStack toolBow;
 
-	Equipment(int level, int uses, float speed, float damage, int enchant, int durability, int[] absorb) {
+	Equipment(int level, int uses, float speed, float damage, int enchant, int durability, int[] absorb, ItemStack dustStack, ItemStack ingotStack, ItemStack nuggetStack) {
 
 		TOOL_MATERIAL = EnumHelper.addToolMaterial("TF:" + name().toUpperCase(Locale.US), level, uses, speed, damage, enchant);
 		ARMOR_MATERIAL = EnumHelper.addArmorMaterial("TF:" + name().toUpperCase(Locale.US), name(), durability, absorb, enchant, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.5F); //TODO toughness;
@@ -147,6 +152,9 @@ public enum Equipment {
 		/* Bow */
 		// arrowSpeed = 2.0F + speed / 8F;
 		arrowDamage = 1.0F + damage / 8F;
+        this.dustStack = dustStack;
+        this.ingotStack = ingotStack;
+        this.nuggetStack = nuggetStack;
 	}
 
 	protected void createArmor() {
