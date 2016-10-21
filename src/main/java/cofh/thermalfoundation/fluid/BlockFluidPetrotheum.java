@@ -1,11 +1,14 @@
 package cofh.thermalfoundation.fluid;
 
-import cofh.core.fluid.BlockFluidInteractive;
-import cofh.lib.util.BlockWrapper;
-import cofh.lib.util.helpers.BlockHelper;
-import cofh.lib.util.helpers.ServerHelper;
+import codechicken.lib.util.CommonUtils;
 import cofh.thermalfoundation.ThermalFoundation;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.Random;
 
@@ -23,17 +26,14 @@ import net.minecraft.world.World;
 
 public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
-	Random random = new Random();
-
 	public static final int LEVELS = 6;
-	public static final Material materialFluidPetrotheum = new MaterialLiquid(MapColor.stoneColor);
+	public static final Material materialFluidPetrotheum = new MaterialLiquid(MapColor.STONE);
 
 	private static boolean enableSourceFall = true;
 	private static boolean effect = true;
 	private static boolean extreme = false;
 
 	public BlockFluidPetrotheum() {
-
 		super("thermalfoundation", TFFluids.fluidPetrotheum, materialFluidPetrotheum, "petrotheum");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(10);
@@ -48,106 +48,97 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
 		GameRegistry.registerBlock(this, "FluidPetrotheum");
 
-		addInteraction(Blocks.stone, Blocks.gravel);
-		addInteraction(Blocks.cobblestone, Blocks.gravel);
-		addInteraction(Blocks.stonebrick, Blocks.gravel);
-		addInteraction(Blocks.mossy_cobblestone, Blocks.gravel);
+		addInteraction(Blocks.STONE, Blocks.GRAVEL);
+		addInteraction(Blocks.COBBLESTONE, Blocks.GRAVEL);
+		addInteraction(Blocks.STONEBRICK, Blocks.GRAVEL);
+		addInteraction(Blocks.MOSSY_COBBLESTONE, Blocks.GRAVEL);
 
 		String category = "Fluid.Petrotheum";
 		String comment = "Enable this for Fluid Petrotheum to break apart stone blocks.";
-		effect = ThermalFoundation.config.get(category, "Effect", effect, comment);
+		effect = ThermalFoundation.config.get(category, "Effect", effect, comment).getBoolean();
 
 		comment = "Enable this for Fluid Petrotheum to have an EXTREME effect on stone blocks.";
-		extreme = ThermalFoundation.config.get(category, "Effect.Extreme", extreme, comment);
+		extreme = ThermalFoundation.config.get(category, "Effect.Extreme", extreme, comment).getBoolean();
 
 		comment = "Enable this for Fluid Petrotheum Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment);
+		enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
 
 		return true;
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
-
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 		if (!effect) {
 			return;
 		}
-		if (ServerHelper.isClientWorld(world)) {
+		if (CommonUtils.isClientWorld(world)) {
 			return;
 		}
 		if (world.getTotalWorldTime() % 8 != 0) {
 			return;
 		}
 		if (world.getTotalWorldTime() % 8 == 0 && entity instanceof EntityLivingBase && !((EntityLivingBase) entity).isEntityUndead()) {
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.digSpeed.id, 30 * 20, 2));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.nightVision.id, 30 * 20, 0));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 1));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.HASTE, 30 * 20, 2));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 30 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 30 * 20, 1));
 		}
 	}
 
 	@Override
-	public int getLightValue(IBlockAccess world, int x, int y, int z) {
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
 		return TFFluids.fluidPetrotheum.getLuminosity();
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 
 		if (effect) {
-			checkForInteraction(world, x, y, z);
+			checkForInteraction(world, pos);
 		}
-		if (enableSourceFall && world.getBlockMetadata(x, y, z) == 0) {
-			Block block = world.getBlock(x, y + densityDir, z);
-			int bMeta = world.getBlockMetadata(x, y + densityDir, z);
+		if (enableSourceFall && state.getBlock().getMetaFromState(state) == 0) {
+		    BlockPos offsetPos = pos.add(0, densityDir, 0);
+			IBlockState offsetState = world.getBlockState(offsetPos);
+			int bMeta = offsetState.getBlock().getMetaFromState(state);
 
-			if (block == this && bMeta != 0) {
-				world.setBlock(x, y + densityDir, z, this, 0, 3);
-				world.setBlockToAir(x, y, z);
+			if (offsetState.getBlock() == this && bMeta != 0) {
+				world.setBlockState(offsetPos, getDefaultState(), 3);
+				world.setBlockToAir(pos);
 				return;
 			}
 		}
-		super.updateTick(world, x, y, z, rand);
+		super.updateTick(world, pos, state, rand);
 	}
 
-	protected void checkForInteraction(World world, int x, int y, int z) {
+    protected void checkForInteraction(World world, BlockPos pos) {
 
-		if (world.getBlock(x, y, z) != this) {
-			return;
-		}
-		int x2 = x;
-		int y2 = y;
-		int z2 = z;
+        if (world.getBlockState(pos) != this) {
+            return;
+        }
 
-		for (int i = 2; i < 6; i++) {
-			x2 = x + BlockHelper.SIDE_COORD_MOD[i][0];
-			y2 = y + BlockHelper.SIDE_COORD_MOD[i][1];
-			z2 = z + BlockHelper.SIDE_COORD_MOD[i][2];
-			interactWithBlock(world, x2, y2, z2);
-		}
+        for (EnumFacing face : EnumFacing.VALUES) {
+            interactWithBlock(world, pos.offset(face));
+        }
 	}
 
-	protected void interactWithBlock(World world, int x, int y, int z) {
+	protected void interactWithBlock(World world, BlockPos pos) {
+        IBlockState state = world.getBlockState(pos);
 
-		Block block = world.getBlock(x, y, z);
+        if (state.getBlock().isAir(state, world, pos) || state.getBlock() == this) {
+            return;
+        }
 
-		if (block == Blocks.air || block == this) {
-			return;
-		}
-		int bMeta = world.getBlockMetadata(x, y, z);
-		if (extreme && block.getMaterial() == Material.rock && block.getBlockHardness(world, x, y, z) > 0) {
-			block.dropBlockAsItem(world, x, y, z, bMeta, 0);
-			world.setBlockToAir(x, y, z);
-			triggerInteractionEffects(world, x, y, z);
-		} else if (hasInteraction(block, bMeta)) {
-			BlockWrapper result = getInteraction(block, bMeta);
-			world.setBlock(x, y, z, result.block, result.metadata, 3);
+		if (extreme && state.getMaterial() == Material.ROCK && state.getBlock().getBlockHardness(state, world, pos) > 0) {
+			state.getBlock().dropBlockAsItem(world, pos, state, 0);
+			world.setBlockToAir(pos);
+			triggerInteractionEffects(world, pos);
+		} else if (hasInteraction(state)) {
+			world.setBlockState(pos, getInteraction(state), 3);
 		}
 	}
 
-	protected void triggerInteractionEffects(World world, int x, int y, int z) {
-
-		world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, "dig.stone", 0.5F, 0.9F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F);
+	protected void triggerInteractionEffects(World world, BlockPos pos) {
+		world.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 0.5F, 0.9F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F, false);
 	}
 
 }

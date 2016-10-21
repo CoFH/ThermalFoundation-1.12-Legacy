@@ -1,5 +1,8 @@
 package cofh.thermalfoundation.entity.monster;
 
+import codechicken.lib.math.MathHelper;
+import codechicken.lib.util.CommonUtils;
+import codechicken.lib.util.EntityUtils;
 import cofh.core.CoFHProps;
 import cofh.core.entity.EntitySelectorInRangeByType;
 import cofh.core.util.CoreUtils;
@@ -9,9 +12,11 @@ import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.item.TFItems;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,7 +41,7 @@ public class EntityBasalz extends EntityMob {
 
 	static boolean enable = true;
 	static boolean restrictLightLevel = true;
-	static boolean useGlobalId = true;
+	//static boolean useGlobalId = true;
 
 	static int spawnLightLevel = 8;
 
@@ -49,27 +54,27 @@ public class EntityBasalz extends EntityMob {
 		String comment = "";
 
 		comment = "Set this to false to disable Basalzes entirely. Jerk.";
-		enable = ThermalFoundation.config.get(category, "Enable", enable, comment);
+		enable = ThermalFoundation.config.get(category, "Enable", enable, comment).getBoolean();
 
-		comment = "Set this to false for the Basalz to use a mod-specific ID; this removes the Spawn Egg.";
-		useGlobalId = ThermalFoundation.config.get(category, "UseGlobalId", useGlobalId, comment);
+		//comment = "Set this to false for the Basalz to use a mod-specific ID; this removes the Spawn Egg.";
+		//useGlobalId = ThermalFoundation.config.get(category, "UseGlobalId", useGlobalId, comment).getBoolean();
 
 		category = "Mob.Basalz.Spawn";
 
 		comment = "Set this to false for Basalzes to spawn at any light level.";
-		restrictLightLevel = ThermalFoundation.config.get(category, "Light.Limit", restrictLightLevel, comment);
+		restrictLightLevel = ThermalFoundation.config.get(category, "Light.Limit", restrictLightLevel, comment).getBoolean();
 
 		comment = "This sets the maximum light level Basalzes can spawn at, if restricted.";
-		spawnLightLevel = MathHelper.clamp(ThermalFoundation.config.get(category, "Light.Level", spawnLightLevel, comment), 0, 15);
+		spawnLightLevel = MathHelper.clip(ThermalFoundation.config.get(category, "Light.Level", spawnLightLevel, comment).getInt(), 0, 15);
 
 		comment = "This sets the minimum number of Basalzes that spawn in a group.";
-		spawnMin = MathHelper.clamp(ThermalFoundation.config.get(category, "MinGroupSize", spawnMin, comment), 1, 10);
+		spawnMin = MathHelper.clip(ThermalFoundation.config.get(category, "MinGroupSize", spawnMin, comment).getInt(), 1, 10);
 
 		comment = "This sets the maximum light number of Basalzes that spawn in a group.";
-		spawnMax = MathHelper.clamp(ThermalFoundation.config.get(category, "MaxGroupSize", spawnMax, comment), spawnMin, 24);
+		spawnMax = MathHelper.clip(ThermalFoundation.config.get(category, "MaxGroupSize", spawnMax, comment).getInt(), spawnMin, 24);
 
 		comment = "This sets the relative spawn weight for Basalzes.";
-		spawnWeight = ThermalFoundation.config.get(category, "SpawnWeight", spawnWeight, comment);
+		spawnWeight = ThermalFoundation.config.get(category, "SpawnWeight", spawnWeight, comment).getInt();
 	}
 
 	public static void initialize() {
@@ -77,7 +82,7 @@ public class EntityBasalz extends EntityMob {
 		if (!enable) {
 			return;
 		}
-		if (useGlobalId) {
+		/*if (useGlobalId) {
 			try {
 				entityId = EntityRegistry.findGlobalUniqueEntityId();
 				try {
@@ -91,27 +96,27 @@ public class EntityBasalz extends EntityMob {
 				useGlobalId = false;
 			}
 
-		}
-		if (!useGlobalId) {
-			entityId = CoreUtils.getEntityId();
-			EntityRegistry.registerModEntity(EntityBasalz.class, "Basalz", entityId, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
-		}
+		}*/
+		//if (!useGlobalId) {
+			entityId = EntityUtils.nextEntityId();
+			EntityRegistry.registerModEntity(EntityBasalz.class, "Basalz", entityId, ThermalFoundation.instance, 64, 1, true);
+		//}
 		// Add Basalz spawn to Mountain biomes
-		List<BiomeGenBase> validBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.MOUNTAIN)));
+		List<Biome> validBiomes = new ArrayList<Biome>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.MOUNTAIN)));
 
 		// Add Basalz spawn to Wasteland biomes
-		for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(Type.WASTELAND)) {
+		for (Biome biome : BiomeDictionary.getBiomesForType(Type.WASTELAND)) {
 			if (!validBiomes.contains(biome)) {
 				validBiomes.add(biome);
 			}
 		}
 		// Remove Basalz spawn from End biomes
-		for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(Type.END)) {
+		for (Biome biome : BiomeDictionary.getBiomesForType(Type.END)) {
 			if (validBiomes.contains(biome)) {
 				validBiomes.remove(biome);
 			}
 		}
-		EntityRegistry.addSpawn(EntityBasalz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.monster, validBiomes.toArray(new BiomeGenBase[0]));
+		EntityRegistry.addSpawn(EntityBasalz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));
 	}
 
 	/** Random offset used in floating behaviour */
@@ -121,10 +126,9 @@ public class EntityBasalz extends EntityMob {
 	protected int heightOffsetUpdateTime;
 	protected int firingState;
 
-	public static final String SOUND_AMBIENT = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzAmbient");
-	public static final String SOUND_ATTACK = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzAttack");
-	public static final String SOUND_LIVING[] = { CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzBreathe0"),
-			CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzBreathe1") };
+	//public static final String SOUND_AMBIENT = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzAmbient");
+	//public static final String SOUND_ATTACK = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzAttack");
+	//public static final String SOUND_LIVING[] = { CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzBreathe0"), CoreUtils.getSoundName(ThermalFoundation.modId, "mobBasalzBreathe1") };
 
 	protected static final int SOUND_AMBIENT_FREQUENCY = 400; // How often it does ambient sound loop
 
@@ -148,23 +152,20 @@ public class EntityBasalz extends EntityMob {
 		this.dataWatcher.addObject(16, new Byte((byte) 0));
 	}
 
-	@Override
-	protected String getLivingSound() {
+	//@Override
+	//protected String getLivingSound() {
+		//return SOUND_LIVING[this.rand.nextInt(2)];
+	//}
 
-		return SOUND_LIVING[this.rand.nextInt(2)];
-	}
+	//@Override
+	//protected SoundEvent getHurtSound() {
+	//	return "mob.blaze.hit";
+	//}
 
-	@Override
-	protected String getHurtSound() {
-
-		return "mob.blaze.hit";
-	}
-
-	@Override
-	protected String getDeathSound() {
-
-		return "mob.blaze.death";
-	}
+	//@Override
+	//protected SoundEvent getDeathSound() {
+	//	return "mob.blaze.death";
+	//}
 
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -182,7 +183,7 @@ public class EntityBasalz extends EntityMob {
 	@Override
 	public void onLivingUpdate() {
 
-		if (ServerHelper.isServerWorld(worldObj)) {
+		if (CommonUtils.isServerWorld(worldObj)) {
 			--this.heightOffsetUpdateTime;
 
 			if (this.heightOffsetUpdateTime <= 0) {

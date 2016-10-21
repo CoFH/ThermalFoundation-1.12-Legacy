@@ -8,7 +8,7 @@ import cofh.core.item.tool.ItemShearsAdv;
 import cofh.core.item.tool.ItemSickleAdv;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.core.TFProps;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.Locale;
 

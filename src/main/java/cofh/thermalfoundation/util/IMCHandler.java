@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.util;
 
 import cofh.thermalfoundation.ThermalFoundation;
-import cpw.mods.fml.common.event.FMLInterModComms.IMCMessage;
+import net.minecraftforge.fml.common.event.FMLInterModComms.IMCMessage;
 
 import java.util.List;
 

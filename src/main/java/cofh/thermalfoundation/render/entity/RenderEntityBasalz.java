@@ -2,9 +2,12 @@ package cofh.thermalfoundation.render.entity;
 
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import cofh.thermalfoundation.render.model.ModelElemental;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
@@ -12,14 +15,17 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
-public class RenderEntityBasalz extends RenderLiving {
+public class RenderEntityBasalz extends RenderLiving<EntityBasalz> {
 
-	public static final RenderEntityBasalz instance = new RenderEntityBasalz();
-
-	static ResourceLocation texture;
+	private static ResourceLocation texture;
 
 	static {
-		RenderingRegistry.registerEntityRenderingHandler(EntityBasalz.class, instance);
+	    RenderingRegistry.registerEntityRenderingHandler(EntityBasalz.class, new IRenderFactory<EntityBasalz>() {
+            @Override
+            public Render<? super EntityBasalz> createRenderFor(RenderManager manager) {
+                return new RenderEntityBasalz(manager);
+            }
+        });
 	}
 
 	public static void initialize() {
@@ -27,27 +33,21 @@ public class RenderEntityBasalz extends RenderLiving {
 		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "Basalz.png");
 	}
 
-	public RenderEntityBasalz() {
+	public RenderEntityBasalz(RenderManager renderManager) {
 
-		super(ModelElemental.instance, 0.5F);
+		super(renderManager, ModelElemental.instance, 0.5F);
 	}
 
 	@Override
-	public void doRender(Entity entity, double d0, double d1, double d2, float f, float f1) {
+	public void doRender(EntityBasalz entity, double d0, double d1, double d2, float f, float f1) {
 
 		doRenderBasalz((EntityBasalz) entity, d0, d1, d2, f, f1);
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(Entity par1Entity) {
+	protected ResourceLocation getEntityTexture(EntityBasalz par1Entity) {
 
 		return texture;
-	}
-
-	@Override
-	public void doRender(EntityLivingBase entity, double d0, double d1, double d2, float f, float f1) {
-
-		this.doRenderBasalz((EntityBasalz) entity, d0, d1, d2, f, f1);
 	}
 
 	protected void doRenderBasalz(EntityBasalz entity, double d0, double d1, double d2, float f, float f1) {

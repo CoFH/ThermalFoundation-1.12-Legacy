@@ -1,133 +1,143 @@
 package cofh.thermalfoundation.block;
 
-import cofh.api.core.IInitializer;
-import cofh.lib.util.helpers.ItemHelper;
-import cofh.lib.util.helpers.StringHelper;
+import codechicken.lib.block.property.PropertyString;
+import codechicken.lib.util.ArrayUtils;
 import cofh.thermalfoundation.ThermalFoundation;
-import cofh.thermalfoundation.item.TFItems;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-import java.util.List;
-
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class BlockOre extends Block implements IInitializer {
+import java.util.List;
 
-	public BlockOre() {
+public class BlockOre extends Block {
 
-		super(Material.rock);
-		setHardness(3.0F);
-		setResistance(5.0F);
-		setStepSound(soundTypeStone);
-		setCreativeTab(ThermalFoundation.tabCommon);
-		setBlockName("thermalfoundation.ore");
+    public static final String[] NAMES = { "copper", "tin", "silver", "lead", "nickel", "platinum", "mithril" };
+    public static final PropertyString TYPE = new PropertyString("type", NAMES);
+    //public static final IIcon[] TEXTURES = new IIcon[NAMES.length];
+    public static final int[] LIGHT = { 0, 0, 4, 0, 0, 4, 8 };
+    public static final int[] RARITY = { 0, 0, 0, 0, 0, 1, 2 };
 
-		setHarvestLevel("pickaxe", 2);
-		setHarvestLevel("pickaxe", 1, 0);
-		setHarvestLevel("pickaxe", 1, 1);
-		setHarvestLevel("pickaxe", 3, 6);
-	}
+    public static ItemStack oreCopper;
+    public static ItemStack oreTin;
+    public static ItemStack oreSilver;
+    public static ItemStack oreLead;
+    public static ItemStack oreNickel;
+    public static ItemStack orePlatinum;
+    public static ItemStack oreMithril;
 
-	@Override
-	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
+    public BlockOre() {
 
-		for (int i = 0; i < NAMES.length; i++) {
-			list.add(new ItemStack(item, 1, i));
-		}
-	}
+        super(Material.ROCK);
+        setHardness(3.0F);
+        setResistance(5.0F);
+        setSoundType(SoundType.STONE);
+        setCreativeTab(ThermalFoundation.tabCommon);
+        setUnlocalizedName("thermalfoundation.ore");
 
-	@Override
-	public int getLightValue(IBlockAccess world, int x, int y, int z) {
+        setHarvestLevel("pickaxe", 2);
+        setHarvestLevel("pickaxe", 1, getDefaultState().withProperty(TYPE, NAMES[0]));
+        setHarvestLevel("pickaxe", 1, getDefaultState().withProperty(TYPE, NAMES[1]));
+        setHarvestLevel("pickaxe", 3, getDefaultState().withProperty(TYPE, NAMES[6]));
+    }
 
-		return LIGHT[world.getBlockMetadata(x, y, z)];
-	}
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+        return getBlockState().getBaseState().withProperty(TYPE, NAMES[meta]);
+    }
 
-	@Override
-	public int damageDropped(int i) {
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return ArrayUtils.indexOf(NAMES, state.getValue(TYPE));
+    }
 
-		return i;
-	}
+    @Override
+    protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, TYPE);
+    }
 
-	@Override
-	public IIcon getIcon(int side, int metadata) {
+    @Override
+    public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
+        for (int i = 0; i < NAMES.length; i++) {
+            list.add(new ItemStack(item, 1, i));
+        }
+    }
 
-		return TEXTURES[metadata];
-	}
+    @Override
+    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return LIGHT[getMetaFromState(state)];
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister ir) {
+    @Override
+    public int damageDropped(IBlockState state) {
+        return getMetaFromState(state);
+    }
 
-		for (int i = 0; i < NAMES.length; i++) {
-			TEXTURES[i] = ir.registerIcon("thermalfoundation:ore/Ore_" + StringHelper.titleCase(NAMES[i]));
-		}
-	}
+    //@Override
+    //public IIcon getIcon(int side, int metadata) {
+    //
+    //    return TEXTURES[metadata];
+    //}
 
-	/* IInitializer */
-	@Override
-	public boolean preInit() {
+    //@Override
+    //@SideOnly(Side.CLIENT)
+    //public void registerBlockIcons(IIconRegister ir) {
+    //
+    //	for (int i = 0; i < NAMES.length; i++) {
+    //		TEXTURES[i] = ir.registerIcon("thermalfoundation:ore/Ore_" + StringHelper.titleCase(NAMES[i]));
+    //	}
+    //}
 
-		GameRegistry.registerBlock(this, ItemBlockOre.class, "Ore");
+    /* IInitializer */
+    //@Override
+    public boolean preInit() {
 
-		oreCopper = new ItemStack(this, 1, 0);
-		oreTin = new ItemStack(this, 1, 1);
-		oreSilver = new ItemStack(this, 1, 2);
-		oreLead = new ItemStack(this, 1, 3);
-		oreNickel = new ItemStack(this, 1, 4);
-		orePlatinum = new ItemStack(this, 1, 5);
-		oreMithril = new ItemStack(this, 1, 6);
+        GameRegistry.registerBlock(this, ItemBlockOre.class, "Ore");
 
-		ItemHelper.registerWithHandlers("oreCopper", oreCopper);
-		ItemHelper.registerWithHandlers("oreTin", oreTin);
-		ItemHelper.registerWithHandlers("oreSilver", oreSilver);
-		ItemHelper.registerWithHandlers("oreLead", oreLead);
-		ItemHelper.registerWithHandlers("oreNickel", oreNickel);
-		ItemHelper.registerWithHandlers("orePlatinum", orePlatinum);
-		ItemHelper.registerWithHandlers("oreMithril", oreMithril);
+        oreCopper = new ItemStack(this, 1, 0);
+        oreTin = new ItemStack(this, 1, 1);
+        oreSilver = new ItemStack(this, 1, 2);
+        oreLead = new ItemStack(this, 1, 3);
+        oreNickel = new ItemStack(this, 1, 4);
+        orePlatinum = new ItemStack(this, 1, 5);
+        oreMithril = new ItemStack(this, 1, 6);
 
-		return true;
-	}
+        //ItemHelper.registerWithHandlers("oreCopper", oreCopper);
+        //ItemHelper.registerWithHandlers("oreTin", oreTin);
+        //ItemHelper.registerWithHandlers("oreSilver", oreSilver);
+        //ItemHelper.registerWithHandlers("oreLead", oreLead);
+        //ItemHelper.registerWithHandlers("oreNickel", oreNickel);
+        //ItemHelper.registerWithHandlers("orePlatinum", orePlatinum);
+        //ItemHelper.registerWithHandlers("oreMithril", oreMithril);
 
-	@Override
-	public boolean initialize() {
+        return true;
+    }
 
-		return true;
-	}
+    //@Override
+    public boolean initialize() {
 
-	@Override
-	public boolean postInit() {
+        return true;
+    }
 
-		ItemHelper.addSmelting(TFItems.ingotCopper, oreCopper, 0.6F);
-		ItemHelper.addSmelting(TFItems.ingotTin, oreTin, 0.7F);
-		ItemHelper.addSmelting(TFItems.ingotSilver, oreSilver, 0.9F);
-		ItemHelper.addSmelting(TFItems.ingotLead, oreLead, 0.8F);
-		ItemHelper.addSmelting(TFItems.ingotNickel, oreNickel, 1.0F);
-		ItemHelper.addSmelting(TFItems.ingotPlatinum, orePlatinum, 1.0F);
-		ItemHelper.addSmelting(TFItems.ingotMithril, oreMithril, 1.5F);
+    //@Override
+    public boolean postInit() {
 
-		return true;
-	}
+        //ItemHelper.addSmelting(TFItems.ingotCopper, oreCopper, 0.6F);
+        //ItemHelper.addSmelting(TFItems.ingotTin, oreTin, 0.7F);
+        //ItemHelper.addSmelting(TFItems.ingotSilver, oreSilver, 0.9F);
+        //ItemHelper.addSmelting(TFItems.ingotLead, oreLead, 0.8F);
+        //ItemHelper.addSmelting(TFItems.ingotNickel, oreNickel, 1.0F);
+        //ItemHelper.addSmelting(TFItems.ingotPlatinum, orePlatinum, 1.0F);
+        //ItemHelper.addSmelting(TFItems.ingotMithril, oreMithril, 1.5F);
 
-	public static final String[] NAMES = { "copper", "tin", "silver", "lead", "nickel", "platinum", "mithril" };
-	public static final IIcon[] TEXTURES = new IIcon[NAMES.length];
-	public static final int[] LIGHT = { 0, 0, 4, 0, 0, 4, 8 };
-	public static final int[] RARITY = { 0, 0, 0, 0, 0, 1, 2 };
-
-	public static ItemStack oreCopper;
-	public static ItemStack oreTin;
-	public static ItemStack oreSilver;
-	public static ItemStack oreLead;
-	public static ItemStack oreNickel;
-	public static ItemStack orePlatinum;
-	public static ItemStack oreMithril;
+        return true;
+    }
 
 }

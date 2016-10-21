@@ -1,16 +1,7 @@
 package cofh.thermalfoundation.block;
 
-import cofh.core.fluid.BlockFluidCoFHBase;
-import cofh.thermalfoundation.fluid.BlockFluidAerotheum;
-import cofh.thermalfoundation.fluid.BlockFluidCoal;
-import cofh.thermalfoundation.fluid.BlockFluidCryotheum;
-import cofh.thermalfoundation.fluid.BlockFluidEnder;
-import cofh.thermalfoundation.fluid.BlockFluidGlowstone;
-import cofh.thermalfoundation.fluid.BlockFluidMana;
-import cofh.thermalfoundation.fluid.BlockFluidPetrotheum;
-import cofh.thermalfoundation.fluid.BlockFluidPyrotheum;
-import cofh.thermalfoundation.fluid.BlockFluidRedstone;
-import cofh.thermalfoundation.fluid.BlockFluidSteam;
+
+import cofh.thermalfoundation.fluid.*;
 
 public class TFBlocks {
 
@@ -58,15 +49,15 @@ public class TFBlocks {
 	public static BlockOre blockOre;
 	public static BlockStorage blockStorage;
 
-	public static BlockFluidCoFHBase blockFluidRedstone;
-	public static BlockFluidCoFHBase blockFluidGlowstone;
-	public static BlockFluidCoFHBase blockFluidEnder;
-	public static BlockFluidCoFHBase blockFluidPyrotheum;
-	public static BlockFluidCoFHBase blockFluidCryotheum;
-	public static BlockFluidCoFHBase blockFluidAerotheum;
-	public static BlockFluidCoFHBase blockFluidPetrotheum;
-	public static BlockFluidCoFHBase blockFluidMana;
-	public static BlockFluidCoFHBase blockFluidSteam;
-	public static BlockFluidCoFHBase blockFluidCoal;
+	public static BlockFluidBase blockFluidRedstone;
+	public static BlockFluidBase blockFluidGlowstone;
+	public static BlockFluidBase blockFluidEnder;
+	public static BlockFluidBase blockFluidPyrotheum;
+	public static BlockFluidBase blockFluidCryotheum;
+	public static BlockFluidBase blockFluidAerotheum;
+	public static BlockFluidBase blockFluidPetrotheum;
+	public static BlockFluidBase blockFluidMana;
+	public static BlockFluidBase blockFluidSteam;
+	public static BlockFluidBase blockFluidCoal;
 
 }

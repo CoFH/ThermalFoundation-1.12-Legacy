@@ -1,6 +1,5 @@
 package cofh.thermalfoundation.plugins;
 
-import cofh.core.CoFHProps;
 import cofh.thermalfoundation.ThermalFoundation;
 
 import java.util.ArrayList;
@@ -11,6 +10,7 @@ public class TFPlugins {
 
 		public Class<?> pluginClass = null;
 		public String pluginPath;
+        public static boolean enableDebugOutput = false;
 
 		public Plugin(String pluginPath) {
 
@@ -23,7 +23,7 @@ public class TFPlugins {
 				pluginClass = TFPlugins.class.getClassLoader().loadClass(pluginPath);
 				pluginClass.getMethod("preInit", new Class[0]).invoke(null, new Object[0]);
 			} catch (Throwable t) {
-				if (CoFHProps.enableDebugOutput) {
+				if (enableDebugOutput) {
 					t.printStackTrace();
 				}
 			}
@@ -36,7 +36,7 @@ public class TFPlugins {
 					pluginClass.getMethod("initialize", new Class[0]).invoke(null, new Object[0]);
 				}
 			} catch (Throwable t) {
-				if (CoFHProps.enableDebugOutput) {
+				if (enableDebugOutput) {
 					t.printStackTrace();
 				}
 			}
@@ -49,7 +49,7 @@ public class TFPlugins {
 					pluginClass.getMethod("postInit", new Class[0]).invoke(null, new Object[0]);
 				}
 			} catch (Throwable t) {
-				if (CoFHProps.enableDebugOutput) {
+				if (enableDebugOutput) {
 					t.printStackTrace();
 				}
 			}
@@ -62,7 +62,7 @@ public class TFPlugins {
 					pluginClass.getMethod("loadComplete", new Class[0]).invoke(null, new Object[0]);
 				}
 			} catch (Throwable t) {
-				if (CoFHProps.enableDebugOutput) {
+				if (enableDebugOutput) {
 					t.printStackTrace();
 				}
 			}
@@ -75,7 +75,7 @@ public class TFPlugins {
 					pluginClass.getMethod("registerRenderInformation", new Class[0]).invoke(null, new Object[0]);
 				}
 			} catch (Throwable t) {
-				if (CoFHProps.enableDebugOutput) {
+				if (enableDebugOutput) {
 					t.printStackTrace();
 				}
 			}
@@ -85,10 +85,10 @@ public class TFPlugins {
 	public static ArrayList<Plugin> pluginList = new ArrayList<Plugin>();
 
 	static {
-		addPlugin("mfr.MFRPlugin", "MineFactoryReloaded");
-		addPlugin("thaumcraft.ThaumcraftPlugin", "Thaumcraft");
-		addPlugin("tconstruct.TConstructPlugin", "TConstruct");
-		addPlugin("ee3.EE3Plugin", "EE3");
+		//addPlugin("mfr.MFRPlugin", "MineFactoryReloaded");
+		//addPlugin("thaumcraft.ThaumcraftPlugin", "Thaumcraft");
+		//addPlugin("tconstruct.TConstructPlugin", "TConstruct");
+		//addPlugin("ee3.EE3Plugin", "EE3");
 	}
 
 	public static void preInit() {
@@ -128,7 +128,7 @@ public class TFPlugins {
 
 	public static boolean addPlugin(String pluginPath, String pluginName) {
 
-		boolean enable = ThermalFoundation.config.get("Plugins." + pluginName, "Enable", true);
+		boolean enable = ThermalFoundation.config.get("Plugins." + pluginName, "Enable", true).getBoolean();
 		ThermalFoundation.config.save();
 
 		if (enable) {

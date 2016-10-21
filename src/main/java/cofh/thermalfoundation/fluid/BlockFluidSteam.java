@@ -1,16 +1,15 @@
 package cofh.thermalfoundation.fluid;
 
-import cofh.core.fluid.BlockFluidCoFHBase;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
 
-public class BlockFluidSteam extends BlockFluidCoFHBase {
+public class BlockFluidSteam extends BlockFluidBase {
 
 	public static final int LEVELS = 8;
-	public static final Material materialFluidSteam = new MaterialLiquid(MapColor.silverColor);
+	public static final Material materialFluidSteam = new MaterialLiquid(MapColor.SILVER);
 
 	// private static boolean effect = true;
 
