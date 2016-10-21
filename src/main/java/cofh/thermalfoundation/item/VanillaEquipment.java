@@ -170,15 +170,15 @@ public enum VanillaEquipment {
 //		GameRegistry.registerCustomItemStack("tool" + NAME + "Sickle", toolSickle);
 //		GameRegistry.registerCustomItemStack("tool" + NAME + "Bow", toolBow);
 
-		itemShears.setRegistryName("tool" + NAME + "Shears");
-		itemFishingRod.setRegistryName("tool" + NAME + "FishingRod");
-		itemSickle.setRegistryName("tool" + NAME + "Sickle");
-		itemBow.setRegistryName("tool" + NAME + "Bow");
+//		itemShears.setRegistryName("tool" + NAME + "Shears");
+//		itemFishingRod.setRegistryName("tool" + NAME + "FishingRod");
+//		itemSickle.setRegistryName("tool" + NAME + "Sickle");
+//		itemBow.setRegistryName("tool" + NAME + "Bow");
 
-		GameRegistry.register(itemShears);
-		GameRegistry.register(itemFishingRod);
-		GameRegistry.register(itemSickle);
-		GameRegistry.register(itemBow);
+//		GameRegistry.register(itemShears);
+//		GameRegistry.register(itemFishingRod);
+//		GameRegistry.register(itemSickle);
+//		GameRegistry.register(itemBow);
 	}
 
 	protected void postInitv() {

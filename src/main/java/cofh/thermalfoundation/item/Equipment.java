@@ -282,19 +282,19 @@ public enum Equipment {
 		itemSickle.setRegistryName("tool.sickle" + NAME);
 		itemBow.setRegistryName("tool.bow" + NAME);
 
-		GameRegistry.register(itemHelmet);
-		GameRegistry.register(itemPlate);
-		GameRegistry.register(itemLegs);
-		GameRegistry.register(itemBoots);
-		GameRegistry.register(itemSword);
-		GameRegistry.register(itemShovel);
-		GameRegistry.register(itemPickaxe);
-		GameRegistry.register(itemAxe);
-		GameRegistry.register(itemHoe);
-		GameRegistry.register(itemShears);
-		GameRegistry.register(itemFishingRod);
-		GameRegistry.register(itemSickle);
-		GameRegistry.register(itemBow);
+//		GameRegistry.register(itemHelmet);
+//		GameRegistry.register(itemPlate);
+//		GameRegistry.register(itemLegs);
+//		GameRegistry.register(itemBoots);
+//		GameRegistry.register(itemSword);
+//		GameRegistry.register(itemShovel);
+//		GameRegistry.register(itemPickaxe);
+//		GameRegistry.register(itemAxe);
+//		GameRegistry.register(itemHoe);
+//		GameRegistry.register(itemShears);
+//		GameRegistry.register(itemFishingRod);
+//		GameRegistry.register(itemSickle);
+//		GameRegistry.register(itemBow);
 	}
 
 	protected void initializev() {
@@ -312,15 +312,15 @@ public enum Equipment {
 //		GameRegistry.registerCustomItemStack("armor" + NAME + "Legs", armorLegs);
 //		GameRegistry.registerCustomItemStack("armor" + NAME + "Boots", armorBoots);
 
-		itemHelmet.setRegistryName("armor" + NAME + "Helmet");
-		itemPlate.setRegistryName("armor" + NAME + "Plate");
-		itemLegs.setRegistryName("armor" + NAME + "Legs");
-		itemBoots.setRegistryName("armor" + NAME + "Boots");
+//		itemHelmet.setRegistryName("armor" + NAME + "Helmet");
+//		itemPlate.setRegistryName("armor" + NAME + "Plate");
+//		itemLegs.setRegistryName("armor" + NAME + "Legs");
+//		itemBoots.setRegistryName("armor" + NAME + "Boots");
 
-		GameRegistry.register(itemHelmet);
-		GameRegistry.register(itemPlate);
-		GameRegistry.register(itemLegs);
-		GameRegistry.register(itemBoots);
+//		GameRegistry.register(itemHelmet);
+//		GameRegistry.register(itemPlate);
+//		GameRegistry.register(itemLegs);
+//		GameRegistry.register(itemBoots);
 
 		// Tools
 		toolSword = new ItemStack(itemSword);
@@ -343,26 +343,26 @@ public enum Equipment {
 //		GameRegistry.registerCustomItemStack("tool" + NAME + "Sickle", toolSickle);
 //		GameRegistry.registerCustomItemStack("tool" + NAME + "Bow", toolBow);
 
-		itemSword.setRegistryName("tool" + NAME + "Sword");
-		itemShovel.setRegistryName("tool" + NAME + "Shovel");
-		itemPickaxe.setRegistryName("tool" + NAME + "Pickaxe");
-		itemAxe.setRegistryName("tool" + NAME + "Axe");
-		itemHoe.setRegistryName("tool" + NAME + "Hoe");
-		itemShears.setRegistryName("tool" + NAME + "Shears");
-		itemFishingRod.setRegistryName("tool" + NAME + "FishingRod");
-		itemSickle.setRegistryName("tool" + NAME + "Sickle");
-		itemBow.setRegistryName("tool" + NAME + "Bow");
+//		itemSword.setRegistryName("tool" + NAME + "Sword");
+//		itemShovel.setRegistryName("tool" + NAME + "Shovel");
+//		itemPickaxe.setRegistryName("tool" + NAME + "Pickaxe");
+//		itemAxe.setRegistryName("tool" + NAME + "Axe");
+//		itemHoe.setRegistryName("tool" + NAME + "Hoe");
+//		itemShears.setRegistryName("tool" + NAME + "Shears");
+//		itemFishingRod.setRegistryName("tool" + NAME + "FishingRod");
+//		itemSickle.setRegistryName("tool" + NAME + "Sickle");
+//		itemBow.setRegistryName("tool" + NAME + "Bow");
 
 
-		GameRegistry.register(itemSword);
-		GameRegistry.register(itemShovel);
-		GameRegistry.register(itemPickaxe);
-		GameRegistry.register(itemAxe);
-		GameRegistry.register(itemHoe);
-		GameRegistry.register(itemShears);
-		GameRegistry.register(itemFishingRod);
-		GameRegistry.register(itemSickle);
-		GameRegistry.register(itemBow);
+//		GameRegistry.register(itemSword);
+//		GameRegistry.register(itemShovel);
+//		GameRegistry.register(itemPickaxe);
+//		GameRegistry.register(itemAxe);
+//		GameRegistry.register(itemHoe);
+//		GameRegistry.register(itemShears);
+//		GameRegistry.register(itemFishingRod);
+//		GameRegistry.register(itemSickle);
+//		GameRegistry.register(itemBow);
 	}
 
 	protected void postInitv() {

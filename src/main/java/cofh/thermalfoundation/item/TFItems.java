@@ -3,6 +3,7 @@ package cofh.thermalfoundation.item;
 import codechicken.lib.item.ItemMultiType;
 import codechicken.lib.util.FuelUtils;
 import codechicken.lib.util.ItemUtils;
+import cofh.core.item.ItemBucket;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.core.TFProps;
@@ -19,7 +20,7 @@ import static net.minecraft.item.EnumRarity.*;
 
 public class TFItems {
 
-    //public static ItemBucket itemBucket;
+    public static ItemBucket itemBucket;
     public static ItemLexicon itemLexicon;
     public static ItemMultiType itemMaterial;
 
@@ -126,18 +127,18 @@ public class TFItems {
     public static void preInit() {
 
         itemLexicon = (ItemLexicon) new ItemLexicon("lexicon").setUnlocalizedName("tome", "lexicon");
-        //itemBucket = (ItemBucket) new ItemBucket("thermalfoundation").setUnlocalizedName("bucket").setCreativeTab(ThermalFoundation.tabCommon);
+        itemBucket = (ItemBucket) new ItemBucket("thermalfoundation").setUnlocalizedName("bucket").setCreativeTab(ThermalFoundation.tabCommon);
         itemMaterial = new ItemMultiType(ThermalFoundation.tabCommon, "material");
 
-        //bucketRedstone = itemBucket.addOreDictItem(0, "bucketRedstone", 1);
-        //bucketGlowstone = itemBucket.addOreDictItem(1, "bucketGlowstone", 1);
-        //bucketEnder = itemBucket.addOreDictItem(2, "bucketEnder", 1);
-        //bucketPyrotheum = itemBucket.addOreDictItem(3, "bucketPyrotheum", 2);
-        //bucketCryotheum = itemBucket.addOreDictItem(4, "bucketCryotheum", 2);
-        //bucketAerotheum = itemBucket.addOreDictItem(7, "bucketAerotheum", 2);
-        //bucketPetrotheum = itemBucket.addOreDictItem(8, "bucketPetrotheum", 2);
-        //bucketMana = itemBucket.addItem(5, "bucketMana", 3);
-        //bucketCoal = itemBucket.addOreDictItem(6, "bucketCoal");
+        bucketRedstone = itemBucket.addOreDictItem(0, "bucketRedstone", 1);
+        bucketGlowstone = itemBucket.addOreDictItem(1, "bucketGlowstone", 1);
+        bucketEnder = itemBucket.addOreDictItem(2, "bucketEnder", 1);
+        bucketPyrotheum = itemBucket.addOreDictItem(3, "bucketPyrotheum", 2);
+        bucketCryotheum = itemBucket.addOreDictItem(4, "bucketCryotheum", 2);
+        bucketAerotheum = itemBucket.addOreDictItem(7, "bucketAerotheum", 2);
+        bucketPetrotheum = itemBucket.addOreDictItem(8, "bucketPetrotheum", 2);
+        bucketMana = itemBucket.addItem(5, "bucketMana", 3);
+        bucketCoal = itemBucket.addOreDictItem(6, "bucketCoal");
 
         lexicon = new ItemStack(itemLexicon);
         itemLexicon.setEmpoweredState(lexicon, false);
