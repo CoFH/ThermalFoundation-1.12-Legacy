@@ -96,7 +96,7 @@ public enum VanillaEquipment {
 		itemBow = new ItemBowAdv(TOOL_MATERIAL);
 	}
 
-	protected void preInitv() {
+	protected void preInitMaterial() {
 
 		final String NAME = name();
 		final String TYPE = NAME.toLowerCase(Locale.US);
@@ -155,7 +155,7 @@ public enum VanillaEquipment {
 		}
 	}
 
-	protected void initializev() {
+	protected void initializeMaterial() {
 
 		final String NAME = name();
 
@@ -181,7 +181,7 @@ public enum VanillaEquipment {
 //		GameRegistry.register(itemBow);
 	}
 
-	protected void postInitv() {
+	protected void postInitMaterial() {
 
 		// Tools
 		if (enableTools[0]) {
@@ -201,21 +201,21 @@ public enum VanillaEquipment {
 	public static void preInit() {
 
 		for (VanillaEquipment e : values()) {
-			e.preInitv();
+			e.preInitMaterial();
 		}
 	}
 
 	public static void initialize() {
 
 		for (VanillaEquipment e : values()) {
-			e.initializev();
+			e.initializeMaterial();
 		}
 	}
 
 	public static void postInit() {
 
 		for (VanillaEquipment e : values()) {
-			e.postInitv();
+			e.postInitMaterial();
 		}
 	}
 
