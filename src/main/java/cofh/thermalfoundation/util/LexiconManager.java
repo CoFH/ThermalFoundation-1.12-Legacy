@@ -6,20 +6,15 @@ import cofh.lib.inventory.ComparableItemStackSafe;
 import cofh.lib.util.ItemWrapper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.*;
 
 public class LexiconManager {
 
@@ -40,16 +35,16 @@ public class LexiconManager {
 	public static void preInit() {
 
 		String comment = "Set to true for a whitelist, FALSE for a blacklist";
-		isWhitelist = ThermalFoundation.config.get("Lexicon", "UseWhiteList", isWhitelist, comment);
+		isWhitelist = ThermalFoundation.config.get("Lexicon", "UseWhiteList", isWhitelist, comment).getBoolean(isWhitelist);
 
 		comment = "This will generate a default list file depending on your list setting. This will ONLY generate if no list file already exists OR you have also enabled list regeneration.";
-		writeDefaultFile = ThermalFoundation.config.get("Lexicon", "GenerateDefaultList", writeDefaultFile, comment);
+		writeDefaultFile = ThermalFoundation.config.get("Lexicon", "GenerateDefaultList", writeDefaultFile, comment).getBoolean(writeDefaultFile);
 
 		comment = "This option will generate a fresh blacklist or whitelist EVERY time. This is not recommended, but is provided here as an option if you are satisfied with the defaults.";
-		alwaysWriteFile = ThermalFoundation.config.get("Lexicon", "AlwaysGenerateList", alwaysWriteFile, comment);
+		alwaysWriteFile = ThermalFoundation.config.get("Lexicon", "AlwaysGenerateList", alwaysWriteFile, comment).getBoolean(alwaysWriteFile);
 
 		comment = "This will echo all entries to the system log.";
-		logEntries = ThermalFoundation.config.get("Lexicon", "LogEntries", logEntries, comment);
+		logEntries = ThermalFoundation.config.get("Lexicon", "LogEntries", logEntries, comment).getBoolean(logEntries);
 	}
 
 	public static void loadComplete() {

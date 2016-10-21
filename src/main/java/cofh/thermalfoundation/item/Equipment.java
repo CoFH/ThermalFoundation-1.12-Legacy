@@ -11,7 +11,6 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -254,21 +253,48 @@ public enum Equipment {
 //		itemBow.setTextureName(TOOL_PATH + "Bow").setCreativeTab(ThermalFoundation.tabTools);
 		itemBow.setShowInCreative(enableTools[8] | TFProps.showDisabledEquipment);
 
-		GameRegistry.registerItem(itemHelmet, "armor.helmet" + NAME);
-		GameRegistry.registerItem(itemPlate, "armor.plate" + NAME);
-		GameRegistry.registerItem(itemLegs, "armor.legs" + NAME);
-		GameRegistry.registerItem(itemBoots, "armor.boots" + NAME);
+//		GameRegistry.registerItem(itemHelmet, "armor.helmet" + NAME);
+//		GameRegistry.registerItem(itemPlate, "armor.plate" + NAME);
+//		GameRegistry.registerItem(itemLegs, "armor.legs" + NAME);
+//		GameRegistry.registerItem(itemBoots, "armor.boots" + NAME);
+//
+//		GameRegistry.registerItem(itemSword, "tool.sword" + NAME);
+//		GameRegistry.registerItem(itemShovel, "tool.shovel" + NAME);
+//		GameRegistry.registerItem(itemPickaxe, "tool.pickaxe" + NAME);
+//		GameRegistry.registerItem(itemAxe, "tool.axe" + NAME);
+//		GameRegistry.registerItem(itemHoe, "tool.hoe" + NAME);
+//		GameRegistry.registerItem(itemShears, "tool.shears" + NAME);
+//		GameRegistry.registerItem(itemFishingRod, "tool.fishingRod" + NAME);
+//		GameRegistry.registerItem(itemSickle, "tool.sickle" + NAME);
+//		GameRegistry.registerItem(itemBow, "tool.bow" + NAME);
 
-		GameRegistry.registerItem(itemSword, "tool.sword" + NAME);
-		GameRegistry.registerItem(itemShovel, "tool.shovel" + NAME);
-		GameRegistry.registerItem(itemPickaxe, "tool.pickaxe" + NAME);
-		GameRegistry.registerItem(itemAxe, "tool.axe" + NAME);
-		GameRegistry.registerItem(itemHoe, "tool.hoe" + NAME);
-		GameRegistry.registerItem(itemShears, "tool.shears" + NAME);
-		GameRegistry.registerItem(itemFishingRod, "tool.fishingRod" + NAME);
-		GameRegistry.registerItem(itemSickle, "tool.sickle" + NAME);
-		GameRegistry.registerItem(itemBow, "tool.bow" + NAME);
+		itemHelmet.setRegistryName("armor.helmet" + NAME);
+		itemPlate.setRegistryName("armor.plate" + NAME);
+		itemLegs.setRegistryName("armor.legs" + NAME);
+		itemBoots.setRegistryName("armor.boots" + NAME);
+		itemSword.setRegistryName("tool.sword" + NAME);
+		itemShovel.setRegistryName("tool.shovel" + NAME);
+		itemPickaxe.setRegistryName("tool.pickaxe" + NAME);
+		itemAxe.setRegistryName("tool.axe" + NAME);
+		itemHoe.setRegistryName("tool.hoe" + NAME);
+		itemShears.setRegistryName("tool.shears" + NAME);
+		itemFishingRod.setRegistryName("tool.fishingRod" + NAME);
+		itemSickle.setRegistryName("tool.sickle" + NAME);
+		itemBow.setRegistryName("tool.bow" + NAME);
 
+		GameRegistry.register(itemHelmet);
+		GameRegistry.register(itemPlate);
+		GameRegistry.register(itemLegs);
+		GameRegistry.register(itemBoots);
+		GameRegistry.register(itemSword);
+		GameRegistry.register(itemShovel);
+		GameRegistry.register(itemPickaxe);
+		GameRegistry.register(itemAxe);
+		GameRegistry.register(itemHoe);
+		GameRegistry.register(itemShears);
+		GameRegistry.register(itemFishingRod);
+		GameRegistry.register(itemSickle);
+		GameRegistry.register(itemBow);
 	}
 
 	protected void initializev() {
@@ -285,10 +311,16 @@ public enum Equipment {
 //		GameRegistry.registerCustomItemStack("armor" + NAME + "Plate", armorPlate);
 //		GameRegistry.registerCustomItemStack("armor" + NAME + "Legs", armorLegs);
 //		GameRegistry.registerCustomItemStack("armor" + NAME + "Boots", armorBoots);
-		GameRegistry.register(itemHelmet, new ResourceLocation(ThermalFoundation.modId, "armor" + NAME + "Helmet"));
-		GameRegistry.register(itemPlate, new ResourceLocation(ThermalFoundation.modId, "armor" + NAME + "Plate"));
-		GameRegistry.register(itemLegs, new ResourceLocation(ThermalFoundation.modId, "armor" + NAME + "Legs"));
-		GameRegistry.register(itemBoots, new ResourceLocation(ThermalFoundation.modId, "armor" + NAME + "Boots"));
+
+		itemHelmet.setRegistryName("armor" + NAME + "Helmet");
+		itemPlate.setRegistryName("armor" + NAME + "Plate");
+		itemLegs.setRegistryName("armor" + NAME + "Legs");
+		itemBoots.setRegistryName("armor" + NAME + "Boots");
+
+		GameRegistry.register(itemHelmet);
+		GameRegistry.register(itemPlate);
+		GameRegistry.register(itemLegs);
+		GameRegistry.register(itemBoots);
 
 		// Tools
 		toolSword = new ItemStack(itemSword);
@@ -310,15 +342,27 @@ public enum Equipment {
 //		GameRegistry.registerCustomItemStack("tool" + NAME + "FishingRod", toolFishingRod);
 //		GameRegistry.registerCustomItemStack("tool" + NAME + "Sickle", toolSickle);
 //		GameRegistry.registerCustomItemStack("tool" + NAME + "Bow", toolBow);
-		GameRegistry.register(itemSword, new ResourceLocation(ThermalFoundation.modId, "tool" + NAME + "Sword"));
-		GameRegistry.register(itemShovel, new ResourceLocation(ThermalFoundation.modId, "tool" + NAME + "Shovel"));
-		GameRegistry.register(itemPickaxe, new ResourceLocation(ThermalFoundation.modId, "tool" + NAME + "Pickaxe"));
-		GameRegistry.register(itemAxe, new ResourceLocation(ThermalFoundation.modId, "tool" + NAME + "Axe"));
-		GameRegistry.register(itemHoe, new ResourceLocation(ThermalFoundation.modId, "tool" + NAME + "Hoe"));
-		GameRegistry.register(itemShears, new ResourceLocation(ThermalFoundation.modId, "tool" + NAME + "Shears"));
-		GameRegistry.register(itemFishingRod, new ResourceLocation(ThermalFoundation.modId, "tool" + NAME + "FishingRod"));
-		GameRegistry.register(itemSickle, new ResourceLocation(ThermalFoundation.modId, "tool" + NAME + "Sickle"));
-		GameRegistry.register(itemBow, new ResourceLocation(ThermalFoundation.modId, "tool" + NAME + "Bow"));
+
+		itemSword.setRegistryName("tool" + NAME + "Sword");
+		itemShovel.setRegistryName("tool" + NAME + "Shovel");
+		itemPickaxe.setRegistryName("tool" + NAME + "Pickaxe");
+		itemAxe.setRegistryName("tool" + NAME + "Axe");
+		itemHoe.setRegistryName("tool" + NAME + "Hoe");
+		itemShears.setRegistryName("tool" + NAME + "Shears");
+		itemFishingRod.setRegistryName("tool" + NAME + "FishingRod");
+		itemSickle.setRegistryName("tool" + NAME + "Sickle");
+		itemBow.setRegistryName("tool" + NAME + "Bow");
+
+
+		GameRegistry.register(itemSword);
+		GameRegistry.register(itemShovel);
+		GameRegistry.register(itemPickaxe);
+		GameRegistry.register(itemAxe);
+		GameRegistry.register(itemHoe);
+		GameRegistry.register(itemShears);
+		GameRegistry.register(itemFishingRod);
+		GameRegistry.register(itemSickle);
+		GameRegistry.register(itemBow);
 	}
 
 	protected void postInitv() {

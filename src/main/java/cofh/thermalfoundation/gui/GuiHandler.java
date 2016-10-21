@@ -7,11 +7,11 @@ import cofh.thermalfoundation.gui.client.GuiLexiconTransmute;
 import cofh.thermalfoundation.gui.container.ContainerLexiconStudy;
 import cofh.thermalfoundation.gui.container.ContainerLexiconTransmute;
 import cofh.thermalfoundation.item.ItemLexicon;
-import net.minecraftforge.fml.common.network.IGuiHandler;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {
 
@@ -24,13 +24,13 @@ public class GuiHandler implements IGuiHandler {
 
 		switch (id) {
 		case TILE_ID:
-			TileEntity tile = world.getTileEntity(x, y, z);
+			TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
 			if (tile instanceof TileCoFHBase) {
 				return ((TileCoFHBase) tile).getGuiClient(player.inventory);
 			}
 		case LEXICON_STUDY_ID:
 			if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
-				return new GuiLexiconStudy(player.inventory, new ContainerLexiconStudy(player.getCurrentEquippedItem(), player.inventory));
+				return new GuiLexiconStudy(player.inventory, new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory));//TODO Add off-hand support
 			}
 		case LEXICON_TRANSMUTE_ID:
 			if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
@@ -46,13 +46,13 @@ public class GuiHandler implements IGuiHandler {
 
 		switch (id) {
 		case TILE_ID:
-			TileEntity tile = world.getTileEntity(x, y, z);
+			TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
 			if (tile instanceof TileCoFHBase) {
 				return ((TileCoFHBase) tile).getGuiServer(player.inventory);
 			}
 		case LEXICON_STUDY_ID:
 			if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
-				return new ContainerLexiconStudy(player.getCurrentEquippedItem(), player.inventory);
+				return new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory);//TODO Add off-hand support
 			}
 		case LEXICON_TRANSMUTE_ID:
 			if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {

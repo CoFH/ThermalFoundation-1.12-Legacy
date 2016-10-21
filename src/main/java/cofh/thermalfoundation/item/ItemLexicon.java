@@ -147,7 +147,7 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 	}
 
 	@Override
-	public Item setUnlocalizedName(String name) {
+	public Item setUnlocalizedName(String name) {//todo
 
 		GameRegistry.registerItem(this, name);
 		name = modName + "." + name;

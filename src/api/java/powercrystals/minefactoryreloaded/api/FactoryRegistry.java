@@ -1,8 +1,8 @@
 package powercrystals.minefactoryreloaded.api;
 
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.event.FMLInterModComms;
-import cpw.mods.fml.common.event.FMLInterModComms.IMCMessage;
+
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -99,9 +99,9 @@ public class FactoryRegistry
 			return;
 		try
 		{
-			Method m = FMLInterModComms.class.getDeclaredMethod("enqueueMessage", Object.class, String.class, IMCMessage.class);
+			Method m = FMLInterModComms.class.getDeclaredMethod("enqueueMessage", Object.class, String.class, FMLInterModComms.IMCMessage.class);
 			m.setAccessible(true);
-			Constructor<IMCMessage> c = IMCMessage.class.getDeclaredConstructor(String.class, Object.class);
+			Constructor<FMLInterModComms.IMCMessage> c = FMLInterModComms.IMCMessage.class.getDeclaredConstructor(String.class, Object.class);
 			c.setAccessible(true);
 			m.invoke(null, Loader.instance().activeModContainer(), "MineFactoryReloaded", c.newInstance(message, value));
 		}

@@ -1,24 +1,18 @@
 package cofh.thermalfoundation.gui.container;
 
 import cofh.core.util.oredict.OreDictionaryArbiter;
-import cofh.lib.gui.slot.ISlotValidator;
-import cofh.lib.gui.slot.SlotLocked;
-import cofh.lib.gui.slot.SlotRemoveOnly;
-import cofh.lib.gui.slot.SlotValidated;
-import cofh.lib.gui.slot.SlotViewOnly;
+import cofh.lib.gui.slot.*;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
-
-import java.util.ArrayList;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+
+import java.util.ArrayList;
 
 public class ContainerLexiconTransmute extends Container implements ISlotValidator {
 
@@ -233,10 +227,10 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		super.detectAndSendChanges();
 
-		for (int j = 0; j < this.crafters.size(); ++j) {
+		for (int j = 0; j < this.listeners.size(); ++j) {
 			if (syncClient) {
-				((ICrafting) this.crafters.get(j)).sendProgressBarUpdate(this, 0, nameSelection);
-				((ICrafting) this.crafters.get(j)).sendProgressBarUpdate(this, 1, oreSelection);
+				 this.listeners.get(j).sendProgressBarUpdate(this, 0, nameSelection);
+				 this.listeners.get(j).sendProgressBarUpdate(this, 1, oreSelection);
 				syncClient = false;
 			}
 		}
@@ -262,12 +256,11 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 	@Override
 	public void onContainerClosed(EntityPlayer player) {
-
 		super.onContainerClosed(player);
 
-		ItemStack stack = this.lexiconInv.getStackInSlotOnClosing(0);
+		ItemStack stack = this.lexiconInv.removeStackFromSlot(0);
 		if (stack != null && !mergeItemStack(stack, 0, 36, false)) {
-			player.dropPlayerItemWithRandomChoice(stack, false);
+			player.dropItem(stack, false);
 		}
 	}
 

@@ -1,15 +1,13 @@
 package cofh.thermalfoundation.gui;
 
 import cofh.thermalfoundation.ThermalFoundation;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.IConfigElement;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraftforge.common.config.ConfigCategory;
-import net.minecraftforge.common.config.ConfigElement;
 
 public class GuiConfigTF extends GuiConfig {
 
@@ -26,7 +24,7 @@ public class GuiConfigTF extends GuiConfig {
 		List<IConfigElement> list = new ArrayList<IConfigElement>();
 
 		for (int i = 0; i < CATEGORIES.length; i++) {
-			list.add(new ConfigElement<ConfigCategory>(ThermalFoundation.config.getCategory(CATEGORIES[i])));
+			list.add(new ConfigElement(ThermalFoundation.config.getCategory(CATEGORIES[i])));
 		}
 		return list;
 	}

@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.render.entity;
 
-import codechicken.lib.util.HolidayHelper;
+import cofh.lib.util.helpers.HolidayHelper;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cofh.thermalfoundation.render.model.ModelElemental;
 import net.minecraft.client.renderer.entity.Render;
