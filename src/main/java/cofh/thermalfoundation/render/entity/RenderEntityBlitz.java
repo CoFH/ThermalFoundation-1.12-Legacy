@@ -2,33 +2,16 @@ package cofh.thermalfoundation.render.entity;
 
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import cofh.thermalfoundation.render.model.ModelElemental;
-import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
 public class RenderEntityBlitz extends RenderLiving<EntityBlitz> {
 
-
 	private static ResourceLocation texture;
-
-	static {
-		RenderingRegistry.registerEntityRenderingHandler(EntityBlitz.class, new IRenderFactory<EntityBlitz>() {
-            @Override
-            public Render<? super EntityBlitz> createRenderFor(RenderManager manager) {
-                return new RenderEntityBlitz(manager);
-            }
-        });
-
-	}
 
 	public static void initialize() {
 

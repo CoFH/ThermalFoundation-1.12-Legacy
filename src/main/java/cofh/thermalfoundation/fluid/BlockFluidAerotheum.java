@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -45,8 +46,12 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
 
     @Override
     public boolean preInit() {
+        this.setRegistryName("fluid_aerotheum");
 
-        GameRegistry.registerBlock(this, "FluidAerotheum");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
 
         String category = "Fluid.Aerotheum";
         String comment = "Enable this for Fluid Aerotheum to do...things.";

@@ -60,5 +60,4 @@ public class TFBlocks {
 	public static BlockFluidCoFHBase blockFluidMana;
 	public static BlockFluidCoFHBase blockFluidSteam;
 	public static BlockFluidCoFHBase blockFluidCoal;
-
 }

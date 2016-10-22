@@ -2,12 +2,9 @@ package cofh.thermalfoundation.render.entity;
 
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import cofh.thermalfoundation.render.model.ModelElemental;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -15,15 +12,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RenderEntityBasalz extends RenderLiving<EntityBasalz> {
 
 	private static ResourceLocation texture;
-
-	static {
-	    RenderingRegistry.registerEntityRenderingHandler(EntityBasalz.class, new IRenderFactory<EntityBasalz>() {
-            @Override
-            public Render<? super EntityBasalz> createRenderFor(RenderManager manager) {
-                return new RenderEntityBasalz(manager);
-            }
-        });
-	}
 
 	public static void initialize() {
 

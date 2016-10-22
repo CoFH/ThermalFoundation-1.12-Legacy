@@ -18,6 +18,7 @@ import net.minecraft.entity.monster.EntitySnowman;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -38,7 +39,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
     private static boolean effect = true;
 
     public BlockFluidCryotheum() {
-
         super("thermalfoundation", TFFluids.fluidCryotheum, materialFluidCryotheum, "cryotheum");
         setQuantaPerBlock(LEVELS);
         setTickRate(15);
@@ -50,8 +50,11 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 
     @Override
     public boolean preInit() {
-
-        GameRegistry.registerBlock(this, "FluidCryotheum");
+        this.setRegistryName("fluid_cryotheum");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
 
         addInteraction(Blocks.GRASS, Blocks.DIRT);
         addInteraction(Blocks.WATER.getDefaultState(), Blocks.ICE);

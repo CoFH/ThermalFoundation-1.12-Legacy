@@ -2,18 +2,20 @@ package cofh.thermalfoundation.entity.monster;
 
 import cofh.core.CoFHProps;
 import cofh.core.entity.EntitySelectorInRangeByType;
-import cofh.core.util.CoreUtils;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
 import cofh.thermalfoundation.init.ModSounds;
 import cofh.thermalfoundation.item.TFItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -40,8 +42,6 @@ import java.util.List;
 public class EntityBlizz extends EntityMob {
 
     private static final DataParameter<Boolean> ATTACK_MODE = EntityDataManager.<Boolean>createKey(EntityBlizz.class, DataSerializers.BOOLEAN);
-
-    static int entityId = -1;
 
     static boolean enable = true;
     static boolean restrictLightLevel = true;
@@ -77,14 +77,13 @@ public class EntityBlizz extends EntityMob {
         spawnWeight = ThermalFoundation.config.get(category, "SpawnWeight", spawnWeight, comment).getInt(spawnWeight);
     }
 
-    public static void initialize() {
+    public static void initialize(int id) {
 
         if (!enable) {
             return;
         }
 
-        entityId = CoreUtils.getEntityId();
-        EntityRegistry.registerModEntity(EntityBlizz.class, "Blizz", entityId, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
+        EntityRegistry.registerModEntity(EntityBlizz.class, "Blizz", id, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
 
         // Add Blizz spawn to Cold biomes
         List<Biome> validBiomes = new ArrayList<Biome>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.COLD)));
@@ -113,12 +112,6 @@ public class EntityBlizz extends EntityMob {
      * ticks until heightOffset is randomized
      */
     protected int heightOffsetUpdateTime;
-    protected int firingState;
-
-//	public static final String SOUND_AMBIENT = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzAmbient");
-//	public static final String SOUND_ATTACK = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzAttack");
-//	public static final String SOUND_LIVING [] = { CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzBreathe0"),
-//			CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzBreathe1"), CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlizzBreathe2") };
 
     protected static final int SOUND_AMBIENT_FREQUENCY = 400; // How often it does ambient sound loop
 
@@ -127,10 +120,22 @@ public class EntityBlizz extends EntityMob {
         this.experienceValue = 10;
     }
 
+    protected void initEntityAI() {
+        this.tasks.addTask(4, new EntityBlizz.AIFireballAttack(this));
+        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+        this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+        this.tasks.addTask(8, new EntityAILookIdle(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+    }
+
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
     }
 
     @Override
@@ -160,36 +165,6 @@ public class EntityBlizz extends EntityMob {
         return 2.0F;
     }
 
-//	@Override
-//	public void onLivingUpdate() {
-//
-//		if (ServerHelper.isServerWorld(worldObj)) {
-//			--this.heightOffsetUpdateTime;
-//
-//			if (this.heightOffsetUpdateTime <= 0) {
-//				this.heightOffsetUpdateTime = 100;
-//				this.heightOffset = 0.5F + (float) this.rand.nextGaussian() * 3.0F;
-//			}
-//			Entity target = this.getAttackTarget();
-//			if (target != null) {
-//				if ((target.posY + target.getEyeHeight()) > (this.posY + this.getEyeHeight() + this.heightOffset)) {
-//					this.motionY += (0.30000001192092896D - this.motionY) * 0.30000001192092896D;
-//				}
-//			}
-//		}
-//		if (this.rand.nextInt(SOUND_AMBIENT_FREQUENCY) == 0) {
-//			this.worldObj.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, ModSounds.BLIZZ_AMBIENT, this.getSoundCategory(), this.rand.nextFloat() * 0.2F + 0.1F, this.rand.nextFloat() * 0.3F + 0.4F, false);
-//		}
-//		if (!this.onGround && this.motionY < 0.0D) {
-//			this.motionY *= 0.6D;
-//		}
-//		for (int i = 0; i < 2; i++) {
-//			worldObj.spawnParticle(EnumParticleTypes.SNOWBALL, this.posX + (this.rand.nextDouble() - 0.5D) * this.width, this.posY + this.rand.nextDouble() * (this.height * 0.2D), this.posZ + (this.rand.nextDouble() - 0.5D) * this.width, 0.0D, 0.0D, 0.0D);
-//		}
-//		super.onLivingUpdate();
-//	}
-
-    //TODO Update AI
     @Override
     public void onLivingUpdate() {
         if (!this.onGround && this.motionY < 0.0D) {
@@ -198,7 +173,7 @@ public class EntityBlizz extends EntityMob {
 
         if (this.worldObj.isRemote) {
             if (this.rand.nextInt(24) == 0 && !this.isSilent()) {
-                this.worldObj.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, ModSounds.BLIZZ_AMBIENT, this.getSoundCategory(), 1.0F + this.rand.nextFloat(), this.rand.nextFloat() * 0.7F + 0.3F, false);
+                this.worldObj.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, ModSounds.BLIZZ_AMBIENT, this.getSoundCategory(), this.rand.nextFloat() * 0.2F + 0.1F, this.rand.nextFloat() * 0.3F + 0.4F, false);
             }
 
             for (int i = 0; i < 2; ++i) {
@@ -227,19 +202,6 @@ public class EntityBlizz extends EntityMob {
 
         super.updateAITasks();
     }
-
-    /**
-     * Finds the closest player within 16 blocks to attack, or null if this Entity isn't interested in attacking (Animals, Spiders at day, peaceful PigZombies).
-     */
-
-//    protected Entity findPlayerToAttack() {
-//
-//        EntityPlayer player = this.worldObj.getClosestPlayerToEntity(this, 16.0D);
-//        if (player != null && this.canEntityBeSeen(player)) {
-//            return player;
-//        }
-//        return getClosestVictim(16.0D);
-//    }
 
     /**
      * Gets the closest victim to the point within the specified distance (distance can be set to less than 0 to not limit the distance). Args: x, y, z, dist
@@ -273,47 +235,6 @@ public class EntityBlizz extends EntityMob {
         }
         return victim;
     }
-
-//    @Override
-//    protected void attackEntity(Entity target, float distance) {
-//
-//        // Melee distance
-//        if (this.attackTime <= 0 && distance < 2.0F && target.boundingBox.maxY > this.boundingBox.minY && target.boundingBox.minY < this.boundingBox.maxY) {
-//            this.attackTime = 20;
-//            this.attackEntityAsMob(target);
-//        }
-//        // Within range (30)
-//        else if (distance < 30.0F) {
-//            double dX = target.posX - this.posX;
-//            double dZ = target.posZ - this.posZ;
-//
-//            if (this.attackTime == 0) {
-//                ++this.firingState;
-//
-//                if (this.firingState == 1) {
-//                    this.attackTime = 60;
-//                    this.setInAttackMode(true); // Flary goodness :D
-//                }
-//                else if (this.firingState <= 4) {
-//                    this.attackTime = 6;
-//                }
-//                else {
-//                    this.attackTime = 80; // 100
-//                    this.firingState = 0;
-//                    this.setInAttackMode(false); // Unflary sadness :(
-//                }
-//                if (this.firingState > 1) {
-//                    EntityBlizzBolt bolt = new EntityBlizzBolt(this.worldObj, this);
-//                    bolt.posY = this.posY + this.height / 2.0F + 0.5D;
-//                    this.playSound(SOUND_ATTACK, 2.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
-//                    this.worldObj.spawnEntityInWorld(bolt);
-//                }
-//                // }
-//            }
-//            this.rotationYaw = (float) (Math.atan2(dZ, dX) * 180.0D / Math.PI) - 90.0F;
-//            this.hasAttacked = true;
-//        }
-//    }
 
     @Override
     public void fall(float distance, float damageMultiplier) {
@@ -365,6 +286,105 @@ public class EntityBlizz extends EntityMob {
 			}
 			return l <= this.rand.nextInt(spawnLightLevel);
 		}
+    }
+
+    static class AIFireballAttack extends EntityAIBase
+    {
+        private final EntityBlizz blizz;
+        private int attackStep;
+        private int attackTime;
+
+        public AIFireballAttack(EntityBlizz blizz)
+        {
+            this.blizz = blizz;
+            this.setMutexBits(3);
+        }
+
+        public boolean shouldExecute()
+        {
+            EntityLivingBase entitylivingbase = this.blizz.getAttackTarget();
+            return entitylivingbase != null && entitylivingbase.isEntityAlive();
+        }
+
+        public void startExecuting()
+        {
+            this.attackStep = 0;
+        }
+
+        public void resetTask()
+        {
+
+//			this.blizz.setOnFire(false);
+        }
+
+        public void updateTask()
+        {
+            --this.attackTime;
+            EntityLivingBase entitylivingbase = this.blizz.getAttackTarget();
+            double d0 = this.blizz.getDistanceSqToEntity(entitylivingbase);
+
+            if (d0 < 4.0D)
+            {
+                if (this.attackTime <= 0)
+                {
+                    this.attackTime = 20;
+                    this.blizz.attackEntityAsMob(entitylivingbase);
+                }
+
+                this.blizz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+            }
+            else if (d0 < 256.0D)
+            {
+                double d1 = entitylivingbase.posX - this.blizz.posX;
+                double d2 = entitylivingbase.getEntityBoundingBox().minY + (double)(entitylivingbase.height / 2.0F) - (this.blizz.posY + (double)(this.blizz.height / 2.0F));
+                double d3 = entitylivingbase.posZ - this.blizz.posZ;
+
+                if (this.attackTime <= 0)
+                {
+                    ++this.attackStep;
+
+                    if (this.attackStep == 1)
+                    {
+                        this.attackTime = 60;
+//						this.blizz.setOnFire(true);
+                    }
+                    else if (this.attackStep <= 4)
+                    {
+                        this.attackTime = 6;
+                    }
+                    else
+                    {
+                        this.attackTime = 100;
+                        this.attackStep = 0;
+//						this.blizz.setOnFire(false);
+                    }
+
+                    if (this.attackStep > 1)
+                    {
+                        float f = net.minecraft.util.math.MathHelper.sqrt_float(net.minecraft.util.math.MathHelper.sqrt_double(d0)) * 0.5F;
+                        this.blizz.worldObj.playEvent((EntityPlayer)null, 1018, new BlockPos((int)this.blizz.posX, (int)this.blizz.posY, (int)this.blizz.posZ), 0);
+
+                        for (int i = 0; i < 1; ++i)
+                        {
+                            EntityBlizzBolt bolt = new EntityBlizzBolt(this.blizz.worldObj, this.blizz, d1 + this.blizz.getRNG().nextGaussian() * (double)f, d2, d3 + this.blizz.getRNG().nextGaussian() * (double)f);
+                            bolt.posY = this.blizz.posY + (double)(this.blizz.height / 2.0F) + 0.5D;
+                            bolt.posY = blizz.posY + blizz.height / 2.0F + 0.5D;
+                            blizz.playSound(ModSounds.BLIZZ_ATTACK, 2.0F, (blizz.rand.nextFloat() - blizz.rand.nextFloat()) * 0.2F + 1.0F);
+                            this.blizz.worldObj.spawnEntityInWorld(bolt);
+                        }
+                    }
+                }
+
+                this.blizz.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
+            }
+            else
+            {
+                this.blizz.getNavigator().clearPathEntity();
+                this.blizz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+            }
+
+            super.updateTask();
+        }
     }
 
 }

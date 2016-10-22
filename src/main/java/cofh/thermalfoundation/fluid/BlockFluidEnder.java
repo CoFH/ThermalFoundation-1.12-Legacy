@@ -11,6 +11,7 @@ import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -35,7 +36,11 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 
     @Override
     public boolean preInit() {
-        GameRegistry.registerBlock(this, "FluidEnder");
+        this.setRegistryName("fluid_ender");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
 
         String category = "Fluid.Ender";
         String comment = "Enable this for Fluid Ender to randomly teleport entities on contact.";

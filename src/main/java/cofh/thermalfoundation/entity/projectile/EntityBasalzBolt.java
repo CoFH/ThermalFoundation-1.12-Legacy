@@ -1,34 +1,23 @@
 package cofh.thermalfoundation.entity.projectile;
 
-import cofh.core.CoFHProps;
-import cofh.core.util.CoreUtils;
 import cofh.lib.util.helpers.ServerHelper;
-import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
-import net.minecraft.init.MobEffects;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.entity.projectile.EntityFireball;
+import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityBasalzBolt extends EntityThrowable {
-
-	public static void initialize() {
-
-		EntityRegistry.registerModEntity(EntityBasalzBolt.class, "basalzBolt", CoreUtils.getEntityId(), ThermalFoundation.instance,
-				CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
-	}
+public class EntityBasalzBolt extends EntityFireball {
 
 	protected static class DamageSourceBasalz extends EntityDamageSource {
 
@@ -66,26 +55,23 @@ public class EntityBasalzBolt extends EntityThrowable {
 	public static DamageSource basalzDamage = new DamageSourceBasalz();
 	public static PotionEffect basalzEffect = new PotionEffectBasalz(5 * 20, 2);
 
-	/* Required Constructor */
-	public EntityBasalzBolt(World world) {
 
-		super(world);
+	public EntityBasalzBolt(World worldIn)
+	{
+		super(worldIn);
+		this.setSize(0.3125F, 0.3125F);
 	}
 
-	public EntityBasalzBolt(World world, EntityLivingBase thrower) {
-
-		super(world, thrower);
+	public EntityBasalzBolt(World worldIn, EntityLivingBase shooter, double accelX, double accelY, double accelZ)
+	{
+		super(worldIn, shooter, accelX, accelY, accelZ);
+		this.setSize(0.3125F, 0.3125F);
 	}
 
-	public EntityBasalzBolt(World world, double x, double y, double z) {
-
-		super(world, x, y, z);
-	}
-
-	@Override
-	protected float getGravityVelocity() {
-
-		return 0.005F;
+	public EntityBasalzBolt(World worldIn, double x, double y, double z, double accelX, double accelY, double accelZ)
+	{
+		super(worldIn, x, y, z, accelX, accelY, accelZ);
+		this.setSize(0.3125F, 0.3125F);
 	}
 
 	@Override
@@ -94,9 +80,9 @@ public class EntityBasalzBolt extends EntityThrowable {
 		if (ServerHelper.isServerWorld(worldObj)) {
 			if (traceResult.entityHit != null) {
 				if (traceResult.entityHit instanceof EntityBasalz) {
-					traceResult.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 0);
+					traceResult.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, shootingEntity), 0);
 				} else {
-					if (traceResult.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 5F) && traceResult.entityHit instanceof EntityLivingBase) {
+					if (traceResult.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, shootingEntity), 5F) && traceResult.entityHit instanceof EntityLivingBase) {
 						EntityLivingBase living = (EntityLivingBase) traceResult.entityHit;
 						living.addPotionEffect(new PotionEffect(EntityBasalzBolt.basalzEffect));
 					}

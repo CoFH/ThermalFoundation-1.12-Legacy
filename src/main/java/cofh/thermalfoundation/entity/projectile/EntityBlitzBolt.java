@@ -1,12 +1,10 @@
 package cofh.thermalfoundation.entity.projectile;
 
 import codechicken.lib.util.CommonUtils;
-import codechicken.lib.util.EntityUtils;
-import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -16,16 +14,10 @@ import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityBlitzBolt extends EntityThrowable {
-
-    public static void initialize() {
-
-        EntityRegistry.registerModEntity(EntityBlitzBolt.class, "blitzBolt", EntityUtils.nextEntityId(), ThermalFoundation.instance, 64, 1, true);
-    }
+public class EntityBlitzBolt extends EntityFireball {
 
     protected static class DamageSourceBlitz extends EntityDamageSource {
 
@@ -63,37 +55,32 @@ public class EntityBlitzBolt extends EntityThrowable {
     public static DamageSource blitzDamage = new DamageSourceBlitz();
     public static PotionEffect blitzEffect = new PotionEffectBlitz(5 * 20, 2);
 
-    /* Required Constructor */
-    public EntityBlitzBolt(World world) {
-
-        super(world);
+    public EntityBlitzBolt(World worldIn)
+    {
+        super(worldIn);
+        this.setSize(0.3125F, 0.3125F);
     }
 
-    public EntityBlitzBolt(World world, EntityLivingBase thrower) {
-
-        super(world, thrower);
+    public EntityBlitzBolt(World worldIn, EntityLivingBase shooter, double accelX, double accelY, double accelZ)
+    {
+        super(worldIn, shooter, accelX, accelY, accelZ);
+        this.setSize(0.3125F, 0.3125F);
     }
 
-    public EntityBlitzBolt(World world, double x, double y, double z) {
-
-        super(world, x, y, z);
-    }
-
-    @Override
-    protected float getGravityVelocity() {
-
-        return 0.005F;
+    public EntityBlitzBolt(World worldIn, double x, double y, double z, double accelX, double accelY, double accelZ)
+    {
+        super(worldIn, x, y, z, accelX, accelY, accelZ);
+        this.setSize(0.3125F, 0.3125F);
     }
 
     @Override
     protected void onImpact(RayTraceResult pos) {
-
         if (CommonUtils.isServerWorld(worldObj)) {
             if (pos.entityHit != null) {
                 if (pos.entityHit instanceof EntityBlitz) {
-                    pos.entityHit.attackEntityFrom(DamageSourceBlitz.causeDamage(this, getThrower()), 0);
+                    pos.entityHit.attackEntityFrom(DamageSourceBlitz.causeDamage(this, shootingEntity), 0);
                 } else {
-                    if (pos.entityHit.attackEntityFrom(DamageSourceBlitz.causeDamage(this, getThrower()), 5F) && pos.entityHit instanceof EntityLivingBase) {
+                    if (pos.entityHit.attackEntityFrom(DamageSourceBlitz.causeDamage(this, shootingEntity), 5F) && pos.entityHit instanceof EntityLivingBase) {
                         EntityLivingBase living = (EntityLivingBase) pos.entityHit;
                         living.addPotionEffect(new PotionEffect(EntityBlitzBolt.blitzEffect));
                     }

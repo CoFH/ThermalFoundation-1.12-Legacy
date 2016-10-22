@@ -121,7 +121,6 @@ public class ThermalFoundation {
         TFPlugins.postInit();
 
         proxy.registerEntities();
-        proxy.registerRenderInformation();
 
         proxy.post();
     }

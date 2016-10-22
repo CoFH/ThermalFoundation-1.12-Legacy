@@ -1,5 +1,6 @@
 package cofh.thermalfoundation.render.entity;
 
+import codechicken.lib.texture.TextureUtils;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.VertexBuffer;
@@ -12,9 +13,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class RenderEntityAsIcon extends Render {
+public class RenderEntityAsIcon extends Render<Entity> {
 
     private TextureAtlasSprite icon;
+    private String iconName = "";
 
     public RenderEntityAsIcon(RenderManager renderManager) {
         super(renderManager);
@@ -25,14 +27,16 @@ public class RenderEntityAsIcon extends Render {
         this.icon = icon;
     }
 
-    public RenderEntityAsIcon setIcon(TextureAtlasSprite icon) {
-
-        this.icon = icon;
+    public RenderEntityAsIcon setIcon(String iconName) {
+        this.iconName = iconName;
         return this;
     }
 
     @Override
     public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float p_76986_9_) {
+        if (icon == null) {
+            icon = TextureUtils.getTexture(iconName);
+        }
 
         if (icon != null) {
             GlStateManager.pushMatrix();

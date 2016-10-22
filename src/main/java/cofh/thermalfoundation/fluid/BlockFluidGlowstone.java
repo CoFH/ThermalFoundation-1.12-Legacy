@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -42,7 +43,11 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 
     @Override
     public boolean preInit() {
-        GameRegistry.registerBlock(this, "FluidGlowstone");
+        this.setRegistryName("fluid_glowstone");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
 
         String category = "Fluid.Glowstone";
         String comment = "Enable this for Fluid Glowstone to do...something.";

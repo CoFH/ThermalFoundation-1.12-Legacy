@@ -19,6 +19,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
@@ -37,7 +38,6 @@ public class BlockFluidMana extends BlockFluidInteractive {
     private static boolean effect = true;
 
     public BlockFluidMana() {
-
         super("thermalfoundation", TFFluids.fluidMana, materialFluidMana, "mana");
         setQuantaPerBlock(LEVELS);
         setTickRate(10);
@@ -49,8 +49,11 @@ public class BlockFluidMana extends BlockFluidInteractive {
 
     @Override
     public boolean preInit() {
-
-        GameRegistry.registerBlock(this, "FluidMana");
+        this.setRegistryName("fluid_mana");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
 
         addInteraction(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, DirtType.DIRT), Blocks.GRASS.getDefaultState(), false);
         addInteraction(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, DirtType.COARSE_DIRT), Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, DirtType.PODZOL), false);

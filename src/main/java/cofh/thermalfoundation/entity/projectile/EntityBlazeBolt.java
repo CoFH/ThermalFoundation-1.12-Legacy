@@ -6,7 +6,7 @@ import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
@@ -17,10 +17,9 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityBlazeBolt extends EntityThrowable {
+public class EntityBlazeBolt extends EntityFireball {
 
     public static void initialize() {
-
         EntityRegistry.registerModEntity(EntityBlazeBolt.class, "blazeBolt", EntityUtils.nextEntityId(), ThermalFoundation.instance, 64, 1, true);
     }
 
@@ -44,26 +43,22 @@ public class EntityBlazeBolt extends EntityThrowable {
 
     public static DamageSource blazeDamage = new DamageSourceBlaze();
 
-    /* Required Constructor */
-    public EntityBlazeBolt(World world) {
-
-        super(world);
+    public EntityBlazeBolt(World worldIn)
+    {
+        super(worldIn);
+        this.setSize(0.3125F, 0.3125F);
     }
 
-    public EntityBlazeBolt(World world, EntityLivingBase thrower) {
-
-        super(world, thrower);
+    public EntityBlazeBolt(World worldIn, EntityLivingBase shooter, double accelX, double accelY, double accelZ)
+    {
+        super(worldIn, shooter, accelX, accelY, accelZ);
+        this.setSize(0.3125F, 0.3125F);
     }
 
-    public EntityBlazeBolt(World world, double x, double y, double z) {
-
-        super(world, x, y, z);
-    }
-
-    @Override
-    protected float getGravityVelocity() {
-
-        return 0.005F;
+    public EntityBlazeBolt(World worldIn, double x, double y, double z, double accelX, double accelY, double accelZ)
+    {
+        super(worldIn, x, y, z, accelX, accelY, accelZ);
+        this.setSize(0.3125F, 0.3125F);
     }
 
     @Override
@@ -72,9 +67,9 @@ public class EntityBlazeBolt extends EntityThrowable {
         if (CommonUtils.isServerWorld(worldObj)) {
             if (pos.entityHit != null) {
                 if (pos.entityHit instanceof EntityBlitz) {
-                    pos.entityHit.attackEntityFrom(DamageSourceBlaze.causeDamage(this, getThrower()), 0);
+                    pos.entityHit.attackEntityFrom(DamageSourceBlaze.causeDamage(this, shootingEntity), 0);
                 } else {
-                    if (pos.entityHit.attackEntityFrom(DamageSourceBlaze.causeDamage(this, getThrower()), 5F) && pos.entityHit instanceof EntityLivingBase) {
+                    if (pos.entityHit.attackEntityFrom(DamageSourceBlaze.causeDamage(this, shootingEntity), 5F) && pos.entityHit instanceof EntityLivingBase) {
                         EntityLivingBase living = (EntityLivingBase) pos.entityHit;
                         living.setFire(5);
                     }

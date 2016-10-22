@@ -1,15 +1,17 @@
 package cofh.thermalfoundation.entity.monster;
 
 import codechicken.lib.math.MathHelper;
-import codechicken.lib.util.EntityUtils;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.init.ModSounds;
 import cofh.thermalfoundation.item.TFItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -32,8 +34,6 @@ import java.util.List;
 
 public class EntityBasalz extends EntityMob {
 	private static final DataParameter<Boolean> ATTACK_MODE = EntityDataManager.<Boolean>createKey(EntityBlizz.class, DataSerializers.BOOLEAN);
-
-	static int entityId = -1;
 
 	static boolean enable = true;
 	static boolean restrictLightLevel = true;
@@ -69,14 +69,13 @@ public class EntityBasalz extends EntityMob {
 		spawnWeight = ThermalFoundation.config.get(category, "SpawnWeight", spawnWeight, comment).getInt(spawnWeight);
 	}
 
-	public static void initialize() {
+	public static void initialize(int id) {
 
 		if (!enable) {
 			return;
 		}
 
-		entityId = EntityUtils.nextEntityId();
-		EntityRegistry.registerModEntity(EntityBasalz.class, "Basalz", entityId, ThermalFoundation.instance, 64, 1, true, 0x606060, 0xB3ABA3);
+		EntityRegistry.registerModEntity(EntityBasalz.class, "Basalz", id, ThermalFoundation.instance, 64, 1, true, 0x606060, 0xB3ABA3);
 
 		// Add Basalz spawn to Mountain biomes
 		List<Biome> validBiomes = new ArrayList<Biome>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.MOUNTAIN)));
@@ -115,11 +114,22 @@ public class EntityBasalz extends EntityMob {
 		this.experienceValue = 10;
 	}
 
+	protected void initEntityAI() {
+        this.tasks.addTask(4, new EntityBasalz.AIFireballAttack(this));
+		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+		this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
+		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		this.tasks.addTask(8, new EntityAILookIdle(this));
+		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
+		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+	}
+
 	@Override
 	protected void applyEntityAttributes() {
-
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
 	}
 
 	@Override
@@ -146,12 +156,12 @@ public class EntityBasalz extends EntityMob {
 
 	//@Override
 	//protected SoundEvent getHurtSound() {
-	//	return "mob.blaze.hit";
+	//	return "mob.basalz.hit";
 	//}
 
 	//@Override
 	//protected SoundEvent getDeathSound() {
-	//	return "mob.blaze.death";
+	//	return "mob.basalz.death";
 	//}
 
 	@Override
@@ -280,11 +290,11 @@ public class EntityBasalz extends EntityMob {
 
 		if (this.worldObj.isRemote) {
 			if (this.rand.nextInt(24) == 0 && !this.isSilent()) {
-				this.worldObj.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, ModSounds.BLIZZ_AMBIENT, this.getSoundCategory(), 1.0F + this.rand.nextFloat(), this.rand.nextFloat() * 0.7F + 0.3F, false);
+				this.worldObj.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, ModSounds.BLIZZ_AMBIENT, this.getSoundCategory(), this.rand.nextFloat() * 0.2F + 0.1F, this.rand.nextFloat() * 0.3F + 0.4F, false);
 			}
 
 			for (int i = 0; i < 2; ++i) {
-				this.worldObj.spawnParticle(EnumParticleTypes.SNOWBALL, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
+				this.worldObj.spawnParticle(EnumParticleTypes.TOWN_AURA, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
 			}
 		}
 
@@ -361,6 +371,7 @@ public class EntityBasalz extends EntityMob {
 //		}
 //	}
 
+	//TODO Not sure if this is correct
 	@Override
 	protected boolean isValidLightLevel() {
 		if (!restrictLightLevel) {
@@ -387,4 +398,102 @@ public class EntityBasalz extends EntityMob {
 		}
 	}
 
+	static class AIFireballAttack extends EntityAIBase
+	{
+		private final EntityBasalz basalz;
+		private int attackStep;
+		private int attackTime;
+
+		public AIFireballAttack(EntityBasalz basalz)
+		{
+			this.basalz = basalz;
+			this.setMutexBits(3);
+		}
+
+		public boolean shouldExecute()
+		{
+			EntityLivingBase entitylivingbase = this.basalz.getAttackTarget();
+			return entitylivingbase != null && entitylivingbase.isEntityAlive();
+		}
+
+		public void startExecuting()
+		{
+			this.attackStep = 0;
+		}
+
+		public void resetTask()
+		{
+
+//			this.basalz.setOnFire(false);
+		}
+
+		public void updateTask()
+		{
+			--this.attackTime;
+			EntityLivingBase entitylivingbase = this.basalz.getAttackTarget();
+			double d0 = this.basalz.getDistanceSqToEntity(entitylivingbase);
+
+			if (d0 < 4.0D)
+			{
+				if (this.attackTime <= 0)
+				{
+					this.attackTime = 20;
+					this.basalz.attackEntityAsMob(entitylivingbase);
+				}
+
+				this.basalz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+			}
+			else if (d0 < 256.0D)
+			{
+				double d1 = entitylivingbase.posX - this.basalz.posX;
+				double d2 = entitylivingbase.getEntityBoundingBox().minY + (double)(entitylivingbase.height / 2.0F) - (this.basalz.posY + (double)(this.basalz.height / 2.0F));
+				double d3 = entitylivingbase.posZ - this.basalz.posZ;
+
+				if (this.attackTime <= 0)
+				{
+					++this.attackStep;
+
+					if (this.attackStep == 1)
+					{
+						this.attackTime = 60;
+//						this.basalz.setOnFire(true);
+					}
+					else if (this.attackStep <= 4)
+					{
+						this.attackTime = 6;
+					}
+					else
+					{
+						this.attackTime = 100;
+						this.attackStep = 0;
+//						this.basalz.setOnFire(false);
+					}
+
+					if (this.attackStep > 1)
+					{
+						float f = net.minecraft.util.math.MathHelper.sqrt_float(net.minecraft.util.math.MathHelper.sqrt_double(d0)) * 0.5F;
+						this.basalz.worldObj.playEvent((EntityPlayer)null, 1018, new BlockPos((int)this.basalz.posX, (int)this.basalz.posY, (int)this.basalz.posZ), 0);
+
+						for (int i = 0; i < 1; ++i)
+						{
+							EntityBasalzBolt bolt = new EntityBasalzBolt(this.basalz.worldObj, this.basalz, d1 + this.basalz.getRNG().nextGaussian() * (double)f, d2, d3 + this.basalz.getRNG().nextGaussian() * (double)f);
+							bolt.posY = this.basalz.posY + (double)(this.basalz.height / 2.0F) + 0.5D;
+							bolt.posY = basalz.posY + basalz.height / 2.0F + 0.5D;
+							basalz.playSound(ModSounds.BASALZ_ATTACK, 2.0F, (basalz.rand.nextFloat() - basalz.rand.nextFloat()) * 0.2F + 1.0F);
+							this.basalz.worldObj.spawnEntityInWorld(bolt);
+						}
+					}
+				}
+
+				this.basalz.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
+			}
+			else
+			{
+				this.basalz.getNavigator().clearPathEntity();
+				this.basalz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+			}
+
+			super.updateTask();
+		}
+	}
 }

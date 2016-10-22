@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
@@ -43,8 +44,11 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
 	@Override
 	public boolean preInit() {
-
-		GameRegistry.registerBlock(this, "FluidPetrotheum");
+		this.setRegistryName("fluid_petrotheum");
+		GameRegistry.register(this);
+		ItemBlock itemBlock = new ItemBlock(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		GameRegistry.register(itemBlock);
 
 		addInteraction(Blocks.STONE, Blocks.GRAVEL);
 		addInteraction(Blocks.COBBLESTONE, Blocks.GRAVEL);

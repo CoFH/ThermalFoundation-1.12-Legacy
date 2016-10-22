@@ -3,6 +3,7 @@ package cofh.thermalfoundation.fluid;
 import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -22,8 +23,7 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 	private static boolean effect = true;
 
 	public BlockFluidRedstone() {
-
-		super("thermalfoundation", TFFluids.fluidRedstone, Material.WATER, "redstone");
+		super("thermalfoundation", TFFluids.fluidRedstone, materialFluidRedstone, "redstone");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(5);
 
@@ -34,8 +34,11 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 
 	@Override
 	public boolean preInit() {
-
-		GameRegistry.registerBlock(this, "FluidRedstone");
+		this.setRegistryName("fluid_redstone");
+		GameRegistry.register(this);
+		ItemBlock itemBlock = new ItemBlock(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		GameRegistry.register(itemBlock);
 
 		String category = "Fluid.Redstone";
 		String comment = "Enable this for Fluid Redstone to emit a signal proportional to its fluid level.";

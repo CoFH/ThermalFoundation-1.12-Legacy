@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -31,8 +32,7 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
     private static boolean enableSourceFall = true;
 
     public BlockFluidPyrotheum() {
-
-        super("thermalfoundation", TFFluids.fluidPyrotheum, Material.LAVA, "pyrotheum");
+        super("thermalfoundation", TFFluids.fluidPyrotheum, materialFluidPyrotheum, "pyrotheum");
         setQuantaPerBlock(LEVELS);
         setTickRate(10);
 
@@ -43,8 +43,11 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 
     @Override
     public boolean preInit() {
-
-        GameRegistry.registerBlock(this, "FluidPyrotheum");
+        this.setRegistryName("fluid_pyrotheum");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
 
         addInteraction(Blocks.COBBLESTONE, Blocks.STONE);
         addInteraction(Blocks.GRASS, Blocks.DIRT);

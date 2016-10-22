@@ -1,16 +1,18 @@
 package cofh.thermalfoundation.entity.monster;
 
 import cofh.core.CoFHProps;
-import cofh.core.util.CoreUtils;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.init.ModSounds;
 import cofh.thermalfoundation.item.TFItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -33,7 +35,6 @@ import java.util.List;
 
 public class EntityBlitz extends EntityMob {
     private static final DataParameter<Boolean> ATTACK_MODE = EntityDataManager.<Boolean>createKey(EntityBlizz.class, DataSerializers.BOOLEAN);
-    static int entityId = -1;
 
     static boolean enable = true;
     static boolean restrictLightLevel = true;
@@ -69,14 +70,13 @@ public class EntityBlitz extends EntityMob {
         spawnWeight = ThermalFoundation.config.get(category, "SpawnWeight", spawnWeight, comment).getInt(spawnWeight);
     }
 
-    public static void initialize() {
+    public static void initialize(int id) {
 
         if (!enable) {
             return;
         }
 
-        entityId = CoreUtils.getEntityId();
-        EntityRegistry.registerModEntity(EntityBlitz.class, "Blitz", entityId, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xF0F8FF, 0xFFEFD5);
+        EntityRegistry.registerModEntity(EntityBlitz.class, "Blitz", id, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xF0F8FF, 0xFFEFD5);
 
         // Add Blitz spawn to Plains biomes
         List<Biome> validBiomes = new ArrayList<Biome>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.PLAINS)));
@@ -107,11 +107,6 @@ public class EntityBlitz extends EntityMob {
     protected int heightOffsetUpdateTime;
     protected int firingState;
 
-//	public static final String SOUND_AMBIENT = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlitzAmbient");
-//	public static final String SOUND_ATTACK = CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlitzAttack");
-//	public static final String SOUND_LIVING[] = { CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlitzBreathe0"),
-//			CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlitzBreathe1"), CoreUtils.getSoundName(ThermalFoundation.modId, "mobBlitzBreathe2") };
-
     protected static final int SOUND_AMBIENT_FREQUENCY = 400; // How often it does ambient sound loop
 
     public EntityBlitz(World world) {
@@ -120,11 +115,22 @@ public class EntityBlitz extends EntityMob {
         this.experienceValue = 10;
     }
 
+    protected void initEntityAI() {
+        this.tasks.addTask(4, new EntityBlitz.AIFireballAttack(this));
+        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+        this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+        this.tasks.addTask(8, new EntityAILookIdle(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+    }
+
     @Override
     protected void applyEntityAttributes() {
-
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
+        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
     }
 
     @Override
@@ -157,113 +163,6 @@ public class EntityBlitz extends EntityMob {
         return 2.0F;
     }
 
-//	@Override
-//	public void onLivingUpdate() {
-//
-//		if (ServerHelper.isServerWorld(worldObj)) {
-//			--this.heightOffsetUpdateTime;
-//
-//			if (this.heightOffsetUpdateTime <= 0) {
-//				this.heightOffsetUpdateTime = 100;
-//				this.heightOffset = 0.5F + (float) this.rand.nextGaussian() * 3.0F;
-//			}
-//			Entity target = this.getEntityToAttack();
-//			if (target != null) {
-//				if ((target.posY + target.getEyeHeight()) > (this.posY + this.getEyeHeight() + this.heightOffset)) {
-//					this.motionY += (0.30000001192092896D - this.motionY) * 0.30000001192092896D;
-//				}
-//			}
-//		}
-//		if (this.rand.nextInt(SOUND_AMBIENT_FREQUENCY) == 0) {
-//			this.worldObj.playSoundEffect(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, SOUND_AMBIENT, this.rand.nextFloat() * 0.2F + 0.1F,
-//					this.rand.nextFloat() * 0.3F + 0.4F);
-//		}
-//		if (!this.onGround && this.motionY < 0.0D) {
-//			this.motionY *= 0.6D;
-//		}
-//		for (int i = 0; i < 2; i++) {
-//			this.worldObj.spawnParticle("cloud", this.posX + (this.rand.nextDouble() - 0.5D) * this.width, this.posY + this.rand.nextDouble()
-//					* (this.height * 0.2D), this.posZ + (this.rand.nextDouble() - 0.5D) * this.width, 0.0D, 0.0D, 0.0D);
-//		}
-//		super.onLivingUpdate();
-//	}
-//
-//	/**
-//	 * Finds the closest player within 16 blocks to attack, or null if this Entity isn't interested in attacking (Animals, Spiders at day, peaceful PigZombies).
-//	 */
-//	@Override
-//	protected Entity findPlayerToAttack() {
-//
-//		EntityPlayer player = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
-//		if (player != null && this.canEntityBeSeen(player)) {
-//			return player;
-//		}
-//		return getClosestVictim(16.0D);
-//	}
-//
-//	public Entity getClosestVictim(double dist) {
-//
-//		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(this.posX - dist, this.posY - dist, this.posZ - dist, this.posX + dist, this.posY + dist, this.posZ
-//				+ dist);
-//		EntitySelectorInRangeByType entsel = new EntitySelectorInRangeByType(this, dist, EntityVillager.class);
-//		// TODO: should this target INpc instead?
-//		List<Entity> entities = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, aabb, entsel);
-//		if (entities.isEmpty()) {
-//			return null;
-//		}
-//		Entity victim = null;
-//		double closest = Double.MAX_VALUE;
-//
-//		for (Entity entity : entities) {
-//			double distVsq = this.getDistanceSqToEntity(entity);
-//
-//			if (distVsq < closest) {
-//				closest = distVsq;
-//				victim = entity;
-//			}
-//		}
-//		return victim;
-//	}
-//
-//	@Override
-//	protected void attackEntity(Entity target, float distance) {
-//
-//		// Melee distance
-//		if (this.attackTime <= 0 && distance < 2.0F && target.boundingBox.maxY > this.boundingBox.minY && target.boundingBox.minY < this.boundingBox.maxY) {
-//			this.attackTime = 20;
-//			this.attackEntityAsMob(target);
-//		}
-//		// Within range (30)
-//		else if (distance < 30.0F) {
-//			double dX = target.posX - this.posX;
-//			double dZ = target.posZ - this.posZ;
-//
-//			if (this.attackTime == 0) {
-//				++this.firingState;
-//
-//				if (this.firingState == 1) {
-//					this.attackTime = 60;
-//					this.setInAttackMode(true); // Flary goodness :D
-//				} else if (this.firingState <= 4) {
-//					this.attackTime = 6;
-//				} else {
-//					this.attackTime = 80; // 100
-//					this.firingState = 0;
-//					this.setInAttackMode(false); // Unflary sadness :(
-//				}
-//				if (this.firingState > 1) {
-//					EntityBlitzBolt bolt = new EntityBlitzBolt(this.worldObj, this);
-//					bolt.posY = this.posY + this.height / 2.0F + 0.5D;
-//					this.playSound(SOUND_ATTACK, 2.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
-//					this.worldObj.spawnEntityInWorld(bolt);
-//				}
-//			}
-//			this.rotationYaw = (float) (Math.atan2(dZ, dX) * 180.0D / Math.PI) - 90.0F;
-//			this.hasAttacked = true;
-//		}
-//	}
-
-    //TODO Update AI
     @Override
     public void onLivingUpdate() {
         if (!this.onGround && this.motionY < 0.0D) {
@@ -272,11 +171,11 @@ public class EntityBlitz extends EntityMob {
 
         if (this.worldObj.isRemote) {
             if (this.rand.nextInt(24) == 0 && !this.isSilent()) {
-                this.worldObj.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, ModSounds.BLIZZ_AMBIENT, this.getSoundCategory(), 1.0F + this.rand.nextFloat(), this.rand.nextFloat() * 0.7F + 0.3F, false);
+                this.worldObj.playSound(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, ModSounds.BLIZZ_AMBIENT, this.getSoundCategory(), this.rand.nextFloat() * 0.2F + 0.1F, this.rand.nextFloat() * 0.3F + 0.4F, false);
             }
 
             for (int i = 0; i < 2; ++i) {
-                this.worldObj.spawnParticle(EnumParticleTypes.SNOWBALL, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
+                this.worldObj.spawnParticle(EnumParticleTypes.CLOUD, this.posX + (this.rand.nextDouble() - 0.5D) * (double) this.width, this.posY + this.rand.nextDouble() * (double) this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
             }
         }
 
@@ -352,6 +251,105 @@ public class EntityBlitz extends EntityMob {
                 this.worldObj.setSkylightSubtracted(i1);
             }
             return l <= this.rand.nextInt(spawnLightLevel);
+        }
+    }
+
+    static class AIFireballAttack extends EntityAIBase
+    {
+        private final EntityBlitz blitz;
+        private int attackStep;
+        private int attackTime;
+
+        public AIFireballAttack(EntityBlitz blitz)
+        {
+            this.blitz = blitz;
+            this.setMutexBits(3);
+        }
+
+        public boolean shouldExecute()
+        {
+            EntityLivingBase entitylivingbase = this.blitz.getAttackTarget();
+            return entitylivingbase != null && entitylivingbase.isEntityAlive();
+        }
+
+        public void startExecuting()
+        {
+            this.attackStep = 0;
+        }
+
+        public void resetTask()
+        {
+
+//			this.blitz.setOnFire(false);
+        }
+
+        public void updateTask()
+        {
+            --this.attackTime;
+            EntityLivingBase entitylivingbase = this.blitz.getAttackTarget();
+            double d0 = this.blitz.getDistanceSqToEntity(entitylivingbase);
+
+            if (d0 < 4.0D)
+            {
+                if (this.attackTime <= 0)
+                {
+                    this.attackTime = 20;
+                    this.blitz.attackEntityAsMob(entitylivingbase);
+                }
+
+                this.blitz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+            }
+            else if (d0 < 256.0D)
+            {
+                double d1 = entitylivingbase.posX - this.blitz.posX;
+                double d2 = entitylivingbase.getEntityBoundingBox().minY + (double)(entitylivingbase.height / 2.0F) - (this.blitz.posY + (double)(this.blitz.height / 2.0F));
+                double d3 = entitylivingbase.posZ - this.blitz.posZ;
+
+                if (this.attackTime <= 0)
+                {
+                    ++this.attackStep;
+
+                    if (this.attackStep == 1)
+                    {
+                        this.attackTime = 60;
+//						this.blitz.setOnFire(true);
+                    }
+                    else if (this.attackStep <= 4)
+                    {
+                        this.attackTime = 6;
+                    }
+                    else
+                    {
+                        this.attackTime = 100;
+                        this.attackStep = 0;
+//						this.blitz.setOnFire(false);
+                    }
+
+                    if (this.attackStep > 1)
+                    {
+                        float f = net.minecraft.util.math.MathHelper.sqrt_float(net.minecraft.util.math.MathHelper.sqrt_double(d0)) * 0.5F;
+                        this.blitz.worldObj.playEvent((EntityPlayer)null, 1018, new BlockPos((int)this.blitz.posX, (int)this.blitz.posY, (int)this.blitz.posZ), 0);
+
+                        for (int i = 0; i < 1; ++i)
+                        {
+                            EntityBlitzBolt bolt = new EntityBlitzBolt(this.blitz.worldObj, this.blitz, d1 + this.blitz.getRNG().nextGaussian() * (double)f, d2, d3 + this.blitz.getRNG().nextGaussian() * (double)f);
+                            bolt.posY = this.blitz.posY + (double)(this.blitz.height / 2.0F) + 0.5D;
+                            bolt.posY = blitz.posY + blitz.height / 2.0F + 0.5D;
+                            blitz.playSound(ModSounds.BLITZ_ATTACK, 2.0F, (blitz.rand.nextFloat() - blitz.rand.nextFloat()) * 0.2F + 1.0F);
+                            this.blitz.worldObj.spawnEntityInWorld(bolt);
+                        }
+                    }
+                }
+
+                this.blitz.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
+            }
+            else
+            {
+                this.blitz.getNavigator().clearPathEntity();
+                this.blitz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+            }
+
+            super.updateTask();
         }
     }
 
