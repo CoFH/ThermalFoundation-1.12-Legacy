@@ -1,18 +1,28 @@
 package cofh.thermalfoundation.item;
 
+import codechicken.lib.model.ModelRegistryHelper;
+import codechicken.lib.model.SimpleOverrideBakedModel;
 import cofh.core.item.ItemArmorAdv;
 import cofh.core.item.tool.*;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.client.model.BowModelOverrideList;
+import cofh.thermalfoundation.client.model.FishingRodModelOverrideList;
+import cofh.thermalfoundation.client.model.TFBakedModelProvider;
 import cofh.thermalfoundation.core.TFProps;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Locale;
 
@@ -195,9 +205,7 @@ public enum Equipment {
         }
 
         final String PATH_ARMOR = "thermalfoundation:textures/" + "armor/";
-        final String[] TEXTURE = {PATH_ARMOR + NAME + "_1.png", PATH_ARMOR + NAME + "_2.png"};
-        final String ARMOR_PATH = "thermalfoundation:armor/" + TYPE + "/" + NAME;
-        final String TOOL_PATH = "thermalfoundation:tool/" + TYPE + "/" + NAME;
+        final String[] TEXTURE = {PATH_ARMOR + NAME.toLowerCase() + "_1.png", PATH_ARMOR + NAME.toLowerCase() + "_2.png"};
 
         createArmor();
         itemHelmet.setRepairIngot(ingot).setArmorTextures(TEXTURE).setUnlocalizedName(ARMOR + "Helmet").setCreativeTab(ThermalFoundation.tabArmor);//		itemHelmet.setTextureName(ARMOR_PATH + "Helmet");
@@ -229,21 +237,6 @@ public enum Equipment {
         itemSickle.setShowInCreative(enableTools[7] | TFProps.showDisabledEquipment);
         itemBow.setRepairIngot(ingot).setArrowSpeed(arrowSpeed).setArrowDamage(arrowDamage).setUnlocalizedName(TOOL + "Bow").setCreativeTab(ThermalFoundation.tabTools);//		itemBow.setTextureName(TOOL_PATH + "Bow");
         itemBow.setShowInCreative(enableTools[8] | TFProps.showDisabledEquipment);
-
-//		GameRegistry.registerItem(itemHelmet, "armor.helmet" + NAME);
-//		GameRegistry.registerItem(itemPlate, "armor.plate" + NAME);
-//		GameRegistry.registerItem(itemLegs, "armor.legs" + NAME);
-//		GameRegistry.registerItem(itemBoots, "armor.boots" + NAME);
-//
-//		GameRegistry.registerItem(itemSword, "tool.sword" + NAME);
-//		GameRegistry.registerItem(itemShovel, "tool.shovel" + NAME);
-//		GameRegistry.registerItem(itemPickaxe, "tool.pickaxe" + NAME);
-//		GameRegistry.registerItem(itemAxe, "tool.axe" + NAME);
-//		GameRegistry.registerItem(itemHoe, "tool.hoe" + NAME);
-//		GameRegistry.registerItem(itemShears, "tool.shears" + NAME);
-//		GameRegistry.registerItem(itemFishingRod, "tool.fishingRod" + NAME);
-//		GameRegistry.registerItem(itemSickle, "tool.sickle" + NAME);
-//		GameRegistry.registerItem(itemBow, "tool.bow" + NAME);
 
         itemHelmet.setRegistryName("armor.helmet" + NAME);
         itemPlate.setRegistryName("armor.plate" + NAME);
@@ -406,4 +399,46 @@ public enum Equipment {
         }
     }
 
+    @SideOnly(Side.CLIENT)
+    public static void registerModels() {
+        for (Equipment e : values()) {
+            e.registerMaterialModels();
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    protected void registerMaterialModels() {
+        VanillaEquipment.registerModels();
+        registerModel(itemSword, 0, "sword");
+        registerModel(itemShovel, 0, "shovel");
+        registerModel(itemPickaxe, 0, "pickaxe");
+        registerModel(itemAxe, 0, "axe");
+        registerModel(itemHoe, 0, "hoe");
+        registerModel(itemShears, 0, "shears");
+        registerModel(itemSickle, 0, "sickle");
+
+        registerArmorItemModel(itemHelmet, 0, "helmet");
+        registerArmorItemModel(itemPlate, 0, "chestplate");
+        registerArmorItemModel(itemLegs, 0, "legs");
+        registerArmorItemModel(itemBoots, 0, "boots");
+
+
+        ModelLoader.setCustomModelResourceLocation(itemBow, 0, new ModelResourceLocation(itemBow.getRegistryName(), "inventory"));
+        TFBakedModelProvider.BOWS.put(itemBow, name().toLowerCase() + "_bow");
+        ModelRegistryHelper.register(new ModelResourceLocation(itemBow.getRegistryName(), "inventory"), new SimpleOverrideBakedModel(new BowModelOverrideList()));
+
+        ModelLoader.setCustomModelResourceLocation(itemFishingRod, 0, new ModelResourceLocation(itemFishingRod.getRegistryName(), "inventory"));
+        TFBakedModelProvider.RODS.put(itemFishingRod, name().toLowerCase() + "_fishing_rod");
+        ModelRegistryHelper.register(new ModelResourceLocation(itemFishingRod.getRegistryName(), "inventory"), new SimpleOverrideBakedModel(new FishingRodModelOverrideList()));
+    }
+
+    @SideOnly(Side.CLIENT)
+    private void registerModel(Item item, int meta, String tool) {
+        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation("thermalfoundation:tool", "type=" + name().toLowerCase() + tool));
+    }
+
+    @SideOnly(Side.CLIENT)
+    private void registerArmorItemModel(Item item, int meta, String tool) {
+        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation("thermalfoundation:armor", "type=" + name().toLowerCase() + tool));
+    }
 }

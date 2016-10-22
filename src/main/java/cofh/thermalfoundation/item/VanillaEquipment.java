@@ -1,18 +1,24 @@
 package cofh.thermalfoundation.item;
 
+import codechicken.lib.model.ModelRegistryHelper;
+import codechicken.lib.model.SimpleOverrideBakedModel;
 import cofh.core.item.tool.ItemBowAdv;
 import cofh.core.item.tool.ItemFishingRodAdv;
 import cofh.core.item.tool.ItemShearsAdv;
 import cofh.core.item.tool.ItemSickleAdv;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.client.model.BowModelOverrideList;
+import cofh.thermalfoundation.client.model.FishingRodModelOverrideList;
+import cofh.thermalfoundation.client.model.TFBakedModelProvider;
 import cofh.thermalfoundation.core.TFProps;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Items;
+import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemBow;
-import net.minecraft.item.ItemFishingRod;
-import net.minecraft.item.ItemShears;
-import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Locale;
 
@@ -38,7 +44,7 @@ public enum VanillaEquipment {
     	@Override
     	protected void createTools() {
 
-    		itemShears =  Items.SHEARS;
+    		itemShears = Items.SHEARS;
     		itemFishingRod = new ItemFishingRodAdv(TOOL_MATERIAL);
     		itemSickle = new ItemSickleAdv(TOOL_MATERIAL);
     		itemBow = new ItemBowAdv(TOOL_MATERIAL);
@@ -89,7 +95,6 @@ public enum VanillaEquipment {
 	}
 
 	protected void createTools() {
-
 		itemShears = new ItemShearsAdv(TOOL_MATERIAL);
 		itemFishingRod = new ItemFishingRodAdv(TOOL_MATERIAL);
 		itemSickle = new ItemSickleAdv(TOOL_MATERIAL);
@@ -126,32 +131,32 @@ public enum VanillaEquipment {
 
 		if (itemShears instanceof ItemShearsAdv) {
 			ItemShearsAdv itemShears = (ItemShearsAdv) this.itemShears;
-			itemShears.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shears");
-//			itemShears.setTextureName(TOOL_PATH + "Shears").setCreativeTab(ThermalFoundation.tabTools);
+			itemShears.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shears").setCreativeTab(ThermalFoundation.tabTools);
 			itemShears.setShowInCreative(enableTools[0] | TFProps.showDisabledEquipment);
-			GameRegistry.registerItem(itemShears, "tool.shears" + NAME);
+			itemShears.setRegistryName("tool.shears" + NAME);
+			GameRegistry.register(itemShears);
 		}
 
 		if (itemFishingRod instanceof ItemFishingRodAdv) {
 			ItemFishingRodAdv itemFishingRod = (ItemFishingRodAdv) this.itemFishingRod;
-			itemFishingRod.setRepairIngot(ingot).setUnlocalizedName(TOOL + "FishingRod");
-//			itemFishingRod.setTextureName(TOOL_PATH + "FishingRod").setCreativeTab(ThermalFoundation.tabTools);
+			itemFishingRod.setRepairIngot(ingot).setUnlocalizedName(TOOL + "FishingRod").setCreativeTab(ThermalFoundation.tabTools);
 			itemFishingRod.setLuckModifier(luckModifier).setSpeedModifier(speedModifier);
 			itemFishingRod.setShowInCreative(enableTools[1] | TFProps.showDisabledEquipment);
-			GameRegistry.registerItem(itemFishingRod, "tool.fishingRod" + NAME);
+			itemFishingRod.setRegistryName("tool.fishingRod" + NAME);
+			GameRegistry.register(itemFishingRod);
 		}
 
-		itemSickle.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sickle");
-//		itemSickle.setTextureName(TOOL_PATH + "Sickle").setCreativeTab(ThermalFoundation.tabTools);
+		itemSickle.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sickle").setCreativeTab(ThermalFoundation.tabTools);
 		itemSickle.setShowInCreative(enableTools[2] | TFProps.showDisabledEquipment);
-		GameRegistry.registerItem(itemSickle, "tool.sickle" + NAME);
+		itemSickle.setRegistryName("tool.sickle" + NAME);
+		GameRegistry.register(itemSickle);
 
 		if (itemBow instanceof ItemBowAdv) {
 			ItemBowAdv itemBow = (ItemBowAdv) this.itemBow;
-			itemBow.setRepairIngot(ingot).setArrowSpeed(arrowSpeed).setArrowDamage(arrowDamage).setUnlocalizedName(TOOL + "Bow");
-//			itemBow.setTextureName(TOOL_PATH + "Bow").setCreativeTab(ThermalFoundation.tabTools);
+			itemBow.setRepairIngot(ingot).setArrowSpeed(arrowSpeed).setArrowDamage(arrowDamage).setUnlocalizedName(TOOL + "Bow").setCreativeTab(ThermalFoundation.tabTools);
 			itemBow.setShowInCreative(enableTools[3] | TFProps.showDisabledEquipment);
-			GameRegistry.registerItem(itemBow, "tool.bow" + NAME);
+			itemBow.setRegistryName("tool.bow" + NAME);
+			GameRegistry.register(itemBow);
 		}
 	}
 
@@ -217,6 +222,39 @@ public enum VanillaEquipment {
 		for (VanillaEquipment e : values()) {
 			e.postInitMaterial();
 		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	public static void registerModels() {
+		for (VanillaEquipment e : values()) {
+			e.registerMaterialModels();
+		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	protected void registerMaterialModels() {
+		if (itemShears instanceof ItemShearsAdv) {
+			registerModel(itemShears, 0, "shears");
+		}
+
+		if (itemFishingRod instanceof ItemFishingRodAdv) {
+			ModelLoader.setCustomModelResourceLocation(itemFishingRod, 0, new ModelResourceLocation(itemFishingRod.getRegistryName(), "inventory"));
+			TFBakedModelProvider.RODS.put(itemFishingRod, name().toLowerCase() + "_fishing_rod");
+			ModelRegistryHelper.register(new ModelResourceLocation(itemFishingRod.getRegistryName(), "inventory"), new SimpleOverrideBakedModel(new FishingRodModelOverrideList()));
+		}
+
+		if (itemBow instanceof ItemBowAdv) {
+			ModelLoader.setCustomModelResourceLocation(itemBow, 0, new ModelResourceLocation(itemBow.getRegistryName(), "inventory"));
+			TFBakedModelProvider.BOWS.put(itemBow, name().toLowerCase() + "_bow");
+			ModelRegistryHelper.register(new ModelResourceLocation(itemBow.getRegistryName(), "inventory"), new SimpleOverrideBakedModel(new BowModelOverrideList()));
+		}
+
+		registerModel(itemSickle, 0, "sickle");
+	}
+
+	@SideOnly(Side.CLIENT)
+	private void registerModel(Item item, int meta, String tool) {
+		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation("thermalfoundation:tool", "type=" + name().toLowerCase() + tool));
 	}
 
 }
