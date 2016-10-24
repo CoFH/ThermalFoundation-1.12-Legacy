@@ -165,8 +165,8 @@ public class ClientProxy extends CommonProxy {
 
     public static void addIconToRegistry(Fluid fluid) {
         String name = fluid.getName();
-        IconRegistry.addIcon("Fluid" + StringHelper.titleCase(name), TextureUtils.getTexture("thermalfoundation:fluid/fluid_" + name + "_still"));
-        IconRegistry.addIcon("Fluid" + StringHelper.titleCase(name) + "1", TextureUtils.getTexture("thermalfoundation:fluid/fluid_" + name + "_flow"));
+        IconRegistry.addIcon("Fluid" + StringHelper.titleCase(name), TextureUtils.getTexture("thermalfoundation:block/fluid/fluid_" + name + "_still"));
+        IconRegistry.addIcon("Fluid" + StringHelper.titleCase(name) + "1", TextureUtils.getTexture("thermalfoundation:block/fluid/fluid_" + name + "_flow"));
         //CCIconRegister.registerTexture("thermalfoundation:fluid/fluid_" + name + "_still");
         //CCIconRegister.registerTexture("thermalfoundation:fluid/fluid_" + name + "_flow");
     }
