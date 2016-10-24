@@ -83,7 +83,8 @@
       "nuggettin": {"textures":{"layer0":"thermalfoundation:items/material/nugget_tin"}},
       "rodbasalz": {"textures":{"layer0":"thermalfoundation:items/material/rod_basalz"}},
       "rodblitz": {"textures":{"layer0":"thermalfoundation:items/material/rod_blitz"}},
-      "rodblizz": {"textures":{"layer0":"thermalfoundation:items/material/rod_blizz"}}
+      "rodblizz": {"textures":{"layer0":"thermalfoundation:items/material/rod_blizz"}},
+      "lexicon": {"textures":{"layer0":"thermalfoundation:items/tome/lexicon"}}
     }
   }
 }

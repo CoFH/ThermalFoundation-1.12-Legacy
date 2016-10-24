@@ -4,8 +4,10 @@ import codechicken.lib.item.ItemMultiType;
 import codechicken.lib.util.FuelUtils;
 import codechicken.lib.util.ItemUtils;
 import cofh.core.item.ItemBucket;
+import cofh.core.util.fluid.BucketHandler;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.block.TFBlocks;
 import cofh.thermalfoundation.core.TFProps;
 import cofh.thermalfoundation.fluid.TFFluids;
 import net.minecraft.init.Items;
@@ -251,15 +253,15 @@ public class TFItems {
         ingotGold = new ItemStack(Items.GOLD_INGOT);
         nuggetGold = new ItemStack(Items.GOLD_NUGGET);
 
-        //BucketHandler.registerBucket(TFBlocks.blockFluidRedstone, 0, bucketRedstone);
-        //BucketHandler.registerBucket(TFBlocks.blockFluidGlowstone, 0, bucketGlowstone);
-        //BucketHandler.registerBucket(TFBlocks.blockFluidEnder, 0, bucketEnder);
-        //BucketHandler.registerBucket(TFBlocks.blockFluidPyrotheum, 0, bucketPyrotheum);
-        //BucketHandler.registerBucket(TFBlocks.blockFluidCryotheum, 0, bucketCryotheum);
-        //BucketHandler.registerBucket(TFBlocks.blockFluidAerotheum, 0, bucketAerotheum);
-        //BucketHandler.registerBucket(TFBlocks.blockFluidPetrotheum, 0, bucketPetrotheum);
-        //BucketHandler.registerBucket(TFBlocks.blockFluidMana, 0, bucketMana);
-        //BucketHandler.registerBucket(TFBlocks.blockFluidCoal, 0, bucketCoal);
+        BucketHandler.registerBucket(TFBlocks.blockFluidRedstone, 0, bucketRedstone);
+        BucketHandler.registerBucket(TFBlocks.blockFluidGlowstone, 0, bucketGlowstone);
+        BucketHandler.registerBucket(TFBlocks.blockFluidEnder, 0, bucketEnder);
+        BucketHandler.registerBucket(TFBlocks.blockFluidPyrotheum, 0, bucketPyrotheum);
+        BucketHandler.registerBucket(TFBlocks.blockFluidCryotheum, 0, bucketCryotheum);
+        BucketHandler.registerBucket(TFBlocks.blockFluidAerotheum, 0, bucketAerotheum);
+        BucketHandler.registerBucket(TFBlocks.blockFluidPetrotheum, 0, bucketPetrotheum);
+        BucketHandler.registerBucket(TFBlocks.blockFluidMana, 0, bucketMana);
+        BucketHandler.registerBucket(TFBlocks.blockFluidCoal, 0, bucketCoal);
 
         FluidContainerRegistry.registerFluidContainer(TFFluids.fluidRedstone, bucketRedstone, FluidContainerRegistry.EMPTY_BUCKET);
         FluidContainerRegistry.registerFluidContainer(TFFluids.fluidGlowstone, bucketGlowstone, FluidContainerRegistry.EMPTY_BUCKET);

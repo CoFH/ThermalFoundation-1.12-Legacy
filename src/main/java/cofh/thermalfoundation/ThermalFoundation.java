@@ -17,6 +17,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.CustomProperty;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -37,8 +38,8 @@ public class ThermalFoundation {
 
     public static final String modId = "ThermalFoundation";
     public static final String modName = "Thermal Foundation";
-    public static final String version = "1.7.10R1.2.5B1";
-    public static final String version_max = "1.7.10R1.3.0";
+    public static final String version = "${mod_version}";
+    public static final String version_max = "${mod_version_max}";
     public static final String dependencies = "";
     public static final String modGuiFactory = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
 
@@ -71,7 +72,6 @@ public class ThermalFoundation {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-
         configDir = event.getModConfigurationDirectory();
         //UpdateManager.registerUpdater(new UpdateManager(this, releaseURL, CoFHProps.DOWNLOAD_URL));
         config = new Configuration(new File(event.getModConfigurationDirectory(), "/cofh/thermalfoundation/common.cfg"), true);
