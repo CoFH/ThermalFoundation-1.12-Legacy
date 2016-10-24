@@ -94,14 +94,13 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-
 		if (effect) {
 			checkForInteraction(world, pos);
 		}
 		if (enableSourceFall && state.getBlock().getMetaFromState(state) == 0) {
 		    BlockPos offsetPos = pos.add(0, densityDir, 0);
 			IBlockState offsetState = world.getBlockState(offsetPos);
-			int bMeta = offsetState.getBlock().getMetaFromState(state);
+			int bMeta = offsetState.getBlock().getMetaFromState(offsetState);
 
 			if (offsetState.getBlock() == this && bMeta != 0) {
 				world.setBlockState(offsetPos, getDefaultState(), 3);
