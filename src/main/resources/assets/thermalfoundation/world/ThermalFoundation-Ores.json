@@ -1,7 +1,7 @@
 {
     "copper": {
         "template": "uniform",
-        "block": "ThermalFoundation:Ore",
+        "block": "thermalfoundation:ore",
         "clusterSize": 8,
         "numClusters": 10,
         "minHeight": 40,
@@ -19,7 +19,7 @@
     },
     "tin": {
         "template": "uniform",
-        "block": {"name": "ThermalFoundation:Ore", "metadata": 1},
+        "block": {"name": "thermalfoundation:ore", "metadata": 1},
         "clusterSize": 8,
         "numClusters": 8,
         "minHeight": 20,
@@ -38,8 +38,8 @@
     "silver": {
         "template": "uniform",
         "block": [
-            {"name": "ThermalFoundation:Ore", "metadata": 2, "weight":80},
-            {"name": "ThermalFoundation:Ore", "metadata": 3, "weight":20}
+            {"name": "thermalfoundation:ore", "metadata": 2, "weight":80},
+            {"name": "thermalfoundation:ore", "metadata": 3, "weight":20}
         ],
         "clusterSize": 8,
         "numClusters": 6,
@@ -59,8 +59,8 @@
     "lead": {
         "template": "uniform",
         "block": [
-            {"name": "ThermalFoundation:Ore", "metadata": 3, "weight": 90},
-            {"name": "ThermalFoundation:Ore", "metadata": 2, "weight": 10}
+            {"name": "thermalfoundation:ore", "metadata": 3, "weight": 90},
+            {"name": "thermalfoundation:ore", "metadata": 2, "weight": 10}
         ],
         "clusterSize": 8,
         "numClusters": 8,
@@ -79,7 +79,7 @@
     },
     "nickel": {
         "template": "uniform",
-        "block": {"name": "ThermalFoundation:Ore", "metadata": 4},
+        "block": {"name": "thermalfoundation:ore", "metadata": 4},
         "clusterSize": 4,
         "numClusters": 3,
         "minHeight": 5,
@@ -99,8 +99,8 @@
         "template": "uniform",
         "generator": "sparse-cluster",
         "block": [
-            {"name": "ThermalFoundation:Ore", "metadata": 5, "weight": 80},
-            {"name": "ThermalFoundation:Ore", "metadata": 4, "weight": 20}
+            {"name": "thermalfoundation:ore", "metadata": 5, "weight": 80},
+            {"name": "thermalfoundation:ore", "metadata": 4, "weight": 20}
         ],
         "clusterSize": 3,
         "numClusters": 1,
@@ -119,7 +119,7 @@
     },
     "copperHigh": {
         "template": "uniform",
-        "block": "ThermalFoundation:Ore",
+        "block": "thermalfoundation:ore",
         "clusterSize": 8,
         "numClusters": 8,
         "minHeight": 48,
