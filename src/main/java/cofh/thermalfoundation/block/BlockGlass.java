@@ -35,6 +35,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nullable;
 
@@ -105,7 +106,8 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
 	}
 
-/*
+//TODO readd weak power for signalum block?
+	/*
 	@Override
 	public int getWeakPower(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
 
@@ -206,7 +208,10 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 		RegistryHelper.registerBlockAndItem(this, new ResourceLocation(ThermalFoundation.modId, "glass"), ItemBlockGlass::new);
 
 		glassLead = new ItemStack(this, 1, Type.LEAD.getMetadata());
+		OreDictionary.registerOre("blockGlassHardened", glassLead);
 		glassLumium = new ItemStack(this, 1, Type.LUMIUM.getMetadata());
+		OreDictionary.registerOre("blockGlassHardenedIlluminated", glassLumium);
+
 /*
 		glassCopper = new ItemStack(this, 1, Type.COPPER.getMetadata());
 		glassTin = new ItemStack(this, 1, Type.TIN.getMetadata());

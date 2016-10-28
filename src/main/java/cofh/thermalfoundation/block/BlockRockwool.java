@@ -26,6 +26,7 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class BlockRockwool extends BlockCoFHBase implements IInitializer, IModelRegister {
 
@@ -113,6 +114,7 @@ public class BlockRockwool extends BlockCoFHBase implements IInitializer, IModel
 		rockwoolOrange = new ItemStack(this, 1, Type.ORANGE.getMetadata());
 		rockwoolWhite = new ItemStack(this, 1, Type.WHITE.getMetadata());
 
+		OreDictionary.registerOre("blockClothRock", new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE));
 		return true;
 	}
 
