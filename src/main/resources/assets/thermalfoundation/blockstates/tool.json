@@ -19,6 +19,12 @@
 		}],
 		"redprint": [{
 			"textures": { "layer0": "thermalfoundation:items/tool/redprint" }
+		}],
+		"lock": [{
+			"textures": { "layer0": "thermalfoundation:items/tool/lock" }
+		}],
+		"lexicon": [{
+			"textures": { "layer0": "thermalfoundation:items/tome/lexicon" }
 		}]
 	}
 }

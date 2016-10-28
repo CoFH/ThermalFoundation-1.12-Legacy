@@ -3,13 +3,18 @@ package cofh.thermalfoundation.fluid;
 import cofh.api.core.IInitializer;
 import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.core.fluid.FluidCoFHBase;
+import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.core.ProxyClient;
 
 import java.util.ArrayList;
 
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.UniversalBucket;
 
 public class TFFluids {
 
@@ -105,7 +110,7 @@ public class TFFluids {
 
 		initList.add(block);
 
-		ProxyClient.modelList.add(block);
+		ThermalFoundation.proxy.addModelRegister(block);
 	}
 
 	public static void createBuckets() {
@@ -120,6 +125,17 @@ public class TFFluids {
 		FluidRegistry.addBucketForFluid(fluidAerotheum);
 		FluidRegistry.addBucketForFluid(fluidPetrotheum);
 		FluidRegistry.addBucketForFluid(fluidMana);
+
+		bucketSteam = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, TFFluids.fluidSteam);
+		bucketCoal = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, TFFluids.fluidCoal);
+		bucketRedstone = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, TFFluids.fluidRedstone);
+		bucketGlowstone = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, TFFluids.fluidGlowstone);
+		bucketEnder = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, TFFluids.fluidEnder);
+		bucketPyrotheum = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, TFFluids.fluidPyrotheum);
+		bucketCryotheum = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, TFFluids.fluidCryotheum);
+		bucketAerotheum = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, TFFluids.fluidAerotheum);
+		bucketPetrotheum = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, TFFluids.fluidPetrotheum);
+		bucketMana = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, TFFluids.fluidMana);
 	}
 
 	static ArrayList<IInitializer> initList = new ArrayList<IInitializer>();
@@ -146,5 +162,16 @@ public class TFFluids {
 	public static BlockFluidCoFHBase blockFluidAerotheum;
 	public static BlockFluidCoFHBase blockFluidPetrotheum;
 	public static BlockFluidCoFHBase blockFluidMana;
+
+	public static ItemStack bucketSteam;
+	public static ItemStack bucketCoal;
+	public static ItemStack bucketRedstone;
+	public static ItemStack bucketGlowstone;
+	public static ItemStack bucketEnder;
+	public static ItemStack bucketPyrotheum;
+	public static ItemStack bucketCryotheum;
+	public static ItemStack bucketAerotheum;
+	public static ItemStack bucketPetrotheum;
+	public static ItemStack bucketMana;
 
 }

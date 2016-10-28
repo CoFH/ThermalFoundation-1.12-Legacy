@@ -1,6 +1,6 @@
 [
     {
-        "modid": "ThermalFoundation",
+        "modid": "thermalfoundation",
         "name": "Thermal Foundation",
         "description": "The foundation of a Thermally enhanced world!",
         "version": "${version}",

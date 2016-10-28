@@ -5,6 +5,7 @@ import static cofh.lib.util.helpers.ItemHelper.*;
 import cofh.api.block.IBlockConfigGui;
 import cofh.api.block.IBlockInfo;
 import cofh.api.core.IInitializer;
+import cofh.api.core.IModelRegister;
 import cofh.api.tileentity.ITileInfo;
 import cofh.core.chat.ChatHelper;
 import cofh.core.item.ItemCoFHBase;
@@ -20,27 +21,31 @@ import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.model.ModelBakery;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IChatComponent;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemMeter extends ItemCoFHBase implements IInitializer {
+public class ItemMeter extends ItemCoFHBase implements IInitializer, IModelRegister {
 
 	public ItemMeter() {
 
 		super("thermalfoundation");
 
-		setUnlocalizedName("tool", "meter");
+		setUnlocalizedName("tool");
 		setCreativeTab(ThermalFoundation.tabCommon);
 
 		setHasSubtypes(true);
@@ -71,19 +76,19 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 	}
 
 	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-		return false;
+		return EnumActionResult.PASS;
 	}
 
 	@Override
-	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 
-		boolean ret = false;
+		EnumActionResult ret = EnumActionResult.PASS;
 
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
 		case MULTIMETER:
-			ret = doMultimeterUseFirst(stack, player, world, pos, side);
+			ret = doMultimeterUseFirst(stack, player, hand, world, pos, side);
 			break;
 		default:
 			break;
@@ -91,25 +96,25 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 		return ret;
 	}
 
-	private boolean doMultimeterUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side) {
+	private EnumActionResult doMultimeterUseFirst(ItemStack stack, EntityPlayer player, EnumHand hand, World world, BlockPos pos, EnumFacing side) {
 
-		player.swingItem();
+		player.swingArm(hand);
 
 		IBlockState state = world.getBlockState(pos);
 		Block block = state.getBlock();
 
-		ArrayList<IChatComponent> info = new ArrayList<IChatComponent>();
+		ArrayList<ITextComponent> info = new ArrayList<ITextComponent>();
 
 		if (ServerHelper.isClientWorld(world)) {
 			if (block instanceof IBlockConfigGui || block instanceof IBlockInfo) {
-				return true;
+				return EnumActionResult.SUCCESS;
 			}
 			TileEntity tile = world.getTileEntity(pos);
-			return tile instanceof ITileInfo;
+			return tile instanceof ITileInfo ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
 		}
 		if (player.isSneaking() && block instanceof IBlockConfigGui) {
 			if (((IBlockConfigGui) block).openConfigGui(world, pos, side, player)) {
-				return true;
+				return EnumActionResult.SUCCESS;
 			}
 		}
 		if (block instanceof IBlockInfo) {
@@ -117,7 +122,7 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 
 			ChatHelper.sendIndexedChatMessagesToPlayer(player, info);
 			info.clear();
-			return true;
+			return EnumActionResult.SUCCESS;
 		} else {
 			TileEntity tile = world.getTileEntity(pos);
 			if (tile instanceof ITileInfo) {
@@ -126,11 +131,11 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 					ChatHelper.sendIndexedChatMessagesToPlayer(player, info);
 				}
 				info.clear();
-				return true;
+				return EnumActionResult.SUCCESS;
 			}
 		}
 		info.clear();
-		return false;
+		return EnumActionResult.PASS;
 
 	}
 
@@ -150,10 +155,6 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 
-		StateMapper mapper = new StateMapper(modName, "tool", name);
-		ModelBakery.registerItemVariants(this);
-		ModelLoader.setCustomMeshDefinition(this, mapper);
-
 		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
 			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
 		}
@@ -164,6 +165,8 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 	public boolean preInit() {
 
 		multimeter = addItem(Type.MULTIMETER.ordinal(), "multimeter");
+
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "meter")));
 
 		return true;
 	}

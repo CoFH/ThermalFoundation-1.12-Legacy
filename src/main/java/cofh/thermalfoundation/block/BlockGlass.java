@@ -5,6 +5,7 @@ import cofh.api.core.IInitializer;
 import cofh.api.core.IModelRegister;
 import cofh.core.block.BlockCoFHBase;
 import cofh.core.util.CoreUtils;
+import cofh.core.util.RegistryHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.WrenchHelper;
 import cofh.thermalfoundation.ThermalFoundation;
@@ -13,12 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLiving.SpawnPlacementType;
 import net.minecraft.entity.item.EntityItem;
@@ -26,16 +28,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumWorldBlockLayer;
-import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
+
+import javax.annotation.Nullable;
 
 public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitializer, IModelRegister {
 
@@ -43,20 +45,20 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 
 	public BlockGlass() {
 
-		super(Material.glass, "thermalfoundation");
+		super(Material.GLASS, "thermalfoundation");
 
 		setUnlocalizedName("glass");
 		setCreativeTab(ThermalFoundation.tabCommon);
 
 		setHardness(3.0F);
 		setResistance(200.0F);
-		setStepSound(soundTypeGlass);
+		setSoundType(SoundType.GLASS);
 	}
 
 	@Override
-	protected BlockState createBlockState() {
+	protected BlockStateContainer createBlockState() {
 
-		return new BlockState(this, new IProperty[] { VARIANT });
+		return new BlockStateContainer(this, new IProperty[] { VARIANT });
 	}
 
 	@Override
@@ -76,16 +78,9 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public EnumWorldBlockLayer getBlockLayer() {
+	public BlockRenderLayer getBlockLayer() {
 
-		return EnumWorldBlockLayer.TRANSLUCENT;
-	}
-
-	@Override
-	public int getDamageValue(World world, BlockPos pos) {
-
-		IBlockState state = world.getBlockState(pos);
-		return state.getBlock() != this ? 0 : state.getValue(VARIANT).getMetadata();
+		return BlockRenderLayer.TRANSLUCENT;
 	}
 
 	@Override
@@ -107,17 +102,18 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 	}
 
 	@Override
-	public int getLightValue(IBlockAccess world, BlockPos pos) {
-
-		IBlockState state = world.getBlockState(pos);
+	public int getLightValue(IBlockState state) {
 		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
 	}
 
+//TODO readd weak power for signalum block?
+	/*
 	@Override
-	public int getWeakPower(IBlockAccess world, BlockPos pos, IBlockState state, EnumFacing side) {
+	public int getWeakPower(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
 
 		return getMetaFromState(state) == Type.SIGNALUM.getMetadata() ? 15 : 0;
 	}
+*/
 
 	@Override
 	public int quantityDropped(Random rand) {
@@ -126,33 +122,34 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 	}
 
 	@Override
-	public boolean canCreatureSpawn(IBlockAccess world, BlockPos pos, SpawnPlacementType type) {
+	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, SpawnPlacementType type) {
 
 		return false;
 	}
 
 	@Override
-	public boolean canProvidePower() {
+	public boolean canProvidePower(IBlockState state) {
 
 		return true;
 	}
 
 	@Override
-	public boolean isFullCube() {
+	public boolean isFullCube(IBlockState state) {
 
 		return false;
 	}
 
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(IBlockState state) {
 
 		return false;
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 
 		if (player.isSneaking()) {
+			//TODO offhand support
 			if (WrenchHelper.isHoldingUsableWrench(player, pos)) {
 				if (ServerHelper.isServerWorld(world)) {
 					dismantleBlock(world, pos, state, player, false);
@@ -208,12 +205,17 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, ItemBlockGlass.class, "glass");
+		RegistryHelper.registerBlockAndItem(this, new ResourceLocation(ThermalFoundation.modId, "glass"), ItemBlockGlass::new);
 
+		glassLead = new ItemStack(this, 1, Type.LEAD.getMetadata());
+		OreDictionary.registerOre("blockGlassHardened", glassLead);
+		glassLumium = new ItemStack(this, 1, Type.LUMIUM.getMetadata());
+		OreDictionary.registerOre("blockGlassHardenedIlluminated", glassLumium);
+
+/*
 		glassCopper = new ItemStack(this, 1, Type.COPPER.getMetadata());
 		glassTin = new ItemStack(this, 1, Type.TIN.getMetadata());
 		glassSilver = new ItemStack(this, 1, Type.SILVER.getMetadata());
-		glassLead = new ItemStack(this, 1, Type.LEAD.getMetadata());
 		glassNickel = new ItemStack(this, 1, Type.NICKEL.getMetadata());
 		glassPlatinum = new ItemStack(this, 1, Type.PLATINUM.getMetadata());
 		glassMithril = new ItemStack(this, 1, Type.MITHRIL.getMetadata());
@@ -221,8 +223,8 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 		glassInvar = new ItemStack(this, 1, Type.INVAR.getMetadata());
 		glassBronze = new ItemStack(this, 1, Type.BRONZE.getMetadata());
 		glassSignalum = new ItemStack(this, 1, Type.SIGNALUM.getMetadata());
-		glassLumium = new ItemStack(this, 1, Type.LUMIUM.getMetadata());
 		glassEnderium = new ItemStack(this, 1, Type.ENDERIUM.getMetadata());
+*/
 
 		return true;
 	}
@@ -243,19 +245,22 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 	public static enum Type implements IStringSerializable {
 
 		// @formatter:off
-		COPPER(0, "copper", glassCopper),
-		TIN(1, "tin", glassTin),
-		SILVER(2, "silver", glassSilver, 4),
-		LEAD(3, "lead", glassLead),
-		NICKEL(4, "nickel", glassNickel),
-		PLATINUM(5, "platinum", glassPlatinum, 4, EnumRarity.UNCOMMON),
-		MITHRIL(6, "mithril", glassMithril, 8, EnumRarity.RARE),
-		ELECTRUM(7, "electrum", glassElectrum),
-		INVAR(8, "invar", glassInvar),
-		BRONZE(9, "bronze", glassBronze),
-		SIGNALUM(10, "signalum", glassSignalum, 7, EnumRarity.UNCOMMON),
-		LUMIUM(11, "lumium", glassLumium, 15, EnumRarity.UNCOMMON),
+		LEAD(0, "lead", glassLead),
+		LUMIUM(1, "lumium", glassLumium, 15, EnumRarity.UNCOMMON);
+		//TODO readd glasses when there are textures and other stuff ready
+/*
+		COPPER(2, "copper", glassCopper),
+		TIN(3, "tin", glassTin),
+		SILVER(4, "silver", glassSilver, 4),
+		NICKEL(5, "nickel", glassNickel),
+		PLATINUM(6, "platinum", glassPlatinum, 4, EnumRarity.UNCOMMON),
+		MITHRIL(7, "mithril", glassMithril, 8, EnumRarity.RARE),
+		ELECTRUM(8, "electrum", glassElectrum),
+		INVAR(9, "invar", glassInvar),
+		BRONZE(10, "bronze", glassBronze),
+		SIGNALUM(11, "signalum", glassSignalum, 7, EnumRarity.UNCOMMON),
 		ENDERIUM(12, "enderium", glassEnderium, 4, EnumRarity.RARE);
+*/
 		// @formatter: on
 
 		private static final BlockGlass.Type[] METADATA_LOOKUP = new BlockGlass.Type[values().length];
@@ -328,10 +333,12 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 	}
 
 	/* REFERENCES */
+	public static ItemStack glassLead;
+	public static ItemStack glassLumium;
+/*
 	public static ItemStack glassCopper;
 	public static ItemStack glassTin;
 	public static ItemStack glassSilver;
-	public static ItemStack glassLead;
 	public static ItemStack glassNickel;
 	public static ItemStack glassPlatinum;
 	public static ItemStack glassMithril;
@@ -339,7 +346,7 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 	public static ItemStack glassInvar;
 	public static ItemStack glassBronze;
 	public static ItemStack glassSignalum;
-	public static ItemStack glassLumium;
 	public static ItemStack glassEnderium;
+*/
 
 }

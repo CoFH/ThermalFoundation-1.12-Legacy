@@ -1,0 +1,76 @@
+{
+    "pools": [
+        {
+            "name": "obsidian_dust",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "thermalfoundation:material",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 4
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 2
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ]
+                }
+            ],
+            "conditions": [
+                {
+                    "condition": "killed_by_player"
+                }
+            ]
+        },
+        {
+            "name": "basalz_rod",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "thermalfoundation:material",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_data",
+                            "data": 1028
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 2
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ]
+                }
+            ],
+            "conditions": [
+                {
+                    "condition": "killed_by_player"
+                }
+            ]
+        }
+    ]
+}

@@ -7,19 +7,21 @@ import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -60,28 +62,29 @@ public class EntityBlizzBolt extends EntityThrowable {
 	}
 
 	@Override
-	protected void onImpact(MovingObjectPosition mop) {
+	protected void onImpact(RayTraceResult rayTrace) {
 
 		if (ServerHelper.isServerWorld(worldObj)) {
-			if (mop.entityHit != null) {
-				if (mop.entityHit instanceof EntityBlizz) {
-					mop.entityHit.attackEntityFrom(DamageSourceBlizz.causeDamage(this, getThrower()), 0);
+			if (rayTrace.entityHit != null) {
+				if (rayTrace.entityHit instanceof EntityBlizz) {
+					rayTrace.entityHit.attackEntityFrom(DamageSourceBlizz.causeDamage(this, getThrower()), 0);
 				} else {
-					if (mop.entityHit.attackEntityFrom(DamageSourceBlizz.causeDamage(this, getThrower()), mop.entityHit.isImmuneToFire() ? 8F : 5F)
-							&& mop.entityHit instanceof EntityLivingBase) {
-						EntityLivingBase living = (EntityLivingBase) mop.entityHit;
+					if (rayTrace.entityHit.attackEntityFrom(DamageSourceBlizz.causeDamage(this, getThrower()), rayTrace.entityHit.isImmuneToFire() ? 8F : 5F)
+							&& rayTrace.entityHit instanceof EntityLivingBase) {
+						EntityLivingBase living = (EntityLivingBase) rayTrace.entityHit;
 						living.addPotionEffect(new PotionEffect(EntityBlizzBolt.blizzEffect));
 					}
 				}
 			} else {
-				BlockPos pos = mop.getBlockPos();
-				pos.offset(mop.sideHit.getOpposite());
+				BlockPos pos = rayTrace.getBlockPos();
+				pos.offset(rayTrace.sideHit.getOpposite());
 
 				if (worldObj.isAirBlock(pos)) {
-					Block block = worldObj.getBlockState(pos.add(0, -1, 0)).getBlock();
+					IBlockState state = worldObj.getBlockState(pos.add(0, -1, 0));
+					Block block = state.getBlock();
 
-					if (block != null && block.isSideSolid(worldObj, pos.add(0, -1, 0), EnumFacing.UP)) {
-						worldObj.setBlockState(pos, Blocks.snow_layer.getDefaultState(), 2);
+					if (block != null && block.isSideSolid(state,worldObj, pos.add(0, -1, 0), EnumFacing.UP)) {
+						worldObj.setBlockState(pos, Blocks.SNOW_LAYER.getDefaultState(), 2);
 					}
 				}
 			}
@@ -121,15 +124,15 @@ public class EntityBlizzBolt extends EntityThrowable {
 
 	protected static class PotionEffectBlizz extends PotionEffect {
 
-		public PotionEffectBlizz(int id, int duration, int amplifier) {
+		public PotionEffectBlizz(Potion potion, int duration, int amplifier) {
 
-			super(id, duration, amplifier, true, false);
+			super(potion, duration, amplifier, true, false);
 			getCurativeItems().clear();
 		}
 
 		public PotionEffectBlizz(int duration, int amplifier) {
 
-			this(Potion.moveSlowdown.id, duration, amplifier);
+			this(MobEffects.SLOWNESS, duration, amplifier);
 		}
 
 	}

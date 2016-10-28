@@ -8,7 +8,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -18,13 +19,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class BlockFluidRedstone extends BlockFluidCoFHBase {
 
 	public static final int LEVELS = 8;
-	public static final Material materialFluidRedstone = new MaterialLiquid(MapColor.redColor);
+	public static final Material materialFluidRedstone = new MaterialLiquid(MapColor.RED);
 
 	private static boolean effect = true;
 
 	public BlockFluidRedstone(Fluid fluid) {
 
-		super(fluid, Material.water, "thermalfoundation", "redstone");
+		super(fluid, Material.WATER, "thermalfoundation", "redstone");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(5);
 
@@ -39,13 +40,13 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 	}
 
 	@Override
-	public int getWeakPower(IBlockAccess world, BlockPos pos, IBlockState state, EnumFacing side) {
+	public int getWeakPower(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
 
 		return effect ? getMetaFromState(state) * 2 + 1 : 0;
 	}
 
 	@Override
-	public boolean canProvidePower() {
+	public boolean canProvidePower(IBlockState state) {
 
 		return effect;
 	}
@@ -54,7 +55,7 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, "FluidRedstone");
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "FluidRedstone")));
 
 		String category = "Fluid.Redstone";
 		String comment = "Enable this for Fluid Redstone to emit a signal proportional to its fluid level.";

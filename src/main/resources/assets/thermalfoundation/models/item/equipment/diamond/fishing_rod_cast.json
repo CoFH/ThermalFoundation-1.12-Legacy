@@ -1,0 +1,6 @@
+{
+    "parent": "item/fishing_rod",
+    "textures": {
+        "layer0": "thermalfoundation:items/equipment/diamond/fishing_rod_cast"
+    }
+}

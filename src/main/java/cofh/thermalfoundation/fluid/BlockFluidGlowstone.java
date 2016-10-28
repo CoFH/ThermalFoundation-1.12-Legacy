@@ -13,9 +13,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -25,7 +27,7 @@ import org.apache.logging.log4j.Level;
 public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 
 	public static final int LEVELS = 6;
-	public static final Material materialFluidGlowstone = new MaterialLiquid(MapColor.yellowColor);
+	public static final Material materialFluidGlowstone = new MaterialLiquid(MapColor.YELLOW);
 
 	private static boolean effect = true;
 	private static boolean enableSourceCondense = true;
@@ -77,8 +79,8 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 			return;
 		}
 		if (world.getTotalWorldTime() % 8 == 0 && entity instanceof EntityLivingBase && !((EntityLivingBase) entity).isEntityUndead()) {
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 6 * 20, 0));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.jump.id, 6 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SPEED, 6 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 6 * 20, 0));
 		}
 	}
 
@@ -88,7 +90,7 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 		if (getMetaFromState(state) == 0) {
 			if (rand.nextInt(3) == 0) {
 				if (shouldSourceBlockCondense(world, pos)) {
-					world.setBlockState(pos, Blocks.glowstone.getDefaultState(), 2);
+					world.setBlockState(pos, Blocks.GLOWSTONE.getDefaultState(), 2);
 					return;
 				}
 				if (shouldSourceBlockFloat(world, pos)) {
@@ -140,7 +142,7 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, "FluidGlowstone");
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "FluidGlowstone")));
 
 		String category = "Fluid.Glowstone";
 		String comment = "Enable this for Fluid Glowstone to do...something.";

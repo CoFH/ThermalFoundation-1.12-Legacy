@@ -3,18 +3,29 @@ package cofh.thermalfoundation.item;
 import static cofh.lib.util.helpers.ItemHelper.*;
 
 import cofh.api.core.IInitializer;
+import cofh.api.core.IModelRegister;
 import cofh.core.item.ItemCoFHBase;
+import cofh.core.util.StateMapper;
 import cofh.core.util.energy.FurnaceFuelHandler;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.core.TFProps;
 
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemMaterial extends ItemCoFHBase implements IInitializer {
+import java.util.Map;
+
+public class ItemMaterial extends ItemCoFHBase implements IInitializer, IModelRegister {
 
 	public ItemMaterial() {
 
@@ -24,9 +35,21 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		setCreativeTab(ThermalFoundation.tabCommon);
 	}
 
+	/* IModelRegister */
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerModels() {
+
+		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
+			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "material", entry.getValue().name));
+		}
+	}
+
 	/* IInitializer */
 	@Override
 	public boolean preInit() {
+
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "material")));
 
 		/* Vanilla Derived */
 		dustIron = addOreDictItem(0, "dustIron");
@@ -110,6 +133,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		gearEnderium = addOreDictItem(140, "gearEnderium", EnumRarity.RARE);
 
 		/* Parts */
+		pneumaticServo = addItem(256, "pneumaticServo");
 		powerCoilGold = addItem(257, "powerCoilGold");
 		powerCoilSilver = addItem(258, "powerCoilSilver");
 		powerCoilElectrum = addItem(259, "powerCoilElectrum");
@@ -137,9 +161,9 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 	@Override
 	public boolean initialize() {
 
-		ingotIron = new ItemStack(Items.iron_ingot);
-		ingotGold = new ItemStack(Items.gold_ingot);
-		nuggetGold = new ItemStack(Items.gold_nugget);
+		ingotIron = new ItemStack(Items.IRON_INGOT);
+		ingotGold = new ItemStack(Items.GOLD_INGOT);
+		nuggetGold = new ItemStack(Items.GOLD_NUGGET);
 
 		return true;
 	}
@@ -220,24 +244,48 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		addGearRecipe(gearEnderium, "ingotEnderium");
 
 		/* Parts */
+		String category = "General";
+		boolean servosAllowSilver = ThermalFoundation.CONFIG.get(category, "PneumaticServo.AllowSilver", false);
+		boolean servosAllowInvar = ThermalFoundation.CONFIG.get(category, "PneumaticServo.AllowInvar", false);
+		boolean servosAllowBronze = ThermalFoundation.CONFIG.get(category, "PneumaticServo.AllowBronze", false);
+		boolean servosAllowSteel = ThermalFoundation.CONFIG.get(category, "PneumaticServo.AllowSteel", false);
+
+		GameRegistry.addRecipe(ShapedRecipe(pneumaticServo, new Object[] { " I ", "GRG", " I ", 'R', "dustRedstone", 'G', "blockGlass", 'I', "ingotIron" }));
+
+		if (servosAllowSilver) {
+			GameRegistry.addRecipe(ShapedRecipe(pneumaticServo,
+					new Object[] { " I ", "GRG", " I ", 'R', "dustRedstone", 'G', "blockGlass", 'I', "ingotSilver" }));
+		}
+		if (servosAllowInvar) {
+			GameRegistry
+					.addRecipe(ShapedRecipe(pneumaticServo, new Object[] { " I ", "GRG", " I ", 'R', "dustRedstone", 'G', "blockGlass", 'I', "ingotInvar" }));
+		}
+		if (servosAllowBronze) {
+			GameRegistry.addRecipe(ShapedRecipe(pneumaticServo,
+					new Object[] { " I ", "GRG", " I ", 'R', "dustRedstone", 'G', "blockGlass", 'I', "ingotBronze" }));
+		}
+		if (servosAllowSteel) {
+			GameRegistry
+					.addRecipe(ShapedRecipe(pneumaticServo, new Object[] { " I ", "GRG", " I ", 'R', "dustRedstone", 'G', "blockGlass", 'I', "ingotSteel" }));
+		}
 		addRecipe(ShapedRecipe(powerCoilGold, new Object[] { "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotGold" }));
 		addRecipe(ShapedRecipe(powerCoilSilver, new Object[] { "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotSilver" }));
 		addRecipe(ShapedRecipe(powerCoilElectrum, new Object[] { "R  ", " G ", "  R", 'R', "dustRedstone", 'G', "ingotElectrum" }));
 
 		/* Mob Drops */
-		addRecipe(ShapelessRecipe(cloneStack(dustPyrotheum, 2), new Object[] { "dustCoal", "dustSulfur", "dustRedstone", Items.blaze_powder }));
-		addRecipe(ShapelessRecipe(cloneStack(dustCryotheum, 2), new Object[] { Items.snowball, "dustSaltpeter", "dustRedstone", "dustBlizz" }));
+		addRecipe(ShapelessRecipe(cloneStack(dustPyrotheum, 2), new Object[] { "dustCoal", "dustSulfur", "dustRedstone", Items.BLAZE_POWDER }));
+		addRecipe(ShapelessRecipe(cloneStack(dustCryotheum, 2), new Object[] { Items.SNOWBALL, "dustSaltpeter", "dustRedstone", "dustBlizz" }));
 		addRecipe(ShapelessRecipe(cloneStack(dustAerotheum, 2), new Object[] { "sand", "dustSaltpeter", "dustRedstone", "dustBlitz" }));
-		addRecipe(ShapelessRecipe(cloneStack(dustPetrotheum, 2), new Object[] { Items.clay_ball, "dustObsidian", "dustRedstone", "dustBasalz" }));
+		addRecipe(ShapelessRecipe(cloneStack(dustPetrotheum, 2), new Object[] { Items.CLAY_BALL, "dustObsidian", "dustRedstone", "dustBasalz" }));
 		addRecipe(ShapelessRecipe(cloneStack(dustBlizz, 2), "rodBlizz"));
 		addRecipe(ShapelessRecipe(cloneStack(dustBlitz, 2), "rodBlitz"));
 		addRecipe(ShapelessRecipe(cloneStack(dustBasalz, 2), "rodBasalz"));
 
 		/* Misc Recipes */
-		addSmelting(dustWoodCompressed, new ItemStack(Items.coal, 1, 1), 0.15F);
+		addSmelting(dustWoodCompressed, new ItemStack(Items.COAL, 1, 1), 0.15F);
 
 		addRecipe(ShapedRecipe(dustWoodCompressed, new Object[] { "###", "# #", "###", '#', "dustWood" }));
-		addRecipe(ShapelessRecipe(new ItemStack(Items.clay_ball, 4), new Object[] { crystalSlag, crystalSlag, Blocks.dirt, Items.water_bucket }));
+		addRecipe(ShapelessRecipe(new ItemStack(Items.CLAY_BALL, 4), new Object[] { crystalSlag, crystalSlag, Blocks.DIRT, Items.WATER_BUCKET }));
 
 		return true;
 	}

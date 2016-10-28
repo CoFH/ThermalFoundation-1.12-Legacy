@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.block;
 
 import cofh.api.core.IInitializer;
+import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.core.ProxyClient;
 
 import java.util.ArrayList;
@@ -23,10 +24,10 @@ public class TFBlocks {
 		initList.add(blockGlass);
 		initList.add(blockRockwool);
 
-		ProxyClient.modelList.add(blockOre);
-		ProxyClient.modelList.add(blockStorage);
-		ProxyClient.modelList.add(blockGlass);
-		ProxyClient.modelList.add(blockRockwool);
+		ThermalFoundation.proxy.addModelRegister(blockOre);
+		ThermalFoundation.proxy.addModelRegister(blockStorage);
+		ThermalFoundation.proxy.addModelRegister(blockGlass);
+		ThermalFoundation.proxy.addModelRegister(blockRockwool);
 
 		for (int i = 0; i < initList.size(); i++) {
 			initList.get(i).preInit();

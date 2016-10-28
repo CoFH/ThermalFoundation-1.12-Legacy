@@ -1,0 +1,333 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-item",
+		"model": "forge:item-layer"
+	},
+	"variants": {
+		"wood_shears": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/wood/shears" }
+		}],
+		"wood_sickle": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/wood/sickle" }
+		}],
+		"stone_shears": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/stone/shears" }
+		}],
+		"stone_sickle": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/stone/sickle" }
+		}],
+		"iron_sickle": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/iron/sickle" }
+		}],
+		"diamond_shears": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/diamond/shears" }
+		}],
+		"diamond_sickle": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/diamond/sickle" }
+		}],
+		"gold_shears": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/gold/shears" }
+		}],
+		"gold_sickle": [{
+			"textures": { "layer0": "thermalfoundation:items/equipment/gold/sickle" }
+		}],
+		"copper_helmet": [{
+			"textures": { "layer0": "thermalfoundation:items/armor/copper/helmet" }
+		}],
+		"copper_plate":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/copper/plate" }
+		}],
+		"copper_legs":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/copper/legs" }
+		}],
+		"copper_boots":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/copper/boots" }
+		}],
+		"copper_sword":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/copper/sword" }
+		}],
+		"copper_shovel":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/copper/shovel" }
+		}],
+		"copper_pickaxe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/copper/pickaxe" }
+		}],
+		"copper_axe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/copper/axe" }
+		}],
+		"copper_hoe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/copper/hoe" }
+		}],
+		"copper_shears":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/copper/shears" }
+		}],
+		"copper_sickle":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/copper/sickle" }
+		}],
+		"tin_helmet": [{
+			"textures": { "layer0": "thermalfoundation:items/armor/tin/helmet" }
+		}],
+		"tin_plate":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/tin/plate" }
+		}],
+		"tin_legs":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/tin/legs" }
+		}],
+		"tin_boots":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/tin/boots" }
+		}],
+		"tin_sword":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/tin/sword" }
+		}],
+		"tin_shovel":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/tin/shovel" }
+		}],
+		"tin_pickaxe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/tin/pickaxe" }
+		}],
+		"tin_axe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/tin/axe" }
+		}],
+		"tin_hoe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/tin/hoe" }
+		}],
+		"tin_shears":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/tin/shears" }
+		}],
+		"tin_sickle":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/tin/sickle" }
+		}],
+		"silver_helmet": [{
+			"textures": { "layer0": "thermalfoundation:items/armor/silver/helmet" }
+		}],
+		"silver_plate":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/silver/plate" }
+		}],
+		"silver_legs":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/silver/legs" }
+		}],
+		"silver_boots":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/silver/boots" }
+		}],
+		"silver_sword":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/silver/sword" }
+		}],
+		"silver_shovel":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/silver/shovel" }
+		}],
+		"silver_pickaxe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/silver/pickaxe" }
+		}],
+		"silver_axe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/silver/axe" }
+		}],
+		"silver_hoe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/silver/hoe" }
+		}],
+		"silver_shears":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/silver/shears" }
+		}],
+		"silver_sickle":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/silver/sickle" }
+		}],
+		"lead_helmet": [{
+			"textures": { "layer0": "thermalfoundation:items/armor/lead/helmet" }
+		}],
+		"lead_plate":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/lead/plate" }
+		}],
+		"lead_legs":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/lead/legs" }
+		}],
+		"lead_boots":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/lead/boots" }
+		}],
+		"lead_sword":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/lead/sword" }
+		}],
+		"lead_shovel":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/lead/shovel" }
+		}],
+		"lead_pickaxe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/lead/pickaxe" }
+		}],
+		"lead_axe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/lead/axe" }
+		}],
+		"lead_hoe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/lead/hoe" }
+		}],
+		"lead_shears":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/lead/shears" }
+		}],
+		"lead_sickle":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/lead/sickle" }
+		}],
+		"nickel_helmet": [{
+			"textures": { "layer0": "thermalfoundation:items/armor/nickel/helmet" }
+		}],
+		"nickel_plate":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/nickel/plate" }
+		}],
+		"nickel_legs":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/nickel/legs" }
+		}],
+		"nickel_boots":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/nickel/boots" }
+		}],
+		"nickel_sword":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/nickel/sword" }
+		}],
+		"nickel_shovel":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/nickel/shovel" }
+		}],
+		"nickel_pickaxe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/nickel/pickaxe" }
+		}],
+		"nickel_axe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/nickel/axe" }
+		}],
+		"nickel_hoe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/nickel/hoe" }
+		}],
+		"nickel_shears":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/nickel/shears" }
+		}],
+		"nickel_sickle":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/nickel/sickle" }
+		}],
+		"electrum_helmet": [{
+			"textures": { "layer0": "thermalfoundation:items/armor/electrum/helmet" }
+		}],
+		"electrum_plate":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/electrum/plate" }
+		}],
+		"electrum_legs":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/electrum/legs" }
+		}],
+		"electrum_boots":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/electrum/boots" }
+		}],
+		"electrum_sword":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/electrum/sword" }
+		}],
+		"electrum_shovel":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/electrum/shovel" }
+		}],
+		"electrum_pickaxe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/electrum/pickaxe" }
+		}],
+		"electrum_axe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/electrum/axe" }
+		}],
+		"electrum_hoe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/electrum/hoe" }
+		}],
+		"electrum_shears":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/electrum/shears" }
+		}],
+		"electrum_sickle":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/electrum/sickle" }
+		}],
+		"invar_helmet": [{
+			"textures": { "layer0": "thermalfoundation:items/armor/invar/helmet" }
+		}],
+		"invar_plate":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/invar/plate" }
+		}],
+		"invar_legs":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/invar/legs" }
+		}],
+		"invar_boots":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/invar/boots" }
+		}],
+		"invar_sword":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/invar/sword" }
+		}],
+		"invar_shovel":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/invar/shovel" }
+		}],
+		"invar_pickaxe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/invar/pickaxe" }
+		}],
+		"invar_axe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/invar/axe" }
+		}],
+		"invar_hoe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/invar/hoe" }
+		}],
+		"invar_shears":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/invar/shears" }
+		}],
+		"invar_sickle":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/invar/sickle" }
+		}],
+		"bronze_helmet": [{
+			"textures": { "layer0": "thermalfoundation:items/armor/bronze/helmet" }
+		}],
+		"bronze_plate":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/bronze/plate" }
+		}],
+		"bronze_legs":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/bronze/legs" }
+		}],
+		"bronze_boots":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/bronze/boots" }
+		}],
+		"bronze_sword":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/bronze/sword" }
+		}],
+		"bronze_shovel":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/bronze/shovel" }
+		}],
+		"bronze_pickaxe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/bronze/pickaxe" }
+		}],
+		"bronze_axe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/bronze/axe" }
+		}],
+		"bronze_hoe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/bronze/hoe" }
+		}],
+		"bronze_shears":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/bronze/shears" }
+		}],
+		"bronze_sickle":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/bronze/sickle" }
+		}],
+		"platinum_helmet": [{
+			"textures": { "layer0": "thermalfoundation:items/armor/platinum/helmet" }
+		}],
+		"platinum_plate":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/platinum/plate" }
+		}],
+		"platinum_legs":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/platinum/legs" }
+		}],
+		"platinum_boots":[{
+			"textures": { "layer0": "thermalfoundation:items/armor/platinum/boots" }
+		}],
+		"platinum_sword":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/platinum/sword" }
+		}],
+		"platinum_shovel":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/platinum/shovel" }
+		}],
+		"platinum_pickaxe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/platinum/pickaxe" }
+		}],
+		"platinum_axe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/platinum/axe" }
+		}],
+		"platinum_hoe":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/platinum/hoe" }
+		}],
+		"platinum_shears":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/platinum/shears" }
+		}],
+		"platinum_sickle":[{
+			"textures": { "layer0": "thermalfoundation:items/equipment/platinum/sickle" }
+		}]
+	}
+}

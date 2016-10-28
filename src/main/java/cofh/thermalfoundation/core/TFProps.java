@@ -2,6 +2,8 @@ package cofh.thermalfoundation.core;
 
 public class TFProps {
 
+	public static final String PATH_GFX = "thermalfoundation:textures/";
+
 	private TFProps() {
 
 	}

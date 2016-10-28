@@ -49,8 +49,14 @@ public class ProxyClient extends Proxy {
 		RenderEntityAsItem.initialize();
 	}
 
+	@Override
+	public void addModelRegister(IModelRegister modelRegister) {
+
+		modelList.add(modelRegister);
+	}
+
 	/* HELPERS */
 
-	public static ArrayList<IModelRegister> modelList = new ArrayList<IModelRegister>();
+	private static ArrayList<IModelRegister> modelList = new ArrayList<IModelRegister>();
 
 }

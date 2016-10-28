@@ -3,6 +3,7 @@ package cofh.thermalfoundation.block;
 import cofh.api.core.IInitializer;
 import cofh.api.core.IModelRegister;
 import cofh.core.block.BlockCoFHBase;
+import cofh.core.util.RegistryHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 
 import java.util.List;
@@ -12,32 +13,35 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
+
 public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRegister, IPlantable {
 
+	private static final AxisAlignedBB FLOWER_AABB = new AxisAlignedBB(0.3D, 0.0D, 0.3D, 0.7D, 0.6D, 0.7D);
 	public static final PropertyEnum<BlockFlower.Type> VARIANT = PropertyEnum.<BlockFlower.Type> create("type", BlockFlower.Type.class);
 
 	public BlockFlower() {
 
-		super(Material.plants, "thermalfoundation");
+		super(Material.PLANTS, "thermalfoundation");
 
 		setUnlocalizedName("flower");
 		setCreativeTab(ThermalFoundation.tabCommon);
@@ -46,14 +50,19 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 
 		setTickRandomly(true);
 		float f = 0.2F;
-		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 3.0F, 0.5F + f);
 
 	}
 
 	@Override
-	protected BlockState createBlockState() {
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 
-		return new BlockState(this, new IProperty[] { VARIANT });
+		return FLOWER_AABB;
+	}
+
+	@Override
+	protected BlockStateContainer createBlockState() {
+
+		return new BlockStateContainer(this, new IProperty[] { VARIANT });
 	}
 
 	@Override
@@ -63,13 +72,6 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 		for (int i = 0; i < BlockFlower.Type.METADATA_LOOKUP.length; i++) {
 			list.add(new ItemStack(item, 1, i));
 		}
-	}
-
-	@Override
-	public int getDamageValue(World world, BlockPos pos) {
-
-		IBlockState state = world.getBlockState(pos);
-		return state.getBlock() != this ? 0 : state.getValue(VARIANT).getMetadata();
 	}
 
 	@Override
@@ -87,9 +89,8 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, BlockPos pos, IBlockState state, Block neighbor) {
-
-		super.onNeighborBlockChange(world, pos, state, neighbor);
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block) {
+		super.neighborChanged(state, world, pos, block);
 		checkAndDropBlock(world, pos, state);
 	}
 
@@ -112,57 +113,54 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 	}
 
 	@Override
-	public int getLightValue(IBlockAccess world, BlockPos pos) {
-
-		IBlockState state = world.getBlockState(pos);
+	public int getLightValue(IBlockState state) {
 		return BlockFlower.Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
 	}
 
-	public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
+	public boolean canBlockStay(World world, BlockPos pos, IBlockState state) {
 
 		BlockPos down = pos.down();
-		Block soil = worldIn.getBlockState(down).getBlock();
+		Block soil = world.getBlockState(down).getBlock();
 		if (state.getBlock() != this) {
 			return this.canPlaceBlockOn(soil);
 		}
-		return soil.canSustainPlant(worldIn, down, net.minecraft.util.EnumFacing.UP, this);
+		return soil.canSustainPlant(state, world, down, net.minecraft.util.EnumFacing.UP, this);
 	}
 
 	@Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
 
+		IBlockState state = worldIn.getBlockState(pos.down());
 		return super.canPlaceBlockAt(worldIn, pos)
-				&& worldIn.getBlockState(pos.down()).getBlock().canSustainPlant(worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
+				&& state.getBlock().canSustainPlant(state, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
 	}
 
 	protected boolean canPlaceBlockOn(Block ground) {
 
-		return ground == Blocks.grass || ground == Blocks.dirt || ground == Blocks.farmland;
+		return ground == Blocks.GRASS || ground == Blocks.DIRT || ground == Blocks.FARMLAND;
 	}
 
 	@Override
-	public boolean isFullCube() {
-
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
 	@Override
-	public boolean isOpaqueCube() {
-
+	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
+	@Nullable
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state) {
-
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
 		return null;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public EnumWorldBlockLayer getBlockLayer() {
+	public BlockRenderLayer getBlockLayer() {
 
-		return EnumWorldBlockLayer.CUTOUT;
+		return BlockRenderLayer.CUTOUT;
 	}
 
 	/* IPlantable */
@@ -188,7 +186,7 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, ItemBlockFlower.class, "flower");
+		RegistryHelper.registerBlockAndItem(this, new ResourceLocation(ThermalFoundation.modId, "flower"), ItemBlockFlower::new);
 
 		return true;
 	}

@@ -21,9 +21,11 @@ import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntitySnowman;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
@@ -32,7 +34,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class BlockFluidCryotheum extends BlockFluidInteractive {
 
 	public static final int LEVELS = 5;
-	public static final Material materialFluidCryotheum = new MaterialLiquid(MapColor.iceColor);
+	public static final Material materialFluidCryotheum = new MaterialLiquid(MapColor.ICE);
 
 	private static boolean effect = true;
 	private static boolean enableSourceFall = true;
@@ -77,8 +79,8 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 			world.spawnEntityInWorld(snowman);
 			entity.setDead();
 		} else if (entity instanceof EntityBlizz || entity instanceof EntitySnowman) {
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 6 * 20, 0));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 6 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SPEED, 6 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 6 * 20, 0));
 		} else if (entity instanceof EntityBlaze) {
 			entity.attackEntityFrom(DamageHelper.cryotheum, 10.0F);
 		} else {
@@ -130,7 +132,7 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		IBlockState state = world.getBlockState(pos);
 		Block block = state.getBlock();
 
-		if (block.isAir(world, pos) || block == this) {
+		if (block.isAir(state, world, pos) || block == this) {
 			return;
 		}
 		int bMeta = block.getMetaFromState(state);
@@ -141,7 +143,7 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 			world.setBlockState(pos, block.getStateFromMeta(bMeta), 2);
 			triggerInteractionEffects(world, pos);
 		} else if (world.isSideSolid(pos, EnumFacing.UP) && world.isAirBlock(pos.add(0, 1, 0))) {
-			world.setBlockState(pos.add(0, 1, 0), Blocks.snow_layer.getDefaultState(), 2);
+			world.setBlockState(pos.add(0, 1, 0), Blocks.SNOW_LAYER.getDefaultState(), 2);
 		}
 	}
 
@@ -153,21 +155,21 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, "FluidCryotheum");
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "FluidCryotheum")));
 
-		addInteraction(Blocks.grass, Blocks.dirt);
-		addInteraction(Blocks.water, 0, Blocks.ice);
-		addInteraction(Blocks.water, Blocks.snow);
-		addInteraction(Blocks.flowing_water, 0, Blocks.ice);
-		addInteraction(Blocks.flowing_water, Blocks.snow);
-		addInteraction(Blocks.lava, 0, Blocks.obsidian);
-		addInteraction(Blocks.lava, Blocks.stone);
-		addInteraction(Blocks.flowing_lava, 0, Blocks.obsidian);
-		addInteraction(Blocks.flowing_lava, Blocks.stone);
-		addInteraction(Blocks.leaves, Blocks.air);
-		addInteraction(Blocks.tallgrass, Blocks.air);
-		addInteraction(Blocks.fire, Blocks.air);
-		addInteraction(TFFluids.blockFluidGlowstone, 0, Blocks.glowstone);
+		addInteraction(Blocks.GRASS, Blocks.DIRT);
+		addInteraction(Blocks.WATER, 0, Blocks.ICE);
+		addInteraction(Blocks.WATER, Blocks.SNOW);
+		addInteraction(Blocks.FLOWING_WATER, 0, Blocks.ICE);
+		addInteraction(Blocks.FLOWING_WATER, Blocks.SNOW);
+		addInteraction(Blocks.LAVA, 0, Blocks.OBSIDIAN);
+		addInteraction(Blocks.LAVA, Blocks.STONE);
+		addInteraction(Blocks.FLOWING_LAVA, 0, Blocks.OBSIDIAN);
+		addInteraction(Blocks.FLOWING_LAVA, Blocks.STONE);
+		addInteraction(Blocks.LEAVES, Blocks.AIR);
+		addInteraction(Blocks.TALLGRASS, Blocks.AIR);
+		addInteraction(Blocks.FIRE, Blocks.AIR);
+		addInteraction(TFFluids.blockFluidGlowstone, 0, Blocks.GLOWSTONE);
 
 		String category = "Fluid.Cryotheum";
 		String comment = "Enable this for Fluid Cryotheum to be worse than lava, except cold.";

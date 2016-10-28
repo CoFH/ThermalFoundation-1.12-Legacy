@@ -206,6 +206,9 @@
 		"gearenderium": [{
 			"textures": { "layer0": "thermalfoundation:items/material/gear_enderium" }
 		}],
+		"pneumaticservo": [{
+			"textures": { "layer0": "thermalfoundation:items/material/pneumatic_servo" }
+		}],
 		"powercoilgold": [{
 			"textures": { "layer0": "thermalfoundation:items/material/power_coil_gold" }
 		}],

@@ -1,0 +1,6 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "thermalfoundation:items/equipment/silver/bow_pulling_1"
+    }
+}

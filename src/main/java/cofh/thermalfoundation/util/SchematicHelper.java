@@ -126,7 +126,7 @@ public class SchematicHelper {
 				nbt.setTag("Slot" + i, itemTag);
 				nbt.setString("Name" + i, craftSlots.getStackInSlot(i).getDisplayName());
 
-				ArrayList<String> oreNames = OreDictionaryArbiter.getOreNames(craftSlots.getStackInSlot(i));
+				List<String> oreNames = OreDictionaryArbiter.getOreNames(craftSlots.getStackInSlot(i));
 				if (oreNames != null) {
 					String validName = "";
 					int validSize = 0;
@@ -186,7 +186,7 @@ public class SchematicHelper {
 				nbt.setTag("Slot" + i, itemTag);
 				nbt.setString("Name" + i, craftSlots.getStackInSlot(i).getDisplayName());
 
-				ArrayList<String> oreNames = OreDictionaryArbiter.getOreNames(craftSlots.getStackInSlot(i));
+				List<String> oreNames = OreDictionaryArbiter.getOreNames(craftSlots.getStackInSlot(i));
 				if (oreNames != null) {
 					for (String oreName : oreNames) {
 						if (!oreName.startsWith("list") && !oreName.equals(OreDictionaryArbiter.UNKNOWN) && !ItemHelper.isBlacklist(output)) {

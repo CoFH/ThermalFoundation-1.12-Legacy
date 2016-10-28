@@ -15,9 +15,13 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -25,7 +29,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
 	public static final int LEVELS = 6;
-	public static final Material materialFluidPetrotheum = new MaterialLiquid(MapColor.stoneColor);
+	public static final Material materialFluidPetrotheum = new MaterialLiquid(MapColor.STONE);
 
 	private static boolean effect = true;
 	private static boolean enableSourceFall = true;
@@ -55,9 +59,9 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 			return;
 		}
 		if (world.getTotalWorldTime() % 8 == 0 && entity instanceof EntityLivingBase && !((EntityLivingBase) entity).isEntityUndead()) {
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.digSpeed.id, 15 * 20, 2));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.nightVision.id, 15 * 20, 0));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.resistance.id, 15 * 20, 1));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.HASTE, 15 * 20, 2));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 15 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 15 * 20, 1));
 		}
 	}
 
@@ -96,13 +100,13 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 		IBlockState state = world.getBlockState(pos);
 		Block block = state.getBlock();
 
-		if (block.isAir(world, pos) || block == this) {
+		if (block.isAir(state, world, pos) || block == this) {
 			return;
 		}
 		int bMeta = block.getMetaFromState(state);
 		BlockWrapper result;
 
-		if (extreme && block.getMaterial() == Material.rock && block.getBlockHardness(world, pos) > 0) {
+		if (extreme && state.getMaterial() == Material.ROCK && block.getBlockHardness(state, world, pos) > 0) {
 			block.dropBlockAsItem(world, pos, state, 0);
 			world.setBlockToAir(pos);
 			triggerInteractionEffects(world, pos);
@@ -114,20 +118,20 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
 	protected void triggerInteractionEffects(World world, BlockPos pos) {
 
-		world.playSoundEffect(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, "dig.stone", 0.5F,
-				0.9F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F);
+		world.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 0.5F,
+				0.9F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F, false);
 	}
 
 	/* IInitializer */
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, "FluidPetrotheum");
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "FluidPetrotheum")));
 
-		addInteraction(Blocks.stone, Blocks.gravel);
-		addInteraction(Blocks.cobblestone, Blocks.gravel);
-		addInteraction(Blocks.stonebrick, Blocks.gravel);
-		addInteraction(Blocks.mossy_cobblestone, Blocks.gravel);
+		addInteraction(Blocks.STONE, Blocks.GRAVEL);
+		addInteraction(Blocks.COBBLESTONE, Blocks.GRAVEL);
+		addInteraction(Blocks.STONEBRICK, Blocks.GRAVEL);
+		addInteraction(Blocks.MOSSY_COBBLESTONE, Blocks.GRAVEL);
 
 		String category = "Fluid.Petrotheum";
 		String comment = "Enable this for Fluid Petrotheum to break apart stone blocks.";

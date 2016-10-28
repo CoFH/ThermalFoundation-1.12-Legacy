@@ -2,33 +2,28 @@ package cofh.thermalfoundation.entity.monster;
 
 import cofh.core.CoFHProps;
 import cofh.core.util.CoreUtils;
-import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
-import cofh.thermalfoundation.item.ItemMaterial;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.BlockPos;
+import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class EntityBlitz extends EntityElemental {
 
@@ -43,7 +38,13 @@ public class EntityBlitz extends EntityElemental {
 	static int spawnMin = 1;
 	static int spawnMax = 4;
 
-	static String soundAttack = CoreUtils.getSoundName(ThermalFoundation.modId, "mob_blitz_attack");
+	private static final ResourceLocation LOOT_TABLE_BLITZ = new ResourceLocation(ThermalFoundation.modId, "entities/blitz");
+	private static final SoundEvent attackSound = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blitz_attack");
+	private static final SoundEvent ambientSound0 = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blitz_breathe0");
+	private static final SoundEvent ambientSound1 = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blitz_breathe1");
+	private static final SoundEvent ambientSound2 = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blitz_breathe2");
+	private static final SoundEvent specialAmbientSound = CoreUtils.getSoundEvent(ThermalFoundation.modId, "mob_blitz_ambient");
+	private static final SoundEvent[] ambientSounds = new SoundEvent[] {ambientSound0, ambientSound1, ambientSound2};
 
 	static {
 		String category = "Mob.Blitz";
@@ -80,21 +81,29 @@ public class EntityBlitz extends EntityElemental {
 				0xF0F8FF, 0xFFEFD5);
 
 		// Add Blitz spawn to Plains biomes
-		List<BiomeGenBase> validBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.PLAINS)));
+		List<Biome> validBiomes = new ArrayList<Biome>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.PLAINS)));
 
 		// Add Blitz spawn to Sandy biomes
-		for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(Type.SANDY)) {
+		for (Biome biome : BiomeDictionary.getBiomesForType(Type.SANDY)) {
 			if (!validBiomes.contains(biome)) {
 				validBiomes.add(biome);
 			}
 		}
 		// Remove Blitz spawn from End biomes
-		for (BiomeGenBase biome : BiomeDictionary.getBiomesForType(Type.END)) {
+		for (Biome biome : BiomeDictionary.getBiomesForType(Type.END)) {
 			if (validBiomes.contains(biome)) {
 				validBiomes.remove(biome);
 			}
 		}
-		EntityRegistry.addSpawn(EntityBlitz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new BiomeGenBase[0]));
+		EntityRegistry.addSpawn(EntityBlitz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[0]));
+
+		LootTableList.register(LOOT_TABLE_BLITZ);
+
+		GameRegistry.register(attackSound.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_blitz_attack")));
+		GameRegistry.register(ambientSound0.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_blitz_breathe0")));
+		GameRegistry.register(ambientSound1.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_blitz_breathe1")));
+		GameRegistry.register(ambientSound2.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_blitz_breathe2")));
+		GameRegistry.register(specialAmbientSound.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "mob_blitz_ambient")));
 	}
 
 	public EntityBlitz(World world) {
@@ -108,27 +117,26 @@ public class EntityBlitz extends EntityElemental {
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 
-		soundAmbient = CoreUtils.getSoundName(ThermalFoundation.modId, "mob_blitz_ambient");
-		soundLiving = new String[] { CoreUtils.getSoundName(ThermalFoundation.modId, "mob_blitz_breathe0"),
-				CoreUtils.getSoundName(ThermalFoundation.modId, "mob_blitz_breathe1"), CoreUtils.getSoundName(ThermalFoundation.modId, "mob_blitz_breathe2") };
-
 		ambientParticle = EnumParticleTypes.CLOUD;
 
 	}
 
 	@Override
-	protected void dropFewItems(boolean wasHitByPlayer, int looting) {
+	protected SoundEvent[] getAmbientSounds() {
 
-		if (wasHitByPlayer) {
-			int items = this.rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				this.entityDropItem(ItemHelper.cloneStack(ItemMaterial.dustNiter, 1), 0);
-			}
-			items = this.rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				this.entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBlitz, 1), 0);
-			}
-		}
+		return ambientSounds;
+	}
+
+	@Override
+	protected SoundEvent getSpecialAmbientSound() {
+
+		return specialAmbientSound;
+	}
+
+	@Nullable
+	@Override
+	protected ResourceLocation getLootTable() {
+		return LOOT_TABLE_BLITZ;
 	}
 
 	@Override
@@ -144,90 +152,23 @@ public class EntityBlitz extends EntityElemental {
 	}
 
 	/* ATTACK */
-	static class AIBlitzballAttack extends EntityAIBase {
+	static class AIBlitzballAttack extends AIElementalboltAttack {
 
-		private final EntityBlitz blitz;
-		private int field_179467_b;
-		private int field_179468_c;
+		public AIBlitzballAttack(EntityElemental entity) {
 
-		public AIBlitzballAttack(EntityBlitz entity) {
-
-			this.blitz = entity;
-			this.setMutexBits(3);
+			super(entity);
 		}
 
 		@Override
-		public boolean shouldExecute() {
+		protected EntityThrowable getBolt(World world, EntityElemental elemental) {
 
-			EntityLivingBase entitylivingbase = this.blitz.getAttackTarget();
-			return entitylivingbase != null && entitylivingbase.isEntityAlive();
+			return new EntityBlitzBolt(world, elemental);
 		}
 
 		@Override
-		public void startExecuting() {
+		protected SoundEvent getAttackSound() {
 
-			this.field_179467_b = 0;
-		}
-
-		@Override
-		public void resetTask() {
-
-			this.blitz.setInAttackMode(false);
-		}
-
-		@Override
-		public void updateTask() {
-
-			--this.field_179468_c;
-			EntityLivingBase entitylivingbase = this.blitz.getAttackTarget();
-			double d0 = this.blitz.getDistanceSqToEntity(entitylivingbase);
-
-			if (d0 < 4.0D) {
-				if (this.field_179468_c <= 0) {
-					this.field_179468_c = 20;
-					this.blitz.attackEntityAsMob(entitylivingbase);
-				}
-
-				this.blitz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
-			} else if (d0 < 256.0D) {
-				double d1 = entitylivingbase.posX - this.blitz.posX;
-				double d2 = entitylivingbase.getEntityBoundingBox().minY + entitylivingbase.height / 2.0F - (this.blitz.posY + this.blitz.height / 2.0F);
-				double d3 = entitylivingbase.posZ - this.blitz.posZ;
-
-				if (this.field_179468_c <= 0) {
-					++this.field_179467_b;
-
-					if (this.field_179467_b == 1) {
-						this.field_179468_c = 60;
-						this.blitz.setInAttackMode(true);
-					} else if (this.field_179467_b <= 4) {
-						this.field_179468_c = 6;
-					} else {
-						this.field_179468_c = 100;
-						this.field_179467_b = 0;
-						this.blitz.setInAttackMode(false);
-					}
-
-					if (this.field_179467_b > 1) {
-						double f = Math.sqrt(Math.sqrt(d0)) * 0.5F;
-						this.blitz.worldObj.playAuxSFXAtEntity((EntityPlayer) null, 1009, new BlockPos((int) this.blitz.posX, (int) this.blitz.posY,
-								(int) this.blitz.posZ), 0);
-
-						for (int i = 0; i < 1; ++i) {
-							EntityBlitzBolt bolt = new EntityBlitzBolt(this.blitz.worldObj, this.blitz);
-							bolt.posY = this.blitz.posY + this.blitz.height / 2.0F + 0.5D;
-							this.blitz.playSound(soundAttack, 2.0F, (this.blitz.rand.nextFloat() - this.blitz.rand.nextFloat()) * 0.2F + 1.0F);
-							this.blitz.worldObj.spawnEntityInWorld(bolt);
-						}
-					}
-				}
-				this.blitz.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
-			} else {
-				this.blitz.getNavigator().clearPathEntity();
-				this.blitz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
-			}
-			super.updateTask();
+			return attackSound;
 		}
 	}
-
 }

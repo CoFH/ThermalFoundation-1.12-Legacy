@@ -3,6 +3,7 @@ package cofh.thermalfoundation.item;
 import static cofh.lib.util.helpers.ItemHelper.*;
 
 import cofh.api.core.IInitializer;
+import cofh.api.core.IModelRegister;
 import cofh.api.tileentity.IPortableData;
 import cofh.core.item.ItemCoFHBase;
 import cofh.core.util.StateMapper;
@@ -17,22 +18,24 @@ import cofh.thermalfoundation.util.SchematicHelper;
 import java.util.List;
 import java.util.Map;
 
-import net.minecraft.client.resources.model.ModelBakery;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemDiagram extends ItemCoFHBase implements IInitializer {
+public class ItemDiagram extends ItemCoFHBase implements IInitializer, IModelRegister {
 
 	public ItemDiagram() {
 
@@ -68,43 +71,44 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 	}
 
 	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-		return player.canPlayerEdit(pos.offset(side), side, stack);
+		return player.canPlayerEdit(pos.offset(side), side, stack) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
 	}
 
 	@Override
-	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 
 		if (player.isSneaking()) {
 			if (stack.hasTagCompound()) {
-				world.playSoundAtEntity(player, "random.orb", 0.5F, 0.3F);
+				world.playSound(null, player.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.NEUTRAL, 0.5F, 0.3F);
 			}
 			stack.setTagCompound(null);
-			return true;
+			return EnumActionResult.SUCCESS;
 		}
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
 		case REDPRINT:
 			doRedprintUseFirst(stack, player, world, pos, side);
 			break;
 		default:
-			return true;
+			return EnumActionResult.SUCCESS;
 		}
 		ServerHelper.sendItemUsePacket(stack, player, world, pos, side, hitX, hitY, hitZ);
-		return true;
+		return EnumActionResult.SUCCESS;
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
 
 		if (player.isSneaking()) {
 			if (stack.hasTagCompound()) {
-				world.playSoundAtEntity(player, "random.orb", 0.5F, 0.3F);
+				world.playSound(null, player.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.NEUTRAL, 0.5F, 0.3F);
 			}
 			stack.setTagCompound(null);
 		}
-		player.swingItem();
-		return stack;
+		player.swingArm(hand);
+
+		return new ActionResult<>(EnumActionResult.SUCCESS, stack);
 	}
 
 	private void doRedprintUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side) {
@@ -122,7 +126,7 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 					stack.setTagCompound(null);
 				} else {
 					stack.getTagCompound().setString("Type", ((IPortableData) tile).getDataType());
-					world.playSoundAtEntity(player, "random.orb", 0.5F, 0.7F);
+					world.playSound(null, player.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.NEUTRAL, 0.5F, 0.7F);
 				}
 			} else {
 				if (stack.getTagCompound().getString("Type").equals(((IPortableData) tile).getDataType())) {
@@ -163,10 +167,6 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 
-		StateMapper mapper = new StateMapper(modName, "tool", name);
-		ModelBakery.registerItemVariants(this);
-		ModelLoader.setCustomMeshDefinition(this, mapper);
-
 		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
 			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
 		}
@@ -178,6 +178,8 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 
 		schematic = addItem(Type.SCHEMATIC.ordinal(), "schematic");
 		redprint = addItem(Type.REDPRINT.ordinal(), "redprint");
+
+		GameRegistry.register(this.setRegistryName(new ResourceLocation(ThermalFoundation.modId, "diagram")));
 
 		return true;
 	}
@@ -191,8 +193,8 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 	@Override
 	public boolean postInit() {
 
-		addRecipe(ShapelessRecipe(schematic, new Object[] { Items.paper, Items.paper, "dyeBlue" }));
-		addRecipe(ShapelessRecipe(redprint, new Object[] { Items.paper, Items.paper, "dustRedstone" }));
+		addRecipe(ShapelessRecipe(schematic, new Object[] { Items.PAPER, Items.PAPER, "dyeBlue" }));
+		addRecipe(ShapelessRecipe(redprint, new Object[] { Items.PAPER, Items.PAPER, "dustRedstone" }));
 
 		return true;
 	}
