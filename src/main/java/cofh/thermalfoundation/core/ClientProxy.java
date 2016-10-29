@@ -27,6 +27,7 @@ import cofh.thermalfoundation.render.entity.RenderEntityBlizz;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -133,16 +134,16 @@ public class ClientProxy extends CommonProxy {
     public void registerIcons(TextureStitchEvent.Pre event) {
 
         //        if (event.map.getTextureType() == 0) {
-        addIconToRegistry(TFFluids.fluidRedstone);
-        addIconToRegistry(TFFluids.fluidGlowstone);
-        addIconToRegistry(TFFluids.fluidEnder);
-        addIconToRegistry(TFFluids.fluidPyrotheum);
-        addIconToRegistry(TFFluids.fluidCryotheum);
-        addIconToRegistry(TFFluids.fluidAerotheum);
-        addIconToRegistry(TFFluids.fluidPetrotheum);
-        addIconToRegistry(TFFluids.fluidMana);
-        addIconToRegistry(TFFluids.fluidCoal);
-        addIconToRegistry(TFFluids.fluidSteam);
+        addIconToRegistry(TFFluids.fluidRedstone, event.getMap());
+        addIconToRegistry(TFFluids.fluidGlowstone, event.getMap());
+        addIconToRegistry(TFFluids.fluidEnder, event.getMap());
+        addIconToRegistry(TFFluids.fluidPyrotheum, event.getMap());
+        addIconToRegistry(TFFluids.fluidCryotheum, event.getMap());
+        addIconToRegistry(TFFluids.fluidAerotheum, event.getMap());
+        addIconToRegistry(TFFluids.fluidPetrotheum, event.getMap());
+        addIconToRegistry(TFFluids.fluidMana, event.getMap());
+        addIconToRegistry(TFFluids.fluidCoal, event.getMap());
+        addIconToRegistry(TFFluids.fluidSteam, event.getMap());
         //
         //        } else if (event.map.getTextureType() == 1) {
         //            CCIconRegister.registerTexture("thermalfoundation:material/DustBlaze");
@@ -163,10 +164,10 @@ public class ClientProxy extends CommonProxy {
         RenderEntityBasalz.initialize();
     }
 
-    public static void addIconToRegistry(Fluid fluid) {
+    public static void addIconToRegistry(Fluid fluid, TextureMap map) {
         String name = fluid.getName();
-        IconRegistry.addIcon("Fluid" + StringHelper.titleCase(name), TextureUtils.getTexture("thermalfoundation:block/fluid/fluid_" + name + "_still"));
-        IconRegistry.addIcon("Fluid" + StringHelper.titleCase(name) + "1", TextureUtils.getTexture("thermalfoundation:block/fluid/fluid_" + name + "_flow"));
+        IconRegistry.addIcon("Fluid" + StringHelper.titleCase(name), fluid.getStill(), map);
+        IconRegistry.addIcon("Fluid" + StringHelper.titleCase(name) + "1", fluid.getFlowing(), map);
         //CCIconRegister.registerTexture("thermalfoundation:fluid/fluid_" + name + "_still");
         //CCIconRegister.registerTexture("thermalfoundation:fluid/fluid_" + name + "_flow");
     }
