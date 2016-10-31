@@ -14,7 +14,6 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven'
 
-group = "cofh.thermalfoundation"
 archivesBaseName = "ThermalFoundation"
 
 // Define properties file
