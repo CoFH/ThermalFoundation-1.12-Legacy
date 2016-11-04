@@ -41,9 +41,8 @@ public class CommonProxy {
 
 	@SubscribeEvent
 	public void livingDrops(LivingDropsEvent evt) {
-
 		Entity entity = evt.getEntity();
-		if (entity.isImmuneToFire() && TFProps.dropSulfurFireImmune) {
+		if (entity.isImmuneToFire() && TFProps.dropSulfurFireImmune && evt.getEntityLiving().worldObj.getGameRules().getBoolean("doMobLoot")) {
 			boolean s = entity instanceof EntitySlime;
 			if (evt.getEntityLiving().getRNG().nextInt(6 + (s ? 16 : 0)) != 0) {
 				return;
