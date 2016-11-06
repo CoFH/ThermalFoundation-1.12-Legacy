@@ -32,10 +32,10 @@ public enum Equipment {
 
     // @formatter:off
 	/* Name, Level, Uses, Speed, Damage, Ench, Dura, Absorption */
-	Copper(      1,  175,  4.0F,  0.75F,    6,    6, new int[] { 1, 3, 3, 1 }),
-	Tin(         1,  200,  4.5F,   1.0F,    7,    8, new int[] { 1, 4, 3, 1 }),
-	Silver(      2,  200,  6.0F,   1.5F,   20,   11, new int[] { 2, 4, 4, 1 }),
-	Lead(        1,  150,    5F,   1.0F,    9,   15, new int[] { 2, 5, 4, 3 }) {
+	Copper(      1,  175,  4.0F,  0.75F,    6,    6, new int[] { 1, 3, 3, 1 }, 0.0F, -3.2F),
+	Tin(         1,  200,  4.5F,   1.0F,    7,    8, new int[] { 1, 4, 3, 1 }, 0.0F, -3.1F),
+	Silver(      2,  200,  6.0F,   1.5F,   20,   11, new int[] { 2, 4, 4, 1 }, 0.0F, -3.1F),
+	Lead(        1,  150,    5F,   1.0F,    9,   15, new int[] { 2, 5, 4, 3 }, 0.0F, -3.1F) {
 
 		@Override
 		protected final void createArmor() {
@@ -65,11 +65,11 @@ public enum Equipment {
 			itemBoots.putAttribute("generic.movementSpeed", movementBonus);
 		}
 	},
-	Nickel(      2,  300,  6.5F,   2.5F,   18,   15, new int[] { 2, 5, 5, 2 }),
-	Electrum(    0,  100, 14.0F,   0.5F,   30,    8, new int[] { 2, 4, 4, 2 }),
-	Invar(       2,  450,  7.0F,   3.0F,   16,   21, new int[] { 2, 7, 5, 2 }),
-	Bronze(      2,  500,  6.0F,   2.0F,   15,   18, new int[] { 3, 6, 6, 2 }),
-	Platinum(    4, 1700,  9.0F,   4.0F,    9,   40, new int[] { 3, 8, 6, 3 }) {
+	Nickel(      2,  300,  6.5F,   2.5F,   18,   15, new int[] { 2, 5, 5, 2 }, 0.0F, -3.1F),
+	Electrum(    0,  100, 14.0F,   0.5F,   30,    8, new int[] { 2, 4, 4, 2 }, 1.0F, -3.0F),
+	Invar(       2,  450,  7.0F,   3.0F,   16,   21, new int[] { 2, 7, 5, 2 }, 1.0F, -3.0F),
+	Bronze(      2,  500,  6.0F,   2.0F,   15,   18, new int[] { 3, 6, 6, 2 }, 1.0F, -3.0F),
+	Platinum(    4, 1700,  9.0F,   4.0F,    9,   40, new int[] { 3, 8, 6, 3 }, 2.0F, -2.9F) {
 
 		@Override
 		protected final void createArmor() {
@@ -143,11 +143,12 @@ public enum Equipment {
     public ItemStack toolFishingRod;
     public ItemStack toolSickle;
     public ItemStack toolBow;
+    private float axeAttackSpeed;
 
-    Equipment(int level, int uses, float speed, float damage, int enchant, int durability, int[] absorb) {
+    Equipment(int level, int uses, float speed, float damage, int enchant, int durability, int[] absorb, float armorToughness, float axeAttackSpeed) {
 
         TOOL_MATERIAL = EnumHelper.addToolMaterial("TF:" + name().toUpperCase(Locale.US), level, uses, speed, damage, enchant);
-        ARMOR_MATERIAL = EnumHelper.addArmorMaterial("TF:" + name().toUpperCase(Locale.US), name(), durability, absorb, enchant, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.5F); //TODO toughness;
+        ARMOR_MATERIAL = EnumHelper.addArmorMaterial("TF:" + name().toUpperCase(Locale.US), name(), durability, absorb, enchant, SoundEvents.ITEM_ARMOR_EQUIP_IRON, armorToughness); //TODO toughness;
         ingot = "ingot" + name();
 
 		/* Fishing Rod */
@@ -157,6 +158,7 @@ public enum Equipment {
 		/* Bow */
         // arrowSpeed = 2.0F + speed / 8F;
         arrowDamage = 1.0F + damage / 8F;
+        this.axeAttackSpeed = axeAttackSpeed;
     }
 
     protected void createArmor() {
@@ -170,7 +172,7 @@ public enum Equipment {
         itemSword = new ItemSwordAdv(TOOL_MATERIAL);
         itemShovel = new ItemShovelAdv(TOOL_MATERIAL);
         itemPickaxe = new ItemPickaxeAdv(TOOL_MATERIAL);
-        itemAxe = new ItemAxeAdv(TOOL_MATERIAL);
+        itemAxe = new ItemAxeAdv(axeAttackSpeed, TOOL_MATERIAL);
         itemHoe = new ItemHoeAdv(TOOL_MATERIAL);
         itemShears = new ItemShearsAdv(TOOL_MATERIAL);
         itemFishingRod = new ItemFishingRodAdv(TOOL_MATERIAL);
