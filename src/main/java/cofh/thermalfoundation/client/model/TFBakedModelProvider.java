@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.model.IModelState;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -86,7 +87,16 @@ public class TFBakedModelProvider implements IBakedModelLoader {
     @Override
     public IBakedModel bakeModel(String key) {
         SimplePerspectiveAwareLayerModelBakery bakery = new SimplePerspectiveAwareLayerModelBakery(getResource(key));
-        return bakery.bake(TransformUtils.DEFAULT_ITEM);
+        return bakery.bake(getTransformation(key));
+    }
+
+    private IModelState getTransformation(String key) {
+        if (key.contains("bow")) {
+            return TransformUtils.DEFAULT_BOW;
+        } else if (key.contains("fishing_rod")) {
+            return TransformUtils.DEFAULT_HANDHELD_ROD;
+        }
+       return TransformUtils.DEFAULT_ITEM;
     }
 
     private static ResourceLocation getResource(String string) {
