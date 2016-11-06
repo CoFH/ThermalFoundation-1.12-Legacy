@@ -4,6 +4,7 @@ import codechicken.lib.util.CommonUtils;
 import codechicken.lib.util.EntityUtils;
 import codechicken.lib.vec.Vector3;
 import cofh.core.fluid.BlockFluidCoFHBase;
+import cofh.core.util.CoreUtils;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -51,16 +52,16 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
-        if (!effect || CommonUtils.isClientWorld(world) || !(entity instanceof EntityLivingBase)) {
+        if (!effect || CommonUtils.isClientWorld(world)) {
             return;
         }
         if (world.getTotalWorldTime() % 8 == 0) {
-            int x2 = pos.getX() - 8 + world.rand.nextInt(17);
-            int y2 = pos.getY() + world.rand.nextInt(8);
-            int z2 = pos.getZ() - 8 + world.rand.nextInt(17);
+            int x = pos.getX() - 8 + world.rand.nextInt(17);
+            int y = pos.getY() + world.rand.nextInt(8);
+            int z = pos.getZ() - 8 + world.rand.nextInt(17);
 
-            if (!world.getBlockState(new BlockPos(x2, y2, z2)).getMaterial().isSolid()) {
-                EntityUtils.teleportEntityTo((EntityLivingBase) entity, new Vector3(x2, y2, z2));
+            if (!world.getBlockState(new BlockPos(x, y, z)).getMaterial().isSolid()) {
+                CoreUtils.teleportEntityTo(entity, x, y, z);
             }
         }
     }
