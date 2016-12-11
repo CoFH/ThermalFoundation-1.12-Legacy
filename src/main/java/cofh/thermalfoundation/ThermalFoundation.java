@@ -1,5 +1,6 @@
 package cofh.thermalfoundation;
 
+import cofh.CoFHCore;
 import cofh.thermalfoundation.block.TFBlocks;
 import cofh.thermalfoundation.core.CommonProxy;
 import cofh.thermalfoundation.core.TFProps;
@@ -38,9 +39,9 @@ public class ThermalFoundation {
 
     public static final String modId = "ThermalFoundation";
     public static final String modName = "Thermal Foundation";
-    public static final String version = "${mod_version}";
-    public static final String version_max = "${mod_version_max}";
-    public static final String dependencies = "";
+    public static final String version = "1.0.0";
+    public static final String version_max = "1.1.0";
+    public static final String dependencies = CoFHCore.version_group;
     public static final String modGuiFactory = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
 
     public static final String version_group = "required-after:" + modId + "@[" + version + "," + version_max + ");";

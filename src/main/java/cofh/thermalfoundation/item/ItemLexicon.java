@@ -4,6 +4,7 @@ import baubles.api.BaubleType;
 import baubles.api.IBauble;
 import cofh.api.item.IEmpowerableItem;
 import cofh.api.item.IInventoryContainerItem;
+import cofh.asm.relauncher.Strippable;
 import cofh.core.util.CoreUtils;
 import cofh.core.util.KeyBindingEmpower;
 import cofh.lib.util.helpers.SecurityHelper;
@@ -32,7 +33,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import java.util.List;
 
 //import net.minecraft.client.renderer.texture.IIconRegister;
-
+@Strippable("baubles.api.IBauble")
 public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpowerableItem, IBauble {
 
 	public String modName = "thermalfoundation";
