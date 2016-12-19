@@ -348,21 +348,21 @@ public class TFItems {
         ItemHelper.addReverseStorageRecipe(ingotEnderium, "blockEnderium");
 
 		/* Gears */
-        ItemHelper.addGearRecipe(gearIron, "ingotIron", "ingotIron");
-        ItemHelper.addGearRecipe(gearGold, "ingotIron", "ingotGold");
-        ItemHelper.addGearRecipe(gearCopper, "ingotIron", "ingotCopper");
-        ItemHelper.addGearRecipe(gearTin, "ingotIron", "ingotTin");
-        ItemHelper.addGearRecipe(gearSilver, "ingotIron", "ingotSilver");
-        ItemHelper.addGearRecipe(gearLead, "ingotIron", "ingotLead");
-        ItemHelper.addGearRecipe(gearNickel, "ingotIron", "ingotNickel");
-        ItemHelper.addGearRecipe(gearPlatinum, "ingotIron", "ingotPlatinum");
-        ItemHelper.addGearRecipe(gearMithril, "ingotIron", "ingotMithril");
-        ItemHelper.addGearRecipe(gearElectrum, "ingotIron", "ingotElectrum");
-        ItemHelper.addGearRecipe(gearInvar, "ingotIron", "ingotInvar");
-        ItemHelper.addGearRecipe(gearBronze, "ingotIron", "ingotBronze");
-        ItemHelper.addGearRecipe(gearSignalum, "ingotIron", "ingotSignalum");
-        ItemHelper.addGearRecipe(gearLumium, "ingotIron", "ingotLumium");
-        ItemHelper.addGearRecipe(gearEnderium, "ingotIron", "ingotEnderium");
+        ItemHelper.addGearRecipe(gearIron,     "ingotIron",     "ingotIron");
+        ItemHelper.addGearRecipe(gearGold,     "ingotGold",     "ingotIron");
+        ItemHelper.addGearRecipe(gearCopper,   "ingotCopper",   "ingotIron");
+        ItemHelper.addGearRecipe(gearTin,      "ingotTin",      "ingotIron");
+        ItemHelper.addGearRecipe(gearSilver,   "ingotSilver",   "ingotIron");
+        ItemHelper.addGearRecipe(gearLead,     "ingotLead",     "ingotIron");
+        ItemHelper.addGearRecipe(gearNickel,   "ingotNickel",   "ingotIron");
+        ItemHelper.addGearRecipe(gearPlatinum, "ingotPlatinum", "ingotIron");
+        ItemHelper.addGearRecipe(gearMithril,  "ingotMithril",  "ingotIron");
+        ItemHelper.addGearRecipe(gearElectrum, "ingotElectrum", "ingotIron");
+        ItemHelper.addGearRecipe(gearInvar,    "ingotInvar",    "ingotIron");
+        ItemHelper.addGearRecipe(gearBronze,   "ingotBronze",   "ingotIron");
+        ItemHelper.addGearRecipe(gearSignalum, "ingotSignalum", "ingotIron");
+        ItemHelper.addGearRecipe(gearLumium,   "ingotLumium",   "ingotIron");
+        ItemHelper.addGearRecipe(gearEnderium, "ingotEnderium", "ingotIron");
 
 		/* Equipment */
         Equipment.postInit();
