@@ -13,13 +13,11 @@ import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.gui.container.ContainerLexiconStudy;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
-
-import java.util.Locale;
-
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.input.Keyboard;
+
+import java.util.Locale;
 
 public class GuiLexiconStudy extends GuiBaseAdv {
 

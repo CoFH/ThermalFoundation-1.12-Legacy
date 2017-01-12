@@ -4,10 +4,9 @@ import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.RedstoneControlHelper;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.item.ItemDiagram;
+import net.minecraft.item.ItemStack;
 
 import java.util.List;
-
-import net.minecraft.item.ItemStack;
 
 public class RedprintHelper {
 
@@ -39,8 +38,7 @@ public class RedprintHelper {
 			return "";
 		}
 		if (stack.getTagCompound().hasKey("DisplayType")) {
-			return ": " + StringHelper.localize(stack.getTagCompound().getString("Type")) + " ("
-					+ StringHelper.localize(stack.getTagCompound().getString("DisplayType")) + ")";
+			return ": " + StringHelper.localize(stack.getTagCompound().getString("Type")) + " (" + StringHelper.localize(stack.getTagCompound().getString("DisplayType")) + ")";
 		}
 		return ": " + StringHelper.localize(stack.getTagCompound().getString("Type"));
 	}

@@ -31,7 +31,7 @@ import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
 
 public class BlockOre extends BlockCoFHBase implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockOre.Type> VARIANT = PropertyEnum.<BlockOre.Type> create("type", BlockOre.Type.class);
+	public static final PropertyEnum<BlockOre.Type> VARIANT = PropertyEnum.<BlockOre.Type>create("type", BlockOre.Type.class);
 
 	public BlockOre() {
 
@@ -42,7 +42,7 @@ public class BlockOre extends BlockCoFHBase implements IInitializer, IModelRegis
 
 		setHardness(3.0F);
 		setResistance(5.0F);
-        setSoundType(SoundType.STONE);
+		setSoundType(SoundType.STONE);
 		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.COPPER));
 
 		setHarvestLevel("pickaxe", 2);
@@ -58,7 +58,7 @@ public class BlockOre extends BlockCoFHBase implements IInitializer, IModelRegis
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
@@ -85,14 +85,14 @@ public class BlockOre extends BlockCoFHBase implements IInitializer, IModelRegis
 	}
 
 	@Override
-    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
 		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
 	}
 
 	/* IModelRegister */
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels() {
 
 		for (int i = 0; i < Type.values().length; i++) {

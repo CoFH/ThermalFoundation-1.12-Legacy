@@ -43,16 +43,16 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
 
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
-		case SCHEMATIC:
-			SchematicHelper.addInformation(stack, tooltip);
-			break;
-		case PATTERN:
-			PatternHelper.addInformation(stack, tooltip);
-			break;
-		case REDPRINT:
-			RedprintHelper.addInformation(stack, tooltip);
-			break;
-		default:
+			case SCHEMATIC:
+				SchematicHelper.addInformation(stack, tooltip);
+				break;
+			case PATTERN:
+				PatternHelper.addInformation(stack, tooltip);
+				break;
+			case REDPRINT:
+				RedprintHelper.addInformation(stack, tooltip);
+				break;
+			default:
 		}
 	}
 
@@ -63,43 +63,43 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 	}
 
 	@Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
 		return player.canPlayerEdit(pos.offset(facing), facing, stack) ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
 	}
 
 	@Override
-    public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 
-        if (player.isSneaking()) {
-            if (stack.getTagCompound() != null) {
-                SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
-            }
-            stack.setTagCompound(null);
-            return EnumActionResult.SUCCESS;
-        }
-		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
-		case REDPRINT:
-			doRedprintUseFirst(stack, player, world, pos, side, hitX, hitY, hitZ, hand);
-			break;
-		default:
-            return EnumActionResult.PASS;
+		if (player.isSneaking()) {
+			if (stack.getTagCompound() != null) {
+				SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
+			}
+			stack.setTagCompound(null);
+			return EnumActionResult.SUCCESS;
 		}
-        ServerHelper.sendItemUsePacket(world, pos, side, hand, hitX, hitY, hitZ);
-        return EnumActionResult.SUCCESS;
+		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
+			case REDPRINT:
+				doRedprintUseFirst(stack, player, world, pos, side, hitX, hitY, hitZ, hand);
+				break;
+			default:
+				return EnumActionResult.PASS;
+		}
+		ServerHelper.sendItemUsePacket(world, pos, side, hand, hitX, hitY, hitZ);
+		return EnumActionResult.SUCCESS;
 	}
 
 	@Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
 
-        if (player.isSneaking()) {
-            if (stack.getTagCompound() != null) {
-                SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
-            }
-            stack.setTagCompound(null);
-        }
-        player.swingArm(hand);
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
+		if (player.isSneaking()) {
+			if (stack.getTagCompound() != null) {
+				SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
+			}
+			stack.setTagCompound(null);
+		}
+		player.swingArm(hand);
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
 	}
 
 	private void doRedprintUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
@@ -117,7 +117,7 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 					stack.setTagCompound(null);
 				} else {
 					stack.getTagCompound().setString("Type", ((IPortableData) tile).getDataType());
-                    SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.7F);
+					SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.7F);
 				}
 			} else {
 				if (stack.getTagCompound().getString("Type").equals(((IPortableData) tile).getDataType())) {
@@ -133,16 +133,16 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 		String baseName = StringHelper.localize(getUnlocalizedName(stack) + ".name");
 
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
-		case SCHEMATIC:
-			baseName += SchematicHelper.getDisplayName(stack);
-			break;
-		case PATTERN:
-			//baseName += PatternHelper.getDisplayName(stack);
-			break;
-		case REDPRINT:
-			baseName += RedprintHelper.getDisplayName(stack);
-			break;
-		default:
+			case SCHEMATIC:
+				baseName += SchematicHelper.getDisplayName(stack);
+				break;
+			case PATTERN:
+				//baseName += PatternHelper.getDisplayName(stack);
+				break;
+			case REDPRINT:
+				baseName += RedprintHelper.getDisplayName(stack);
+				break;
+			default:
 		}
 		return baseName;
 	}
@@ -154,18 +154,18 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 	}
 
 	/* IModelRegister */
-//	@Override
-//	@SideOnly(Side.CLIENT)
-//	public void registerModels() {
-//
-//		StateMapper mapper = new StateMapper(modName, "tool", name);
-//		ModelBakery.registerItemVariants(this);
-//		ModelLoader.setCustomMeshDefinition(this, mapper);
-//
-//		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
-//			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
-//		}
-//	}
+	//	@Override
+	//	@SideOnly(Side.CLIENT)
+	//	public void registerModels() {
+	//
+	//		StateMapper mapper = new StateMapper(modName, "tool", name);
+	//		ModelBakery.registerItemVariants(this);
+	//		ModelLoader.setCustomMeshDefinition(this, mapper);
+	//
+	//		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
+	//			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
+	//		}
+	//	}
 
 	/* IInitializer */
 	@Override

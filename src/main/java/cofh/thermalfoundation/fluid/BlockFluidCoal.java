@@ -15,61 +15,61 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockFluidCoal extends BlockFluidCoFHBase {
 
-    public static final int LEVELS = 6;
-    public static final Material materialFluidCoal = new MaterialLiquid(MapColor.GRAY);
+	public static final int LEVELS = 6;
+	public static final Material materialFluidCoal = new MaterialLiquid(MapColor.GRAY);
 
-    private static boolean effect = true;
+	private static boolean effect = true;
 
-    public BlockFluidCoal(Fluid fluid) {
+	public BlockFluidCoal(Fluid fluid) {
 
-        super(fluid, Material.WATER, "thermalfoundation", "coal");
-        setQuantaPerBlock(LEVELS);
-        setTickRate(10);
+		super(fluid, Material.WATER, "thermalfoundation", "coal");
+		setQuantaPerBlock(LEVELS);
+		setTickRate(10);
 
-        setHardness(100F);
-        setLightOpacity(7);
-        setParticleColor(0.2F, 0.2F, 0.2F);
-    }
+		setHardness(100F);
+		setLightOpacity(7);
+		setParticleColor(0.2F, 0.2F, 0.2F);
+	}
 
-    @Override
-    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+	@Override
+	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
 
-        return effect ? 300 : 0;
-    }
+		return effect ? 300 : 0;
+	}
 
-    @Override
-    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
 
-        return 25;
-    }
+		return 25;
+	}
 
-    @Override
-    public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face) {
+	@Override
+	public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face) {
 
-        return effect;
-    }
+		return effect;
+	}
 
-    @Override
-    public boolean isFireSource(World world, BlockPos pos, EnumFacing face) {
+	@Override
+	public boolean isFireSource(World world, BlockPos pos, EnumFacing face) {
 
-        return effect;
-    }
+		return effect;
+	}
 
-    /* IInitializer */
-    @Override
-    public boolean preInit() {
+	/* IInitializer */
+	@Override
+	public boolean preInit() {
 
-        this.setRegistryName("fluid_coal");
-        GameRegistry.register(this);
-        ItemBlock itemBlock = new ItemBlock(this);
-        itemBlock.setRegistryName(this.getRegistryName());
-        GameRegistry.register(itemBlock);
+		this.setRegistryName("fluid_coal");
+		GameRegistry.register(this);
+		ItemBlock itemBlock = new ItemBlock(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		GameRegistry.register(itemBlock);
 
-        String category = "Fluid.Coal";
-        String comment = "Enable this for Fluid Coal to be flammable.";
-        effect = ThermalFoundation.config.get(category, "Flammable", true, comment).getBoolean();
+		String category = "Fluid.Coal";
+		String comment = "Enable this for Fluid Coal to be flammable.";
+		effect = ThermalFoundation.config.get(category, "Flammable", true, comment).getBoolean();
 
-        return true;
-    }
+		return true;
+	}
 
 }

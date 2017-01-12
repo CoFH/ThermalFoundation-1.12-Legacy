@@ -77,16 +77,19 @@ public class InventoryLexiconTransmute implements IInventory {
 
 	@Override
 	public String getName() {
+
 		return null;
 	}
 
 	@Override
 	public boolean hasCustomName() {
+
 		return false;
 	}
 
 	@Override
 	public ITextComponent getDisplayName() {
+
 		return null;
 	}
 
@@ -126,6 +129,7 @@ public class InventoryLexiconTransmute implements IInventory {
 
 	@Override
 	public int getField(int id) {
+
 		return 0;
 	}
 
@@ -136,6 +140,7 @@ public class InventoryLexiconTransmute implements IInventory {
 
 	@Override
 	public int getFieldCount() {
+
 		return 0;
 	}
 

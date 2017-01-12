@@ -1,23 +1,22 @@
 package cofh.thermalfoundation.gui;
 
 import cofh.thermalfoundation.block.BlockOre;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class TFCreativeTab extends CreativeTabs {
+public class CreativeTabTF extends CreativeTabs {
 
 	private final String label;
 
-	public TFCreativeTab() {
+	public CreativeTabTF() {
 
 		this("");
 	}
 
-	public TFCreativeTab(String label) {
+	public CreativeTabTF(String label) {
 
 		super("ThermalFoundation" + label);
 		this.label = label;
@@ -29,21 +28,21 @@ public class TFCreativeTab extends CreativeTabs {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public ItemStack getIconItemStack() {
 
 		return getStack();
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public Item getTabIconItem() {
 
 		return getIconItemStack().getItem();
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public String getTabLabel() {
 
 		return "thermalfoundation.creativeTab" + label;

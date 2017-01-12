@@ -1,10 +1,7 @@
 package cofh.thermalfoundation.item;
 
-import baubles.api.BaubleType;
-import baubles.api.IBauble;
 import cofh.api.item.IEmpowerableItem;
 import cofh.api.item.IInventoryContainerItem;
-import cofh.asm.relauncher.Strippable;
 import cofh.core.util.CoreUtils;
 import cofh.core.util.KeyBindingEmpower;
 import cofh.lib.util.helpers.SecurityHelper;
@@ -15,7 +12,6 @@ import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -32,9 +28,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.List;
 
-//import net.minecraft.client.renderer.texture.IIconRegister;
-@Strippable("baubles.api.IBauble")
-public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpowerableItem, IBauble {
+public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpowerableItem {
 
 	public String modName = "thermalfoundation";
 	public final String itemName;
@@ -69,14 +63,10 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 
 		if (isEmpowered(stack)) {
 			list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.4") + StringHelper.END);
-			list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
-					+ StringHelper.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.5")
-					+ StringHelper.END);
+			list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.5") + StringHelper.END);
 		} else {
 			list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.2") + StringHelper.END);
-			list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " "
-					+ StringHelper.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.3")
-					+ StringHelper.END);
+			list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingEmpower.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.3") + StringHelper.END);
 		}
 	}
 
@@ -162,12 +152,12 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 		return super.setUnlocalizedName(textureName);
 	}
 
-//	@Override
-//	@SideOnly(Side.CLIENT)
-//	public void registerIcons(IIconRegister ir) {
-//
-//		this.itemIcon = ir.registerIcon(modName + ":" + getUnlocalizedName().replace("item." + modName + ".", "") + "/" + StringHelper.titleCase(itemName));
-//	}
+	//	@Override
+	//	@SideOnly(Side.CLIENT)
+	//	public void registerIcons(IIconRegister ir) {
+	//
+	//		this.itemIcon = ir.registerIcon(MOD_NAME + ":" + getUnlocalizedName().replace("item." + MOD_NAME + ".", "") + "/" + StringHelper.titleCase(itemName));
+	//	}
 
 	/* IInventoryContainerItem */
 	@Override
@@ -179,6 +169,7 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 	/* IEmpowerableItem */
 	@Override
 	public boolean isEmpowered(ItemStack stack) {
+
 		return !stack.hasTagCompound() ? false : stack.getTagCompound().getBoolean("Empowered");
 	}
 
@@ -194,6 +185,7 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 
 	@Override
 	public void onStateChange(EntityPlayer player, ItemStack stack) {
+
 		if (isEmpowered(stack)) {
 			player.worldObj.playSound(player.posX, player.posY, player.posZ, SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.PLAYERS, 0.4F, 1.0F, false);
 		} else {
@@ -202,42 +194,42 @@ public class ItemLexicon extends Item implements IInventoryContainerItem, IEmpow
 	}
 
 	/* IBauble */
-	@Override
-	public BaubleType getBaubleType(ItemStack itemstack) {
-
-		return BaubleType.BELT;
-	}
-
-	@Override
-	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
-
-		if (!isEmpowered(itemstack)) {
-			return;
-		}
-		NBTTagCompound tag = player.getEntityData();
-		tag.setLong("cofh.LexiconUpdate", player.worldObj.getTotalWorldTime());
-	}
-
-	@Override
-	public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
-
-	}
-
-	@Override
-	public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
-
-	}
-
-	@Override
-	public boolean canEquip(ItemStack itemstack, EntityLivingBase player) {
-
-		return true;
-	}
-
-	@Override
-	public boolean canUnequip(ItemStack itemstack, EntityLivingBase player) {
-
-		return true;
-	}
+	//	@Override
+	//	public BaubleType getBaubleType(ItemStack itemstack) {
+	//
+	//		return BaubleType.BELT;
+	//	}
+	//
+	//	@Override
+	//	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
+	//
+	//		if (!isEmpowered(itemstack)) {
+	//			return;
+	//		}
+	//		NBTTagCompound tag = player.getEntityData();
+	//		tag.setLong("cofh.LexiconUpdate", player.worldObj.getTotalWorldTime());
+	//	}
+	//
+	//	@Override
+	//	public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
+	//
+	//	}
+	//
+	//	@Override
+	//	public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
+	//
+	//	}
+	//
+	//	@Override
+	//	public boolean canEquip(ItemStack itemstack, EntityLivingBase player) {
+	//
+	//		return true;
+	//	}
+	//
+	//	@Override
+	//	public boolean canUnequip(ItemStack itemstack, EntityLivingBase player) {
+	//
+	//		return true;
+	//	}
 
 }

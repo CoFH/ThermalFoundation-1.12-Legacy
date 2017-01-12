@@ -22,87 +22,95 @@ import java.util.Map;
  */
 public class TFBakedModelProvider implements IBakedModelLoader {
 
-    public static final Map<Item, String> BOWS = Collections.synchronizedMap(new HashMap<Item, String>());
-    public static final Map<Item, String> RODS = Collections.synchronizedMap(new HashMap<Item, String>());
-    public static final Map<String, ResourceLocation> resourceCache = new HashMap<String, ResourceLocation>();
+	public static final Map<Item, String> BOWS = Collections.synchronizedMap(new HashMap<Item, String>());
+	public static final Map<Item, String> RODS = Collections.synchronizedMap(new HashMap<Item, String>());
+	public static final Map<String, ResourceLocation> resourceCache = new HashMap<String, ResourceLocation>();
 
-    public static final TFBakedModelProvider INSTANCE = new TFBakedModelProvider();
+	public static final TFBakedModelProvider INSTANCE = new TFBakedModelProvider();
 
-    public static class TFKeyProvider implements IModKeyProvider {
+	public static class TFKeyProvider implements IModKeyProvider {
 
-        public static final TFKeyProvider INSTANCE = new TFKeyProvider();
+		public static final TFKeyProvider INSTANCE = new TFKeyProvider();
 
-        @Override
-        public String getMod() {
-            return ThermalFoundation.modId;
-        }
+		@Override
+		public String getMod() {
 
-        @Override
-        public String createKey(ItemStack stack) {
-            if (stack != null && BOWS.containsKey(stack.getItem())) {
-                String key = BOWS.get(stack.getItem());
-                String texture = "thermalfoundation:items/tool/" + key.substring(0, key.indexOf("_")) + "/" + key;
-                if (ItemNBTUtils.hasKey(stack, "DrawStage")) {
-                    int stage = ItemNBTUtils.getInteger(stack, "DrawStage");
-                    texture += "_" + stage;
-                }
-                return texture;
-            }
-            if (stack != null && RODS.containsKey(stack.getItem())) {
-                String key = RODS.get(stack.getItem());
-                String texture = "thermalfoundation:items/tool/" + key.substring(0, key.indexOf("_")) + "/" + key + (ItemNBTUtils.hasKey(stack, "IsCast") ? "_cast" : "_uncast");
-                return texture;
-            }
+			return ThermalFoundation.MOD_ID;
+		}
 
-            return null;
-        }
+		@Override
+		public String createKey(ItemStack stack) {
 
-        @Override
-        public String createKey(IBlockState state) {
-            return null;
-        }
-    }
+			if (stack != null && BOWS.containsKey(stack.getItem())) {
+				String key = BOWS.get(stack.getItem());
+				String texture = "thermalfoundation:items/tool/" + key.substring(0, key.indexOf("_")) + "/" + key;
+				if (ItemNBTUtils.hasKey(stack, "DrawStage")) {
+					int stage = ItemNBTUtils.getInteger(stack, "DrawStage");
+					texture += "_" + stage;
+				}
+				return texture;
+			}
+			if (stack != null && RODS.containsKey(stack.getItem())) {
+				String key = RODS.get(stack.getItem());
+				String texture = "thermalfoundation:items/tool/" + key.substring(0, key.indexOf("_")) + "/" + key + (ItemNBTUtils.hasKey(stack, "IsCast") ? "_cast" : "_uncast");
+				return texture;
+			}
 
-    @Override
-    public IModKeyProvider createKeyProvider() {
-        return TFKeyProvider.INSTANCE;
-    }
+			return null;
+		}
 
-    @Override
-    public void addTextures(ImmutableList.Builder<ResourceLocation> builder) {
-        for (String s : BOWS.values()) {
+		@Override
+		public String createKey(IBlockState state) {
 
-            builder.add(getResource("thermalfoundation:items/tool/" + s.substring(0, s.indexOf("_")) + "/" + s));
-            builder.add(getResource("thermalfoundation:items/tool/" + s.substring(0, s.indexOf("_")) + "/" + s + "_0"));
-            builder.add(getResource("thermalfoundation:items/tool/" + s.substring(0, s.indexOf("_")) + "/" + s + "_1"));
-            builder.add(getResource("thermalfoundation:items/tool/" + s.substring(0, s.indexOf("_")) + "/" + s + "_2"));
-        }
+			return null;
+		}
+	}
 
-        for (String s : RODS.values()) {
-            builder.add(getResource("thermalfoundation:items/tool/" + s.substring(0, s.indexOf("_")) + "/" + s + "_uncast"));
-            builder.add(getResource("thermalfoundation:items/tool/" + s.substring(0, s.indexOf("_")) + "/" + s + "_cast"));
-        }
-    }
+	@Override
+	public IModKeyProvider createKeyProvider() {
 
-    @Override
-    public IBakedModel bakeModel(String key) {
-        SimplePerspectiveAwareLayerModelBakery bakery = new SimplePerspectiveAwareLayerModelBakery(getResource(key));
-        return bakery.bake(getTransformation(key));
-    }
+		return TFKeyProvider.INSTANCE;
+	}
 
-    private IModelState getTransformation(String key) {
-        if (key.contains("bow")) {
-            return TransformUtils.DEFAULT_BOW;
-        } else if (key.contains("fishing_rod")) {
-            return TransformUtils.DEFAULT_HANDHELD_ROD;
-        }
-       return TransformUtils.DEFAULT_ITEM;
-    }
+	@Override
+	public void addTextures(ImmutableList.Builder<ResourceLocation> builder) {
 
-    private static ResourceLocation getResource(String string) {
-        if (!resourceCache.containsKey(string)) {
-            resourceCache.put(string, new ResourceLocation(string));
-        }
-        return resourceCache.get(string);
-    }
+		for (String s : BOWS.values()) {
+
+			builder.add(getResource("thermalfoundation:items/tool/" + s.substring(0, s.indexOf("_")) + "/" + s));
+			builder.add(getResource("thermalfoundation:items/tool/" + s.substring(0, s.indexOf("_")) + "/" + s + "_0"));
+			builder.add(getResource("thermalfoundation:items/tool/" + s.substring(0, s.indexOf("_")) + "/" + s + "_1"));
+			builder.add(getResource("thermalfoundation:items/tool/" + s.substring(0, s.indexOf("_")) + "/" + s + "_2"));
+		}
+
+		for (String s : RODS.values()) {
+			builder.add(getResource("thermalfoundation:items/tool/" + s.substring(0, s.indexOf("_")) + "/" + s + "_uncast"));
+			builder.add(getResource("thermalfoundation:items/tool/" + s.substring(0, s.indexOf("_")) + "/" + s + "_cast"));
+		}
+	}
+
+	@Override
+	public IBakedModel bakeModel(String key) {
+
+		SimplePerspectiveAwareLayerModelBakery bakery = new SimplePerspectiveAwareLayerModelBakery(getResource(key));
+		return bakery.bake(getTransformation(key));
+	}
+
+	private IModelState getTransformation(String key) {
+
+		if (key.contains("bow")) {
+			return TransformUtils.DEFAULT_BOW;
+		} else if (key.contains("fishing_rod")) {
+			return TransformUtils.DEFAULT_HANDHELD_ROD;
+		}
+		return TransformUtils.DEFAULT_ITEM;
+	}
+
+	private static ResourceLocation getResource(String string) {
+
+		if (!resourceCache.containsKey(string)) {
+			resourceCache.put(string, new ResourceLocation(string));
+		}
+		return resourceCache.get(string);
+	}
 }

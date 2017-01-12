@@ -37,7 +37,7 @@ import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
 import static cofh.lib.util.helpers.ItemHelper.addRecipe;
 
-@Implementable({"buildcraft.api.tools.IToolWrench", "com.brandon3055.draconicevolution.api.ICrystalBinder"})
+@Implementable ({ "buildcraft.api.tools.IToolWrench", "com.brandon3055.draconicevolution.api.ICrystalBinder" })
 public class ItemWrench extends ItemToolBase implements IInitializer, IToolHammer {
 
 	public ItemWrench() {
@@ -51,70 +51,70 @@ public class ItemWrench extends ItemToolBase implements IInitializer, IToolHamme
 		setHarvestLevel("wrench", 1);
 	}
 
-    @Override
-    public boolean doesSneakBypassUse(ItemStack stack, IBlockAccess world, BlockPos pos, EntityPlayer player) {
+	@Override
+	public boolean doesSneakBypassUse(ItemStack stack, IBlockAccess world, BlockPos pos, EntityPlayer player) {
 
-        return true;
-    }
+		return true;
+	}
 
 	@Override
-    public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 
 		IBlockState state = world.getBlockState(pos);
 		Block block = state.getBlock();
 
-        if (state == null) {
-            return EnumActionResult.PASS;
-        }
-        RayTraceResult traceResult = RayTracer.retrace(player);
-        PlayerInteractEvent event = new PlayerInteractEvent.RightClickBlock(player, hand, stack, pos, side, traceResult.hitVec);
-        if (MinecraftForge.EVENT_BUS.post(event) || event.getResult() == Result.DENY ) {
-            return EnumActionResult.PASS;
-        }
-		if (ServerHelper.isServerWorld(world) && player.isSneaking() && block instanceof IDismantleable
-				&& ((IDismantleable) block).canDismantle(world, pos, state, player)) {
-			((IDismantleable) block).dismantleBlock(world, pos, state, player, false);
-            return EnumActionResult.SUCCESS;
+		if (state == null) {
+			return EnumActionResult.PASS;
 		}
-        if (BlockHelper.canRotate(block)) {
-            if (player.isSneaking()) {
-                world.setBlockState(pos, BlockHelper.rotateVanillaBlockAlt(world, state, pos), 3);
-                SoundUtils.playSoundAt(new Vector3(pos).add(0.5), world, SoundCategory.BLOCKS, block.getSoundType(state, world, pos, player).getBreakSound(), 1.0F, 0.6F);
-            } else {
-                world.setBlockState(pos, BlockHelper.rotateVanillaBlock(world, state, pos), 3);
-                SoundUtils.playSoundAt(new Vector3(pos).add(0.5), world, SoundCategory.BLOCKS, block.getSoundType(state, world, pos, player).getBreakSound(), 1.0F, 0.8F);
-            }
-            return ServerHelper.isServerWorld(world) ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
-        } else if (!player.isSneaking() && block.rotateBlock(world, pos, side)) {
-            player.swingArm(hand);
-            return ServerHelper.isServerWorld(world) ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
-        }
-        return EnumActionResult.PASS;
+		RayTraceResult traceResult = RayTracer.retrace(player);
+		PlayerInteractEvent event = new PlayerInteractEvent.RightClickBlock(player, hand, stack, pos, side, traceResult.hitVec);
+		if (MinecraftForge.EVENT_BUS.post(event) || event.getResult() == Result.DENY) {
+			return EnumActionResult.PASS;
+		}
+		if (ServerHelper.isServerWorld(world) && player.isSneaking() && block instanceof IDismantleable && ((IDismantleable) block).canDismantle(world, pos, state, player)) {
+			((IDismantleable) block).dismantleBlock(world, pos, state, player, false);
+			return EnumActionResult.SUCCESS;
+		}
+		if (BlockHelper.canRotate(block)) {
+			if (player.isSneaking()) {
+				world.setBlockState(pos, BlockHelper.rotateVanillaBlockAlt(world, state, pos), 3);
+				SoundUtils.playSoundAt(new Vector3(pos).add(0.5), world, SoundCategory.BLOCKS, block.getSoundType(state, world, pos, player).getBreakSound(), 1.0F, 0.6F);
+			} else {
+				world.setBlockState(pos, BlockHelper.rotateVanillaBlock(world, state, pos), 3);
+				SoundUtils.playSoundAt(new Vector3(pos).add(0.5), world, SoundCategory.BLOCKS, block.getSoundType(state, world, pos, player).getBreakSound(), 1.0F, 0.8F);
+			}
+			return ServerHelper.isServerWorld(world) ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
+		} else if (!player.isSneaking() && block.rotateBlock(world, pos, side)) {
+			player.swingArm(hand);
+			return ServerHelper.isServerWorld(world) ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
+		}
+		return EnumActionResult.PASS;
 	}
 
-    @Override
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
-        Multimap multimap = HashMultimap.create();
-        if (slot == EntityEquipmentSlot.MAINHAND) {
-            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", 1, 0));
-        }
-        return multimap;
-    }
+	@Override
+	@SuppressWarnings ({ "rawtypes", "unchecked" })
+	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
+
+		Multimap multimap = HashMultimap.create();
+		if (slot == EntityEquipmentSlot.MAINHAND) {
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", 1, 0));
+		}
+		return multimap;
+	}
 
 	/* IModelRegister */
-//	@Override
-//	@SideOnly(Side.CLIENT)
-//	public void registerModels() {
-//
-//		StateMapper mapper = new StateMapper(modName, "tool", name);
-//		ModelBakery.registerItemVariants(this);
-//		ModelLoader.setCustomMeshDefinition(this, mapper);
-//
-//		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
-//			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
-//		}
-//	}
+	//	@Override
+	//	@SideOnly(Side.CLIENT)
+	//	public void registerModels() {
+	//
+	//		StateMapper mapper = new StateMapper(modName, "tool", name);
+	//		ModelBakery.registerItemVariants(this);
+	//		ModelLoader.setCustomMeshDefinition(this, mapper);
+	//
+	//		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
+	//			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
+	//		}
+	//	}
 
 	/* IToolHammer */
 	@Override

@@ -1,11 +1,9 @@
 package cofh.thermalfoundation.entity.projectile;
 
 import cofh.core.CoFHProps;
-import cofh.core.util.CoreUtils;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -24,98 +22,96 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityBasalzBolt extends EntityThrowable {
 
-    public static void initialize() {
+	public static void initialize(int id) {
 
-        EntityRegistry.registerModEntity(EntityBasalzBolt.class, "basalzBolt", CoreUtils.getEntityId(), ThermalFoundation.instance,
-                CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
-    }
+		EntityRegistry.registerModEntity(EntityBasalzBolt.class, "basalzBolt", id, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
+	}
 
-    public static DamageSource basalzDamage = new DamageSourceBasalz();
-    public static PotionEffect basalzEffect = new PotionEffectBasalz(5 * 20, 2);
+	public static DamageSource basalzDamage = new DamageSourceBasalz();
+	public static PotionEffect basalzEffect = new PotionEffectBasalz(5 * 20, 2);
 
-    /* REQUIRED CONSTRUCTOR */
-    public EntityBasalzBolt(World world) {
+	/* REQUIRED CONSTRUCTOR */
+	public EntityBasalzBolt(World world) {
 
-        super(world);
-    }
+		super(world);
+	}
 
-    public EntityBasalzBolt(World world, EntityLivingBase thrower) {
+	public EntityBasalzBolt(World world, EntityLivingBase thrower) {
 
-        super(world, thrower);
-    }
+		super(world, thrower);
+	}
 
-    public EntityBasalzBolt(World world, double x, double y, double z) {
+	public EntityBasalzBolt(World world, double x, double y, double z) {
 
-        super(world, x, y, z);
-    }
+		super(world, x, y, z);
+	}
 
-    @Override
-    protected float getGravityVelocity() {
+	@Override
+	protected float getGravityVelocity() {
 
-        return 0.005F;
-    }
+		return 0.005F;
+	}
 
-    @Override
-    protected void onImpact(RayTraceResult traceResult) {
+	@Override
+	protected void onImpact(RayTraceResult traceResult) {
 
-        if (ServerHelper.isServerWorld(worldObj)) {
-            if (traceResult.entityHit != null) {
-                if (traceResult.entityHit instanceof EntityBasalz) {
-                    traceResult.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 0);
-                } else {
-                    if (traceResult.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 5F) && traceResult.entityHit instanceof EntityLivingBase) {
-                        EntityLivingBase living = (EntityLivingBase) traceResult.entityHit;
-                        living.addPotionEffect(new PotionEffect(EntityBasalzBolt.basalzEffect));
-                    }
-                }
-            }
-            for (int i = 0; i < 8; i++) {
-                worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(),
-                        this.rand.nextDouble(), new int[0]);
-            }
-            setDead();
-        }
-    }
+		if (ServerHelper.isServerWorld(worldObj)) {
+			if (traceResult.entityHit != null) {
+				if (traceResult.entityHit instanceof EntityBasalz) {
+					traceResult.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 0);
+				} else {
+					if (traceResult.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 5F) && traceResult.entityHit instanceof EntityLivingBase) {
+						EntityLivingBase living = (EntityLivingBase) traceResult.entityHit;
+						living.addPotionEffect(new PotionEffect(EntityBasalzBolt.basalzEffect));
+					}
+				}
+			}
+			for (int i = 0; i < 8; i++) {
+				worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble(), new int[0]);
+			}
+			setDead();
+		}
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getBrightnessForRender(float f) {
+	@Override
+	@SideOnly (Side.CLIENT)
+	public int getBrightnessForRender(float f) {
 
-        return 0xF000F0;
-    }
+		return 0xF000F0;
+	}
 
-    /* DAMAGE SOURCE */
-    protected static class DamageSourceBasalz extends EntityDamageSource {
+	/* DAMAGE SOURCE */
+	protected static class DamageSourceBasalz extends EntityDamageSource {
 
-        public DamageSourceBasalz() {
+		public DamageSourceBasalz() {
 
-            this(null);
-        }
+			this(null);
+		}
 
-        public DamageSourceBasalz(Entity source) {
+		public DamageSourceBasalz(Entity source) {
 
-            super("basalz", source);
-        }
+			super("basalz", source);
+		}
 
-        public static DamageSource causeDamage(EntityBasalzBolt entityProj, Entity entitySource) {
+		public static DamageSource causeDamage(EntityBasalzBolt entityProj, Entity entitySource) {
 
-            return (new EntityDamageSourceIndirect("basalz", entityProj, entitySource == null ? entityProj : entitySource)).setProjectile();
-        }
-    }
+			return (new EntityDamageSourceIndirect("basalz", entityProj, entitySource == null ? entityProj : entitySource)).setProjectile();
+		}
+	}
 
-    protected static class PotionEffectBasalz extends PotionEffect {
+	protected static class PotionEffectBasalz extends PotionEffect {
 
-        public PotionEffectBasalz(Potion potionIn, int durationIn, int amplifierIn, boolean ambientIn, boolean showParticlesIn) {
+		public PotionEffectBasalz(Potion potionIn, int durationIn, int amplifierIn, boolean ambientIn, boolean showParticlesIn) {
 
-            super(potionIn, durationIn, amplifierIn, ambientIn, showParticlesIn);
-            getCurativeItems().clear();
-        }
+			super(potionIn, durationIn, amplifierIn, ambientIn, showParticlesIn);
+			getCurativeItems().clear();
+		}
 
-        public PotionEffectBasalz(int duration, int amplifier) {
+		public PotionEffectBasalz(int duration, int amplifier) {
 
-            this(MobEffects.WEAKNESS, duration, amplifier, false, true);
-        }
+			this(MobEffects.WEAKNESS, duration, amplifier, false, true);
+		}
 
-    }
+	}
 
 }

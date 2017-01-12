@@ -114,38 +114,38 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 	public void handlePacket(PacketTFBase payload) {
 
 		switch (payload.getByte()) {
-		case ORE_PREV:
-			prevOre();
-			return;
-		case ORE_NEXT:
-			nextOre();
-			return;
-		case SET_PREFERRED:
-			doSetPreferred();
-			return;
-		case CLEAR_PREFERRED:
-			doClearPreferred();
-			return;
-		case SELECT_ORE:
-			String oreName = payload.getString();
-			oreList = OreDictionaryArbiter.getOres(oreName);
-			if (LexiconManager.hasPreferredStack(player, oreName)) {
-				ItemStack ore = LexiconManager.getPreferredStack(player, oreName);
-				lexiconInv.setInventorySlotContents(0, ore);
-				for (int i = 0; i < oreList.size(); i++) {
-					if (ItemHelper.itemsIdentical(oreList.get(i), ore)) {
-						oreSelection = i;
-						break;
+			case ORE_PREV:
+				prevOre();
+				return;
+			case ORE_NEXT:
+				nextOre();
+				return;
+			case SET_PREFERRED:
+				doSetPreferred();
+				return;
+			case CLEAR_PREFERRED:
+				doClearPreferred();
+				return;
+			case SELECT_ORE:
+				String oreName = payload.getString();
+				oreList = OreDictionaryArbiter.getOres(oreName);
+				if (LexiconManager.hasPreferredStack(player, oreName)) {
+					ItemStack ore = LexiconManager.getPreferredStack(player, oreName);
+					lexiconInv.setInventorySlotContents(0, ore);
+					for (int i = 0; i < oreList.size(); i++) {
+						if (ItemHelper.itemsIdentical(oreList.get(i), ore)) {
+							oreSelection = i;
+							break;
+						}
 					}
+					hasPreferredStack = true;
+				} else {
+					lexiconInv.setInventorySlotContents(0, OreDictionaryArbiter.getOres(oreName).get(0));
+					oreSelection = 0;
+					hasPreferredStack = false;
 				}
-				hasPreferredStack = true;
-			} else {
-				lexiconInv.setInventorySlotContents(0, OreDictionaryArbiter.getOres(oreName).get(0));
-				oreSelection = 0;
-				hasPreferredStack = false;
-			}
-			syncClient = true;
-		default:
+				syncClient = true;
+			default:
 
 		}
 	}

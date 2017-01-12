@@ -34,7 +34,7 @@ import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
 
 public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockStorage.Type> VARIANT = PropertyEnum.<BlockStorage.Type> create("type", BlockStorage.Type.class);
+	public static final PropertyEnum<BlockStorage.Type> VARIANT = PropertyEnum.<BlockStorage.Type>create("type", BlockStorage.Type.class);
 
 	public BlockStorage() {
 
@@ -45,7 +45,7 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 
 		setHardness(5.0F);
 		setResistance(10.0F);
-        setSoundType(SoundType.METAL);
+		setSoundType(SoundType.METAL);
 		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.COPPER));
 
 		setHarvestLevel("pickaxe", 2);
@@ -62,7 +62,7 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
@@ -88,11 +88,11 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 		return state.getValue(VARIANT).getMetadata();
 	}
 
-    @Override
-    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+	@Override
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-        return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
-    }
+		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+	}
 
 	@Override
 	public int getWeakPower(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
@@ -114,7 +114,7 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 	}
 
 	@Override
-    public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type) {
+	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type) {
 
 		return false;
 	}
@@ -139,7 +139,7 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 
 	/* IModelRegister */
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels() {
 
 		for (int i = 0; i < Type.values().length; i++) {

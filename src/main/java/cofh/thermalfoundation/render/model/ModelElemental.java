@@ -1,14 +1,13 @@
 package cofh.thermalfoundation.render.model;
 
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-
-@SideOnly(Side.CLIENT)
+@SideOnly (Side.CLIENT)
 public class ModelElemental extends ModelBase {
 
 	public static ModelElemental instance = new ModelElemental();

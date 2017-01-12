@@ -1,50 +1,76 @@
 {
-	"forge_marker": 1,
-	"defaults": {
-		"model": "cube_all",
-		"transform": "forge:default-block"
-	},
-	"variants": {
-		"type": {
-			"copper": {
-				"textures": { "all": "thermalfoundation:blocks/glass/copper" }
-			},
-			"tin": {
-				"textures": { "all": "thermalfoundation:blocks/glass/tin" }
-			},
-			"silver": {
-				"textures": { "all": "thermalfoundation:blocks/glass/silver" }
-			},
-			"lead": {
-				"textures": { "all": "thermalfoundation:blocks/glass/lead" }
-			},
-			"nickel": {
-				"textures": { "all": "thermalfoundation:blocks/glass/nickel" }
-			},
-			"platinum": {
-				"textures": { "all": "thermalfoundation:blocks/glass/platinum" }
-			},
-			"mithril": {
-				"textures": { "all": "thermalfoundation:blocks/glass/mithril" }
-			},
-			"electrum": {
-				"textures": { "all": "thermalfoundation:blocks/glass/electrum" }
-			},
-			"invar": {
-				"textures": { "all": "thermalfoundation:blocks/glass/invar" }
-			},
-			"bronze": {
-				"textures": { "all": "thermalfoundation:blocks/glass/bronze" }
-			},
-			"signalum": {
-				"textures": { "all": "thermalfoundation:blocks/glass/signalum" }
-			},
-			"lumium": {
-				"textures": { "all": "thermalfoundation:blocks/glass/lumium" }
-			},
-			"enderium": {
-				"textures": { "all": "thermalfoundation:blocks/glass/enderium" }
-			}
-		}
-	}
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cube_all",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "type": {
+      "copper": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/copper"
+        }
+      },
+      "tin": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/tin"
+        }
+      },
+      "silver": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/silver"
+        }
+      },
+      "lead": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/lead"
+        }
+      },
+      "nickel": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/nickel"
+        }
+      },
+      "platinum": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/platinum"
+        }
+      },
+      "mithril": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/mithril"
+        }
+      },
+      "electrum": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/electrum"
+        }
+      },
+      "invar": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/invar"
+        }
+      },
+      "bronze": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/bronze"
+        }
+      },
+      "signalum": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/signalum"
+        }
+      },
+      "lumium": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/lumium"
+        }
+      },
+      "enderium": {
+        "textures": {
+          "all": "thermalfoundation:blocks/glass/enderium"
+        }
+      }
+    }
+  }
 }

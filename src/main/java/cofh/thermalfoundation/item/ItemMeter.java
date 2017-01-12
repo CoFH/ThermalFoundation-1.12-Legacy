@@ -1,7 +1,5 @@
 package cofh.thermalfoundation.item;
 
-import static cofh.lib.util.helpers.ItemHelper.*;
-
 import cofh.api.block.IBlockConfigGui;
 import cofh.api.block.IBlockInfo;
 import cofh.api.core.IInitializer;
@@ -12,11 +10,6 @@ import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,15 +17,17 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
+import static cofh.lib.util.helpers.ItemHelper.addRecipe;
 
 public class ItemMeter extends ItemCoFHBase implements IInitializer {
 
@@ -56,11 +51,11 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 			return;
 		}
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
-		case MULTIMETER:
-			tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tool.multimeter.0"));
-			tooltip.add(StringHelper.getNoticeText("info.thermalfoundation.tool.multimeter.1"));
-			break;
-		default:
+			case MULTIMETER:
+				tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tool.multimeter.0"));
+				tooltip.add(StringHelper.getNoticeText("info.thermalfoundation.tool.multimeter.1"));
+				break;
+			default:
 		}
 	}
 
@@ -70,30 +65,30 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 		return true;
 	}
 
-    @Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+	@Override
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-        return EnumActionResult.FAIL;
-    }
+		return EnumActionResult.FAIL;
+	}
 
-    @Override
-    public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+	@Override
+	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 
-        boolean ret = false;
+		boolean ret = false;
 
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
-		case MULTIMETER:
-			ret = doMultimeterUseFirst(stack, player, world, pos, side, hitX, hitY, hitZ, hand);
-			break;
-		default:
-			break;
+			case MULTIMETER:
+				ret = doMultimeterUseFirst(stack, player, world, pos, side, hitX, hitY, hitZ, hand);
+				break;
+			default:
+				break;
 		}
 		return ret ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
 	}
 
 	private boolean doMultimeterUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 
-        player.swingArm(hand);
+		player.swingArm(hand);
 		IBlockState state = world.getBlockState(pos);
 		Block block = state.getBlock();
 		ArrayList<ITextComponent> info = new ArrayList<ITextComponent>();
@@ -136,26 +131,26 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 	public EnumRarity getRarity(ItemStack stack) {
 
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
-		case MULTIMETER:
-			return EnumRarity.COMMON;
-		default:
-			return EnumRarity.COMMON;
+			case MULTIMETER:
+				return EnumRarity.COMMON;
+			default:
+				return EnumRarity.COMMON;
 		}
 	}
 
 	/* IModelRegister */
-//	@Override
-//	@SideOnly(Side.CLIENT)
-//	public void registerModels() {
-//
-//		StateMapper mapper = new StateMapper(modName, "tool", name);
-//		ModelBakery.registerItemVariants(this);
-//		ModelLoader.setCustomMeshDefinition(this, mapper);
-//
-//		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
-//			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
-//		}
-//	}
+	//	@Override
+	//	@SideOnly(Side.CLIENT)
+	//	public void registerModels() {
+	//
+	//		StateMapper mapper = new StateMapper(modName, "tool", name);
+	//		ModelBakery.registerItemVariants(this);
+	//		ModelLoader.setCustomMeshDefinition(this, mapper);
+	//
+	//		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
+	//			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
+	//		}
+	//	}
 
 	/* IInitializer */
 	@Override
@@ -175,8 +170,7 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 	@Override
 	public boolean postInit() {
 
-		addRecipe(ShapedRecipe(multimeter, new Object[] { "C C", "LPL", " G ", 'C', "ingotCopper", 'L', "ingotLead", 'P', ItemMaterial.powerCoilElectrum, 'G',
-				"gearElectrum" }));
+		addRecipe(ShapedRecipe(multimeter, new Object[] { "C C", "LPL", " G ", 'C', "ingotCopper", 'L', "ingotLead", 'P', ItemMaterial.powerCoilElectrum, 'G', "gearElectrum" }));
 
 		return true;
 	}

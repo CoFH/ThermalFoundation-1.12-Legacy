@@ -33,9 +33,9 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 	private static boolean effect = true;
 	private static boolean extreme = false;
 
-    public BlockFluidPetrotheum(Fluid fluid) {
+	public BlockFluidPetrotheum(Fluid fluid) {
 
-        super(fluid, materialFluidPetrotheum, "thermalfoundation", "petrotheum");
+		super(fluid, materialFluidPetrotheum, "thermalfoundation", "petrotheum");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(10);
 
@@ -46,6 +46,7 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+
 		if (!effect) {
 			return;
 		}
@@ -70,11 +71,12 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+
 		if (effect) {
 			checkForInteraction(world, pos);
 		}
 		if (enableSourceFall && state.getBlock().getMetaFromState(state) == 0) {
-		    BlockPos offsetPos = pos.add(0, densityDir, 0);
+			BlockPos offsetPos = pos.add(0, densityDir, 0);
 			IBlockState offsetState = world.getBlockState(offsetPos);
 			int bMeta = offsetState.getBlock().getMetaFromState(offsetState);
 
@@ -87,23 +89,24 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 		super.updateTick(world, pos, state, rand);
 	}
 
-    protected void checkForInteraction(World world, BlockPos pos) {
+	protected void checkForInteraction(World world, BlockPos pos) {
 
-        if (world.getBlockState(pos) != this) {
-            return;
-        }
+		if (world.getBlockState(pos) != this) {
+			return;
+		}
 
-        for (EnumFacing face : EnumFacing.VALUES) {
-            interactWithBlock(world, pos.offset(face));
-        }
+		for (EnumFacing face : EnumFacing.VALUES) {
+			interactWithBlock(world, pos.offset(face));
+		}
 	}
 
 	protected void interactWithBlock(World world, BlockPos pos) {
-        IBlockState state = world.getBlockState(pos);
 
-        if (state.getBlock().isAir(state, world, pos) || state.getBlock() == this) {
-            return;
-        }
+		IBlockState state = world.getBlockState(pos);
+
+		if (state.getBlock().isAir(state, world, pos) || state.getBlock() == this) {
+			return;
+		}
 
 		if (extreme && state.getMaterial() == Material.ROCK && state.getBlock().getBlockHardness(state, world, pos) > 0) {
 			state.getBlock().dropBlockAsItem(world, pos, state, 0);
@@ -115,41 +118,42 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 	}
 
 	protected void triggerInteractionEffects(World world, BlockPos pos) {
+
 		world.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 0.5F, 0.9F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F, false);
 	}
 
 	/* IInitializer */
-    @Override
-    public boolean preInit() {
+	@Override
+	public boolean preInit() {
 
-        this.setRegistryName("fluid_petrotheum");
-        GameRegistry.register(this);
-        ItemBlock itemBlock = new ItemBlock(this);
-        itemBlock.setRegistryName(this.getRegistryName());
-        GameRegistry.register(itemBlock);
+		this.setRegistryName("fluid_petrotheum");
+		GameRegistry.register(this);
+		ItemBlock itemBlock = new ItemBlock(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		GameRegistry.register(itemBlock);
 
-        String category = "Fluid.Petrotheum";
-        String comment = "Enable this for Fluid Petrotheum to break apart stone blocks.";
-        effect = ThermalFoundation.config.get(category, "Effect", effect, comment).getBoolean();
+		String category = "Fluid.Petrotheum";
+		String comment = "Enable this for Fluid Petrotheum to break apart stone blocks.";
+		effect = ThermalFoundation.config.get(category, "Effect", effect, comment).getBoolean();
 
-        comment = "Enable this for Fluid Petrotheum to have an EXTREME effect on stone blocks.";
-        extreme = ThermalFoundation.config.get(category, "Effect.Extreme", extreme, comment).getBoolean();
+		comment = "Enable this for Fluid Petrotheum to have an EXTREME effect on stone blocks.";
+		extreme = ThermalFoundation.config.get(category, "Effect.Extreme", extreme, comment).getBoolean();
 
-        comment = "Enable this for Fluid Petrotheum Source blocks to gradually fall downwards.";
-        enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
+		comment = "Enable this for Fluid Petrotheum Source blocks to gradually fall downwards.";
+		enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
 
-        return true;
-    }
+		return true;
+	}
 
-    @Override
-    public boolean initialize() {
+	@Override
+	public boolean initialize() {
 
-        addInteraction(Blocks.STONE, Blocks.GRAVEL);
-        addInteraction(Blocks.COBBLESTONE, Blocks.GRAVEL);
-        addInteraction(Blocks.STONEBRICK, Blocks.GRAVEL);
-        addInteraction(Blocks.MOSSY_COBBLESTONE, Blocks.GRAVEL);
+		addInteraction(Blocks.STONE, Blocks.GRAVEL);
+		addInteraction(Blocks.COBBLESTONE, Blocks.GRAVEL);
+		addInteraction(Blocks.STONEBRICK, Blocks.GRAVEL);
+		addInteraction(Blocks.MOSSY_COBBLESTONE, Blocks.GRAVEL);
 
-        return true;
-    }
+		return true;
+	}
 
 }

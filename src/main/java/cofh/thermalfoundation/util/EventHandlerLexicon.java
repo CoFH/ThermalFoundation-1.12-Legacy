@@ -1,10 +1,5 @@
 package cofh.thermalfoundation.util;
 
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.eventhandler.Event;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -13,6 +8,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.stats.AchievementList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.eventhandler.Event;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EventHandlerLexicon {
 
@@ -23,7 +22,7 @@ public class EventHandlerLexicon {
 		MinecraftForge.EVENT_BUS.register(instance);
 	}
 
-	@SubscribeEvent(priority = EventPriority.HIGHEST)
+	@SubscribeEvent (priority = EventPriority.HIGHEST)
 	public void handleEntityItemPickupEvent(EntityItemPickupEvent event) {
 
 		ItemStack stack = event.getItem().getEntityItem();

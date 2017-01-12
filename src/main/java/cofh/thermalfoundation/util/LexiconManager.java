@@ -18,7 +18,7 @@ import java.util.*;
 
 public class LexiconManager {
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings ("unused")
 	private static LexiconManager instance = new LexiconManager();
 
 	private static HashSet<String> listNames = new HashSet<String>();
@@ -43,7 +43,7 @@ public class LexiconManager {
 		comment = "This option will generate a fresh blacklist or whitelist EVERY time. This is not recommended, but is provided here as an option if you are satisfied with the defaults.";
 		alwaysWriteFile = ThermalFoundation.config.get("Lexicon", "AlwaysGenerateList", alwaysWriteFile, comment).getBoolean(alwaysWriteFile);
 
-		comment = "This will echo all entries to the system log.";
+		comment = "This will echo all entries to the system LOG.";
 		logEntries = ThermalFoundation.config.get("Lexicon", "LogEntries", logEntries, comment).getBoolean(logEntries);
 	}
 
@@ -54,11 +54,10 @@ public class LexiconManager {
 		sortOreNames();
 	}
 
-	@SuppressWarnings("resource")
+	@SuppressWarnings ("resource")
 	public static void generateList() {
 
-		theList = isWhitelist ? new File(CoFHProps.configDir, "/cofh/thermalfoundation/lexicon-whitelist.cfg") : new File(CoFHProps.configDir,
-				"/cofh/thermalfoundation/lexicon-blacklist.cfg");
+		theList = isWhitelist ? new File(CoFHProps.configDir, "/cofh/thermalfoundation/lexicon-whitelist.cfg") : new File(CoFHProps.configDir, "/cofh/thermalfoundation/lexicon-blacklist.cfg");
 
 		boolean writingDefaultFile = false;
 		BufferedWriter out = null;
@@ -73,7 +72,7 @@ public class LexiconManager {
 				theList.createNewFile();
 				out = new BufferedWriter(new FileWriter(theList));
 			} catch (Throwable t) {
-				ThermalFoundation.log.warn("There is an error in the " + theList.getName() + " file!");
+				ThermalFoundation.LOG.warn("There is an error in the " + theList.getName() + " file!");
 				t.printStackTrace();
 			}
 		}
@@ -87,17 +86,16 @@ public class LexiconManager {
 						listNames.add(registeredOreNames[i]);
 						defaultList.add(registeredOreNames[i]);
 					}
-				} else if (!isWhitelist && !ComparableItemStackSafe.safeOreType(registeredOreNames[i]) || registeredOreNames[i].contains("blockCloth")
-						|| registeredOreNames[i].contains("blockGlass")) {
+				} else if (!isWhitelist && !ComparableItemStackSafe.safeOreType(registeredOreNames[i]) || registeredOreNames[i].contains("blockCloth") || registeredOreNames[i].contains("blockGlass")) {
 					listNames.add(registeredOreNames[i]);
 					defaultList.add(registeredOreNames[i]);
 				}
 			}
 			Collections.sort(defaultList);
 			if (isWhitelist) {
-				ThermalFoundation.log.info("[Whitelist] Generating Default Whitelist.");
+				ThermalFoundation.LOG.info("[Whitelist] Generating Default Whitelist.");
 			} else {
-				ThermalFoundation.log.info("[Blacklist] Generating Default Blacklist.");
+				ThermalFoundation.LOG.info("[Blacklist] Generating Default Blacklist.");
 			}
 			try {
 				for (int i = 0; i < defaultList.size(); i++) {
@@ -118,9 +116,9 @@ public class LexiconManager {
 				return;
 			}
 			if (isWhitelist) {
-				ThermalFoundation.log.info("[Whitelist] Reading established Whitelist from file.");
+				ThermalFoundation.LOG.info("[Whitelist] Reading established Whitelist from file.");
 			} else {
-				ThermalFoundation.log.info("[Blacklist] Reading established Blacklist from file.");
+				ThermalFoundation.LOG.info("[Blacklist] Reading established Blacklist from file.");
 			}
 			Scanner scan = new Scanner(theList);
 			String[] line = null;
@@ -133,16 +131,16 @@ public class LexiconManager {
 					listNames.add(line[0]);
 					if (logEntries) {
 						if (isWhitelist) {
-							ThermalFoundation.log.info("[Whitelist] The Forge Lexicon will allow conversions for ALL items of type '" + line[0] + "'.");
+							ThermalFoundation.LOG.info("[Whitelist] The Forge Lexicon will allow conversions for ALL items of type '" + line[0] + "'.");
 						} else {
-							ThermalFoundation.log.info("[Blacklist] The Forge Lexicon will disable conversions for ALL items of type '" + line[0] + "'.");
+							ThermalFoundation.LOG.info("[Blacklist] The Forge Lexicon will disable conversions for ALL items of type '" + line[0] + "'.");
 						}
 					}
 				}
 			}
 			scan.close();
 		} catch (Throwable t) {
-			ThermalFoundation.log.warn("There is an error in the " + theList.getName() + " file!");
+			ThermalFoundation.LOG.warn("There is an error in the " + theList.getName() + " file!");
 			t.printStackTrace();
 		}
 	}

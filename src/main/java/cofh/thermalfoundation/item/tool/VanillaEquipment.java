@@ -1,4 +1,4 @@
-package cofh.thermalfoundation.item;
+package cofh.thermalfoundation.item.tool;
 
 import codechicken.lib.model.ModelRegistryHelper;
 import codechicken.lib.model.SimpleOverrideBakedModel;
@@ -95,6 +95,7 @@ public enum VanillaEquipment {
 	}
 
 	protected void createTools() {
+
 		itemShears = new ItemShearsAdv(TOOL_MATERIAL);
 		itemFishingRod = new ItemFishingRodAdv(TOOL_MATERIAL);
 		itemSickle = new ItemSickleAdv(TOOL_MATERIAL);
@@ -170,20 +171,20 @@ public enum VanillaEquipment {
 		toolSickle = new ItemStack(itemSickle);
 		toolBow = new ItemStack(itemBow);
 
-//		GameRegistry.registerCustomItemStack("tool" + NAME + "Shears", toolShears);
-//		GameRegistry.registerCustomItemStack("tool" + NAME + "FishingRod", toolFishingRod);
-//		GameRegistry.registerCustomItemStack("tool" + NAME + "Sickle", toolSickle);
-//		GameRegistry.registerCustomItemStack("tool" + NAME + "Bow", toolBow);
+		//		GameRegistry.registerCustomItemStack("tool" + NAME + "Shears", toolShears);
+		//		GameRegistry.registerCustomItemStack("tool" + NAME + "FishingRod", toolFishingRod);
+		//		GameRegistry.registerCustomItemStack("tool" + NAME + "Sickle", toolSickle);
+		//		GameRegistry.registerCustomItemStack("tool" + NAME + "Bow", toolBow);
 
-//		itemShears.setRegistryName("tool" + NAME + "Shears");
-//		itemFishingRod.setRegistryName("tool" + NAME + "FishingRod");
-//		itemSickle.setRegistryName("tool" + NAME + "Sickle");
-//		itemBow.setRegistryName("tool" + NAME + "Bow");
+		//		itemShears.setRegistryName("tool" + NAME + "Shears");
+		//		itemFishingRod.setRegistryName("tool" + NAME + "FishingRod");
+		//		itemSickle.setRegistryName("tool" + NAME + "Sickle");
+		//		itemBow.setRegistryName("tool" + NAME + "Bow");
 
-//		GameRegistry.register(itemShears);
-//		GameRegistry.register(itemFishingRod);
-//		GameRegistry.register(itemSickle);
-//		GameRegistry.register(itemBow);
+		//		GameRegistry.register(itemShears);
+		//		GameRegistry.register(itemFishingRod);
+		//		GameRegistry.register(itemSickle);
+		//		GameRegistry.register(itemBow);
 	}
 
 	protected void postInitMaterial() {
@@ -224,15 +225,17 @@ public enum VanillaEquipment {
 		}
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public static void registerModels() {
+
 		for (VanillaEquipment e : values()) {
 			e.registerMaterialModels();
 		}
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	protected void registerMaterialModels() {
+
 		if (itemShears instanceof ItemShearsAdv) {
 			registerModel(itemShears, 0, "shears");
 		}
@@ -252,8 +255,9 @@ public enum VanillaEquipment {
 		registerModel(itemSickle, 0, "sickle");
 	}
 
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	private void registerModel(Item item, int meta, String tool) {
+
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation("thermalfoundation:tool", "type=" + name().toLowerCase() + tool));
 	}
 

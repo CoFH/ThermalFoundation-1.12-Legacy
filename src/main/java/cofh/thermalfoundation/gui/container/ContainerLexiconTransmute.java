@@ -202,22 +202,22 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 	public void handlePacket(PacketTFBase payload) {
 
 		switch (payload.getByte()) {
-		case ORE_PREV:
-			prevOre();
-			return;
-		case ORE_NEXT:
-			nextOre();
-			return;
-		case NAME_PREV:
-			prevName();
-			return;
-		case NAME_NEXT:
-			nextName();
-			return;
-		case TRANSMUTE:
-			doTransmute();
-			return;
-		default:
+			case ORE_PREV:
+				prevOre();
+				return;
+			case ORE_NEXT:
+				nextOre();
+				return;
+			case NAME_PREV:
+				prevName();
+				return;
+			case NAME_NEXT:
+				nextName();
+				return;
+			case TRANSMUTE:
+				doTransmute();
+				return;
+			default:
 
 		}
 	}
@@ -229,8 +229,8 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		for (int j = 0; j < this.listeners.size(); ++j) {
 			if (syncClient) {
-				 this.listeners.get(j).sendProgressBarUpdate(this, 0, nameSelection);
-				 this.listeners.get(j).sendProgressBarUpdate(this, 1, oreSelection);
+				this.listeners.get(j).sendProgressBarUpdate(this, 0, nameSelection);
+				this.listeners.get(j).sendProgressBarUpdate(this, 1, oreSelection);
 				syncClient = false;
 			}
 		}
@@ -256,6 +256,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 	@Override
 	public void onContainerClosed(EntityPlayer player) {
+
 		super.onContainerClosed(player);
 
 		ItemStack stack = this.lexiconInv.removeStackFromSlot(0);

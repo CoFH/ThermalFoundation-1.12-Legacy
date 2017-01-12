@@ -1,18 +1,17 @@
 package cofh.thermalfoundation.item;
 
-import static cofh.lib.util.helpers.ItemHelper.*;
-
 import cofh.api.core.IInitializer;
 import cofh.core.item.ItemCoFHBase;
 import cofh.core.util.energy.FurnaceFuelHandler;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.core.TFProps;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+
+import static cofh.lib.util.helpers.ItemHelper.*;
 
 public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 

@@ -7,7 +7,6 @@ import cofh.lib.gui.element.ElementButton;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.gui.container.ContainerLexiconTransmute;
 import cofh.thermalfoundation.network.PacketTFBase;
-
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
@@ -40,8 +39,7 @@ public class GuiLexiconTransmute extends GuiBaseAdv {
 		xSize = 206;
 		ySize = 204;
 
-		myInfo = StringHelper.localize("tab.thermalfoundation.lexicon.transmute.0") + "\n\n"
-				+ StringHelper.localize("tab.thermalfoundation.lexicon.transmute.1");
+		myInfo = StringHelper.localize("tab.thermalfoundation.lexicon.transmute.0") + "\n\n" + StringHelper.localize("tab.thermalfoundation.lexicon.transmute.1");
 	}
 
 	@Override

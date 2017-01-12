@@ -33,8 +33,8 @@ import java.util.Random;
 
 public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRegister, IPlantable {
 
-    protected static final AxisAlignedBB FLOWER_AABB = new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
-	public static final PropertyEnum<BlockFlower.Type> VARIANT = PropertyEnum.<BlockFlower.Type> create("type", BlockFlower.Type.class);
+	protected static final AxisAlignedBB FLOWER_AABB = new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
+	public static final PropertyEnum<BlockFlower.Type> VARIANT = PropertyEnum.<BlockFlower.Type>create("type", BlockFlower.Type.class);
 
 	public BlockFlower() {
 
@@ -54,7 +54,7 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 
 		for (int i = 0; i < BlockFlower.Type.METADATA_LOOKUP.length; i++) {
@@ -77,11 +77,11 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 	}
 
 	@Override
-    public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block)
-    {
-        super.neighborChanged(state, world, pos, block);
-        this.checkAndDropBlock(world, pos, state);
-    }
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block) {
+
+		super.neighborChanged(state, world, pos, block);
+		this.checkAndDropBlock(world, pos, state);
+	}
 
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
@@ -102,26 +102,26 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 	}
 
 	@Override
-    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
 		return BlockFlower.Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
 	}
 
-    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
-    {
-        if (state.getBlock() == this) //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
-        {
-            IBlockState soil = worldIn.getBlockState(pos.down());
-            return soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
-        }
-        return this.canSustain(worldIn.getBlockState(pos.down()).getBlock());
-    }
+	public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
+
+		if (state.getBlock() == this) //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
+		{
+			IBlockState soil = worldIn.getBlockState(pos.down());
+			return soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
+		}
+		return this.canSustain(worldIn.getBlockState(pos.down()).getBlock());
+	}
 
 	@Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
 
-        IBlockState soil = worldIn.getBlockState(pos.down());
-        return super.canPlaceBlockAt(worldIn, pos) && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
+		IBlockState soil = worldIn.getBlockState(pos.down());
+		return super.canPlaceBlockAt(worldIn, pos) && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
 	}
 
 	protected boolean canSustain(Block ground) {
@@ -129,31 +129,31 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 		return ground == Blocks.GRASS || ground == Blocks.DIRT || ground == Blocks.FARMLAND;
 	}
 
-    @Override
-    public boolean isFullCube(IBlockState state) {
+	@Override
+	public boolean isFullCube(IBlockState state) {
 
-        return false;
-    }
-
-    @Override
-    public boolean isOpaqueCube(IBlockState state) {
-
-        return false;
-    }
-
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
-        return FLOWER_AABB;
-    }
-
-    @Nullable
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos)
-    {
-        return NULL_AABB;
-    }
+		return false;
+	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	public boolean isOpaqueCube(IBlockState state) {
+
+		return false;
+	}
+
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+
+		return FLOWER_AABB;
+	}
+
+	@Nullable
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
+
+		return NULL_AABB;
+	}
+
+	@Override
+	@SideOnly (Side.CLIENT)
 	public BlockRenderLayer getBlockLayer() {
 
 		return BlockRenderLayer.CUTOUT;

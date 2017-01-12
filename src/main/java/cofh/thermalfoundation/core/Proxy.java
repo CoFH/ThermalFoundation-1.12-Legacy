@@ -1,7 +1,5 @@
 package cofh.thermalfoundation.core;
 
-import cofh.core.CoFHProps;
-import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
@@ -14,25 +12,29 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class Proxy {
 
-	public void preInit() {}
+	public void preInit() {
 
-	public void init() {}
+	}
 
-	public void post() {}
+	public void init() {
+
+	}
+
+	public void post() {
+
+	}
 
 	public void registerEntities() {
 
 		EntityBlizz.initialize(0);
 		EntityBlitz.initialize(1);
 		EntityBasalz.initialize(2);
-
-		EntityRegistry.registerModEntity(EntityBlizzBolt.class, "blizzBolt", 3, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
-		EntityRegistry.registerModEntity(EntityBlitzBolt.class, "blitzBolt", 4, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
-		EntityRegistry.registerModEntity(EntityBasalzBolt.class, "basalzBolt", 5, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
+		EntityBlizzBolt.initialize(3);
+		EntityBlitzBolt.initialize(4);
+		EntityBasalzBolt.initialize(5);
 	}
 
 	public void registerRenderInformation() {
@@ -40,14 +42,15 @@ public class Proxy {
 	}
 
 	@SubscribeEvent
-	public void livingDrops(LivingDropsEvent evt) {
-		Entity entity = evt.getEntity();
-		if (entity.isImmuneToFire() && TFProps.dropSulfurFireImmune && evt.getEntityLiving().worldObj.getGameRules().getBoolean("doMobLoot")) {
+	public void handleLivingDropsEvent(LivingDropsEvent event) {
+
+		Entity entity = event.getEntity();
+		if (entity.isImmuneToFire() && TFProps.dropSulfurFireImmune && event.getEntityLiving().worldObj.getGameRules().getBoolean("doMobLoot")) {
 			boolean s = entity instanceof EntitySlime;
-			if (evt.getEntityLiving().getRNG().nextInt(6 + (s ? 16 : 0)) != 0) {
+			if (event.getEntityLiving().getRNG().nextInt(6 + (s ? 16 : 0)) != 0) {
 				return;
 			}
-			evt.getDrops().add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, TFItems.dustSulfur.copy()));
+			event.getDrops().add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, TFItems.dustSulfur.copy()));
 		}
 	}
 

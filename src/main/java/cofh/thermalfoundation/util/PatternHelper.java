@@ -3,10 +3,9 @@ package cofh.thermalfoundation.util;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.item.ItemDiagram;
+import net.minecraft.item.ItemStack;
 
 import java.util.List;
-
-import net.minecraft.item.ItemStack;
 
 public class PatternHelper {
 

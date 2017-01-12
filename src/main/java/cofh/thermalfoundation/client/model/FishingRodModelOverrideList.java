@@ -16,22 +16,24 @@ import net.minecraft.world.World;
  */
 public class FishingRodModelOverrideList extends ItemOverrideList {
 
-    public FishingRodModelOverrideList() {
-        super(ImmutableList.<ItemOverride>of());
-    }
+	public FishingRodModelOverrideList() {
 
-    @Override
-    public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity) {
-        ItemStack copy = stack.copy();
+		super(ImmutableList.<ItemOverride>of());
+	}
 
-        if (entity instanceof EntityPlayer && ((EntityPlayer)entity).fishEntity != null) {
-            ItemNBTUtils.setBoolean(copy, "IsCast", true);
-        }
+	@Override
+	public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity) {
 
-        IBakedModel model = CCBakedModelLoader.getModel(copy);
-        if (model == null) {
-            return originalModel;
-        }
-        return model;
-    }
+		ItemStack copy = stack.copy();
+
+		if (entity instanceof EntityPlayer && ((EntityPlayer) entity).fishEntity != null) {
+			ItemNBTUtils.setBoolean(copy, "IsCast", true);
+		}
+
+		IBakedModel model = CCBakedModelLoader.getModel(copy);
+		if (model == null) {
+			return originalModel;
+		}
+		return model;
+	}
 }

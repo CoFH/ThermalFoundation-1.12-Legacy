@@ -7,10 +7,10 @@ import net.minecraft.util.DamageSource;
  */
 public class ModEntities {
 
-    public static final DamageSource pyrotheumDamage = new DamageSource("pyrotheum").setDamageBypassesArmor().setFireDamage();
-    public static final DamageSource cryotheumDamage = new DamageSource("cryotheum").setDamageBypassesArmor();
-    public static final DamageSource petrotheumDamage = new DamageSource("petrotheum").setDamageBypassesArmor();
-    public static final DamageSource manaDamage = new DamageSource("mana").setDamageBypassesArmor().setMagicDamage();
-    public static final DamageSource fluxDamage = new DamageSource("flux").setDamageBypassesArmor();
+	public static final DamageSource pyrotheumDamage = new DamageSource("pyrotheum").setDamageBypassesArmor().setFireDamage();
+	public static final DamageSource cryotheumDamage = new DamageSource("cryotheum").setDamageBypassesArmor();
+	public static final DamageSource petrotheumDamage = new DamageSource("petrotheum").setDamageBypassesArmor();
+	public static final DamageSource manaDamage = new DamageSource("mana").setDamageBypassesArmor().setMagicDamage();
+	public static final DamageSource fluxDamage = new DamageSource("flux").setDamageBypassesArmor();
 
 }

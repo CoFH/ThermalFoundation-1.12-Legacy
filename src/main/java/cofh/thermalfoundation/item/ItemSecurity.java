@@ -34,30 +34,30 @@ public class ItemSecurity extends ItemCoFHBase implements IInitializer {
 
 	}
 
-    public boolean isFull3D() {
+	public boolean isFull3D() {
 
-        return true;
-    }
-
-	@Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-
-        return player.canPlayerEdit(pos.offset(facing), facing, stack) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
-    }
+		return true;
+	}
 
 	@Override
-    public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+
+		return player.canPlayerEdit(pos.offset(facing), facing, stack) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
+	}
+
+	@Override
+	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 
 		boolean ret = false;
 
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
-		case LOCK:
-			ret = doLockUseFirst(stack, player, world, pos, side, hitX, hitY, hitZ, hand);
-			break;
-		default:
-			break;
+			case LOCK:
+				ret = doLockUseFirst(stack, player, world, pos, side, hitX, hitY, hitZ, hand);
+				break;
+			default:
+				break;
 		}
-        return ret ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
+		return ret ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
 	}
 
 	private boolean doLockUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
@@ -66,18 +66,18 @@ public class ItemSecurity extends ItemCoFHBase implements IInitializer {
 	}
 
 	/* IModelRegister */
-//	@Override
-//	@SideOnly(Side.CLIENT)
-//	public void registerModels() {
-//
-//		StateMapper mapper = new StateMapper(modName, "tool", name);
-//		ModelBakery.registerItemVariants(this);
-//		ModelLoader.setCustomMeshDefinition(this, mapper);
-//
-//		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
-//			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
-//		}
-//	}
+	//	@Override
+	//	@SideOnly(Side.CLIENT)
+	//	public void registerModels() {
+	//
+	//		StateMapper mapper = new StateMapper(modName, "tool", name);
+	//		ModelBakery.registerItemVariants(this);
+	//		ModelLoader.setCustomMeshDefinition(this, mapper);
+	//
+	//		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
+	//			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
+	//		}
+	//	}
 
 	/* IInitializer */
 	@Override

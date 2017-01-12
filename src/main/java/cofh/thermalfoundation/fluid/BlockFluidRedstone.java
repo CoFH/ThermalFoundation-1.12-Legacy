@@ -22,9 +22,9 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 
 	private static boolean effect = true;
 
-    public BlockFluidRedstone(Fluid fluid) {
+	public BlockFluidRedstone(Fluid fluid) {
 
-        super(fluid, Material.WATER, "thermalfoundation", "redstone");
+		super(fluid, Material.WATER, "thermalfoundation", "redstone");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(5);
 
@@ -57,20 +57,20 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 	}
 
 	/* IInitializer */
-    @Override
-    public boolean preInit() {
+	@Override
+	public boolean preInit() {
 
-        this.setRegistryName("fluid_redstone");
-        GameRegistry.register(this);
-        ItemBlock itemBlock = new ItemBlock(this);
-        itemBlock.setRegistryName(this.getRegistryName());
-        GameRegistry.register(itemBlock);
+		this.setRegistryName("fluid_redstone");
+		GameRegistry.register(this);
+		ItemBlock itemBlock = new ItemBlock(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		GameRegistry.register(itemBlock);
 
-        String category = "Fluid.Redstone";
-        String comment = "Enable this for Fluid Redstone to emit a signal proportional to its fluid level.";
-        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+		String category = "Fluid.Redstone";
+		String comment = "Enable this for Fluid Redstone to emit a signal proportional to its fluid level.";
+		effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
 
-        return true;
-    }
+		return true;
+	}
 
 }

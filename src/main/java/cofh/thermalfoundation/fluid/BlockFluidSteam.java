@@ -13,9 +13,9 @@ public class BlockFluidSteam extends BlockFluidCoFHBase {
 	public static final int LEVELS = 8;
 	public static final Material materialFluidSteam = new MaterialLiquid(MapColor.SILVER);
 
-    public BlockFluidSteam(Fluid fluid) {
+	public BlockFluidSteam(Fluid fluid) {
 
-        super(fluid, materialFluidSteam, "thermalfoundation", "steam");
+		super(fluid, materialFluidSteam, "thermalfoundation", "steam");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(2);
 

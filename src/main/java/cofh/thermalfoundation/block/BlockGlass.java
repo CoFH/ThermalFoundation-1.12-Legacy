@@ -42,7 +42,7 @@ import java.util.Random;
 
 public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockGlass.Type> VARIANT = PropertyEnum.<BlockGlass.Type> create("type", BlockGlass.Type.class);
+	public static final PropertyEnum<BlockGlass.Type> VARIANT = PropertyEnum.<BlockGlass.Type>create("type", BlockGlass.Type.class);
 
 	public BlockGlass() {
 
@@ -53,7 +53,7 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 
 		setHardness(3.0F);
 		setResistance(200.0F);
-        setSoundType(SoundType.GLASS);
+		setSoundType(SoundType.GLASS);
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
@@ -90,13 +90,13 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 	}
 
 	@Override
-    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
 		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
 	}
 
 	@Override
-    public int getWeakPower(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
+	public int getWeakPower(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
 
 		return getMetaFromState(state) == Type.SIGNALUM.getMetadata() ? 15 : 0;
 	}
@@ -107,32 +107,32 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 		return 0;
 	}
 
-    @Override
-    public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type) {
+	@Override
+	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type) {
 
-        return false;
-    }
-
-    @Override
-    public boolean canPlaceTorchOnTop(IBlockState state, IBlockAccess world, BlockPos pos) {
-
-	    return true;
-    }
-
-    @Override
-    public boolean canProvidePower(IBlockState state) {
-
-        return true;
-    }
-
-    @Override
-    protected boolean canSilkHarvest() {
-
-        return true;
-    }
+		return false;
+	}
 
 	@Override
-    public boolean isFullCube(IBlockState state) {
+	public boolean canPlaceTorchOnTop(IBlockState state, IBlockAccess world, BlockPos pos) {
+
+		return true;
+	}
+
+	@Override
+	public boolean canProvidePower(IBlockState state) {
+
+		return true;
+	}
+
+	@Override
+	protected boolean canSilkHarvest() {
+
+		return true;
+	}
+
+	@Override
+	public boolean isFullCube(IBlockState state) {
 
 		return false;
 	}
@@ -144,40 +144,40 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 	}
 
 	@Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-        if (player.isSneaking()) {
-            RayTraceResult traceResult = RayTracer.retrace(player);
-            if (WrenchHelper.isHoldingUsableWrench(player, traceResult)) {
-                if (ServerHelper.isServerWorld(world)) {
-                    dismantleBlock(world, pos, state, player, false);
-                    WrenchHelper.usedWrench(player, traceResult);
-                }
-                return true;
-            }
-        }
-        return false;
+		if (player.isSneaking()) {
+			RayTraceResult traceResult = RayTracer.retrace(player);
+			if (WrenchHelper.isHoldingUsableWrench(player, traceResult)) {
+				if (ServerHelper.isServerWorld(world)) {
+					dismantleBlock(world, pos, state, player, false);
+					WrenchHelper.usedWrench(player, traceResult);
+				}
+				return true;
+			}
+		}
+		return false;
 	}
 
-    @Override
-    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+	@Override
+	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
 
-        IBlockState offset = blockAccess.getBlockState(pos.offset(side));
-        return offset.getBlock() != this && super.shouldSideBeRendered(blockState, blockAccess, pos, side);
-    }
+		IBlockState offset = blockAccess.getBlockState(pos.offset(side));
+		return offset.getBlock() != this && super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer() {
+	@Override
+	@SideOnly (Side.CLIENT)
+	public BlockRenderLayer getBlockLayer() {
 
-        return BlockRenderLayer.CUTOUT;
-    }
+		return BlockRenderLayer.CUTOUT;
+	}
 
 	/* IDismantleable */
 	@Override
 	public ArrayList<ItemStack> dismantleBlock(World world, BlockPos pos, IBlockState state, EntityPlayer player, boolean returnDrops) {
 
-        int metadata = getMetaFromState(world.getBlockState(pos));
+		int metadata = getMetaFromState(world.getBlockState(pos));
 		ItemStack dropBlock = new ItemStack(this, 1, damageDropped(state));
 		world.setBlockToAir(pos);
 
@@ -190,7 +190,7 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 			dropEntity.setPickupDelay(10);
 			world.spawnEntityInWorld(dropEntity);
 
-            CoreUtils.dismantleLog(player.getName(), this, metadata, pos);
+			CoreUtils.dismantleLog(player.getName(), this, metadata, pos);
 		}
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 		ret.add(dropBlock);
@@ -205,12 +205,11 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 
 	/* IModelRegister */
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels() {
 
 		for (int i = 0; i < Type.values().length; i++) {
-			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(modName + ":" + name, "type="
-					+ Type.byMetadata(i).getName()));
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(modName + ":" + name, "type=" + Type.byMetadata(i).getName()));
 		}
 	}
 

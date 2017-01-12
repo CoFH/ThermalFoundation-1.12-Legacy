@@ -5,14 +5,8 @@ import cofh.lib.inventory.InventoryCraftingFalse;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.item.ItemDiagram;
-
 import gnu.trove.map.TMap;
 import gnu.trove.map.hash.THashMap;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
@@ -21,6 +15,10 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class SchematicHelper {
 
@@ -134,7 +132,8 @@ public class SchematicHelper {
 						if (oreName.equals(OreDictionaryArbiter.UNKNOWN)) {
 							continue;
 						}
-						l: {
+						l:
+						{
 							copyInventory(craftSlots, workingSet);
 							int size = 0;
 							for (ItemStack stack : OreDictionaryArbiter.getOres(oreName)) {

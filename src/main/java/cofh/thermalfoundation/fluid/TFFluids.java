@@ -22,186 +22,184 @@ import java.util.ArrayList;
 
 public class TFFluids {
 
-    private TFFluids() {
+	private TFFluids() {
 
-    }
+	}
 
-    public static void preInit() {
+	public static void preInit() {
 
-        registerAllFluids();
-        registerAllFluidBlocks();
+		registerAllFluids();
+		registerAllFluidBlocks();
 
-        for (int i = 0; i < initList.size(); i++) {
-            initList.get(i).preInit();
-        }
+		for (int i = 0; i < initList.size(); i++) {
+			initList.get(i).preInit();
+		}
 
-    }
+	}
 
-    public static void initialize() {
+	public static void initialize() {
 
-        for (int i = 0; i < initList.size(); i++) {
-            initList.get(i).initialize();
-        }
-    }
+		for (int i = 0; i < initList.size(); i++) {
+			initList.get(i).initialize();
+		}
+	}
 
-    public static void postInit() {
+	public static void postInit() {
 
-        for (int i = 0; i < initList.size(); i++) {
-            initList.get(i).postInit();
-        }
-    }
+		for (int i = 0; i < initList.size(); i++) {
+			initList.get(i).postInit();
+		}
+	}
 
-    /* HELPERS */
-    public static void registerAllFluids() {
+	/* HELPERS */
+	public static void registerAllFluids() {
 
-        fluidSteam = new FluidCoFHBase("steam", "thermalfoundation").setLuminosity(0).setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true);
-        fluidCoal = new FluidCoFHBase("coal", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300);
-        fluidRedstone = new FluidCoFHBase("redstone", "thermalfoundation").setLuminosity(7).setDensity(1200).setViscosity(1500).setTemperature(300)
-                .setRarity(EnumRarity.UNCOMMON);
-        fluidGlowstone = new FluidCoFHBase("glowstone", "thermalfoundation").setLuminosity(15).setDensity(-500).setViscosity(100).setTemperature(300)
-                .setGaseous(true).setRarity(EnumRarity.UNCOMMON);
-        fluidEnder = new FluidCoFHBase("ender", "thermalfoundation").setLuminosity(3).setDensity(4000).setViscosity(3000).setTemperature(300)
-                .setRarity(EnumRarity.UNCOMMON);
-        fluidPyrotheum = new FluidCoFHBase("pyrotheum", "thermalfoundation").setLuminosity(15).setDensity(2000).setViscosity(1200).setTemperature(4000)
-                .setRarity(EnumRarity.RARE);
-        fluidCryotheum = new FluidCoFHBase("cryotheum", "thermalfoundation").setLuminosity(0).setDensity(4000).setViscosity(3000).setTemperature(50)
-                .setRarity(EnumRarity.RARE);
-        fluidAerotheum = new FluidCoFHBase("aerotheum", "thermalfoundation").setLuminosity(0).setDensity(-800).setViscosity(100).setTemperature(300)
-                .setGaseous(true).setRarity(EnumRarity.RARE);
-        fluidPetrotheum = new FluidCoFHBase("petrotheum", "thermalfoundation").setLuminosity(0).setDensity(4000).setViscosity(1500).setTemperature(400)
-                .setRarity(EnumRarity.RARE);
-        fluidMana = new FluidCoFHBase("mana", "thermalfoundation").setLuminosity(15).setDensity(600).setViscosity(6000).setTemperature(350)
-                .setRarity(EnumRarity.EPIC);
+		fluidSteam = new FluidCoFHBase("steam", "thermalfoundation").setLuminosity(0).setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true);
+		fluidCoal = new FluidCoFHBase("coal", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300);
+		fluidRedstone = new FluidCoFHBase("redstone", "thermalfoundation").setLuminosity(7).setDensity(1200).setViscosity(1500).setTemperature(300).setRarity(EnumRarity.UNCOMMON);
+		fluidGlowstone = new FluidCoFHBase("glowstone", "thermalfoundation").setLuminosity(15).setDensity(-500).setViscosity(100).setTemperature(300).setGaseous(true).setRarity(EnumRarity.UNCOMMON);
+		fluidEnder = new FluidCoFHBase("ender", "thermalfoundation").setLuminosity(3).setDensity(4000).setViscosity(3000).setTemperature(300).setRarity(EnumRarity.UNCOMMON);
+		fluidPyrotheum = new FluidCoFHBase("pyrotheum", "thermalfoundation").setLuminosity(15).setDensity(2000).setViscosity(1200).setTemperature(4000).setRarity(EnumRarity.RARE);
+		fluidCryotheum = new FluidCoFHBase("cryotheum", "thermalfoundation").setLuminosity(0).setDensity(4000).setViscosity(3000).setTemperature(50).setRarity(EnumRarity.RARE);
+		fluidAerotheum = new FluidCoFHBase("aerotheum", "thermalfoundation").setLuminosity(0).setDensity(-800).setViscosity(100).setTemperature(300).setGaseous(true).setRarity(EnumRarity.RARE);
+		fluidPetrotheum = new FluidCoFHBase("petrotheum", "thermalfoundation").setLuminosity(0).setDensity(4000).setViscosity(1500).setTemperature(400).setRarity(EnumRarity.RARE);
+		fluidMana = new FluidCoFHBase("mana", "thermalfoundation").setLuminosity(15).setDensity(600).setViscosity(6000).setTemperature(350).setRarity(EnumRarity.EPIC);
 
-        registerFluid(fluidSteam, "steam");
-        registerFluid(fluidCoal, "coal");
-        registerFluid(fluidRedstone, "redstone");
-        registerFluid(fluidGlowstone, "glowstone");
-        registerFluid(fluidEnder, "ender");
-        registerFluid(fluidPyrotheum, "pyrotheum");
-        registerFluid(fluidCryotheum, "cryotheum");
-        registerFluid(fluidAerotheum, "aerotheum");
-        registerFluid(fluidPetrotheum, "petrotheum");
-        registerFluid(fluidMana, "mana");
-    }
+		registerFluid(fluidSteam, "steam");
+		registerFluid(fluidCoal, "coal");
+		registerFluid(fluidRedstone, "redstone");
+		registerFluid(fluidGlowstone, "glowstone");
+		registerFluid(fluidEnder, "ender");
+		registerFluid(fluidPyrotheum, "pyrotheum");
+		registerFluid(fluidCryotheum, "cryotheum");
+		registerFluid(fluidAerotheum, "aerotheum");
+		registerFluid(fluidPetrotheum, "petrotheum");
+		registerFluid(fluidMana, "mana");
+	}
 
-    public static void registerAllFluidBlocks() {
+	public static void registerAllFluidBlocks() {
 
-        blockFluidSteam = new BlockFluidSteam(fluidSteam);
-        blockFluidCoal = new BlockFluidCoal(fluidCoal);
-        blockFluidRedstone = new BlockFluidRedstone(fluidRedstone);
-        blockFluidGlowstone = new BlockFluidGlowstone(fluidGlowstone);
-        blockFluidEnder = new BlockFluidEnder(fluidEnder);
-        blockFluidPyrotheum = new BlockFluidPyrotheum(fluidPyrotheum);
-        blockFluidCryotheum = new BlockFluidCryotheum(fluidCryotheum);
-        blockFluidAerotheum = new BlockFluidAerotheum(fluidAerotheum);
-        blockFluidPetrotheum = new BlockFluidPetrotheum(fluidPetrotheum);
-        blockFluidMana = new BlockFluidMana(fluidMana);
+		blockFluidSteam = new BlockFluidSteam(fluidSteam);
+		blockFluidCoal = new BlockFluidCoal(fluidCoal);
+		blockFluidRedstone = new BlockFluidRedstone(fluidRedstone);
+		blockFluidGlowstone = new BlockFluidGlowstone(fluidGlowstone);
+		blockFluidEnder = new BlockFluidEnder(fluidEnder);
+		blockFluidPyrotheum = new BlockFluidPyrotheum(fluidPyrotheum);
+		blockFluidCryotheum = new BlockFluidCryotheum(fluidCryotheum);
+		blockFluidAerotheum = new BlockFluidAerotheum(fluidAerotheum);
+		blockFluidPetrotheum = new BlockFluidPetrotheum(fluidPetrotheum);
+		blockFluidMana = new BlockFluidMana(fluidMana);
 
-        initList.add(blockFluidSteam);
-        initList.add(blockFluidCoal);
-        initList.add(blockFluidRedstone);
-        initList.add(blockFluidGlowstone);
-        initList.add(blockFluidEnder);
-        initList.add(blockFluidPyrotheum);
-        initList.add(blockFluidCryotheum);
-        initList.add(blockFluidAerotheum);
-        initList.add(blockFluidPetrotheum);
-        initList.add(blockFluidMana);
-    }
+		initList.add(blockFluidSteam);
+		initList.add(blockFluidCoal);
+		initList.add(blockFluidRedstone);
+		initList.add(blockFluidGlowstone);
+		initList.add(blockFluidEnder);
+		initList.add(blockFluidPyrotheum);
+		initList.add(blockFluidCryotheum);
+		initList.add(blockFluidAerotheum);
+		initList.add(blockFluidPetrotheum);
+		initList.add(blockFluidMana);
+	}
 
-    public static void registerFluid(Fluid fluid, String fluidName) {
-        if (!FluidRegistry.isFluidRegistered(fluidName)) {
-            FluidRegistry.registerFluid(fluid);
-        }
-    }
+	public static void registerFluid(Fluid fluid, String fluidName) {
 
-    public static void registerDispenserHandlers() {
-        //BlockDispenser.dispenseBehaviorRegistry.putObject(TFItems.itemBucket, new DispenserFilledBucketHandler());
-        //BlockDispenser.dispenseBehaviorRegistry.putObject(Items.bucket, new DispenserEmptyBucketHandler());
-    }
+		if (!FluidRegistry.isFluidRegistered(fluidName)) {
+			FluidRegistry.registerFluid(fluid);
+		}
+	}
 
-    @SideOnly(Side.CLIENT)
-    public static void registerModels() {
-        registerFluidModels(fluidRedstone);
-        registerFluidModels(fluidGlowstone);
-        registerFluidModels(fluidEnder);
-        registerFluidModels(fluidPyrotheum);
-        registerFluidModels(fluidCryotheum);
-        registerFluidModels(fluidAerotheum);
-        registerFluidModels(fluidPetrotheum);
-        registerFluidModels(fluidMana);
-        registerFluidModels(fluidSteam);
-        registerFluidModels(fluidCoal);
-    }
+	public static void registerDispenserHandlers() {
+		//BlockDispenser.dispenseBehaviorRegistry.putObject(TFItems.itemBucket, new DispenserFilledBucketHandler());
+		//BlockDispenser.dispenseBehaviorRegistry.putObject(Items.bucket, new DispenserEmptyBucketHandler());
+	}
 
-    @SideOnly(Side.CLIENT)
-    public static void registerFluidModels(Fluid fluid) {
-        if(fluid == null) {
-            return;
-        }
+	@SideOnly (Side.CLIENT)
+	public static void registerModels() {
 
-        Block block = fluid.getBlock();
-        if(block != null) {
-            Item item = Item.getItemFromBlock(block);
-            FluidStateMapper mapper = new FluidStateMapper(fluid);
+		registerFluidModels(fluidRedstone);
+		registerFluidModels(fluidGlowstone);
+		registerFluidModels(fluidEnder);
+		registerFluidModels(fluidPyrotheum);
+		registerFluidModels(fluidCryotheum);
+		registerFluidModels(fluidAerotheum);
+		registerFluidModels(fluidPetrotheum);
+		registerFluidModels(fluidMana);
+		registerFluidModels(fluidSteam);
+		registerFluidModels(fluidCoal);
+	}
 
-            if(item != null) {
-                ModelLoader.registerItemVariants(item);
-                ModelLoader.setCustomMeshDefinition(item, mapper);
-            }
-            ModelLoader.setCustomStateMapper(block, mapper);
-        }
-    }
+	@SideOnly (Side.CLIENT)
+	public static void registerFluidModels(Fluid fluid) {
 
-    @SideOnly(Side.CLIENT)
-    public static class FluidStateMapper extends StateMapperBase implements ItemMeshDefinition {
+		if (fluid == null) {
+			return;
+		}
 
-        public final Fluid fluid;
-        public final ModelResourceLocation location;
+		Block block = fluid.getBlock();
+		if (block != null) {
+			Item item = Item.getItemFromBlock(block);
+			FluidStateMapper mapper = new FluidStateMapper(fluid);
 
-        public FluidStateMapper(Fluid fluid) {
-            this.fluid = fluid;
-            this.location = new ModelResourceLocation("thermalfoundation:fluid", fluid.getName());
-        }
+			if (item != null) {
+				ModelLoader.registerItemVariants(item);
+				ModelLoader.setCustomMeshDefinition(item, mapper);
+			}
+			ModelLoader.setCustomStateMapper(block, mapper);
+		}
+	}
 
-        @Nonnull
-        @Override
-        protected ModelResourceLocation getModelResourceLocation(@Nonnull IBlockState state) {
-            return location;
-        }
+	@SideOnly (Side.CLIENT)
+	public static class FluidStateMapper extends StateMapperBase implements ItemMeshDefinition {
 
-        @Nonnull
-        @Override
-        public ModelResourceLocation getModelLocation(@Nonnull ItemStack stack) {
-            return location;
-        }
-    }
+		public final Fluid fluid;
+		public final ModelResourceLocation location;
 
-    static ArrayList<IInitializer> initList = new ArrayList<IInitializer>();
+		public FluidStateMapper(Fluid fluid) {
 
-    /* REFERENCES */
-    public static Fluid fluidSteam;
-    public static Fluid fluidCoal;
-    public static Fluid fluidRedstone;
-    public static Fluid fluidGlowstone;
-    public static Fluid fluidEnder;
-    public static Fluid fluidPyrotheum;
-    public static Fluid fluidCryotheum;
-    public static Fluid fluidAerotheum;
-    public static Fluid fluidPetrotheum;
-    public static Fluid fluidMana;
+			this.fluid = fluid;
+			this.location = new ModelResourceLocation("thermalfoundation:fluid", fluid.getName());
+		}
 
-    public static BlockFluidCoFHBase blockFluidSteam;
-    public static BlockFluidCoFHBase blockFluidCoal;
-    public static BlockFluidCoFHBase blockFluidRedstone;
-    public static BlockFluidCoFHBase blockFluidGlowstone;
-    public static BlockFluidCoFHBase blockFluidEnder;
-    public static BlockFluidCoFHBase blockFluidPyrotheum;
-    public static BlockFluidCoFHBase blockFluidCryotheum;
-    public static BlockFluidCoFHBase blockFluidAerotheum;
-    public static BlockFluidCoFHBase blockFluidPetrotheum;
-    public static BlockFluidCoFHBase blockFluidMana;
+		@Nonnull
+		@Override
+		protected ModelResourceLocation getModelResourceLocation(@Nonnull IBlockState state) {
+
+			return location;
+		}
+
+		@Nonnull
+		@Override
+		public ModelResourceLocation getModelLocation(@Nonnull ItemStack stack) {
+
+			return location;
+		}
+	}
+
+	static ArrayList<IInitializer> initList = new ArrayList<IInitializer>();
+
+	/* REFERENCES */
+	public static Fluid fluidSteam;
+	public static Fluid fluidCoal;
+	public static Fluid fluidRedstone;
+	public static Fluid fluidGlowstone;
+	public static Fluid fluidEnder;
+	public static Fluid fluidPyrotheum;
+	public static Fluid fluidCryotheum;
+	public static Fluid fluidAerotheum;
+	public static Fluid fluidPetrotheum;
+	public static Fluid fluidMana;
+
+	public static BlockFluidCoFHBase blockFluidSteam;
+	public static BlockFluidCoFHBase blockFluidCoal;
+	public static BlockFluidCoFHBase blockFluidRedstone;
+	public static BlockFluidCoFHBase blockFluidGlowstone;
+	public static BlockFluidCoFHBase blockFluidEnder;
+	public static BlockFluidCoFHBase blockFluidPyrotheum;
+	public static BlockFluidCoFHBase blockFluidCryotheum;
+	public static BlockFluidCoFHBase blockFluidAerotheum;
+	public static BlockFluidCoFHBase blockFluidPetrotheum;
+	public static BlockFluidCoFHBase blockFluidMana;
 
 }
 

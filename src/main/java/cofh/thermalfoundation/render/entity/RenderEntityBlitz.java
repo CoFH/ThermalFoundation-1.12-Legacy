@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@SideOnly(Side.CLIENT)
+@SideOnly (Side.CLIENT)
 public class RenderEntityBlitz extends RenderLiving<EntityBlitz> {
 
 	private static ResourceLocation texture;
@@ -34,7 +34,6 @@ public class RenderEntityBlitz extends RenderLiving<EntityBlitz> {
 
 		return texture;
 	}
-
 
 	protected void doRenderBlitz(EntityBlitz entity, double d0, double d1, double d2, float f, float f1) {
 

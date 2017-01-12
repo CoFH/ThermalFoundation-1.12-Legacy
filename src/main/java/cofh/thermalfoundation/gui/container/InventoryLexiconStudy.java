@@ -70,7 +70,6 @@ public class InventoryLexiconStudy implements IInventory {
 
 	}
 
-
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack stack) {
 
@@ -79,6 +78,7 @@ public class InventoryLexiconStudy implements IInventory {
 
 	@Override
 	public int getField(int id) {
+
 		return 0;
 	}
 
@@ -89,6 +89,7 @@ public class InventoryLexiconStudy implements IInventory {
 
 	@Override
 	public int getFieldCount() {
+
 		return 0;
 	}
 
@@ -99,16 +100,19 @@ public class InventoryLexiconStudy implements IInventory {
 
 	@Override
 	public String getName() {
+
 		return null;
 	}
 
 	@Override
 	public boolean hasCustomName() {
+
 		return false;
 	}
 
 	@Override
 	public ITextComponent getDisplayName() {
+
 		return null;
 	}
 }

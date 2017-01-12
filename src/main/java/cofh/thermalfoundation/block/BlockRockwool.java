@@ -27,7 +27,7 @@ import static cofh.lib.util.helpers.ItemHelper.addSmelting;
 
 public class BlockRockwool extends BlockCoFHBase implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockRockwool.Type> VARIANT = PropertyEnum.<BlockRockwool.Type> create("type", BlockRockwool.Type.class);
+	public static final PropertyEnum<BlockRockwool.Type> VARIANT = PropertyEnum.<BlockRockwool.Type>create("type", BlockRockwool.Type.class);
 
 	public BlockRockwool() {
 
@@ -38,7 +38,7 @@ public class BlockRockwool extends BlockCoFHBase implements IInitializer, IModel
 
 		setHardness(0.8F);
 		setResistance(10.0F);
-        setSoundType(SoundType.CLOTH);
+		setSoundType(SoundType.CLOTH);
 		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.GRAY));
 
 		setHarvestLevel("pickaxe", 1);
@@ -51,7 +51,7 @@ public class BlockRockwool extends BlockCoFHBase implements IInitializer, IModel
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
@@ -79,7 +79,7 @@ public class BlockRockwool extends BlockCoFHBase implements IInitializer, IModel
 
 	/* IModelRegister */
 	@Override
-	@SideOnly(Side.CLIENT)
+	@SideOnly (Side.CLIENT)
 	public void registerModels() {
 
 		for (int i = 0; i < Type.values().length; i++) {

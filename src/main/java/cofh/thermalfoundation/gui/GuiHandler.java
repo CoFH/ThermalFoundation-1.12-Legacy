@@ -23,21 +23,21 @@ public class GuiHandler implements IGuiHandler {
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
 
 		switch (id) {
-		case TILE_ID:
-			TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
-			if (tile instanceof TileCoFHBaseOld) {
-				return ((TileCoFHBaseOld) tile).getGuiClient(player.inventory);
-			}
-		case LEXICON_STUDY_ID:
-			if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
-				return new GuiLexiconStudy(player.inventory, new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory));//TODO Add off-hand support
-			}
-		case LEXICON_TRANSMUTE_ID:
-			if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
-				return new GuiLexiconTransmute(player.inventory, new ContainerLexiconTransmute(player.inventory));
-			}
-		default:
-			return null;
+			case TILE_ID:
+				TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
+				if (tile instanceof TileCoFHBaseOld) {
+					return ((TileCoFHBaseOld) tile).getGuiClient(player.inventory);
+				}
+			case LEXICON_STUDY_ID:
+				if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
+					return new GuiLexiconStudy(player.inventory, new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory));//TODO Add off-hand support
+				}
+			case LEXICON_TRANSMUTE_ID:
+				if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
+					return new GuiLexiconTransmute(player.inventory, new ContainerLexiconTransmute(player.inventory));
+				}
+			default:
+				return null;
 		}
 	}
 
@@ -45,21 +45,21 @@ public class GuiHandler implements IGuiHandler {
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
 
 		switch (id) {
-		case TILE_ID:
-			TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
-			if (tile instanceof TileCoFHBaseOld) {
-				return ((TileCoFHBaseOld) tile).getGuiServer(player.inventory);
-			}
-		case LEXICON_STUDY_ID:
-			if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
-				return new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory);//TODO Add off-hand support
-			}
-		case LEXICON_TRANSMUTE_ID:
-			if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
-				return new ContainerLexiconTransmute(player.inventory);
-			}
-		default:
-			return null;
+			case TILE_ID:
+				TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
+				if (tile instanceof TileCoFHBaseOld) {
+					return ((TileCoFHBaseOld) tile).getGuiServer(player.inventory);
+				}
+			case LEXICON_STUDY_ID:
+				if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
+					return new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory);//TODO Add off-hand support
+				}
+			case LEXICON_TRANSMUTE_ID:
+				if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
+					return new ContainerLexiconTransmute(player.inventory);
+				}
+			default:
+				return null;
 		}
 	}
 
