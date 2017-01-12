@@ -1,90 +1,394 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "builtin/generated",
-    "textures": {
-      "layer0": "blocks/dirt"
-    },
-    "transform": "forge:default-item"
-  },
-  "variants": {
-    "type": {
-      "crystalcinnabar": {"textures":{"layer0":"thermalfoundation:items/material/crystal_cinnabar"}},
-      "dustaerotheum": {"textures":{"layer0":"thermalfoundation:items/material/dust_aerotheum"}},
-      "dustbasalz": {"textures":{"layer0":"thermalfoundation:items/material/dust_basalz"}},
-      "dustblaze": {"textures":{"layer0":"thermalfoundation:items/material/dust_blaze"}},
-      "dustblitz": {"textures":{"layer0":"thermalfoundation:items/material/dust_blitz"}},
-      "dustblizz": {"textures":{"layer0":"thermalfoundation:items/material/dust_blizz"}},
-      "dustbronze": {"textures":{"layer0":"thermalfoundation:items/material/dust_bronze"}},
-      "dustcharcoal": {"textures":{"layer0":"thermalfoundation:items/material/dust_charcoal"}},
-      "dustcoal": {"textures":{"layer0":"thermalfoundation:items/material/dust_coal"}},
-      "dustcopper": {"textures":{"layer0":"thermalfoundation:items/material/dust_copper"}},
-      "dustcryotheum": {"textures":{"layer0":"thermalfoundation:items/material/dust_cryotheum"}},
-      "dustelectrum": {"textures":{"layer0":"thermalfoundation:items/material/dust_electrum"}},
-      "dustenderium": {"textures":{"layer0":"thermalfoundation:items/material/dust_enderium"}},
-      "dustgold": {"textures":{"layer0":"thermalfoundation:items/material/dust_gold"}},
-      "dustinvar": {"textures":{"layer0":"thermalfoundation:items/material/dust_invar"}},
-      "dustiron": {"textures":{"layer0":"thermalfoundation:items/material/dust_iron"}},
-      "dustlead": {"textures":{"layer0":"thermalfoundation:items/material/dust_lead"}},
-      "dustlumium": {"textures":{"layer0":"thermalfoundation:items/material/dust_lumium"}},
-      "dustmana": {"textures":{"layer0":"thermalfoundation:items/material/dust_mana"}},
-      "dustmithril": {"textures":{"layer0":"thermalfoundation:items/material/dust_mithril"}},
-      "dustnickel": {"textures":{"layer0":"thermalfoundation:items/material/dust_nickel"}},
-      "dustniter": {"textures":{"layer0":"thermalfoundation:items/material/dust_niter"}},
-      "dustobsidian": {"textures":{"layer0":"thermalfoundation:items/material/dust_obsidian"}},
-      "dustpetrotheum": {"textures":{"layer0":"thermalfoundation:items/material/dust_petrotheum"}},
-      "dustplatinum": {"textures":{"layer0":"thermalfoundation:items/material/dust_platinum"}},
-      "dustpyrotheum": {"textures":{"layer0":"thermalfoundation:items/material/dust_pyrotheum"}},
-      "dustsignalum": {"textures":{"layer0":"thermalfoundation:items/material/dust_signalum"}},
-      "dustsilver": {"textures":{"layer0":"thermalfoundation:items/material/dust_silver"}},
-      "dustsulfur": {"textures":{"layer0":"thermalfoundation:items/material/dust_sulfur"}},
-      "dusttin": {"textures":{"layer0":"thermalfoundation:items/material/dust_tin"}},
-      "gearbronze": {"textures":{"layer0":"thermalfoundation:items/material/gear_bronze"}},
-      "gearcopper": {"textures":{"layer0":"thermalfoundation:items/material/gear_copper"}},
-      "gearelectrum": {"textures":{"layer0":"thermalfoundation:items/material/gear_electrum"}},
-      "gearenderium": {"textures":{"layer0":"thermalfoundation:items/material/gear_enderium"}},
-      "geargold": {"textures":{"layer0":"thermalfoundation:items/material/gear_gold"}},
-      "gearinvar": {"textures":{"layer0":"thermalfoundation:items/material/gear_invar"}},
-      "geariron": {"textures":{"layer0":"thermalfoundation:items/material/gear_iron"}},
-      "gearlead": {"textures":{"layer0":"thermalfoundation:items/material/gear_lead"}},
-      "gearlumium": {"textures":{"layer0":"thermalfoundation:items/material/gear_lumium"}},
-      "gearmithril": {"textures":{"layer0":"thermalfoundation:items/material/gear_mithril"}},
-      "gearnickel": {"textures":{"layer0":"thermalfoundation:items/material/gear_nickel"}},
-      "gearplatinum": {"textures":{"layer0":"thermalfoundation:items/material/gear_platinum"}},
-      "gearsignalum": {"textures":{"layer0":"thermalfoundation:items/material/gear_signalum"}},
-      "gearsilver": {"textures":{"layer0":"thermalfoundation:items/material/gear_silver"}},
-      "geartin": {"textures":{"layer0":"thermalfoundation:items/material/gear_tin"}},
-      "ingotbronze": {"textures":{"layer0":"thermalfoundation:items/material/ingot_bronze"}},
-      "ingotcopper": {"textures":{"layer0":"thermalfoundation:items/material/ingot_copper"}},
-      "ingotelectrum": {"textures":{"layer0":"thermalfoundation:items/material/ingot_electrum"}},
-      "ingotenderium": {"textures":{"layer0":"thermalfoundation:items/material/ingot_enderium"}},
-      "ingotinvar": {"textures":{"layer0":"thermalfoundation:items/material/ingot_invar"}},
-      "ingotlead": {"textures":{"layer0":"thermalfoundation:items/material/ingot_lead"}},
-      "ingotlumium": {"textures":{"layer0":"thermalfoundation:items/material/ingot_lumium"}},
-      "ingotmithril": {"textures":{"layer0":"thermalfoundation:items/material/ingot_mithril"}},
-      "ingotnickel": {"textures":{"layer0":"thermalfoundation:items/material/ingot_nickel"}},
-      "ingotplatinum": {"textures":{"layer0":"thermalfoundation:items/material/ingot_platinum"}},
-      "ingotsignalum": {"textures":{"layer0":"thermalfoundation:items/material/ingot_signalum"}},
-      "ingotsilver": {"textures":{"layer0":"thermalfoundation:items/material/ingot_silver"}},
-      "ingottin": {"textures":{"layer0":"thermalfoundation:items/material/ingot_tin"}},
-      "nuggetbronze": {"textures":{"layer0":"thermalfoundation:items/material/nugget_bronze"}},
-      "nuggetcopper": {"textures":{"layer0":"thermalfoundation:items/material/nugget_copper"}},
-      "nuggetelectrum": {"textures":{"layer0":"thermalfoundation:items/material/nugget_electrum"}},
-      "nuggetenderium": {"textures":{"layer0":"thermalfoundation:items/material/nugget_enderium"}},
-      "nuggetinvar": {"textures":{"layer0":"thermalfoundation:items/material/nugget_invar"}},
-      "nuggetiron": {"textures":{"layer0":"thermalfoundation:items/material/nugget_iron"}},
-      "nuggetlead": {"textures":{"layer0":"thermalfoundation:items/material/nugget_lead"}},
-      "nuggetlumium": {"textures":{"layer0":"thermalfoundation:items/material/nugget_lumium"}},
-      "nuggetmithril": {"textures":{"layer0":"thermalfoundation:items/material/nugget_mithril"}},
-      "nuggetnickel": {"textures":{"layer0":"thermalfoundation:items/material/nugget_nickel"}},
-      "nuggetplatinum": {"textures":{"layer0":"thermalfoundation:items/material/nugget_platinum"}},
-      "nuggetsignalum": {"textures":{"layer0":"thermalfoundation:items/material/nugget_signalum"}},
-      "nuggetsilver": {"textures":{"layer0":"thermalfoundation:items/material/nugget_silver"}},
-      "nuggettin": {"textures":{"layer0":"thermalfoundation:items/material/nugget_tin"}},
-      "rodbasalz": {"textures":{"layer0":"thermalfoundation:items/material/rod_basalz"}},
-      "rodblitz": {"textures":{"layer0":"thermalfoundation:items/material/rod_blitz"}},
-      "rodblizz": {"textures":{"layer0":"thermalfoundation:items/material/rod_blizz"}},
-      "lexicon": {"textures":{"layer0":"thermalfoundation:items/tome/lexicon"}}
-    }
-  }
+	"forge_marker": 1,
+	"defaults": {
+		"model": "builtin/generated",
+		"textures": {
+			"layer0": "blocks/dirt"
+		},
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"type": {
+			"crystalcinnabar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/crystal_cinnabar"
+				}
+			},
+			"dustaerotheum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_aerotheum"
+				}
+			},
+			"dustbasalz": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_basalz"
+				}
+			},
+			"dustblaze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_blaze"
+				}
+			},
+			"dustblitz": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_blitz"
+				}
+			},
+			"dustblizz": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_blizz"
+				}
+			},
+			"dustbronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_bronze"
+				}
+			},
+			"dustcharcoal": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_charcoal"
+				}
+			},
+			"dustcoal": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_coal"
+				}
+			},
+			"dustcopper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_copper"
+				}
+			},
+			"dustcryotheum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_cryotheum"
+				}
+			},
+			"dustelectrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_electrum"
+				}
+			},
+			"dustenderium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_enderium"
+				}
+			},
+			"dustgold": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_gold"
+				}
+			},
+			"dustinvar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_invar"
+				}
+			},
+			"dustiron": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_iron"
+				}
+			},
+			"dustlead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_lead"
+				}
+			},
+			"dustlumium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_lumium"
+				}
+			},
+			"dustmana": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_mana"
+				}
+			},
+			"dustmithril": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_mithril"
+				}
+			},
+			"dustnickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_nickel"
+				}
+			},
+			"dustniter": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_niter"
+				}
+			},
+			"dustobsidian": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_obsidian"
+				}
+			},
+			"dustpetrotheum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_petrotheum"
+				}
+			},
+			"dustplatinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_platinum"
+				}
+			},
+			"dustpyrotheum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_pyrotheum"
+				}
+			},
+			"dustsignalum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_signalum"
+				}
+			},
+			"dustsilver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_silver"
+				}
+			},
+			"dustsulfur": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_sulfur"
+				}
+			},
+			"dusttin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_tin"
+				}
+			},
+			"gearbronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_bronze"
+				}
+			},
+			"gearcopper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_copper"
+				}
+			},
+			"gearelectrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_electrum"
+				}
+			},
+			"gearenderium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_enderium"
+				}
+			},
+			"geargold": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_gold"
+				}
+			},
+			"gearinvar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_invar"
+				}
+			},
+			"geariron": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_iron"
+				}
+			},
+			"gearlead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_lead"
+				}
+			},
+			"gearlumium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_lumium"
+				}
+			},
+			"gearmithril": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_mithril"
+				}
+			},
+			"gearnickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_nickel"
+				}
+			},
+			"gearplatinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_platinum"
+				}
+			},
+			"gearsignalum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_signalum"
+				}
+			},
+			"gearsilver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_silver"
+				}
+			},
+			"geartin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_tin"
+				}
+			},
+			"ingotbronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_bronze"
+				}
+			},
+			"ingotcopper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_copper"
+				}
+			},
+			"ingotelectrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_electrum"
+				}
+			},
+			"ingotenderium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_enderium"
+				}
+			},
+			"ingotinvar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_invar"
+				}
+			},
+			"ingotlead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_lead"
+				}
+			},
+			"ingotlumium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_lumium"
+				}
+			},
+			"ingotmithril": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_mithril"
+				}
+			},
+			"ingotnickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_nickel"
+				}
+			},
+			"ingotplatinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_platinum"
+				}
+			},
+			"ingotsignalum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_signalum"
+				}
+			},
+			"ingotsilver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_silver"
+				}
+			},
+			"ingottin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_tin"
+				}
+			},
+			"nuggetbronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_bronze"
+				}
+			},
+			"nuggetcopper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_copper"
+				}
+			},
+			"nuggetelectrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_electrum"
+				}
+			},
+			"nuggetenderium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_enderium"
+				}
+			},
+			"nuggetinvar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_invar"
+				}
+			},
+			"nuggetiron": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_iron"
+				}
+			},
+			"nuggetlead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_lead"
+				}
+			},
+			"nuggetlumium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_lumium"
+				}
+			},
+			"nuggetmithril": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_mithril"
+				}
+			},
+			"nuggetnickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_nickel"
+				}
+			},
+			"nuggetplatinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_platinum"
+				}
+			},
+			"nuggetsignalum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_signalum"
+				}
+			},
+			"nuggetsilver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_silver"
+				}
+			},
+			"nuggettin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_tin"
+				}
+			},
+			"rodbasalz": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/rod_basalz"
+				}
+			},
+			"rodblitz": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/rod_blitz"
+				}
+			},
+			"rodblizz": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/rod_blizz"
+				}
+			},
+			"lexicon": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tome/lexicon"
+				}
+			}
+		}
+	}
 }

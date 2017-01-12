@@ -1,50 +1,194 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "builtin/generated",
-    "textures": {
-      "layer0": "blocks/dirt"
-    },
-    "transform": "forge:default-item"
-  },
-  "variants": {
-    "type": {
-      "bronzeboots": {"textures":{"layer0":"thermalfoundation:items/armor/bronze/bronze_boots"}},
-      "bronzechestplate": {"textures":{"layer0":"thermalfoundation:items/armor/bronze/bronze_chestplate"}},
-      "bronzehelmet": {"textures":{"layer0":"thermalfoundation:items/armor/bronze/bronze_helmet"}},
-      "bronzelegs": {"textures":{"layer0":"thermalfoundation:items/armor/bronze/bronze_legs"}},
-      "copperboots": {"textures":{"layer0":"thermalfoundation:items/armor/copper/copper_boots"}},
-      "copperchestplate": {"textures":{"layer0":"thermalfoundation:items/armor/copper/copper_chestplate"}},
-      "copperhelmet": {"textures":{"layer0":"thermalfoundation:items/armor/copper/copper_helmet"}},
-      "copperlegs": {"textures":{"layer0":"thermalfoundation:items/armor/copper/copper_legs"}},
-      "electrumboots": {"textures":{"layer0":"thermalfoundation:items/armor/electrum/electrum_boots"}},
-      "electrumchestplate": {"textures":{"layer0":"thermalfoundation:items/armor/electrum/electrum_chestplate"}},
-      "electrumhelmet": {"textures":{"layer0":"thermalfoundation:items/armor/electrum/electrum_helmet"}},
-      "electrumlegs": {"textures":{"layer0":"thermalfoundation:items/armor/electrum/electrum_legs"}},
-      "invarboots": {"textures":{"layer0":"thermalfoundation:items/armor/invar/invar_boots"}},
-      "invarchestplate": {"textures":{"layer0":"thermalfoundation:items/armor/invar/invar_chestplate"}},
-      "invarhelmet": {"textures":{"layer0":"thermalfoundation:items/armor/invar/invar_helmet"}},
-      "invarlegs": {"textures":{"layer0":"thermalfoundation:items/armor/invar/invar_legs"}},
-      "leadboots": {"textures":{"layer0":"thermalfoundation:items/armor/lead/lead_boots"}},
-      "leadchestplate": {"textures":{"layer0":"thermalfoundation:items/armor/lead/lead_chestplate"}},
-      "leadhelmet": {"textures":{"layer0":"thermalfoundation:items/armor/lead/lead_helmet"}},
-      "leadlegs": {"textures":{"layer0":"thermalfoundation:items/armor/lead/lead_legs"}},
-      "nickelboots": {"textures":{"layer0":"thermalfoundation:items/armor/nickel/nickel_boots"}},
-      "nickelchestplate": {"textures":{"layer0":"thermalfoundation:items/armor/nickel/nickel_chestplate"}},
-      "nickelhelmet": {"textures":{"layer0":"thermalfoundation:items/armor/nickel/nickel_helmet"}},
-      "nickellegs": {"textures":{"layer0":"thermalfoundation:items/armor/nickel/nickel_legs"}},
-      "platinumboots": {"textures":{"layer0":"thermalfoundation:items/armor/platinum/platinum_boots"}},
-      "platinumchestplate": {"textures":{"layer0":"thermalfoundation:items/armor/platinum/platinum_chestplate"}},
-      "platinumhelmet": {"textures":{"layer0":"thermalfoundation:items/armor/platinum/platinum_helmet"}},
-      "platinumlegs": {"textures":{"layer0":"thermalfoundation:items/armor/platinum/platinum_legs"}},
-      "silverboots": {"textures":{"layer0":"thermalfoundation:items/armor/silver/silver_boots"}},
-      "silverchestplate": {"textures":{"layer0":"thermalfoundation:items/armor/silver/silver_chestplate"}},
-      "silverhelmet": {"textures":{"layer0":"thermalfoundation:items/armor/silver/silver_helmet"}},
-      "silverlegs": {"textures":{"layer0":"thermalfoundation:items/armor/silver/silver_legs"}},
-      "tinboots": {"textures":{"layer0":"thermalfoundation:items/armor/tin/tin_boots"}},
-      "tinchestplate": {"textures":{"layer0":"thermalfoundation:items/armor/tin/tin_chestplate"}},
-      "tinhelmet": {"textures":{"layer0":"thermalfoundation:items/armor/tin/tin_helmet"}},
-      "tinlegs": {"textures":{"layer0":"thermalfoundation:items/armor/tin/tin_legs"}}
-    }
-  }
+	"forge_marker": 1,
+	"defaults": {
+		"model": "builtin/generated",
+		"textures": {
+			"layer0": "blocks/dirt"
+		},
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"type": {
+			"bronzeboots": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/bronze/bronze_boots"
+				}
+			},
+			"bronzechestplate": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/bronze/bronze_chestplate"
+				}
+			},
+			"bronzehelmet": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/bronze/bronze_helmet"
+				}
+			},
+			"bronzelegs": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/bronze/bronze_legs"
+				}
+			},
+			"copperboots": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/copper/copper_boots"
+				}
+			},
+			"copperchestplate": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/copper/copper_chestplate"
+				}
+			},
+			"copperhelmet": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/copper/copper_helmet"
+				}
+			},
+			"copperlegs": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/copper/copper_legs"
+				}
+			},
+			"electrumboots": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/electrum/electrum_boots"
+				}
+			},
+			"electrumchestplate": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/electrum/electrum_chestplate"
+				}
+			},
+			"electrumhelmet": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/electrum/electrum_helmet"
+				}
+			},
+			"electrumlegs": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/electrum/electrum_legs"
+				}
+			},
+			"invarboots": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/invar/invar_boots"
+				}
+			},
+			"invarchestplate": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/invar/invar_chestplate"
+				}
+			},
+			"invarhelmet": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/invar/invar_helmet"
+				}
+			},
+			"invarlegs": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/invar/invar_legs"
+				}
+			},
+			"leadboots": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/lead/lead_boots"
+				}
+			},
+			"leadchestplate": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/lead/lead_chestplate"
+				}
+			},
+			"leadhelmet": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/lead/lead_helmet"
+				}
+			},
+			"leadlegs": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/lead/lead_legs"
+				}
+			},
+			"nickelboots": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/nickel/nickel_boots"
+				}
+			},
+			"nickelchestplate": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/nickel/nickel_chestplate"
+				}
+			},
+			"nickelhelmet": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/nickel/nickel_helmet"
+				}
+			},
+			"nickellegs": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/nickel/nickel_legs"
+				}
+			},
+			"platinumboots": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/platinum/platinum_boots"
+				}
+			},
+			"platinumchestplate": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/platinum/platinum_chestplate"
+				}
+			},
+			"platinumhelmet": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/platinum/platinum_helmet"
+				}
+			},
+			"platinumlegs": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/platinum/platinum_legs"
+				}
+			},
+			"silverboots": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/silver/silver_boots"
+				}
+			},
+			"silverchestplate": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/silver/silver_chestplate"
+				}
+			},
+			"silverhelmet": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/silver/silver_helmet"
+				}
+			},
+			"silverlegs": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/silver/silver_legs"
+				}
+			},
+			"tinboots": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/tin/tin_boots"
+				}
+			},
+			"tinchestplate": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/tin/tin_chestplate"
+				}
+			},
+			"tinhelmet": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/tin/tin_helmet"
+				}
+			},
+			"tinlegs": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/tin/tin_legs"
+				}
+			}
+		}
+	}
 }

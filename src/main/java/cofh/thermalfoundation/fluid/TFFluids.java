@@ -141,7 +141,7 @@ public class TFFluids {
 
         public FluidStateMapper(Fluid fluid) {
             this.fluid = fluid;
-            this.location = new ModelResourceLocation("thermalfoundation:fluid_block", fluid.getName());
+            this.location = new ModelResourceLocation("thermalfoundation:fluid", fluid.getName());
         }
 
         @Nonnull

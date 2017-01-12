@@ -1,24 +1,50 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "cube_all",
-    "transform": "forge:default-block"
-  },
-  "variants": {
-    "type": {
-      "copper": { "textures": { "all": "thermalfoundation:blocks/storage/copper" } },
-      "tin": { "textures": { "all": "thermalfoundation:blocks/storage/tin" } },
-      "silver": { "textures": { "all": "thermalfoundation:blocks/storage/silver" } },
-      "lead": { "textures": { "all": "thermalfoundation:blocks/storage/lead" } },
-      "nickel": { "textures": { "all": "thermalfoundation:blocks/storage/nickel" } },
-      "platinum": { "textures": { "all": "thermalfoundation:blocks/storage/platinum" } },
-      "mithril": { "textures": { "all": "thermalfoundation:blocks/storage/mithril" } },
-      "electrum": { "textures": { "all": "thermalfoundation:blocks/storage/electrum" } },
-      "invar": { "textures": { "all": "thermalfoundation:blocks/storage/invar" } },
-      "bronze": { "textures": { "all": "thermalfoundation:blocks/storage/bronze" } },
-      "signalum": { "textures": { "all": "thermalfoundation:blocks/storage/signalum" } },
-      "lumium": { "textures": { "all": "thermalfoundation:blocks/storage/lumium" } },
-      "enderium": { "textures": { "all": "thermalfoundation:blocks/storage/enderium" } }
-    }
-  }
+	"forge_marker": 1,
+	"defaults": {
+		"model": "cube_all",
+		"transform": "forge:default-block"
+	},
+	"variants": {
+		"type": {
+			"copper": {
+				"textures": { "all": "thermalfoundation:blocks/storage/copper" }
+			},
+			"tin": {
+				"textures": { "all": "thermalfoundation:blocks/storage/tin" }
+			},
+			"silver": {
+				"textures": { "all": "thermalfoundation:blocks/storage/silver" }
+			},
+			"lead": {
+				"textures": { "all": "thermalfoundation:blocks/storage/lead" }
+			},
+			"nickel": {
+				"textures": { "all": "thermalfoundation:blocks/storage/nickel" }
+			},
+			"platinum": {
+				"textures": { "all": "thermalfoundation:blocks/storage/platinum" }
+			},
+			"mithril": {
+				"textures": { "all": "thermalfoundation:blocks/storage/mithril" }
+			},
+			"electrum": {
+				"textures": { "all": "thermalfoundation:blocks/storage/electrum" }
+			},
+			"invar": {
+				"textures": { "all": "thermalfoundation:blocks/storage/invar" }
+			},
+			"bronze": {
+				"textures": { "all": "thermalfoundation:blocks/storage/bronze" }
+			},
+			"signalum": {
+				"textures": { "all": "thermalfoundation:blocks/storage/signalum" }
+			},
+			"lumium": {
+				"textures": { "all": "thermalfoundation:blocks/storage/lumium" }
+			},
+			"enderium": {
+				"textures": { "all": "thermalfoundation:blocks/storage/enderium" }
+			}
+		}
+	}
 }

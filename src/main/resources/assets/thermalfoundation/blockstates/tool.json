@@ -1,138 +1,634 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "builtin/generated",
-    "textures": {
-      "layer0": "blocks/dirt"
-    },
-    "transform": "forge:default-tool"
-  },
-  "variants": {
-    "type": {
-      "bronzeaxe": {"textures":{"layer0":"thermalfoundation:items/tool/bronze/bronze_axe"}},
-      "bronzebow": {"textures":{"layer0":"thermalfoundation:items/tool/bronze/bronze_bow"}},
-      "bronzebow0": {"textures":{"layer0":"thermalfoundation:items/tool/bronze/bronze_bow_0"}},
-      "bronzebow1": {"textures":{"layer0":"thermalfoundation:items/tool/bronze/bronze_bow_1"}},
-      "bronzebow2": {"textures":{"layer0":"thermalfoundation:items/tool/bronze/bronze_bow_2"}},
-      "bronzehoe": {"textures":{"layer0":"thermalfoundation:items/tool/bronze/bronze_hoe"}},
-      "bronzepickaxe": {"textures":{"layer0":"thermalfoundation:items/tool/bronze/bronze_pickaxe"}},
-      "bronzeshears": {"textures":{"layer0":"thermalfoundation:items/tool/bronze/bronze_shears"}},
-      "bronzeshovel": {"textures":{"layer0":"thermalfoundation:items/tool/bronze/bronze_shovel"}},
-      "bronzesickle": {"textures":{"layer0":"thermalfoundation:items/tool/bronze/bronze_sickle"}},
-      "bronzesword": {"textures":{"layer0":"thermalfoundation:items/tool/bronze/bronze_sword"}},
-      "copperaxe": {"textures":{"layer0":"thermalfoundation:items/tool/copper/copper_axe"}},
-      "copperbow": {"textures":{"layer0":"thermalfoundation:items/tool/copper/copper_bow"}},
-      "copperbow0": {"textures":{"layer0":"thermalfoundation:items/tool/copper/copper_bow_0"}},
-      "copperbow1": {"textures":{"layer0":"thermalfoundation:items/tool/copper/copper_bow_1"}},
-      "copperbow2": {"textures":{"layer0":"thermalfoundation:items/tool/copper/copper_bow_2"}},
-      "copperhoe": {"textures":{"layer0":"thermalfoundation:items/tool/copper/copper_hoe"}},
-      "copperpickaxe": {"textures":{"layer0":"thermalfoundation:items/tool/copper/copper_pickaxe"}},
-      "coppershears": {"textures":{"layer0":"thermalfoundation:items/tool/copper/copper_shears"}},
-      "coppershovel": {"textures":{"layer0":"thermalfoundation:items/tool/copper/copper_shovel"}},
-      "coppersickle": {"textures":{"layer0":"thermalfoundation:items/tool/copper/copper_sickle"}},
-      "coppersword": {"textures":{"layer0":"thermalfoundation:items/tool/copper/copper_sword"}},
-      "diamondbow": {"textures":{"layer0":"thermalfoundation:items/tool/diamond/diamond_bow"}},
-      "diamondbow0": {"textures":{"layer0":"thermalfoundation:items/tool/diamond/diamond_bow_0"}},
-      "diamondbow1": {"textures":{"layer0":"thermalfoundation:items/tool/diamond/diamond_bow_1"}},
-      "diamondbow2": {"textures":{"layer0":"thermalfoundation:items/tool/diamond/diamond_bow_2"}},
-      "diamondshears": {"textures":{"layer0":"thermalfoundation:items/tool/diamond/diamond_shears"}},
-      "diamondsickle": {"textures":{"layer0":"thermalfoundation:items/tool/diamond/diamond_sickle"}},
-      "electrumaxe": {"textures":{"layer0":"thermalfoundation:items/tool/electrum/electrum_axe"}},
-      "electrumbow": {"textures":{"layer0":"thermalfoundation:items/tool/electrum/electrum_bow"}},
-      "electrumbow0": {"textures":{"layer0":"thermalfoundation:items/tool/electrum/electrum_bow_0"}},
-      "electrumbow1": {"textures":{"layer0":"thermalfoundation:items/tool/electrum/electrum_bow_1"}},
-      "electrumbow2": {"textures":{"layer0":"thermalfoundation:items/tool/electrum/electrum_bow_2"}},
-      "electrumhoe": {"textures":{"layer0":"thermalfoundation:items/tool/electrum/electrum_hoe"}},
-      "electrumpickaxe": {"textures":{"layer0":"thermalfoundation:items/tool/electrum/electrum_pickaxe"}},
-      "electrumshears": {"textures":{"layer0":"thermalfoundation:items/tool/electrum/electrum_shears"}},
-      "electrumshovel": {"textures":{"layer0":"thermalfoundation:items/tool/electrum/electrum_shovel"}},
-      "electrumsickle": {"textures":{"layer0":"thermalfoundation:items/tool/electrum/electrum_sickle"}},
-      "electrumsword": {"textures":{"layer0":"thermalfoundation:items/tool/electrum/electrum_sword"}},
-      "goldbow": {"textures":{"layer0":"thermalfoundation:items/tool/gold/gold_bow"}},
-      "goldbow0": {"textures":{"layer0":"thermalfoundation:items/tool/gold/gold_bow_0"}},
-      "goldbow1": {"textures":{"layer0":"thermalfoundation:items/tool/gold/gold_bow_1"}},
-      "goldbow2": {"textures":{"layer0":"thermalfoundation:items/tool/gold/gold_bow_2"}},
-      "goldshears": {"textures":{"layer0":"thermalfoundation:items/tool/gold/gold_shears"}},
-      "goldsickle": {"textures":{"layer0":"thermalfoundation:items/tool/gold/gold_sickle"}},
-      "invaraxe": {"textures":{"layer0":"thermalfoundation:items/tool/invar/invar_axe"}},
-      "invarbow": {"textures":{"layer0":"thermalfoundation:items/tool/invar/invar_bow"}},
-      "invarbow0": {"textures":{"layer0":"thermalfoundation:items/tool/invar/invar_bow_0"}},
-      "invarbow1": {"textures":{"layer0":"thermalfoundation:items/tool/invar/invar_bow_1"}},
-      "invarbow2": {"textures":{"layer0":"thermalfoundation:items/tool/invar/invar_bow_2"}},
-      "invarhoe": {"textures":{"layer0":"thermalfoundation:items/tool/invar/invar_hoe"}},
-      "invarpickaxe": {"textures":{"layer0":"thermalfoundation:items/tool/invar/invar_pickaxe"}},
-      "invarshears": {"textures":{"layer0":"thermalfoundation:items/tool/invar/invar_shears"}},
-      "invarshovel": {"textures":{"layer0":"thermalfoundation:items/tool/invar/invar_shovel"}},
-      "invarsickle": {"textures":{"layer0":"thermalfoundation:items/tool/invar/invar_sickle"}},
-      "invarsword": {"textures":{"layer0":"thermalfoundation:items/tool/invar/invar_sword"}},
-      "ironbow": {"textures":{"layer0":"thermalfoundation:items/tool/iron/iron_bow"}},
-      "ironbow0": {"textures":{"layer0":"thermalfoundation:items/tool/iron/iron_bow_0"}},
-      "ironbow1": {"textures":{"layer0":"thermalfoundation:items/tool/iron/iron_bow_1"}},
-      "ironbow2": {"textures":{"layer0":"thermalfoundation:items/tool/iron/iron_bow_2"}},
-      "ironsickle": {"textures":{"layer0":"thermalfoundation:items/tool/iron/iron_sickle"}},
-      "leadaxe": {"textures":{"layer0":"thermalfoundation:items/tool/lead/lead_axe"}},
-      "leadbow": {"textures":{"layer0":"thermalfoundation:items/tool/lead/lead_bow"}},
-      "leadbow0": {"textures":{"layer0":"thermalfoundation:items/tool/lead/lead_bow_0"}},
-      "leadbow1": {"textures":{"layer0":"thermalfoundation:items/tool/lead/lead_bow_1"}},
-      "leadbow2": {"textures":{"layer0":"thermalfoundation:items/tool/lead/lead_bow_2"}},
-      "leadhoe": {"textures":{"layer0":"thermalfoundation:items/tool/lead/lead_hoe"}},
-      "leadpickaxe": {"textures":{"layer0":"thermalfoundation:items/tool/lead/lead_pickaxe"}},
-      "leadshears": {"textures":{"layer0":"thermalfoundation:items/tool/lead/lead_shears"}},
-      "leadshovel": {"textures":{"layer0":"thermalfoundation:items/tool/lead/lead_shovel"}},
-      "leadsickle": {"textures":{"layer0":"thermalfoundation:items/tool/lead/lead_sickle"}},
-      "leadsword": {"textures":{"layer0":"thermalfoundation:items/tool/lead/lead_sword"}},
-      "nickelaxe": {"textures":{"layer0":"thermalfoundation:items/tool/nickel/nickel_axe"}},
-      "nickelbow": {"textures":{"layer0":"thermalfoundation:items/tool/nickel/nickel_bow"}},
-      "nickelbow0": {"textures":{"layer0":"thermalfoundation:items/tool/nickel/nickel_bow_0"}},
-      "nickelbow1": {"textures":{"layer0":"thermalfoundation:items/tool/nickel/nickel_bow_1"}},
-      "nickelbow2": {"textures":{"layer0":"thermalfoundation:items/tool/nickel/nickel_bow_2"}},
-      "nickelhoe": {"textures":{"layer0":"thermalfoundation:items/tool/nickel/nickel_hoe"}},
-      "nickelpickaxe": {"textures":{"layer0":"thermalfoundation:items/tool/nickel/nickel_pickaxe"}},
-      "nickelshears": {"textures":{"layer0":"thermalfoundation:items/tool/nickel/nickel_shears"}},
-      "nickelshovel": {"textures":{"layer0":"thermalfoundation:items/tool/nickel/nickel_shovel"}},
-      "nickelsickle": {"textures":{"layer0":"thermalfoundation:items/tool/nickel/nickel_sickle"}},
-      "nickelsword": {"textures":{"layer0":"thermalfoundation:items/tool/nickel/nickel_sword"}},
-      "platinumaxe": {"textures":{"layer0":"thermalfoundation:items/tool/platinum/platinum_axe"}},
-      "platinumbow": {"textures":{"layer0":"thermalfoundation:items/tool/platinum/platinum_bow"}},
-      "platinumbow0": {"textures":{"layer0":"thermalfoundation:items/tool/platinum/platinum_bow_0"}},
-      "platinumbow1": {"textures":{"layer0":"thermalfoundation:items/tool/platinum/platinum_bow_1"}},
-      "platinumbow2": {"textures":{"layer0":"thermalfoundation:items/tool/platinum/platinum_bow_2"}},
-      "platinumhoe": {"textures":{"layer0":"thermalfoundation:items/tool/platinum/platinum_hoe"}},
-      "platinumpickaxe": {"textures":{"layer0":"thermalfoundation:items/tool/platinum/platinum_pickaxe"}},
-      "platinumshears": {"textures":{"layer0":"thermalfoundation:items/tool/platinum/platinum_shears"}},
-      "platinumshovel": {"textures":{"layer0":"thermalfoundation:items/tool/platinum/platinum_shovel"}},
-      "platinumsickle": {"textures":{"layer0":"thermalfoundation:items/tool/platinum/platinum_sickle"}},
-      "platinumsword": {"textures":{"layer0":"thermalfoundation:items/tool/platinum/platinum_sword"}},
-      "silveraxe": {"textures":{"layer0":"thermalfoundation:items/tool/silver/silver_axe"}},
-      "silverbow": {"textures":{"layer0":"thermalfoundation:items/tool/silver/silver_bow"}},
-      "silverbow0": {"textures":{"layer0":"thermalfoundation:items/tool/silver/silver_bow_0"}},
-      "silverbow1": {"textures":{"layer0":"thermalfoundation:items/tool/silver/silver_bow_1"}},
-      "silverbow2": {"textures":{"layer0":"thermalfoundation:items/tool/silver/silver_bow_2"}},
-      "silverhoe": {"textures":{"layer0":"thermalfoundation:items/tool/silver/silver_hoe"}},
-      "silverpickaxe": {"textures":{"layer0":"thermalfoundation:items/tool/silver/silver_pickaxe"}},
-      "silvershears": {"textures":{"layer0":"thermalfoundation:items/tool/silver/silver_shears"}},
-      "silvershovel": {"textures":{"layer0":"thermalfoundation:items/tool/silver/silver_shovel"}},
-      "silversickle": {"textures":{"layer0":"thermalfoundation:items/tool/silver/silver_sickle"}},
-      "silversword": {"textures":{"layer0":"thermalfoundation:items/tool/silver/silver_sword"}},
-      "stonebow": {"textures":{"layer0":"thermalfoundation:items/tool/stone/stone_bow"}},
-      "stonebow0": {"textures":{"layer0":"thermalfoundation:items/tool/stone/stone_bow_0"}},
-      "stonebow1": {"textures":{"layer0":"thermalfoundation:items/tool/stone/stone_bow_1"}},
-      "stonebow2": {"textures":{"layer0":"thermalfoundation:items/tool/stone/stone_bow_2"}},
-      "stoneshears": {"textures":{"layer0":"thermalfoundation:items/tool/stone/stone_shears"}},
-      "stonesickle": {"textures":{"layer0":"thermalfoundation:items/tool/stone/stone_sickle"}},
-      "tinaxe": {"textures":{"layer0":"thermalfoundation:items/tool/tin/tin_axe"}},
-      "tinbow": {"textures":{"layer0":"thermalfoundation:items/tool/tin/tin_bow"}},
-      "tinbow0": {"textures":{"layer0":"thermalfoundation:items/tool/tin/tin_bow_0"}},
-      "tinbow1": {"textures":{"layer0":"thermalfoundation:items/tool/tin/tin_bow_1"}},
-      "tinbow2": {"textures":{"layer0":"thermalfoundation:items/tool/tin/tin_bow_2"}},
-      "tinhoe": {"textures":{"layer0":"thermalfoundation:items/tool/tin/tin_hoe"}},
-      "tinpickaxe": {"textures":{"layer0":"thermalfoundation:items/tool/tin/tin_pickaxe"}},
-      "tinshears": {"textures":{"layer0":"thermalfoundation:items/tool/tin/tin_shears"}},
-      "tinshovel": {"textures":{"layer0":"thermalfoundation:items/tool/tin/tin_shovel"}},
-      "tinsickle": {"textures":{"layer0":"thermalfoundation:items/tool/tin/tin_sickle"}},
-      "tinsword": {"textures":{"layer0":"thermalfoundation:items/tool/tin/tin_sword"}},
-      "woodshears": {"textures":{"layer0":"thermalfoundation:items/tool/wood/wood_shears"}},
-      "woodsickle": {"textures":{"layer0":"thermalfoundation:items/tool/wood/wood_sickle"}}
-    }
-  }
+	"forge_marker": 1,
+	"defaults": {
+		"model": "builtin/generated",
+		"textures": {
+			"layer0": "blocks/dirt"
+		},
+		"transform": "forge:default-tool"
+	},
+	"variants": {
+		"type": {
+			"bronzeaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/bronze/bronze_axe"
+				}
+			},
+			"bronzebow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/bronze/bronze_bow"
+				}
+			},
+			"bronzebow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/bronze/bronze_bow_0"
+				}
+			},
+			"bronzebow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/bronze/bronze_bow_1"
+				}
+			},
+			"bronzebow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/bronze/bronze_bow_2"
+				}
+			},
+			"bronzehoe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/bronze/bronze_hoe"
+				}
+			},
+			"bronzepickaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/bronze/bronze_pickaxe"
+				}
+			},
+			"bronzeshears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/bronze/bronze_shears"
+				}
+			},
+			"bronzeshovel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/bronze/bronze_shovel"
+				}
+			},
+			"bronzesickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/bronze/bronze_sickle"
+				}
+			},
+			"bronzesword": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/bronze/bronze_sword"
+				}
+			},
+			"copperaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/copper/copper_axe"
+				}
+			},
+			"copperbow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/copper/copper_bow"
+				}
+			},
+			"copperbow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/copper/copper_bow_0"
+				}
+			},
+			"copperbow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/copper/copper_bow_1"
+				}
+			},
+			"copperbow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/copper/copper_bow_2"
+				}
+			},
+			"copperhoe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/copper/copper_hoe"
+				}
+			},
+			"copperpickaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/copper/copper_pickaxe"
+				}
+			},
+			"coppershears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/copper/copper_shears"
+				}
+			},
+			"coppershovel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/copper/copper_shovel"
+				}
+			},
+			"coppersickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/copper/copper_sickle"
+				}
+			},
+			"coppersword": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/copper/copper_sword"
+				}
+			},
+			"diamondbow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/diamond/diamond_bow"
+				}
+			},
+			"diamondbow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/diamond/diamond_bow_0"
+				}
+			},
+			"diamondbow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/diamond/diamond_bow_1"
+				}
+			},
+			"diamondbow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/diamond/diamond_bow_2"
+				}
+			},
+			"diamondshears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/diamond/diamond_shears"
+				}
+			},
+			"diamondsickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/diamond/diamond_sickle"
+				}
+			},
+			"electrumaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/electrum/electrum_axe"
+				}
+			},
+			"electrumbow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/electrum/electrum_bow"
+				}
+			},
+			"electrumbow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/electrum/electrum_bow_0"
+				}
+			},
+			"electrumbow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/electrum/electrum_bow_1"
+				}
+			},
+			"electrumbow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/electrum/electrum_bow_2"
+				}
+			},
+			"electrumhoe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/electrum/electrum_hoe"
+				}
+			},
+			"electrumpickaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/electrum/electrum_pickaxe"
+				}
+			},
+			"electrumshears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/electrum/electrum_shears"
+				}
+			},
+			"electrumshovel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/electrum/electrum_shovel"
+				}
+			},
+			"electrumsickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/electrum/electrum_sickle"
+				}
+			},
+			"electrumsword": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/electrum/electrum_sword"
+				}
+			},
+			"goldbow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/gold/gold_bow"
+				}
+			},
+			"goldbow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/gold/gold_bow_0"
+				}
+			},
+			"goldbow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/gold/gold_bow_1"
+				}
+			},
+			"goldbow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/gold/gold_bow_2"
+				}
+			},
+			"goldshears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/gold/gold_shears"
+				}
+			},
+			"goldsickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/gold/gold_sickle"
+				}
+			},
+			"invaraxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/invar/invar_axe"
+				}
+			},
+			"invarbow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/invar/invar_bow"
+				}
+			},
+			"invarbow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/invar/invar_bow_0"
+				}
+			},
+			"invarbow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/invar/invar_bow_1"
+				}
+			},
+			"invarbow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/invar/invar_bow_2"
+				}
+			},
+			"invarhoe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/invar/invar_hoe"
+				}
+			},
+			"invarpickaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/invar/invar_pickaxe"
+				}
+			},
+			"invarshears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/invar/invar_shears"
+				}
+			},
+			"invarshovel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/invar/invar_shovel"
+				}
+			},
+			"invarsickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/invar/invar_sickle"
+				}
+			},
+			"invarsword": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/invar/invar_sword"
+				}
+			},
+			"ironbow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/iron/iron_bow"
+				}
+			},
+			"ironbow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/iron/iron_bow_0"
+				}
+			},
+			"ironbow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/iron/iron_bow_1"
+				}
+			},
+			"ironbow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/iron/iron_bow_2"
+				}
+			},
+			"ironsickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/iron/iron_sickle"
+				}
+			},
+			"leadaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/lead/lead_axe"
+				}
+			},
+			"leadbow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/lead/lead_bow"
+				}
+			},
+			"leadbow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/lead/lead_bow_0"
+				}
+			},
+			"leadbow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/lead/lead_bow_1"
+				}
+			},
+			"leadbow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/lead/lead_bow_2"
+				}
+			},
+			"leadhoe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/lead/lead_hoe"
+				}
+			},
+			"leadpickaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/lead/lead_pickaxe"
+				}
+			},
+			"leadshears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/lead/lead_shears"
+				}
+			},
+			"leadshovel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/lead/lead_shovel"
+				}
+			},
+			"leadsickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/lead/lead_sickle"
+				}
+			},
+			"leadsword": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/lead/lead_sword"
+				}
+			},
+			"nickelaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/nickel/nickel_axe"
+				}
+			},
+			"nickelbow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/nickel/nickel_bow"
+				}
+			},
+			"nickelbow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/nickel/nickel_bow_0"
+				}
+			},
+			"nickelbow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/nickel/nickel_bow_1"
+				}
+			},
+			"nickelbow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/nickel/nickel_bow_2"
+				}
+			},
+			"nickelhoe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/nickel/nickel_hoe"
+				}
+			},
+			"nickelpickaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/nickel/nickel_pickaxe"
+				}
+			},
+			"nickelshears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/nickel/nickel_shears"
+				}
+			},
+			"nickelshovel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/nickel/nickel_shovel"
+				}
+			},
+			"nickelsickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/nickel/nickel_sickle"
+				}
+			},
+			"nickelsword": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/nickel/nickel_sword"
+				}
+			},
+			"platinumaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/platinum/platinum_axe"
+				}
+			},
+			"platinumbow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/platinum/platinum_bow"
+				}
+			},
+			"platinumbow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/platinum/platinum_bow_0"
+				}
+			},
+			"platinumbow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/platinum/platinum_bow_1"
+				}
+			},
+			"platinumbow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/platinum/platinum_bow_2"
+				}
+			},
+			"platinumhoe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/platinum/platinum_hoe"
+				}
+			},
+			"platinumpickaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/platinum/platinum_pickaxe"
+				}
+			},
+			"platinumshears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/platinum/platinum_shears"
+				}
+			},
+			"platinumshovel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/platinum/platinum_shovel"
+				}
+			},
+			"platinumsickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/platinum/platinum_sickle"
+				}
+			},
+			"platinumsword": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/platinum/platinum_sword"
+				}
+			},
+			"silveraxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/silver/silver_axe"
+				}
+			},
+			"silverbow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/silver/silver_bow"
+				}
+			},
+			"silverbow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/silver/silver_bow_0"
+				}
+			},
+			"silverbow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/silver/silver_bow_1"
+				}
+			},
+			"silverbow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/silver/silver_bow_2"
+				}
+			},
+			"silverhoe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/silver/silver_hoe"
+				}
+			},
+			"silverpickaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/silver/silver_pickaxe"
+				}
+			},
+			"silvershears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/silver/silver_shears"
+				}
+			},
+			"silvershovel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/silver/silver_shovel"
+				}
+			},
+			"silversickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/silver/silver_sickle"
+				}
+			},
+			"silversword": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/silver/silver_sword"
+				}
+			},
+			"stonebow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/stone/stone_bow"
+				}
+			},
+			"stonebow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/stone/stone_bow_0"
+				}
+			},
+			"stonebow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/stone/stone_bow_1"
+				}
+			},
+			"stonebow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/stone/stone_bow_2"
+				}
+			},
+			"stoneshears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/stone/stone_shears"
+				}
+			},
+			"stonesickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/stone/stone_sickle"
+				}
+			},
+			"tinaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/tin/tin_axe"
+				}
+			},
+			"tinbow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/tin/tin_bow"
+				}
+			},
+			"tinbow0": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/tin/tin_bow_0"
+				}
+			},
+			"tinbow1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/tin/tin_bow_1"
+				}
+			},
+			"tinbow2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/tin/tin_bow_2"
+				}
+			},
+			"tinhoe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/tin/tin_hoe"
+				}
+			},
+			"tinpickaxe": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/tin/tin_pickaxe"
+				}
+			},
+			"tinshears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/tin/tin_shears"
+				}
+			},
+			"tinshovel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/tin/tin_shovel"
+				}
+			},
+			"tinsickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/tin/tin_sickle"
+				}
+			},
+			"tinsword": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/tin/tin_sword"
+				}
+			},
+			"woodshears": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/wood/wood_shears"
+				}
+			},
+			"woodsickle": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/wood/wood_sickle"
+				}
+			}
+		}
+	}
 }

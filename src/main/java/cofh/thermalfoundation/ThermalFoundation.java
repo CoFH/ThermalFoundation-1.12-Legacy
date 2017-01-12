@@ -10,7 +10,6 @@ import cofh.thermalfoundation.gui.TFCreativeTab;
 import cofh.thermalfoundation.item.Equipment;
 import cofh.thermalfoundation.item.TFItems;
 import cofh.thermalfoundation.network.PacketTFBase;
-import cofh.thermalfoundation.plugins.TFPlugins;
 import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
 import cofh.thermalfoundation.util.LexiconManager;
@@ -37,7 +36,7 @@ import java.io.File;
 @Mod(modid = ThermalFoundation.modId, name = ThermalFoundation.modName, version = ThermalFoundation.version, dependencies = ThermalFoundation.dependencies, guiFactory = ThermalFoundation.modGuiFactory, canBeDeactivated = false, customProperties = @CustomProperty(k = "cofhversion", v = "true"))
 public class ThermalFoundation {
 
-    public static final String modId = "ThermalFoundation";
+    public static final String modId = "thermalfoundation";
     public static final String modName = "Thermal Foundation";
     public static final String version = "1.0.0";
     public static final String version_max = "1.1.0";
@@ -86,7 +85,6 @@ public class ThermalFoundation {
         TFFluids.preInit();
         TFItems.preInit();
         TFBlocks.preInit();
-        TFPlugins.preInit();
 
         LexiconManager.preInit();
 
@@ -99,7 +97,6 @@ public class ThermalFoundation {
         TFFluids.initialize();
         TFItems.initialize();
         TFBlocks.initialize();
-        TFPlugins.initialize();
 
 		/* Init World Gen */
         loadWorldGeneration();
@@ -119,7 +116,6 @@ public class ThermalFoundation {
         TFFluids.postInit();
         TFItems.postInit();
         TFBlocks.postInit();
-        TFPlugins.postInit();
 
         proxy.registerEntities();
 
@@ -132,8 +128,6 @@ public class ThermalFoundation {
         IMCHandler.instance.handleIMC(FMLInterModComms.fetchRuntimeMessages(this));
 
         LexiconManager.loadComplete();
-
-        TFPlugins.loadComplete();
 
         cleanConfig(false);
         //config.cleanUp(false, true);
