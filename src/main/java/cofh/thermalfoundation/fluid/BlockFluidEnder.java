@@ -1,8 +1,8 @@
 package cofh.thermalfoundation.fluid;
 
-import codechicken.lib.util.CommonUtils;
 import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.core.util.CoreUtils;
+import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -36,7 +36,7 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
-        if (!effect || CommonUtils.isClientWorld(world)) {
+        if (!effect || ServerHelper.isClientWorld(world)) {
             return;
         }
         if (world.getTotalWorldTime() % 8 == 0) {

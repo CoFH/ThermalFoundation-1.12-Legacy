@@ -1,13 +1,11 @@
 package cofh.thermalfoundation.item;
 
 import codechicken.lib.item.ItemMultiType;
-import codechicken.lib.util.FuelUtils;
-import codechicken.lib.util.ItemUtils;
 import cofh.core.item.ItemBucket;
+import cofh.core.util.energy.FurnaceFuelHandler;
 import cofh.core.util.fluid.BucketHandler;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
-import cofh.thermalfoundation.block.TFBlocks;
 import cofh.thermalfoundation.core.TFProps;
 import cofh.thermalfoundation.fluid.TFFluids;
 import net.minecraft.init.Items;
@@ -233,7 +231,7 @@ public class TFItems {
         dustPetrotheum = itemMaterial.registerSubItemOreDict(515, "dustPetrotheum", RARE);
         dustMana = itemMaterial.registerSubItem(516, "dustMana", EPIC);
 
-        FuelUtils.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
+        FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
 
 		/* Mob Drops */
         rodBlizz = itemMaterial.registerSubItemOreDict(1024, "rodBlizz");
@@ -281,13 +279,13 @@ public class TFItems {
         GameRegistry.addRecipe(new ShapedOreRecipe(lexicon, " D ", "GBI", " R ", 'D', Items.DIAMOND, 'G', "ingotGold", 'B', Items.BOOK, 'I', "ingotIron", 'R', "dustRedstone"));
 
         // @formatter: off
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustPyrotheum, 2), "dustCoal", "dustSulfur", "dustRedstone", Items.BLAZE_POWDER));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustCryotheum, 2), Items.SNOWBALL, "dustSaltpeter", "dustRedstone", "dustBlizz"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustAerotheum, 2), "sand", "dustSaltpeter", "dustRedstone", "dustBlitz"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustPetrotheum, 2), Items.CLAY_BALL, "dustObsidian", "dustRedstone", "dustBasalz"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustBlizz, 2), "rodBlizz"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustBlitz, 2), "rodBlitz"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustBasalz, 2), "rodBasalz"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustPyrotheum, 2), "dustCoal", "dustSulfur", "dustRedstone", Items.BLAZE_POWDER));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustCryotheum, 2), Items.SNOWBALL, "dustSaltpeter", "dustRedstone", "dustBlizz"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustAerotheum, 2), "sand", "dustSaltpeter", "dustRedstone", "dustBlitz"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustPetrotheum, 2), Items.CLAY_BALL, "dustObsidian", "dustRedstone", "dustBasalz"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustBlizz, 2), "rodBlizz"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustBlitz, 2), "rodBlitz"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustBasalz, 2), "rodBasalz"));
         // @formatter: on
 
 		/* Smelting */
@@ -309,12 +307,12 @@ public class TFItems {
 
 		/* Alloy Recipes */
         // @formatter: off
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustElectrum, 2), "dustGold", "dustSilver"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustInvar, 3), "dustIron", "dustIron", "dustNickel"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustBronze, 4), "dustCopper", "dustCopper", "dustCopper", "dustTin"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustSignalum, 4), "dustCopper", "dustCopper", "dustCopper", "dustSilver", "bucketRedstone"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustLumium, 4), "dustTin", "dustTin", "dustTin", "dustSilver", "bucketGlowstone"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemUtils.copyStack(dustEnderium, 4), "dustTin", "dustTin", "dustSilver", "dustPlatinum", "bucketEnder"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustElectrum, 2), "dustGold", "dustSilver"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustInvar, 3), "dustIron", "dustIron", "dustNickel"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustBronze, 4), "dustCopper", "dustCopper", "dustCopper", "dustTin"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustSignalum, 4), "dustCopper", "dustCopper", "dustCopper", "dustSilver", "bucketRedstone"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustLumium, 4), "dustTin", "dustTin", "dustTin", "dustSilver", "bucketGlowstone"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(ItemHelper.cloneStack(dustEnderium, 4), "dustTin", "dustTin", "dustSilver", "dustPlatinum", "bucketEnder"));
         // @formatter: on
 
 		/* Storage */

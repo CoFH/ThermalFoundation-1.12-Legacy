@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.fluid;
 
-import codechicken.lib.util.CommonUtils;
 import cofh.core.fluid.BlockFluidInteractive;
+import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cofh.thermalfoundation.init.ModEntities;
@@ -65,7 +65,7 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
         if (entity.motionX < -0.05 || entity.motionX > 0.05) {
             entity.motionX *= 0.05;
         }
-        if (CommonUtils.isClientWorld(world)) {
+        if (ServerHelper.isClientWorld(world)) {
             return;
         }
         if (world.getTotalWorldTime() % 8 != 0) {

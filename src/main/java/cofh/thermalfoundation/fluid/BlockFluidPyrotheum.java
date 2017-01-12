@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.fluid;
 
-import codechicken.lib.util.CommonUtils;
 import cofh.core.fluid.BlockFluidInteractive;
+import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -48,7 +48,7 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
         if (!effect) {
             return;
         }
-        if (CommonUtils.isClientWorld(world)) {
+        if (ServerHelper.isClientWorld(world)) {
             return;
         }
         if (entity instanceof EntityCreeper) {

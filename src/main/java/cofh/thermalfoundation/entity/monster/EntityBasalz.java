@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.entity.monster;
 
-import codechicken.lib.math.MathHelper;
 import cofh.lib.util.helpers.ItemHelper;
+import cofh.lib.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.init.ModSounds;
@@ -58,13 +58,13 @@ public class EntityBasalz extends EntityMob {
 		restrictLightLevel = ThermalFoundation.config.get(category, "Light.Limit", restrictLightLevel, comment).getBoolean(restrictLightLevel);
 
 		comment = "This sets the maximum light level Basalzes can spawn at, if restricted.";
-		spawnLightLevel = MathHelper.clip(ThermalFoundation.config.get(category, "Light.Level", spawnLightLevel, comment).getInt(spawnLightLevel), 0, 15);
+		spawnLightLevel = MathHelper.clamp(ThermalFoundation.config.get(category, "Light.Level", spawnLightLevel, comment).getInt(spawnLightLevel), 0, 15);
 
 		comment = "This sets the minimum number of Basalzes that spawn in a group.";
-		spawnMin = MathHelper.clip(ThermalFoundation.config.get(category, "MinGroupSize", spawnMin, comment).getInt(spawnMin), 1, 10);
+		spawnMin = MathHelper.clamp(ThermalFoundation.config.get(category, "MinGroupSize", spawnMin, comment).getInt(spawnMin), 1, 10);
 
 		comment = "This sets the maximum light number of Basalzes that spawn in a group.";
-		spawnMax = MathHelper.clip(ThermalFoundation.config.get(category, "MaxGroupSize", spawnMax, comment).getInt(spawnMax), spawnMin, 24);
+		spawnMax = MathHelper.clamp(ThermalFoundation.config.get(category, "MaxGroupSize", spawnMax, comment).getInt(spawnMax), spawnMin, 24);
 
 		comment = "This sets the relative spawn weight for Basalzes.";
 		spawnWeight = ThermalFoundation.config.get(category, "SpawnWeight", spawnWeight, comment).getInt(spawnWeight);
@@ -379,9 +379,9 @@ public class EntityBasalz extends EntityMob {
 			return true;
 		}
 
-		int i = cofh.lib.util.helpers.MathHelper.floor(this.posX);
-		int j = cofh.lib.util.helpers.MathHelper.floor(this.getEntityBoundingBox().minY);
-		int k = cofh.lib.util.helpers.MathHelper.floor(this.posZ);
+		int i = MathHelper.floor(this.posX);
+		int j = MathHelper.floor(this.getEntityBoundingBox().minY);
+		int k = MathHelper.floor(this.posZ);
 		BlockPos pos = new BlockPos(i, j, k);
 
 		if (this.worldObj.getLightFor(EnumSkyBlock.SKY, pos) > this.rand.nextInt(32)) {

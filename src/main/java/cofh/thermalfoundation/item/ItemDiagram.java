@@ -21,12 +21,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
-import java.util.Map;
 
 import static cofh.lib.util.helpers.ItemHelper.ShapelessRecipe;
 import static cofh.lib.util.helpers.ItemHelper.addRecipe;

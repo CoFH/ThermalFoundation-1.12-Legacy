@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.render.entity;
 
-import codechicken.lib.texture.TextureUtils;
+import cofh.lib.render.RenderHelper;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.VertexBuffer;
@@ -35,7 +35,7 @@ public class RenderEntityAsIcon extends Render<Entity> {
     @Override
     public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float p_76986_9_) {
         if (icon == null) {
-            icon = TextureUtils.getTexture(iconName);
+            icon = RenderHelper.getTexture(iconName);
         }
 
         if (icon != null) {
