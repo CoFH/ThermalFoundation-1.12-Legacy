@@ -4,8 +4,6 @@ import codechicken.lib.model.ModelRegistryHelper;
 import codechicken.lib.model.SimpleBakedItemModel;
 import codechicken.lib.model.loader.CCBakedModelLoader;
 import codechicken.lib.render.CCIconRegister;
-import codechicken.lib.texture.TextureUtils;
-import cofh.core.item.ItemBucket;
 import cofh.core.render.IconRegistry;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.block.TFBlocks;
@@ -14,7 +12,6 @@ import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
-import cofh.thermalfoundation.entity.projectile.EntityBlazeBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
 import cofh.thermalfoundation.fluid.TFFluids;
@@ -39,9 +36,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-;
-
-public class ClientProxy extends CommonProxy {
+public class ProxyClient extends Proxy {
 
     @Override
     public void preInit() {
@@ -101,12 +96,6 @@ public class ClientProxy extends CommonProxy {
             }
         });
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityBlazeBolt.class, new IRenderFactory<EntityBlazeBolt>() {
-            @Override
-            public Render<? super EntityBlazeBolt> createRenderFor(RenderManager manager) {
-                return new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_blaze");
-            }
-        });
         RenderingRegistry.registerEntityRenderingHandler(EntityBlizzBolt.class, new IRenderFactory<EntityBlizzBolt>() {
             @Override
             public Render<? super EntityBlizzBolt> createRenderFor(RenderManager manager) {

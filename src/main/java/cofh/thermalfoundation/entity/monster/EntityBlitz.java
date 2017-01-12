@@ -34,6 +34,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EntityBlitz extends EntityMob {
+
     private static final DataParameter<Boolean> ATTACK_MODE = EntityDataManager.<Boolean>createKey(EntityBlizz.class, DataSerializers.BOOLEAN);
 
     static boolean enable = true;

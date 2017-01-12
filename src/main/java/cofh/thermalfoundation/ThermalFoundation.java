@@ -2,7 +2,7 @@ package cofh.thermalfoundation;
 
 import cofh.CoFHCore;
 import cofh.thermalfoundation.block.TFBlocks;
-import cofh.thermalfoundation.core.CommonProxy;
+import cofh.thermalfoundation.core.Proxy;
 import cofh.thermalfoundation.core.TFProps;
 import cofh.thermalfoundation.fluid.TFFluids;
 import cofh.thermalfoundation.gui.GuiHandler;
@@ -17,7 +17,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.CustomProperty;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -49,8 +48,8 @@ public class ThermalFoundation {
     @Instance(modId)
     public static ThermalFoundation instance;
 
-    @SidedProxy(clientSide = "cofh.thermalfoundation.core.ClientProxy", serverSide = "cofh.thermalfoundation.core.CommonProxy")
-    public static CommonProxy proxy;
+    @SidedProxy(clientSide = "cofh.thermalfoundation.core.ProxyClient", serverSide = "cofh.thermalfoundation.core.Proxy")
+    public static Proxy proxy;
 
     public static final Logger log = LogManager.getLogger(modId);
     public static File configDir;

@@ -16,7 +16,7 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
-public class CommonProxy {
+public class Proxy {
 
 	public void preInit() {}
 
