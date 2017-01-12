@@ -26,6 +26,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.Random;
@@ -36,52 +37,17 @@ public class BlockFluidMana extends BlockFluidInteractive {
     public static final Material materialFluidMana = new MaterialLiquid(MapColor.PURPLE);
 
     private static boolean effect = true;
+    private static boolean enableSourceFall = true;
 
-    public BlockFluidMana() {
-        super("thermalfoundation", TFFluids.fluidMana, materialFluidMana, "mana");
+    public BlockFluidMana(Fluid fluid) {
+
+        super(fluid, materialFluidMana, "thermalfoundation", "mana");
         setQuantaPerBlock(LEVELS);
         setTickRate(10);
 
         setHardness(2000F);
         setLightOpacity(2);
         setParticleColor(0.2F, 0.0F, 0.4F);
-    }
-
-    @Override
-    public boolean preInit() {
-        this.setRegistryName("fluid_mana");
-        GameRegistry.register(this);
-        ItemBlock itemBlock = new ItemBlock(this);
-        itemBlock.setRegistryName(this.getRegistryName());
-        GameRegistry.register(itemBlock);
-
-        addInteraction(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, DirtType.DIRT), Blocks.GRASS.getDefaultState(), false);
-        addInteraction(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, DirtType.COARSE_DIRT), Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, DirtType.PODZOL), false);
-        addInteraction(Blocks.GLASS, Blocks.SAND);
-        // addInteraction(Blocks.stained_glass, -1, Blocks.glass);
-        // addInteraction(Blocks.diamond_ore, -1, TFBlocks.blockOre, 1);
-        // addInteraction(Blocks.cauldron, -1, Blocks.carpet, 1);
-        // addInteraction(Blocks.cactus, -1, Blocks.cake, 5);
-        // addInteraction(Blocks.enchanting_table, -1, Blocks.brewing_stand, 0);
-        // addInteraction(Blocks.bookshelf, 0, Blocks.chest, 0);
-        // addInteraction(Blocks.ender_chest, -1, TFBlocks.blockFluidEnder, 1);
-        // addInteraction(Blocks.dragon_egg, -1, Blocks.bedrock, 1);
-        addInteraction(Blocks.REDSTONE_ORE.getDefaultState(), Blocks.LIT_REDSTONE_ORE.getDefaultState(), true);
-        addInteraction(Blocks.LAPIS_ORE.getDefaultState(), Blocks.LAPIS_BLOCK.getDefaultState(), true);
-        addInteraction(Blocks.FARMLAND.getDefaultState(), Blocks.MYCELIUM.getDefaultState(), true);
-        for (int i = 8; i-- > 0; ) {
-            addInteraction(Blocks.DOUBLE_STONE_SLAB.getStateFromMeta(i), Blocks.DOUBLE_STONE_SLAB.getStateFromMeta(i + 8), false);
-        }
-        addInteraction(TFBlocks.blockOre.getDefaultState().withProperty(BlockOre.TYPE, "silver"), TFBlocks.blockOre.getDefaultState().withProperty(BlockOre.TYPE, "mithril"));
-        addInteraction(TFBlocks.blockOre.getDefaultState().withProperty(BlockOre.TYPE, "lead"), Blocks.GOLD_ORE.getDefaultState());
-        addInteraction(TFBlocks.blockStorage.getDefaultState().withProperty(BlockStorage.TYPE, "silver"), TFBlocks.blockStorage.getDefaultState().withProperty(BlockStorage.TYPE, "mithril"));
-        addInteraction(TFBlocks.blockStorage.getDefaultState().withProperty(BlockStorage.TYPE, "lead"), Blocks.GOLD_BLOCK.getDefaultState());
-
-        String category = "Fluid.Mana";
-        String comment = "Enable this for Fluid Mana to do...things.";
-        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
-
-        return true;
     }
 
     @Override
@@ -110,6 +76,7 @@ public class BlockFluidMana extends BlockFluidInteractive {
 
     @Override
     public int getWeakPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+
         return effect ? 15 : 0;
     }
 
@@ -188,6 +155,54 @@ public class BlockFluidMana extends BlockFluidInteractive {
         for (int i = 0; i < 8; i++) {
             world.spawnParticle(EnumParticleTypes.ENCHANTMENT_TABLE, pos.getX() + Math.random() * 1.1, pos.getY() + 1.3D, pos.getZ() + Math.random() * 1.1, 0.0D, -0.5D, 0.0D);
         }
+    }
+
+    /* IInitializer */
+    @Override
+    public boolean preInit() {
+
+        this.setRegistryName("fluid_mana");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
+
+        String category = "Fluid.Mana";
+        String comment = "Enable this for Fluid Mana to do...things.";
+        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+
+        comment = "Enable this for Fluid Mana Source blocks to gradually fall downwards.";
+        enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
+
+        return true;
+    }
+
+    @Override
+    public boolean initialize() {
+
+        addInteraction(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, DirtType.DIRT), Blocks.GRASS.getDefaultState(), false);
+        addInteraction(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, DirtType.COARSE_DIRT), Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, DirtType.PODZOL), false);
+        addInteraction(Blocks.GLASS, Blocks.SAND);
+        // addInteraction(Blocks.stained_glass, -1, Blocks.glass);
+        // addInteraction(Blocks.diamond_ore, -1, TFBlocks.blockOre, 1);
+        // addInteraction(Blocks.cauldron, -1, Blocks.carpet, 1);
+        // addInteraction(Blocks.cactus, -1, Blocks.cake, 5);
+        // addInteraction(Blocks.enchanting_table, -1, Blocks.brewing_stand, 0);
+        // addInteraction(Blocks.bookshelf, 0, Blocks.chest, 0);
+        // addInteraction(Blocks.ender_chest, -1, TFBlocks.blockFluidEnder, 1);
+        // addInteraction(Blocks.dragon_egg, -1, Blocks.bedrock, 1);
+        addInteraction(Blocks.REDSTONE_ORE.getDefaultState(), Blocks.LIT_REDSTONE_ORE.getDefaultState(), true);
+        addInteraction(Blocks.LAPIS_ORE.getDefaultState(), Blocks.LAPIS_BLOCK.getDefaultState(), true);
+        addInteraction(Blocks.FARMLAND.getDefaultState(), Blocks.MYCELIUM.getDefaultState(), true);
+        for (int i = 8; i-- > 0; ) {
+            addInteraction(Blocks.DOUBLE_STONE_SLAB.getStateFromMeta(i), Blocks.DOUBLE_STONE_SLAB.getStateFromMeta(i + 8), false);
+        }
+        addInteraction(TFBlocks.blockOre.getDefaultState().withProperty(BlockOre.VARIANT, BlockOre.Type.SILVER), TFBlocks.blockOre.getDefaultState().withProperty(BlockOre.VARIANT, BlockOre.Type.MITHRIL));
+        addInteraction(TFBlocks.blockOre.getDefaultState().withProperty(BlockOre.VARIANT, BlockOre.Type.LEAD), Blocks.GOLD_ORE.getDefaultState());
+        addInteraction(TFBlocks.blockStorage.getDefaultState().withProperty(BlockStorage.VARIANT, BlockStorage.Type.SILVER), TFBlocks.blockStorage.getDefaultState().withProperty(BlockStorage.VARIANT, BlockStorage.Type.MITHRIL));
+        addInteraction(TFBlocks.blockStorage.getDefaultState().withProperty(BlockStorage.VARIANT, BlockStorage.Type.LEAD), Blocks.GOLD_BLOCK.getDefaultState());
+
+        return true;
     }
 
 }

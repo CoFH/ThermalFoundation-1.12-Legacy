@@ -34,7 +34,7 @@ public class TFBakedModelProvider implements IBakedModelLoader {
 
         @Override
         public String getMod() {
-            return ThermalFoundation.modId.toLowerCase();
+            return ThermalFoundation.modId;
         }
 
         @Override

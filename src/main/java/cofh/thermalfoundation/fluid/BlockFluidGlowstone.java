@@ -16,6 +16,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Level;
 
@@ -31,8 +32,9 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
     private static boolean enableSourceFloat = true;
     private static int maxHeight = 120;
 
-    public BlockFluidGlowstone() {
-        super("thermalfoundation", TFFluids.fluidGlowstone, materialFluidGlowstone, "glowstone");
+    public BlockFluidGlowstone(Fluid fluid) {
+
+        super(fluid, materialFluidGlowstone, "thermalfoundation", "glowstone");
         setQuantaPerBlock(LEVELS);
         setTickRate(10);
 
@@ -41,34 +43,15 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
         setParticleColor(1.0F, 0.9F, 0.05F);
     }
 
-    @Override
-    public boolean preInit() {
-        this.setRegistryName("fluid_glowstone");
-        GameRegistry.register(this);
-        ItemBlock itemBlock = new ItemBlock(this);
-        itemBlock.setRegistryName(this.getRegistryName());
-        GameRegistry.register(itemBlock);
+    protected boolean shouldSourceBlockCondense(World world, BlockPos pos) {
 
-        String category = "Fluid.Glowstone";
-        String comment = "Enable this for Fluid Glowstone to do...something.";
-        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+        return enableSourceCondense && (pos.getY() + densityDir > maxHeight || pos.getY() + densityDir > world.getHeight() || pos.getY() + densityDir > maxHeight * 0.8F && !canDisplace(world, pos.add(0, densityDir, 0)));
+    }
 
-        comment = "Enable this for Fluid Glowstone Source blocks to condense back into solid Glowstone above a given y-value.";
-        enableSourceCondense = ThermalFoundation.config.get(category, "Condense", enableSourceCondense, comment).getBoolean();
+    protected boolean shouldSourceBlockFloat(World world, BlockPos pos) {
 
-        comment = "Enable this for Fluid Glowstone Source blocks to gradually float upwards.";
-        enableSourceFloat = ThermalFoundation.config.get(category, "Float", enableSourceFloat, comment).getBoolean();
-
-        int cfgHeight;
-        comment = "This adjusts the y-value where Fluid Glowstone will *always* condense, if that is enabled. It will also condense above 80% of this value, if it cannot flow.";
-        cfgHeight = ThermalFoundation.config.get(category, "MaxHeight", maxHeight, comment).getInt();
-
-        if (cfgHeight >= maxHeight / 2) {
-            maxHeight = cfgHeight;
-        } else {
-            ThermalFoundation.log.log(Level.INFO, "'Fluid.Glowstone.MaxHeight' config value is out of acceptable range. Using default: " + maxHeight + ".");
-        }
-        return true;
+        IBlockState state = world.getBlockState(pos.add(0, densityDir, 0));
+        return enableSourceFloat && (state.getBlock() == this && state.getBlock().getMetaFromState(state) != 0);
     }
 
     @Override
@@ -97,6 +80,7 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 
     @Override
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+
         return TFFluids.fluidGlowstone.getLuminosity();
     }
 
@@ -147,13 +131,36 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
         super.updateTick(world, pos, state, rand);
     }
 
-    protected boolean shouldSourceBlockCondense(World world, BlockPos pos) {
-        return enableSourceCondense && (pos.getY() + densityDir > maxHeight || pos.getY() + densityDir > world.getHeight() || pos.getY() + densityDir > maxHeight * 0.8F && !canDisplace(world, pos.add(0, densityDir, 0)));
-    }
+    /* IInitializer */
+    @Override
+    public boolean preInit() {
 
-    protected boolean shouldSourceBlockFloat(World world, BlockPos pos) {
-        IBlockState state = world.getBlockState(pos.add(0, densityDir, 0));
-        return enableSourceFloat && (state.getBlock() == this && state.getBlock().getMetaFromState(state) != 0);
+        this.setRegistryName("fluid_glowstone");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
+
+        String category = "Fluid.Glowstone";
+        String comment = "Enable this for Fluid Glowstone to do...something.";
+        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+
+        comment = "Enable this for Fluid Glowstone Source blocks to condense back into solid Glowstone above a given y-value.";
+        enableSourceCondense = ThermalFoundation.config.get(category, "Condense", enableSourceCondense, comment).getBoolean();
+
+        comment = "Enable this for Fluid Glowstone Source blocks to gradually float upwards.";
+        enableSourceFloat = ThermalFoundation.config.get(category, "Float", enableSourceFloat, comment).getBoolean();
+
+        int cfgHeight;
+        comment = "This adjusts the y-value where Fluid Glowstone will *always* condense, if that is enabled. It will also condense above 80% of this value, if it cannot flow.";
+        cfgHeight = ThermalFoundation.config.get(category, "MaxHeight", maxHeight, comment).getInt();
+
+        if (cfgHeight >= maxHeight / 2) {
+            maxHeight = cfgHeight;
+        } else {
+            ThermalFoundation.log.log(Level.INFO, "'Fluid.Glowstone.MaxHeight' config value is out of acceptable range. Using default: " + maxHeight + ".");
+        }
+        return true;
     }
 
 }

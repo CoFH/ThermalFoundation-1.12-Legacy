@@ -10,6 +10,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockFluidCoal extends BlockFluidCoFHBase {
@@ -19,8 +20,9 @@ public class BlockFluidCoal extends BlockFluidCoFHBase {
 
     private static boolean effect = true;
 
-    public BlockFluidCoal() {
-        super("thermalfoundation", TFFluids.fluidCoal, materialFluidCoal, "coal");
+    public BlockFluidCoal(Fluid fluid) {
+
+        super(fluid, Material.WATER, "thermalfoundation", "coal");
         setQuantaPerBlock(LEVELS);
         setTickRate(10);
 
@@ -30,22 +32,8 @@ public class BlockFluidCoal extends BlockFluidCoFHBase {
     }
 
     @Override
-    public boolean preInit() {
-        this.setRegistryName("fluid_coal");
-        GameRegistry.register(this);
-        ItemBlock itemBlock = new ItemBlock(this);
-        itemBlock.setRegistryName(this.getRegistryName());
-        GameRegistry.register(itemBlock);
-
-        String category = "Fluid.Coal";
-        String comment = "Enable this for Fluid Coal to be flammable.";
-        effect = ThermalFoundation.config.get(category, "Flammable", true, comment).getBoolean();
-
-        return true;
-    }
-
-    @Override
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+
         return effect ? 300 : 0;
     }
 
@@ -65,6 +53,23 @@ public class BlockFluidCoal extends BlockFluidCoFHBase {
     public boolean isFireSource(World world, BlockPos pos, EnumFacing face) {
 
         return effect;
+    }
+
+    /* IInitializer */
+    @Override
+    public boolean preInit() {
+
+        this.setRegistryName("fluid_coal");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
+
+        String category = "Fluid.Coal";
+        String comment = "Enable this for Fluid Coal to be flammable.";
+        effect = ThermalFoundation.config.get(category, "Flammable", true, comment).getBoolean();
+
+        return true;
     }
 
 }

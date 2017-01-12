@@ -1,21 +1,23 @@
 package cofh.thermalfoundation.block;
 
-import codechicken.lib.block.property.PropertyString;
-import codechicken.lib.util.ArrayUtils;
-import cofh.lib.util.helpers.ItemHelper;
+import cofh.api.core.IInitializer;
+import cofh.api.core.IModelRegister;
+import cofh.core.block.BlockCoFHBase;
 import cofh.thermalfoundation.ThermalFoundation;
-import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving.SpawnPlacementType;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
@@ -27,209 +29,310 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-public class BlockStorage extends Block {
+import static cofh.lib.util.helpers.ItemHelper.addStorageRecipe;
+import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
 
-    public static final String[] NAMES = { "copper", "tin", "silver", "lead", "nickel", "platinum", "mithril", "electrum", "invar", "bronze", "signalum", "lumium", "enderium" };
-    public static final PropertyString TYPE = new PropertyString("type", NAMES);
-    //public static final IIcon[] TEXTURES = new IIcon[NAMES.length];
-    public static final int[] LIGHT = { 0, 0, 4, 0, 0, 4, 8, 0, 0, 0, 7, 15, 4 };
-    public static final float[] HARDNESS = { 5, 5, 5, 4, 10, 5, 30, 4, 20, 5, 5, 5, 40 };
-    public static final float[] RESISTANCE = { 6, 6, 6, 12, 6, 6, 120, 6, 12, 6, 9, 9, 120 };
-    public static final int[] RARITY = { 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 1, 1, 2 };
+public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelRegister {
 
-    public static ItemStack blockCopper;
-    public static ItemStack blockTin;
-    public static ItemStack blockSilver;
-    public static ItemStack blockLead;
-    public static ItemStack blockNickel;
-    public static ItemStack blockPlatinum;
-    public static ItemStack blockMithril;
-    public static ItemStack blockElectrum;
-    public static ItemStack blockInvar;
-    public static ItemStack blockBronze;
-    public static ItemStack blockSignalum;
-    public static ItemStack blockLumium;
-    public static ItemStack blockEnderium;
+	public static final PropertyEnum<BlockStorage.Type> VARIANT = PropertyEnum.<BlockStorage.Type> create("type", BlockStorage.Type.class);
 
-    public BlockStorage() {
+	public BlockStorage() {
 
-        super(Material.IRON);
-        setHardness(5.0F);
-        setResistance(10.0F);
+		super(Material.IRON, "thermalfoundation");
+
+		setUnlocalizedName("storage");
+		setCreativeTab(ThermalFoundation.tabCommon);
+
+		setHardness(5.0F);
+		setResistance(10.0F);
         setSoundType(SoundType.METAL);
-        setCreativeTab(ThermalFoundation.tabCommon);
-        setUnlocalizedName("thermalfoundation.storage");
+		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.COPPER));
 
-        setHarvestLevel("pickaxe", 2);
-        setHarvestLevel("pickaxe", 1, getDefaultState().withProperty(TYPE, NAMES[0]));
-        setHarvestLevel("pickaxe", 1, getDefaultState().withProperty(TYPE, NAMES[1]));
-        setHarvestLevel("pickaxe", 3, getDefaultState().withProperty(TYPE, NAMES[6]));
-        setHarvestLevel("pickaxe", 3, getDefaultState().withProperty(TYPE, NAMES[12]));
-    }
+		setHarvestLevel("pickaxe", 2);
+		setHarvestLevel("pickaxe", 1, getStateFromMeta(Type.COPPER.getMetadata()));
+		setHarvestLevel("pickaxe", 1, getStateFromMeta(Type.TIN.getMetadata()));
+		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.MITHRIL.getMetadata()));
+		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.ENDERIUM.getMetadata()));
+	}
 
-    @Override
-    public IBlockState getStateFromMeta(int meta) {
-        return getBlockState().getBaseState().withProperty(TYPE, NAMES[meta]);
-    }
+	@Override
+	protected BlockStateContainer createBlockState() {
 
-    @Override
-    public int getMetaFromState(IBlockState state) {
-        return ArrayUtils.indexOf(NAMES, state.getValue(TYPE));
-    }
+		return new BlockStateContainer(this, new IProperty[] { VARIANT });
+	}
 
-    @Override
-    protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, TYPE);
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 
-    @Override
-    public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
+		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
+			list.add(new ItemStack(item, 1, i));
+		}
+	}
 
-        for (int i = 0; i < NAMES.length; i++) {
-            list.add(new ItemStack(item, 1, i));
-        }
-    }
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+
+		return this.getDefaultState().withProperty(VARIANT, BlockStorage.Type.byMetadata(meta));
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+
+		return state.getValue(VARIANT).getMetadata();
+	}
+
+	@Override
+	public int damageDropped(IBlockState state) {
+
+		return state.getValue(VARIANT).getMetadata();
+	}
 
     @Override
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-        return LIGHT[getMetaFromState(state)];
+        return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
     }
 
-    @Override
-    public int getWeakPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+	@Override
+	public int getWeakPower(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
 
-        return getMetaFromState(blockState) == 10 ? 15 : 0;
-    }
+		return getMetaFromState(state) == Type.SIGNALUM.getMetadata() ? 15 : 0;
+	}
 
-    @Override
-    public float getBlockHardness(IBlockState blockState, World worldIn, BlockPos pos) {
+	@Override
+	public float getBlockHardness(IBlockState state, World world, BlockPos pos) {
 
-        return HARDNESS[getMetaFromState(blockState)];
-    }
+		return Type.byMetadata(state.getBlock().getMetaFromState(state)).hardness;
+	}
 
-    @Override
-    public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion) {
+	@Override
+	public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion) {
 
-        return RESISTANCE[getMetaFromState(world.getBlockState(pos))];
-    }
+		IBlockState state = world.getBlockState(pos);
+		return Type.byMetadata(state.getBlock().getMetaFromState(state)).resistance;
+	}
 
-    @Override
-    public int damageDropped(IBlockState state) {
+	@Override
+    public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type) {
 
-        return getMetaFromState(state);
-    }
+		return false;
+	}
 
-    @Override
-    public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, SpawnPlacementType type) {
+	@Override
+	public boolean canProvidePower(IBlockState state) {
 
-        return false;
-    }
+		return true;
+	}
 
-    @Override
-    public boolean canProvidePower(IBlockState state) {
+	@Override
+	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon) {
 
-        return true;
-    }
+		return true;
+	}
 
-    @Override
-    public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon) {
+	@Override
+	public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-        return true;
-    }
+		return true;
+	}
 
-    @Override
-    public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
+	/* IModelRegister */
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerModels() {
 
-        return true;
-    }
+		for (int i = 0; i < Type.values().length; i++) {
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(modName + ":" + name, "type=" + Type.byMetadata(i).getName()));
+		}
+	}
 
-    //@Override
-    //public IIcon getIcon(int side, int metadata) {
-    //    return TEXTURES[metadata];
-    //}
+	/* IInitializer */
+	@Override
+	public boolean preInit() {
 
-    //@Override
-    //@SideOnly(Side.CLIENT)
-    //public void registerBlockIcons(IIconRegister ir) {
-    //    for (int i = 0; i < NAMES.length; i++) {
-    //        TEXTURES[i] = ir.registerIcon("thermalfoundation:storage/Block_" + StringHelper.titleCase(NAMES[i]));
-    //    }
-    //}
+		GameRegistry.registerBlock(this, ItemBlockStorage.class, "storage");
 
-    /* IInitializer */
-    //@Override
-    public boolean preInit() {
+		blockCopper = new ItemStack(this, 1, Type.COPPER.getMetadata());
+		blockTin = new ItemStack(this, 1, Type.TIN.getMetadata());
+		blockSilver = new ItemStack(this, 1, Type.SILVER.getMetadata());
+		blockLead = new ItemStack(this, 1, Type.LEAD.getMetadata());
+		blockNickel = new ItemStack(this, 1, Type.NICKEL.getMetadata());
+		blockPlatinum = new ItemStack(this, 1, Type.PLATINUM.getMetadata());
+		blockMithril = new ItemStack(this, 1, Type.MITHRIL.getMetadata());
+		blockElectrum = new ItemStack(this, 1, Type.ELECTRUM.getMetadata());
+		blockInvar = new ItemStack(this, 1, Type.INVAR.getMetadata());
+		blockBronze = new ItemStack(this, 1, Type.BRONZE.getMetadata());
+		blockSignalum = new ItemStack(this, 1, Type.SIGNALUM.getMetadata());
+		blockLumium = new ItemStack(this, 1, Type.LUMIUM.getMetadata());
+		blockEnderium = new ItemStack(this, 1, Type.ENDERIUM.getMetadata());
 
-        this.setRegistryName("storage");
+		registerWithHandlers("blockCopper", blockCopper);
+		registerWithHandlers("blockTin", blockTin);
+		registerWithHandlers("blockSilver", blockSilver);
+		registerWithHandlers("blockLead", blockLead);
+		registerWithHandlers("blockNickel", blockNickel);
+		registerWithHandlers("blockPlatinum", blockPlatinum);
+		registerWithHandlers("blockMithril", blockMithril);
+		registerWithHandlers("blockElectrum", blockElectrum);
+		registerWithHandlers("blockInvar", blockInvar);
+		registerWithHandlers("blockBronze", blockBronze);
+		registerWithHandlers("blockSignalum", blockSignalum);
+		registerWithHandlers("blockLumium", blockLumium);
+		registerWithHandlers("blockEnderium", blockEnderium);
 
-        GameRegistry.register(this);
-        ItemBlockStorage itemBlock = new ItemBlockStorage(this);
-        itemBlock.setRegistryName(this.getRegistryName());
-        GameRegistry.register(itemBlock);
+		return true;
+	}
 
-        blockCopper = new ItemStack(this, 1, 0);
-        blockTin = new ItemStack(this, 1, 1);
-        blockSilver = new ItemStack(this, 1, 2);
-        blockLead = new ItemStack(this, 1, 3);
-        blockNickel = new ItemStack(this, 1, 4);
-        blockPlatinum = new ItemStack(this, 1, 5);
-        blockMithril = new ItemStack(this, 1, 6);
-        blockElectrum = new ItemStack(this, 1, 7);
-        blockInvar = new ItemStack(this, 1, 8);
-        blockBronze = new ItemStack(this, 1, 9);
-        blockSignalum = new ItemStack(this, 1, 10);
-        blockLumium = new ItemStack(this, 1, 11);
-        blockEnderium = new ItemStack(this, 1, 12);
+	@Override
+	public boolean initialize() {
 
-        ItemHelper.registerWithHandlers("blockCopper", blockCopper);
-        ItemHelper.registerWithHandlers("blockTin", blockTin);
-        ItemHelper.registerWithHandlers("blockSilver", blockSilver);
-        ItemHelper.registerWithHandlers("blockLead", blockLead);
-        ItemHelper.registerWithHandlers("blockNickel", blockNickel);
-        ItemHelper.registerWithHandlers("blockPlatinum", blockPlatinum);
-        ItemHelper.registerWithHandlers("blockMithril", blockMithril);
-        ItemHelper.registerWithHandlers("blockElectrum", blockElectrum);
-        ItemHelper.registerWithHandlers("blockInvar", blockInvar);
-        ItemHelper.registerWithHandlers("blockBronze", blockBronze);
-        ItemHelper.registerWithHandlers("blockSignalum", blockSignalum);
-        ItemHelper.registerWithHandlers("blockLumium", blockLumium);
-        ItemHelper.registerWithHandlers("blockEnderium", blockEnderium);
+		return true;
+	}
 
-        return true;
-    }
+	@Override
+	public boolean postInit() {
 
-    //@Override
-    public boolean initialize() {
+		addStorageRecipe(blockCopper, "ingotCopper");
+		addStorageRecipe(blockTin, "ingotTin");
+		addStorageRecipe(blockSilver, "ingotSilver");
+		addStorageRecipe(blockLead, "ingotLead");
+		addStorageRecipe(blockNickel, "ingotNickel");
+		addStorageRecipe(blockPlatinum, "ingotPlatinum");
+		addStorageRecipe(blockMithril, "ingotMithril");
+		addStorageRecipe(blockElectrum, "ingotElectrum");
+		addStorageRecipe(blockInvar, "ingotInvar");
+		addStorageRecipe(blockBronze, "ingotBronze");
+		addStorageRecipe(blockSignalum, "ingotSignalum");
+		addStorageRecipe(blockLumium, "ingotLumium");
+		addStorageRecipe(blockEnderium, "ingotEnderium");
 
-        return true;
-    }
+		return true;
+	}
 
-    //@Override
-    public boolean postInit() {
+	/* TYPE */
+	public static enum Type implements IStringSerializable {
 
-        ItemHelper.addStorageRecipe(blockCopper, "ingotCopper");
-        ItemHelper.addStorageRecipe(blockTin, "ingotTin");
-        ItemHelper.addStorageRecipe(blockSilver, "ingotSilver");
-        ItemHelper.addStorageRecipe(blockLead, "ingotLead");
-        ItemHelper.addStorageRecipe(blockNickel, "ingotNickel");
-        ItemHelper.addStorageRecipe(blockPlatinum, "ingotPlatinum");
-        ItemHelper.addStorageRecipe(blockMithril, "ingotMithril");
-        ItemHelper.addStorageRecipe(blockElectrum, "ingotElectrum");
-        ItemHelper.addStorageRecipe(blockInvar, "ingotInvar");
-        ItemHelper.addStorageRecipe(blockBronze, "ingotBronze");
-        ItemHelper.addStorageRecipe(blockSignalum, "ingotSignalum");
-        ItemHelper.addStorageRecipe(blockLumium, "ingotLumium");
-        ItemHelper.addStorageRecipe(blockEnderium, "ingotEnderium");
+		// @formatter:off
+		COPPER(0, "copper", blockCopper),
+		TIN(1, "tin", blockTin),
+		SILVER(2, "silver", blockSilver, 4),
+		LEAD(3, "lead", blockLead, 4.0F, 12.0F),
+		NICKEL(4, "nickel", blockNickel, 10.0F, 6.0F),
+		PLATINUM(5, "platinum", blockPlatinum, 4, 5.0F, 6.0F, EnumRarity.UNCOMMON),
+		MITHRIL(6, "mithril", blockMithril, 8, 30.0F, 120.0F, EnumRarity.RARE),
+		ELECTRUM(7, "electrum", blockElectrum, 4.0F, 6.0F),
+		INVAR(8, "invar", blockInvar, 20.0F, 12.0F),
+		BRONZE(9, "bronze", blockBronze),
+		SIGNALUM(10, "signalum", blockSignalum, 7, 5.0F, 6.0F, EnumRarity.UNCOMMON),
+		LUMIUM(11, "lumium", blockLumium, 15, 5.0F, 9.0F, EnumRarity.UNCOMMON),
+		ENDERIUM(12, "enderium", blockEnderium, 4, 40.0F, 120.0F, EnumRarity.RARE);
+		// @formatter: on
 
-        return true;
-    }
+		private static final BlockStorage.Type[] METADATA_LOOKUP = new BlockStorage.Type[values().length];
+		private final int metadata;
+		private final String name;
+		private final ItemStack stack;
 
-    @SideOnly(Side.CLIENT)
-    public void registerModels() {
-        for (int i = 0; i < NAMES.length; i++) {
-            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(this.getRegistryName(), "type=" + NAMES[i]));
-        }
-    }
+		private final int light;
+		private final float hardness;
+		private final float resistance;
+		private final EnumRarity rarity;
+
+		private Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance, EnumRarity rarity) {
+
+			this.metadata = metadata;
+			this.name = name;
+			this.stack = stack;
+
+			this.light = light;
+			this.hardness = hardness;
+			this.resistance = resistance;
+			this.rarity = rarity;
+		}
+
+		private Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance) {
+
+			this(metadata, name, stack, light, hardness, resistance, EnumRarity.COMMON);
+		}
+
+		private Type(int metadata, String name, ItemStack stack, float hardness, float resistance) {
+			this(metadata, name, stack, 0, hardness, resistance, EnumRarity.COMMON);
+		}
+
+		private Type(int metadata, String name, ItemStack stack, int light) {
+
+			this(metadata, name, stack, light, 5.0F, 6.0F, EnumRarity.COMMON);
+		}
+
+		private Type(int metadata, String name, ItemStack stack) {
+
+			this(metadata, name, stack, 0, 5.0F, 6.0F, EnumRarity.COMMON);
+		}
+
+		public int getMetadata() {
+			return this.metadata;
+		}
+
+		@Override
+		public String getName() {
+
+			return this.name;
+		}
+
+		public ItemStack getStack() {
+
+			return this.stack;
+		}
+
+		public int getLight() {
+
+			return this.light;
+		}
+
+		public float getHardness() {
+
+			return this.hardness;
+		}
+
+		public float getResistance() {
+
+			return this.resistance;
+		}
+
+		public EnumRarity getRarity() {
+
+			return this.rarity;
+		}
+
+		public static Type byMetadata(int metadata) {
+
+			if (metadata < 0 || metadata >= METADATA_LOOKUP.length) {
+				metadata = 0;
+			}
+			return METADATA_LOOKUP[metadata];
+		}
+
+		static {
+			for (Type type : values()) {
+				METADATA_LOOKUP[type.getMetadata()] = type;
+			}
+		}
+	}
+
+	/* REFERENCES */
+	public static ItemStack blockCopper;
+	public static ItemStack blockTin;
+	public static ItemStack blockSilver;
+	public static ItemStack blockLead;
+	public static ItemStack blockNickel;
+	public static ItemStack blockPlatinum;
+	public static ItemStack blockMithril;
+	public static ItemStack blockElectrum;
+	public static ItemStack blockInvar;
+	public static ItemStack blockBronze;
+	public static ItemStack blockSignalum;
+	public static ItemStack blockLumium;
+	public static ItemStack blockEnderium;
 
 }

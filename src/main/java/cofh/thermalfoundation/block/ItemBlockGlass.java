@@ -6,9 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 
-public class ItemBlockStorage extends ItemBlockCoFHBase {
+public class ItemBlockGlass extends ItemBlockCoFHBase {
 
-	public ItemBlockStorage(Block block) {
+	public ItemBlockGlass(Block block) {
 
 		super(block);
 		setHasSubtypes(true);
@@ -18,13 +18,13 @@ public class ItemBlockStorage extends ItemBlockCoFHBase {
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 
-		return "tile.thermalfoundation.storage." + BlockStorage.Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
+		return "tile.thermalfoundation.glass." + BlockGlass.Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
 	}
 
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 
-		return BlockStorage.Type.byMetadata(ItemHelper.getItemDamage(stack)).getRarity();
+		return BlockGlass.Type.byMetadata(ItemHelper.getItemDamage(stack)).getRarity();
 	}
 
 }

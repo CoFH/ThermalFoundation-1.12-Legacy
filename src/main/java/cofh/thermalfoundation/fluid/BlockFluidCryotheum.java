@@ -3,7 +3,6 @@ package cofh.thermalfoundation.fluid;
 import codechicken.lib.util.CommonUtils;
 import cofh.core.fluid.BlockFluidInteractive;
 import cofh.thermalfoundation.ThermalFoundation;
-import cofh.thermalfoundation.block.TFBlocks;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cofh.thermalfoundation.init.ModEntities;
 import net.minecraft.block.material.MapColor;
@@ -24,6 +23,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.Random;
@@ -38,47 +38,15 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
     private static boolean enableSourceFall = true;
     private static boolean effect = true;
 
-    public BlockFluidCryotheum() {
-        super("thermalfoundation", TFFluids.fluidCryotheum, materialFluidCryotheum, "cryotheum");
+    public BlockFluidCryotheum(Fluid fluid) {
+
+        super(fluid, materialFluidCryotheum, "thermalfoundation", "cryotheum");
         setQuantaPerBlock(LEVELS);
         setTickRate(15);
 
         setHardness(1000F);
         setLightOpacity(1);
         setParticleColor(0.15F, 0.7F, 1.0F);
-    }
-
-    @Override
-    public boolean preInit() {
-        this.setRegistryName("fluid_cryotheum");
-        GameRegistry.register(this);
-        ItemBlock itemBlock = new ItemBlock(this);
-        itemBlock.setRegistryName(this.getRegistryName());
-        GameRegistry.register(itemBlock);
-
-        addInteraction(Blocks.GRASS, Blocks.DIRT);
-        addInteraction(Blocks.WATER.getDefaultState(), Blocks.ICE);
-        addInteraction(Blocks.WATER, Blocks.SNOW);
-        addInteraction(Blocks.FLOWING_WATER.getDefaultState(), Blocks.ICE);
-        addInteraction(Blocks.FLOWING_WATER, Blocks.SNOW);
-        addInteraction(Blocks.LAVA.getDefaultState(), Blocks.OBSIDIAN);
-        addInteraction(Blocks.LAVA, Blocks.STONE);
-        addInteraction(Blocks.FLOWING_WATER.getDefaultState(), Blocks.OBSIDIAN);
-        addInteraction(Blocks.FLOWING_WATER, Blocks.STONE);
-        addInteraction(Blocks.LEAVES, Blocks.AIR);
-        addInteraction(Blocks.LEAVES2, Blocks.AIR);
-        addInteraction(Blocks.TALLGRASS, Blocks.AIR);
-        addInteraction(Blocks.FIRE, Blocks.AIR);
-        addInteraction(TFBlocks.blockFluidGlowstone.getDefaultState(), Blocks.GLOWSTONE);
-
-        String category = "Fluid.Cryotheum";
-        String comment = "Enable this for Fluid Cryotheum to be worse than lava, except cold.";
-        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
-
-        comment = "Enable this for Fluid Cryotheum Source blocks to gradually fall downwards.";
-        enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
-
-        return true;
     }
 
     @Override
@@ -123,6 +91,7 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 
     @Override
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+
         return TFFluids.fluidCryotheum.getLuminosity();
     }
 
@@ -174,6 +143,51 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
         } else if (state.isSideSolid(world, pos, EnumFacing.UP) && world.isAirBlock(pos.offset(EnumFacing.UP))) {
             world.setBlockState(pos.offset(EnumFacing.UP), Blocks.SNOW_LAYER.getDefaultState(), 3);
         }
+    }
+
+    /* IInitializer */
+    @Override
+    public boolean preInit() {
+        this.setRegistryName("fluid_cryotheum");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
+
+        String category = "Fluid.Cryotheum";
+        String comment = "Enable this for Fluid Cryotheum to be worse than lava, except cold.";
+        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+
+        comment = "Enable this for Fluid Cryotheum Source blocks to gradually fall downwards.";
+        enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
+
+        return true;
+    }
+
+    @Override
+    public boolean initialize() {
+
+        addInteraction(Blocks.GRASS, Blocks.DIRT);
+        addInteraction(Blocks.WATER.getDefaultState(), Blocks.ICE);
+        addInteraction(Blocks.WATER, Blocks.SNOW);
+        addInteraction(Blocks.FLOWING_WATER.getDefaultState(), Blocks.ICE);
+        addInteraction(Blocks.FLOWING_WATER, Blocks.SNOW);
+        addInteraction(Blocks.LAVA.getDefaultState(), Blocks.OBSIDIAN);
+        addInteraction(Blocks.LAVA, Blocks.STONE);
+        addInteraction(Blocks.FLOWING_WATER.getDefaultState(), Blocks.OBSIDIAN);
+        addInteraction(Blocks.FLOWING_WATER, Blocks.STONE);
+        addInteraction(Blocks.LEAVES, Blocks.AIR);
+        addInteraction(Blocks.LEAVES2, Blocks.AIR);
+        addInteraction(Blocks.TALLGRASS, Blocks.AIR);
+        addInteraction(Blocks.FIRE, Blocks.AIR);
+
+        if (TFFluids.blockFluidGlowstone == null) {
+            System.out.println("panic");
+        }
+
+        addInteraction(TFFluids.blockFluidGlowstone.getDefaultState(), Blocks.GLOWSTONE);
+
+        return true;
     }
 
 }

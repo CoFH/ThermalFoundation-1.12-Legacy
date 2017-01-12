@@ -1,43 +1,30 @@
 package cofh.thermalfoundation.block;
 
-import codechicken.lib.inventory.InventoryUtils;
+import cofh.core.item.ItemBlockCoFHBase;
+import cofh.lib.util.helpers.ItemHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.translation.I18n;
 
-public class ItemBlockOre extends ItemBlock {
+public class ItemBlockOre extends ItemBlockCoFHBase {
 
-    public ItemBlockOre(Block block) {
+	public ItemBlockOre(Block block) {
 
-        super(block);
-        setHasSubtypes(true);
-        setMaxDamage(0);
-    }
+		super(block);
+		setHasSubtypes(true);
+		setMaxDamage(0);
+	}
 
-    @Override
-    public String getItemStackDisplayName(ItemStack item) {
+	@Override
+	public String getUnlocalizedName(ItemStack stack) {
 
-        return I18n.translateToLocal(getUnlocalizedName(item));
-    }
+		return "tile.thermalfoundation.ore." + BlockOre.Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
+	}
 
-    @Override
-    public String getUnlocalizedName(ItemStack item) {
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
 
-        return "tile.thermalfoundation.ore." + BlockOre.NAMES[InventoryUtils.actualDamage(item)] + ".name";
-    }
-
-    @Override
-    public int getMetadata(int i) {
-
-        return i;
-    }
-
-    @Override
-    public EnumRarity getRarity(ItemStack stack) {
-
-        return EnumRarity.values()[BlockOre.RARITY[InventoryUtils.actualDamage(stack)]];
-    }
+		return BlockOre.Type.byMetadata(ItemHelper.getItemDamage(stack)).getRarity();
+	}
 
 }

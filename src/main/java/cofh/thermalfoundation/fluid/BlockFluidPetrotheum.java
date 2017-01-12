@@ -19,6 +19,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.Random;
@@ -32,40 +33,15 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 	private static boolean effect = true;
 	private static boolean extreme = false;
 
-	public BlockFluidPetrotheum() {
-		super("thermalfoundation", TFFluids.fluidPetrotheum, materialFluidPetrotheum, "petrotheum");
+    public BlockFluidPetrotheum(Fluid fluid) {
+
+        super(fluid, materialFluidPetrotheum, "thermalfoundation", "petrotheum");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(10);
 
 		setHardness(1000F);
 		setLightOpacity(1);
 		setParticleColor(0.4F, 0.3F, 0.2F);
-	}
-
-	@Override
-	public boolean preInit() {
-		this.setRegistryName("fluid_petrotheum");
-		GameRegistry.register(this);
-		ItemBlock itemBlock = new ItemBlock(this);
-		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
-
-		addInteraction(Blocks.STONE, Blocks.GRAVEL);
-		addInteraction(Blocks.COBBLESTONE, Blocks.GRAVEL);
-		addInteraction(Blocks.STONEBRICK, Blocks.GRAVEL);
-		addInteraction(Blocks.MOSSY_COBBLESTONE, Blocks.GRAVEL);
-
-		String category = "Fluid.Petrotheum";
-		String comment = "Enable this for Fluid Petrotheum to break apart stone blocks.";
-		effect = ThermalFoundation.config.get(category, "Effect", effect, comment).getBoolean();
-
-		comment = "Enable this for Fluid Petrotheum to have an EXTREME effect on stone blocks.";
-		extreme = ThermalFoundation.config.get(category, "Effect.Extreme", extreme, comment).getBoolean();
-
-		comment = "Enable this for Fluid Petrotheum Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
-
-		return true;
 	}
 
 	@Override
@@ -141,5 +117,39 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 	protected void triggerInteractionEffects(World world, BlockPos pos) {
 		world.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 0.5F, 0.9F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F, false);
 	}
+
+	/* IInitializer */
+    @Override
+    public boolean preInit() {
+
+        this.setRegistryName("fluid_petrotheum");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
+
+        String category = "Fluid.Petrotheum";
+        String comment = "Enable this for Fluid Petrotheum to break apart stone blocks.";
+        effect = ThermalFoundation.config.get(category, "Effect", effect, comment).getBoolean();
+
+        comment = "Enable this for Fluid Petrotheum to have an EXTREME effect on stone blocks.";
+        extreme = ThermalFoundation.config.get(category, "Effect.Extreme", extreme, comment).getBoolean();
+
+        comment = "Enable this for Fluid Petrotheum Source blocks to gradually fall downwards.";
+        enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
+
+        return true;
+    }
+
+    @Override
+    public boolean initialize() {
+
+        addInteraction(Blocks.STONE, Blocks.GRAVEL);
+        addInteraction(Blocks.COBBLESTONE, Blocks.GRAVEL);
+        addInteraction(Blocks.STONEBRICK, Blocks.GRAVEL);
+        addInteraction(Blocks.MOSSY_COBBLESTONE, Blocks.GRAVEL);
+
+        return true;
+    }
 
 }

@@ -1,8 +1,6 @@
 package cofh.thermalfoundation.fluid;
 
 import codechicken.lib.util.CommonUtils;
-import codechicken.lib.util.EntityUtils;
-import codechicken.lib.vec.Vector3;
 import cofh.core.fluid.BlockFluidCoFHBase;
 import cofh.core.util.CoreUtils;
 import cofh.thermalfoundation.ThermalFoundation;
@@ -11,11 +9,11 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockFluidEnder extends BlockFluidCoFHBase {
@@ -25,29 +23,15 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 
     private static boolean effect = true;
 
-    public BlockFluidEnder() {
-        super("thermalfoundation", TFFluids.fluidEnder, materialFluidEnder, "ender");
+    public BlockFluidEnder(Fluid fluid) {
+
+        super(fluid, materialFluidEnder, "thermalfoundation", "ender");
         setQuantaPerBlock(LEVELS);
         setTickRate(20);
 
         setHardness(2000F);
         setLightOpacity(7);
         setParticleColor(0.05F, 0.2F, 0.2F);
-    }
-
-    @Override
-    public boolean preInit() {
-        this.setRegistryName("fluid_ender");
-        GameRegistry.register(this);
-        ItemBlock itemBlock = new ItemBlock(this);
-        itemBlock.setRegistryName(this.getRegistryName());
-        GameRegistry.register(itemBlock);
-
-        String category = "Fluid.Ender";
-        String comment = "Enable this for Fluid Ender to randomly teleport entities on contact.";
-        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
-
-        return true;
     }
 
     @Override
@@ -68,7 +52,25 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 
     @Override
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+
         return TFFluids.fluidEnder.getLuminosity();
+    }
+
+    /* IInitializer */
+    @Override
+    public boolean preInit() {
+
+        this.setRegistryName("fluid_ender");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
+
+        String category = "Fluid.Ender";
+        String comment = "Enable this for Fluid Ender to randomly teleport entities on contact.";
+        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+
+        return true;
     }
 
 }

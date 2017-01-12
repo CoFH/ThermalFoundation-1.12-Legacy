@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.fluid;
 
-import codechicken.lib.util.CommonUtils;
 import cofh.core.fluid.BlockFluidCoFHBase;
+import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -17,14 +17,13 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Level;
 
 import java.util.Random;
 
 public class BlockFluidAerotheum extends BlockFluidCoFHBase {
-
-    Random random = new Random();
 
     public static final int LEVELS = 6;
     public static final Material materialFluidAerotheum = new MaterialLiquid(MapColor.AIR);
@@ -34,8 +33,9 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
     private static boolean enableSourceFloat = true;
     private static int maxHeight = 120;
 
-    public BlockFluidAerotheum() {
-        super("thermalfoundation", TFFluids.fluidAerotheum, materialFluidAerotheum, "aerotheum");
+    public BlockFluidAerotheum(Fluid fluid) {
+
+        super(fluid, materialFluidAerotheum, "thermalfoundation", "aerotheum");
         setQuantaPerBlock(LEVELS);
         setTickRate(8);
 
@@ -44,35 +44,16 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
         setParticleColor(0.65F, 0.65F, 0.48F);
     }
 
-    @Override
-    public boolean preInit() {
-        this.setRegistryName("fluid_aerotheum");
+    protected boolean shouldSourceBlockDissipate(World world, BlockPos pos) {
 
-        GameRegistry.register(this);
-        ItemBlock itemBlock = new ItemBlock(this);
-        itemBlock.setRegistryName(this.getRegistryName());
-        GameRegistry.register(itemBlock);
+        int y = pos.getY();
+        return enableSourceDissipate && (y + densityDir > maxHeight || y + densityDir > world.getHeight() || y + densityDir > maxHeight * 0.8F && !canDisplace(world, pos.add(0, densityDir, 0)));
+    }
 
-        String category = "Fluid.Aerotheum";
-        String comment = "Enable this for Fluid Aerotheum to do...things.";
-        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+    protected boolean shouldSourceBlockFloat(World world, BlockPos pos) {
 
-        comment = "Enable this for Fluid Aerotheum Source blocks to dissipate back into air above a given y-value.";
-        enableSourceDissipate = ThermalFoundation.config.get(category, "Dissipate", enableSourceDissipate, comment).getBoolean();
-
-        comment = "Enable this for Fluid Aerotheum Source blocks to gradually float upwards.";
-        enableSourceFloat = ThermalFoundation.config.get(category, "Float", enableSourceFloat, comment).getBoolean();
-
-        int cfgHeight;
-        comment = "This adjusts the y-value where Fluid Aerotheum will *always* dissipate, if that is enabled.";
-        cfgHeight = ThermalFoundation.config.get(category, "MaxHeight", maxHeight, comment).getInt();
-
-        if (cfgHeight >= maxHeight / 2) {
-            maxHeight = cfgHeight;
-        } else {
-            ThermalFoundation.log.log(Level.INFO, "'Fluid.Aerotheum.MaxHeight' config value is out of acceptable range. Using default: " + maxHeight + ".");
-        }
-        return true;
+        IBlockState state = world.getBlockState(pos.add(0, densityDir, 0));
+        return enableSourceFloat && state.getBlock() == this && getMetaFromState(state) != 0;
     }
 
     @Override
@@ -97,10 +78,10 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
                 }
             }
         } else if (entity instanceof IProjectile) {
-            entity.motionX *= random.nextGaussian() * 1.5;
-            entity.motionZ *= random.nextGaussian() * 1.5;
+            entity.motionX *= world.rand.nextGaussian() * 1.5;
+            entity.motionZ *= world.rand.nextGaussian() * 1.5;
         }
-        if (CommonUtils.isClientWorld(world)) {
+        if (ServerHelper.isClientWorld(world)) {
             return;
         }
         if (world.getTotalWorldTime() % 8 == 0 && entity instanceof EntityLivingBase && !((EntityLivingBase) entity).isEntityUndead()) {
@@ -119,7 +100,7 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
         if (getMetaFromState(state) == 0) {
             if (rand.nextInt(3) == 0) {
-                if (shouldSourceBlockCondense(world, pos)) {
+                if (shouldSourceBlockDissipate(world, pos)) {
                     world.setBlockState(pos, Blocks.GLOWSTONE.getDefaultState());
                     return;
                 }
@@ -162,14 +143,36 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
         super.updateTick(world, pos, state, rand);
     }
 
-    protected boolean shouldSourceBlockCondense(World world, BlockPos pos) {
+    /* IInitializer */
+    @Override
+    public boolean preInit() {
 
-        return enableSourceDissipate && (pos.getY() + densityDir > maxHeight || pos.getY() + densityDir > world.getHeight());
-    }
+        this.setRegistryName("fluid_aerotheum");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
 
-    protected boolean shouldSourceBlockFloat(World world, BlockPos pos) {
-        IBlockState state = world.getBlockState(pos.add(0, densityDir, 0));
-        return enableSourceFloat && (state.getBlock() == this && state.getBlock().getMetaFromState(state) != 0);
+        String category = "Fluid.Aerotheum";
+        String comment = "Enable this for Fluid Aerotheum to do...things.";
+        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+
+        comment = "Enable this for Fluid Aerotheum Source blocks to dissipate back into air above a given y-value.";
+        enableSourceDissipate = ThermalFoundation.config.get(category, "Dissipate", enableSourceDissipate, comment).getBoolean();
+
+        comment = "Enable this for Fluid Aerotheum Source blocks to gradually float upwards.";
+        enableSourceFloat = ThermalFoundation.config.get(category, "Float", enableSourceFloat, comment).getBoolean();
+
+        int cfgHeight;
+        comment = "This adjusts the y-value where Fluid Aerotheum will *always* dissipate, if that is enabled.";
+        cfgHeight = ThermalFoundation.config.get(category, "MaxHeight", maxHeight, comment).getInt();
+
+        if (cfgHeight >= maxHeight / 2) {
+            maxHeight = cfgHeight;
+        } else {
+            ThermalFoundation.log.log(Level.INFO, "'Fluid.Aerotheum.MaxHeight' config value is out of acceptable range. Using default: " + maxHeight + ".");
+        }
+        return true;
     }
 
 }

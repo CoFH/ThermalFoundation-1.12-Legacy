@@ -17,6 +17,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.Random;
@@ -31,46 +32,15 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
     private static boolean effect = true;
     private static boolean enableSourceFall = true;
 
-    public BlockFluidPyrotheum() {
-        super("thermalfoundation", TFFluids.fluidPyrotheum, materialFluidPyrotheum, "pyrotheum");
+    public BlockFluidPyrotheum(Fluid fluid) {
+
+        super(fluid, Material.LAVA, "thermalfoundation", "pyrotheum");
         setQuantaPerBlock(LEVELS);
         setTickRate(10);
 
         setHardness(1000F);
         setLightOpacity(1);
         setParticleColor(1.0F, 0.7F, 0.15F);
-    }
-
-    @Override
-    public boolean preInit() {
-        this.setRegistryName("fluid_pyrotheum");
-        GameRegistry.register(this);
-        ItemBlock itemBlock = new ItemBlock(this);
-        itemBlock.setRegistryName(this.getRegistryName());
-        GameRegistry.register(itemBlock);
-
-        addInteraction(Blocks.COBBLESTONE, Blocks.STONE);
-        addInteraction(Blocks.GRASS, Blocks.DIRT);
-        addInteraction(Blocks.SAND, Blocks.GLASS);
-        addInteraction(Blocks.WATER, Blocks.STONE);
-        addInteraction(Blocks.FLOWING_WATER, Blocks.STONE);
-        addInteraction(Blocks.CLAY, Blocks.HARDENED_CLAY);
-        addInteraction(Blocks.ICE, Blocks.STONE);
-        addInteraction(Blocks.SNOW, Blocks.AIR);
-        addInteraction(Blocks.SNOW_LAYER, Blocks.AIR);
-
-        for (int i = 0; i < 8; i++) {
-            addInteraction(Blocks.STONE_STAIRS.getStateFromMeta(i), Blocks.STONE_BRICK_STAIRS.getStateFromMeta(i), false);
-        }
-
-        String category = "Fluid.Pyrotheum";
-        String comment = "Enable this for Fluid Pyrotheum to be worse than lava.";
-        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
-
-        comment = "Enable this for Fluid Pyrotheum Source blocks to gradually fall downwards.";
-        enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
-
-        return true;
     }
 
     @Override
@@ -177,4 +147,42 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
         }
     }
 
+    /* IInitializer */
+    @Override
+    public boolean preInit() {
+
+        this.setRegistryName("fluid_pyrotheum");
+        GameRegistry.register(this);
+        ItemBlock itemBlock = new ItemBlock(this);
+        itemBlock.setRegistryName(this.getRegistryName());
+        GameRegistry.register(itemBlock);
+
+        String category = "Fluid.Pyrotheum";
+        String comment = "Enable this for Fluid Pyrotheum to be worse than lava.";
+        effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+
+        comment = "Enable this for Fluid Pyrotheum Source blocks to gradually fall downwards.";
+        enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
+
+        return true;
+    }
+
+    @Override
+    public boolean initialize() {
+
+        addInteraction(Blocks.COBBLESTONE, Blocks.STONE);
+        addInteraction(Blocks.GRASS, Blocks.DIRT);
+        addInteraction(Blocks.SAND, Blocks.GLASS);
+        addInteraction(Blocks.WATER, Blocks.STONE);
+        addInteraction(Blocks.FLOWING_WATER, Blocks.STONE);
+        addInteraction(Blocks.CLAY, Blocks.HARDENED_CLAY);
+        addInteraction(Blocks.ICE, Blocks.STONE);
+        addInteraction(Blocks.SNOW, Blocks.AIR);
+        addInteraction(Blocks.SNOW_LAYER, Blocks.AIR);
+
+        for (int i = 0; i < 8; i++) {
+            addInteraction(Blocks.STONE_STAIRS.getStateFromMeta(i), Blocks.STONE_BRICK_STAIRS.getStateFromMeta(i), false);
+        }
+        return true;
+    }
 }

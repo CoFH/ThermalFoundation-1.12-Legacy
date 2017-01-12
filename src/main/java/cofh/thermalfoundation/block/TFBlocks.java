@@ -1,63 +1,52 @@
 package cofh.thermalfoundation.block;
 
+import cofh.api.core.IInitializer;
 
-import cofh.core.fluid.BlockFluidCoFHBase;
-import cofh.thermalfoundation.fluid.*;
+import java.util.ArrayList;
 
 public class TFBlocks {
+
+	private TFBlocks() {
+
+	}
 
 	public static void preInit() {
 
 		blockOre = new BlockOre();
 		blockStorage = new BlockStorage();
+		blockGlass = new BlockGlass();
+		blockRockwool = new BlockRockwool();
 
-		blockFluidRedstone = new BlockFluidRedstone();
-		blockFluidGlowstone = new BlockFluidGlowstone();
-		blockFluidEnder = new BlockFluidEnder();
-		blockFluidPyrotheum = new BlockFluidPyrotheum();
-		blockFluidCryotheum = new BlockFluidCryotheum();
-		blockFluidAerotheum = new BlockFluidAerotheum();
-		blockFluidPetrotheum = new BlockFluidPetrotheum();
-		blockFluidMana = new BlockFluidMana();
-		blockFluidSteam = new BlockFluidSteam();
-		blockFluidCoal = new BlockFluidCoal();
+		initList.add(blockOre);
+		initList.add(blockStorage);
+		initList.add(blockGlass);
+		initList.add(blockRockwool);
 
-		blockOre.preInit();
-		blockStorage.preInit();
-
-		blockFluidRedstone.preInit();
-		blockFluidGlowstone.preInit();
-		blockFluidEnder.preInit();
-		blockFluidPyrotheum.preInit();
-		blockFluidCryotheum.preInit();
-		blockFluidAerotheum.preInit();
-		blockFluidPetrotheum.preInit();
-		blockFluidMana.preInit();
-		blockFluidSteam.preInit();
-		blockFluidCoal.preInit();
+		for (int i = 0; i < initList.size(); i++) {
+			initList.get(i).preInit();
+		}
 	}
 
 	public static void initialize() {
 
+		for (int i = 0; i < initList.size(); i++) {
+			initList.get(i).initialize();
+		}
 	}
 
 	public static void postInit() {
 
-		blockOre.postInit();
-		blockStorage.postInit();
+		for (int i = 0; i < initList.size(); i++) {
+			initList.get(i).postInit();
+		}
 	}
 
+	static ArrayList<IInitializer> initList = new ArrayList<IInitializer>();
+
+	/* REFERENCES */
 	public static BlockOre blockOre;
 	public static BlockStorage blockStorage;
+	public static BlockGlass blockGlass;
+	public static BlockRockwool blockRockwool;
 
-	public static BlockFluidCoFHBase blockFluidRedstone;
-	public static BlockFluidCoFHBase blockFluidGlowstone;
-	public static BlockFluidCoFHBase blockFluidEnder;
-	public static BlockFluidCoFHBase blockFluidPyrotheum;
-	public static BlockFluidCoFHBase blockFluidCryotheum;
-	public static BlockFluidCoFHBase blockFluidAerotheum;
-	public static BlockFluidCoFHBase blockFluidPetrotheum;
-	public static BlockFluidCoFHBase blockFluidMana;
-	public static BlockFluidCoFHBase blockFluidSteam;
-	public static BlockFluidCoFHBase blockFluidCoal;
 }

@@ -253,15 +253,15 @@ public class TFItems {
         ingotGold = new ItemStack(Items.GOLD_INGOT);
         nuggetGold = new ItemStack(Items.GOLD_NUGGET);
 
-        BucketHandler.registerBucket(TFBlocks.blockFluidRedstone, 0, bucketRedstone);
-        BucketHandler.registerBucket(TFBlocks.blockFluidGlowstone, 0, bucketGlowstone);
-        BucketHandler.registerBucket(TFBlocks.blockFluidEnder, 0, bucketEnder);
-        BucketHandler.registerBucket(TFBlocks.blockFluidPyrotheum, 0, bucketPyrotheum);
-        BucketHandler.registerBucket(TFBlocks.blockFluidCryotheum, 0, bucketCryotheum);
-        BucketHandler.registerBucket(TFBlocks.blockFluidAerotheum, 0, bucketAerotheum);
-        BucketHandler.registerBucket(TFBlocks.blockFluidPetrotheum, 0, bucketPetrotheum);
-        BucketHandler.registerBucket(TFBlocks.blockFluidMana, 0, bucketMana);
-        BucketHandler.registerBucket(TFBlocks.blockFluidCoal, 0, bucketCoal);
+        BucketHandler.registerBucket(TFFluids.blockFluidRedstone, 0, bucketRedstone);
+        BucketHandler.registerBucket(TFFluids.blockFluidGlowstone, 0, bucketGlowstone);
+        BucketHandler.registerBucket(TFFluids.blockFluidEnder, 0, bucketEnder);
+        BucketHandler.registerBucket(TFFluids.blockFluidPyrotheum, 0, bucketPyrotheum);
+        BucketHandler.registerBucket(TFFluids.blockFluidCryotheum, 0, bucketCryotheum);
+        BucketHandler.registerBucket(TFFluids.blockFluidAerotheum, 0, bucketAerotheum);
+        BucketHandler.registerBucket(TFFluids.blockFluidPetrotheum, 0, bucketPetrotheum);
+        BucketHandler.registerBucket(TFFluids.blockFluidMana, 0, bucketMana);
+        BucketHandler.registerBucket(TFFluids.blockFluidCoal, 0, bucketCoal);
 
         FluidContainerRegistry.registerFluidContainer(TFFluids.fluidRedstone, bucketRedstone, FluidContainerRegistry.EMPTY_BUCKET);
         FluidContainerRegistry.registerFluidContainer(TFFluids.fluidGlowstone, bucketGlowstone, FluidContainerRegistry.EMPTY_BUCKET);
