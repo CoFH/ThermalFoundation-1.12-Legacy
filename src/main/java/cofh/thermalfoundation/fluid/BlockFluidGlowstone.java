@@ -145,17 +145,17 @@ public class BlockFluidGlowstone extends BlockFluidCoFHBase {
 
 		String category = "Fluid.Glowstone";
 		String comment = "Enable this for Fluid Glowstone to do...something.";
-		effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
 
 		comment = "Enable this for Fluid Glowstone Source blocks to condense back into solid Glowstone above a given y-value.";
-		enableSourceCondense = ThermalFoundation.config.get(category, "Condense", enableSourceCondense, comment).getBoolean();
+		enableSourceCondense = ThermalFoundation.CONFIG.getConfiguration().get(category, "Condense", enableSourceCondense, comment).getBoolean();
 
 		comment = "Enable this for Fluid Glowstone Source blocks to gradually float upwards.";
-		enableSourceFloat = ThermalFoundation.config.get(category, "Float", enableSourceFloat, comment).getBoolean();
+		enableSourceFloat = ThermalFoundation.CONFIG.getConfiguration().get(category, "Float", enableSourceFloat, comment).getBoolean();
 
 		int cfgHeight;
 		comment = "This adjusts the y-value where Fluid Glowstone will *always* condense, if that is enabled. It will also condense above 80% of this value, if it cannot flow.";
-		cfgHeight = ThermalFoundation.config.get(category, "MaxHeight", maxHeight, comment).getInt();
+		cfgHeight = ThermalFoundation.CONFIG.getConfiguration().get(category, "MaxHeight", maxHeight, comment).getInt();
 
 		if (cfgHeight >= maxHeight / 2) {
 			maxHeight = cfgHeight;

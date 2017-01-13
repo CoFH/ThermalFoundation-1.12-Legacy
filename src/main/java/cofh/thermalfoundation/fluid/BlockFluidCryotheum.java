@@ -1,10 +1,10 @@
 package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidInteractive;
+import cofh.lib.util.helpers.DamageHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
-import cofh.thermalfoundation.init.ModEntities;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -82,10 +82,10 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SPEED, 6 * 20, 0));
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 6 * 20, 0));
 		} else if (entity instanceof EntityBlaze) {
-			entity.attackEntityFrom(ModEntities.cryotheumDamage, 10F);
+			entity.attackEntityFrom(DamageHelper.cryotheum, 10F);
 		} else {
 			boolean t = entity.velocityChanged;
-			entity.attackEntityFrom(ModEntities.cryotheumDamage, 2.0F);
+			entity.attackEntityFrom(DamageHelper.cryotheum, 2.0F);
 			entity.velocityChanged = t;
 		}
 	}
@@ -159,10 +159,10 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 
 		String category = "Fluid.Cryotheum";
 		String comment = "Enable this for Fluid Cryotheum to be worse than lava, except cold.";
-		effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
 
 		comment = "Enable this for Fluid Cryotheum Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
+		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().get(category, "Fall", enableSourceFall, comment).getBoolean();
 
 		return true;
 	}

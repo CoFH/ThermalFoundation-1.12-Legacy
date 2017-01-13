@@ -128,7 +128,7 @@ public class BlockRockwool extends BlockCoFHBase implements IInitializer, IModel
 	}
 
 	/* TYPE */
-	public static enum Type implements IStringSerializable {
+	public enum Type implements IStringSerializable {
 
 		// @formatter:off
 		BLACK(0, "black", rockwoolBlack),
@@ -154,7 +154,7 @@ public class BlockRockwool extends BlockCoFHBase implements IInitializer, IModel
 		private final String name;
 		private final ItemStack stack;
 
-		private Type(int metadata, String name, ItemStack stack) {
+		Type(int metadata, String name, ItemStack stack) {
 
 			this.metadata = metadata;
 			this.name = name;

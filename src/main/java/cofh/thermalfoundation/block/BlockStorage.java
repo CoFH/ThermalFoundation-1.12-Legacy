@@ -211,7 +211,7 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 	}
 
 	/* TYPE */
-	public static enum Type implements IStringSerializable {
+	public enum Type implements IStringSerializable {
 
 		// @formatter:off
 		COPPER(0, "copper", blockCopper),
@@ -239,7 +239,7 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 		private final float resistance;
 		private final EnumRarity rarity;
 
-		private Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance, EnumRarity rarity) {
+		Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance, EnumRarity rarity) {
 
 			this.metadata = metadata;
 			this.name = name;
@@ -251,21 +251,21 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 			this.rarity = rarity;
 		}
 
-		private Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance) {
+		Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance) {
 
 			this(metadata, name, stack, light, hardness, resistance, EnumRarity.COMMON);
 		}
 
-		private Type(int metadata, String name, ItemStack stack, float hardness, float resistance) {
+		Type(int metadata, String name, ItemStack stack, float hardness, float resistance) {
 			this(metadata, name, stack, 0, hardness, resistance, EnumRarity.COMMON);
 		}
 
-		private Type(int metadata, String name, ItemStack stack, int light) {
+		Type(int metadata, String name, ItemStack stack, int light) {
 
 			this(metadata, name, stack, light, 5.0F, 6.0F, EnumRarity.COMMON);
 		}
 
-		private Type(int metadata, String name, ItemStack stack) {
+		Type(int metadata, String name, ItemStack stack) {
 
 			this(metadata, name, stack, 0, 5.0F, 6.0F, EnumRarity.COMMON);
 		}

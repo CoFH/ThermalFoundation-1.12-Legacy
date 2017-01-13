@@ -200,7 +200,7 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 	}
 
 	/* TYPE */
-	public static enum Type implements IStringSerializable {
+	public enum Type implements IStringSerializable {
 
 		// @formatter:off
 		COAL(0, "coal", flowerCoal),
@@ -222,7 +222,7 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 		private final int light;
 		private final EnumRarity rarity;
 
-		private Type(int metadata, String name, ItemStack stack, int light, EnumRarity rarity) {
+		Type(int metadata, String name, ItemStack stack, int light, EnumRarity rarity) {
 
 			this.metadata = metadata;
 			this.name = name;
@@ -232,12 +232,12 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 			this.rarity = rarity;
 		}
 
-		private Type(int metadata, String name, ItemStack stack, int light) {
+		Type(int metadata, String name, ItemStack stack, int light) {
 
 			this(metadata, name, stack, light, EnumRarity.COMMON);
 		}
 
-		private Type(int metadata, String name, ItemStack stack) {
+		Type(int metadata, String name, ItemStack stack) {
 
 			this(metadata, name, stack, 0, EnumRarity.COMMON);
 		}

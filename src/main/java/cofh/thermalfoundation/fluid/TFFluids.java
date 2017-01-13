@@ -109,11 +109,6 @@ public class TFFluids {
 		}
 	}
 
-	public static void registerDispenserHandlers() {
-		//BlockDispenser.dispenseBehaviorRegistry.putObject(TFItems.itemBucket, new DispenserFilledBucketHandler());
-		//BlockDispenser.dispenseBehaviorRegistry.putObject(Items.bucket, new DispenserEmptyBucketHandler());
-	}
-
 	@SideOnly (Side.CLIENT)
 	public static void registerModels() {
 

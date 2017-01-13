@@ -134,13 +134,13 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
 		String category = "Fluid.Petrotheum";
 		String comment = "Enable this for Fluid Petrotheum to break apart stone blocks.";
-		effect = ThermalFoundation.config.get(category, "Effect", effect, comment).getBoolean();
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", effect, comment).getBoolean();
 
 		comment = "Enable this for Fluid Petrotheum to have an EXTREME effect on stone blocks.";
-		extreme = ThermalFoundation.config.get(category, "Effect.Extreme", extreme, comment).getBoolean();
+		extreme = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect.Extreme", extreme, comment).getBoolean();
 
 		comment = "Enable this for Fluid Petrotheum Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
+		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().get(category, "Fall", enableSourceFall, comment).getBoolean();
 
 		return true;
 	}

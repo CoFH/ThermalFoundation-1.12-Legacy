@@ -6,7 +6,7 @@ import cofh.thermalfoundation.gui.client.GuiLexiconStudy;
 import cofh.thermalfoundation.gui.client.GuiLexiconTransmute;
 import cofh.thermalfoundation.gui.container.ContainerLexiconStudy;
 import cofh.thermalfoundation.gui.container.ContainerLexiconTransmute;
-import cofh.thermalfoundation.item.ItemLexicon;
+import cofh.thermalfoundation.item.ItemTome;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
@@ -29,11 +29,11 @@ public class GuiHandler implements IGuiHandler {
 					return ((TileCoFHBaseOld) tile).getGuiClient(player.inventory);
 				}
 			case LEXICON_STUDY_ID:
-				if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
+				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
 					return new GuiLexiconStudy(player.inventory, new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory));//TODO Add off-hand support
 				}
 			case LEXICON_TRANSMUTE_ID:
-				if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
+				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
 					return new GuiLexiconTransmute(player.inventory, new ContainerLexiconTransmute(player.inventory));
 				}
 			default:
@@ -51,11 +51,11 @@ public class GuiHandler implements IGuiHandler {
 					return ((TileCoFHBaseOld) tile).getGuiServer(player.inventory);
 				}
 			case LEXICON_STUDY_ID:
-				if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
+				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
 					return new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory);//TODO Add off-hand support
 				}
 			case LEXICON_TRANSMUTE_ID:
-				if (ItemHelper.isPlayerHoldingItem(ItemLexicon.class, player)) {
+				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
 					return new ContainerLexiconTransmute(player.inventory);
 				}
 			default:

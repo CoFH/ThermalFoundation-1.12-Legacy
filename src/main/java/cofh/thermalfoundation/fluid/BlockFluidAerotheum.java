@@ -156,17 +156,17 @@ public class BlockFluidAerotheum extends BlockFluidCoFHBase {
 
 		String category = "Fluid.Aerotheum";
 		String comment = "Enable this for Fluid Aerotheum to do...things.";
-		effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
 
 		comment = "Enable this for Fluid Aerotheum Source blocks to dissipate back into air above a given y-value.";
-		enableSourceDissipate = ThermalFoundation.config.get(category, "Dissipate", enableSourceDissipate, comment).getBoolean();
+		enableSourceDissipate = ThermalFoundation.CONFIG.getConfiguration().get(category, "Dissipate", enableSourceDissipate, comment).getBoolean();
 
 		comment = "Enable this for Fluid Aerotheum Source blocks to gradually float upwards.";
-		enableSourceFloat = ThermalFoundation.config.get(category, "Float", enableSourceFloat, comment).getBoolean();
+		enableSourceFloat = ThermalFoundation.CONFIG.getConfiguration().get(category, "Float", enableSourceFloat, comment).getBoolean();
 
 		int cfgHeight;
 		comment = "This adjusts the y-value where Fluid Aerotheum will *always* dissipate, if that is enabled.";
-		cfgHeight = ThermalFoundation.config.get(category, "MaxHeight", maxHeight, comment).getInt();
+		cfgHeight = ThermalFoundation.CONFIG.getConfiguration().get(category, "MaxHeight", maxHeight, comment).getInt();
 
 		if (cfgHeight >= maxHeight / 2) {
 			maxHeight = cfgHeight;

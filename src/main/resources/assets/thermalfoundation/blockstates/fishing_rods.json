@@ -1,92 +1,92 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "item/fishing_rod",
-    "textures": {
-      "layer0": "thermalfoundation:items/tool/bronze/bronze_fishing_rod_cast"
-    },
-    "transform": "forge:default-tool"
-  },
-  "variants": {
-    "type": {
-      "bronzefishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/bronze/bronze_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/bronze/bronze_fishing_rod_uncast"
-        }
-      },
-      "copperfishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/copper/copper_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/copper/copper_fishing_rod_uncast"
-        }
-      },
-      "diamondfishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/diamond/diamond_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/diamond/diamond_fishing_rod_uncast"
-        }
-      },
-      "electrumfishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/electrum/electrum_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/electrum/electrum_fishing_rod_uncast"
-        }
-      },
-      "goldfishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/gold/gold_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/gold/gold_fishing_rod_uncast"
-        }
-      },
-      "invarfishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/invar/invar_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/invar/invar_fishing_rod_uncast"
-        }
-      },
-      "ironfishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/iron/iron_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/iron/iron_fishing_rod_uncast"
-        }
-      },
-      "leadfishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/lead/lead_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/lead/lead_fishing_rod_uncast"
-        }
-      },
-      "nickelfishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/nickel/nickel_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/nickel/nickel_fishing_rod_uncast"
-        }
-      },
-      "platinumfishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/platinum/platinum_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/platinum/platinum_fishing_rod_uncast"
-        }
-      },
-      "silverfishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/silver/silver_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/silver/silver_fishing_rod_uncast"
-        }
-      },
-      "stonefishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/stone/stone_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/stone/stone_fishing_rod_uncast"
-        }
-      },
-      "tinfishingrod": {
-        "textures": {
-          "texCast": "thermalfoundation:items/tool/tin/tin_fishing_rod_cast",
-          "texUncast": "thermalfoundation:items/tool/tin/tin_fishing_rod_uncast"
-        }
-      }
-    }
-  }
+	"forge_marker": 1,
+	"defaults": {
+		"model": "item/fishing_rod",
+		"textures": {
+			"layer0": "thermalfoundation:items/tool/bronze/bronze_fishing_rod_cast"
+		},
+		"transform": "forge:default-tool"
+	},
+	"variants": {
+		"type": {
+			"bronzefishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/bronze/bronze_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/bronze/bronze_fishing_rod_uncast"
+				}
+			},
+			"copperfishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/copper/copper_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/copper/copper_fishing_rod_uncast"
+				}
+			},
+			"diamondfishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/diamond/diamond_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/diamond/diamond_fishing_rod_uncast"
+				}
+			},
+			"electrumfishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/electrum/electrum_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/electrum/electrum_fishing_rod_uncast"
+				}
+			},
+			"goldfishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/gold/gold_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/gold/gold_fishing_rod_uncast"
+				}
+			},
+			"invarfishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/invar/invar_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/invar/invar_fishing_rod_uncast"
+				}
+			},
+			"ironfishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/iron/iron_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/iron/iron_fishing_rod_uncast"
+				}
+			},
+			"leadfishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/lead/lead_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/lead/lead_fishing_rod_uncast"
+				}
+			},
+			"nickelfishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/nickel/nickel_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/nickel/nickel_fishing_rod_uncast"
+				}
+			},
+			"platinumfishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/platinum/platinum_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/platinum/platinum_fishing_rod_uncast"
+				}
+			},
+			"silverfishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/silver/silver_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/silver/silver_fishing_rod_uncast"
+				}
+			},
+			"stonefishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/stone/stone_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/stone/stone_fishing_rod_uncast"
+				}
+			},
+			"tinfishingrod": {
+				"textures": {
+					"texCast": "thermalfoundation:items/tool/tin/tin_fishing_rod_cast",
+					"texUncast": "thermalfoundation:items/tool/tin/tin_fishing_rod_uncast"
+				}
+			}
+		}
+	}
 }

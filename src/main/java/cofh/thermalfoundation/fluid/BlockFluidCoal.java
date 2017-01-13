@@ -67,7 +67,7 @@ public class BlockFluidCoal extends BlockFluidCoFHBase {
 
 		String category = "Fluid.Coal";
 		String comment = "Enable this for Fluid Coal to be flammable.";
-		effect = ThermalFoundation.config.get(category, "Flammable", true, comment).getBoolean();
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Flammable", true, comment).getBoolean();
 
 		return true;
 	}

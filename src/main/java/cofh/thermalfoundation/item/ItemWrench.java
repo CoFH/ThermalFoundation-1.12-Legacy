@@ -5,9 +5,11 @@ import codechicken.lib.util.SoundUtils;
 import codechicken.lib.vec.Vector3;
 import cofh.api.block.IDismantleable;
 import cofh.api.core.IInitializer;
+import cofh.api.core.IModelRegister;
 import cofh.api.item.IToolHammer;
 import cofh.asm.relauncher.Implementable;
 import cofh.core.item.ItemToolBase;
+import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.BlockHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
@@ -15,6 +17,8 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -30,15 +34,20 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Map;
 
 import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
 import static cofh.lib.util.helpers.ItemHelper.addRecipe;
 
 @Implementable ({ "buildcraft.api.tools.IToolWrench", "com.brandon3055.draconicevolution.api.ICrystalBinder" })
-public class ItemWrench extends ItemToolBase implements IInitializer, IToolHammer {
+public class ItemWrench extends ItemToolBase implements IInitializer, IModelRegister, IToolHammer {
 
 	public ItemWrench() {
 
@@ -103,18 +112,18 @@ public class ItemWrench extends ItemToolBase implements IInitializer, IToolHamme
 	}
 
 	/* IModelRegister */
-	//	@Override
-	//	@SideOnly(Side.CLIENT)
-	//	public void registerModels() {
-	//
-	//		StateMapper mapper = new StateMapper(modName, "tool", name);
-	//		ModelBakery.registerItemVariants(this);
-	//		ModelLoader.setCustomMeshDefinition(this, mapper);
-	//
-	//		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
-	//			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
-	//		}
-	//	}
+	@Override
+	@SideOnly (Side.CLIENT)
+	public void registerModels() {
+
+		StateMapper mapper = new StateMapper(modName, "util", name);
+		ModelBakery.registerItemVariants(this);
+		ModelLoader.setCustomMeshDefinition(this, mapper);
+
+		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
+			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "util", "type=" + entry.getValue().name));
+		}
+	}
 
 	/* IToolHammer */
 	@Override
@@ -183,5 +192,10 @@ public class ItemWrench extends ItemToolBase implements IInitializer, IToolHamme
 
 	/* REFERENCES */
 	public static ItemStack wrenchBasic;
+
+	/* TYPE */
+	enum Type {
+		BASIC, ENDER
+	}
 
 }

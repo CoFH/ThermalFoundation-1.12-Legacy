@@ -35,16 +35,16 @@ public class LexiconManager {
 	public static void preInit() {
 
 		String comment = "Set to true for a whitelist, FALSE for a blacklist";
-		isWhitelist = ThermalFoundation.config.get("Lexicon", "UseWhiteList", isWhitelist, comment).getBoolean(isWhitelist);
+		isWhitelist = ThermalFoundation.CONFIG.getConfiguration().get("Lexicon", "UseWhiteList", isWhitelist, comment).getBoolean(isWhitelist);
 
 		comment = "This will generate a default list file depending on your list setting. This will ONLY generate if no list file already exists OR you have also enabled list regeneration.";
-		writeDefaultFile = ThermalFoundation.config.get("Lexicon", "GenerateDefaultList", writeDefaultFile, comment).getBoolean(writeDefaultFile);
+		writeDefaultFile = ThermalFoundation.CONFIG.getConfiguration().get("Lexicon", "GenerateDefaultList", writeDefaultFile, comment).getBoolean(writeDefaultFile);
 
 		comment = "This option will generate a fresh blacklist or whitelist EVERY time. This is not recommended, but is provided here as an option if you are satisfied with the defaults.";
-		alwaysWriteFile = ThermalFoundation.config.get("Lexicon", "AlwaysGenerateList", alwaysWriteFile, comment).getBoolean(alwaysWriteFile);
+		alwaysWriteFile = ThermalFoundation.CONFIG.getConfiguration().get("Lexicon", "AlwaysGenerateList", alwaysWriteFile, comment).getBoolean(alwaysWriteFile);
 
 		comment = "This will echo all entries to the system LOG.";
-		logEntries = ThermalFoundation.config.get("Lexicon", "LogEntries", logEntries, comment).getBoolean(logEntries);
+		logEntries = ThermalFoundation.CONFIG.getConfiguration().get("Lexicon", "LogEntries", logEntries, comment).getBoolean(logEntries);
 	}
 
 	public static void loadComplete() {

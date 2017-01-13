@@ -1,5 +1,6 @@
 package cofh.thermalfoundation.entity.monster;
 
+import cofh.api.core.IConfigCallback;
 import cofh.core.CoFHProps;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.MathHelper;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class EntityBasalz extends EntityElemental {
+public class EntityBasalz extends EntityElemental implements IConfigCallback {
 
 	static boolean enable = true;
 	static boolean restrictLightLevel = true;
@@ -34,32 +35,9 @@ public class EntityBasalz extends EntityElemental {
 	static int spawnMin = 1;
 	static int spawnMax = 4;
 
-	static {
-		String category = "Mob.Basalz";
-		String comment;
-
-		comment = "Set this to false to disable Basalzes entirely. Jerk.";
-		enable = ThermalFoundation.config.get(category, "Enable", enable, comment).getBoolean(enable);
-
-		category = "Mob.Basalz.Spawn";
-
-		comment = "Set this to false for Basalzes to spawn at any light level.";
-		restrictLightLevel = ThermalFoundation.config.get(category, "Light.Limit", restrictLightLevel, comment).getBoolean(restrictLightLevel);
-
-		comment = "This sets the maximum light level Basalzes can spawn at, if restricted.";
-		spawnLightLevel = MathHelper.clamp(ThermalFoundation.config.get(category, "Light.Level", spawnLightLevel, comment).getInt(spawnLightLevel), 0, 15);
-
-		comment = "This sets the minimum number of Basalzes that spawn in a group.";
-		spawnMin = MathHelper.clamp(ThermalFoundation.config.get(category, "MinGroupSize", spawnMin, comment).getInt(spawnMin), 1, 10);
-
-		comment = "This sets the maximum light number of Basalzes that spawn in a group.";
-		spawnMax = MathHelper.clamp(ThermalFoundation.config.get(category, "MaxGroupSize", spawnMax, comment).getInt(spawnMax), spawnMin, 24);
-
-		comment = "This sets the relative spawn weight for Basalzes.";
-		spawnWeight = ThermalFoundation.config.get(category, "SpawnWeight", spawnWeight, comment).getInt(spawnWeight);
-	}
-
 	public static void initialize(int id) {
+
+		config();
 
 		if (!enable) {
 			return;
@@ -82,6 +60,32 @@ public class EntityBasalz extends EntityElemental {
 			}
 		}
 		EntityRegistry.addSpawn(EntityBasalz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));
+	}
+
+	public static void config() {
+
+		String category = "Mob.Basalz";
+		String comment;
+
+		comment = "Set this to false to disable Basalzes entirely. Jerk.";
+		enable = ThermalFoundation.CONFIG.getConfiguration().get(category, "Enable", enable, comment).getBoolean(enable);
+
+		category = "Mob.Basalz.Spawn";
+
+		comment = "Set this to false for Basalzes to spawn at any light level.";
+		restrictLightLevel = ThermalFoundation.CONFIG.getConfiguration().get(category, "Light.Limit", restrictLightLevel, comment).getBoolean(restrictLightLevel);
+
+		comment = "This sets the maximum light level Basalzes can spawn at, if restricted.";
+		spawnLightLevel = MathHelper.clamp(ThermalFoundation.CONFIG.getConfiguration().get(category, "Light.Level", spawnLightLevel, comment).getInt(spawnLightLevel), 0, 15);
+
+		comment = "This sets the minimum number of Basalzes that spawn in a group.";
+		spawnMin = MathHelper.clamp(ThermalFoundation.CONFIG.getConfiguration().get(category, "MinGroupSize", spawnMin, comment).getInt(spawnMin), 1, 10);
+
+		comment = "This sets the maximum light number of Basalzes that spawn in a group.";
+		spawnMax = MathHelper.clamp(ThermalFoundation.CONFIG.getConfiguration().get(category, "MaxGroupSize", spawnMax, comment).getInt(spawnMax), spawnMin, 24);
+
+		comment = "This sets the relative spawn weight for Basalzes.";
+		spawnWeight = ThermalFoundation.CONFIG.getConfiguration().get(category, "SpawnWeight", spawnWeight, comment).getInt(spawnWeight);
 	}
 
 	public EntityBasalz(World world) {
@@ -210,4 +214,10 @@ public class EntityBasalz extends EntityElemental {
 			super.updateTask();
 		}
 	}
+
+	/* IConfigCallback */
+	public void configUpdate() {
+
+	}
+
 }

@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.block;
 
 import cofh.api.core.IInitializer;
+import cofh.thermalfoundation.ThermalFoundation;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,11 @@ public class TFBlocks {
 		initList.add(blockStorage);
 		initList.add(blockGlass);
 		initList.add(blockRockwool);
+
+		ThermalFoundation.proxy.addIModelRegister(blockOre);
+		ThermalFoundation.proxy.addIModelRegister(blockStorage);
+		ThermalFoundation.proxy.addIModelRegister(blockGlass);
+		ThermalFoundation.proxy.addIModelRegister(blockRockwool);
 
 		for (int i = 0; i < initList.size(); i++) {
 			initList.get(i).preInit();

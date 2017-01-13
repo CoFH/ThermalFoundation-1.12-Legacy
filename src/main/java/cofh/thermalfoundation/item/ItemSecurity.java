@@ -2,8 +2,11 @@ package cofh.thermalfoundation.item;
 
 import cofh.api.core.IInitializer;
 import cofh.core.item.ItemCoFHBase;
+import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
@@ -11,8 +14,12 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
+import java.util.Map;
 
 import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
 import static cofh.lib.util.helpers.ItemHelper.addRecipe;
@@ -66,18 +73,18 @@ public class ItemSecurity extends ItemCoFHBase implements IInitializer {
 	}
 
 	/* IModelRegister */
-	//	@Override
-	//	@SideOnly(Side.CLIENT)
-	//	public void registerModels() {
-	//
-	//		StateMapper mapper = new StateMapper(modName, "tool", name);
-	//		ModelBakery.registerItemVariants(this);
-	//		ModelLoader.setCustomMeshDefinition(this, mapper);
-	//
-	//		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
-	//			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
-	//		}
-	//	}
+	@Override
+	@SideOnly (Side.CLIENT)
+	public void registerModels() {
+
+		StateMapper mapper = new StateMapper(modName, "util", name);
+		ModelBakery.registerItemVariants(this);
+		ModelLoader.setCustomMeshDefinition(this, mapper);
+
+		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
+			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "util", "type=" + entry.getValue().name));
+		}
+	}
 
 	/* IInitializer */
 	@Override
@@ -107,7 +114,7 @@ public class ItemSecurity extends ItemCoFHBase implements IInitializer {
 
 	/* TYPE */
 	enum Type {
-		LOCK;
+		LOCK
 	}
 
 }

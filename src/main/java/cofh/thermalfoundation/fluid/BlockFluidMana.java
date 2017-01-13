@@ -170,10 +170,10 @@ public class BlockFluidMana extends BlockFluidInteractive {
 
 		String category = "Fluid.Mana";
 		String comment = "Enable this for Fluid Mana to do...things.";
-		effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
 
 		comment = "Enable this for Fluid Mana Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment).getBoolean();
+		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().get(category, "Fall", enableSourceFall, comment).getBoolean();
 
 		return true;
 	}

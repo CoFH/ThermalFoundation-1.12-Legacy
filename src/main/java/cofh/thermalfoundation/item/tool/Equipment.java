@@ -190,19 +190,19 @@ public enum Equipment {
 		final String TOOL = "thermalfoundation.tool." + TYPE;
 
 		String category = "Equipment." + NAME;
-		enableArmor = ThermalFoundation.config.get(category, "Armor", true).getBoolean(true);
+		enableArmor = ThermalFoundation.CONFIG.getConfiguration().get(category, "Armor", true).getBoolean(true);
 		enableArmor &= !TFProps.disableAllArmor;
 
 		category += ".Tools";
-		enableTools[0] = ThermalFoundation.config.get(category, "Sword", true).getBoolean(true);
-		enableTools[1] = ThermalFoundation.config.get(category, "Shovel", true).getBoolean(true);
-		enableTools[2] = ThermalFoundation.config.get(category, "Pickaxe", true).getBoolean(true);
-		enableTools[3] = ThermalFoundation.config.get(category, "Axe", true).getBoolean(true);
-		enableTools[4] = ThermalFoundation.config.get(category, "Hoe", true).getBoolean(true);
-		enableTools[5] = ThermalFoundation.config.get(category, "Shears", true).getBoolean(true);
-		enableTools[6] = ThermalFoundation.config.get(category, "FishingRod", true).getBoolean(true);
-		enableTools[7] = ThermalFoundation.config.get(category, "Sickle", true).getBoolean(true);
-		enableTools[8] = ThermalFoundation.config.get(category, "Bow", true).getBoolean(true);
+		enableTools[0] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sword", true).getBoolean(true);
+		enableTools[1] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shovel", true).getBoolean(true);
+		enableTools[2] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Pickaxe", true).getBoolean(true);
+		enableTools[3] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Axe", true).getBoolean(true);
+		enableTools[4] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hoe", true).getBoolean(true);
+		enableTools[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shears", true).getBoolean(true);
+		enableTools[6] = ThermalFoundation.CONFIG.getConfiguration().get(category, "FishingRod", true).getBoolean(true);
+		enableTools[7] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", true).getBoolean(true);
+		enableTools[8] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Bow", true).getBoolean(true);
 
 		for (int i = 0; i < enableTools.length; i++) {
 			enableTools[i] &= !TFProps.disableAllTools;
@@ -380,7 +380,7 @@ public enum Equipment {
 
 	public static void preInit() {
 
-		VanillaEquipment.preInit();
+		//EquipmentVanilla.preInit();
 		for (Equipment e : values()) {
 			e.preInitMaterial();
 		}
@@ -388,7 +388,7 @@ public enum Equipment {
 
 	public static void initialize() {
 
-		VanillaEquipment.initialize();
+		//EquipmentVanilla.initialize();
 		for (Equipment e : values()) {
 			e.initializeMaterial();
 		}
@@ -396,7 +396,7 @@ public enum Equipment {
 
 	public static void postInit() {
 
-		VanillaEquipment.postInit();
+		//EquipmentVanilla.postInit();
 		for (Equipment e : values()) {
 			e.postInitMaterial();
 		}
@@ -413,7 +413,7 @@ public enum Equipment {
 	@SideOnly (Side.CLIENT)
 	protected void registerMaterialModels() {
 
-		VanillaEquipment.registerModels();
+		//EquipmentVanilla.registerModels();
 		registerModel(itemSword, 0, "sword");
 		registerModel(itemShovel, 0, "shovel");
 		registerModel(itemPickaxe, 0, "pickaxe");

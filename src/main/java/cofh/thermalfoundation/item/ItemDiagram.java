@@ -4,6 +4,7 @@ import codechicken.lib.util.SoundUtils;
 import cofh.api.core.IInitializer;
 import cofh.api.tileentity.IPortableData;
 import cofh.core.item.ItemCoFHBase;
+import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.StringHelper;
@@ -11,6 +12,8 @@ import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.util.PatternHelper;
 import cofh.thermalfoundation.util.RedprintHelper;
 import cofh.thermalfoundation.util.SchematicHelper;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
@@ -21,8 +24,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
+import java.util.Map;
 
 import static cofh.lib.util.helpers.ItemHelper.ShapelessRecipe;
 import static cofh.lib.util.helpers.ItemHelper.addRecipe;
@@ -154,18 +161,18 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 	}
 
 	/* IModelRegister */
-	//	@Override
-	//	@SideOnly(Side.CLIENT)
-	//	public void registerModels() {
-	//
-	//		StateMapper mapper = new StateMapper(modName, "tool", name);
-	//		ModelBakery.registerItemVariants(this);
-	//		ModelLoader.setCustomMeshDefinition(this, mapper);
-	//
-	//		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
-	//			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "tool", entry.getValue().name));
-	//		}
-	//	}
+	@Override
+	@SideOnly (Side.CLIENT)
+	public void registerModels() {
+
+		StateMapper mapper = new StateMapper(modName, "util", name);
+		ModelBakery.registerItemVariants(this);
+		ModelLoader.setCustomMeshDefinition(this, mapper);
+
+		for (Map.Entry<Integer, ItemEntry> entry : itemMap.entrySet()) {
+			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "util", "type=" + entry.getValue().name));
+		}
+	}
 
 	/* IInitializer */
 	@Override

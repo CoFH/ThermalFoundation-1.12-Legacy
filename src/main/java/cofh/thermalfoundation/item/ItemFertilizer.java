@@ -44,7 +44,27 @@ public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
 		return EnumActionResult.PASS;
 	}
 
-	public static boolean onApplyBonemeal(ItemStack stack, World world, BlockPos pos, EntityPlayer player, int radius, int potency) {
+	private boolean growBlock(World world, BlockPos pos, IBlockState state, int potency) {
+
+		if (state.getBlock() instanceof IGrowable) {
+			IGrowable growable = (IGrowable) state.getBlock();
+
+			if (growable.canGrow(world, pos, state, world.isRemote)) {
+				if (ServerHelper.isServerWorld(world)) {
+					if (growable.canUseBonemeal(world, world.rand, pos, state)) {
+						for (int i = 0; i < potency; i++) {
+							growable.grow(world, world.rand, pos, state);
+						}
+						world.playEvent(2005, pos, 0);
+					}
+				}
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private boolean onApplyBonemeal(ItemStack stack, World world, BlockPos pos, EntityPlayer player, int radius, int potency) {
 
 		IBlockState state = world.getBlockState(pos);
 
@@ -71,33 +91,13 @@ public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
 		return used;
 	}
 
-	public static boolean growBlock(World world, BlockPos pos, IBlockState state, int potency) {
-
-		if (state.getBlock() instanceof IGrowable) {
-			IGrowable growable = (IGrowable) state.getBlock();
-
-			if (growable.canGrow(world, pos, state, world.isRemote)) {
-				if (ServerHelper.isServerWorld(world)) {
-					if (growable.canUseBonemeal(world, world.rand, pos, state)) {
-						for (int i = 0; i < potency; i++) {
-							growable.grow(world, world.rand, pos, state);
-						}
-						world.playEvent(2005, pos, 0);
-					}
-				}
-				return true;
-			}
-		}
-		return false;
-	}
-
 	/* IInitializer */
 	@Override
 	public boolean preInit() {
 
 		fertilizerBasic = addItem(0, "fertilizerBasic");
 		fertilizerRich = addItem(1, "fertilizerRich");
-		//fertilizerFlux = addItem(2, "fertilizerFlux");
+		fertilizerFlux = addItem(2, "fertilizerFlux");
 
 		return true;
 	}
@@ -123,5 +123,10 @@ public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
 	public static ItemStack fertilizerBasic;
 	public static ItemStack fertilizerRich;
 	public static ItemStack fertilizerFlux;
+
+	/* TYPE */
+	enum Type {
+		BASIC, RICH, FLUX
+	}
 
 }

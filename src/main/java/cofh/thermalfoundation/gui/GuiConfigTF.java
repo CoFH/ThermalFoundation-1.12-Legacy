@@ -24,7 +24,7 @@ public class GuiConfigTF extends GuiConfig {
 		List<IConfigElement> list = new ArrayList<IConfigElement>();
 
 		for (int i = 0; i < CATEGORIES.length; i++) {
-			list.add(new ConfigElement(ThermalFoundation.config.getCategory(CATEGORIES[i])));
+			list.add(new ConfigElement(ThermalFoundation.CONFIG.getCategory(CATEGORIES[i])));
 		}
 		return list;
 	}

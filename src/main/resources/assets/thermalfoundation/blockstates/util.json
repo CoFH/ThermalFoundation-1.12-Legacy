@@ -1,0 +1,44 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "builtin/generated",
+		"textures": {
+			"layer0": "blocks/dirt"
+		},
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"type": {
+			"wrenchbasic": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/wrench_basic"
+				}
+			},
+			"multimeter": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/multimeter"
+				}
+			},
+			"lexicon": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/lexicon"
+				}
+			},
+			"schematic": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/schematic"
+				}
+			},
+			"pattern": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/pattern"
+				}
+			},
+			"redprint": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/redprint"
+				}
+			}
+		}
+	}
+}

@@ -69,7 +69,7 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 
 		String category = "Fluid.Ender";
 		String comment = "Enable this for Fluid Ender to randomly teleport entities on contact.";
-		effect = ThermalFoundation.config.get(category, "Effect", true, comment).getBoolean();
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
 
 		return true;
 	}

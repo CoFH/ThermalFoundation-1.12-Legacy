@@ -34,32 +34,9 @@ public class EntityBlitz extends EntityElemental {
 	static int spawnMin = 1;
 	static int spawnMax = 4;
 
-	static {
-		String category = "Mob.Blitz";
-		String comment = "";
-
-		comment = "Set this to false to disable Blitzes entirely. Jerk.";
-		enable = ThermalFoundation.config.get(category, "Enable", enable, comment).getBoolean(enable);
-
-		category = "Mob.Blitz.Spawn";
-
-		comment = "Set this to false for Blitzes to spawn at any light level.";
-		restrictLightLevel = ThermalFoundation.config.get(category, "Light.Limit", restrictLightLevel, comment).getBoolean(restrictLightLevel);
-
-		comment = "This sets the maximum light level Blitzes can spawn at, if restricted.";
-		spawnLightLevel = MathHelper.clamp(ThermalFoundation.config.get(category, "Light.Level", spawnLightLevel, comment).getInt(spawnLightLevel), 0, 15);
-
-		comment = "This sets the minimum number of Blitzes that spawn in a group.";
-		spawnMin = MathHelper.clamp(ThermalFoundation.config.get(category, "MinGroupSize", spawnMin, comment).getInt(spawnMin), 1, 10);
-
-		comment = "This sets the maximum light number of Blitzes that spawn in a group.";
-		spawnMax = MathHelper.clamp(ThermalFoundation.config.get(category, "MaxGroupSize", spawnMax, comment).getInt(spawnMax), spawnMin, 24);
-
-		comment = "This sets the relative spawn weight for Blitzes.";
-		spawnWeight = ThermalFoundation.config.get(category, "SpawnWeight", spawnWeight, comment).getInt(spawnWeight);
-	}
-
 	public static void initialize(int id) {
+
+		config();
 
 		if (!enable) {
 			return;
@@ -82,6 +59,32 @@ public class EntityBlitz extends EntityElemental {
 			}
 		}
 		EntityRegistry.addSpawn(EntityBlitz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));
+	}
+
+	public static void config() {
+
+		String category = "Mob.Blitz";
+		String comment;
+
+		comment = "Set this to false to disable Blitzes entirely. Jerk.";
+		enable = ThermalFoundation.CONFIG.getConfiguration().get(category, "Enable", enable, comment).getBoolean(enable);
+
+		category = "Mob.Blitz.Spawn";
+
+		comment = "Set this to false for Blitzes to spawn at any light level.";
+		restrictLightLevel = ThermalFoundation.CONFIG.getConfiguration().get(category, "Light.Limit", restrictLightLevel, comment).getBoolean(restrictLightLevel);
+
+		comment = "This sets the maximum light level Blitzes can spawn at, if restricted.";
+		spawnLightLevel = MathHelper.clamp(ThermalFoundation.CONFIG.getConfiguration().get(category, "Light.Level", spawnLightLevel, comment).getInt(spawnLightLevel), 0, 15);
+
+		comment = "This sets the minimum number of Blitzes that spawn in a group.";
+		spawnMin = MathHelper.clamp(ThermalFoundation.CONFIG.getConfiguration().get(category, "MinGroupSize", spawnMin, comment).getInt(spawnMin), 1, 10);
+
+		comment = "This sets the maximum light number of Blitzes that spawn in a group.";
+		spawnMax = MathHelper.clamp(ThermalFoundation.CONFIG.getConfiguration().get(category, "MaxGroupSize", spawnMax, comment).getInt(spawnMax), spawnMin, 24);
+
+		comment = "This sets the relative spawn weight for Blitzes.";
+		spawnWeight = ThermalFoundation.CONFIG.getConfiguration().get(category, "SpawnWeight", spawnWeight, comment).getInt(spawnWeight);
 	}
 
 	public EntityBlitz(World world) {
