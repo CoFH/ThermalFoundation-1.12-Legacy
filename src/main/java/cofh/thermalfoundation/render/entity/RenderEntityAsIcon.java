@@ -36,7 +36,7 @@ public class RenderEntityAsIcon extends Render<Entity> {
 	}
 
 	@Override
-	public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float p_76986_9_) {
+	public void doRender(Entity entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
 		if (icon == null) {
 			icon = RenderHelper.getTexture(iconName);
@@ -60,12 +60,12 @@ public class RenderEntityAsIcon extends Render<Entity> {
 		return TextureMap.LOCATION_BLOCKS_TEXTURE;
 	}
 
-	private void renderIcon(TextureAtlasSprite p_77026_2_) {
+	private void renderIcon(TextureAtlasSprite textureAtlasSprite) {
 
-		float minU = p_77026_2_.getMinU();
-		float maxU = p_77026_2_.getMaxU();
-		float minV = p_77026_2_.getMinV();
-		float maxV = p_77026_2_.getMaxV();
+		float minU = textureAtlasSprite.getMinU();
+		float maxU = textureAtlasSprite.getMaxU();
+		float minV = textureAtlasSprite.getMinV();
+		float maxV = textureAtlasSprite.getMaxV();
 		float f4 = 1.0F;
 		float f5 = 0.5F;
 		float f6 = 0.25F;

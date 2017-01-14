@@ -40,7 +40,7 @@ public class ThermalFoundation {
 	public static final String MOD_GUI_FACTORY = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
 
 	public static final String VERSION_GROUP = "required-after:" + MOD_ID + "@[" + VERSION + "," + VERSION_MAX + ");";
-	public static final String RELEASE_URL = "https://raw.github.com/CoFH/VERSION/master/" + MOD_ID;
+	public static final String RELEASE_URL = "https://raw.github.com/CoFH/Version/master/" + MOD_ID;
 
 	@Instance (MOD_ID)
 	public static ThermalFoundation instance;
@@ -60,19 +60,18 @@ public class ThermalFoundation {
 	public static File worldGenOres;
 	public static final String WORLD_GEN_PATH = "assets/thermalfoundation/world/";
 	public static final String WORLD_GEN_FILE = "thermalfoundation_ores.json";
-	public static final String worldGenInternalOres = "assets/thermalfoundation/world/ThermalFoundation-Ores.json";
 
 	public ThermalFoundation() {
 
 		super();
 	}
 
-	/* INIT SEQUENCE */
+	/* INIT */
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
-		CONFIG.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/thermalfoundation/common.cfg"), true));
-		CONFIG_CLIENT.setConfiguration(new Configuration(new File(CoFHProps.configDir, "cofh/thermalfoundation/client.cfg"), true));
+		CONFIG.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/" + MOD_ID + "/common.cfg"), true));
+		CONFIG_CLIENT.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/"  + MOD_ID + "/client.cfg"), true));
 
 		TFBlocks.preInit();
 		TFItems.preInit();

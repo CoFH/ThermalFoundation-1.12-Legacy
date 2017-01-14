@@ -1,5 +1,6 @@
 package cofh.thermalfoundation.entity.monster;
 
+import cofh.api.core.IConfigCallback;
 import cofh.core.CoFHProps;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.MathHelper;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class EntityBlizz extends EntityElemental {
+public class EntityBlizz extends EntityElemental implements IConfigCallback {
 
 	static boolean enable = true;
 	static boolean restrictLightLevel = true;
@@ -214,6 +215,12 @@ public class EntityBlizz extends EntityElemental {
 			}
 			super.updateTask();
 		}
+	}
+
+	/* IConfigCallback */
+	@Override
+	public void configUpdate() {
+
 	}
 
 }

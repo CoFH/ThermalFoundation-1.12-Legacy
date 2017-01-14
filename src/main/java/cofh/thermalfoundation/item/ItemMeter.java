@@ -46,51 +46,7 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 		setCreativeTab(ThermalFoundation.tabCommon);
 
 		setHasSubtypes(true);
-	}
-
-	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
-
-		if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
-			tooltip.add(StringHelper.shiftForDetails());
-		}
-		if (!StringHelper.isShiftKeyDown()) {
-			return;
-		}
-		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
-			case MULTIMETER:
-				tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tool.multimeter.0"));
-				tooltip.add(StringHelper.getNoticeText("info.thermalfoundation.tool.multimeter.1"));
-				break;
-			default:
-		}
-	}
-
-	@Override
-	public boolean isFull3D() {
-
-		return true;
-	}
-
-	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-
-		return EnumActionResult.FAIL;
-	}
-
-	@Override
-	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
-
-		boolean ret = false;
-
-		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
-			case MULTIMETER:
-				ret = doMultimeterUseFirst(stack, player, world, pos, side, hitX, hitY, hitZ, hand);
-				break;
-			default:
-				break;
-		}
-		return ret ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
+		setMaxStackSize(1);
 	}
 
 	private boolean doMultimeterUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
@@ -131,7 +87,30 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 		}
 		info.clear();
 		return false;
+	}
 
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
+
+		if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
+			tooltip.add(StringHelper.shiftForDetails());
+		}
+		if (!StringHelper.isShiftKeyDown()) {
+			return;
+		}
+		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
+			case MULTIMETER:
+				tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tool.multimeter.0"));
+				tooltip.add(StringHelper.getNoticeText("info.thermalfoundation.tool.multimeter.1"));
+				break;
+			default:
+		}
+	}
+
+	@Override
+	public boolean isFull3D() {
+
+		return true;
 	}
 
 	@Override
@@ -143,6 +122,27 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 			default:
 				return EnumRarity.COMMON;
 		}
+	}
+
+	@Override
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+
+		return EnumActionResult.FAIL;
+	}
+
+	@Override
+	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+
+		boolean ret = false;
+
+		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
+			case MULTIMETER:
+				ret = doMultimeterUseFirst(stack, player, world, pos, side, hitX, hitY, hitZ, hand);
+				break;
+			default:
+				break;
+		}
+		return ret ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
 	}
 
 	/* IModelRegister */

@@ -24,20 +24,20 @@ public class RenderEntityBasalz extends RenderLiving<EntityBasalz> {
 	}
 
 	@Override
-	public void doRender(EntityBasalz entity, double d0, double d1, double d2, float f, float f1) {
+	public void doRender(EntityBasalz entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
-		doRenderBasalz((EntityBasalz) entity, d0, d1, d2, f, f1);
+		doRenderBasalz(entity, x, y, z, entityYaw, partialTicks);
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntityBasalz par1Entity) {
+	protected ResourceLocation getEntityTexture(EntityBasalz entity) {
 
 		return texture;
 	}
 
-	protected void doRenderBasalz(EntityBasalz entity, double d0, double d1, double d2, float f, float f1) {
+	protected void doRenderBasalz(EntityBasalz entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
-		super.doRender(entity, d0, d1, d2, f, f1);
+		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	}
 
 }

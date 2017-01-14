@@ -10,6 +10,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
@@ -21,6 +22,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -176,6 +178,9 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 	@Override
 	public void registerModels() {
 
+		for (int i = 0; i < Type.values().length; i++) {
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(modName + ":" + name, "type=" + Type.byMetadata(i).getName()));
+		}
 	}
 
 	/* IInitializer */
@@ -205,13 +210,13 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 		// @formatter:off
 		COAL(0, "coal", flowerCoal),
 		REDSTONE(1, "redstone", flowerRedstone),
-		GLOWSTONE(1, "glowstone", flowerGlowstone),
-		ENDER(1, "ender", flowerEnder),
-		BLAZE(1, "blaze", flowerBlaze),
-		BLIZZ(1, "blizz", flowerBlizz),
-		BLITZ(1, "blitz", flowerBlitz),
-		BASALZ(1, "basalz", flowerBasalz),
-		MANA(1, "mana", flowerMana);
+		GLOWSTONE(2, "glowstone", flowerGlowstone),
+		ENDER(3, "ender", flowerEnder),
+		BLAZE(4, "blaze", flowerBlaze),
+		BLIZZ(5, "blizz", flowerBlizz),
+		BLITZ(6, "blitz", flowerBlitz),
+		BASALZ(7, "basalz", flowerBasalz),
+		MANA(8, "mana", flowerMana);
 		// @formatter:on
 
 		private static final BlockFlower.Type[] METADATA_LOOKUP = new BlockFlower.Type[values().length];

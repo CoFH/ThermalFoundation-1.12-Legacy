@@ -46,6 +46,31 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 		setHasSubtypes(true);
 	}
 
+	private void doRedprintUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+
+		if (ServerHelper.isClientWorld(world)) {
+			return;
+		}
+		TileEntity tile = world.getTileEntity(pos);
+
+		if (tile instanceof IPortableData) {
+			if (!stack.hasTagCompound()) {
+				stack.setTagCompound(new NBTTagCompound());
+				((IPortableData) tile).writePortableData(player, stack.getTagCompound());
+				if (stack.getTagCompound().hasNoTags()) {
+					stack.setTagCompound(null);
+				} else {
+					stack.getTagCompound().setString("Type", ((IPortableData) tile).getDataType());
+					SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.7F);
+				}
+			} else {
+				if (stack.getTagCompound().getString("Type").equals(((IPortableData) tile).getDataType())) {
+					((IPortableData) tile).readPortableData(player, stack.getTagCompound());
+				}
+			}
+		}
+	}
+
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
 
@@ -67,6 +92,45 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 	public boolean isFull3D() {
 
 		return true;
+	}
+
+	@Override
+	public String getItemStackDisplayName(ItemStack stack) {
+
+		String baseName = StringHelper.localize(getUnlocalizedName(stack) + ".name");
+
+		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
+			case SCHEMATIC:
+				baseName += SchematicHelper.getDisplayName(stack);
+				break;
+			case PATTERN:
+				//baseName += PatternHelper.getDisplayName(stack);
+				break;
+			case REDPRINT:
+				baseName += RedprintHelper.getDisplayName(stack);
+				break;
+			default:
+		}
+		return baseName;
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+
+		return RedprintHelper.getDisplayName(stack).isEmpty() ? EnumRarity.COMMON : EnumRarity.UNCOMMON;
+	}
+
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
+
+		if (player.isSneaking()) {
+			if (stack.getTagCompound() != null) {
+				SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
+			}
+			stack.setTagCompound(null);
+		}
+		player.swingArm(hand);
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
 	}
 
 	@Override
@@ -94,70 +158,6 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 		}
 		ServerHelper.sendItemUsePacket(world, pos, side, hand, hitX, hitY, hitZ);
 		return EnumActionResult.SUCCESS;
-	}
-
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
-
-		if (player.isSneaking()) {
-			if (stack.getTagCompound() != null) {
-				SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
-			}
-			stack.setTagCompound(null);
-		}
-		player.swingArm(hand);
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
-	}
-
-	private void doRedprintUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
-
-		if (ServerHelper.isClientWorld(world)) {
-			return;
-		}
-		TileEntity tile = world.getTileEntity(pos);
-
-		if (tile instanceof IPortableData) {
-			if (!stack.hasTagCompound()) {
-				stack.setTagCompound(new NBTTagCompound());
-				((IPortableData) tile).writePortableData(player, stack.getTagCompound());
-				if (stack.getTagCompound().hasNoTags()) {
-					stack.setTagCompound(null);
-				} else {
-					stack.getTagCompound().setString("Type", ((IPortableData) tile).getDataType());
-					SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.7F);
-				}
-			} else {
-				if (stack.getTagCompound().getString("Type").equals(((IPortableData) tile).getDataType())) {
-					((IPortableData) tile).readPortableData(player, stack.getTagCompound());
-				}
-			}
-		}
-	}
-
-	@Override
-	public String getItemStackDisplayName(ItemStack stack) {
-
-		String baseName = StringHelper.localize(getUnlocalizedName(stack) + ".name");
-
-		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
-			case SCHEMATIC:
-				baseName += SchematicHelper.getDisplayName(stack);
-				break;
-			case PATTERN:
-				//baseName += PatternHelper.getDisplayName(stack);
-				break;
-			case REDPRINT:
-				baseName += RedprintHelper.getDisplayName(stack);
-				break;
-			default:
-		}
-		return baseName;
-	}
-
-	@Override
-	public EnumRarity getRarity(ItemStack stack) {
-
-		return RedprintHelper.getDisplayName(stack).isEmpty() ? EnumRarity.COMMON : EnumRarity.UNCOMMON;
 	}
 
 	/* IModelRegister */

@@ -126,7 +126,7 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 	}
 
 	@Override
-	protected boolean canSilkHarvest() {
+	public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
 
 		return true;
 	}

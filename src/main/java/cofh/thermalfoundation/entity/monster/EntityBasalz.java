@@ -216,6 +216,7 @@ public class EntityBasalz extends EntityElemental implements IConfigCallback {
 	}
 
 	/* IConfigCallback */
+	@Override
 	public void configUpdate() {
 
 	}

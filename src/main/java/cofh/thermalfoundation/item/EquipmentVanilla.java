@@ -1,13 +1,10 @@
-package cofh.thermalfoundation.item.tool;
+package cofh.thermalfoundation.item;
 
 import codechicken.lib.model.ModelRegistryHelper;
 import codechicken.lib.model.SimpleOverrideBakedModel;
 import cofh.api.core.IInitializer;
 import cofh.api.core.IModelRegister;
-import cofh.core.item.tool.ItemBowAdv;
-import cofh.core.item.tool.ItemFishingRodAdv;
-import cofh.core.item.tool.ItemShearsAdv;
-import cofh.core.item.tool.ItemSickleAdv;
+import cofh.core.item.tool.*;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.client.model.BowModelOverrideList;
@@ -77,11 +74,13 @@ public enum EquipmentVanilla implements IInitializer, IModelRegister {
 	public ItemFishingRod itemFishingRod;
 	public ItemShears itemShears;
 	public ItemSickleAdv itemSickle;
+	public ItemHammerAdv itemHammer;
 
 	public ItemStack toolBow;
 	public ItemStack toolFishingRod;
 	public ItemStack toolShears;
 	public ItemStack toolSickle;
+	public ItemStack toolHammer;
 
 	EquipmentVanilla(String name, ToolMaterial material, String ingot) {
 
@@ -112,9 +111,8 @@ public enum EquipmentVanilla implements IInitializer, IModelRegister {
 		final String NAME = StringHelper.titleCase(name);
 		final String TOOL = "thermalfoundation.tool." + name.toLowerCase(Locale.US);
 
-		String category = "Equipment." + NAME;
+		String category = "Equipment." + NAME + ".Tools";
 
-		category += ".Tools";
 		if (this != WOOD) {
 			enableTools[0] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Bow", true).getBoolean(true);
 			enableTools[1] = ThermalFoundation.CONFIG.getConfiguration().get(category, "FishingRod", true).getBoolean(true);
@@ -133,7 +131,7 @@ public enum EquipmentVanilla implements IInitializer, IModelRegister {
 		if (itemBow instanceof ItemBowAdv) {
 			ItemBowAdv itemBow = (ItemBowAdv) this.itemBow;
 			itemBow.setRepairIngot(ingot).setArrowSpeed(arrowSpeed).setArrowDamage(arrowDamage).setUnlocalizedName(TOOL + "Bow").setCreativeTab(ThermalFoundation.tabTools);
-			itemBow.setShowInCreative(enableTools[3] | TFProps.showDisabledEquipment);
+			itemBow.setShowInCreative(enableTools[0] | TFProps.showDisabledEquipment);
 			itemBow.setRegistryName("tool.bow" + NAME);
 			GameRegistry.register(itemBow);
 		}
@@ -152,16 +150,19 @@ public enum EquipmentVanilla implements IInitializer, IModelRegister {
 		if (itemShears instanceof ItemShearsAdv) {
 			ItemShearsAdv itemShears = (ItemShearsAdv) this.itemShears;
 			itemShears.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shears").setCreativeTab(ThermalFoundation.tabTools);
-			itemShears.setShowInCreative(enableTools[0] | TFProps.showDisabledEquipment);
+			itemShears.setShowInCreative(enableTools[2] | TFProps.showDisabledEquipment);
 			itemShears.setRegistryName("tool.shears" + NAME);
 			GameRegistry.register(itemShears);
 		}
 
 		/* SICKLE */
 		itemSickle.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sickle").setCreativeTab(ThermalFoundation.tabTools);
-		itemSickle.setShowInCreative(enableTools[2] | TFProps.showDisabledEquipment);
+		itemSickle.setShowInCreative(enableTools[3] | TFProps.showDisabledEquipment);
 		itemSickle.setRegistryName("tool.sickle" + NAME);
 		GameRegistry.register(itemSickle);
+
+		/* HAMMER */
+		//TODO :)
 
 		toolBow = new ItemStack(itemBow);
 		toolFishingRod = new ItemStack(itemFishingRod);

@@ -29,21 +29,6 @@ public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
 		setCreativeTab(ThermalFoundation.tabCommon);
 	}
 
-	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-
-		if (!player.canPlayerEdit(pos.offset(facing), facing, stack)) {
-			return EnumActionResult.PASS;
-		}
-		int radius = 1 + ItemHelper.getItemDamage(stack);
-		int potency = 2 + ItemHelper.getItemDamage(stack);
-
-		if (onApplyBonemeal(stack, world, pos, player, radius, potency)) {
-			return EnumActionResult.SUCCESS;
-		}
-		return EnumActionResult.PASS;
-	}
-
 	private boolean growBlock(World world, BlockPos pos, IBlockState state, int potency) {
 
 		if (state.getBlock() instanceof IGrowable) {
@@ -89,6 +74,21 @@ public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
 			--stack.stackSize;
 		}
 		return used;
+	}
+
+	@Override
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+
+		if (!player.canPlayerEdit(pos.offset(facing), facing, stack)) {
+			return EnumActionResult.PASS;
+		}
+		int radius = 1 + ItemHelper.getItemDamage(stack);
+		int potency = 2 + ItemHelper.getItemDamage(stack);
+
+		if (onApplyBonemeal(stack, world, pos, player, radius, potency)) {
+			return EnumActionResult.SUCCESS;
+		}
+		return EnumActionResult.PASS;
 	}
 
 	/* IInitializer */

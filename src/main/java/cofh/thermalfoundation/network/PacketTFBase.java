@@ -15,7 +15,7 @@ public class PacketTFBase extends PacketCoFHBase {
 	}
 
 	public enum PacketTypes {
-		LEXICON_STUDY, LEXICON_TRANSMUTE, CONFIG_SYNC
+		CONFIG_SYNC, LEXICON_STUDY, LEXICON_TRANSMUTE
 	}
 
 	@Override

@@ -5,10 +5,9 @@ import codechicken.lib.util.SoundUtils;
 import codechicken.lib.vec.Vector3;
 import cofh.api.block.IDismantleable;
 import cofh.api.core.IInitializer;
-import cofh.api.core.IModelRegister;
 import cofh.api.item.IToolHammer;
 import cofh.asm.relauncher.Implementable;
-import cofh.core.item.ItemToolBase;
+import cofh.core.item.ItemCoFHBase;
 import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.BlockHelper;
 import cofh.lib.util.helpers.ServerHelper;
@@ -47,7 +46,7 @@ import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
 import static cofh.lib.util.helpers.ItemHelper.addRecipe;
 
 @Implementable ({ "buildcraft.api.tools.IToolWrench", "com.brandon3055.draconicevolution.api.ICrystalBinder" })
-public class ItemWrench extends ItemToolBase implements IInitializer, IModelRegister, IToolHammer {
+public class ItemWrench extends ItemCoFHBase implements IInitializer, IToolHammer {
 
 	public ItemWrench() {
 
@@ -56,12 +55,19 @@ public class ItemWrench extends ItemToolBase implements IInitializer, IModelRegi
 		setUnlocalizedName("tool", "wrench");
 		setCreativeTab(ThermalFoundation.tabCommon);
 
-		setHasSubtypes(true);
 		setHarvestLevel("wrench", 1);
+		setHasSubtypes(true);
+		setMaxStackSize(1);
 	}
 
 	@Override
 	public boolean doesSneakBypassUse(ItemStack stack, IBlockAccess world, BlockPos pos, EntityPlayer player) {
+
+		return true;
+	}
+
+	@Override
+	public boolean isFull3D() {
 
 		return true;
 	}

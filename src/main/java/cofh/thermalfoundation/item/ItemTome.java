@@ -49,12 +49,9 @@ public class ItemTome extends ItemCoFHBase implements IInitializer, IInventoryCo
 		setCreativeTab(ThermalFoundation.tabCommon);
 	}
 
-	@Override
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
+	protected boolean isEmpowered(ItemStack stack) {
 
-		ItemStack lexicon = new ItemStack(item, 1, 0);
-		setMode(lexicon, 0);
-		list.add(lexicon);
+		return getMode(stack) == 1;
 	}
 
 	@Override
@@ -70,7 +67,7 @@ public class ItemTome extends ItemCoFHBase implements IInitializer, IInventoryCo
 			case LEXICON:
 				list.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.0"));
 
-				if (isActive(stack)) {
+				if (isEmpowered(stack)) {
 					list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.3") + StringHelper.END);
 					list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.4") + StringHelper.END);
 				} else {
@@ -83,9 +80,17 @@ public class ItemTome extends ItemCoFHBase implements IInitializer, IInventoryCo
 	}
 
 	@Override
+	public void getSubItems(Item item, CreativeTabs tab, List list) {
+
+		ItemStack lexicon = new ItemStack(item, 1, 0);
+		setMode(lexicon, 0);
+		list.add(lexicon);
+	}
+
+	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isCurrentItem) {
 
-		if (!isActive(stack)) {
+		if (!isEmpowered(stack)) {
 			return;
 		}
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
@@ -104,22 +109,22 @@ public class ItemTome extends ItemCoFHBase implements IInitializer, IInventoryCo
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-
-		// TODO: OMNOMNOMICON
-		if (isActive(stack)) {
-			return "item.thermalfoundation.tome.lexicon.active";
-		}
-		return "item.thermalfoundation.tome.lexicon";
-	}
-
-	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 
-		if (isActive(stack)) {
+		if (isEmpowered(stack)) {
 			return EnumRarity.RARE;
 		}
 		return EnumRarity.UNCOMMON;
+	}
+
+	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+
+		// TODO: OMNOMNOMICON
+		if (isEmpowered(stack)) {
+			return "item.thermalfoundation.tome.lexicon.empowered";
+		}
+		return "item.thermalfoundation.tome.lexicon";
 	}
 
 	@Override
@@ -129,18 +134,13 @@ public class ItemTome extends ItemCoFHBase implements IInitializer, IInventoryCo
 			return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
 		}
 		if (ServerHelper.isServerWorld(world) && LexiconManager.getSortedOreNames().size() > 0) {
-			if (isActive(stack)) {
+			if (isEmpowered(stack)) {
 				player.openGui(ThermalFoundation.instance, GuiHandler.LEXICON_TRANSMUTE_ID, world, 0, 0, 0);
 			} else {
 				player.openGui(ThermalFoundation.instance, GuiHandler.LEXICON_STUDY_ID, world, 0, 0, 0);
 			}
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
-	}
-
-	private boolean isActive(ItemStack stack) {
-
-		return getMode(stack) == 1;
 	}
 
 	/* IModelRegister */
@@ -220,10 +220,10 @@ public class ItemTome extends ItemCoFHBase implements IInitializer, IInventoryCo
 	@Override
 	public void onModeChange(EntityPlayer player, ItemStack stack) {
 
-		if (isActive(stack)) {
-			player.worldObj.playSound(player.posX, player.posY, player.posZ, SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.PLAYERS, 0.4F, 1.0F, false);
+		if (isEmpowered(stack)) {
+			player.worldObj.playSound(null, player.getPosition(), SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.PLAYERS, 0.4F, 1.0F);
 		} else {
-			player.worldObj.playSound(player.posX, player.posY, player.posZ, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.2F, 0.6F, false);
+			player.worldObj.playSound(null, player.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, SoundCategory.PLAYERS, 0.2F, 0.6F);
 		}
 	}
 

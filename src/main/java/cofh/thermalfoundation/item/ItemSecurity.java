@@ -36,6 +36,11 @@ public class ItemSecurity extends ItemCoFHBase implements IInitializer {
 		setHasSubtypes(true);
 	}
 
+	private boolean doLockUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+
+		return false;
+	}
+
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
 
@@ -65,11 +70,6 @@ public class ItemSecurity extends ItemCoFHBase implements IInitializer {
 				break;
 		}
 		return ret ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
-	}
-
-	private boolean doLockUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
-
-		return false;
 	}
 
 	/* IModelRegister */

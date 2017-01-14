@@ -22,18 +22,8 @@ public abstract class EntityElemental extends EntityMob {
 
 	protected static final int SOUND_AMBIENT_FREQUENCY = 400; // How often it does ambient sound loop
 
-	/**
-	 * Random offset used in floating behavior
-	 */
 	protected float heightOffset = 0.5F;
-
-	/**
-	 * ticks until heightOffset is randomized
-	 */
 	protected int heightOffsetUpdateTime;
-
-	//    protected String soundAmbient;
-	//    protected String soundLiving[];
 
 	protected EnumParticleTypes ambientParticle;
 
@@ -59,55 +49,6 @@ public abstract class EntityElemental extends EntityMob {
 		dataManager.register(ATTACK_MODE, false);
 	}
 
-	//    @Override
-	//    protected SoundEvent getLivingSound() {
-	//
-	//        return soundLiving[this.rand.nextInt(soundLiving.length)];
-	//    }
-
-	@Override
-	protected SoundEvent getHurtSound() {
-
-		return SoundEvents.ENTITY_BLAZE_HURT;
-	}
-
-	@Override
-	protected SoundEvent getDeathSound() {
-
-		return SoundEvents.ENTITY_BLAZE_DEATH;
-	}
-
-	@Override
-	@SideOnly (Side.CLIENT)
-	public int getBrightnessForRender(float partialTicks) {
-
-		return 0xF000F0;
-	}
-
-	@Override
-	public float getBrightness(float partialTicks) {
-
-		return 1.0F;
-	}
-
-	@Override
-	public void onLivingUpdate() {
-
-		if (!this.onGround && this.motionY < 0.0D) {
-			this.motionY *= 0.6D;
-		}
-		if (ServerHelper.isClientWorld(worldObj)) {
-			//            if (this.rand.nextInt(SOUND_AMBIENT_FREQUENCY) == 0) {
-			//                this.worldObj.playSoundEffect(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, soundAmbient, this.rand.nextFloat() * 0.2F + 0.1F,
-			//                        this.rand.nextFloat() * 0.3F + 0.4F);
-			//            }
-			for (int i = 0; i < 2; i++) {
-				this.worldObj.spawnParticle(ambientParticle, this.posX + (this.rand.nextDouble() - 0.5D) * this.width, this.posY + this.rand.nextDouble() * this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * this.width, 0.0D, 0.0D, 0.0D, new int[0]);
-			}
-		}
-		super.onLivingUpdate();
-	}
-
 	@Override
 	protected void updateAITasks() {
 
@@ -126,25 +67,6 @@ public abstract class EntityElemental extends EntityMob {
 		}
 		super.updateAITasks();
 	}
-
-	@Override
-	public void fall(float distance, float damageMultiplier) {
-
-	}
-
-	public boolean isInAttackMode() {
-
-		return dataManager.get(ATTACK_MODE);
-	}
-
-	public void setInAttackMode(boolean mode) {
-
-		dataManager.set(ATTACK_MODE, mode);
-	}
-
-	protected abstract boolean restrictLightLevel();
-
-	protected abstract int getSpawnLightLevel();
 
 	@Override
 	protected boolean isValidLightLevel() {
@@ -167,6 +89,63 @@ public abstract class EntityElemental extends EntityMob {
 			}
 			return i <= this.rand.nextInt(getSpawnLightLevel());
 		}
+	}
+
+	@Override
+	protected SoundEvent getHurtSound() {
+
+		return SoundEvents.ENTITY_BLAZE_HURT;
+	}
+
+	@Override
+	protected SoundEvent getDeathSound() {
+
+		return SoundEvents.ENTITY_BLAZE_DEATH;
+	}
+
+	protected abstract boolean restrictLightLevel();
+
+	protected abstract int getSpawnLightLevel();
+
+	@Override
+	public void fall(float distance, float damageMultiplier) {
+
+	}
+
+	@Override
+	public void onLivingUpdate() {
+
+		if (!this.onGround && this.motionY < 0.0D) {
+			this.motionY *= 0.6D;
+		}
+		if (ServerHelper.isClientWorld(worldObj)) {
+			//            if (this.rand.nextInt(SOUND_AMBIENT_FREQUENCY) == 0) {
+			//                this.worldObj.playSoundEffect(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, soundAmbient, this.rand.nextFloat() * 0.2F + 0.1F,
+			//                        this.rand.nextFloat() * 0.3F + 0.4F);
+			//            }
+			for (int i = 0; i < 2; i++) {
+				this.worldObj.spawnParticle(ambientParticle, this.posX + (this.rand.nextDouble() - 0.5D) * this.width, this.posY + this.rand.nextDouble() * this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * this.width, 0.0D, 0.0D, 0.0D, new int[0]);
+			}
+		}
+		super.onLivingUpdate();
+	}
+
+	public void setInAttackMode(boolean mode) {
+
+		dataManager.set(ATTACK_MODE, mode);
+	}
+
+	@Override
+	@SideOnly (Side.CLIENT)
+	public int getBrightnessForRender(float partialTicks) {
+
+		return 0xF000F0;
+	}
+
+	@Override
+	public float getBrightness(float partialTicks) {
+
+		return 1.0F;
 	}
 
 }

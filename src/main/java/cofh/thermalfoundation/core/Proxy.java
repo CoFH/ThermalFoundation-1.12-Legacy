@@ -60,7 +60,7 @@ public class Proxy {
 	}
 
 	/* HELPERS */
-	public boolean addIModelRegister(IModelRegister model) {
+	public boolean addIModelRegister(IModelRegister modelRegister) {
 
 		return false;
 	}

@@ -17,7 +17,7 @@ public class RenderEntityBlizz extends RenderLiving<EntityBlizz> {
 	public static void initialize() {
 
 		if (HolidayHelper.isChristmas()) {
-			texture = new ResourceLocation("thermalfoundation:textures/entity/" + "xmas/blizz.png");
+			texture = new ResourceLocation("thermalfoundation:textures/entity/" + "blizz_xmas.png");
 			return;
 		}
 		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "blizz.png");
@@ -29,9 +29,9 @@ public class RenderEntityBlizz extends RenderLiving<EntityBlizz> {
 	}
 
 	@Override
-	public void doRender(EntityBlizz entity, double d0, double d1, double d2, float f, float f1) {
+	public void doRender(EntityBlizz entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
-		doRenderBlizz((EntityBlizz) entity, d0, d1, d2, f, f1);
+		doRenderBlizz(entity, x, y, z, entityYaw, partialTicks);
 	}
 
 	@Override
@@ -40,9 +40,9 @@ public class RenderEntityBlizz extends RenderLiving<EntityBlizz> {
 		return texture;
 	}
 
-	protected void doRenderBlizz(EntityBlizz entity, double d0, double d1, double d2, float f, float f1) {
+	protected void doRenderBlizz(EntityBlizz entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
-		super.doRender(entity, d0, d1, d2, f, f1);
+		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	}
 
 }

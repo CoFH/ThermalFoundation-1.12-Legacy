@@ -134,9 +134,9 @@ public class ProxyClient extends Proxy {
 	}
 
 	/* HELPERS */
-	public boolean addIModelRegister(IModelRegister model) {
+	public boolean addIModelRegister(IModelRegister modelRegister) {
 
-		return modelList.add(model);
+		return modelList.add(modelRegister);
 	}
 
 	private static ArrayList<IModelRegister> modelList = new ArrayList<IModelRegister>();

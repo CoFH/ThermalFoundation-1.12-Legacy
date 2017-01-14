@@ -24,9 +24,9 @@ public class RenderEntityBlitz extends RenderLiving<EntityBlitz> {
 	}
 
 	@Override
-	public void doRender(EntityBlitz entity, double d0, double d1, double d2, float f, float f1) {
+	public void doRender(EntityBlitz entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
-		doRenderBlitz((EntityBlitz) entity, d0, d1, d2, f, f1);
+		doRenderBlitz(entity, x, y, z, entityYaw, partialTicks);
 	}
 
 	@Override
@@ -35,9 +35,9 @@ public class RenderEntityBlitz extends RenderLiving<EntityBlitz> {
 		return texture;
 	}
 
-	protected void doRenderBlitz(EntityBlitz entity, double d0, double d1, double d2, float f, float f1) {
+	protected void doRenderBlitz(EntityBlitz entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
-		super.doRender(entity, d0, d1, d2, f, f1);
+		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	}
 
 }

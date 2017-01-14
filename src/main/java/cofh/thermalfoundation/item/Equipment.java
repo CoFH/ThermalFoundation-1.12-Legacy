@@ -1,4 +1,4 @@
-package cofh.thermalfoundation.item.tool;
+package cofh.thermalfoundation.item;
 
 import codechicken.lib.model.ModelRegistryHelper;
 import codechicken.lib.model.SimpleOverrideBakedModel;
@@ -208,7 +208,7 @@ public enum Equipment {
 			enableTools[i] &= !TFProps.disableAllTools;
 		}
 
-		final String PATH_ARMOR = "thermalfoundation:textures/" + "armor/";
+		final String PATH_ARMOR = "thermalfoundation:textures/armor/";
 		final String[] TEXTURE = { PATH_ARMOR + NAME.toLowerCase() + "_1.png", PATH_ARMOR + NAME.toLowerCase() + "_2.png" };
 
 		createArmor();
