@@ -36,12 +36,13 @@ public class ThermalFoundation {
 
 	public static final String MOD_ID = "thermalfoundation";
 	public static final String MOD_NAME = "Thermal Foundation";
+
 	public static final String VERSION = "1.3.0";
 	public static final String VERSION_MAX = "1.4.0";
+	public static final String VERSION_GROUP = "required-after:" + MOD_ID + "@[" + VERSION + "," + VERSION_MAX + ");";
+
 	public static final String DEPENDENCIES = CoFHCore.VERSION_GROUP;
 	public static final String MOD_GUI_FACTORY = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
-
-	public static final String VERSION_GROUP = "required-after:" + MOD_ID + "@[" + VERSION + "," + VERSION_MAX + ");";
 
 	@Instance (MOD_ID)
 	public static ThermalFoundation instance;
