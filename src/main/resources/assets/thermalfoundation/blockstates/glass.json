@@ -8,67 +8,67 @@
 		"type": {
 			"copper": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/copper"
+					"all": "thermalfoundation:blocks/glass/glass_copper"
 				}
 			},
 			"tin": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/tin"
+					"all": "thermalfoundation:blocks/glass/glass_tin"
 				}
 			},
 			"silver": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/silver"
+					"all": "thermalfoundation:blocks/glass/glass_silver"
 				}
 			},
 			"lead": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/lead"
+					"all": "thermalfoundation:blocks/glass/glass_lead"
 				}
 			},
 			"nickel": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/nickel"
+					"all": "thermalfoundation:blocks/glass/glass_nickel"
 				}
 			},
 			"platinum": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/platinum"
+					"all": "thermalfoundation:blocks/glass/glass_platinum"
 				}
 			},
 			"mithril": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/mithril"
+					"all": "thermalfoundation:blocks/glass/glass_mithril"
 				}
 			},
 			"electrum": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/electrum"
+					"all": "thermalfoundation:blocks/glass/glass_electrum"
 				}
 			},
 			"invar": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/invar"
+					"all": "thermalfoundation:blocks/glass/glass_invar"
 				}
 			},
 			"bronze": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/bronze"
+					"all": "thermalfoundation:blocks/glass/glass_bronze"
 				}
 			},
 			"signalum": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/signalum"
+					"all": "thermalfoundation:blocks/glass/glass_signalum"
 				}
 			},
 			"lumium": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/lumium"
+					"all": "thermalfoundation:blocks/glass/glass_lumium"
 				}
 			},
 			"enderium": {
 				"textures": {
-					"all": "thermalfoundation:blocks/glass/enderium"
+					"all": "thermalfoundation:blocks/glass/glass_enderium"
 				}
 			}
 		}

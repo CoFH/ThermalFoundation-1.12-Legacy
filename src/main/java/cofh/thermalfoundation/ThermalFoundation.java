@@ -4,12 +4,13 @@ import cofh.CoFHCore;
 import cofh.core.CoFHProps;
 import cofh.core.util.ConfigHandler;
 import cofh.thermalfoundation.block.TFBlocks;
-import cofh.thermalfoundation.proxy.Proxy;
 import cofh.thermalfoundation.fluid.TFFluids;
 import cofh.thermalfoundation.gui.CreativeTabTF;
 import cofh.thermalfoundation.gui.GuiHandler;
+import cofh.thermalfoundation.item.TFEquipment;
 import cofh.thermalfoundation.item.TFItems;
 import cofh.thermalfoundation.network.PacketTFBase;
+import cofh.thermalfoundation.proxy.Proxy;
 import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
 import cofh.thermalfoundation.util.LexiconManager;
@@ -71,6 +72,7 @@ public class ThermalFoundation {
 
 		TFBlocks.preInit();
 		TFItems.preInit();
+		TFEquipment.preInit();
 		TFFluids.preInit();
 
 		LexiconManager.preInit();
@@ -83,6 +85,7 @@ public class ThermalFoundation {
 
 		TFBlocks.initialize();
 		TFItems.initialize();
+		TFEquipment.initialize();
 		TFFluids.initialize();
 
 		/* Register Handlers */
@@ -99,6 +102,7 @@ public class ThermalFoundation {
 
 		TFBlocks.postInit();
 		TFItems.postInit();
+		TFEquipment.postInit();
 		TFFluids.postInit();
 
 		proxy.postInit(event);
