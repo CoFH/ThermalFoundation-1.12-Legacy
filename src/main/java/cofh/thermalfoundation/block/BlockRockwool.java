@@ -91,7 +91,12 @@ public class BlockRockwool extends BlockCoFHBase implements IInitializer, IModel
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, ItemBlockRockwool.class, "rockwool");
+		this.setRegistryName("rockwool");
+		GameRegistry.register(this);
+
+		ItemBlockRockwool itemBlock = new ItemBlockRockwool(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		GameRegistry.register(itemBlock);
 
 		rockwoolBlack = new ItemStack(this, 1, Type.BLACK.getMetadata());
 		rockwoolRed = new ItemStack(this, 1, Type.RED.getMetadata());

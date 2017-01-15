@@ -4,7 +4,7 @@ import cofh.CoFHCore;
 import cofh.core.CoFHProps;
 import cofh.core.util.ConfigHandler;
 import cofh.thermalfoundation.block.TFBlocks;
-import cofh.thermalfoundation.core.Proxy;
+import cofh.thermalfoundation.proxy.Proxy;
 import cofh.thermalfoundation.fluid.TFFluids;
 import cofh.thermalfoundation.gui.CreativeTabTF;
 import cofh.thermalfoundation.gui.GuiHandler;
@@ -17,19 +17,20 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.CustomProperty;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.event.FMLInterModComms.IMCEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.helpers.Loader;
 
 import java.io.File;
 
-@Mod (modid = ThermalFoundation.MOD_ID, name = ThermalFoundation.MOD_NAME, version = ThermalFoundation.VERSION, dependencies = ThermalFoundation.DEPENDENCIES, guiFactory = ThermalFoundation.MOD_GUI_FACTORY, canBeDeactivated = false, customProperties = @CustomProperty (k = "cofhversion", v = "true"))
+@Mod (modid = ThermalFoundation.MOD_ID, name = ThermalFoundation.MOD_NAME, version = ThermalFoundation.VERSION, dependencies = ThermalFoundation.DEPENDENCIES, guiFactory = ThermalFoundation.MOD_GUI_FACTORY)
 public class ThermalFoundation {
 
 	public static final String MOD_ID = "thermalfoundation";
@@ -40,12 +41,11 @@ public class ThermalFoundation {
 	public static final String MOD_GUI_FACTORY = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
 
 	public static final String VERSION_GROUP = "required-after:" + MOD_ID + "@[" + VERSION + "," + VERSION_MAX + ");";
-	public static final String RELEASE_URL = "https://raw.github.com/CoFH/Version/master/" + MOD_ID;
 
 	@Instance (MOD_ID)
 	public static ThermalFoundation instance;
 
-	@SidedProxy (clientSide = "cofh.thermalfoundation.core.ProxyClient", serverSide = "cofh.thermalfoundation.core.Proxy")
+	@SidedProxy (clientSide = "cofh.thermalfoundation.proxy.ProxyClient", serverSide = "cofh.thermalfoundation.proxy.Proxy")
 	public static Proxy proxy;
 
 	public static final Logger LOG = LogManager.getLogger(MOD_ID);
@@ -57,10 +57,6 @@ public class ThermalFoundation {
 	public static CreativeTabs tabTools = CreativeTabs.TOOLS;
 	public static CreativeTabs tabArmor = CreativeTabs.COMBAT;
 
-	public static File worldGenOres;
-	public static final String WORLD_GEN_PATH = "assets/thermalfoundation/world/";
-	public static final String WORLD_GEN_FILE = "thermalfoundation_ores.json";
-
 	public ThermalFoundation() {
 
 		super();
@@ -71,7 +67,7 @@ public class ThermalFoundation {
 	public void preInit(FMLPreInitializationEvent event) {
 
 		CONFIG.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/" + MOD_ID + "/common.cfg"), true));
-		CONFIG_CLIENT.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/"  + MOD_ID + "/client.cfg"), true));
+		CONFIG_CLIENT.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/" + MOD_ID + "/client.cfg"), true));
 
 		TFBlocks.preInit();
 		TFItems.preInit();
@@ -90,10 +86,10 @@ public class ThermalFoundation {
 		TFFluids.initialize();
 
 		/* Register Handlers */
-		NetworkRegistry.INSTANCE.registerGuiHandler(instance, GUI_HANDLER);
-		MinecraftForge.EVENT_BUS.register(proxy);
-		EventHandlerLexicon.initialize();
-		PacketTFBase.initialize();
+		registerHandlers();
+
+		/* Add World Generation */
+		addWorldGeneration();
 
 		proxy.initialize(event);
 	}
@@ -130,6 +126,37 @@ public class ThermalFoundation {
 	public void handleIMC(IMCEvent theIMC) {
 
 		IMCHandler.instance.handleIMC(theIMC.getMessages());
+	}
+
+	/* HELPERS */
+	private void registerHandlers() {
+
+		NetworkRegistry.INSTANCE.registerGuiHandler(instance, GUI_HANDLER);
+		MinecraftForge.EVENT_BUS.register(proxy);
+
+		EventHandlerLexicon.initialize();
+		PacketTFBase.initialize();
+	}
+
+	private void addWorldGeneration() {
+
+		File worldGenOres;
+		String worldGenPath = "assets/thermalfoundation/world/";
+		String worldGenOre = "thermalfoundation_ores.json";
+
+		if (!CONFIG.getConfiguration().getBoolean("World", "GenerateDefaultFiles", true, "If enabled, Thermal Foundation will create default world generation files - if it cannot find existing ones. Only disable this if you know what you are doing.")) {
+			return;
+		}
+		worldGenOres = new File(CoFHProps.configDir, "/cofh/world/" + worldGenOre);
+
+		if (!worldGenOres.exists()) {
+			try {
+				worldGenOres.createNewFile();
+				FileUtils.copyInputStreamToFile(Loader.getResource(worldGenPath + worldGenOre, null).openStream(), worldGenOres);
+			} catch (Throwable t) {
+				t.printStackTrace();
+			}
+		}
 	}
 
 }

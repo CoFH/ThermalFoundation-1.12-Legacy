@@ -104,7 +104,13 @@ public class BlockOre extends BlockCoFHBase implements IInitializer, IModelRegis
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, ItemBlockOre.class, "ore");
+		this.setRegistryName("ore");
+		GameRegistry.register(this);
+
+		ItemBlockOre itemBlock = new ItemBlockOre(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		GameRegistry.register(itemBlock);
+
 
 		oreCopper = new ItemStack(this, 1, Type.COPPER.getMetadata());
 		oreTin = new ItemStack(this, 1, Type.TIN.getMetadata());

@@ -18,7 +18,6 @@ import java.util.*;
 
 public class LexiconManager {
 
-	@SuppressWarnings ("unused")
 	private static LexiconManager instance = new LexiconManager();
 
 	private static HashSet<String> listNames = new HashSet<String>();
@@ -54,7 +53,6 @@ public class LexiconManager {
 		sortOreNames();
 	}
 
-	@SuppressWarnings ("resource")
 	public static void generateList() {
 
 		theList = isWhitelist ? new File(CoFHProps.configDir, "/cofh/thermalfoundation/lexicon-whitelist.cfg") : new File(CoFHProps.configDir, "/cofh/thermalfoundation/lexicon-blacklist.cfg");

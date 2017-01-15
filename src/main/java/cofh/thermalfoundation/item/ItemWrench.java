@@ -107,7 +107,6 @@ public class ItemWrench extends ItemCoFHBase implements IInitializer, IToolHamme
 	}
 
 	@Override
-	@SuppressWarnings ({ "rawtypes", "unchecked" })
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
 
 		Multimap multimap = HashMultimap.create();

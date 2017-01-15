@@ -187,7 +187,12 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, ItemBlockFlower.class, "flower");
+		this.setRegistryName("flower");
+		GameRegistry.register(this);
+
+		ItemBlockFlower itemBlock = new ItemBlockFlower(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		GameRegistry.register(itemBlock);
 
 		return true;
 	}

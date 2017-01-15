@@ -217,7 +217,12 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, ItemBlockGlass.class, "glass");
+		this.setRegistryName("glass");
+		GameRegistry.register(this);
+
+		ItemBlockGlass itemBlock = new ItemBlockGlass(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		GameRegistry.register(itemBlock);
 
 		glassCopper = new ItemStack(this, 1, Type.COPPER.getMetadata());
 		glassTin = new ItemStack(this, 1, Type.TIN.getMetadata());

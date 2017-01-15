@@ -1,4 +1,4 @@
-package cofh.thermalfoundation.core;
+package cofh.thermalfoundation.proxy;
 
 import codechicken.lib.model.ModelRegistryHelper;
 import codechicken.lib.model.SimpleBakedItemModel;

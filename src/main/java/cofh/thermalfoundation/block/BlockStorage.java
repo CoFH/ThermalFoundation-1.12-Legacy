@@ -151,7 +151,12 @@ public class BlockStorage extends BlockCoFHBase implements IInitializer, IModelR
 	@Override
 	public boolean preInit() {
 
-		GameRegistry.registerBlock(this, ItemBlockStorage.class, "storage");
+		this.setRegistryName("storage");
+		GameRegistry.register(this);
+
+		ItemBlockStorage itemBlock = new ItemBlockStorage(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		GameRegistry.register(itemBlock);
 
 		blockCopper = new ItemStack(this, 1, Type.COPPER.getMetadata());
 		blockTin = new ItemStack(this, 1, Type.TIN.getMetadata());
