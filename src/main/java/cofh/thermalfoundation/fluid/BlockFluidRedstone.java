@@ -1,7 +1,8 @@
 package cofh.thermalfoundation.fluid;
 
-import cofh.core.fluid.BlockFluidCoFHBase;
+import cofh.core.fluid.BlockFluidCore;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.init.TFFluids;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -15,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class BlockFluidRedstone extends BlockFluidCoFHBase {
+public class BlockFluidRedstone extends BlockFluidCore {
 
 	public static final int LEVELS = 8;
 	public static final Material materialFluidRedstone = new MaterialLiquid(MapColor.RED);
@@ -31,6 +32,13 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 		setHardness(100F);
 		setLightOpacity(2);
 		setParticleColor(0.4F, 0.0F, 0.0F);
+	}
+
+	public static void config() {
+
+		String category = "Fluid.Redstone";
+		String comment = "Enable this for Fluid Redstone to emit a signal proportional to its fluid level.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
 	}
 
 	@Override
@@ -66,9 +74,7 @@ public class BlockFluidRedstone extends BlockFluidCoFHBase {
 		itemBlock.setRegistryName(this.getRegistryName());
 		GameRegistry.register(itemBlock);
 
-		String category = "Fluid.Redstone";
-		String comment = "Enable this for Fluid Redstone to emit a signal proportional to its fluid level.";
-		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
+		config();
 
 		return true;
 	}

@@ -10,7 +10,6 @@ import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
-import cofh.thermalfoundation.fluid.TFFluids;
 import cofh.thermalfoundation.render.entity.RenderEntityAsIcon;
 import cofh.thermalfoundation.render.entity.RenderEntityBasalz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlitz;
@@ -41,25 +40,7 @@ public class ProxyClient extends Proxy {
 		for (int i = 0; i < modelList.size(); i++) {
 			modelList.get(i).registerModels();
 		}
-
-		//CCBakedModelLoader.registerLoader(TFBakedModelProvider.INSTANCE);
-		//TFItems.itemMaterial.registerModelVariants();
-		TFFluids.registerModels();
-		//Equipment.registerModels();
-		//registerRenderInformation();
-
-		//		registerBucketModel(TFItems.bucketRedstone, TFFluids.fluidRedstone);
-		//		registerBucketModel(TFItems.bucketGlowstone, TFFluids.fluidGlowstone);
-		//		registerBucketModel(TFItems.bucketEnder, TFFluids.fluidEnder);
-		//		registerBucketModel(TFItems.bucketPyrotheum, TFFluids.fluidPyrotheum);
-		//		registerBucketModel(TFItems.bucketCryotheum, TFFluids.fluidCryotheum);
-		//		registerBucketModel(TFItems.bucketAerotheum, TFFluids.fluidAerotheum);
-		//		registerBucketModel(TFItems.bucketPetrotheum, TFFluids.fluidPetrotheum);
-		//		registerBucketModel(TFItems.bucketMana, TFFluids.fluidMana);
-		//		registerBucketModel(TFItems.bucketCoal, TFFluids.fluidCoal);
-		//		//Piggy back the lexicon model off the main Material blockstate file.
-		//		ModelLoader.setCustomModelResourceLocation(TFItems.itemLexicon, 0, new ModelResourceLocation("thermalfoundation:material", "type=lexicon"));
-
+		registerRenderInformation();
 	}
 
 	@Override
@@ -120,8 +101,6 @@ public class ProxyClient extends Proxy {
 				return new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_basalz");
 			}
 		});
-
-		//MinecraftForgeClient.registerItemRenderer(TFItems.itemBucket, new RenderFluidOverlayItem());
 	}
 
 	public static void registerBucketModel(ItemStack bucket, Fluid fluid) {

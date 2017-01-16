@@ -42,7 +42,7 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 
 		super("thermalfoundation");
 
-		setUnlocalizedName("tool", "meter");
+		setUnlocalizedName("util", "meter");
 		setCreativeTab(ThermalFoundation.tabCommon);
 
 		setHasSubtypes(true);

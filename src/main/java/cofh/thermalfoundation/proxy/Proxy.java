@@ -1,13 +1,13 @@
 package cofh.thermalfoundation.proxy;
 
 import cofh.api.core.IModelRegister;
-import cofh.thermalfoundation.core.TFProps;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
+import cofh.thermalfoundation.init.TFProps;
 import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -51,7 +51,7 @@ public class Proxy {
 	public void handleLivingDropsEvent(LivingDropsEvent event) {
 
 		Entity entity = event.getEntity();
-		if (entity.isImmuneToFire() && TFProps.dropSulfurFireImmune && event.getEntityLiving().worldObj.getGameRules().getBoolean("doMobLoot")) {
+		if (entity.isImmuneToFire() && TFProps.dropSulfurFireImmuneMobs && event.getEntityLiving().worldObj.getGameRules().getBoolean("doMobLoot")) {
 			boolean s = entity instanceof EntitySlime;
 			if (event.getEntityLiving().getRNG().nextInt(6 + (s ? 16 : 0)) != 0) {
 				return;

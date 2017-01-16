@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.fluid;
 
-import cofh.core.fluid.BlockFluidCoFHBase;
+import cofh.core.fluid.BlockFluidCore;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class BlockFluidCoal extends BlockFluidCoFHBase {
+public class BlockFluidCoal extends BlockFluidCore {
 
 	public static final int LEVELS = 6;
 	public static final Material materialFluidCoal = new MaterialLiquid(MapColor.GRAY);
@@ -29,6 +29,13 @@ public class BlockFluidCoal extends BlockFluidCoFHBase {
 		setHardness(100F);
 		setLightOpacity(7);
 		setParticleColor(0.2F, 0.2F, 0.2F);
+	}
+
+	public static void config() {
+
+		String category = "Fluid.Coal";
+		String comment = "Enable this for Fluid Coal to be flammable.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Flammable", true, comment).getBoolean();
 	}
 
 	@Override
@@ -65,9 +72,7 @@ public class BlockFluidCoal extends BlockFluidCoFHBase {
 		itemBlock.setRegistryName(this.getRegistryName());
 		GameRegistry.register(itemBlock);
 
-		String category = "Fluid.Coal";
-		String comment = "Enable this for Fluid Coal to be flammable.";
-		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Flammable", true, comment).getBoolean();
+		config();
 
 		return true;
 	}

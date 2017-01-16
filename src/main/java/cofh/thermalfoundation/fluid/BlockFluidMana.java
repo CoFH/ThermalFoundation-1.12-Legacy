@@ -7,7 +7,8 @@ import cofh.lib.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.block.BlockOre;
 import cofh.thermalfoundation.block.BlockStorage;
-import cofh.thermalfoundation.block.TFBlocks;
+import cofh.thermalfoundation.init.TFBlocks;
+import cofh.thermalfoundation.init.TFFluids;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDirt.DirtType;
@@ -48,6 +49,16 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		setHardness(2000F);
 		setLightOpacity(2);
 		setParticleColor(0.2F, 0.0F, 0.4F);
+	}
+
+	public static void config() {
+
+		String category = "Fluid.Mana";
+		String comment = "Enable this for Fluid Mana to do...things.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
+
+		comment = "Enable this for Fluid Mana Source blocks to gradually fall downwards.";
+		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().get(category, "Fall", enableSourceFall, comment).getBoolean();
 	}
 
 	@Override
@@ -168,12 +179,7 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		itemBlock.setRegistryName(this.getRegistryName());
 		GameRegistry.register(itemBlock);
 
-		String category = "Fluid.Mana";
-		String comment = "Enable this for Fluid Mana to do...things.";
-		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
-
-		comment = "Enable this for Fluid Mana Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().get(category, "Fall", enableSourceFall, comment).getBoolean();
+		config();
 
 		return true;
 	}

@@ -4,7 +4,7 @@ import cofh.api.core.IInitializer;
 import cofh.core.item.ItemCoFHBase;
 import cofh.core.util.energy.FurnaceFuelHandler;
 import cofh.thermalfoundation.ThermalFoundation;
-import cofh.thermalfoundation.core.TFProps;
+import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
@@ -53,6 +53,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		dustNickel = addOreDictItem(36, "dustNickel");
 		dustPlatinum = addOreDictItem(37, "dustPlatinum", EnumRarity.UNCOMMON);
 		dustMithril = addOreDictItem(38, "dustMithril", EnumRarity.RARE);
+
 		dustElectrum = addOreDictItem(39, "dustElectrum");
 		dustInvar = addOreDictItem(40, "dustInvar");
 		dustBronze = addOreDictItem(41, "dustBronze");
@@ -68,6 +69,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		ingotNickel = addOreDictItem(68, "ingotNickel");
 		ingotPlatinum = addOreDictItem(69, "ingotPlatinum", EnumRarity.UNCOMMON);
 		ingotMithril = addOreDictItem(70, "ingotMithril", EnumRarity.RARE);
+
 		ingotElectrum = addOreDictItem(71, "ingotElectrum");
 		ingotInvar = addOreDictItem(72, "ingotInvar");
 		ingotBronze = addOreDictItem(73, "ingotBronze");
@@ -84,6 +86,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		nuggetNickel = addOreDictItem(100, "nuggetNickel");
 		nuggetPlatinum = addOreDictItem(101, "nuggetPlatinum", EnumRarity.UNCOMMON);
 		nuggetMithril = addOreDictItem(102, "nuggetMithril", EnumRarity.RARE);
+
 		nuggetElectrum = addOreDictItem(103, "nuggetElectrum");
 		nuggetInvar = addOreDictItem(104, "nuggetInvar");
 		nuggetBronze = addOreDictItem(105, "nuggetBronze");
@@ -101,6 +104,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		gearNickel = addOreDictItem(132, "gearNickel");
 		gearPlatinum = addOreDictItem(133, "gearPlatinum", EnumRarity.UNCOMMON);
 		gearMithril = addOreDictItem(134, "gearMithril", EnumRarity.RARE);
+
 		gearElectrum = addOreDictItem(135, "gearElectrum");
 		gearInvar = addOreDictItem(136, "gearInvar");
 		gearBronze = addOreDictItem(137, "gearBronze");
@@ -118,7 +122,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		dustCryotheum = addOreDictItem(513, "dustCryotheum", EnumRarity.RARE);
 		dustAerotheum = addOreDictItem(514, "dustAerotheum", EnumRarity.RARE);
 		dustPetrotheum = addOreDictItem(515, "dustPetrotheum", EnumRarity.RARE);
-		dustMana = addItem(516, "dustMana", EnumRarity.EPIC);
+		dustMana = addOreDictItem(516, "dustMana", EnumRarity.EPIC);
 
 		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
 
@@ -156,6 +160,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		addSmelting(ingotNickel, dustNickel, 0.0F);
 		addSmelting(ingotPlatinum, dustPlatinum, 0.0F);
 		addSmelting(ingotMithril, dustMithril, 0.0F);
+
 		addSmelting(ingotElectrum, dustElectrum, 0.0F);
 		addSmelting(ingotInvar, dustInvar, 0.0F);
 		addSmelting(ingotBronze, dustBronze, 0.0F);
@@ -180,6 +185,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		addTwoWayStorageRecipe(ingotNickel, "ingotNickel", nuggetNickel, "nuggetNickel");
 		addTwoWayStorageRecipe(ingotPlatinum, "ingotPlatinum", nuggetPlatinum, "nuggetPlatinum");
 		addTwoWayStorageRecipe(ingotMithril, "ingotMithril", nuggetMithril, "nuggetMithril");
+
 		addTwoWayStorageRecipe(ingotElectrum, "ingotElectrum", nuggetElectrum, "nuggetElectrum");
 		addTwoWayStorageRecipe(ingotInvar, "ingotInvar", nuggetInvar, "nuggetInvar");
 		addTwoWayStorageRecipe(ingotBronze, "ingotBronze", nuggetBronze, "nuggetBronze");
@@ -194,6 +200,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		addReverseStorageRecipe(ingotNickel, "blockNickel");
 		addReverseStorageRecipe(ingotPlatinum, "blockPlatinum");
 		addReverseStorageRecipe(ingotMithril, "blockMithril");
+
 		addReverseStorageRecipe(ingotElectrum, "blockElectrum");
 		addReverseStorageRecipe(ingotInvar, "blockInvar");
 		addReverseStorageRecipe(ingotBronze, "blockBronze");
@@ -211,6 +218,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		addGearRecipe(gearNickel, "ingotNickel");
 		addGearRecipe(gearPlatinum, "ingotPlatinum");
 		addGearRecipe(gearMithril, "ingotMithril");
+
 		addGearRecipe(gearElectrum, "ingotElectrum");
 		addGearRecipe(gearInvar, "ingotInvar");
 		addGearRecipe(gearBronze, "ingotBronze");
@@ -272,6 +280,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 	public static ItemStack ingotNickel;
 	public static ItemStack ingotPlatinum;
 	public static ItemStack ingotMithril;
+
 	public static ItemStack ingotElectrum;
 	public static ItemStack ingotInvar;
 	public static ItemStack ingotBronze;
@@ -286,6 +295,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 	public static ItemStack dustNickel;
 	public static ItemStack dustPlatinum;
 	public static ItemStack dustMithril;
+
 	public static ItemStack dustElectrum;
 	public static ItemStack dustInvar;
 	public static ItemStack dustBronze;
@@ -300,6 +310,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 	public static ItemStack nuggetNickel;
 	public static ItemStack nuggetPlatinum;
 	public static ItemStack nuggetMithril;
+
 	public static ItemStack nuggetElectrum;
 	public static ItemStack nuggetInvar;
 	public static ItemStack nuggetBronze;
@@ -314,6 +325,7 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 	public static ItemStack gearNickel;
 	public static ItemStack gearPlatinum;
 	public static ItemStack gearMithril;
+
 	public static ItemStack gearElectrum;
 	public static ItemStack gearInvar;
 	public static ItemStack gearBronze;

@@ -3,6 +3,7 @@ package cofh.thermalfoundation.fluid;
 import cofh.core.fluid.BlockFluidInteractive;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.init.TFFluids;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -41,6 +42,16 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		setHardness(1000F);
 		setLightOpacity(1);
 		setParticleColor(1.0F, 0.7F, 0.15F);
+	}
+
+	public static void config() {
+
+		String category = "Fluid.Pyrotheum";
+		String comment = "Enable this for Fluid Pyrotheum to be worse than lava.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
+
+		comment = "Enable this for Fluid Pyrotheum Source blocks to gradually fall downwards.";
+		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().get(category, "Fall", enableSourceFall, comment).getBoolean();
 	}
 
 	@Override
@@ -161,12 +172,7 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		itemBlock.setRegistryName(this.getRegistryName());
 		GameRegistry.register(itemBlock);
 
-		String category = "Fluid.Pyrotheum";
-		String comment = "Enable this for Fluid Pyrotheum to be worse than lava.";
-		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
-
-		comment = "Enable this for Fluid Pyrotheum Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().get(category, "Fall", enableSourceFall, comment).getBoolean();
+		config();
 
 		return true;
 	}

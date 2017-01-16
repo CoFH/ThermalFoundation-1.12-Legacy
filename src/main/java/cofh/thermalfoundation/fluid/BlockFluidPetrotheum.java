@@ -3,6 +3,7 @@ package cofh.thermalfoundation.fluid;
 import cofh.core.fluid.BlockFluidInteractive;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.init.TFFluids;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -42,6 +43,19 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 		setHardness(1000F);
 		setLightOpacity(1);
 		setParticleColor(0.4F, 0.3F, 0.2F);
+	}
+
+	public static void config() {
+
+		String category = "Fluid.Petrotheum";
+		String comment = "Enable this for Fluid Petrotheum to break apart stone blocks.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", effect, comment).getBoolean();
+
+		comment = "Enable this for Fluid Petrotheum to have an EXTREME effect on stone blocks.";
+		extreme = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect.Extreme", extreme, comment).getBoolean();
+
+		comment = "Enable this for Fluid Petrotheum Source blocks to gradually fall downwards.";
+		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().get(category, "Fall", enableSourceFall, comment).getBoolean();
 	}
 
 	@Override
@@ -132,15 +146,7 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 		itemBlock.setRegistryName(this.getRegistryName());
 		GameRegistry.register(itemBlock);
 
-		String category = "Fluid.Petrotheum";
-		String comment = "Enable this for Fluid Petrotheum to break apart stone blocks.";
-		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", effect, comment).getBoolean();
-
-		comment = "Enable this for Fluid Petrotheum to have an EXTREME effect on stone blocks.";
-		extreme = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect.Extreme", extreme, comment).getBoolean();
-
-		comment = "Enable this for Fluid Petrotheum Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().get(category, "Fall", enableSourceFall, comment).getBoolean();
+		config();
 
 		return true;
 	}

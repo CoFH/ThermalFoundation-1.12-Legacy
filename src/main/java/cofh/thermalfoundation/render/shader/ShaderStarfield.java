@@ -3,7 +3,7 @@ package cofh.thermalfoundation.render.shader;
 import cofh.core.CoFHProps;
 import cofh.core.render.ShaderHelper;
 import cofh.lib.util.helpers.HolidayHelper;
-import cofh.thermalfoundation.core.TFProps;
+import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.ARBShaderObjects;

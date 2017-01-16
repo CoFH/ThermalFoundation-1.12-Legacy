@@ -1,12 +1,11 @@
 package cofh.thermalfoundation.entity.monster;
 
-import cofh.api.core.IConfigCallback;
 import cofh.core.CoFHProps;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
-import cofh.thermalfoundation.init.ModSounds;
+import cofh.thermalfoundation.init.TFSounds;
 import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
@@ -24,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class EntityBlitz extends EntityElemental implements IConfigCallback {
+public class EntityBlitz extends EntityElemental {
 
 	static boolean enable = true;
 	static boolean restrictLightLevel = true;
@@ -95,18 +94,6 @@ public class EntityBlitz extends EntityElemental implements IConfigCallback {
 	}
 
 	@Override
-	protected void initEntityAI() {
-
-		this.tasks.addTask(4, new AIBlitzBoltAttack(this));
-		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-		this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
-		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(8, new EntityAILookIdle(this));
-		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
-		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
-	}
-
-	@Override
 	protected void dropFewItems(boolean wasHitByPlayer, int looting) {
 
 		if (wasHitByPlayer) {
@@ -119,6 +106,18 @@ public class EntityBlitz extends EntityElemental implements IConfigCallback {
 				this.entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBlitz, 1), 0);
 			}
 		}
+	}
+
+	@Override
+	protected void initEntityAI() {
+
+		this.tasks.addTask(4, new AIBlitzBoltAttack(this));
+		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+		this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
+		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		this.tasks.addTask(8, new EntityAILookIdle(this));
+		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
+		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 	}
 
 	@Override
@@ -201,7 +200,7 @@ public class EntityBlitz extends EntityElemental implements IConfigCallback {
 						for (int i = 0; i < 1; ++i) {
 							EntityBlitzBolt bolt = new EntityBlitzBolt(this.blitz.worldObj, this.blitz);
 							bolt.posY = this.blitz.posY + this.blitz.height / 2.0F + 0.5D;
-							this.blitz.playSound(ModSounds.BLITZ_ATTACK, 2.0F, (blitz.rand.nextFloat() - blitz.rand.nextFloat()) * 0.2F + 1.0F);
+							this.blitz.playSound(TFSounds.BLITZ_ATTACK, 2.0F, (blitz.rand.nextFloat() - blitz.rand.nextFloat()) * 0.2F + 1.0F);
 							this.blitz.worldObj.spawnEntityInWorld(bolt);
 						}
 					}
@@ -213,12 +212,6 @@ public class EntityBlitz extends EntityElemental implements IConfigCallback {
 			}
 			super.updateTask();
 		}
-	}
-
-	/* IConfigCallback */
-	@Override
-	public void configUpdate() {
-
 	}
 
 }

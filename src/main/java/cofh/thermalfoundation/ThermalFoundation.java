@@ -3,12 +3,9 @@ package cofh.thermalfoundation;
 import cofh.CoFHCore;
 import cofh.core.CoFHProps;
 import cofh.core.util.ConfigHandler;
-import cofh.thermalfoundation.block.TFBlocks;
-import cofh.thermalfoundation.fluid.TFFluids;
 import cofh.thermalfoundation.gui.CreativeTabTF;
 import cofh.thermalfoundation.gui.GuiHandler;
-import cofh.thermalfoundation.item.TFEquipment;
-import cofh.thermalfoundation.item.TFItems;
+import cofh.thermalfoundation.init.*;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.proxy.Proxy;
 import cofh.thermalfoundation.util.EventHandlerLexicon;
@@ -17,6 +14,7 @@ import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -59,6 +57,10 @@ public class ThermalFoundation {
 	public static CreativeTabs tabTools = CreativeTabs.TOOLS;
 	public static CreativeTabs tabArmor = CreativeTabs.COMBAT;
 
+	static {
+		FluidRegistry.enableUniversalBucket();
+	}
+
 	public ThermalFoundation() {
 
 		super();
@@ -71,6 +73,7 @@ public class ThermalFoundation {
 		CONFIG.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/" + MOD_ID + "/common.cfg"), true));
 		CONFIG_CLIENT.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/" + MOD_ID + "/client.cfg"), true));
 
+		TFProps.preInit();
 		TFBlocks.preInit();
 		TFItems.preInit();
 		TFEquipment.preInit();
@@ -116,6 +119,7 @@ public class ThermalFoundation {
 
 		LexiconManager.loadComplete();
 
+		TFProps.loadComplete();
 		CONFIG.cleanUp(false, true);
 		CONFIG_CLIENT.cleanUp(false, true);
 
@@ -149,7 +153,7 @@ public class ThermalFoundation {
 		String worldGenPath = "assets/thermalfoundation/world/";
 		String worldGenOre = "thermalfoundation_ores.json";
 
-		if (!CONFIG.getConfiguration().getBoolean("World", "GenerateDefaultFiles", true, "If enabled, Thermal Foundation will create default world generation files - if it cannot find existing ones. Only disable this if you know what you are doing.")) {
+		if (!CONFIG.getConfiguration().getBoolean("GenerateDefaultFiles", "World", true, "If enabled, Thermal Foundation will create default world generation files - if it cannot find existing ones. Only disable this if you know what you are doing.")) {
 			return;
 		}
 		worldGenOres = new File(CoFHProps.configDir, "/cofh/world/" + worldGenOre);

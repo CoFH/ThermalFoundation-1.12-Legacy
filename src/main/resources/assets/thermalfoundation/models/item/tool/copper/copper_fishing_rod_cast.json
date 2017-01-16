@@ -1,0 +1,6 @@
+{
+	"parent": "thermalfoundation:item/tool/copper/copper_fishing_rod",
+	"textures": {
+		"layer0": "thermalfoundation:items/tool/copper/copper_fishing_rod_cast"
+	}
+}

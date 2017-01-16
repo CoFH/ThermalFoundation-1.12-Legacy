@@ -1,9 +1,10 @@
 package cofh.thermalfoundation.fluid;
 
-import cofh.core.fluid.BlockFluidCoFHBase;
+import cofh.core.fluid.BlockFluidCore;
 import cofh.core.util.CoreUtils;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.init.TFFluids;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -16,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class BlockFluidEnder extends BlockFluidCoFHBase {
+public class BlockFluidEnder extends BlockFluidCore {
 
 	public static final int LEVELS = 4;
 	public static final Material materialFluidEnder = new MaterialLiquid(MapColor.GREEN);
@@ -32,6 +33,13 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 		setHardness(2000F);
 		setLightOpacity(7);
 		setParticleColor(0.05F, 0.2F, 0.2F);
+	}
+
+	public static void config() {
+
+		String category = "Fluid.Ender";
+		String comment = "Enable this for Fluid Ender to randomly teleport entities on contact.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
 	}
 
 	@Override
@@ -67,9 +75,7 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 		itemBlock.setRegistryName(this.getRegistryName());
 		GameRegistry.register(itemBlock);
 
-		String category = "Fluid.Ender";
-		String comment = "Enable this for Fluid Ender to randomly teleport entities on contact.";
-		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
+		config();
 
 		return true;
 	}

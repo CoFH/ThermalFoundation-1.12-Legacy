@@ -52,7 +52,7 @@ public class ItemWrench extends ItemCoFHBase implements IInitializer, IToolHamme
 
 		super("thermalfoundation");
 
-		setUnlocalizedName("tool", "wrench");
+		setUnlocalizedName("util", "wrench");
 		setCreativeTab(ThermalFoundation.tabCommon);
 
 		setHarvestLevel("wrench", 1);
