@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.init;
 
 import cofh.api.core.IModelRegister;
-import cofh.core.item.ItemArmorAdv;
+import cofh.core.item.ItemArmorCore;
 import cofh.core.item.tool.*;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
@@ -105,10 +105,10 @@ public class TFEquipment {
 		private final String ingot;
 		private final ArmorMaterial ARMOR_MATERIAL;
 
-		public ItemArmorAdv itemHelmet;
-		public ItemArmorAdv itemPlate;
-		public ItemArmorAdv itemLegs;
-		public ItemArmorAdv itemBoots;
+		public ItemArmorCore itemHelmet;
+		public ItemArmorCore itemPlate;
+		public ItemArmorCore itemLegs;
+		public ItemArmorCore itemBoots;
 
 		public ItemStack armorHelmet;
 		public ItemStack armorPlate;
@@ -126,10 +126,10 @@ public class TFEquipment {
 
 		protected void create() {
 
-			itemHelmet = new ItemArmorAdv(ARMOR_MATERIAL, EntityEquipmentSlot.HEAD);
-			itemPlate = new ItemArmorAdv(ARMOR_MATERIAL, EntityEquipmentSlot.CHEST);
-			itemLegs = new ItemArmorAdv(ARMOR_MATERIAL, EntityEquipmentSlot.LEGS);
-			itemBoots = new ItemArmorAdv(ARMOR_MATERIAL, EntityEquipmentSlot.FEET);
+			itemHelmet = new ItemArmorCore(ARMOR_MATERIAL, EntityEquipmentSlot.HEAD);
+			itemPlate = new ItemArmorCore(ARMOR_MATERIAL, EntityEquipmentSlot.CHEST);
+			itemLegs = new ItemArmorCore(ARMOR_MATERIAL, EntityEquipmentSlot.LEGS);
+			itemBoots = new ItemArmorCore(ARMOR_MATERIAL, EntityEquipmentSlot.FEET);
 		}
 
 		protected void preInit() {
@@ -244,17 +244,17 @@ public class TFEquipment {
 		private int speedModifier = 1;
 
 		/* TOOLS */
-		public ItemSwordAdv itemSword;
-		public ItemShovelAdv itemShovel;
-		public ItemPickaxeAdv itemPickaxe;
-		public ItemAxeAdv itemAxe;
-		public ItemHoeAdv itemHoe;
-		public ItemBowAdv itemBow;
-		public ItemFishingRodAdv itemFishingRod;
-		public ItemShearsAdv itemShears;
-		public ItemSickleAdv itemSickle;
-		public ItemHammerAdv itemHammer;
-		public ItemShieldAdv itemShield;
+		public ItemSwordCore itemSword;
+		public ItemShovelCore itemShovel;
+		public ItemPickaxeCore itemPickaxe;
+		public ItemAxeCore itemAxe;
+		public ItemHoeCore itemHoe;
+		public ItemBowCore itemBow;
+		public ItemFishingRodCore itemFishingRod;
+		public ItemShearsCore itemShears;
+		public ItemSickleCore itemSickle;
+		public ItemHammerCore itemHammer;
+		public ItemShieldCore itemShield;
 
 		public ItemStack toolSword;
 		public ItemStack toolShovel;
@@ -279,17 +279,17 @@ public class TFEquipment {
 
 		protected void create() {
 
-			itemSword = new ItemSwordAdv(TOOL_MATERIAL);
-			itemShovel = new ItemShovelAdv(TOOL_MATERIAL);
-			itemPickaxe = new ItemPickaxeAdv(TOOL_MATERIAL);
-			itemAxe = new ItemAxeAdv(TOOL_MATERIAL);
-			itemHoe = new ItemHoeAdv(TOOL_MATERIAL);
-			itemBow = new ItemBowAdv(TOOL_MATERIAL);
-			itemFishingRod = new ItemFishingRodAdv(TOOL_MATERIAL);
-			itemShears = new ItemShearsAdv(TOOL_MATERIAL);
-			itemSickle = new ItemSickleAdv(TOOL_MATERIAL);
-			itemHammer = new ItemHammerAdv(TOOL_MATERIAL);
-			itemShield = new ItemShieldAdv(TOOL_MATERIAL);
+			itemSword = new ItemSwordCore(TOOL_MATERIAL);
+			itemShovel = new ItemShovelCore(TOOL_MATERIAL);
+			itemPickaxe = new ItemPickaxeCore(TOOL_MATERIAL);
+			itemAxe = new ItemAxeCore(TOOL_MATERIAL);
+			itemHoe = new ItemHoeCore(TOOL_MATERIAL);
+			itemBow = new ItemBowCore(TOOL_MATERIAL);
+			itemFishingRod = new ItemFishingRodCore(TOOL_MATERIAL);
+			itemShears = new ItemShearsCore(TOOL_MATERIAL);
+			itemSickle = new ItemSickleCore(TOOL_MATERIAL);
+			itemHammer = new ItemHammerCore(TOOL_MATERIAL);
+			itemShield = new ItemShieldCore(TOOL_MATERIAL);
 		}
 
 		protected void preInit() {
@@ -477,9 +477,9 @@ public class TFEquipment {
 
     			itemBow = Items.BOW;
     			itemFishingRod = Items.FISHING_ROD;
-				itemShears = new ItemShearsAdv(TOOL_MATERIAL);
-    			itemSickle = new ItemSickleAdv(TOOL_MATERIAL);
-    			itemHammer = new ItemHammerAdv(TOOL_MATERIAL);
+				itemShears = new ItemShearsCore(TOOL_MATERIAL);
+    			itemSickle = new ItemSickleCore(TOOL_MATERIAL);
+    			itemHammer = new ItemHammerCore(TOOL_MATERIAL);
     			itemShield = Items.SHIELD;
     		}
     	},
@@ -489,12 +489,12 @@ public class TFEquipment {
     		@Override
     		protected void create() {
 
-				itemBow = new ItemBowAdv(TOOL_MATERIAL);
-    			itemFishingRod = new ItemFishingRodAdv(TOOL_MATERIAL);
+				itemBow = new ItemBowCore(TOOL_MATERIAL);
+    			itemFishingRod = new ItemFishingRodCore(TOOL_MATERIAL);
 				itemShears = Items.SHEARS;
-    			itemSickle = new ItemSickleAdv(TOOL_MATERIAL);
-				itemHammer = new ItemHammerAdv(TOOL_MATERIAL);
-				itemShield = new ItemShieldAdv(TOOL_MATERIAL);
+    			itemSickle = new ItemSickleCore(TOOL_MATERIAL);
+				itemHammer = new ItemHammerCore(TOOL_MATERIAL);
+				itemShield = new ItemShieldCore(TOOL_MATERIAL);
 
     		}
     	},
@@ -518,8 +518,8 @@ public class TFEquipment {
 		public ItemBow itemBow;
 		public ItemFishingRod itemFishingRod;
 		public ItemShears itemShears;
-		public ItemSickleAdv itemSickle;
-		public ItemHammerAdv itemHammer;
+		public ItemSickleCore itemSickle;
+		public ItemHammerCore itemHammer;
 		public Item itemShield;
 
 		public ItemStack toolBow;
@@ -548,12 +548,12 @@ public class TFEquipment {
 
 		protected void create() {
 
-			itemBow = new ItemBowAdv(TOOL_MATERIAL);
-			itemFishingRod = new ItemFishingRodAdv(TOOL_MATERIAL);
-			itemShears = new ItemShearsAdv(TOOL_MATERIAL);
-			itemSickle = new ItemSickleAdv(TOOL_MATERIAL);
-			itemHammer = new ItemHammerAdv(TOOL_MATERIAL);
-			itemShield = new ItemShieldAdv(TOOL_MATERIAL);
+			itemBow = new ItemBowCore(TOOL_MATERIAL);
+			itemFishingRod = new ItemFishingRodCore(TOOL_MATERIAL);
+			itemShears = new ItemShearsCore(TOOL_MATERIAL);
+			itemSickle = new ItemSickleCore(TOOL_MATERIAL);
+			itemHammer = new ItemHammerCore(TOOL_MATERIAL);
+			itemShield = new ItemShieldCore(TOOL_MATERIAL);
 		}
 
 		protected void preInit() {
@@ -586,8 +586,8 @@ public class TFEquipment {
 			create();
 
 			/* BOW */
-			if (itemBow instanceof ItemBowAdv) {
-				ItemBowAdv itemBow = (ItemBowAdv) this.itemBow;
+			if (itemBow instanceof ItemBowCore) {
+				ItemBowCore itemBow = (ItemBowCore) this.itemBow;
 				itemBow.setRepairIngot(ingot).setArrowSpeed(arrowSpeed).setArrowDamage(arrowDamage).setUnlocalizedName(TOOL + "Bow").setCreativeTab(ThermalFoundation.tabTools);
 				itemBow.setShowInCreative(enable[0] | TFProps.showDisabledEquipment);
 				itemBow.setRegistryName("tool.bow_" + name);
@@ -595,8 +595,8 @@ public class TFEquipment {
 			}
 
 			/* FISHING ROD */
-			if (itemFishingRod instanceof ItemFishingRodAdv) {
-				ItemFishingRodAdv itemFishingRod = (ItemFishingRodAdv) this.itemFishingRod;
+			if (itemFishingRod instanceof ItemFishingRodCore) {
+				ItemFishingRodCore itemFishingRod = (ItemFishingRodCore) this.itemFishingRod;
 				itemFishingRod.setRepairIngot(ingot).setUnlocalizedName(TOOL + "FishingRod").setCreativeTab(ThermalFoundation.tabTools);
 				itemFishingRod.setLuckModifier(luckModifier).setSpeedModifier(speedModifier);
 				itemFishingRod.setShowInCreative(enable[1] | TFProps.showDisabledEquipment);
@@ -605,8 +605,8 @@ public class TFEquipment {
 			}
 
 			/* SHEARS */
-			if (itemShears instanceof ItemShearsAdv) {
-				ItemShearsAdv itemShears = (ItemShearsAdv) this.itemShears;
+			if (itemShears instanceof ItemShearsCore) {
+				ItemShearsCore itemShears = (ItemShearsCore) this.itemShears;
 				itemShears.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shears").setCreativeTab(ThermalFoundation.tabTools);
 				itemShears.setShowInCreative(enable[2] | TFProps.showDisabledEquipment);
 				itemShears.setRegistryName("tool.shears_" + name);
@@ -626,9 +626,9 @@ public class TFEquipment {
 			GameRegistry.register(itemHammer);
 
 			/* SHIELD */
-			if (itemShield instanceof ItemShieldAdv) {
-				((ItemShieldAdv) itemShield).setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shield").setCreativeTab(ThermalFoundation.tabTools);
-				((ItemShieldAdv) itemShield).setShowInCreative(enable[5]); //| TFProps.showDisabledEquipment);
+			if (itemShield instanceof ItemShieldCore) {
+				((ItemShieldCore) itemShield).setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shield").setCreativeTab(ThermalFoundation.tabTools);
+				((ItemShieldCore) itemShield).setShowInCreative(enable[5]); //| TFProps.showDisabledEquipment);
 				itemShield.setRegistryName("tool.shield_" + name);
 				GameRegistry.register(itemShield);
 			}
@@ -675,19 +675,19 @@ public class TFEquipment {
 		@SideOnly (Side.CLIENT)
 		public void registerModels() {
 
-			if (itemBow instanceof ItemBowAdv) {
+			if (itemBow instanceof ItemBowCore) {
 				registerModel(itemBow, name + "_bow");
 			}
-			if (itemFishingRod instanceof ItemFishingRodAdv) {
+			if (itemFishingRod instanceof ItemFishingRodCore) {
 				registerModel(itemFishingRod, name + "_fishing_rod");
 			}
-			if (itemShears instanceof ItemShearsAdv) {
+			if (itemShears instanceof ItemShearsCore) {
 				registerModel(itemShears, name + "_shears");
 			}
 			registerModel(itemSickle, name + "_sickle");
 			registerModel(itemHammer, name + "_hammer");
 
-			if (itemShield instanceof ItemShieldAdv) {
+			if (itemShield instanceof ItemShieldCore) {
 				registerModel(itemShield, name + "_shield");
 			}
 		}

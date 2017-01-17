@@ -2,7 +2,7 @@ package cofh.thermalfoundation.block;
 
 import cofh.api.core.IInitializer;
 import cofh.api.core.IModelRegister;
-import cofh.core.block.BlockCoFHBase;
+import cofh.core.block.BlockCore;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.block.SoundType;
@@ -24,12 +24,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 import static cofh.lib.util.helpers.ItemHelper.addSmelting;
 import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
 
-public class BlockOre extends BlockCoFHBase implements IInitializer, IModelRegister {
+public class BlockOre extends BlockCore implements IInitializer, IModelRegister {
 
 	public static final PropertyEnum<BlockOre.Type> VARIANT = PropertyEnum.<BlockOre.Type>create("type", BlockOre.Type.class);
 
@@ -59,7 +60,7 @@ public class BlockOre extends BlockCoFHBase implements IInitializer, IModelRegis
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
+	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, List<ItemStack> list) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
 			list.add(new ItemStack(item, 1, i));

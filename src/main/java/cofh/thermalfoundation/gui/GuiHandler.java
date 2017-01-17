@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.gui;
 
-import cofh.core.block.TileCoFHBaseOld;
+import cofh.core.block.TileCore;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.gui.client.GuiLexiconStudy;
 import cofh.thermalfoundation.gui.client.GuiLexiconTransmute;
@@ -25,8 +25,8 @@ public class GuiHandler implements IGuiHandler {
 		switch (id) {
 			case TILE_ID:
 				TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
-				if (tile instanceof TileCoFHBaseOld) {
-					return ((TileCoFHBaseOld) tile).getGuiClient(player.inventory);
+				if (tile instanceof TileCore) {
+					return ((TileCore) tile).getGuiClient(player.inventory);
 				}
 			case LEXICON_STUDY_ID:
 				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
@@ -47,8 +47,8 @@ public class GuiHandler implements IGuiHandler {
 		switch (id) {
 			case TILE_ID:
 				TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
-				if (tile instanceof TileCoFHBaseOld) {
-					return ((TileCoFHBaseOld) tile).getGuiServer(player.inventory);
+				if (tile instanceof TileCore) {
+					return ((TileCore) tile).getGuiServer(player.inventory);
 				}
 			case LEXICON_STUDY_ID:
 				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {

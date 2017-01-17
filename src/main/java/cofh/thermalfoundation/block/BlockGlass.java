@@ -4,7 +4,7 @@ import codechicken.lib.raytracer.RayTracer;
 import cofh.api.block.IDismantleable;
 import cofh.api.core.IInitializer;
 import cofh.api.core.IModelRegister;
-import cofh.core.block.BlockCoFHBase;
+import cofh.core.block.BlockCore;
 import cofh.core.util.CoreUtils;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.WrenchHelper;
@@ -35,12 +35,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitializer, IModelRegister {
+public class BlockGlass extends BlockCore implements IDismantleable, IInitializer, IModelRegister {
 
 	public static final PropertyEnum<BlockGlass.Type> VARIANT = PropertyEnum.<BlockGlass.Type>create("type", BlockGlass.Type.class);
 
@@ -64,7 +65,7 @@ public class BlockGlass extends BlockCoFHBase implements IDismantleable, IInitia
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
+	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, List<ItemStack> list) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
 			list.add(new ItemStack(item, 1, i));

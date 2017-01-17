@@ -33,6 +33,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Map;
 
@@ -80,7 +81,8 @@ public class ItemTome extends ItemCoFHBase implements IInitializer, IInventoryCo
 	}
 
 	@Override
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
+	@SideOnly (Side.CLIENT)
+	public void getSubItems(@Nonnull Item item, CreativeTabs tab, List<ItemStack> list) {
 
 		ItemStack lexicon = new ItemStack(item, 1, 0);
 		setMode(lexicon, 0);

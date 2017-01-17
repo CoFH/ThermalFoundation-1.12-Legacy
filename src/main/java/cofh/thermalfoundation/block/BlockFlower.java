@@ -2,7 +2,7 @@ package cofh.thermalfoundation.block;
 
 import cofh.api.core.IInitializer;
 import cofh.api.core.IModelRegister;
-import cofh.core.block.BlockCoFHBase;
+import cofh.core.block.BlockCore;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -29,11 +29,12 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
-public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRegister, IPlantable {
+public class BlockFlower extends BlockCore implements IInitializer, IModelRegister, IPlantable {
 
 	protected static final AxisAlignedBB FLOWER_AABB = new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
 	public static final PropertyEnum<BlockFlower.Type> VARIANT = PropertyEnum.<BlockFlower.Type>create("type", BlockFlower.Type.class);
@@ -57,7 +58,7 @@ public class BlockFlower extends BlockCoFHBase implements IInitializer, IModelRe
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
+	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, List<ItemStack> list) {
 
 		for (int i = 0; i < BlockFlower.Type.METADATA_LOOKUP.length; i++) {
 			list.add(new ItemStack(item, 1, i));
