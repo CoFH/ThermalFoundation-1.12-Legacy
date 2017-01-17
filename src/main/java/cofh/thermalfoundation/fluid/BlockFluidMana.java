@@ -1,6 +1,5 @@
 package cofh.thermalfoundation.fluid;
 
-import codechicken.lib.util.SoundUtils;
 import cofh.core.fluid.BlockFluidInteractive;
 import cofh.core.util.CoreUtils;
 import cofh.lib.util.helpers.MathHelper;
@@ -78,8 +77,7 @@ public class BlockFluidMana extends BlockFluidInteractive {
 					CoreUtils.teleportEntityTo(entity, randPos);
 				} else {
 					entity.setPosition(pos.getX(), pos.getY(), pos.getZ());
-					SoundUtils.playSoundAt(entity, SoundCategory.BLOCKS, SoundEvents.ENTITY_ENDERMEN_TELEPORT);
-					//entity.playSound("mob.endermen.portal", 1.0F, 1.0F);
+					entity.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
 				}
 			}
 		}

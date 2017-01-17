@@ -1,12 +1,12 @@
 package cofh.thermalfoundation.block;
 
-import cofh.core.item.ItemBlockCoFHBase;
+import cofh.core.item.ItemBlockCore;
 import cofh.lib.util.helpers.ItemHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 
-public class ItemBlockGlass extends ItemBlockCoFHBase {
+public class ItemBlockGlass extends ItemBlockCore {
 
 	public ItemBlockGlass(Block block) {
 

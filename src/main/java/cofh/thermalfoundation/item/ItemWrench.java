@@ -1,8 +1,6 @@
 package cofh.thermalfoundation.item;
 
 import codechicken.lib.raytracer.RayTracer;
-import codechicken.lib.util.SoundUtils;
-import codechicken.lib.vec.Vector3;
 import cofh.api.block.IDismantleable;
 import cofh.api.core.IInitializer;
 import cofh.api.item.IToolHammer;
@@ -93,10 +91,10 @@ public class ItemWrench extends ItemCoFHBase implements IInitializer, IToolHamme
 		if (BlockHelper.canRotate(block)) {
 			if (player.isSneaking()) {
 				world.setBlockState(pos, BlockHelper.rotateVanillaBlockAlt(world, state, pos), 3);
-				SoundUtils.playSoundAt(new Vector3(pos).add(0.5), world, SoundCategory.BLOCKS, block.getSoundType(state, world, pos, player).getBreakSound(), 1.0F, 0.6F);
+				world.playSound(null, pos, block.getSoundType(state, world, pos, player).getBreakSound(), SoundCategory.BLOCKS, 1.0F, 0.6F);
 			} else {
 				world.setBlockState(pos, BlockHelper.rotateVanillaBlock(world, state, pos), 3);
-				SoundUtils.playSoundAt(new Vector3(pos).add(0.5), world, SoundCategory.BLOCKS, block.getSoundType(state, world, pos, player).getBreakSound(), 1.0F, 0.8F);
+				world.playSound(null, pos, block.getSoundType(state, world, pos, player).getBreakSound(), SoundCategory.BLOCKS, 1.0F, 0.8F);
 			}
 			return ServerHelper.isServerWorld(world) ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
 		} else if (!player.isSneaking() && block.rotateBlock(world, pos, side)) {

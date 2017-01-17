@@ -1,6 +1,5 @@
 package cofh.thermalfoundation.item;
 
-import codechicken.lib.util.SoundUtils;
 import cofh.api.core.IInitializer;
 import cofh.api.tileentity.IPortableData;
 import cofh.core.item.ItemCoFHBase;
@@ -21,7 +20,10 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
@@ -61,7 +63,7 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 					stack.setTagCompound(null);
 				} else {
 					stack.getTagCompound().setString("Type", ((IPortableData) tile).getDataType());
-					SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.7F);
+					player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.6F, 0.7F);
 				}
 			} else {
 				if (stack.getTagCompound().getString("Type").equals(((IPortableData) tile).getDataType())) {
@@ -125,7 +127,7 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 
 		if (player.isSneaking()) {
 			if (stack.getTagCompound() != null) {
-				SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
+				player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
 			}
 			stack.setTagCompound(null);
 		}
@@ -144,7 +146,7 @@ public class ItemDiagram extends ItemCoFHBase implements IInitializer {
 
 		if (player.isSneaking()) {
 			if (stack.getTagCompound() != null) {
-				SoundUtils.playSoundAt(player, SoundCategory.NEUTRAL, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
+				player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
 			}
 			stack.setTagCompound(null);
 			return EnumActionResult.SUCCESS;
