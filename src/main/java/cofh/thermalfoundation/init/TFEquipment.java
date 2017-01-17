@@ -307,8 +307,13 @@ public class TFEquipment {
 			enable[6] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Bow", true).getBoolean(true);
 			enable[7] = ThermalFoundation.CONFIG.getConfiguration().get(category, "FishingRod", true).getBoolean(true);
 			enable[8] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", true).getBoolean(true);
-			enable[9] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
-			enable[10] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
+
+			// TODO: Add Hammer/Shield
+			// enable[9] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
+			// enable[10] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
+
+			enable[9] = false;
+			enable[10] = false;
 
 			for (int i = 0; i < enable.length; i++) {
 				enable[i] &= !TFProps.disableAllTools;
@@ -373,13 +378,13 @@ public class TFEquipment {
 
 			/* HAMMER */
 			itemHammer.setUnlocalizedName(TOOL + "Hammer").setCreativeTab(ThermalFoundation.tabTools);
-			itemHammer.setShowInCreative(enable[9] | TFProps.showDisabledEquipment);
+			itemHammer.setShowInCreative(enable[9]); //| TFProps.showDisabledEquipment);
 			itemHammer.setRegistryName("tool.hammer_" + name);
 			GameRegistry.register(itemHammer);
 
 			/* SHIELD */
 			itemShield.setUnlocalizedName(TOOL + "Shield").setCreativeTab(ThermalFoundation.tabTools);
-			itemShield.setShowInCreative(enable[10] | TFProps.showDisabledEquipment);
+			itemShield.setShowInCreative(enable[10]); //| TFProps.showDisabledEquipment);
 			itemShield.setRegistryName("tool.shield_" + name);
 			GameRegistry.register(itemShield);
 
@@ -565,11 +570,16 @@ public class TFEquipment {
 				enable[2] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shears", true).getBoolean(true);
 			}
 			enable[3] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", true).getBoolean(true);
-			enable[4] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
 
-			if (this != WOOD) {
-				enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
-			}
+			// TODO: Add Hammer/Shield
+			// enable[4] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
+
+			// if (this != WOOD) {
+			// enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
+			// }
+			enable[4] = false;
+			enable[5] = false;
+
 			for (int i = 0; i < enable.length; i++) {
 				enable[i] &= !TFProps.disableAllTools;
 			}
@@ -611,14 +621,14 @@ public class TFEquipment {
 
 			/* HAMMER */
 			itemHammer.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Hammer").setCreativeTab(ThermalFoundation.tabTools);
-			itemHammer.setShowInCreative(enable[4] | TFProps.showDisabledEquipment);
+			itemHammer.setShowInCreative(enable[4]); //| TFProps.showDisabledEquipment);
 			itemHammer.setRegistryName("tool.hammer_" + name);
 			GameRegistry.register(itemHammer);
 
 			/* SHIELD */
 			if (itemShield instanceof ItemShieldAdv) {
-				((ItemShieldAdv)itemShield).setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shield").setCreativeTab(ThermalFoundation.tabTools);
-				((ItemShieldAdv)itemShield).setShowInCreative(enable[5] | TFProps.showDisabledEquipment);
+				((ItemShieldAdv) itemShield).setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shield").setCreativeTab(ThermalFoundation.tabTools);
+				((ItemShieldAdv) itemShield).setShowInCreative(enable[5]); //| TFProps.showDisabledEquipment);
 				itemShield.setRegistryName("tool.shield_" + name);
 				GameRegistry.register(itemShield);
 			}

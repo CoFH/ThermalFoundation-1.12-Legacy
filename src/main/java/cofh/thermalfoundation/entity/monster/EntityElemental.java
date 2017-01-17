@@ -20,12 +20,13 @@ public abstract class EntityElemental extends EntityMob {
 
 	private static final DataParameter<Boolean> ATTACK_MODE = EntityDataManager.<Boolean>createKey(EntityBlizz.class, DataSerializers.BOOLEAN);
 
-	protected static final int SOUND_AMBIENT_FREQUENCY = 400; // How often it does ambient sound loop
+	protected int SOUND_AMBIENT_FREQUENCY = 400; // How often it does ambient sound loop
 
 	protected float heightOffset = 0.5F;
 	protected int heightOffsetUpdateTime;
 
 	protected EnumParticleTypes ambientParticle;
+	protected SoundEvent ambientSound;
 
 	public EntityElemental(World world) {
 
@@ -89,6 +90,12 @@ public abstract class EntityElemental extends EntityMob {
 			}
 			return i <= this.rand.nextInt(getSpawnLightLevel());
 		}
+	}
+
+	@Override
+	protected SoundEvent getAmbientSound() {
+
+		return ambientSound;
 	}
 
 	@Override

@@ -13,14 +13,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RenderEntityBlizz extends RenderLiving<EntityBlizz> {
 
 	private static ResourceLocation texture;
+	private static ResourceLocation textureXmas;
 
-	public static void initialize() {
-
-		if (HolidayHelper.isChristmas()) {
-			texture = new ResourceLocation("thermalfoundation:textures/entity/" + "blizz_xmas.png");
-			return;
-		}
+	static {
 		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "blizz.png");
+		textureXmas = new ResourceLocation("thermalfoundation:textures/entity/" + "blizz_xmas.png");
 	}
 
 	public RenderEntityBlizz(RenderManager renderManager) {
@@ -37,7 +34,7 @@ public class RenderEntityBlizz extends RenderLiving<EntityBlizz> {
 	@Override
 	protected ResourceLocation getEntityTexture(EntityBlizz par1Entity) {
 
-		return texture;
+		return HolidayHelper.isChristmas() ? textureXmas : texture;
 	}
 
 	protected void doRenderBlizz(EntityBlizz entity, double x, double y, double z, float entityYaw, float partialTicks) {

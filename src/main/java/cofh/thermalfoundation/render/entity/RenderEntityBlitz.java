@@ -13,8 +13,7 @@ public class RenderEntityBlitz extends RenderLiving<EntityBlitz> {
 
 	private static ResourceLocation texture;
 
-	public static void initialize() {
-
+	static {
 		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "blitz.png");
 	}
 

@@ -90,7 +90,9 @@ public class EntityBasalz extends EntityElemental {
 	public EntityBasalz(World world) {
 
 		super(world);
+
 		ambientParticle = EnumParticleTypes.TOWN_AURA;
+		ambientSound = TFSounds.BASALZ_AMBIENT;
 	}
 
 	@Override

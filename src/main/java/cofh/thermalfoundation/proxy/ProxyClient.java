@@ -1,8 +1,5 @@
 package cofh.thermalfoundation.proxy;
 
-import codechicken.lib.model.ModelRegistryHelper;
-import codechicken.lib.model.SimpleBakedItemModel;
-import codechicken.lib.render.CCIconRegister;
 import cofh.api.core.IModelRegister;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
@@ -14,13 +11,8 @@ import cofh.thermalfoundation.render.entity.RenderEntityAsIcon;
 import cofh.thermalfoundation.render.entity.RenderEntityBasalz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlitz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlizz;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -101,15 +93,6 @@ public class ProxyClient extends Proxy {
 				return new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_basalz");
 			}
 		});
-	}
-
-	public static void registerBucketModel(ItemStack bucket, Fluid fluid) {
-
-		ResourceLocation bucketTexture = new ResourceLocation("thermalfoundation", "items/bucket/bucket_" + fluid.getName());
-		ModelResourceLocation modelLocation = new ModelResourceLocation(bucket.getItem().getRegistryName(), "bucket=" + fluid.getName());
-		ModelLoader.setCustomModelResourceLocation(bucket.getItem(), bucket.getMetadata(), modelLocation);
-		CCIconRegister.registerTexture(bucketTexture);
-		ModelRegistryHelper.register(modelLocation, new SimpleBakedItemModel(bucketTexture));
 	}
 
 	/* HELPERS */

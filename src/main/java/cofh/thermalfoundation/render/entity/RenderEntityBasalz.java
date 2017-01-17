@@ -13,8 +13,7 @@ public class RenderEntityBasalz extends RenderLiving<EntityBasalz> {
 
 	private static ResourceLocation texture;
 
-	public static void initialize() {
-
+	static {
 		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "basalz.png");
 	}
 

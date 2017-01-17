@@ -90,7 +90,9 @@ public class EntityBlitz extends EntityElemental {
 	public EntityBlitz(World world) {
 
 		super(world);
+
 		ambientParticle = EnumParticleTypes.CLOUD;
+		ambientSound = TFSounds.BLITZ_AMBIENT;
 	}
 
 	@Override

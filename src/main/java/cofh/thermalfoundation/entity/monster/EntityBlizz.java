@@ -92,7 +92,9 @@ public class EntityBlizz extends EntityElemental {
 	public EntityBlizz(World world) {
 
 		super(world);
+
 		ambientParticle = EnumParticleTypes.SNOWBALL;
+		ambientSound = TFSounds.BLIZZ_AMBIENT;
 	}
 
 	@Override
