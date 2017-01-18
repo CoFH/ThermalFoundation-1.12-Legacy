@@ -10,7 +10,6 @@ import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.proxy.Proxy;
 import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
-import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -79,8 +78,6 @@ public class ThermalFoundation {
 		TFEquipment.preInit();
 		TFFluids.preInit();
 
-		LexiconManager.preInit();
-
 		proxy.preInit(event);
 	}
 
@@ -117,8 +114,6 @@ public class ThermalFoundation {
 
 		IMCHandler.instance.handleIMC(FMLInterModComms.fetchRuntimeMessages(this));
 
-		LexiconManager.loadComplete();
-
 		TFProps.loadComplete();
 		CONFIG.cleanUp(false, true);
 		CONFIG_CLIENT.cleanUp(false, true);
@@ -150,7 +145,7 @@ public class ThermalFoundation {
 	private void addWorldGeneration() {
 
 		File worldGenOres;
-		String worldGenPath = "assets/thermalfoundation/world/";
+		String worldGenPath = "assets/" + MOD_ID + "/world/";
 		String worldGenOre = "thermalfoundation_ores.json";
 
 		if (!CONFIG.getConfiguration().getBoolean("GenerateDefaultFiles", "World", true, "If enabled, Thermal Foundation will create default world generation files - if it cannot find existing ones. Only disable this if you know what you are doing.")) {

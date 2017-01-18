@@ -22,13 +22,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityBasalzBolt extends EntityThrowable {
 
+	public static PotionEffect basalzEffect = new PotionEffectBasalz(5 * 20, 2);
+
 	public static void initialize(int id) {
 
 		EntityRegistry.registerModEntity(EntityBasalzBolt.class, "basalzBolt", id, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
 	}
-
-	public static DamageSource basalzDamage = new DamageSourceBasalz();
-	public static PotionEffect basalzEffect = new PotionEffectBasalz(5 * 20, 2);
 
 	/* REQUIRED CONSTRUCTOR */
 	public EntityBasalzBolt(World world) {

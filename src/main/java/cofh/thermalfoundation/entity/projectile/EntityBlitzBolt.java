@@ -22,13 +22,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityBlitzBolt extends EntityThrowable {
 
+	public static PotionEffect blitzEffect = new PotionEffectBlitz(5 * 20, 2);
+
 	public static void initialize(int id) {
 
 		EntityRegistry.registerModEntity(EntityBlitzBolt.class, "blitz_bolt", id, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
 	}
-
-	public static DamageSource blitzDamage = new DamageSourceBlitz();
-	public static PotionEffect blitzEffect = new PotionEffectBlitz(5 * 20, 2);
 
 	/* REQUIRED CONSTRUCTOR */
 	public EntityBlitzBolt(World world) {

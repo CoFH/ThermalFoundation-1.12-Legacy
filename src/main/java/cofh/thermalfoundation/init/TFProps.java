@@ -2,6 +2,7 @@ package cofh.thermalfoundation.init;
 
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.gui.CreativeTabTF;
+import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.item.ItemStack;
 
 public class TFProps {
@@ -76,9 +77,13 @@ public class TFProps {
 				};
 			}
 		}
+
+		LexiconManager.initialize();
 	}
 
 	public static void loadComplete() {
+
+		LexiconManager.loadComplete();
 
 		String prefix = "config.thermalfoundation.";
 		String[] categoryNames = ThermalFoundation.CONFIG.getCategoryNames().toArray(new String[ThermalFoundation.CONFIG.getCategoryNames().size()]);

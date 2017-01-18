@@ -193,6 +193,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		}
 
 		public int getMetadata() {
+
 			return this.metadata;
 		}
 
