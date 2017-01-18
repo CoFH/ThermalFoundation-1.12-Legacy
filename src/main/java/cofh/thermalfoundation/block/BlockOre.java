@@ -67,6 +67,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		}
 	}
 
+	/* TYPE METHODS */
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 

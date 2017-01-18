@@ -65,18 +65,37 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 		}
 	}
 
+	/* TYPE METHODS */
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
 		return this.getDefaultState().withProperty(VARIANT, BlockFlower.Type.byMetadata(meta));
 	}
 
+	@Override
+	public int getMetaFromState(IBlockState state) {
+
+		return state.getValue(VARIANT).getMetadata();
+	}
+
+	@Override
+	public int damageDropped(IBlockState state) {
+
+		return state.getValue(VARIANT).getMetadata();
+	}
+
+	/* BLOCK METHODS */
 	protected void checkAndDropBlock(World world, BlockPos pos, IBlockState state) {
 
 		if (!canBlockStay(world, pos, state)) {
 			dropBlockAsItem(world, pos, state, 0);
 			world.setBlockToAir(pos);
 		}
+	}
+
+	protected boolean canSustain(Block ground) {
+
+		return ground == Blocks.GRASS || ground == Blocks.DIRT || ground == Blocks.FARMLAND;
 	}
 
 	@Override
@@ -90,18 +109,6 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 
 		checkAndDropBlock(world, pos, state);
-	}
-
-	@Override
-	public int getMetaFromState(IBlockState state) {
-
-		return state.getValue(VARIANT).getMetadata();
-	}
-
-	@Override
-	public int damageDropped(IBlockState state) {
-
-		return state.getValue(VARIANT).getMetadata();
 	}
 
 	@Override
@@ -125,11 +132,6 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 
 		IBlockState soil = worldIn.getBlockState(pos.down());
 		return super.canPlaceBlockAt(worldIn, pos) && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
-	}
-
-	protected boolean canSustain(Block ground) {
-
-		return ground == Blocks.GRASS || ground == Blocks.DIRT || ground == Blocks.FARMLAND;
 	}
 
 	@Override

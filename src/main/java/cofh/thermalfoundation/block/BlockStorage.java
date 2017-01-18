@@ -71,6 +71,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		}
 	}
 
+	/* TYPE METHODS */
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
@@ -87,6 +88,31 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	public int damageDropped(IBlockState state) {
 
 		return state.getValue(VARIANT).getMetadata();
+	}
+
+	/* BLOCK METHODS */
+	@Override
+	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type) {
+
+		return false;
+	}
+
+	@Override
+	public boolean canProvidePower(IBlockState state) {
+
+		return true;
+	}
+
+	@Override
+	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon) {
+
+		return true;
+	}
+
+	@Override
+	public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
+
+		return true;
 	}
 
 	@Override
@@ -112,30 +138,6 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 
 		IBlockState state = world.getBlockState(pos);
 		return Type.byMetadata(state.getBlock().getMetaFromState(state)).resistance;
-	}
-
-	@Override
-	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type) {
-
-		return false;
-	}
-
-	@Override
-	public boolean canProvidePower(IBlockState state) {
-
-		return true;
-	}
-
-	@Override
-	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon) {
-
-		return true;
-	}
-
-	@Override
-	public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
-
-		return true;
 	}
 
 	/* IModelRegister */

@@ -60,6 +60,7 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 		}
 	}
 
+	/* TYPE METHODS */
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
