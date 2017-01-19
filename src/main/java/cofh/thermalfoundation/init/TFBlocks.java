@@ -49,6 +49,7 @@ public class TFBlocks {
 		for (int i = 0; i < initList.size(); i++) {
 			initList.get(i).postInit();
 		}
+		initList.clear();
 	}
 
 	static ArrayList<IInitializer> initList = new ArrayList<IInitializer>();
