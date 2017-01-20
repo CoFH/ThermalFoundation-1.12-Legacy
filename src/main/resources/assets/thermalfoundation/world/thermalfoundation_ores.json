@@ -1,115 +1,154 @@
 {
-	"copper": {
-		"template": "uniform",
-		"block": "thermalfoundation:ore",
-		"clusterSize": 8,
-		"numClusters": 8,
-		"minHeight": 40,
-		"maxHeight": 75,
-		"retrogen": "true",
-		"biomeRestriction": "none",
-		"biomes": ["all"],
-		"dimensionRestriction": "blacklist",
-		"dimensions": [-1, 1]
-	},
-	"tin": {
-		"template": "uniform",
-		"block": {
-			"name": "thermalfoundation:ore",
-			"metadata": 1
+	"populate": {
+		"copper": {
+			"distribution": "uniform",
+			"generator": {
+				"block": "thermalfoundation:ore",
+				"material": "stone",
+				"clusterSize": 8
+			},
+			"clusterCount": 8,
+			"minHeight": 40,
+			"maxHeight": 75,
+			"retrogen": "true",
+			"biomeRestriction": "none",
+			"biomes": [],
+			"dimensionRestriction": "blacklist",
+			"dimensions": [-1,
+				1
+			]
 		},
-		"clusterSize": 8,
-		"numClusters": 6,
-		"minHeight": 20,
-		"maxHeight": 55,
-		"retrogen": "true",
-		"biomeRestriction": "none",
-		"biomes": ["all"],
-		"dimensionRestriction": "blacklist",
-		"dimensions": [-1, 1]
-	},
-	"silver": {
-		"template": "uniform",
-		"block": [{
-			"name": "thermalfoundation:ore",
-			"metadata": 2,
-			"weight": 80
-		}, {
-			"name": "thermalfoundation:ore",
-			"metadata": 3,
-			"weight": 20
-		}],
-		"clusterSize": 8,
-		"numClusters": 3,
-		"minHeight": 5,
-		"maxHeight": 30,
-		"retrogen": "true",
-		"biomeRestriction": "none",
-		"biomes": ["all"],
-		"dimensionRestriction": "blacklist",
-		"dimensions": [-1, 1]
-	},
-	"lead": {
-		"template": "uniform",
-		"block": [{
-			"name": "thermalfoundation:ore",
-			"metadata": 3,
-			"weight": 90
-		}, {
-			"name": "thermalfoundation:ore",
-			"metadata": 2,
-			"weight": 10
-		}],
-		"clusterSize": 8,
-		"numClusters": 4,
-		"minHeight": 10,
-		"maxHeight": 35,
-		"retrogen": "true",
-		"biomeRestriction": "none",
-		"biomes": ["all"],
-		"dimensionRestriction": "blacklist",
-		"dimensions": [-1, 1]
-	},
-	"nickel": {
-		"template": "uniform",
-		"block": {
-			"name": "thermalfoundation:ore",
-			"metadata": 4
+		"tin": {
+			"distribution": "uniform",
+			"generator": {
+				"block": {
+					"name": "thermalfoundation:ore",
+					"metadata": 1
+				},
+				"material": "stone",
+				"clusterSize": 8
+			},
+			"clusterCount": 7,
+			"minHeight": 20,
+			"maxHeight": 55,
+			"retrogen": "true",
+			"biomeRestriction": "none",
+			"biomes": [],
+			"dimensionRestriction": "blacklist",
+			"dimensions": [-1,
+				1
+			]
 		},
-		"clusterSize": 4,
-		"numClusters": 2,
-		"minHeight": 5,
-		"maxHeight": 20,
-		"retrogen": "true",
-		"biomeRestriction": "none",
-		"biomes": ["all"],
-		"dimensionRestriction": "blacklist",
-		"dimensions": [-1, 1]
-	},
-	"copper_ocean": {
-		"template": "uniform",
-		"block": "thermalfoundation:ore",
-		"clusterSize": 8,
-		"numClusters": 4,
-		"minHeight": 20,
-		"maxHeight": 55,
-		"retrogen": "true",
-		"biomeRestriction": "whitelist",
-		"biomes": ["ocean"],
-		"dimensionRestriction": "blacklist",
-		"dimensions": [-1, 1]
-	},
-	"copper_high": {
-		"template": "uniform",
-		"block": "thermalfoundation:ore",
-		"clusterSize": 8,
-		"numClusters": 8,
-		"minHeight": 48,
-		"maxHeight": 96,
-		"retrogen": "true",
-		"biomeRestriction": "none",
-		"biomes": ["all"],
-		"dimensionRestriction": "blacklist",
-		"dimensions": [-1, 1]
+		"silver": {
+			"distribution": "uniform",
+			"generator": {
+				"block": [{
+					"name": "thermalfoundation:ore",
+					"metadata": 2,
+					"weight": 80
+				}, {
+					"name": "thermalfoundation:ore",
+					"metadata": 3,
+					"weight": 20
+				}],
+				"material": "stone",
+				"clusterSize": 8
+			},
+			"clusterCount": 4,
+			"minHeight": 5,
+			"maxHeight": 30,
+			"retrogen": "true",
+			"biomeRestriction": "none",
+			"biomes": [],
+			"dimensionRestriction": "blacklist",
+			"dimensions": [-1,
+				1
+			]
+		},
+		"lead": {
+			"distribution": "uniform",
+			"generator": {
+				"block": [{
+					"name": "thermalfoundation:ore",
+					"metadata": 3,
+					"weight": 90
+				}, {
+					"name": "thermalfoundation:ore",
+					"metadata": 2,
+					"weight": 10
+				}],
+				"material": "stone",
+				"clusterSize": 8
+			},
+			"clusterCount": 4,
+			"minHeight": 10,
+			"maxHeight": 35,
+			"retrogen": "true",
+			"biomeRestriction": "none",
+			"biomes": [],
+			"dimensionRestriction": "blacklist",
+			"dimensions": [-1,
+				1
+			]
+		},
+		"nickel": {
+			"distribution": "uniform",
+			"generator": {
+				"block": {
+					"name": "thermalfoundation:ore",
+					"metadata": 4
+				},
+				"material": "stone",
+				"clusterSize": 4
+			},
+			"clusterCount": 2,
+			"minHeight": 5,
+			"maxHeight": 20,
+			"retrogen": "true",
+			"biomeRestriction": "none",
+			"biomes": [],
+			"dimensionRestriction": "blacklist",
+			"dimensions": [-1,
+				1
+			]
+		},
+		"copper_ocean": {
+			"distribution": "uniform",
+			"generator": {
+				"block": "thermalfoundation:ore",
+				"material": "stone",
+				"clusterSize": 8
+			},
+			"clusterCount": 4,
+			"minHeight": 20,
+			"maxHeight": 55,
+			"retrogen": "true",
+			"biomeRestriction": "whitelist",
+			"biomes": [
+				"ocean"
+			],
+			"dimensionRestriction": "blacklist",
+			"dimensions": [-1,
+				1
+			]
+		},
+		"copper_high": {
+			"distribution": "uniform",
+			"generator": {
+				"block": "thermalfoundation:ore",
+				"material": "stone",
+				"clusterSize": 8
+			},
+			"clusterCount": 8,
+			"minHeight": 48,
+			"maxHeight": 96,
+			"retrogen": "true",
+			"biomeRestriction": "none",
+			"biomes": [],
+			"dimensionRestriction": "blacklist",
+			"dimensions": [-1,
+				1
+			]
+		}
 	}
 }

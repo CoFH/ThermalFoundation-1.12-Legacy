@@ -172,8 +172,8 @@ public class ItemMaterial extends ItemCoFHBase implements IInitializer {
 		addRecipe(ShapelessRecipe(cloneStack(dustElectrum, 2), new Object[] { "dustGold", "dustSilver" }));
 		addRecipe(ShapelessRecipe(cloneStack(dustInvar, 3), new Object[] { "dustIron", "dustIron", "dustNickel" }));
 		addRecipe(ShapelessRecipe(cloneStack(dustBronze, 4), new Object[] { "dustCopper", "dustCopper", "dustCopper", "dustTin" }));
-		addRecipe(ShapelessRecipe(cloneStack(dustSignalum, 4), new Object[] { "dustCopper", "dustCopper", "dustCopper", "dustSilver", "bucketRedstone" }));
-		addRecipe(ShapelessRecipe(cloneStack(dustLumium, 4), new Object[] { "dustTin", "dustTin", "dustTin", "dustSilver", "bucketGlowstone" }));
+		addRecipe(ShapelessRecipe(cloneStack(dustSignalum, 4), new Object[] { "dustCopper", "dustCopper", "dustSilver", "dustSilver", "bucketRedstone" }));
+		addRecipe(ShapelessRecipe(cloneStack(dustLumium, 4), new Object[] { "dustTin", "dustTin", "dustSilver", "dustSilver", "bucketGlowstone" }));
 		addRecipe(ShapelessRecipe(cloneStack(dustEnderium, 4), new Object[] { "dustTin", "dustTin", "dustSilver", "dustPlatinum", "bucketEnder" }));
 
 		/* Storage */

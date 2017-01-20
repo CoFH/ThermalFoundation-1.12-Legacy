@@ -533,7 +533,7 @@ public class TFEquipment {
 
 		ToolSetVanilla(String name, ToolMaterial material, String ingot) {
 
-			this.name = name;
+			this.name = name.toLowerCase(Locale.US);
 			this.ingot = ingot;
 			TOOL_MATERIAL = material;
 

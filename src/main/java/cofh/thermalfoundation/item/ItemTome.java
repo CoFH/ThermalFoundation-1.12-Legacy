@@ -247,7 +247,7 @@ public class ItemTome extends ItemCoFHBase implements IInitializer, IInventoryCo
 	@Override
 	public boolean postInit() {
 
-		addRecipe(ShapedRecipe(lexicon, new Object[] { " D ", "GBI", " R ", 'D', "gemDiamond", 'G', "ingotGold", 'B', Items.BOOK, 'I', "ingotIron", 'R', "dustRedstone" }));
+		addRecipe(ShapedRecipe(lexicon,  " D ", "GBI", " R ", 'D', "gemDiamond", 'G', "ingotGold", 'B', Items.BOOK, 'I', "ingotIron", 'R', "dustRedstone" ));
 
 		return true;
 	}

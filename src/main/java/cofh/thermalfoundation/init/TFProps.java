@@ -103,8 +103,6 @@ public class TFProps {
 
 	/* GENERAL */
 	public static boolean dropSulfurFireImmuneMobs = true;
-
-	/* PROPERTIES */
 	public static int dustPyrotheumFuel = 24000;
 
 	/* RENDER */

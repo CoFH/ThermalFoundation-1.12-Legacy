@@ -78,7 +78,7 @@ public class ItemMeter extends ItemCoFHBase implements IInitializer {
 			TileEntity tile = world.getTileEntity(pos);
 			if (tile instanceof ITileInfo) {
 				if (ServerHelper.isServerWorld(world)) {
-					((ITileInfo) tile).getTileInfo(info, world, pos, side, player, false);
+					((ITileInfo) tile).getTileInfo(info, side, player, false);
 					ChatHelper.sendIndexedChatMessagesToPlayer(player, info);
 				}
 				info.clear();
