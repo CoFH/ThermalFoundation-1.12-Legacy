@@ -111,10 +111,10 @@ public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
 	@Override
 	public boolean postInit() {
 
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 8), new Object[] { "dustWood", "dustWood", "dustSaltpeter", "crystalSlag" }));
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 32), new Object[] { "dustCharcoal", "dustSaltpeter", "crystalSlag" }));
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 8), new Object[] { "dustWood", "dustWood", "dustSaltpeter", "crystalSlagRich" }));
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 32), new Object[] { "dustCharcoal", "dustSaltpeter", "crystalSlagRich" }));
+		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlag" ));
+		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 16), "dustCharcoal", "dustSaltpeter", "crystalSlag" ));
+		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlagRich" ));
+		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 16),"dustCharcoal", "dustSaltpeter", "crystalSlagRich" ));
 
 		return true;
 	}
@@ -123,10 +123,5 @@ public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
 	public static ItemStack fertilizerBasic;
 	public static ItemStack fertilizerRich;
 	public static ItemStack fertilizerFlux;
-
-	/* TYPE */
-	enum Type {
-		BASIC, RICH, FLUX
-	}
 
 }

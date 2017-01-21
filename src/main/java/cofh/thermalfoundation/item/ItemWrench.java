@@ -1,6 +1,5 @@
 package cofh.thermalfoundation.item;
 
-import codechicken.lib.raytracer.RayTracer;
 import cofh.api.block.IDismantleable;
 import cofh.api.core.IInitializer;
 import cofh.api.item.IToolHammer;
@@ -28,7 +27,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
@@ -79,8 +78,7 @@ public class ItemWrench extends ItemCoFHBase implements IInitializer, IToolHamme
 		if (state == null) {
 			return EnumActionResult.PASS;
 		}
-		RayTraceResult traceResult = RayTracer.retrace(player);
-		PlayerInteractEvent event = new PlayerInteractEvent.RightClickBlock(player, hand, stack, pos, side, traceResult.hitVec);
+		PlayerInteractEvent event = new PlayerInteractEvent.RightClickBlock(player, hand, stack, pos, side, new Vec3d(hitX, hitY, hitZ));
 		if (MinecraftForge.EVENT_BUS.post(event) || event.getResult() == Result.DENY) {
 			return EnumActionResult.PASS;
 		}

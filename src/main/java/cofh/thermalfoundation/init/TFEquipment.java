@@ -307,12 +307,11 @@ public class TFEquipment {
 			enable[6] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Bow", true).getBoolean(true);
 			enable[7] = ThermalFoundation.CONFIG.getConfiguration().get(category, "FishingRod", true).getBoolean(true);
 			enable[8] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", true).getBoolean(true);
+			enable[9] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
 
-			// TODO: Add Hammer/Shield
-			// enable[9] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
+			// TODO: Add Shield
 			// enable[10] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
 
-			enable[9] = false;
 			enable[10] = false;
 
 			for (int i = 0; i < enable.length; i++) {
@@ -570,14 +569,12 @@ public class TFEquipment {
 				enable[2] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shears", true).getBoolean(true);
 			}
 			enable[3] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", true).getBoolean(true);
+			enable[4] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
 
-			// TODO: Add Hammer/Shield
-			// enable[4] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
-
+			// TODO: Add Shield
 			// if (this != WOOD) {
 			// enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
 			// }
-			enable[4] = false;
 			enable[5] = false;
 
 			for (int i = 0; i < enable.length; i++) {
