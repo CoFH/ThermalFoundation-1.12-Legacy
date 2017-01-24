@@ -4,7 +4,7 @@ import cofh.api.block.IDismantleable;
 import cofh.api.core.IInitializer;
 import cofh.api.item.IToolHammer;
 import cofh.asm.relauncher.Implementable;
-import cofh.core.item.ItemCoFHBase;
+import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.BlockHelper;
 import cofh.lib.util.helpers.ServerHelper;
@@ -43,7 +43,7 @@ import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
 import static cofh.lib.util.helpers.ItemHelper.addRecipe;
 
 @Implementable ({ "buildcraft.api.tools.IToolWrench", "com.brandon3055.draconicevolution.api.ICrystalBinder" })
-public class ItemWrench extends ItemCoFHBase implements IInitializer, IToolHammer {
+public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 	public ItemWrench() {
 

@@ -97,12 +97,6 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 	}
 
 	@Override
-	public int getWeakPower(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
-
-		return getMetaFromState(state) == Type.SIGNALUM.getMetadata() ? 15 : 0;
-	}
-
-	@Override
 	public int quantityDropped(Random rand) {
 
 		return 0;
@@ -229,15 +223,11 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 		glassTin = new ItemStack(this, 1, Type.TIN.getMetadata());
 		glassSilver = new ItemStack(this, 1, Type.SILVER.getMetadata());
 		glassLead = new ItemStack(this, 1, Type.LEAD.getMetadata());
+		glassAluminum = new ItemStack(this, 1, Type.ALUMINUM.getMetadata());
 		glassNickel = new ItemStack(this, 1, Type.NICKEL.getMetadata());
 		glassPlatinum = new ItemStack(this, 1, Type.PLATINUM.getMetadata());
+		glassIridium = new ItemStack(this, 1, Type.IRIDIUM.getMetadata());
 		glassMithril = new ItemStack(this, 1, Type.MITHRIL.getMetadata());
-		glassElectrum = new ItemStack(this, 1, Type.ELECTRUM.getMetadata());
-		glassInvar = new ItemStack(this, 1, Type.INVAR.getMetadata());
-		glassBronze = new ItemStack(this, 1, Type.BRONZE.getMetadata());
-		glassSignalum = new ItemStack(this, 1, Type.SIGNALUM.getMetadata());
-		glassLumium = new ItemStack(this, 1, Type.LUMIUM.getMetadata());
-		glassEnderium = new ItemStack(this, 1, Type.ENDERIUM.getMetadata());
 
 		return true;
 	}
@@ -262,15 +252,11 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 		TIN(1, "tin", glassTin),
 		SILVER(2, "silver", glassSilver, 4),
 		LEAD(3, "lead", glassLead),
-		NICKEL(4, "nickel", glassNickel),
-		PLATINUM(5, "platinum", glassPlatinum, 4, EnumRarity.UNCOMMON),
-		MITHRIL(6, "mithril", glassMithril, 8, EnumRarity.RARE),
-		ELECTRUM(7, "electrum", glassElectrum),
-		INVAR(8, "invar", glassInvar),
-		BRONZE(9, "bronze", glassBronze),
-		SIGNALUM(10, "signalum", glassSignalum, 7, EnumRarity.UNCOMMON),
-		LUMIUM(11, "lumium", glassLumium, 15, EnumRarity.UNCOMMON),
-		ENDERIUM(12, "enderium", glassEnderium, 4, EnumRarity.RARE);
+		ALUMINUM(4, "aluminum", glassAluminum),
+		NICKEL(5, "nickel", glassNickel),
+		PLATINUM(6, "platinum", glassPlatinum, 4, EnumRarity.UNCOMMON),
+		IRIDIUM(7, "iridium", glassIridium, 4, EnumRarity.UNCOMMON),
+		MITHRIL(8, "mithril", glassMithril, 8, EnumRarity.RARE);
 		// @formatter: on
 
 		private static final BlockGlass.Type[] METADATA_LOOKUP = new BlockGlass.Type[values().length];
@@ -347,14 +333,10 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 	public static ItemStack glassTin;
 	public static ItemStack glassSilver;
 	public static ItemStack glassLead;
+	public static ItemStack glassAluminum;
 	public static ItemStack glassNickel;
 	public static ItemStack glassPlatinum;
+	public static ItemStack glassIridium;
 	public static ItemStack glassMithril;
-	public static ItemStack glassElectrum;
-	public static ItemStack glassInvar;
-	public static ItemStack glassBronze;
-	public static ItemStack glassSignalum;
-	public static ItemStack glassLumium;
-	public static ItemStack glassEnderium;
 
 }

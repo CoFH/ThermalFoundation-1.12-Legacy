@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.item;
 
 import cofh.api.core.IInitializer;
-import cofh.core.item.ItemCoFHBase;
+import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
@@ -24,7 +24,7 @@ import java.util.Map;
 import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
 import static cofh.lib.util.helpers.ItemHelper.addRecipe;
 
-public class ItemSecurity extends ItemCoFHBase implements IInitializer {
+public class ItemSecurity extends ItemMulti implements IInitializer {
 
 	public ItemSecurity() {
 

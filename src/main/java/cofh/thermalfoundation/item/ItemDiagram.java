@@ -2,7 +2,7 @@ package cofh.thermalfoundation.item;
 
 import cofh.api.core.IInitializer;
 import cofh.api.tileentity.IPortableData;
-import cofh.core.item.ItemCoFHBase;
+import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
@@ -36,7 +36,7 @@ import java.util.Map;
 import static cofh.lib.util.helpers.ItemHelper.ShapelessRecipe;
 import static cofh.lib.util.helpers.ItemHelper.addRecipe;
 
-public class ItemDiagram extends ItemCoFHBase implements IInitializer {
+public class ItemDiagram extends ItemMulti implements IInitializer {
 
 	public ItemDiagram() {
 

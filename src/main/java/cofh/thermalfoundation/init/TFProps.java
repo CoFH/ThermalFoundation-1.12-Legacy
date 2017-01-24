@@ -52,13 +52,13 @@ public class TFProps {
 		if (armorTab) {
 			ThermalFoundation.tabArmor = ThermalFoundation.tabCommon;
 		} else {
-			if (!disableAllArmor || (disableAllArmor && showDisabledEquipment)) {
+			if (!disableAllArmor || showDisabledEquipment) {
 				ThermalFoundation.tabArmor = new CreativeTabTF("Armor") {
 
 					@Override
 					protected ItemStack getStack() {
 
-						return TFEquipment.ArmorSet.INVAR.armorPlate;
+						return TFEquipment.ArmorSet.INVAR.armorChestplate;
 					}
 				};
 			}
@@ -66,7 +66,7 @@ public class TFProps {
 		if (toolTab) {
 			ThermalFoundation.tabTools = ThermalFoundation.tabCommon;
 		} else {
-			if (!disableAllTools || (disableAllTools && showDisabledEquipment)) {
+			if (!disableAllTools || showDisabledEquipment) {
 				ThermalFoundation.tabTools = new CreativeTabTF("Tools") {
 
 					@Override

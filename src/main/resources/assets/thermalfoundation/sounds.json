@@ -1,68 +1,88 @@
 {
 	"mobBlizzAmbient": {
 		"category": "hostile",
-		"sounds": [{
-			"name": "thermalfoundation:mob/blizz/ambient",
-			"stream": false
-		}, {
-			"name": "thermalfoundation:mob/blizz/breathe0",
-			"stream": false
-		}, {
-			"name": "thermalfoundation:mob/blizz/breathe1",
-			"stream": false
-		}, {
-			"name": "thermalfoundation:mob/blizz/breathe2",
-			"stream": false
-		}]
+		"sounds": [
+			{
+				"name": "thermalfoundation:mob/blizz/ambient",
+				"stream": false
+			},
+			{
+				"name": "thermalfoundation:mob/blizz/breathe0",
+				"stream": false
+			},
+			{
+				"name": "thermalfoundation:mob/blizz/breathe1",
+				"stream": false
+			},
+			{
+				"name": "thermalfoundation:mob/blizz/breathe2",
+				"stream": false
+			}
+		]
 	},
 	"mobBlizzAttack": {
 		"category": "hostile",
-		"sounds": [{
-			"name": "thermalfoundation:mob/blizz/attack",
-			"stream": false
-		}]
+		"sounds": [
+			{
+				"name": "thermalfoundation:mob/blizz/attack",
+				"stream": false
+			}
+		]
 	},
 	"mobBlitzAmbient": {
 		"category": "hostile",
-		"sounds": [{
-			"name": "thermalfoundation:mob/blitz/ambient",
-			"stream": false
-		}, {
-			"name": "thermalfoundation:mob/blitz/breathe0",
-			"stream": false
-		}, {
-			"name": "thermalfoundation:mob/blitz/breathe1",
-			"stream": false
-		}, {
-			"name": "thermalfoundation:mob/blitz/breathe2",
-			"stream": false
-		}]
+		"sounds": [
+			{
+				"name": "thermalfoundation:mob/blitz/ambient",
+				"stream": false
+			},
+			{
+				"name": "thermalfoundation:mob/blitz/breathe0",
+				"stream": false
+			},
+			{
+				"name": "thermalfoundation:mob/blitz/breathe1",
+				"stream": false
+			},
+			{
+				"name": "thermalfoundation:mob/blitz/breathe2",
+				"stream": false
+			}
+		]
 	},
 	"mobBlitzAttack": {
 		"category": "hostile",
-		"sounds": [{
-			"name": "thermalfoundation:mob/blitz/attack",
-			"stream": false
-		}]
+		"sounds": [
+			{
+				"name": "thermalfoundation:mob/blitz/attack",
+				"stream": false
+			}
+		]
 	},
 	"mobBasalzAmbient": {
 		"category": "hostile",
-		"sounds": [{
-			"name": "thermalfoundation:mob/basalz/ambient",
-			"stream": false
-		}, {
-			"name": "thermalfoundation:mob/basalz/breathe0",
-			"stream": false
-		}, {
-			"name": "thermalfoundation:mob/basalz/breathe1",
-			"stream": false
-		}]
+		"sounds": [
+			{
+				"name": "thermalfoundation:mob/basalz/ambient",
+				"stream": false
+			},
+			{
+				"name": "thermalfoundation:mob/basalz/breathe0",
+				"stream": false
+			},
+			{
+				"name": "thermalfoundation:mob/basalz/breathe1",
+				"stream": false
+			}
+		]
 	},
 	"mobBasalzAttack": {
 		"category": "hostile",
-		"sounds": [{
-			"name": "thermalfoundation:mob/basalz/attack",
-			"stream": false
-		}]
+		"sounds": [
+			{
+				"name": "thermalfoundation:mob/basalz/attack",
+				"stream": false
+			}
+		]
 	}
 }

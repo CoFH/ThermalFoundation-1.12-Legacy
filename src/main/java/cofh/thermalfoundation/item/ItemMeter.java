@@ -5,7 +5,7 @@ import cofh.api.block.IBlockInfo;
 import cofh.api.core.IInitializer;
 import cofh.api.tileentity.ITileInfo;
 import cofh.core.chat.ChatHelper;
-import cofh.core.item.ItemCoFHBase;
+import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
@@ -36,7 +36,7 @@ import java.util.Map;
 import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
 import static cofh.lib.util.helpers.ItemHelper.addRecipe;
 
-public class ItemMeter extends ItemCoFHBase implements IInitializer {
+public class ItemMeter extends ItemMulti implements IInitializer {
 
 	public ItemMeter() {
 

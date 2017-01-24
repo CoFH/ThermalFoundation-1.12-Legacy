@@ -3,7 +3,7 @@ package cofh.thermalfoundation.item;
 import cofh.api.core.IInitializer;
 import cofh.api.item.IInventoryContainerItem;
 import cofh.api.item.IMultiModeItem;
-import cofh.core.item.ItemCoFHBase;
+import cofh.core.item.ItemMulti;
 import cofh.core.util.CoreUtils;
 import cofh.core.util.KeyBindingMultiMode;
 import cofh.core.util.StateMapper;
@@ -40,7 +40,7 @@ import java.util.Map;
 import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
 import static cofh.lib.util.helpers.ItemHelper.addRecipe;
 
-public class ItemTome extends ItemCoFHBase implements IInitializer, IInventoryContainerItem, IMultiModeItem {
+public class ItemTome extends ItemMulti implements IInitializer, IInventoryContainerItem, IMultiModeItem {
 
 	public ItemTome() {
 
@@ -247,7 +247,7 @@ public class ItemTome extends ItemCoFHBase implements IInitializer, IInventoryCo
 	@Override
 	public boolean postInit() {
 
-		addRecipe(ShapedRecipe(lexicon,  " D ", "GBI", " R ", 'D', "gemDiamond", 'G', "ingotGold", 'B', Items.BOOK, 'I', "ingotIron", 'R', "dustRedstone" ));
+		addRecipe(ShapedRecipe(lexicon, " D ", "GBI", " R ", 'D', "gemDiamond", 'G', "ingotGold", 'B', Items.BOOK, 'I', "ingotIron", 'R', "dustRedstone"));
 
 		return true;
 	}

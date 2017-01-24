@@ -1,6 +1,0 @@
-{
-	"parent": "thermalfoundation:item/tool/copper/copper_bow",
-	"textures": {
-		"layer0": "thermalfoundation:items/tool/copper/copper_bow_0"
-	}
-}

@@ -1,6 +1,0 @@
-{
-	"parent": "thermalfoundation:item/tool/silver/silver_fishing_rod",
-	"textures": {
-		"layer0": "thermalfoundation:items/tool/silver/silver_fishing_rod_cast"
-	}
-}

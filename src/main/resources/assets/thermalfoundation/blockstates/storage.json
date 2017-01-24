@@ -26,6 +26,11 @@
 					"all": "thermalfoundation:blocks/storage/block_lead"
 				}
 			},
+			"aluminum": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_aluminum"
+				}
+			},
 			"nickel": {
 				"textures": {
 					"all": "thermalfoundation:blocks/storage/block_nickel"
@@ -36,39 +41,14 @@
 					"all": "thermalfoundation:blocks/storage/block_platinum"
 				}
 			},
+			"iridium": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_iridium"
+				}
+			},
 			"mithril": {
 				"textures": {
 					"all": "thermalfoundation:blocks/storage/block_mithril"
-				}
-			},
-			"electrum": {
-				"textures": {
-					"all": "thermalfoundation:blocks/storage/block_electrum"
-				}
-			},
-			"invar": {
-				"textures": {
-					"all": "thermalfoundation:blocks/storage/block_invar"
-				}
-			},
-			"bronze": {
-				"textures": {
-					"all": "thermalfoundation:blocks/storage/block_bronze"
-				}
-			},
-			"signalum": {
-				"textures": {
-					"all": "thermalfoundation:blocks/storage/block_signalum"
-				}
-			},
-			"lumium": {
-				"textures": {
-					"all": "thermalfoundation:blocks/storage/block_lumium"
-				}
-			},
-			"enderium": {
-				"textures": {
-					"all": "thermalfoundation:blocks/storage/block_enderium"
 				}
 			}
 		}

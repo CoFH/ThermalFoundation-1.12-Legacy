@@ -49,6 +49,8 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		setHarvestLevel("pickaxe", 2);
 		setHarvestLevel("pickaxe", 1, getStateFromMeta(Type.COPPER.getMetadata()));
 		setHarvestLevel("pickaxe", 1, getStateFromMeta(Type.TIN.getMetadata()));
+		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.PLATINUM.getMetadata()));
+		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.IRIDIUM.getMetadata()));
 		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.MITHRIL.getMetadata()));
 	}
 
@@ -160,9 +162,11 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		TIN(1, "tin", oreTin),
 		SILVER(2, "silver", oreSilver, 4),
 		LEAD(3, "lead", oreLead),
-		NICKEL(4, "nickel", oreNickel),
-		PLATINUM(5, "platinum", orePlatinum, 4, EnumRarity.UNCOMMON),
-		MITHRIL(6, "mithril", oreMithril, 8, EnumRarity.RARE);
+		ALUMINUM(4, "aluminum", oreAluminum),
+		NICKEL(5, "nickel", oreNickel),
+		PLATINUM(6, "platinum", orePlatinum, 4, EnumRarity.UNCOMMON),
+		IRIDIUM(7, "iridium", oreIridium, 4, EnumRarity.UNCOMMON),
+		MITHRIL(8, "mithril", oreMithril, 8, EnumRarity.RARE);
 		// @formatter: on
 
 		private static final BlockOre.Type[] METADATA_LOOKUP = new BlockOre.Type[values().length];
@@ -239,8 +243,10 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 	public static ItemStack oreTin;
 	public static ItemStack oreSilver;
 	public static ItemStack oreLead;
+	public static ItemStack oreAluminum;
 	public static ItemStack oreNickel;
 	public static ItemStack orePlatinum;
+	public static ItemStack oreIridium;
 	public static ItemStack oreMithril;
 
 }

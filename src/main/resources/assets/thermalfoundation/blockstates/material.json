@@ -89,6 +89,11 @@
 					"layer0": "thermalfoundation:items/material/dust_lead"
 				}
 			},
+			"dustaluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_aluminum"
+				}
+			},
 			"dustnickel": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/dust_nickel"
@@ -99,9 +104,19 @@
 					"layer0": "thermalfoundation:items/material/dust_platinum"
 				}
 			},
+			"dustiridium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_iridium"
+				}
+			},
 			"dustmithril": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/dust_mithril"
+				}
+			},
+			"duststeel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_steel"
 				}
 			},
 			"dustelectrum": {
@@ -154,6 +169,11 @@
 					"layer0": "thermalfoundation:items/material/ingot_lead"
 				}
 			},
+			"ingotaluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_aluminum"
+				}
+			},
 			"ingotnickel": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/ingot_nickel"
@@ -164,9 +184,19 @@
 					"layer0": "thermalfoundation:items/material/ingot_platinum"
 				}
 			},
+			"ingotiridium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_iridium"
+				}
+			},
 			"ingotmithril": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/ingot_mithril"
+				}
+			},
+			"ingotsteel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_steel"
 				}
 			},
 			"ingotelectrum": {
@@ -199,9 +229,9 @@
 					"layer0": "thermalfoundation:items/material/ingot_enderium"
 				}
 			},
-			"nuggetiron": {
+			"nuggetdiamond": {
 				"textures": {
-					"layer0": "thermalfoundation:items/material/nugget_iron"
+					"layer0": "thermalfoundation:items/material/nugget_diamond"
 				}
 			},
 			"nuggetcopper": {
@@ -224,6 +254,11 @@
 					"layer0": "thermalfoundation:items/material/nugget_lead"
 				}
 			},
+			"nuggetaluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_aluminum"
+				}
+			},
 			"nuggetnickel": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/nugget_nickel"
@@ -234,9 +269,19 @@
 					"layer0": "thermalfoundation:items/material/nugget_platinum"
 				}
 			},
+			"nuggetiridium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_iridium"
+				}
+			},
 			"nuggetmithril": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/nugget_mithril"
+				}
+			},
+			"nuggetsteel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_steel"
 				}
 			},
 			"nuggetelectrum": {
@@ -299,6 +344,11 @@
 					"layer0": "thermalfoundation:items/material/gear_lead"
 				}
 			},
+			"gearaluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_aluminum"
+				}
+			},
 			"gearnickel": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/gear_nickel"
@@ -309,9 +359,19 @@
 					"layer0": "thermalfoundation:items/material/gear_platinum"
 				}
 			},
+			"geariridium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_iridium"
+				}
+			},
 			"gearmithril": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/gear_mithril"
+				}
+			},
+			"gearsteel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_steel"
 				}
 			},
 			"gearelectrum": {

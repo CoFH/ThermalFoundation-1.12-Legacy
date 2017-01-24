@@ -1,6 +1,0 @@
-{
-	"parent": "thermalfoundation:item/tool/iron/iron_fishing_rod",
-	"textures": {
-		"layer0": "thermalfoundation:items/tool/iron/iron_fishing_rod_cast"
-	}
-}

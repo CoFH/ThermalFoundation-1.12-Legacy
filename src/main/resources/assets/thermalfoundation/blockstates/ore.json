@@ -26,6 +26,11 @@
 					"all": "thermalfoundation:blocks/ore/ore_lead"
 				}
 			},
+			"aluminum": {
+				"textures": {
+					"all": "thermalfoundation:blocks/ore/ore_aluminum"
+				}
+			},
 			"nickel": {
 				"textures": {
 					"all": "thermalfoundation:blocks/ore/ore_nickel"
@@ -34,6 +39,11 @@
 			"platinum": {
 				"textures": {
 					"all": "thermalfoundation:blocks/ore/ore_platinum"
+				}
+			},
+			"iridium": {
+				"textures": {
+					"all": "thermalfoundation:blocks/ore/ore_iridium"
 				}
 			},
 			"mithril": {

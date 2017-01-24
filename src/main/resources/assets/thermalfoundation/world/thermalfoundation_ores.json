@@ -14,7 +14,8 @@
 			"biomeRestriction": "none",
 			"biomes": [],
 			"dimensionRestriction": "blacklist",
-			"dimensions": [-1,
+			"dimensions": [
+				-1,
 				1
 			]
 		},
@@ -35,22 +36,26 @@
 			"biomeRestriction": "none",
 			"biomes": [],
 			"dimensionRestriction": "blacklist",
-			"dimensions": [-1,
+			"dimensions": [
+				-1,
 				1
 			]
 		},
 		"silver": {
 			"distribution": "uniform",
 			"generator": {
-				"block": [{
-					"name": "thermalfoundation:ore",
-					"metadata": 2,
-					"weight": 80
-				}, {
-					"name": "thermalfoundation:ore",
-					"metadata": 3,
-					"weight": 20
-				}],
+				"block": [
+					{
+						"name": "thermalfoundation:ore",
+						"metadata": 2,
+						"weight": 80
+					},
+					{
+						"name": "thermalfoundation:ore",
+						"metadata": 3,
+						"weight": 20
+					}
+				],
 				"material": "stone",
 				"clusterSize": 8
 			},
@@ -61,22 +66,26 @@
 			"biomeRestriction": "none",
 			"biomes": [],
 			"dimensionRestriction": "blacklist",
-			"dimensions": [-1,
+			"dimensions": [
+				-1,
 				1
 			]
 		},
 		"lead": {
 			"distribution": "uniform",
 			"generator": {
-				"block": [{
-					"name": "thermalfoundation:ore",
-					"metadata": 3,
-					"weight": 90
-				}, {
-					"name": "thermalfoundation:ore",
-					"metadata": 2,
-					"weight": 10
-				}],
+				"block": [
+					{
+						"name": "thermalfoundation:ore",
+						"metadata": 3,
+						"weight": 90
+					},
+					{
+						"name": "thermalfoundation:ore",
+						"metadata": 2,
+						"weight": 10
+					}
+				],
 				"material": "stone",
 				"clusterSize": 8
 			},
@@ -87,7 +96,8 @@
 			"biomeRestriction": "none",
 			"biomes": [],
 			"dimensionRestriction": "blacklist",
-			"dimensions": [-1,
+			"dimensions": [
+				-1,
 				1
 			]
 		},
@@ -108,7 +118,8 @@
 			"biomeRestriction": "none",
 			"biomes": [],
 			"dimensionRestriction": "blacklist",
-			"dimensions": [-1,
+			"dimensions": [
+				-1,
 				1
 			]
 		},
@@ -128,7 +139,8 @@
 				"ocean"
 			],
 			"dimensionRestriction": "blacklist",
-			"dimensions": [-1,
+			"dimensions": [
+				-1,
 				1
 			]
 		},
@@ -146,7 +158,8 @@
 			"biomeRestriction": "none",
 			"biomes": [],
 			"dimensionRestriction": "blacklist",
-			"dimensions": [-1,
+			"dimensions": [
+				-1,
 				1
 			]
 		}

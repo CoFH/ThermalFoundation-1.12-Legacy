@@ -1,6 +1,0 @@
-{
-	"parent": "thermalfoundation:item/tool/lead/lead_bow",
-	"textures": {
-		"layer0": "thermalfoundation:items/tool/lead/lead_bow_0"
-	}
-}

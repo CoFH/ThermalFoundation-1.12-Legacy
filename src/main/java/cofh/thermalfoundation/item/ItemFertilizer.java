@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.item;
 
 import cofh.api.core.IInitializer;
-import cofh.core.item.ItemCoFHBase;
+import cofh.core.item.ItemMulti;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
@@ -19,7 +19,7 @@ import net.minecraftforge.event.ForgeEventFactory;
 import static cofh.lib.util.helpers.ItemHelper.ShapelessRecipe;
 import static cofh.lib.util.helpers.ItemHelper.addRecipe;
 
-public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
+public class ItemFertilizer extends ItemMulti implements IInitializer {
 
 	public ItemFertilizer() {
 
@@ -111,10 +111,10 @@ public class ItemFertilizer extends ItemCoFHBase implements IInitializer {
 	@Override
 	public boolean postInit() {
 
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlag" ));
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 16), "dustCharcoal", "dustSaltpeter", "crystalSlag" ));
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlagRich" ));
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 16),"dustCharcoal", "dustSaltpeter", "crystalSlagRich" ));
+		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlag"));
+		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 16), "dustCharcoal", "dustSaltpeter", "crystalSlag"));
+		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlagRich"));
+		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 16), "dustCharcoal", "dustSaltpeter", "crystalSlagRich"));
 
 		return true;
 	}

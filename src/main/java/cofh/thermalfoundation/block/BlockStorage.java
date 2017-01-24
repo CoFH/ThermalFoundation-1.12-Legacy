@@ -16,7 +16,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
@@ -52,8 +51,9 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		setHarvestLevel("pickaxe", 2);
 		setHarvestLevel("pickaxe", 1, getStateFromMeta(Type.COPPER.getMetadata()));
 		setHarvestLevel("pickaxe", 1, getStateFromMeta(Type.TIN.getMetadata()));
+		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.PLATINUM.getMetadata()));
+		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.IRIDIUM.getMetadata()));
 		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.MITHRIL.getMetadata()));
-		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.ENDERIUM.getMetadata()));
 	}
 
 	@Override
@@ -122,12 +122,6 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	}
 
 	@Override
-	public int getWeakPower(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
-
-		return getMetaFromState(state) == Type.SIGNALUM.getMetadata() ? 15 : 0;
-	}
-
-	@Override
 	public float getBlockHardness(IBlockState state, World world, BlockPos pos) {
 
 		return Type.byMetadata(state.getBlock().getMetaFromState(state)).hardness;
@@ -168,12 +162,6 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		blockNickel = new ItemStack(this, 1, Type.NICKEL.getMetadata());
 		blockPlatinum = new ItemStack(this, 1, Type.PLATINUM.getMetadata());
 		blockMithril = new ItemStack(this, 1, Type.MITHRIL.getMetadata());
-		blockElectrum = new ItemStack(this, 1, Type.ELECTRUM.getMetadata());
-		blockInvar = new ItemStack(this, 1, Type.INVAR.getMetadata());
-		blockBronze = new ItemStack(this, 1, Type.BRONZE.getMetadata());
-		blockSignalum = new ItemStack(this, 1, Type.SIGNALUM.getMetadata());
-		blockLumium = new ItemStack(this, 1, Type.LUMIUM.getMetadata());
-		blockEnderium = new ItemStack(this, 1, Type.ENDERIUM.getMetadata());
 
 		registerWithHandlers("blockCopper", blockCopper);
 		registerWithHandlers("blockTin", blockTin);
@@ -182,12 +170,6 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		registerWithHandlers("blockNickel", blockNickel);
 		registerWithHandlers("blockPlatinum", blockPlatinum);
 		registerWithHandlers("blockMithril", blockMithril);
-		registerWithHandlers("blockElectrum", blockElectrum);
-		registerWithHandlers("blockInvar", blockInvar);
-		registerWithHandlers("blockBronze", blockBronze);
-		registerWithHandlers("blockSignalum", blockSignalum);
-		registerWithHandlers("blockLumium", blockLumium);
-		registerWithHandlers("blockEnderium", blockEnderium);
 
 		return true;
 	}
@@ -208,12 +190,6 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		addStorageRecipe(blockNickel, "ingotNickel");
 		addStorageRecipe(blockPlatinum, "ingotPlatinum");
 		addStorageRecipe(blockMithril, "ingotMithril");
-		addStorageRecipe(blockElectrum, "ingotElectrum");
-		addStorageRecipe(blockInvar, "ingotInvar");
-		addStorageRecipe(blockBronze, "ingotBronze");
-		addStorageRecipe(blockSignalum, "ingotSignalum");
-		addStorageRecipe(blockLumium, "ingotLumium");
-		addStorageRecipe(blockEnderium, "ingotEnderium");
 
 		return true;
 	}
@@ -226,15 +202,11 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		TIN(1, "tin", blockTin),
 		SILVER(2, "silver", blockSilver, 4),
 		LEAD(3, "lead", blockLead, 4.0F, 12.0F),
-		NICKEL(4, "nickel", blockNickel, 10.0F, 6.0F),
-		PLATINUM(5, "platinum", blockPlatinum, 4, 5.0F, 6.0F, EnumRarity.UNCOMMON),
-		MITHRIL(6, "mithril", blockMithril, 8, 30.0F, 120.0F, EnumRarity.RARE),
-		ELECTRUM(7, "electrum", blockElectrum, 4.0F, 6.0F),
-		INVAR(8, "invar", blockInvar, 20.0F, 12.0F),
-		BRONZE(9, "bronze", blockBronze),
-		SIGNALUM(10, "signalum", blockSignalum, 7, 5.0F, 6.0F, EnumRarity.UNCOMMON),
-		LUMIUM(11, "lumium", blockLumium, 15, 5.0F, 9.0F, EnumRarity.UNCOMMON),
-		ENDERIUM(12, "enderium", blockEnderium, 4, 40.0F, 120.0F, EnumRarity.RARE);
+		ALUMINUM(4, "aluminum", blockAluminum, 4.0F, 6.0F),
+		NICKEL(5, "nickel", blockNickel, 10.0F, 6.0F),
+		PLATINUM(6, "platinum", blockPlatinum, 4, 5.0F, 10.0F, EnumRarity.UNCOMMON),
+		IRIDIUM(7, "iridium", blockPlatinum, 4, 10.0F, 15.0F, EnumRarity.UNCOMMON),
+		MITHRIL(8, "mithril", blockMithril, 8, 30.0F, 120.0F, EnumRarity.RARE);
 		// @formatter: on
 
 		private static final BlockStorage.Type[] METADATA_LOOKUP = new BlockStorage.Type[values().length];
@@ -333,14 +305,10 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	public static ItemStack blockTin;
 	public static ItemStack blockSilver;
 	public static ItemStack blockLead;
+	public static ItemStack blockAluminum;
 	public static ItemStack blockNickel;
 	public static ItemStack blockPlatinum;
+	public static ItemStack blockIridium;
 	public static ItemStack blockMithril;
-	public static ItemStack blockElectrum;
-	public static ItemStack blockInvar;
-	public static ItemStack blockBronze;
-	public static ItemStack blockSignalum;
-	public static ItemStack blockLumium;
-	public static ItemStack blockEnderium;
 
 }
