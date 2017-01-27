@@ -7,7 +7,6 @@ import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -57,7 +56,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] { VARIANT });
+		return new BlockStateContainer(this, VARIANT);
 	}
 
 	@Override
@@ -119,16 +118,20 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		oreTin = new ItemStack(this, 1, Type.TIN.getMetadata());
 		oreSilver = new ItemStack(this, 1, Type.SILVER.getMetadata());
 		oreLead = new ItemStack(this, 1, Type.LEAD.getMetadata());
+		oreAluminum = new ItemStack(this, 1, Type.ALUMINUM.getMetadata());
 		oreNickel = new ItemStack(this, 1, Type.NICKEL.getMetadata());
 		orePlatinum = new ItemStack(this, 1, Type.PLATINUM.getMetadata());
+		oreIridium = new ItemStack(this, 1, Type.IRIDIUM.getMetadata());
 		oreMithril = new ItemStack(this, 1, Type.MITHRIL.getMetadata());
 
 		registerWithHandlers("oreCopper", oreCopper);
 		registerWithHandlers("oreTin", oreTin);
 		registerWithHandlers("oreSilver", oreSilver);
 		registerWithHandlers("oreLead", oreLead);
+		registerWithHandlers("oreAluminum", oreAluminum);
 		registerWithHandlers("oreNickel", oreNickel);
 		registerWithHandlers("orePlatinum", orePlatinum);
+		registerWithHandlers("oreIridium", oreIridium);
 		registerWithHandlers("oreMithril", oreMithril);
 
 		return true;

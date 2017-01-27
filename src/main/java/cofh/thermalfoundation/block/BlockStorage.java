@@ -6,7 +6,6 @@ import cofh.core.block.BlockCore;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -59,7 +58,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] { VARIANT });
+		return new BlockStateContainer(this, VARIANT);
 	}
 
 	@Override
@@ -159,16 +158,20 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		blockTin = new ItemStack(this, 1, Type.TIN.getMetadata());
 		blockSilver = new ItemStack(this, 1, Type.SILVER.getMetadata());
 		blockLead = new ItemStack(this, 1, Type.LEAD.getMetadata());
+		blockAluminum = new ItemStack(this, 1, Type.ALUMINUM.getMetadata());
 		blockNickel = new ItemStack(this, 1, Type.NICKEL.getMetadata());
 		blockPlatinum = new ItemStack(this, 1, Type.PLATINUM.getMetadata());
+		blockIridium = new ItemStack(this, 1, Type.IRIDIUM.getMetadata());
 		blockMithril = new ItemStack(this, 1, Type.MITHRIL.getMetadata());
 
 		registerWithHandlers("blockCopper", blockCopper);
 		registerWithHandlers("blockTin", blockTin);
 		registerWithHandlers("blockSilver", blockSilver);
 		registerWithHandlers("blockLead", blockLead);
+		registerWithHandlers("blockAluminum", blockAluminum);
 		registerWithHandlers("blockNickel", blockNickel);
 		registerWithHandlers("blockPlatinum", blockPlatinum);
+		registerWithHandlers("blockIridium", blockIridium);
 		registerWithHandlers("blockMithril", blockMithril);
 
 		return true;

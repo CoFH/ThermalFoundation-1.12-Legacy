@@ -1,17 +1,16 @@
 package cofh.thermalfoundation.block;
 
-import codechicken.lib.raytracer.RayTracer;
 import cofh.api.block.IDismantleable;
 import cofh.api.core.IInitializer;
 import cofh.api.core.IModelRegister;
 import cofh.core.block.BlockCore;
 import cofh.core.util.CoreUtils;
+import cofh.lib.util.RayTracer;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.WrenchHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -60,7 +59,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] { VARIANT });
+		return new BlockStateContainer(this, VARIANT);
 	}
 
 	@Override

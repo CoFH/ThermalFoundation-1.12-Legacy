@@ -7,12 +7,12 @@ import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
@@ -24,7 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-import static cofh.lib.util.helpers.ItemHelper.addSmelting;
+import static cofh.lib.util.helpers.ItemHelper.*;
 
 public class BlockRockwool extends BlockCore implements IInitializer, IModelRegister {
 
@@ -48,7 +48,7 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] { VARIANT });
+		return new BlockStateContainer(this, VARIANT);
 	}
 
 	@Override
@@ -131,6 +131,9 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 
 		addSmelting(ItemMaterial.crystalSlag, rockwoolSilver, 0.0F);
 
+		for (int i = 0; i < 16; i++) {
+			addRecipe(ShapelessRecipe(new ItemStack(this, 1, i), this, new ItemStack(Items.DYE, 1, 15 - i)));
+		}
 		return true;
 	}
 

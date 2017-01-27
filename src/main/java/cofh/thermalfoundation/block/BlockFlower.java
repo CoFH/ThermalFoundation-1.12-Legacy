@@ -6,7 +6,6 @@ import cofh.core.block.BlockCore;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -53,7 +52,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	@Override
 	protected BlockStateContainer createBlockState() {
 
-		return new BlockStateContainer(this, new IProperty[] { VARIANT });
+		return new BlockStateContainer(this, VARIANT);
 	}
 
 	@Override

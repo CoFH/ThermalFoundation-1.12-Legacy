@@ -173,7 +173,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addSmelting(ingotNickel, dustNickel, 0.0F);
 		addSmelting(ingotPlatinum, dustPlatinum, 0.0F);
 		addSmelting(ingotIridium, dustIridium, 0.0F);
-		// No Mithril
+		addSmelting(ingotMithril, dustMithril, 0.0F);
 
 		// No Steel
 		addSmelting(ingotElectrum, dustElectrum, 0.0F);
