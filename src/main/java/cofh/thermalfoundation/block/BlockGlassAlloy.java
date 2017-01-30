@@ -251,42 +251,38 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	public enum Type implements IStringSerializable {
 
 		// @formatter:off
-		STEEL(0, "steel", glassSteel),
-		ELECTRUM(1, "electrum", glassElectrum),
-		INVAR(2, "invar", glassInvar),
-		BRONZE(3, "bronze", glassBronze),
-		SIGNALUM(4, "signalum", glassSignalum, 7, EnumRarity.UNCOMMON),
-		LUMIUM(5, "lumium", glassLumium, 15, EnumRarity.UNCOMMON),
-		ENDERIUM(6, "enderium", glassEnderium, 4, EnumRarity.RARE);
+		STEEL(0, "steel"),
+		ELECTRUM(1, "electrum"),
+		INVAR(2, "invar"),
+		BRONZE(3, "bronze"),
+		SIGNALUM(4, "signalum", 7, EnumRarity.UNCOMMON),
+		LUMIUM(5, "lumium", 15, EnumRarity.UNCOMMON),
+		ENDERIUM(6, "enderium", 4, EnumRarity.RARE);
 		// @formatter: on
 
 		private static final BlockGlassAlloy.Type[] METADATA_LOOKUP = new BlockGlassAlloy.Type[values().length];
 		private final int metadata;
 		private final String name;
-		private final ItemStack stack;
-
 		private final int light;
 		private final EnumRarity rarity;
 
-		Type(int metadata, String name, ItemStack stack, int light, EnumRarity rarity) {
+		Type(int metadata, String name, int light, EnumRarity rarity) {
 
 			this.metadata = metadata;
 			this.name = name;
-			this.stack = stack;
-
 			this.light = light;
 			this.rarity = rarity;
 		}
 
-		Type(int metadata, String name, ItemStack stack, int light) {
+		Type(int metadata, String name, int light) {
 
-			this(metadata, name, stack, light, EnumRarity.COMMON);
+			this(metadata, name, light, EnumRarity.COMMON);
 		}
 
 
-		Type(int metadata, String name, ItemStack stack) {
+		Type(int metadata, String name) {
 
-			this(metadata, name, stack, 0, EnumRarity.COMMON);
+			this(metadata, name, 0, EnumRarity.COMMON);
 		}
 
 		public int getMetadata() {
@@ -297,11 +293,6 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 		public String getName() {
 
 			return this.name;
-		}
-
-		public ItemStack getStack() {
-
-			return this.stack;
 		}
 
 		public int getLight() {

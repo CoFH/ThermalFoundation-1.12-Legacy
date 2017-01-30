@@ -152,6 +152,9 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	@Override
 	public boolean initialize() {
 
+		nuggetIron = null; // TODO
+		nuggetGold = new ItemStack(Items.GOLD_NUGGET);
+
 		ingotIron = new ItemStack(Items.IRON_INGOT);
 		ingotGold = new ItemStack(Items.GOLD_INGOT);
 		gemDiamond = new ItemStack(Items.DIAMOND);
@@ -277,6 +280,9 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	}
 
 	/* REFERENCES */
+	public static ItemStack nuggetIron;
+	public static ItemStack nuggetGold;
+
 	public static ItemStack ingotIron;
 	public static ItemStack ingotGold;
 	public static ItemStack gemDiamond;

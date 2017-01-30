@@ -199,54 +199,50 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	public enum Type implements IStringSerializable {
 
 		// @formatter:off
-		STEEL(0, "steel", blockSteel),
-		ELECTRUM(1, "electrum", blockElectrum, 4.0F, 6.0F),
-		INVAR(2, "invar", blockInvar, 20.0F, 12.0F),
-		BRONZE(3, "bronze", blockBronze),
-		SIGNALUM(4, "signalum", blockSignalum, 7, 5.0F, 6.0F, EnumRarity.UNCOMMON),
-		LUMIUM(5, "lumium", blockLumium, 15, 5.0F, 9.0F, EnumRarity.UNCOMMON),
-		ENDERIUM(6, "enderium", blockEnderium, 4, 40.0F, 120.0F, EnumRarity.RARE);
+		STEEL(0, "steel"),
+		ELECTRUM(1, "electrum", 4.0F, 6.0F),
+		INVAR(2, "invar", 20.0F, 12.0F),
+		BRONZE(3, "bronze"),
+		SIGNALUM(4, "signalum", 7, 5.0F, 6.0F, EnumRarity.UNCOMMON),
+		LUMIUM(5, "lumium", 15, 5.0F, 9.0F, EnumRarity.UNCOMMON),
+		ENDERIUM(6, "enderium", 4, 40.0F, 120.0F, EnumRarity.RARE);
 		// @formatter: on
 
 		private static final BlockStorageAlloy.Type[] METADATA_LOOKUP = new BlockStorageAlloy.Type[values().length];
 		private final int metadata;
 		private final String name;
-		private final ItemStack stack;
-
 		private final int light;
 		private final float hardness;
 		private final float resistance;
 		private final EnumRarity rarity;
 
-		Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance, EnumRarity rarity) {
+		Type(int metadata, String name, int light, float hardness, float resistance, EnumRarity rarity) {
 
 			this.metadata = metadata;
 			this.name = name;
-			this.stack = stack;
-
 			this.light = light;
 			this.hardness = hardness;
 			this.resistance = resistance;
 			this.rarity = rarity;
 		}
 
-		Type(int metadata, String name, ItemStack stack, int light, float hardness, float resistance) {
+		Type(int metadata, String name, int light, float hardness, float resistance) {
 
-			this(metadata, name, stack, light, hardness, resistance, EnumRarity.COMMON);
+			this(metadata, name, light, hardness, resistance, EnumRarity.COMMON);
 		}
 
-		Type(int metadata, String name, ItemStack stack, float hardness, float resistance) {
-			this(metadata, name, stack, 0, hardness, resistance, EnumRarity.COMMON);
+		Type(int metadata, String name, float hardness, float resistance) {
+			this(metadata, name, 0, hardness, resistance, EnumRarity.COMMON);
 		}
 
-		Type(int metadata, String name, ItemStack stack, int light) {
+		Type(int metadata, String name, int light) {
 
-			this(metadata, name, stack, light, 5.0F, 6.0F, EnumRarity.COMMON);
+			this(metadata, name, light, 5.0F, 6.0F, EnumRarity.COMMON);
 		}
 
-		Type(int metadata, String name, ItemStack stack) {
+		Type(int metadata, String name) {
 
-			this(metadata, name, stack, 0, 5.0F, 6.0F, EnumRarity.COMMON);
+			this(metadata, name, 0, 5.0F, 6.0F, EnumRarity.COMMON);
 		}
 
 		public int getMetadata() {
@@ -257,11 +253,6 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		public String getName() {
 
 			return this.name;
-		}
-
-		public ItemStack getStack() {
-
-			return this.stack;
 		}
 
 		public int getLight() {

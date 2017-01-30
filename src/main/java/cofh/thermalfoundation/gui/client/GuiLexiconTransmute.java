@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.gui.client;
 
-import cofh.core.gui.GuiBaseAdv;
+import cofh.core.gui.GuiCore;
 import cofh.core.gui.element.TabInfo;
 import cofh.core.util.oredict.OreDictionaryArbiter;
 import cofh.lib.gui.element.ElementButton;
@@ -10,7 +10,7 @@ import cofh.thermalfoundation.network.PacketTFBase;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
-public class GuiLexiconTransmute extends GuiBaseAdv {
+public class GuiLexiconTransmute extends GuiCore {
 
 	static final String TEX_PATH = "thermalfoundation:textures/gui/lexicon_transmute.png";
 	static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);

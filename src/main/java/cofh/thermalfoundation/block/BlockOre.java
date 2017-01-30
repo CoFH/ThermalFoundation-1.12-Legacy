@@ -161,43 +161,39 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 	public enum Type implements IStringSerializable {
 
 		// @formatter:off
-		COPPER(0, "copper", oreCopper),
-		TIN(1, "tin", oreTin),
-		SILVER(2, "silver", oreSilver, 4),
-		LEAD(3, "lead", oreLead),
-		ALUMINUM(4, "aluminum", oreAluminum),
-		NICKEL(5, "nickel", oreNickel),
-		PLATINUM(6, "platinum", orePlatinum, 4, EnumRarity.UNCOMMON),
-		IRIDIUM(7, "iridium", oreIridium, 4, EnumRarity.UNCOMMON),
-		MITHRIL(8, "mithril", oreMithril, 8, EnumRarity.RARE);
+		COPPER(0, "copper"),
+		TIN(1, "tin"),
+		SILVER(2, "silver", 4),
+		LEAD(3, "lead"),
+		ALUMINUM(4, "aluminum"),
+		NICKEL(5, "nickel"),
+		PLATINUM(6, "platinum", 4, EnumRarity.UNCOMMON),
+		IRIDIUM(7, "iridium", 4, EnumRarity.UNCOMMON),
+		MITHRIL(8, "mithril", 8, EnumRarity.RARE);
 		// @formatter: on
 
 		private static final BlockOre.Type[] METADATA_LOOKUP = new BlockOre.Type[values().length];
 		private final int metadata;
 		private final String name;
-		private final ItemStack stack;
-
 		private final int light;
 		private final EnumRarity rarity;
 
-		Type(int metadata, String name, ItemStack stack, int light, EnumRarity rarity) {
+		Type(int metadata, String name, int light, EnumRarity rarity) {
 
 			this.metadata = metadata;
 			this.name = name;
-			this.stack = stack;
-
 			this.light = light;
 			this.rarity = rarity;
 		}
 
-		Type(int metadata, String name, ItemStack stack, int light) {
+		Type(int metadata, String name, int light) {
 
-			this(metadata, name, stack, light, EnumRarity.COMMON);
+			this(metadata, name, light, EnumRarity.COMMON);
 		}
 
-		Type(int metadata, String name, ItemStack stack) {
+		Type(int metadata, String name) {
 
-			this(metadata, name, stack, 0, EnumRarity.COMMON);
+			this(metadata, name, 0, EnumRarity.COMMON);
 		}
 
 		public int getMetadata() {
@@ -209,11 +205,6 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		public String getName() {
 
 			return this.name;
-		}
-
-		public ItemStack getStack() {
-
-			return this.stack;
 		}
 
 		public int getLight() {

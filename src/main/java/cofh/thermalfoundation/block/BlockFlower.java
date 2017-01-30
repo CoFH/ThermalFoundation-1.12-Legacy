@@ -215,43 +215,39 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	public enum Type implements IStringSerializable {
 
 		// @formatter:off
-		COAL(0, "coal", flowerCoal),
-		REDSTONE(1, "redstone", flowerRedstone),
-		GLOWSTONE(2, "glowstone", flowerGlowstone),
-		ENDER(3, "ender", flowerEnder),
-		BLAZE(4, "blaze", flowerBlaze),
-		BLIZZ(5, "blizz", flowerBlizz),
-		BLITZ(6, "blitz", flowerBlitz),
-		BASALZ(7, "basalz", flowerBasalz),
-		MANA(8, "mana", flowerMana);
+		COAL(0, "coal"),
+		REDSTONE(1, "redstone"),
+		GLOWSTONE(2, "glowstone"),
+		ENDER(3, "ender"),
+		BLAZE(4, "blaze"),
+		BLIZZ(5, "blizz"),
+		BLITZ(6, "blitz"),
+		BASALZ(7, "basalz"),
+		MANA(8, "mana");
 		// @formatter:on
 
 		private static final BlockFlower.Type[] METADATA_LOOKUP = new BlockFlower.Type[values().length];
 		private final int metadata;
 		private final String name;
-		private final ItemStack stack;
-
 		private final int light;
 		private final EnumRarity rarity;
 
-		Type(int metadata, String name, ItemStack stack, int light, EnumRarity rarity) {
+		Type(int metadata, String name, int light, EnumRarity rarity) {
 
 			this.metadata = metadata;
 			this.name = name;
-			this.stack = stack;
-
 			this.light = light;
 			this.rarity = rarity;
 		}
 
-		Type(int metadata, String name, ItemStack stack, int light) {
+		Type(int metadata, String name, int light) {
 
-			this(metadata, name, stack, light, EnumRarity.COMMON);
+			this(metadata, name, light, EnumRarity.COMMON);
 		}
 
-		Type(int metadata, String name, ItemStack stack) {
+		Type(int metadata, String name) {
 
-			this(metadata, name, stack, 0, EnumRarity.COMMON);
+			this(metadata, name, 0, EnumRarity.COMMON);
 		}
 
 		public int getMetadata() {
@@ -263,11 +259,6 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 		public String getName() {
 
 			return this.name;
-		}
-
-		public ItemStack getStack() {
-
-			return this.stack;
 		}
 
 		public int getLight() {

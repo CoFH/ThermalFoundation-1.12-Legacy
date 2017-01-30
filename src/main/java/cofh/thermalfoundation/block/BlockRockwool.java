@@ -141,34 +141,32 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 	public enum Type implements IStringSerializable {
 
 		// @formatter:off
-		BLACK(0, "black", rockwoolBlack),
-		RED(1, "red", rockwoolRed),
-		GREEN(2, "green", rockwoolGreen),
-		BROWN(3, "brown", rockwoolBrown),
-		BLUE(4, "blue", rockwoolBlue),
-		PURPLE(5, "purple", rockwoolPurple),
-		CYAN(6, "cyan", rockwoolCyan),
-		SILVER(7, "silver", rockwoolSilver),
-		GRAY(8, "gray", rockwoolGray),
-		PINK(9, "pink", rockwoolPink),
-		LIME(10, "lime", rockwoolLime),
-		YELLOW(11, "yellow", rockwoolYellow),
-		LIGHT_BLUE(12, "light_blue", rockwoolLightBlue),
-		MAGENTA(13, "magenta", rockwoolMagenta),
-		ORANGE(14, "orange", rockwoolOrange),
-		WHITE(15, "white", rockwoolWhite);
+		BLACK(0, "black"),
+		RED(1, "red"),
+		GREEN(2, "green"),
+		BROWN(3, "brown"),
+		BLUE(4, "blue"),
+		PURPLE(5, "purple"),
+		CYAN(6, "cyan"),
+		SILVER(7, "silver"),
+		GRAY(8, "gray"),
+		PINK(9, "pink"),
+		LIME(10, "lime"),
+		YELLOW(11, "yellow"),
+		LIGHT_BLUE(12, "light_blue"),
+		MAGENTA(13, "magenta"),
+		ORANGE(14, "orange"),
+		WHITE(15, "white");
 		// @formatter:on
 
 		private static final BlockRockwool.Type[] METADATA_LOOKUP = new BlockRockwool.Type[values().length];
 		private final int metadata;
 		private final String name;
-		private final ItemStack stack;
 
-		Type(int metadata, String name, ItemStack stack) {
+		Type(int metadata, String name) {
 
 			this.metadata = metadata;
 			this.name = name;
-			this.stack = stack;
 		}
 
 		public int getMetadata() {
@@ -180,11 +178,6 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 		public String getName() {
 
 			return this.name;
-		}
-
-		public ItemStack getStack() {
-
-			return this.stack;
 		}
 
 		public static Type byMetadata(int metadata) {

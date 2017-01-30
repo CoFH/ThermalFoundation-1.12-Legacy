@@ -1,5 +1,5 @@
 {
-	"mobBlizzAmbient": {
+	"mob_blizz_ambient": {
 		"category": "hostile",
 		"sounds": [
 			{
@@ -20,7 +20,7 @@
 			}
 		]
 	},
-	"mobBlizzAttack": {
+	"mob_blizz_attack": {
 		"category": "hostile",
 		"sounds": [
 			{
@@ -29,7 +29,7 @@
 			}
 		]
 	},
-	"mobBlitzAmbient": {
+	"mob_blitz_ambient": {
 		"category": "hostile",
 		"sounds": [
 			{
@@ -50,7 +50,7 @@
 			}
 		]
 	},
-	"mobBlitzAttack": {
+	"mob_blitz_attack": {
 		"category": "hostile",
 		"sounds": [
 			{
@@ -59,7 +59,7 @@
 			}
 		]
 	},
-	"mobBasalzAmbient": {
+	"mob_basalz_ambient": {
 		"category": "hostile",
 		"sounds": [
 			{
@@ -76,7 +76,7 @@
 			}
 		]
 	},
-	"mobBasalzAttack": {
+	"mob_basalz_attack": {
 		"category": "hostile",
 		"sounds": [
 			{

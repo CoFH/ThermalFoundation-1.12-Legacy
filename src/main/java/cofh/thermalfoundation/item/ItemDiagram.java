@@ -59,7 +59,7 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 			if (!stack.hasTagCompound()) {
 				stack.setTagCompound(new NBTTagCompound());
 				((IPortableData) tile).writePortableData(player, stack.getTagCompound());
-				if (stack.getTagCompound().hasNoTags()) {
+				if (stack.getTagCompound() == null || stack.getTagCompound().hasNoTags()) {
 					stack.setTagCompound(null);
 				} else {
 					stack.getTagCompound().setString("Type", ((IPortableData) tile).getDataType());
@@ -83,8 +83,14 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 			case PATTERN:
 				PatternHelper.addInformation(stack, tooltip);
 				break;
+			case FORMULA:
+				break;
+			case SCROLL:
+				break;
 			case REDPRINT:
 				RedprintHelper.addInformation(stack, tooltip);
+				break;
+			case ENDERPRINT:
 				break;
 			default:
 		}
@@ -108,8 +114,14 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 			case PATTERN:
 				//baseName += PatternHelper.getDisplayName(stack);
 				break;
+			case FORMULA:
+				break;
+			case SCROLL:
+				break;
 			case REDPRINT:
 				baseName += RedprintHelper.getDisplayName(stack);
+				break;
+			case ENDERPRINT:
 				break;
 			default:
 		}
@@ -204,12 +216,14 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 	/* REFERENCES */
 	public static ItemStack schematic;
 	public static ItemStack pattern;
+	public static ItemStack formula;
+	public static ItemStack scroll;
 	public static ItemStack redprint;
 	public static ItemStack enderprint;
 
 	/* TYPE */
 	public enum Type {
-		SCHEMATIC, PATTERN, REDPRINT, ENDERPRINT;
+		SCHEMATIC, PATTERN, FORMULA, SCROLL, REDPRINT, ENDERPRINT;
 	}
 
 }
