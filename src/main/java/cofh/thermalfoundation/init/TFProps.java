@@ -13,70 +13,8 @@ public class TFProps {
 
 	public static void preInit() {
 
-		String category;
-		String comment;
-
-		/* GENERAL */
-		comment = "If TRUE, Fire-Immune mobs have a chance to drop Sulfur.";
-		dropSulfurFireImmuneMobs = ThermalFoundation.CONFIG.get("General", "FireImmuneMobsDropSulfur", dropSulfurFireImmuneMobs, comment);
-
-		/* GRAPHICS */
-		comment = "Set to FALSE to revert Blaze Powder to the default Minecraft icon.";
-		iconBlazePowder = ThermalFoundation.CONFIG_CLIENT.get("Icons", "BlazePowder", iconBlazePowder, comment);
-
-		comment = "Set to TRUE for Ender devices to be a bit more Cagey year-round.";
-		renderStarfieldCage = ThermalFoundation.CONFIG_CLIENT.get("Render", "CageyEnder", renderStarfieldCage, comment);
-
-		/* INTERFACE */
-		category = "Interface";
-		boolean armorTab = false;
-		boolean toolTab = false;
-
-		comment = "Set to TRUE to put Thermal Foundation Armor under the general \"Thermal Foundation\" Creative Tab.";
-		armorTab = ThermalFoundation.CONFIG_CLIENT.get(category, "ArmorInCommonTab", armorTab, comment);
-
-		comment = "Set to TRUE to put Thermal Foundation Tools under the general \"Thermal Foundation\" Creative Tab.";
-		toolTab = ThermalFoundation.CONFIG_CLIENT.get(category, "ToolsInCommonTab", toolTab, comment);
-
-		/* EQUIPMENT */
-		category = "Equipment";
-		comment = "Set to TRUE to disable ALL armor sets.";
-		disableAllArmor = ThermalFoundation.CONFIG.get(category, "DisableAllArmor", disableAllArmor, comment);
-
-		comment = "Set to TRUE to disable ALL tool sets.";
-		disableAllTools = ThermalFoundation.CONFIG.get(category, "DisableAllTools", disableAllTools, comment);
-
-		comment = "Set to FALSE to hide all disabled equipment from the Creative Tabs.";
-		showDisabledEquipment = ThermalFoundation.CONFIG.get(category, "ShowDisabledEquipment", showDisabledEquipment, comment);
-
-		if (armorTab) {
-			ThermalFoundation.tabArmor = ThermalFoundation.tabCommon;
-		} else {
-			if (!disableAllArmor || showDisabledEquipment) {
-				ThermalFoundation.tabArmor = new CreativeTabTF("Armor") {
-
-					@Override
-					protected ItemStack getStack() {
-
-						return TFEquipment.ArmorSet.INVAR.armorChestplate;
-					}
-				};
-			}
-		}
-		if (toolTab) {
-			ThermalFoundation.tabTools = ThermalFoundation.tabCommon;
-		} else {
-			if (!disableAllTools || showDisabledEquipment) {
-				ThermalFoundation.tabTools = new CreativeTabTF("Tools") {
-
-					@Override
-					protected ItemStack getStack() {
-
-						return TFEquipment.ToolSet.INVAR.toolPickaxe;
-					}
-				};
-			}
-		}
+		configCommon();
+		configClient();
 
 		LexiconManager.initialize();
 	}
@@ -96,10 +34,83 @@ public class TFProps {
 		}
 	}
 
+	/* HELPERS */
+	private static void configCommon() {
+
+		String category;
+		String comment;
+
+		/* GENERAL */
+		category = "General";
+
+		comment = "If TRUE, Fire-Immune mobs have a chance to drop Sulfur.";
+		dropSulfurFireImmuneMobs = ThermalFoundation.CONFIG.getConfiguration().getBoolean("FireImmuneMobsDropSulfur", category, dropSulfurFireImmuneMobs, comment);
+
+		/* EQUIPMENT */
+		category = "Equipment";
+		comment = "If TRUE, recipes for all Armor Sets are disabled.";
+		disableAllArmorRecipes = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllArmorRecipes", category, disableAllArmorRecipes, comment);
+
+		comment = "If TRUE, recipes for all Tools are disabled.";
+		disableAllToolRecipes = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllToolRecipes", category, disableAllToolRecipes, comment);
+	}
+
+	private static void configClient() {
+
+		String category;
+		String comment;
+
+		/* GRAPHICS */
+		category = "Render";
+
+		comment = "If TRUE, Blaze Powder uses a custom icon.";
+		iconBlazePowder = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("BlazePowder", category, iconBlazePowder, comment);
+
+		comment = "If TRUE, Ender devices will be a bit more Cagey year-round.";
+		renderStarfieldCage = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("CageyEnder", category, renderStarfieldCage, comment);
+
+		category = "Interface";
+		boolean armorTabCommon = false;
+		boolean toolTabCommon = false;
+
+		comment = "If TRUE, Thermal Foundation Armor Sets appear under the general \"Thermal Foundation\" Creative Tab.";
+		armorTabCommon = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("ArmorInCommonTab", category, armorTabCommon, comment);
+
+		comment = "If TRUE, Thermal Foundation Tools appear under the general \"Thermal Foundation\" Creative Tab.";
+		toolTabCommon = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("ToolsInCommonTab", category, toolTabCommon, comment);
+
+		/* CREATIVE TABS */
+		ThermalFoundation.tabCommon = new CreativeTabTF();
+
+		if (armorTabCommon) {
+			ThermalFoundation.tabArmor = ThermalFoundation.tabCommon;
+		} else {
+			ThermalFoundation.tabArmor = new CreativeTabTF("Armor") {
+
+				@Override
+				protected ItemStack getStack() {
+
+					return TFEquipment.ArmorSet.INVAR.armorChestplate;
+				}
+			};
+		}
+		if (toolTabCommon) {
+			ThermalFoundation.tabTools = ThermalFoundation.tabCommon;
+		} else {
+			ThermalFoundation.tabTools = new CreativeTabTF("Tools") {
+
+				@Override
+				protected ItemStack getStack() {
+
+					return TFEquipment.ToolSet.INVAR.toolPickaxe;
+				}
+			};
+		}
+	}
+
 	/* INTERFACE */
-	public static boolean disableAllTools = false;
-	public static boolean disableAllArmor = false;
-	public static boolean showDisabledEquipment = true;
+	public static boolean disableAllToolRecipes = false;
+	public static boolean disableAllArmorRecipes = false;
 
 	/* GENERAL */
 	public static boolean dropSulfurFireImmuneMobs = true;

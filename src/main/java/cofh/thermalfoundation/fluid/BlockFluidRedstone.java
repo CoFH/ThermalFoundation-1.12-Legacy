@@ -37,8 +37,8 @@ public class BlockFluidRedstone extends BlockFluidCore {
 	public static void config() {
 
 		String category = "Fluid.Redstone";
-		String comment = "Enable this for Fluid Redstone to emit a signal proportional to its fluid level.";
-		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
+		String comment = "If TRUE, Fluid Redstone will emit a signal proportional to its fluid level.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Effect", category, effect, comment);
 	}
 
 	@Override

@@ -47,11 +47,13 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 	public static void config() {
 
 		String category = "Fluid.Pyrotheum";
-		String comment = "Enable this for Fluid Pyrotheum to be worse than lava.";
-		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
+		String comment;
 
-		comment = "Enable this for Fluid Pyrotheum Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().get(category, "Fall", enableSourceFall, comment).getBoolean();
+		comment = "If TRUE, Fluid Pyrotheum will be worse than lava.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Effect", category, effect, comment);
+
+		comment = "If TRUE, Fluid Pyrotheum Source blocks will gradually fall downwards.";
+		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Fall", category, enableSourceFall, comment);
 	}
 
 	@Override

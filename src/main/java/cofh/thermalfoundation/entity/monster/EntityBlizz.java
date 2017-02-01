@@ -1,8 +1,7 @@
 package cofh.thermalfoundation.entity.monster;
 
-import cofh.core.CoFHProps;
+import cofh.core.init.CoreProps;
 import cofh.lib.util.helpers.ItemHelper;
-import cofh.lib.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
 import cofh.thermalfoundation.init.TFSounds;
@@ -39,11 +38,7 @@ public class EntityBlizz extends EntityElemental {
 	public static void initialize(int id) {
 
 		config();
-
-		if (!enable) {
-			return;
-		}
-		EntityRegistry.registerModEntity(EntityBlizz.class, "blizz", id, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
+		EntityRegistry.registerModEntity(EntityBlizz.class, "blizz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
 
 		// Add Blizz spawn to Cold biomes
 		List<Biome> validBiomes = new ArrayList<Biome>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.COLD)));
@@ -60,6 +55,9 @@ public class EntityBlizz extends EntityElemental {
 				validBiomes.remove(biome);
 			}
 		}
+		if (!enable) {
+			return;
+		}
 		EntityRegistry.addSpawn(EntityBlizz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));
 	}
 
@@ -68,25 +66,23 @@ public class EntityBlizz extends EntityElemental {
 		String category = "Mob.Blizz";
 		String comment;
 
-		comment = "Set this to false to disable Blizzes entirely. Jerk.";
-		enable = ThermalFoundation.CONFIG.getConfiguration().get(category, "Enable", enable, comment).getBoolean(enable);
+		comment = "If TRUE, Blizzes will spawn naturally.";
+		enable = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Enable", category, enable, comment);
 
-		category = "Mob.Blizz.Spawn";
-
-		comment = "Set this to false for Blizzes to spawn at any light level.";
-		restrictLightLevel = ThermalFoundation.CONFIG.getConfiguration().get(category, "Light.Limit", restrictLightLevel, comment).getBoolean(restrictLightLevel);
+		comment = "If TRUE, Blizzes will only spawn below a specified light level.";
+		restrictLightLevel = ThermalFoundation.CONFIG.getConfiguration().getBoolean("LightLevelRestriction", category, restrictLightLevel, comment);
 
 		comment = "This sets the maximum light level Blizzes can spawn at, if restricted.";
-		spawnLightLevel = MathHelper.clamp(ThermalFoundation.CONFIG.getConfiguration().get(category, "Light.Level", spawnLightLevel, comment).getInt(spawnLightLevel), 0, 15);
+		spawnLightLevel = ThermalFoundation.CONFIG.getConfiguration().getInt("LightLevel", category, spawnLightLevel, 0, 15, comment);
 
 		comment = "This sets the minimum number of Blizzes that spawn in a group.";
-		spawnMin = MathHelper.clamp(ThermalFoundation.CONFIG.getConfiguration().get(category, "MinGroupSize", spawnMin, comment).getInt(spawnMin), 1, 10);
+		spawnMin = ThermalFoundation.CONFIG.getConfiguration().getInt("MinGroupSize", category, spawnMin, 1, 10, comment);
 
-		comment = "This sets the maximum light number of Blizzes that spawn in a group.";
-		spawnMax = MathHelper.clamp(ThermalFoundation.CONFIG.getConfiguration().get(category, "MaxGroupSize", spawnMax, comment).getInt(spawnMax), spawnMin, 24);
+		comment = "This sets the maximum number of Blizzes that spawn in a group.";
+		spawnMax = ThermalFoundation.CONFIG.getConfiguration().getInt("MaxGroupSize", category, spawnMax, spawnMin, 24, comment);
 
 		comment = "This sets the relative spawn weight for Blizzes.";
-		spawnWeight = ThermalFoundation.CONFIG.getConfiguration().get(category, "SpawnWeight", spawnWeight, comment).getInt(spawnWeight);
+		spawnWeight = ThermalFoundation.CONFIG.getConfiguration().getInt("SpawnWeight", category, spawnWeight, 1, 20, comment);
 	}
 
 	public EntityBlizz(World world) {

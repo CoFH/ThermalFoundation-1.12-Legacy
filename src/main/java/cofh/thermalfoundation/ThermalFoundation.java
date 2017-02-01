@@ -1,9 +1,8 @@
 package cofh.thermalfoundation;
 
 import cofh.CoFHCore;
-import cofh.core.CoFHProps;
+import cofh.core.init.CoreProps;
 import cofh.core.util.ConfigHandler;
-import cofh.thermalfoundation.gui.CreativeTabTF;
 import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.init.*;
 import cofh.thermalfoundation.network.PacketTFBase;
@@ -52,9 +51,9 @@ public class ThermalFoundation {
 	public static final ConfigHandler CONFIG_CLIENT = new ConfigHandler(VERSION);
 	public static final GuiHandler GUI_HANDLER = new GuiHandler();
 
-	public static CreativeTabs tabCommon = new CreativeTabTF();
-	public static CreativeTabs tabTools = CreativeTabs.TOOLS;
-	public static CreativeTabs tabArmor = CreativeTabs.COMBAT;
+	public static CreativeTabs tabCommon;
+	public static CreativeTabs tabTools = tabCommon;
+	public static CreativeTabs tabArmor = tabCommon;
 
 	static {
 		FluidRegistry.enableUniversalBucket();
@@ -69,8 +68,8 @@ public class ThermalFoundation {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
-		CONFIG.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/" + MOD_ID + "/common.cfg"), true));
-		CONFIG_CLIENT.setConfiguration(new Configuration(new File(CoFHProps.configDir, "/cofh/" + MOD_ID + "/client.cfg"), true));
+		CONFIG.setConfiguration(new Configuration(new File(CoreProps.configDir, "/cofh/" + MOD_ID + "/common.cfg"), true));
+		CONFIG_CLIENT.setConfiguration(new Configuration(new File(CoreProps.configDir, "/cofh/" + MOD_ID + "/client.cfg"), true));
 
 		TFProps.preInit();
 		TFBlocks.preInit();
@@ -122,14 +121,19 @@ public class ThermalFoundation {
 	}
 
 	@EventHandler
+	public void serverStart(FMLServerAboutToStartEvent event) {
+
+	}
+
+	@EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {
 
 	}
 
 	@EventHandler
-	public void handleIMC(IMCEvent theIMC) {
+	public void handleIMC(IMCEvent event) {
 
-		IMCHandler.instance.handleIMC(theIMC.getMessages());
+		IMCHandler.instance.handleIMC(event.getMessages());
 	}
 
 	/* HELPERS */
@@ -148,10 +152,10 @@ public class ThermalFoundation {
 		String worldGenPath = "assets/" + MOD_ID + "/world/";
 		String worldGenOre = "thermalfoundation_ores.json";
 
-		if (!CONFIG.getConfiguration().getBoolean("GenerateDefaultFiles", "World", true, "If enabled, Thermal Foundation will create default world generation files - if it cannot find existing ones. Only disable this if you know what you are doing.")) {
+		if (!CONFIG.getConfiguration().getBoolean("GenerateDefaultFiles", "World", true, "If TRUE, Thermal Foundation will create default world generation files if it cannot find existing ones. Only disable if you know what you are doing.")) {
 			return;
 		}
-		worldGenOres = new File(CoFHProps.configDir, "/cofh/world/" + worldGenOre);
+		worldGenOres = new File(CoreProps.configDir, "/cofh/world/" + worldGenOre);
 
 		if (!worldGenOres.exists()) {
 			try {

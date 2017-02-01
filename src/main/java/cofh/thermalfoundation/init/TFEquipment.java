@@ -209,7 +209,7 @@ public class TFEquipment {
 			enable[3] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Boots", true).getBoolean(true);
 
 			for (int i = 0; i < enable.length; i++) {
-				enable[i] &= !TFProps.disableAllArmor;
+				enable[i] &= !TFProps.disableAllArmorRecipes;
 			}
 		}
 
@@ -290,7 +290,7 @@ public class TFEquipment {
 
 		protected void initialize() {
 
-			String category = "Equipment.Tool." + StringHelper.titleCase(name);
+			String category = "Equipment.Tools." + StringHelper.titleCase(name);
 
 			enable[0] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sword", true).getBoolean(true);
 			enable[1] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shovel", true).getBoolean(true);
@@ -308,7 +308,7 @@ public class TFEquipment {
 			enable[10] = false;
 
 			for (int i = 0; i < enable.length; i++) {
-				enable[i] &= !TFProps.disableAllTools;
+				enable[i] &= !TFProps.disableAllToolRecipes;
 			}
 		}
 
@@ -400,7 +400,7 @@ public class TFEquipment {
 
 		protected void initialize() {
 
-			String category = "Equipment.Tool." + StringHelper.titleCase(name);
+			String category = "Equipment.Tools." + StringHelper.titleCase(name);
 
 			if (this != WOOD) {
 				enable[0] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Bow", true).getBoolean(true);
@@ -417,7 +417,7 @@ public class TFEquipment {
 			enable[5] = false;
 
 			for (int i = 0; i < enable.length; i++) {
-				enable[i] &= !TFProps.disableAllTools;
+				enable[i] &= !TFProps.disableAllToolRecipes;
 			}
 		}
 

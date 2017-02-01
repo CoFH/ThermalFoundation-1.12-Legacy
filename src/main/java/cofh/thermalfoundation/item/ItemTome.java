@@ -4,8 +4,8 @@ import cofh.api.core.IInitializer;
 import cofh.api.item.IInventoryContainerItem;
 import cofh.api.item.IMultiModeItem;
 import cofh.core.item.ItemMulti;
+import cofh.core.key.KeyBindingItemMultiMode;
 import cofh.core.util.CoreUtils;
-import cofh.core.util.KeyBindingMultiMode;
 import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
@@ -70,10 +70,10 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 
 				if (isEmpowered(stack)) {
 					list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.3") + StringHelper.END);
-					list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.4") + StringHelper.END);
+					list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.4") + StringHelper.END);
 				} else {
 					list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.1") + StringHelper.END);
-					list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.2") + StringHelper.END);
+					list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.2") + StringHelper.END);
 				}
 				break;
 			default:

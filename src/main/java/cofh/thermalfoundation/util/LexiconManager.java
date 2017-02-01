@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.util;
 
-import cofh.core.CoFHProps;
+import cofh.core.init.CoreProps;
 import cofh.core.util.oredict.OreDictionaryArbiter;
 import cofh.lib.inventory.ComparableItemStackSafe;
 import cofh.lib.util.ItemWrapper;
@@ -32,17 +32,17 @@ public class LexiconManager {
 		String category = "Lexicon";
 		String comment;
 
-		comment = "Set to true for a whitelist, FALSE for a blacklist";
-		isWhitelist = ThermalFoundation.CONFIG.getConfiguration().get(category, "UseWhiteList", isWhitelist, comment).getBoolean(isWhitelist);
+		comment = "If TRUE, a WHITELIST is used, if FALSE, a BLACKLIST is used.";
+		isWhitelist = ThermalFoundation.CONFIG.getConfiguration().getBoolean("UseWhiteList", category, isWhitelist, comment);
 
-		comment = "This will generate a default list file depending on your list setting. This will ONLY generate if no list file already exists OR you have also enabled list regeneration.";
-		writeDefaultFile = ThermalFoundation.CONFIG.getConfiguration().get(category, "GenerateDefaultList", writeDefaultFile, comment).getBoolean(writeDefaultFile);
+		comment = "If TRUE, a default list will be generated depending on your list setting. This will ONLY generate if no list file already exists OR the Always Generate option is enabled.";
+		writeDefaultFile = ThermalFoundation.CONFIG.getConfiguration().getBoolean("GenerateDefaultList", category, writeDefaultFile, comment);
 
-		comment = "This option will generate a fresh blacklist or whitelist EVERY time. This is not recommended, but is provided here as an option if you are satisfied with the defaults.";
-		alwaysWriteFile = ThermalFoundation.CONFIG.getConfiguration().get(category, "AlwaysGenerateList", alwaysWriteFile, comment).getBoolean(alwaysWriteFile);
+		comment = "If TRUE, a default list will generate EVERY time. Enable this if you are satisfied with the default filtering and are adding/removing mods.";
+		alwaysWriteFile = ThermalFoundation.CONFIG.getConfiguration().getBoolean("AlwaysGenerateList", category, alwaysWriteFile, comment);
 
-		comment = "This will echo all entries to the system LOG.";
-		logEntries = ThermalFoundation.CONFIG.getConfiguration().get(category, "LogEntries", logEntries, comment).getBoolean(logEntries);
+		comment = "If TRUE, all entries will be echoed to the system LOG.";
+		logEntries = ThermalFoundation.CONFIG.getConfiguration().getBoolean("LogEntries", category, logEntries, comment);
 	}
 
 	public static void loadComplete() {
@@ -52,24 +52,24 @@ public class LexiconManager {
 		sortOreNames();
 	}
 
-	public static void generateList() {
+	private static void generateList() {
 
-		theList = isWhitelist ? new File(CoFHProps.configDir, "/cofh/thermalfoundation/lexicon-whitelist.cfg") : new File(CoFHProps.configDir, "/cofh/thermalfoundation/lexicon-blacklist.cfg");
+		filterList = isWhitelist ? new File(CoreProps.configDir, "/cofh/thermalfoundation/lexicon-whitelist.cfg") : new File(CoreProps.configDir, "/cofh/thermalfoundation/lexicon-blacklist.cfg");
 
 		boolean writingDefaultFile = false;
 		BufferedWriter out = null;
 		ArrayList<String> defaultList = new ArrayList<String>();
 
-		if (writeDefaultFile && alwaysWriteFile && theList.exists()) {
-			theList.delete();
+		if (writeDefaultFile && alwaysWriteFile && filterList.exists()) {
+			filterList.delete();
 		}
-		if (writeDefaultFile && !theList.exists()) {
+		if (writeDefaultFile && !filterList.exists()) {
 			try {
 				writingDefaultFile = true;
-				theList.createNewFile();
-				out = new BufferedWriter(new FileWriter(theList));
+				filterList.createNewFile();
+				out = new BufferedWriter(new FileWriter(filterList));
 			} catch (Throwable t) {
-				ThermalFoundation.LOG.warn("There is an error in the " + theList.getName() + " file!");
+				ThermalFoundation.LOG.warn("There is an error in the " + filterList.getName() + " file!");
 				t.printStackTrace();
 			}
 		}
@@ -106,10 +106,10 @@ public class LexiconManager {
 		}
 	}
 
-	public static void addAllListedOres() {
+	private static void addAllListedOres() {
 
 		try {
-			if (!theList.exists()) {
+			if (!filterList.exists()) {
 				return;
 			}
 			if (isWhitelist) {
@@ -117,7 +117,7 @@ public class LexiconManager {
 			} else {
 				ThermalFoundation.LOG.info("[Blacklist] Reading established Blacklist from file.");
 			}
-			Scanner scan = new Scanner(theList);
+			Scanner scan = new Scanner(filterList);
 			String[] line = null;
 			String[] tokens = null;
 			while (scan.hasNext()) {
@@ -137,12 +137,12 @@ public class LexiconManager {
 			}
 			scan.close();
 		} catch (Throwable t) {
-			ThermalFoundation.LOG.warn("There is an error in the " + theList.getName() + " file!");
+			ThermalFoundation.LOG.warn("There is an error in the " + filterList.getName() + " file!");
 			t.printStackTrace();
 		}
 	}
 
-	public static void sortOreNames() {
+	private static void sortOreNames() {
 
 		String[] ores = OreDictionary.getOreNames();
 
@@ -164,15 +164,15 @@ public class LexiconManager {
 		if (blacklistStacks.contains(new ItemWrapper(stack)) || ItemHelper.getItemDamage(stack) == OreDictionary.WILDCARD_VALUE) {
 			return false;
 		}
-		return ItemHelper.hasOreName(stack) ? isWhitelist == listNames.contains(OreDictionaryArbiter.getOreName(stack)) : false;
+		return ItemHelper.hasOreName(stack) && isWhitelist == listNames.contains(OreDictionaryArbiter.getOreName(stack));
 	}
 
-	public static boolean validType(String oreName) {
+	private static boolean validType(String oreName) {
 
 		return isWhitelist == listNames.contains(oreName);
 	}
 
-	/* Player Interaction */
+	/* PLAYER INTERACTION */
 	public static ItemStack getPreferredStack(EntityPlayer player, ItemStack stack) {
 
 		NBTTagCompound tag = player.getEntityData();
@@ -241,7 +241,7 @@ public class LexiconManager {
 		return lexicon.hasKey(oreName);
 	}
 
-	/* Entry Management */
+	/* ENTRY MANAGEMENT */
 	public static boolean addBlacklistEntry(ItemStack stack) {
 
 		if (stack == null) {
@@ -262,11 +262,11 @@ public class LexiconManager {
 	private static HashSet<ItemWrapper> blacklistStacks = new HashSet<ItemWrapper>();
 	private static List<String> sortedNames = new ArrayList<String>();
 
-	public static boolean isWhitelist = true;
-	public static boolean logEntries = false;
-	public static boolean writeDefaultFile = true;
-	public static boolean alwaysWriteFile = false;
+	private static boolean isWhitelist = true;
+	private static boolean logEntries = false;
+	private static boolean writeDefaultFile = true;
+	private static boolean alwaysWriteFile = false;
 
-	static File theList;
+	private static File filterList;
 
 }

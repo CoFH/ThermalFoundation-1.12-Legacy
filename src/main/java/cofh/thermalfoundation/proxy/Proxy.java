@@ -51,6 +51,7 @@ public class Proxy {
 	public void handleLivingDropsEvent(LivingDropsEvent event) {
 
 		Entity entity = event.getEntity();
+
 		if (entity.isImmuneToFire() && TFProps.dropSulfurFireImmuneMobs && event.getEntityLiving().worldObj.getGameRules().getBoolean("doMobLoot")) {
 			boolean s = entity instanceof EntitySlime;
 			if (event.getEntityLiving().getRNG().nextInt(6 + (s ? 16 : 0)) != 0) {

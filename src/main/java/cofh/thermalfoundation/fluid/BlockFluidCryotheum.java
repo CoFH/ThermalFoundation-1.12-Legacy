@@ -53,11 +53,13 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 	public static void config() {
 
 		String category = "Fluid.Cryotheum";
-		String comment = "Enable this for Fluid Cryotheum to be worse than lava, except cold.";
-		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
+		String comment;
 
-		comment = "Enable this for Fluid Cryotheum Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().get(category, "Fall", enableSourceFall, comment).getBoolean();
+		comment = "If TRUE, Fluid Cryotheum will be worse than lava, except cold.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Effect", category, effect, comment);
+
+		comment = "If TRUE, Fluid Cryotheum Source blocks will gradually fall downwards.";
+		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Fall", category, enableSourceFall, comment);
 	}
 
 	@Override

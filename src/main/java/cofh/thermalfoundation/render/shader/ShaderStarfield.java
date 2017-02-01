@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.render.shader;
 
-import cofh.core.CoFHProps;
+import cofh.core.init.CoreProps;
 import cofh.core.render.ShaderHelper;
 import cofh.lib.util.helpers.HolidayHelper;
 import cofh.thermalfoundation.init.TFProps;
@@ -10,7 +10,7 @@ import org.lwjgl.opengl.ARBShaderObjects;
 
 public class ShaderStarfield {
 
-	public static final ResourceLocation starsTexture = new ResourceLocation((CoFHProps.holidayAprilFools && HolidayHelper.isAprilFools()) || TFProps.renderStarfieldCage ? "thermalfoundation:textures/cage_starfield.png" : "textures/entity/end_portal.png");
+	public static final ResourceLocation starsTexture = new ResourceLocation((CoreProps.holidayAprilFools && HolidayHelper.isAprilFools()) || TFProps.renderStarfieldCage ? "thermalfoundation:textures/cage_starfield.png" : "textures/entity/end_portal.png");
 
 	static {
 		if (ShaderHelper.useShaders()) {

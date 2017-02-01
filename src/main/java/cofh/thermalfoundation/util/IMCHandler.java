@@ -26,10 +26,10 @@ public class IMCHandler {
 						LexiconManager.removeBlacklistEntry(ItemStack.loadItemStackFromNBT(theNBT.getCompoundTag("entry")));
 						continue;
 					}
-					ThermalFoundation.LOG.warn("Thermal Foundation received an invalid IMC from " + theMessage.getSender() + "! Key was " + theMessage.key);
+					ThermalFoundation.LOG.warn(ThermalFoundation.MOD_NAME + " received an invalid IMC from " + theMessage.getSender() + "! Key was " + theMessage.key);
 				}
 			} catch (Exception e) {
-				ThermalFoundation.LOG.warn("Thermal Foundation received a broken IMC from " + theMessage.getSender() + "!");
+				ThermalFoundation.LOG.warn(ThermalFoundation.MOD_NAME + " received a broken IMC from " + theMessage.getSender() + "!");
 				e.printStackTrace();
 			}
 		}

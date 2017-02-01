@@ -38,8 +38,8 @@ public class BlockFluidEnder extends BlockFluidCore {
 	public static void config() {
 
 		String category = "Fluid.Ender";
-		String comment = "Enable this for Fluid Ender to randomly teleport entities on contact.";
-		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
+		String comment = "If TRUE, Fluid Ender will randomly teleport entities on contact.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Effect", category, effect, comment);
 	}
 
 	@Override

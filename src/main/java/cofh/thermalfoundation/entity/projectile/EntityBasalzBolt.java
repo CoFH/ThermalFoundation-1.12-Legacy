@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.entity.projectile;
 
-import cofh.core.CoFHProps;
+import cofh.core.init.CoreProps;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
@@ -26,7 +26,7 @@ public class EntityBasalzBolt extends EntityThrowable {
 
 	public static void initialize(int id) {
 
-		EntityRegistry.registerModEntity(EntityBasalzBolt.class, "basalzBolt", id, ThermalFoundation.instance, CoFHProps.ENTITY_TRACKING_DISTANCE, 1, true);
+		EntityRegistry.registerModEntity(EntityBasalzBolt.class, "basalzBolt", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true);
 	}
 
 	/* REQUIRED CONSTRUCTOR */

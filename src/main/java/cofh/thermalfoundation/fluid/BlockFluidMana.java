@@ -53,11 +53,13 @@ public class BlockFluidMana extends BlockFluidInteractive {
 	public static void config() {
 
 		String category = "Fluid.Mana";
-		String comment = "Enable this for Fluid Mana to do...things.";
-		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
+		String comment;
 
-		comment = "Enable this for Fluid Mana Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().get(category, "Fall", enableSourceFall, comment).getBoolean();
+		comment = "If TRUE, Fluid Mana will do...things.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Effect", category, effect, comment);
+
+		comment = "If TRUE, Fluid Mana Source blocks will gradually fall downwards.";
+		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Fall", category, enableSourceFall, comment);
 	}
 
 	@Override

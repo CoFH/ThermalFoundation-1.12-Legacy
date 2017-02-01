@@ -19,7 +19,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import org.apache.logging.log4j.Level;
 
 import java.util.Random;
 
@@ -47,32 +46,27 @@ public class BlockFluidGlowstone extends BlockFluidCore {
 	public static void config() {
 
 		String category = "Fluid.Glowstone";
-		String comment = "Enable this for Fluid Glowstone to do...something.";
-		effect = ThermalFoundation.CONFIG.getConfiguration().get(category, "Effect", true, comment).getBoolean();
+		String comment;
 
-		comment = "Enable this for Fluid Glowstone Source blocks to condense back into solid Glowstone above a given y-value.";
-		enableSourceCondense = ThermalFoundation.CONFIG.getConfiguration().get(category, "Condense", enableSourceCondense, comment).getBoolean();
+		comment = "If TRUE, Fluid Glowstone will provide buffs to entities on contact.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Effect", category, effect, comment);
 
-		comment = "Enable this for Fluid Glowstone Source blocks to gradually float upwards.";
-		enableSourceFloat = ThermalFoundation.CONFIG.getConfiguration().get(category, "Float", enableSourceFloat, comment).getBoolean();
+		comment = "If TRUE, Fluid Glowstone Source blocks will condense back into solid Glowstone above a given y-value.";
+		enableSourceCondense = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Condense", category, enableSourceCondense, comment);
 
-		int cfgHeight;
+		comment = "If TRUE, Fluid Glowstone Source blocks will gradually float upwards.";
+		enableSourceFloat = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Float", category, enableSourceFloat, comment);
+
 		comment = "This adjusts the y-value where Fluid Glowstone will *always* condense, if that is enabled. It will also condense above 80% of this value, if it cannot flow.";
-		cfgHeight = ThermalFoundation.CONFIG.getConfiguration().get(category, "MaxHeight", maxHeight, comment).getInt();
-
-		if (cfgHeight >= maxHeight / 2) {
-			maxHeight = cfgHeight;
-		} else {
-			ThermalFoundation.LOG.log(Level.INFO, "'Fluid.Glowstone.MaxHeight' config value is out of acceptable range. Using default: " + maxHeight + ".");
-		}
+		maxHeight = ThermalFoundation.CONFIG.getConfiguration().getInt("MaxHeight", category, maxHeight, maxHeight / 2, maxHeight * 2, comment);
 	}
 
-	protected boolean shouldSourceBlockCondense(World world, BlockPos pos) {
+	private boolean shouldSourceBlockCondense(World world, BlockPos pos) {
 
 		return enableSourceCondense && (pos.getY() + densityDir > maxHeight || pos.getY() + densityDir > world.getHeight() || pos.getY() + densityDir > maxHeight * 0.8F && !canDisplace(world, pos.add(0, densityDir, 0)));
 	}
 
-	protected boolean shouldSourceBlockFloat(World world, BlockPos pos) {
+	private boolean shouldSourceBlockFloat(World world, BlockPos pos) {
 
 		IBlockState state = world.getBlockState(pos.add(0, densityDir, 0));
 		return enableSourceFloat && (state.getBlock() == this && state.getBlock().getMetaFromState(state) != 0);
@@ -126,12 +120,11 @@ public class BlockFluidGlowstone extends BlockFluidCore {
 			}
 		} else if (pos.getY() + densityDir > maxHeight) {
 			int quantaRemaining = quantaPerBlock - getMetaFromState(state);
-			int expQuanta = -101;
+			int expQuanta;
 			int y2 = pos.getY() - densityDir;
 
 			if (world.getBlockState(pos.add(0, y2, 0)).getBlock() == this || world.getBlockState(pos.add(-1, y2, 0)).getBlock() == this || world.getBlockState(pos.add(1, y2, 0)).getBlock() == this || world.getBlockState(pos.add(0, y2, -1)).getBlock() == this || world.getBlockState(pos.add(0, y2, 1)).getBlock() == this) {
 				expQuanta = quantaPerBlock - 1;
-
 			} else {
 				int maxQuanta = -100;
 				maxQuanta = getLargerQuanta(world, pos.add(-1, 0, 0), maxQuanta);
@@ -143,7 +136,6 @@ public class BlockFluidGlowstone extends BlockFluidCore {
 			}
 			// decay calculation
 			if (expQuanta != quantaRemaining) {
-				quantaRemaining = expQuanta;
 				if (expQuanta <= 0) {
 					world.setBlockToAir(pos);
 				} else {

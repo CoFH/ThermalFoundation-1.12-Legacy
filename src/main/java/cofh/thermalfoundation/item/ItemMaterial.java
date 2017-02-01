@@ -1,8 +1,8 @@
 package cofh.thermalfoundation.item;
 
 import cofh.api.core.IInitializer;
+import cofh.core.energy.FurnaceFuelHandler;
 import cofh.core.item.ItemMulti;
-import cofh.core.util.energy.FurnaceFuelHandler;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.init.Blocks;
