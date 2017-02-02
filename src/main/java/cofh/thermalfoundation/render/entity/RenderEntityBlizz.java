@@ -26,18 +26,18 @@ public class RenderEntityBlizz extends RenderLiving<EntityBlizz> {
 	}
 
 	@Override
-	public void doRender(EntityBlizz entity, double x, double y, double z, float entityYaw, float partialTicks) {
-
-		doRenderBlizz(entity, x, y, z, entityYaw, partialTicks);
-	}
-
-	@Override
 	protected ResourceLocation getEntityTexture(EntityBlizz par1Entity) {
 
 		return HolidayHelper.isChristmas() ? textureXmas : texture;
 	}
 
-	protected void doRenderBlizz(EntityBlizz entity, double x, double y, double z, float entityYaw, float partialTicks) {
+	@Override
+	public void doRender(EntityBlizz entity, double x, double y, double z, float entityYaw, float partialTicks) {
+
+		doRenderBlizz(entity, x, y, z, entityYaw, partialTicks);
+	}
+
+	private void doRenderBlizz(EntityBlizz entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	}

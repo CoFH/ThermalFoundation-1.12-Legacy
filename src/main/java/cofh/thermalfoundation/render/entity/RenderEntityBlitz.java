@@ -23,18 +23,18 @@ public class RenderEntityBlitz extends RenderLiving<EntityBlitz> {
 	}
 
 	@Override
-	public void doRender(EntityBlitz entity, double x, double y, double z, float entityYaw, float partialTicks) {
-
-		doRenderBlitz(entity, x, y, z, entityYaw, partialTicks);
-	}
-
-	@Override
 	protected ResourceLocation getEntityTexture(EntityBlitz par1Entity) {
 
 		return texture;
 	}
 
-	protected void doRenderBlitz(EntityBlitz entity, double x, double y, double z, float entityYaw, float partialTicks) {
+	@Override
+	public void doRender(EntityBlitz entity, double x, double y, double z, float entityYaw, float partialTicks) {
+
+		doRenderBlitz(entity, x, y, z, entityYaw, partialTicks);
+	}
+
+	private void doRenderBlitz(EntityBlitz entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	}

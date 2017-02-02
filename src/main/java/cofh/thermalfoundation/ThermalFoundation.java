@@ -52,8 +52,8 @@ public class ThermalFoundation {
 	public static final GuiHandler GUI_HANDLER = new GuiHandler();
 
 	public static CreativeTabs tabCommon;
-	public static CreativeTabs tabTools = tabCommon;
-	public static CreativeTabs tabArmor = tabCommon;
+	public static CreativeTabs tabTools;
+	public static CreativeTabs tabArmor;
 
 	static {
 		FluidRegistry.enableUniversalBucket();
