@@ -191,11 +191,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		addInteraction(Blocks.LEAVES2, Blocks.AIR);
 		addInteraction(Blocks.TALLGRASS, Blocks.AIR);
 		addInteraction(Blocks.FIRE, Blocks.AIR);
-
-		if (TFFluids.blockFluidGlowstone == null) {
-			System.out.println("panic");
-		}
-
 		addInteraction(TFFluids.blockFluidGlowstone.getDefaultState(), Blocks.GLOWSTONE);
 
 		return true;

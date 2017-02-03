@@ -118,8 +118,8 @@ public class LexiconManager {
 				ThermalFoundation.LOG.info("[Blacklist] Reading established Blacklist from file.");
 			}
 			Scanner scan = new Scanner(filterList);
-			String[] line = null;
-			String[] tokens = null;
+			String[] line;
+			String[] tokens;
 			while (scan.hasNext()) {
 				line = scan.next().split("\\n");
 				tokens = line[0].split(":");

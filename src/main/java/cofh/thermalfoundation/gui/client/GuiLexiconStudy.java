@@ -21,13 +21,12 @@ import java.util.Locale;
 
 public class GuiLexiconStudy extends GuiCore {
 
-	static final String TEX_PATH = "thermalfoundation:textures/gui/lexicon_study.png";
-	static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);
+	private static final String TEX_PATH = "thermalfoundation:textures/gui/lexicon_study.png";
+	private static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);
 
-	public String searchLocal = "<" + StringHelper.localize("info.thermalfoundation.lexicon.search") + ">";
-	public String myInfo = "";
+	private String searchLocal = "<" + StringHelper.localize("gui.thermalfoundation.lexicon.search") + ">";
 
-	ElementTextField searchBox = new ElementTextField(this, 42, 87, 124, 10) {
+	private ElementTextField searchBox = new ElementTextField(this, 42, 87, 124, 10) {
 
 		public boolean searchUp = true;
 		boolean rightClick = false;
@@ -106,7 +105,7 @@ public class GuiLexiconStudy extends GuiCore {
 		}
 	};
 
-	ElementListBox oreList = new ElementListBox(this, 22, 104, 162, 84) {
+	ElementListBox oreList = new ElementListBox(this, 22, 104, 162, 82) {
 
 		@Override
 		protected void onSelectionChanged(int newIndex, IListBoxElement newElement) {
@@ -179,7 +178,7 @@ public class GuiLexiconStudy extends GuiCore {
 		buildFullOreList();
 		lexicon.onSelectionChanged((String) oreList.getSelectedElement().getValue());
 
-		oreSlider = new SliderVertical(this, 184, 105, 8, 82, oreList.getElementCount() - 8) {
+		oreSlider = new SliderVertical(this, 184, 105, 8, 80, oreList.getElementCount() - 8) {
 
 			@Override
 			public void onValueChanged(int value) {
@@ -204,24 +203,24 @@ public class GuiLexiconStudy extends GuiCore {
 		if (lexicon.hasMultipleOres()) {
 			prevOre.setActive();
 			nextOre.setActive();
-			prevOre.setToolTip("info.thermalfoundation.lexicon.prevEntry");
-			nextOre.setToolTip("info.thermalfoundation.lexicon.nextEntry");
+			prevOre.setToolTip("gui.thermalfoundation.lexicon.prevEntry");
+			nextOre.setToolTip("gui.thermalfoundation.lexicon.nextEntry");
 		} else {
 			prevOre.setDisabled();
 			nextOre.setDisabled();
-			prevOre.setToolTip("info.thermalfoundation.lexicon.singleEntry");
-			nextOre.setToolTip("info.thermalfoundation.lexicon.singleEntry");
+			prevOre.setToolTip("gui.thermalfoundation.lexicon.singleEntry");
+			nextOre.setToolTip("gui.thermalfoundation.lexicon.singleEntry");
 		}
 		if (lexicon.canSetPreferred()) {
 			setPreferredOre.setActive();
-			setPreferredOre.setToolTip("info.thermalfoundation.lexicon.setPreference");
+			setPreferredOre.setToolTip("gui.thermalfoundation.lexicon.setPreference");
 		} else {
 			setPreferredOre.setDisabled();
 			setPreferredOre.clearToolTip();
 		}
 		if (lexicon.hasPreferredOre()) {
 			clearPreferredOre.setActive();
-			clearPreferredOre.setToolTip("info.thermalfoundation.lexicon.clearPreference");
+			clearPreferredOre.setToolTip("gui.thermalfoundation.lexicon.clearPreference");
 		} else {
 			clearPreferredOre.setDisabled();
 			clearPreferredOre.clearToolTip();

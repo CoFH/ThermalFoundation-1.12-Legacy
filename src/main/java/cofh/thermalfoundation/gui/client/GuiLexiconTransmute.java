@@ -12,10 +12,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiLexiconTransmute extends GuiCore {
 
-	static final String TEX_PATH = "thermalfoundation:textures/gui/lexicon_transmute.png";
-	static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);
-
-	public String myInfo = "";
+	private static final String TEX_PATH = "thermalfoundation:textures/gui/lexicon_transmute.png";
+	private static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);
 
 	ElementButton prevOre;
 	ElementButton nextOre;

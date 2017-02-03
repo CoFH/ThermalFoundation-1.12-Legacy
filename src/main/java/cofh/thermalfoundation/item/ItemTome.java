@@ -66,14 +66,14 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 		}
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
 			case LEXICON:
-				list.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.0"));
+				list.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.a.0"));
 
 				if (isEmpowered(stack)) {
-					list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.3") + StringHelper.END);
-					list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.4") + StringHelper.END);
+					list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.c.0") + StringHelper.END);
+					list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.c.1") + StringHelper.END);
 				} else {
-					list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.1") + StringHelper.END);
-					list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.2") + StringHelper.END);
+					list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.b.0") + StringHelper.END);
+					list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.b.1") + StringHelper.END);
 				}
 				break;
 			default:
@@ -136,6 +136,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 			return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
 		}
 		if (ServerHelper.isServerWorld(world) && LexiconManager.getSortedOreNames().size() > 0) {
+
 			if (isEmpowered(stack)) {
 				player.openGui(ThermalFoundation.instance, GuiHandler.LEXICON_TRANSMUTE_ID, world, 0, 0, 0);
 			} else {

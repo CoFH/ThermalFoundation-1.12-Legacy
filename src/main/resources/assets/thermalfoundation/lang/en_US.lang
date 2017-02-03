@@ -29,76 +29,73 @@ fluid.pyrotheum=Blazing Pyrotheum
 fluid.redstone=Destabilized Redstone
 fluid.steam=Steam
 
+gui.thermalfoundation.lexicon.clearPreference=Clear Preference
+gui.thermalfoundation.lexicon.nextEntry=Next Entry
+gui.thermalfoundation.lexicon.prevEntry=Previous Entry
+gui.thermalfoundation.lexicon.search=Search
+gui.thermalfoundation.lexicon.setPreference=Set Preference
+gui.thermalfoundation.lexicon.singleEntry=Only One Entry
 gui.thermalfoundation.lexicon.study=Lexicon - Knowledge
 gui.thermalfoundation.lexicon.transmute=Lexicon - Transmutation
 
 info.thermalfoundation.diagram.erase=Use while sneaking to erase.
 info.thermalfoundation.diagram.redprint.0=Use on a device to copy its settings.
 info.thermalfoundation.diagram.redprint.1=Use on a device to transfer stored settings.
-info.thermalfoundation.lexicon.clearPreference=Clear Preference
-info.thermalfoundation.lexicon.nextEntry=Next Entry
-info.thermalfoundation.lexicon.prevEntry=Previous Entry
-info.thermalfoundation.lexicon.search=Search
-info.thermalfoundation.lexicon.setPreference=Set Preference
-info.thermalfoundation.lexicon.singleEntry=Only One Entry
 
-info.thermalfoundation.tome.lexicon.0=Converts items to equivalent forms.
-info.thermalfoundation.tome.lexicon.1=Right click (open) to study.
-info.thermalfoundation.tome.lexicon.2=to gain wisdom!
-info.thermalfoundation.tome.lexicon.3=Right click (open) to transmute items.
-info.thermalfoundation.tome.lexicon.4=to forsake knowledge.
+info.thermalfoundation.tome.lexicon.a.0=Converts items to equivalent forms.
+info.thermalfoundation.tome.lexicon.b.0=Right click (open) to study.
+info.thermalfoundation.tome.lexicon.b.1=to gain wisdom!
+info.thermalfoundation.tome.lexicon.c.0=Right click (open) to transmute items.
+info.thermalfoundation.tome.lexicon.c.1=to forsake knowledge.
 
-info.thermalfoundation.tool.multimeter.0=Provides information about things.
-info.thermalfoundation.tool.multimeter.1=Use while sneaking to configure some devices.
+info.thermalfoundation.util.multimeter.0=Provides information about things.
+info.thermalfoundation.util.multimeter.1=Use while sneaking to configure some devices.
 
-item.thermalfoundation.armor.bronzeBoots.name=Bronze Boots
-item.thermalfoundation.armor.bronzeHelmet.name=Bronze Helmet
-item.thermalfoundation.armor.bronzeLegs.name=Bronze Leggings
-item.thermalfoundation.armor.bronzePlate.name=Bronze Chestplate
+item.thermalfoundation.armor.boots.bronze.name=Bronze Boots
+item.thermalfoundation.armor.boots.copper.name=Copper Boots
+item.thermalfoundation.armor.boots.electrum.name=Electrum Boots
+item.thermalfoundation.armor.boots.invar.name=Invar Boots
+item.thermalfoundation.armor.boots.lead.name=Lead Boots
+item.thermalfoundation.armor.boots.nickel.name=Nickel Boots
+item.thermalfoundation.armor.boots.platinum.name=Platinum Boots
+item.thermalfoundation.armor.boots.silver.name=Silver Boots
+item.thermalfoundation.armor.boots.tin.name=Tin Boots
 
-item.thermalfoundation.armor.copperBoots.name=Copper Boots
-item.thermalfoundation.armor.copperHelmet.name=Copper Helmet
-item.thermalfoundation.armor.copperLegs.name=Copper Leggings
-item.thermalfoundation.armor.copperPlate.name=Copper Chestplate
+item.thermalfoundation.armor.chestplate.bronze.name=Bronze Chestplate
+item.thermalfoundation.armor.chestplate.copper.name=Copper Chestplate
+item.thermalfoundation.armor.chestplate.electrum.name=Electrum Chestplate
+item.thermalfoundation.armor.chestplate.invar.name=Invar Chestplate
+item.thermalfoundation.armor.chestplate.lead.name=Lead Chestplate
+item.thermalfoundation.armor.chestplate.nickel.name=Nickel Chestplate
+item.thermalfoundation.armor.chestplate.platinum.name=Platinum Chestplate
+item.thermalfoundation.armor.chestplate.silver.name=Silver Chestplate
+item.thermalfoundation.armor.chestplate.tin.name=Tin Chestplate
 
-item.thermalfoundation.armor.electrumBoots.name=Electrum Boots
-item.thermalfoundation.armor.electrumHelmet.name=Electrum Helmet
-item.thermalfoundation.armor.electrumLegs.name=Electrum Leggings
-item.thermalfoundation.armor.electrumPlate.name=Electrum Chestplate
+item.thermalfoundation.armor.leggings.bronze.name=Bronze Leggings
+item.thermalfoundation.armor.leggings.copper.name=Copper Leggings
+item.thermalfoundation.armor.leggings.electrum.name=Electrum Leggings
+item.thermalfoundation.armor.leggings.invar.name=Invar Leggings
+item.thermalfoundation.armor.leggings.lead.name=Lead Leggings
+item.thermalfoundation.armor.leggings.nickel.name=Nickel Leggings
+item.thermalfoundation.armor.leggings.platinum.name=Platinum Leggings
+item.thermalfoundation.armor.leggings.silver.name=Silver Leggings
+item.thermalfoundation.armor.leggings.tin.name=Tin Leggings
 
-item.thermalfoundation.armor.invarBoots.name=Invar Boots
-item.thermalfoundation.armor.invarHelmet.name=Invar Helmet
-item.thermalfoundation.armor.invarLegs.name=Invar Leggings
-item.thermalfoundation.armor.invarPlate.name=Invar Chestplate
+item.thermalfoundation.armor.helmet.bronze.name=Bronze Helmet
+item.thermalfoundation.armor.helmet.copper.name=Copper Helmet
+item.thermalfoundation.armor.helmet.electrum.name=Electrum Helmet
+item.thermalfoundation.armor.helmet.invar.name=Invar Helmet
+item.thermalfoundation.armor.helmet.lead.name=Lead Helmet
+item.thermalfoundation.armor.helmet.nickel.name=Nickel Helmet
+item.thermalfoundation.armor.helmet.platinum.name=Platinum Helmet
+item.thermalfoundation.armor.helmet.silver.name=Silver Helmet
+item.thermalfoundation.armor.helmet.tin.name=Tin Helmet
 
-item.thermalfoundation.armor.leadBoots.name=Lead Boots
-item.thermalfoundation.armor.leadHelmet.name=Lead Helmet
-item.thermalfoundation.armor.leadLegs.name=Lead Leggings
-item.thermalfoundation.armor.leadPlate.name=Lead Chestplate
-
-item.thermalfoundation.armor.nickelBoots.name=Nickel Boots
-item.thermalfoundation.armor.nickelHelmet.name=Nickel Helmet
-item.thermalfoundation.armor.nickelLegs.name=Nickel Leggings
-item.thermalfoundation.armor.nickelPlate.name=Nickel Chestplate
-
-item.thermalfoundation.armor.platinumBoots.name=Platinum Boots
-item.thermalfoundation.armor.platinumHelmet.name=Platinum Helmet
-item.thermalfoundation.armor.platinumLegs.name=Platinum Leggings
-item.thermalfoundation.armor.platinumPlate.name=Platinum Chestplate
-
-item.thermalfoundation.armor.silverBoots.name=Silver Boots
-item.thermalfoundation.armor.silverHelmet.name=Silver Helmet
-item.thermalfoundation.armor.silverLegs.name=Silver Leggings
-item.thermalfoundation.armor.silverPlate.name=Silver Chestplate
-
-item.thermalfoundation.armor.tinBoots.name=Tin Boots
-item.thermalfoundation.armor.tinHelmet.name=Tin Helmet
-item.thermalfoundation.armor.tinLegs.name=Tin Leggings
-item.thermalfoundation.armor.tinPlate.name=Tin Chestplate
-
+item.thermalfoundation.diagram.formula.name=Formula
 item.thermalfoundation.diagram.pattern.name=Pattern
 item.thermalfoundation.diagram.redprint.name=Redprint
 item.thermalfoundation.diagram.schematic.name=Schematic
+item.thermalfoundation.diagram.scroll.name=Scroll
 
 item.thermalfoundation.fertilizer.fertilizerBasic.name=Phyto-Gro
 item.thermalfoundation.fertilizer.fertilizerFlux.name=Fluxed Phyto-Gro

@@ -75,7 +75,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 		IBlockState state = world.getBlockState(pos);
 		Block block = state.getBlock();
 
-		if (state == null) {
+		if (world.isAirBlock(pos)) {
 			return EnumActionResult.PASS;
 		}
 		PlayerInteractEvent event = new PlayerInteractEvent.RightClickBlock(player, hand, stack, pos, side, new Vec3d(hitX, hitY, hitZ));

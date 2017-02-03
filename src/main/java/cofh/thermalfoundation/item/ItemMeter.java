@@ -100,8 +100,8 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 		}
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
 			case MULTIMETER:
-				tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tool.multimeter.0"));
-				tooltip.add(StringHelper.getNoticeText("info.thermalfoundation.tool.multimeter.1"));
+				tooltip.add(StringHelper.getInfoText("info.thermalfoundation.util.multimeter.0"));
+				tooltip.add(StringHelper.getNoticeText("info.thermalfoundation.util.multimeter.1"));
 				break;
 			default:
 		}

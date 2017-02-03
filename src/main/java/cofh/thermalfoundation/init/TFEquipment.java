@@ -84,9 +84,10 @@ public class TFEquipment {
 		itemHammer.setUnlocalizedName("hammer").setCreativeTab(ThermalFoundation.tabTools);
 		ThermalFoundation.proxy.addIModelRegister(itemHammer);
 
-		//itemShield = new ItemShieldMulti(ThermalFoundation.MOD_ID);
-		//itemShield.setUnlocalizedName("shield").setCreativeTab(ThermalFoundation.tabTools);
-		//ThermalFoundation.proxy.addIModelRegister(itemShield);
+		itemShield = new ItemShieldMulti(ThermalFoundation.MOD_ID);
+		itemShield.setUnlocalizedName("shield").setCreativeTab(ThermalFoundation.tabTools);
+		ThermalFoundation.proxy.addIModelRegister(itemShield);
+		itemShield.setShowInCreative(false);
 
 		/* VANILLA */
 		itemBowVanilla = new ItemBowMulti(ThermalFoundation.MOD_ID);
@@ -109,9 +110,10 @@ public class TFEquipment {
 		itemHammerVanilla.setUnlocalizedName("hammer", "hammer_vanilla").setCreativeTab(CreativeTabs.TOOLS);
 		ThermalFoundation.proxy.addIModelRegister(itemHammerVanilla);
 
-		//itemShield = new ItemShieldMulti(ThermalFoundation.MOD_ID);
-		//itemShield.setUnlocalizedName("shield", "shield_vanilla").setCreativeTab(CreativeTabs.COMBAT);
-		//ThermalFoundation.proxy.addIModelRegister(itemShield);
+		itemShieldVanilla = new ItemShieldMulti(ThermalFoundation.MOD_ID);
+		itemShieldVanilla.setUnlocalizedName("shield", "shield_vanilla").setCreativeTab(CreativeTabs.COMBAT);
+		ThermalFoundation.proxy.addIModelRegister(itemShieldVanilla);
+		itemShieldVanilla.setShowInCreative(false);
 
 		for (ArmorSet e : ArmorSet.values()) {
 			e.preInit();
@@ -285,7 +287,7 @@ public class TFEquipment {
 			toolShears = itemShears.addItem(metadata, name, material, ingot);
 			toolSickle = itemSickle.addItem(metadata, name, material, ingot);
 			toolHammer = itemHammer.addItem(metadata, name, material, ingot);
-			//toolShield = itemShield.addItem(metadata, name, material, ingot);
+			toolShield = itemShield.addItem(metadata, name, material, ingot);
 		}
 
 		protected void initialize() {
@@ -395,7 +397,7 @@ public class TFEquipment {
 			}
 			toolSickle = itemSickleVanilla.addItem(metadata, name, material, ingot);
 			toolHammer = itemHammerVanilla.addItem(metadata, name, material, ingot);
-			//toolShield = itemShieldVanilla.addItem(metadata, name, material, ingot);
+			toolShield = itemShieldVanilla.addItem(metadata, name, material, ingot);
 		}
 
 		protected void initialize() {
@@ -461,14 +463,14 @@ public class TFEquipment {
 	public static ItemShearsMulti itemShears;
 	public static ItemSickleMulti itemSickle;
 	public static ItemHammerMulti itemHammer;
-	//public static ItemShieldMulti itemShield;
+	public static ItemShieldMulti itemShield;
 
 	public static ItemBowMulti itemBowVanilla;
 	public static ItemFishingRodMulti itemFishingRodVanilla;
 	public static ItemShearsMulti itemShearsVanilla;
 	public static ItemSickleMulti itemSickleVanilla;
 	public static ItemHammerMulti itemHammerVanilla;
-	//public static ItemShieldMulti itemShieldVanilla;
+	public static ItemShieldMulti itemShieldVanilla;
 
 	/* MATERIALS */
 	public static final ArmorMaterial ARMOR_MATERIAL_COPPER = EnumHelper.addArmorMaterial("TF:COPPER", "copper_armor", 6, new int[] { 1, 3, 3, 1 }, 6, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0F);
