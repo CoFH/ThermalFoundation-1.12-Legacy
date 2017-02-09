@@ -54,6 +54,11 @@
 					"layer0": "thermalfoundation:items/material/dust_wood_compressed"
 				}
 			},
+			"rosin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/rosin"
+				}
+			},
 			"crystalslag": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/crystal_slag"

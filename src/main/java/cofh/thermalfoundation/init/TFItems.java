@@ -20,6 +20,7 @@ public class TFItems {
 		itemDiagram = new ItemDiagram();
 		itemFertilizer = new ItemFertilizer();
 		itemMaterial = new ItemMaterial();
+		itemGeode = new ItemGeode();
 
 		initList.add(itemWrench);
 		initList.add(itemMeter);
@@ -27,6 +28,7 @@ public class TFItems {
 		initList.add(itemDiagram);
 		initList.add(itemFertilizer);
 		initList.add(itemMaterial);
+		initList.add(itemGeode);
 
 		ThermalFoundation.proxy.addIModelRegister(itemWrench);
 		ThermalFoundation.proxy.addIModelRegister(itemMeter);
@@ -34,6 +36,7 @@ public class TFItems {
 		ThermalFoundation.proxy.addIModelRegister(itemDiagram);
 		ThermalFoundation.proxy.addIModelRegister(itemFertilizer);
 		ThermalFoundation.proxy.addIModelRegister(itemMaterial);
+		ThermalFoundation.proxy.addIModelRegister(itemGeode);
 
 		for (IInitializer init : initList) {
 			init.preInit();
@@ -64,5 +67,6 @@ public class TFItems {
 	public static ItemDiagram itemDiagram;
 	public static ItemFertilizer itemFertilizer;
 	public static ItemMaterial itemMaterial;
+	public static ItemGeode itemGeode;
 
 }

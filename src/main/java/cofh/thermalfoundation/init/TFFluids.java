@@ -47,18 +47,34 @@ public class TFFluids {
 	public static void registerAllFluids() {
 
 		FluidRegistry.registerFluid(new FluidCore("steam", "thermalfoundation").setLuminosity(0).setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true));
+
 		FluidRegistry.registerFluid(new FluidCore("coal", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300));
+		FluidRegistry.registerFluid(new FluidCore("crude_oil", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300));
+		FluidRegistry.registerFluid(new FluidCore("refined_oil", "thermalfoundation").setLuminosity(0).setDensity(800).setViscosity(1400).setTemperature(300));
+		FluidRegistry.registerFluid(new FluidCore("fuel", "thermalfoundation").setLuminosity(0).setDensity(700).setViscosity(800).setTemperature(300));
+
+		FluidRegistry.registerFluid(new FluidCore("resin", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(3000).setTemperature(300));
+		FluidRegistry.registerFluid(new FluidCore("tree_oil", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(1200).setTemperature(300));
+
 		FluidRegistry.registerFluid(new FluidCore("redstone", "thermalfoundation").setLuminosity(7).setDensity(1200).setViscosity(1500).setTemperature(300).setRarity(EnumRarity.UNCOMMON));
 		FluidRegistry.registerFluid(new FluidCore("glowstone", "thermalfoundation").setLuminosity(15).setDensity(-500).setViscosity(100).setTemperature(300).setGaseous(true).setRarity(EnumRarity.UNCOMMON));
-		FluidRegistry.registerFluid(new FluidCore("ender", "thermalfoundation").setLuminosity(3).setDensity(4000).setViscosity(3000).setTemperature(300).setRarity(EnumRarity.UNCOMMON));
+		FluidRegistry.registerFluid(new FluidCore("ender", "thermalfoundation").setLuminosity(3).setDensity(4000).setViscosity(2500).setTemperature(300).setRarity(EnumRarity.UNCOMMON));
 		FluidRegistry.registerFluid(new FluidCore("pyrotheum", "thermalfoundation").setLuminosity(15).setDensity(2000).setViscosity(1200).setTemperature(4000).setRarity(EnumRarity.RARE));
-		FluidRegistry.registerFluid(new FluidCore("cryotheum", "thermalfoundation").setLuminosity(0).setDensity(4000).setViscosity(3000).setTemperature(50).setRarity(EnumRarity.RARE));
+		FluidRegistry.registerFluid(new FluidCore("cryotheum", "thermalfoundation").setLuminosity(0).setDensity(4000).setViscosity(4000).setTemperature(50).setRarity(EnumRarity.RARE));
 		FluidRegistry.registerFluid(new FluidCore("aerotheum", "thermalfoundation").setLuminosity(0).setDensity(-800).setViscosity(100).setTemperature(300).setGaseous(true).setRarity(EnumRarity.RARE));
 		FluidRegistry.registerFluid(new FluidCore("petrotheum", "thermalfoundation").setLuminosity(0).setDensity(4000).setViscosity(1500).setTemperature(400).setRarity(EnumRarity.RARE));
 		FluidRegistry.registerFluid(new FluidCore("mana", "thermalfoundation").setLuminosity(15).setDensity(600).setViscosity(6000).setTemperature(350).setRarity(EnumRarity.EPIC));
 
 		fluidSteam = FluidRegistry.getFluid("steam");
+
 		fluidCoal = FluidRegistry.getFluid("coal");
+		fluidCrudeOil = FluidRegistry.getFluid("crude_oil");
+		fluidRefinedOil = FluidRegistry.getFluid("refined_oil");
+		fluidFuel = FluidRegistry.getFluid("fuel");
+
+		fluidResin = FluidRegistry.getFluid("resin");
+		fluidTreeOil = FluidRegistry.getFluid("tree_oil");
+
 		fluidRedstone = FluidRegistry.getFluid("redstone");
 		fluidGlowstone = FluidRegistry.getFluid("glowstone");
 		fluidEnder = FluidRegistry.getFluid("ender");
@@ -71,8 +87,7 @@ public class TFFluids {
 
 	public static void registerAllFluidBlocks() {
 
-		blockFluidSteam = new BlockFluidSteam(fluidSteam);
-		blockFluidCoal = new BlockFluidCoal(fluidCoal);
+		blockFluidCrudeOil = new BlockFluidCrudeOil(fluidCrudeOil);
 		blockFluidRedstone = new BlockFluidRedstone(fluidRedstone);
 		blockFluidGlowstone = new BlockFluidGlowstone(fluidGlowstone);
 		blockFluidEnder = new BlockFluidEnder(fluidEnder);
@@ -82,8 +97,7 @@ public class TFFluids {
 		blockFluidPetrotheum = new BlockFluidPetrotheum(fluidPetrotheum);
 		blockFluidMana = new BlockFluidMana(fluidMana);
 
-		initList.add(blockFluidSteam);
-		initList.add(blockFluidCoal);
+		initList.add(blockFluidCrudeOil);
 		initList.add(blockFluidRedstone);
 		initList.add(blockFluidGlowstone);
 		initList.add(blockFluidEnder);
@@ -93,8 +107,7 @@ public class TFFluids {
 		initList.add(blockFluidPetrotheum);
 		initList.add(blockFluidMana);
 
-		ThermalFoundation.proxy.addIModelRegister(blockFluidSteam);
-		ThermalFoundation.proxy.addIModelRegister(blockFluidCoal);
+		ThermalFoundation.proxy.addIModelRegister(blockFluidCrudeOil);
 		ThermalFoundation.proxy.addIModelRegister(blockFluidRedstone);
 		ThermalFoundation.proxy.addIModelRegister(blockFluidGlowstone);
 		ThermalFoundation.proxy.addIModelRegister(blockFluidEnder);
@@ -108,7 +121,14 @@ public class TFFluids {
 	public static void createBuckets() {
 
 		FluidRegistry.addBucketForFluid(fluidSteam);
+
 		FluidRegistry.addBucketForFluid(fluidCoal);
+		FluidRegistry.addBucketForFluid(fluidCrudeOil);
+		FluidRegistry.addBucketForFluid(fluidRefinedOil);
+		FluidRegistry.addBucketForFluid(fluidFuel);
+		FluidRegistry.addBucketForFluid(fluidResin);
+		FluidRegistry.addBucketForFluid(fluidTreeOil);
+
 		FluidRegistry.addBucketForFluid(fluidRedstone);
 		FluidRegistry.addBucketForFluid(fluidGlowstone);
 		FluidRegistry.addBucketForFluid(fluidEnder);
@@ -123,7 +143,15 @@ public class TFFluids {
 
 	/* REFERENCES */
 	public static Fluid fluidSteam;
+
 	public static Fluid fluidCoal;
+	public static Fluid fluidCrudeOil;
+	public static Fluid fluidRefinedOil;
+	public static Fluid fluidFuel;
+
+	public static Fluid fluidResin;
+	public static Fluid fluidTreeOil;
+
 	public static Fluid fluidRedstone;
 	public static Fluid fluidGlowstone;
 	public static Fluid fluidEnder;
@@ -133,8 +161,7 @@ public class TFFluids {
 	public static Fluid fluidPetrotheum;
 	public static Fluid fluidMana;
 
-	public static BlockFluidCore blockFluidSteam;
-	public static BlockFluidCore blockFluidCoal;
+	public static BlockFluidCore blockFluidCrudeOil;
 	public static BlockFluidCore blockFluidRedstone;
 	public static BlockFluidCore blockFluidGlowstone;
 	public static BlockFluidCore blockFluidEnder;

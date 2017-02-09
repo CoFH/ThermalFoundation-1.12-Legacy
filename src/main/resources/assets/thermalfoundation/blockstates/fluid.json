@@ -60,17 +60,10 @@
 				}
 			}
 		],
-		"steam": [
+		"crude_oil": [
 			{
 				"custom": {
-					"fluid": "steam"
-				}
-			}
-		],
-		"coal": [
-			{
-				"custom": {
-					"fluid": "coal"
+					"fluid": "crude_oil"
 				}
 			}
 		]

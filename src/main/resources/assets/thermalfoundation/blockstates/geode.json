@@ -1,0 +1,19 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "builtin/generated",
+		"textures": {
+			"layer0": "blocks/dirt"
+		},
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"type": {
+			"geode": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/crystal_geode"
+				}
+			}
+		}
+	}
+}

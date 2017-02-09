@@ -13,16 +13,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class BlockFluidCoal extends BlockFluidCore {
+public class BlockFluidCrudeOil extends BlockFluidCore {
 
 	public static final int LEVELS = 6;
-	public static final Material materialFluidCoal = new MaterialLiquid(MapColor.GRAY);
+	public static final Material materialFluidCrudeOil = new MaterialLiquid(MapColor.BLACK);
 
 	private static boolean effect = true;
 
-	public BlockFluidCoal(Fluid fluid) {
+	public BlockFluidCrudeOil(Fluid fluid) {
 
-		super(fluid, Material.WATER, "thermalfoundation", "coal");
+		super(fluid, Material.WATER, "thermalfoundation", "crude_oil");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(10);
 
@@ -33,8 +33,8 @@ public class BlockFluidCoal extends BlockFluidCore {
 
 	public static void config() {
 
-		String category = "Fluid.Coal";
-		String comment = "If TRUE, Fluid Coal will be flammable.";
+		String category = "Fluid.CrudeOil";
+		String comment = "If TRUE, Crude Oil will be flammable.";
 		effect = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Flammable", category, effect, comment);
 	}
 
@@ -66,7 +66,7 @@ public class BlockFluidCoal extends BlockFluidCore {
 	@Override
 	public boolean preInit() {
 
-		this.setRegistryName("fluid_coal");
+		this.setRegistryName("fluid_crude_oil");
 		GameRegistry.register(this);
 		ItemBlock itemBlock = new ItemBlock(this);
 		itemBlock.setRegistryName(this.getRegistryName());

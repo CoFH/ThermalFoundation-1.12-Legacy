@@ -40,6 +40,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 		dustWood = addOreDictItem(20, "dustWood");
 		dustWoodCompressed = addItem(21, "dustWoodCompressed");
+		rosin = addItem(22, "rosin");
 
 		crystalSlag = addOreDictItem(24, "crystalSlag");
 		crystalSlagRich = addOreDictItem(25, "crystalSlagRich");
@@ -292,8 +293,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack dustCoal;
 	public static ItemStack dustCharcoal;
 	public static ItemStack dustObsidian;
-	public static ItemStack dustWood;
-	public static ItemStack dustWoodCompressed;
 
 	public static ItemStack nuggetDiamond;
 
@@ -302,6 +301,10 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 	public static ItemStack dustSulfur;
 	public static ItemStack dustNiter;
+
+	public static ItemStack dustWood;
+	public static ItemStack dustWoodCompressed;
+	public static ItemStack rosin;
 
 	public static ItemStack crystalSlag;
 	public static ItemStack crystalSlagRich;

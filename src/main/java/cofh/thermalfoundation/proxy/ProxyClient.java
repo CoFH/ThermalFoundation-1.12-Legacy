@@ -7,17 +7,20 @@ import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
+import cofh.thermalfoundation.init.TFTextures;
 import cofh.thermalfoundation.render.entity.RenderEntityAsIcon;
 import cofh.thermalfoundation.render.entity.RenderEntityBasalz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlitz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlizz;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.ArrayList;
 
@@ -93,6 +96,13 @@ public class ProxyClient extends Proxy {
 				return new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_basalz");
 			}
 		});
+	}
+
+	/* EVENT HANDLERS */
+	@SubscribeEvent
+	public void registerIcons(TextureStitchEvent.Pre event) {
+
+		TFTextures.registerIcons(event);
 	}
 
 	/* HELPERS */

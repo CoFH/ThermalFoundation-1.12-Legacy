@@ -20,14 +20,19 @@ entity.thermalfoundation.blizz.name=Blizz
 
 fluid.aerotheum=Zephyrean Aerotheum
 fluid.coal=Liquifacted Coal
+fluid.crude_oil=Crude Oil
 fluid.cryotheum=Gelid Cryotheum
 fluid.ender=Resonant Ender
+fluid.fuel=Fuel
 fluid.glowstone=Energized Glowstone
 fluid.mana=Primal Mana
 fluid.petrotheum=Tectonic Petrotheum
 fluid.pyrotheum=Blazing Pyrotheum
 fluid.redstone=Destabilized Redstone
+fluid.refined_oil=Naphtha
+fluid.resin=Resin
 fluid.steam=Steam
+fluid.tree_oil=Tree Oil
 
 gui.thermalfoundation.lexicon.clearPreference=Clear Preference
 gui.thermalfoundation.lexicon.nextEntry=Next Entry
@@ -100,6 +105,8 @@ item.thermalfoundation.diagram.scroll.name=Scroll
 item.thermalfoundation.fertilizer.fertilizerBasic.name=Phyto-Gro
 item.thermalfoundation.fertilizer.fertilizerFlux.name=Fluxed Phyto-Gro
 item.thermalfoundation.fertilizer.fertilizerRich.name=Rich Phyto-Gro
+
+item.thermalfoundation.geode.geode.name=Geode
 
 item.thermalfoundation.material.crystalCinnabar.name=Cinnabar
 item.thermalfoundation.material.crystalSlag.name=Slag
@@ -202,6 +209,8 @@ item.thermalfoundation.material.powerCoilSilver.name=Redstone Transmission Coil
 item.thermalfoundation.material.rodBasalz.name=Basalz Rod
 item.thermalfoundation.material.rodBlitz.name=Blitz Rod
 item.thermalfoundation.material.rodBlizz.name=Blizz Rod
+
+item.thermalfoundation.material.rosin.name=Rosin
 
 item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexicon (Empowered)
 item.thermalfoundation.tome.lexicon.name=Forge Lexicon
