@@ -125,7 +125,28 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		gearLumium = addOreDictItem(149, "gearLumium", EnumRarity.UNCOMMON);
 		gearEnderium = addOreDictItem(150, "gearEnderium", EnumRarity.RARE);
 
+		/* Plates */
+
+		plateCopper = addOreDictItem(160, "plateCopper");
+		plateTin = addOreDictItem(161, "plateTin");
+		plateSilver = addOreDictItem(162, "plateSilver");
+		plateLead = addOreDictItem(163, "plateLead");
+		plateAluminum = addOreDictItem(164, "plateAluminum");
+		plateNickel = addOreDictItem(165, "plateNickel");
+		platePlatinum = addOreDictItem(166, "platePlatinum", EnumRarity.UNCOMMON);
+		plateIridium = addOreDictItem(167, "plateIridium", EnumRarity.UNCOMMON);
+		plateMithril = addOreDictItem(168, "plateMithril", EnumRarity.RARE);
+
+		plateSteel = addOreDictItem(176, "plateSteel");
+		plateElectrum = addOreDictItem(177, "plateElectrum");
+		plateInvar = addOreDictItem(178, "plateInvar");
+		plateBronze = addOreDictItem(179, "plateBronze");
+		plateSignalum = addOreDictItem(180, "plateSignalum", EnumRarity.UNCOMMON);
+		plateLumium = addOreDictItem(181, "plateLumium", EnumRarity.UNCOMMON);
+		plateEnderium = addOreDictItem(182, "plateEnderium", EnumRarity.RARE);
+
 		/* Parts */
+		redstoneServo = addItem(256, "redstoneServo");
 		powerCoilGold = addItem(257, "powerCoilGold");
 		powerCoilSilver = addItem(258, "powerCoilSilver");
 		powerCoilElectrum = addItem(259, "powerCoilElectrum");
@@ -382,7 +403,25 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack gearLumium;
 	public static ItemStack gearEnderium;
 
-	public static ItemStack pneumaticServo;
+	public static ItemStack plateCopper;
+	public static ItemStack plateTin;
+	public static ItemStack plateSilver;
+	public static ItemStack plateLead;
+	public static ItemStack plateAluminum;
+	public static ItemStack plateNickel;
+	public static ItemStack platePlatinum;
+	public static ItemStack plateIridium;
+	public static ItemStack plateMithril;
+
+	public static ItemStack plateSteel;
+	public static ItemStack plateElectrum;
+	public static ItemStack plateInvar;
+	public static ItemStack plateBronze;
+	public static ItemStack plateSignalum;
+	public static ItemStack plateLumium;
+	public static ItemStack plateEnderium;
+
+	public static ItemStack redstoneServo;
 	public static ItemStack powerCoilGold;
 	public static ItemStack powerCoilSilver;
 	public static ItemStack powerCoilElectrum;

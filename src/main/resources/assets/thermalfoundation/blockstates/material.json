@@ -409,6 +409,101 @@
 					"layer0": "thermalfoundation:items/material/gear_enderium"
 				}
 			},
+			"plateiron": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_iron"
+				}
+			},
+			"plategold": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_gold"
+				}
+			},
+			"platecopper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_copper"
+				}
+			},
+			"platetin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_tin"
+				}
+			},
+			"platesilver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_silver"
+				}
+			},
+			"platelead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_lead"
+				}
+			},
+			"platealuminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_aluminum"
+				}
+			},
+			"platenickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_nickel"
+				}
+			},
+			"plateplatinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_platinum"
+				}
+			},
+			"plateiridium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_iridium"
+				}
+			},
+			"platemithril": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_mithril"
+				}
+			},
+			"platesteel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_steel"
+				}
+			},
+			"plateelectrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_electrum"
+				}
+			},
+			"plateinvar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_invar"
+				}
+			},
+			"platebronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_bronze"
+				}
+			},
+			"platesignalum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_signalum"
+				}
+			},
+			"platelumium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_lumium"
+				}
+			},
+			"plateenderium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_enderium"
+				}
+			},
+			"redstoneservo": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/redstone_servo"
+				}
+			},
 			"powercoilgold": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/power_coil_gold"

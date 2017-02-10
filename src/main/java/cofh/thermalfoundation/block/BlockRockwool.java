@@ -20,6 +20,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -122,6 +123,8 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 
 	@Override
 	public boolean initialize() {
+
+		OreDictionary.registerOre("blockRockwool", new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE));
 
 		return true;
 	}
