@@ -38,14 +38,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		dustNiter = addItem(17, "dustNiter");
 		OreDictionary.registerOre("dustSaltpeter", dustNiter);
 
-		dustWood = addOreDictItem(20, "dustWood");
-		dustWoodCompressed = addItem(21, "dustWoodCompressed");
-		rosin = addItem(22, "rosin");
-
-		crystalSlag = addOreDictItem(24, "crystalSlag");
-		crystalSlagRich = addOreDictItem(25, "crystalSlagRich");
-		crystalCinnabar = addOreDictItem(26, "crystalCinnabar");
-
 		/* Dusts */
 		dustCopper = addOreDictItem(32, "dustCopper");
 		dustTin = addOreDictItem(33, "dustTin");
@@ -151,22 +143,32 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		powerCoilSilver = addItem(258, "powerCoilSilver");
 		powerCoilElectrum = addItem(259, "powerCoilElectrum");
 
+
+		/* Process Items */
+		dustWood = addOreDictItem(768, "dustWood");
+		dustWoodCompressed = addItem(769, "dustWoodCompressed");
+		rosin = addItem(770, "rosin");
+
+		crystalSlag = addOreDictItem(800, "crystalSlag");
+		crystalSlagRich = addOreDictItem(801, "crystalSlagRich");
+		crystalCinnabar = addOreDictItem(802, "crystalCinnabar");
+
 		/* Additional Items */
-		dustPyrotheum = addOreDictItem(512, "dustPyrotheum", EnumRarity.RARE);
-		dustCryotheum = addOreDictItem(513, "dustCryotheum", EnumRarity.RARE);
-		dustAerotheum = addOreDictItem(514, "dustAerotheum", EnumRarity.RARE);
-		dustPetrotheum = addOreDictItem(515, "dustPetrotheum", EnumRarity.RARE);
-		dustMana = addOreDictItem(516, "dustMana", EnumRarity.EPIC);
+		dustPyrotheum = addOreDictItem(1024, "dustPyrotheum", EnumRarity.RARE);
+		dustCryotheum = addOreDictItem(1025, "dustCryotheum", EnumRarity.RARE);
+		dustAerotheum = addOreDictItem(1026, "dustAerotheum", EnumRarity.RARE);
+		dustPetrotheum = addOreDictItem(1027, "dustPetrotheum", EnumRarity.RARE);
+		dustMana = addOreDictItem(1028, "dustMana", EnumRarity.EPIC);
 
 		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
 
 		/* Mob Drops */
-		rodBlizz = addOreDictItem(1024, "rodBlizz");
-		dustBlizz = addOreDictItem(1025, "dustBlizz");
-		rodBlitz = addOreDictItem(1026, "rodBlitz");
-		dustBlitz = addOreDictItem(1027, "dustBlitz");
-		rodBasalz = addOreDictItem(1028, "rodBasalz");
-		dustBasalz = addOreDictItem(1029, "dustBasalz");
+		rodBlizz = addOreDictItem(2048, "rodBlizz");
+		dustBlizz = addOreDictItem(2049, "dustBlizz");
+		rodBlitz = addOreDictItem(2050, "rodBlitz");
+		dustBlitz = addOreDictItem(2051, "dustBlitz");
+		rodBasalz = addOreDictItem(2052, "rodBasalz");
+		dustBasalz = addOreDictItem(2053, "dustBasalz");
 
 		return true;
 	}
@@ -296,6 +298,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addSmelting(dustWoodCompressed, new ItemStack(Items.COAL, 1, 1), 0.15F);
 
 		addRecipe(ShapedRecipe(dustWoodCompressed, "###", "# #", "###", '#', "dustWood"));
+		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "R", "S", 'R', rosin, 'S', Items.STICK));
 		addRecipe(ShapelessRecipe(new ItemStack(Items.CLAY_BALL, 4), crystalSlag, crystalSlag, Blocks.DIRT, Items.WATER_BUCKET));
 
 		return true;

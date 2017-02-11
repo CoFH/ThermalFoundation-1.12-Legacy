@@ -44,36 +44,6 @@
 					"layer0": "thermalfoundation:items/material/dust_niter"
 				}
 			},
-			"dustwood": {
-				"textures": {
-					"layer0": "thermalfoundation:items/material/dust_wood"
-				}
-			},
-			"dustwoodcompressed": {
-				"textures": {
-					"layer0": "thermalfoundation:items/material/dust_wood_compressed"
-				}
-			},
-			"rosin": {
-				"textures": {
-					"layer0": "thermalfoundation:items/material/rosin"
-				}
-			},
-			"crystalslag": {
-				"textures": {
-					"layer0": "thermalfoundation:items/material/crystal_slag"
-				}
-			},
-			"crystalslagrich": {
-				"textures": {
-					"layer0": "thermalfoundation:items/material/crystal_slag_rich"
-				}
-			},
-			"crystalcinnabar": {
-				"textures": {
-					"layer0": "thermalfoundation:items/material/crystal_cinnabar"
-				}
-			},
 			"dustcopper": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/dust_copper"
@@ -517,6 +487,36 @@
 			"powercoilelectrum": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/power_coil_electrum"
+				}
+			},
+			"dustwood": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_wood"
+				}
+			},
+			"dustwoodcompressed": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_wood_compressed"
+				}
+			},
+			"rosin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/rosin"
+				}
+			},
+			"crystalslag": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/crystal_slag"
+				}
+			},
+			"crystalslagrich": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/crystal_slag_rich"
+				}
+			},
+			"crystalcinnabar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/crystal_cinnabar"
 				}
 			},
 			"dustpyrotheum": {
