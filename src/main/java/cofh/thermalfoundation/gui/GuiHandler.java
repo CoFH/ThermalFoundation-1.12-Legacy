@@ -28,14 +28,17 @@ public class GuiHandler implements IGuiHandler {
 				if (tile instanceof TileCore) {
 					return ((TileCore) tile).getGuiClient(player.inventory);
 				}
+				return null;
 			case LEXICON_STUDY_ID:
 				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
 					return new GuiLexiconStudy(player.inventory, new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory)); // TODO Add off-hand support
 				}
+				return null;
 			case LEXICON_TRANSMUTE_ID:
 				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
 					return new GuiLexiconTransmute(player.inventory, new ContainerLexiconTransmute(player.inventory));
 				}
+				return null;
 			default:
 				return null;
 		}
@@ -50,14 +53,17 @@ public class GuiHandler implements IGuiHandler {
 				if (tile instanceof TileCore) {
 					return ((TileCore) tile).getGuiServer(player.inventory);
 				}
+				return null;
 			case LEXICON_STUDY_ID:
 				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
 					return new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory); // TODO Add off-hand support
 				}
+				return null;
 			case LEXICON_TRANSMUTE_ID:
 				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
 					return new ContainerLexiconTransmute(player.inventory);
 				}
+				return null;
 			default:
 				return null;
 		}
