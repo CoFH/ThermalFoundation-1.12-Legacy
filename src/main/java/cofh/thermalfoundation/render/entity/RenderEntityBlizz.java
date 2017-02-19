@@ -22,7 +22,7 @@ public class RenderEntityBlizz extends RenderLiving<EntityBlizz> {
 
 	public RenderEntityBlizz(RenderManager renderManager) {
 
-		super(renderManager, ModelElemental.instance, 0.5F);
+		super(renderManager, ModelElemental.INSTANCE, 0.5F);
 	}
 
 	@Override

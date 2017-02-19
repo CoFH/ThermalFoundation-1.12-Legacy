@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly (Side.CLIENT)
 public class ModelElemental extends ModelBase {
 
-	public static ModelElemental instance = new ModelElemental();
+	public static final ModelElemental INSTANCE = new ModelElemental();
 
 	protected final ModelRenderer[] elementalRods = new ModelRenderer[12];
 	protected final ModelRenderer elementalHead;

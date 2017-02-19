@@ -19,7 +19,7 @@ public class RenderEntityBlitz extends RenderLiving<EntityBlitz> {
 
 	public RenderEntityBlitz(RenderManager manager) {
 
-		super(manager, ModelElemental.instance, 0.5F);
+		super(manager, ModelElemental.INSTANCE, 0.5F);
 	}
 
 	@Override

@@ -19,7 +19,7 @@ public class RenderEntityBasalz extends RenderLiving<EntityBasalz> {
 
 	public RenderEntityBasalz(RenderManager renderManager) {
 
-		super(renderManager, ModelElemental.instance, 0.5F);
+		super(renderManager, ModelElemental.INSTANCE, 0.5F);
 	}
 
 	@Override
