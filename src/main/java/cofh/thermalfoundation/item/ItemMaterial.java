@@ -34,10 +34,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		dustCharcoal = addOreDictItem(3, "dustCharcoal");
 		dustObsidian = addOreDictItem(4, "dustObsidian");
 
-		dustSulfur = addOreDictItem(16, "dustSulfur");
-		dustNiter = addItem(17, "dustNiter");
-		OreDictionary.registerOre("dustSaltpeter", dustNiter);
-
 		/* Dusts */
 		dustCopper = addOreDictItem(32, "dustCopper");
 		dustTin = addOreDictItem(33, "dustTin");
@@ -53,9 +49,10 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		dustElectrum = addOreDictItem(49, "dustElectrum");
 		dustInvar = addOreDictItem(50, "dustInvar");
 		dustBronze = addOreDictItem(51, "dustBronze");
-		dustSignalum = addOreDictItem(52, "dustSignalum", EnumRarity.UNCOMMON);
-		dustLumium = addOreDictItem(53, "dustLumium", EnumRarity.UNCOMMON);
-		dustEnderium = addOreDictItem(54, "dustEnderium", EnumRarity.RARE);
+		dustConstantan = addOreDictItem(52, "dustConstantan");
+		dustSignalum = addOreDictItem(53, "dustSignalum", EnumRarity.UNCOMMON);
+		dustLumium = addOreDictItem(54, "dustLumium", EnumRarity.UNCOMMON);
+		dustEnderium = addOreDictItem(55, "dustEnderium", EnumRarity.RARE);
 
 		/* Ingots */
 		ingotCopper = addOreDictItem(64, "ingotCopper");
@@ -72,9 +69,10 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		ingotElectrum = addOreDictItem(81, "ingotElectrum");
 		ingotInvar = addOreDictItem(82, "ingotInvar");
 		ingotBronze = addOreDictItem(83, "ingotBronze");
-		ingotSignalum = addOreDictItem(84, "ingotSignalum", EnumRarity.UNCOMMON);
-		ingotLumium = addOreDictItem(85, "ingotLumium", EnumRarity.UNCOMMON);
-		ingotEnderium = addOreDictItem(86, "ingotEnderium", EnumRarity.RARE);
+		ingotConstantan = addOreDictItem(84, "ingotConstantan");
+		ingotSignalum = addOreDictItem(85, "ingotSignalum", EnumRarity.UNCOMMON);
+		ingotLumium = addOreDictItem(86, "ingotLumium", EnumRarity.UNCOMMON);
+		ingotEnderium = addOreDictItem(87, "ingotEnderium", EnumRarity.RARE);
 
 		/* Nuggets */
 		nuggetDiamond = addOreDictItem(8, "nuggetDiamond");
@@ -92,9 +90,10 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		nuggetElectrum = addOreDictItem(113, "nuggetElectrum");
 		nuggetInvar = addOreDictItem(114, "nuggetInvar");
 		nuggetBronze = addOreDictItem(115, "nuggetBronze");
-		nuggetSignalum = addOreDictItem(116, "nuggetSignalum", EnumRarity.UNCOMMON);
-		nuggetLumium = addOreDictItem(117, "nuggetLumium", EnumRarity.UNCOMMON);
-		nuggetEnderium = addOreDictItem(118, "nuggetEnderium", EnumRarity.RARE);
+		nuggetConstantan = addOreDictItem(116, "nuggetConstantan");
+		nuggetSignalum = addOreDictItem(117, "nuggetSignalum", EnumRarity.UNCOMMON);
+		nuggetLumium = addOreDictItem(118, "nuggetLumium", EnumRarity.UNCOMMON);
+		nuggetEnderium = addOreDictItem(119, "nuggetEnderium", EnumRarity.RARE);
 
 		/* Gears */
 		gearIron = addOreDictItem(12, "gearIron");
@@ -113,9 +112,10 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		gearElectrum = addOreDictItem(145, "gearElectrum");
 		gearInvar = addOreDictItem(146, "gearInvar");
 		gearBronze = addOreDictItem(147, "gearBronze");
-		gearSignalum = addOreDictItem(148, "gearSignalum", EnumRarity.UNCOMMON);
-		gearLumium = addOreDictItem(149, "gearLumium", EnumRarity.UNCOMMON);
-		gearEnderium = addOreDictItem(150, "gearEnderium", EnumRarity.RARE);
+		gearConstantan = addOreDictItem(148, "gearConstantan");
+		gearSignalum = addOreDictItem(149, "gearSignalum", EnumRarity.UNCOMMON);
+		gearLumium = addOreDictItem(150, "gearLumium", EnumRarity.UNCOMMON);
+		gearEnderium = addOreDictItem(151, "gearEnderium", EnumRarity.RARE);
 
 		/* Plates */
 
@@ -133,25 +133,31 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		plateElectrum = addOreDictItem(177, "plateElectrum");
 		plateInvar = addOreDictItem(178, "plateInvar");
 		plateBronze = addOreDictItem(179, "plateBronze");
-		plateSignalum = addOreDictItem(180, "plateSignalum", EnumRarity.UNCOMMON);
-		plateLumium = addOreDictItem(181, "plateLumium", EnumRarity.UNCOMMON);
-		plateEnderium = addOreDictItem(182, "plateEnderium", EnumRarity.RARE);
+		plateConstantan = addOreDictItem(180, "plateConstantan");
+		plateSignalum = addOreDictItem(181, "plateSignalum", EnumRarity.UNCOMMON);
+		plateLumium = addOreDictItem(182, "plateLumium", EnumRarity.UNCOMMON);
+		plateEnderium = addOreDictItem(183, "plateEnderium", EnumRarity.RARE);
 
 		/* Parts */
-		redstoneServo = addItem(256, "redstoneServo");
-		powerCoilGold = addItem(257, "powerCoilGold");
-		powerCoilSilver = addItem(258, "powerCoilSilver");
-		powerCoilElectrum = addItem(259, "powerCoilElectrum");
-
+		redstoneServo = addItem(512, "redstoneServo");
+		powerCoilGold = addItem(513, "powerCoilGold");
+		powerCoilSilver = addItem(514, "powerCoilSilver");
+		powerCoilElectrum = addItem(515, "powerCoilElectrum");
 
 		/* Process Items */
-		dustWood = addOreDictItem(768, "dustWood");
-		dustWoodCompressed = addItem(769, "dustWoodCompressed");
-		rosin = addItem(770, "rosin");
+		dustSulfur = addOreDictItem(768, "dustSulfur");
+		dustNiter = addItem(769, "dustNiter");
 
-		crystalSlag = addOreDictItem(800, "crystalSlag");
-		crystalSlagRich = addOreDictItem(801, "crystalSlagRich");
-		crystalCinnabar = addOreDictItem(802, "crystalCinnabar");
+		dustWood = addOreDictItem(800, "dustWood");
+		dustWoodCompressed = addItem(801, "dustWoodCompressed");
+		gemCoke = addItem(802, "gemCoke");
+
+		globRosin = addItem(816, "globRosin");
+		globPitch = addItem(817, "globPitch");
+
+		crystalSlag = addOreDictItem(864, "crystalSlag");
+		crystalSlagRich = addOreDictItem(865, "crystalSlagRich");
+		crystalCinnabar = addOreDictItem(866, "crystalCinnabar");
 
 		/* Additional Items */
 		dustPyrotheum = addOreDictItem(1024, "dustPyrotheum", EnumRarity.RARE);
@@ -160,8 +166,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		dustPetrotheum = addOreDictItem(1027, "dustPetrotheum", EnumRarity.RARE);
 		dustMana = addOreDictItem(1028, "dustMana", EnumRarity.EPIC);
 
-		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
-
 		/* Mob Drops */
 		rodBlizz = addOreDictItem(2048, "rodBlizz");
 		dustBlizz = addOreDictItem(2049, "dustBlizz");
@@ -169,6 +173,10 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		dustBlitz = addOreDictItem(2051, "dustBlitz");
 		rodBasalz = addOreDictItem(2052, "rodBasalz");
 		dustBasalz = addOreDictItem(2053, "dustBasalz");
+
+		OreDictionary.registerOre("dustSaltpeter", dustNiter);
+		FurnaceFuelHandler.registerFuel(gemCoke, TFProps.gemCokeFuel);
+		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
 
 		return true;
 	}
@@ -206,6 +214,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addSmelting(ingotElectrum, dustElectrum, 0.0F);
 		addSmelting(ingotInvar, dustInvar, 0.0F);
 		addSmelting(ingotBronze, dustBronze, 0.0F);
+		addSmelting(ingotConstantan, dustConstantan, 0.0F);
 		addSmelting(ingotSignalum, dustSignalum, 0.0F);
 		addSmelting(ingotLumium, dustLumium, 0.0F);
 		// No Enderium
@@ -216,6 +225,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addRecipe(ShapelessRecipe(cloneStack(dustElectrum, 2), "dustGold", "dustSilver"));
 		addRecipe(ShapelessRecipe(cloneStack(dustInvar, 3), "dustIron", "dustIron", "dustNickel"));
 		addRecipe(ShapelessRecipe(cloneStack(dustBronze, 4), "dustCopper", "dustCopper", "dustCopper", "dustTin"));
+		addRecipe(ShapelessRecipe(cloneStack(dustConstantan, 2), "dustCopper", "dustNickel"));
 		addRecipe(ShapelessRecipe(cloneStack(dustSignalum, 4), "dustCopper", "dustCopper", "dustCopper", "dustSilver", "bucketRedstone"));
 		addRecipe(ShapelessRecipe(cloneStack(dustLumium, 4), "dustTin", "dustTin", "dustTin", "dustSilver", "bucketGlowstone"));
 		addRecipe(ShapelessRecipe(cloneStack(dustEnderium, 4), "dustTin", "dustTin", "dustSilver", "dustPlatinum", "bucketEnder"));
@@ -237,6 +247,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addTwoWayStorageRecipe(ingotElectrum, "ingotElectrum", nuggetElectrum, "nuggetElectrum");
 		addTwoWayStorageRecipe(ingotInvar, "ingotInvar", nuggetInvar, "nuggetInvar");
 		addTwoWayStorageRecipe(ingotBronze, "ingotBronze", nuggetBronze, "nuggetBronze");
+		addTwoWayStorageRecipe(ingotConstantan, "ingotConstantan", nuggetConstantan, "nuggetConstantan");
 		addTwoWayStorageRecipe(ingotSignalum, "ingotSignalum", nuggetSignalum, "nuggetSignalum");
 		addTwoWayStorageRecipe(ingotLumium, "ingotLumium", nuggetLumium, "nuggetLumium");
 		addTwoWayStorageRecipe(ingotEnderium, "ingotEnderium", nuggetEnderium, "nuggetEnderium");
@@ -255,6 +266,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addReverseStorageRecipe(ingotElectrum, "blockElectrum");
 		addReverseStorageRecipe(ingotInvar, "blockInvar");
 		addReverseStorageRecipe(ingotBronze, "blockBronze");
+		addReverseStorageRecipe(ingotConstantan, "blockConstantan");
 		addReverseStorageRecipe(ingotSignalum, "blockSignalum");
 		addReverseStorageRecipe(ingotLumium, "blockLumium");
 		addReverseStorageRecipe(ingotEnderium, "blockEnderium");
@@ -276,6 +288,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addGearRecipe(gearElectrum, "ingotElectrum");
 		addGearRecipe(gearInvar, "ingotInvar");
 		addGearRecipe(gearBronze, "ingotBronze");
+		addGearRecipe(gearConstantan, "ingotConstantan");
 		addGearRecipe(gearSignalum, "ingotSignalum");
 		addGearRecipe(gearLumium, "ingotLumium");
 		addGearRecipe(gearEnderium, "ingotEnderium");
@@ -299,7 +312,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addSmelting(dustWoodCompressed, new ItemStack(Items.COAL, 1, 1), 0.15F);
 
 		addRecipe(ShapedRecipe(dustWoodCompressed, "###", "# #", "###", '#', "dustWood"));
-		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "R", "S", 'R', rosin, 'S', Items.STICK));
+		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "R", "S", 'R', globRosin, 'S', Items.STICK));
 		addRecipe(ShapelessRecipe(new ItemStack(Items.CLAY_BALL, 4), crystalSlag, crystalSlag, Blocks.DIRT, Items.WATER_BUCKET));
 
 		return true;
@@ -324,17 +337,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack gearIron;
 	public static ItemStack gearGold;
 
-	public static ItemStack dustSulfur;
-	public static ItemStack dustNiter;
-
-	public static ItemStack dustWood;
-	public static ItemStack dustWoodCompressed;
-	public static ItemStack rosin;
-
-	public static ItemStack crystalSlag;
-	public static ItemStack crystalSlagRich;
-	public static ItemStack crystalCinnabar;
-
 	public static ItemStack ingotCopper;
 	public static ItemStack ingotTin;
 	public static ItemStack ingotSilver;
@@ -349,6 +351,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack ingotElectrum;
 	public static ItemStack ingotInvar;
 	public static ItemStack ingotBronze;
+	public static ItemStack ingotConstantan;
 	public static ItemStack ingotSignalum;
 	public static ItemStack ingotLumium;
 	public static ItemStack ingotEnderium;
@@ -367,6 +370,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack dustElectrum;
 	public static ItemStack dustInvar;
 	public static ItemStack dustBronze;
+	public static ItemStack dustConstantan;
 	public static ItemStack dustSignalum;
 	public static ItemStack dustLumium;
 	public static ItemStack dustEnderium;
@@ -385,6 +389,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack nuggetElectrum;
 	public static ItemStack nuggetInvar;
 	public static ItemStack nuggetBronze;
+	public static ItemStack nuggetConstantan;
 	public static ItemStack nuggetSignalum;
 	public static ItemStack nuggetLumium;
 	public static ItemStack nuggetEnderium;
@@ -403,6 +408,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack gearElectrum;
 	public static ItemStack gearInvar;
 	public static ItemStack gearBronze;
+	public static ItemStack gearConstantan;
 	public static ItemStack gearSignalum;
 	public static ItemStack gearLumium;
 	public static ItemStack gearEnderium;
@@ -421,6 +427,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack plateElectrum;
 	public static ItemStack plateInvar;
 	public static ItemStack plateBronze;
+	public static ItemStack plateConstantan;
 	public static ItemStack plateSignalum;
 	public static ItemStack plateLumium;
 	public static ItemStack plateEnderium;
@@ -429,6 +436,20 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack powerCoilGold;
 	public static ItemStack powerCoilSilver;
 	public static ItemStack powerCoilElectrum;
+
+	public static ItemStack dustSulfur;
+	public static ItemStack dustNiter;
+
+	public static ItemStack dustWood;
+	public static ItemStack dustWoodCompressed;
+	public static ItemStack gemCoke;
+
+	public static ItemStack globRosin;
+	public static ItemStack globPitch;
+
+	public static ItemStack crystalSlag;
+	public static ItemStack crystalSlagRich;
+	public static ItemStack crystalCinnabar;
 
 	public static ItemStack dustPyrotheum;
 	public static ItemStack dustCryotheum;

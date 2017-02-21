@@ -46,7 +46,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		setHardness(5.0F);
 		setResistance(10.0F);
 		setSoundType(SoundType.METAL);
-		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.ELECTRUM));
+		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.STEEL));
 
 		setHarvestLevel("pickaxe", 2);
 		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.ENDERIUM.getMetadata()));
@@ -161,6 +161,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		blockElectrum = new ItemStack(this, 1, Type.ELECTRUM.getMetadata());
 		blockInvar = new ItemStack(this, 1, Type.INVAR.getMetadata());
 		blockBronze = new ItemStack(this, 1, Type.BRONZE.getMetadata());
+		blockConstantan = new ItemStack(this, 1, Type.CONSTANTAN.getMetadata());
 		blockSignalum = new ItemStack(this, 1, Type.SIGNALUM.getMetadata());
 		blockLumium = new ItemStack(this, 1, Type.LUMIUM.getMetadata());
 		blockEnderium = new ItemStack(this, 1, Type.ENDERIUM.getMetadata());
@@ -169,6 +170,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		registerWithHandlers("blockElectrum", blockElectrum);
 		registerWithHandlers("blockInvar", blockInvar);
 		registerWithHandlers("blockBronze", blockBronze);
+		registerWithHandlers("blockConstantan", blockConstantan);
 		registerWithHandlers("blockSignalum", blockSignalum);
 		registerWithHandlers("blockLumium", blockLumium);
 		registerWithHandlers("blockEnderium", blockEnderium);
@@ -188,6 +190,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		addStorageRecipe(blockElectrum, "ingotElectrum");
 		addStorageRecipe(blockInvar, "ingotInvar");
 		addStorageRecipe(blockBronze, "ingotBronze");
+		addStorageRecipe(blockConstantan, "ingotConstantan");
 		addStorageRecipe(blockSignalum, "ingotSignalum");
 		addStorageRecipe(blockLumium, "ingotLumium");
 		addStorageRecipe(blockEnderium, "ingotEnderium");
@@ -203,9 +206,10 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		ELECTRUM(1, "electrum", 4.0F, 6.0F),
 		INVAR(2, "invar", 20.0F, 12.0F),
 		BRONZE(3, "bronze"),
-		SIGNALUM(4, "signalum", 7, 5.0F, 6.0F, EnumRarity.UNCOMMON),
-		LUMIUM(5, "lumium", 15, 5.0F, 9.0F, EnumRarity.UNCOMMON),
-		ENDERIUM(6, "enderium", 4, 40.0F, 120.0F, EnumRarity.RARE);
+		CONSTANTAN(4, "constantan"),
+		SIGNALUM(5, "signalum", 7, 5.0F, 6.0F, EnumRarity.UNCOMMON),
+		LUMIUM(6, "lumium", 15, 5.0F, 9.0F, EnumRarity.UNCOMMON),
+		ENDERIUM(7, "enderium", 4, 40.0F, 120.0F, EnumRarity.RARE);
 		// @formatter: on
 
 		private static final BlockStorageAlloy.Type[] METADATA_LOOKUP = new BlockStorageAlloy.Type[values().length];
@@ -295,6 +299,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	public static ItemStack blockElectrum;
 	public static ItemStack blockInvar;
 	public static ItemStack blockBronze;
+	public static ItemStack blockConstantan;
 	public static ItemStack blockSignalum;
 	public static ItemStack blockLumium;
 	public static ItemStack blockEnderium;

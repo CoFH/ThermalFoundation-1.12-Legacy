@@ -114,6 +114,8 @@ public class TFProps {
 
 	/* GENERAL */
 	public static boolean dropSulfurFireImmuneMobs = true;
+
+	public static int gemCokeFuel = 3200;
 	public static int dustPyrotheumFuel = 24000;
 
 	/* RENDER */

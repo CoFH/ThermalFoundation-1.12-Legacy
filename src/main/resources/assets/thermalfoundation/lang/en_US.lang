@@ -20,6 +20,7 @@ entity.thermalfoundation.blizz.name=Blizz
 
 fluid.aerotheum=Zephyrean Aerotheum
 fluid.coal=Liquifacted Coal
+fluid.creosote=Creosote Oil
 fluid.crude_oil=Crude Oil
 fluid.cryotheum=Gelid Cryotheum
 fluid.ender=Resonant Ender
@@ -120,6 +121,7 @@ item.thermalfoundation.material.dustBlizz.name=Blizz Powder
 item.thermalfoundation.material.dustBronze.name=Bronze Blend
 item.thermalfoundation.material.dustCharcoal.name=Pulverized Charcoal
 item.thermalfoundation.material.dustCoal.name=Pulverized Coal
+item.thermalfoundation.material.dustConstantan.name=Constantan Blend
 item.thermalfoundation.material.dustCopper.name=Pulverized Copper
 item.thermalfoundation.material.dustCryotheum.name=Cryotheum Dust
 item.thermalfoundation.material.dustElectrum.name=Electrum Blend
@@ -148,6 +150,7 @@ item.thermalfoundation.material.dustWoodCompressed.name=Compressed Sawdust
 
 item.thermalfoundation.material.gearAluminum.name=Aluminum Gear
 item.thermalfoundation.material.gearBronze.name=Bronze Gear
+item.thermalfoundation.material.gearConstantan.name=Constantan Gear
 item.thermalfoundation.material.gearCopper.name=Copper Gear
 item.thermalfoundation.material.gearElectrum.name=Electrum Gear
 item.thermalfoundation.material.gearEnderium.name=Enderium Gear
@@ -165,8 +168,14 @@ item.thermalfoundation.material.gearSilver.name=Silver Gear
 item.thermalfoundation.material.gearSteel.name=Steel Gear
 item.thermalfoundation.material.gearTin.name=Tin Gear
 
+item.thermalfoundation.material.gemCoke.name=Coal Coke
+
+item.thermalfoundation.material.globPitch.name=Pitch
+item.thermalfoundation.material.globRosin.name=Rosin
+
 item.thermalfoundation.material.ingotAluminum.name=Aluminum Ingot
 item.thermalfoundation.material.ingotBronze.name=Bronze Ingot
+item.thermalfoundation.material.ingotConstantan.name=Constantan Ingot
 item.thermalfoundation.material.ingotCopper.name=Copper Ingot
 item.thermalfoundation.material.ingotElectrum.name=Electrum Ingot
 item.thermalfoundation.material.ingotEnderium.name=Enderium Ingot
@@ -184,6 +193,7 @@ item.thermalfoundation.material.ingotTin.name=Tin Ingot
 
 item.thermalfoundation.material.nuggetAluminum.name=Aluminum Nugget
 item.thermalfoundation.material.nuggetBronze.name=Bronze Nugget
+item.thermalfoundation.material.nuggetConstantan.name=Constantan Nugget
 item.thermalfoundation.material.nuggetCopper.name=Copper Nugget
 item.thermalfoundation.material.nuggetDiamond.name=Diamond Nugget
 item.thermalfoundation.material.nuggetElectrum.name=Electrum Nugget
@@ -203,6 +213,7 @@ item.thermalfoundation.material.nuggetTin.name=Tin Nugget
 
 item.thermalfoundation.material.plateAluminum.name=Aluminum Plate
 item.thermalfoundation.material.plateBronze.name=Bronze Plate
+item.thermalfoundation.material.plateConstantan.name=Constantan Plate
 item.thermalfoundation.material.plateCopper.name=Copper Plate
 item.thermalfoundation.material.plateElectrum.name=Electrum Plate
 item.thermalfoundation.material.plateEnderium.name=Enderium Plate
@@ -228,8 +239,6 @@ item.thermalfoundation.material.redstoneServo.name=Redstone Servo
 item.thermalfoundation.material.rodBasalz.name=Basalz Rod
 item.thermalfoundation.material.rodBlitz.name=Blitz Rod
 item.thermalfoundation.material.rodBlizz.name=Blizz Rod
-
-item.thermalfoundation.material.rosin.name=Rosin
 
 item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexicon (Empowered)
 item.thermalfoundation.tome.lexicon.name=Forge Lexicon
@@ -413,7 +422,6 @@ tab.thermalfoundation.lexicon.transmute.0=Transmute equivalent items according t
 tab.thermalfoundation.lexicon.transmute.1=Quell the Lexicon to relinquish mastery over the world.
 
 tile.thermalfoundation.fluid.aerotheum.name=Zephyrean Aerotheum
-tile.thermalfoundation.fluid.coal.name=Liquifacted Coal
 tile.thermalfoundation.fluid.cryotheum.name=Gelid Cryotheum
 tile.thermalfoundation.fluid.ender.name=Resonant Ender
 tile.thermalfoundation.fluid.glowstone.name=Energized Glowstone
@@ -421,10 +429,10 @@ tile.thermalfoundation.fluid.mana.name=Primal Mana
 tile.thermalfoundation.fluid.petrotheum.name=Tectonic Petrotheum
 tile.thermalfoundation.fluid.pyrotheum.name=Blazing Pyrotheum
 tile.thermalfoundation.fluid.redstone.name=Destabilized Redstone
-tile.thermalfoundation.fluid.steam.name=Steam
 
 tile.thermalfoundation.glass.aluminum.name=Hardened Aluminum Glass
 tile.thermalfoundation.glass.bronze.name=Hardened Bronze Glass
+tile.thermalfoundation.glass.constantan.name=Hardened Constantan Glass
 tile.thermalfoundation.glass.copper.name=Hardened Copper Glass
 tile.thermalfoundation.glass.electrum.name=Hardened Electrum Glass
 tile.thermalfoundation.glass.enderium.name=Hardened Enderium Glass
@@ -469,6 +477,7 @@ tile.thermalfoundation.rockwool.yellow.name=Yellow Rockwool
 
 tile.thermalfoundation.storage.aluminum.name=Aluminum Block
 tile.thermalfoundation.storage.bronze.name=Bronze Block
+tile.thermalfoundation.storage.constantan.name=Constantan Block
 tile.thermalfoundation.storage.copper.name=Copper Block
 tile.thermalfoundation.storage.electrum.name=Electrum Block
 tile.thermalfoundation.storage.enderium.name=Enderium Block

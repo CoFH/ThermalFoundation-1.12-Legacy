@@ -109,6 +109,11 @@
 					"layer0": "thermalfoundation:items/material/dust_bronze"
 				}
 			},
+			"dustconstantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_constantan"
+				}
+			},
 			"dustsignalum": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/dust_signalum"
@@ -187,6 +192,11 @@
 			"ingotbronze": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/ingot_bronze"
+				}
+			},
+			"ingotconstantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/ingot_constantan"
 				}
 			},
 			"ingotsignalum": {
@@ -272,6 +282,11 @@
 			"nuggetbronze": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/nugget_bronze"
+				}
+			},
+			"nuggetconstantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_constantan"
 				}
 			},
 			"nuggetsignalum": {
@@ -364,6 +379,11 @@
 					"layer0": "thermalfoundation:items/material/gear_bronze"
 				}
 			},
+			"gearconstantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_constantan"
+				}
+			},
 			"gearsignalum": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/gear_signalum"
@@ -454,6 +474,11 @@
 					"layer0": "thermalfoundation:items/material/plate_bronze"
 				}
 			},
+			"plateconstantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/plate_constantan"
+				}
+			},
 			"platesignalum": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/plate_signalum"
@@ -499,9 +524,19 @@
 					"layer0": "thermalfoundation:items/material/dust_wood_compressed"
 				}
 			},
-			"rosin": {
+			"gemcoke": {
 				"textures": {
-					"layer0": "thermalfoundation:items/material/rosin"
+					"layer0": "thermalfoundation:items/material/gem_coke"
+				}
+			},
+			"globrosin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/glob_rosin"
+				}
+			},
+			"globpitch": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/glob_pitch"
 				}
 			},
 			"crystalslag": {

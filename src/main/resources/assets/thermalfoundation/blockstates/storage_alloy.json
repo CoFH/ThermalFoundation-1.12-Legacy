@@ -26,6 +26,11 @@
 					"all": "thermalfoundation:blocks/storage/block_bronze"
 				}
 			},
+			"constantan": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_constantan"
+				}
+			},
 			"signalum": {
 				"textures": {
 					"all": "thermalfoundation:blocks/storage/block_signalum"

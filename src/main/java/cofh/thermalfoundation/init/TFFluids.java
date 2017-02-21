@@ -48,6 +48,7 @@ public class TFFluids {
 
 		FluidRegistry.registerFluid(new FluidCore("steam", "thermalfoundation").setLuminosity(0).setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true));
 
+		FluidRegistry.registerFluid(new FluidCore("creosote", "thermalfoundation").setLuminosity(0).setDensity(1200).setViscosity(2000).setTemperature(300));
 		FluidRegistry.registerFluid(new FluidCore("coal", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300));
 		FluidRegistry.registerFluid(new FluidCore("crude_oil", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300));
 		FluidRegistry.registerFluid(new FluidCore("refined_oil", "thermalfoundation").setLuminosity(0).setDensity(800).setViscosity(1400).setTemperature(300));
@@ -67,6 +68,7 @@ public class TFFluids {
 
 		fluidSteam = FluidRegistry.getFluid("steam");
 
+		fluidCreosote = FluidRegistry.getFluid("creosote");
 		fluidCoal = FluidRegistry.getFluid("coal");
 		fluidCrudeOil = FluidRegistry.getFluid("crude_oil");
 		fluidRefinedOil = FluidRegistry.getFluid("refined_oil");
@@ -122,6 +124,7 @@ public class TFFluids {
 
 		FluidRegistry.addBucketForFluid(fluidSteam);
 
+		FluidRegistry.addBucketForFluid(fluidCreosote);
 		FluidRegistry.addBucketForFluid(fluidCoal);
 		FluidRegistry.addBucketForFluid(fluidCrudeOil);
 		FluidRegistry.addBucketForFluid(fluidRefinedOil);
@@ -144,6 +147,7 @@ public class TFFluids {
 	/* REFERENCES */
 	public static Fluid fluidSteam;
 
+	public static Fluid fluidCreosote;
 	public static Fluid fluidCoal;
 	public static Fluid fluidCrudeOil;
 	public static Fluid fluidRefinedOil;

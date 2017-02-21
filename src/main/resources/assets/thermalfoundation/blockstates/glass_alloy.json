@@ -26,6 +26,11 @@
 					"all": "thermalfoundation:blocks/glass/glass_bronze"
 				}
 			},
+			"constantan": {
+				"textures": {
+					"all": "thermalfoundation:blocks/glass/glass_constantan"
+				}
+			},
 			"signalum": {
 				"textures": {
 					"all": "thermalfoundation:blocks/glass/glass_signalum"

@@ -54,6 +54,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 		setHardness(3.0F);
 		setResistance(200.0F);
 		setSoundType(SoundType.GLASS);
+		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.STEEL));
 	}
 
 	@Override
@@ -228,6 +229,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 		glassElectrum = new ItemStack(this, 1, Type.ELECTRUM.getMetadata());
 		glassInvar = new ItemStack(this, 1, Type.INVAR.getMetadata());
 		glassBronze = new ItemStack(this, 1, Type.BRONZE.getMetadata());
+		glassConstantan = new ItemStack(this, 1, Type.CONSTANTAN.getMetadata());
 		glassSignalum = new ItemStack(this, 1, Type.SIGNALUM.getMetadata());
 		glassLumium = new ItemStack(this, 1, Type.LUMIUM.getMetadata());
 		glassEnderium = new ItemStack(this, 1, Type.ENDERIUM.getMetadata());
@@ -255,9 +257,10 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 		ELECTRUM(1, "electrum"),
 		INVAR(2, "invar"),
 		BRONZE(3, "bronze"),
-		SIGNALUM(4, "signalum", 7, EnumRarity.UNCOMMON),
-		LUMIUM(5, "lumium", 15, EnumRarity.UNCOMMON),
-		ENDERIUM(6, "enderium", 4, EnumRarity.RARE);
+		CONSTANTAN(4, "constantan"),
+		SIGNALUM(5, "signalum", 7, EnumRarity.UNCOMMON),
+		LUMIUM(6, "lumium", 15, EnumRarity.UNCOMMON),
+		ENDERIUM(7, "enderium", 4, EnumRarity.RARE);
 		// @formatter: on
 
 		private static final BlockGlassAlloy.Type[] METADATA_LOOKUP = new BlockGlassAlloy.Type[values().length];
@@ -325,6 +328,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	public static ItemStack glassElectrum;
 	public static ItemStack glassInvar;
 	public static ItemStack glassBronze;
+	public static ItemStack glassConstantan;
 	public static ItemStack glassSignalum;
 	public static ItemStack glassLumium;
 	public static ItemStack glassEnderium;
