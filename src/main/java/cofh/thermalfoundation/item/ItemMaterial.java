@@ -153,7 +153,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		gemCoke = addItem(802, "gemCoke");
 
 		globRosin = addItem(816, "globRosin");
-		globPitch = addItem(817, "globPitch");
+		globTar = addItem(817, "globTar");
 
 		crystalSlag = addOreDictItem(864, "crystalSlag");
 		crystalSlagRich = addOreDictItem(865, "crystalSlagRich");
@@ -313,6 +313,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 		addRecipe(ShapedRecipe(dustWoodCompressed, "###", "# #", "###", '#', "dustWood"));
 		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "R", "S", 'R', globRosin, 'S', Items.STICK));
+		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "R", "S", 'R', globTar, 'S', Items.STICK));
 		addRecipe(ShapelessRecipe(new ItemStack(Items.CLAY_BALL, 4), crystalSlag, crystalSlag, Blocks.DIRT, Items.WATER_BUCKET));
 
 		return true;
@@ -445,7 +446,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack gemCoke;
 
 	public static ItemStack globRosin;
-	public static ItemStack globPitch;
+	public static ItemStack globTar;
 
 	public static ItemStack crystalSlag;
 	public static ItemStack crystalSlagRich;

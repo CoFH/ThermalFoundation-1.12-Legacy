@@ -170,8 +170,8 @@ item.thermalfoundation.material.gearTin.name=Tin Gear
 
 item.thermalfoundation.material.gemCoke.name=Coal Coke
 
-item.thermalfoundation.material.globPitch.name=Pitch
 item.thermalfoundation.material.globRosin.name=Rosin
+item.thermalfoundation.material.globTar.name=Tar
 
 item.thermalfoundation.material.ingotAluminum.name=Aluminum Ingot
 item.thermalfoundation.material.ingotBronze.name=Bronze Ingot

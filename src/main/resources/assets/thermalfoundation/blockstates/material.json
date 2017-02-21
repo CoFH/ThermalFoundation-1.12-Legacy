@@ -534,9 +534,9 @@
 					"layer0": "thermalfoundation:items/material/glob_rosin"
 				}
 			},
-			"globpitch": {
+			"globtar": {
 				"textures": {
-					"layer0": "thermalfoundation:items/material/glob_pitch"
+					"layer0": "thermalfoundation:items/material/glob_tar"
 				}
 			},
 			"crystalslag": {
