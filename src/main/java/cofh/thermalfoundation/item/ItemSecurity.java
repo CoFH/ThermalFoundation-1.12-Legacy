@@ -1,14 +1,19 @@
 package cofh.thermalfoundation.item;
 
 import cofh.api.core.IInitializer;
+import cofh.api.tileentity.ISecurable;
+import cofh.api.tileentity.ISecurable.AccessMode;
 import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.ItemHelper;
+import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -30,7 +35,7 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
-		setUnlocalizedName("tool", "security");
+		setUnlocalizedName("util", "security");
 		setCreativeTab(ThermalFoundation.tabCommon);
 
 		setHasSubtypes(true);
@@ -38,6 +43,22 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 
 	private boolean doLockUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 
+		if (ServerHelper.isClientWorld(world)) {
+			return false;
+		}
+		TileEntity tile = world.getTileEntity(pos);
+
+		if (tile instanceof ISecurable) {
+			if (((ISecurable) tile).setOwner(player.getGameProfile())) {
+				((ISecurable) tile).setAccess(AccessMode.PUBLIC);
+				player.playSound(SoundEvents.UI_BUTTON_CLICK, 0.6F, 0.7F);
+
+				if (!player.capabilities.isCreativeMode) {
+					stack.stackSize--;
+				}
+			}
+			return ServerHelper.isServerWorld(world);
+		}
 		return false;
 	}
 
@@ -67,7 +88,7 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 				ret = doLockUseFirst(stack, player, world, pos, side, hitX, hitY, hitZ, hand);
 				break;
 			default:
-				break;
+				return EnumActionResult.PASS;
 		}
 		return ret ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
 	}

@@ -8,7 +8,6 @@ import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
-import cofh.thermalfoundation.util.helpers.PatternHelper;
 import cofh.thermalfoundation.util.helpers.RedprintHelper;
 import cofh.thermalfoundation.util.helpers.SchematicHelper;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -80,9 +79,6 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 			case SCHEMATIC:
 				SchematicHelper.addInformation(stack, tooltip);
 				break;
-			case PATTERN:
-				PatternHelper.addInformation(stack, tooltip);
-				break;
 			case FORMULA:
 				break;
 			case SCROLL:
@@ -110,9 +106,6 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
 			case SCHEMATIC:
 				baseName += SchematicHelper.getDisplayName(stack);
-				break;
-			case PATTERN:
-				//baseName += PatternHelper.getDisplayName(stack);
 				break;
 			case FORMULA:
 				break;
@@ -215,7 +208,6 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 
 	/* REFERENCES */
 	public static ItemStack schematic;
-	public static ItemStack pattern;
 	public static ItemStack formula;
 	public static ItemStack scroll;
 	public static ItemStack redprint;
@@ -223,7 +215,7 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 
 	/* TYPE */
 	public enum Type {
-		SCHEMATIC, PATTERN, FORMULA, SCROLL, REDPRINT, ENDERPRINT;
+		SCHEMATIC, FORMULA, SCROLL, REDPRINT, ENDERPRINT;
 	}
 
 }

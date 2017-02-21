@@ -24,14 +24,24 @@
 					"layer0": "thermalfoundation:items/util/lexicon"
 				}
 			},
+			"lock": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/lock"
+				}
+			},
 			"schematic": {
 				"textures": {
 					"layer0": "thermalfoundation:items/util/schematic"
 				}
 			},
-			"pattern": {
+			"formula": {
 				"textures": {
-					"layer0": "thermalfoundation:items/util/pattern"
+					"layer0": "thermalfoundation:items/util/formula"
+				}
+			},
+			"scroll": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/scroll"
 				}
 			},
 			"redprint": {

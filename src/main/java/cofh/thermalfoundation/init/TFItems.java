@@ -17,6 +17,7 @@ public class TFItems {
 		itemWrench = new ItemWrench();
 		itemMeter = new ItemMeter();
 		itemTome = new ItemTome();
+		itemSecurity = new ItemSecurity();
 		itemDiagram = new ItemDiagram();
 		itemFertilizer = new ItemFertilizer();
 		itemMaterial = new ItemMaterial();
@@ -25,6 +26,7 @@ public class TFItems {
 		initList.add(itemWrench);
 		initList.add(itemMeter);
 		initList.add(itemTome);
+		initList.add(itemSecurity);
 		initList.add(itemDiagram);
 		initList.add(itemFertilizer);
 		initList.add(itemMaterial);
@@ -33,6 +35,7 @@ public class TFItems {
 		ThermalFoundation.proxy.addIModelRegister(itemWrench);
 		ThermalFoundation.proxy.addIModelRegister(itemMeter);
 		ThermalFoundation.proxy.addIModelRegister(itemTome);
+		ThermalFoundation.proxy.addIModelRegister(itemSecurity);
 		ThermalFoundation.proxy.addIModelRegister(itemDiagram);
 		ThermalFoundation.proxy.addIModelRegister(itemFertilizer);
 		ThermalFoundation.proxy.addIModelRegister(itemMaterial);
@@ -64,6 +67,7 @@ public class TFItems {
 	public static ItemWrench itemWrench;
 	public static ItemMeter itemMeter;
 	public static ItemTome itemTome;
+	public static ItemSecurity itemSecurity;
 	public static ItemDiagram itemDiagram;
 	public static ItemFertilizer itemFertilizer;
 	public static ItemMaterial itemMaterial;

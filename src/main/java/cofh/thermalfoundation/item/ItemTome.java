@@ -132,7 +132,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
 
-		if (CoreUtils.isFakePlayer(player)) {
+		if (CoreUtils.isFakePlayer(player) || hand != EnumHand.MAIN_HAND) {
 			return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
 		}
 		if (ServerHelper.isServerWorld(world) && LexiconManager.getSortedOreNames().size() > 0) {

@@ -6,6 +6,7 @@ import cofh.thermalfoundation.gui.client.GuiLexiconStudy;
 import cofh.thermalfoundation.gui.client.GuiLexiconTransmute;
 import cofh.thermalfoundation.gui.container.ContainerLexiconStudy;
 import cofh.thermalfoundation.gui.container.ContainerLexiconTransmute;
+import cofh.thermalfoundation.init.TFItems;
 import cofh.thermalfoundation.item.ItemTome;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -30,12 +31,12 @@ public class GuiHandler implements IGuiHandler {
 				}
 				return null;
 			case LEXICON_STUDY_ID:
-				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
-					return new GuiLexiconStudy(player.inventory, new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory)); // TODO Add off-hand support
+				if (ItemHelper.isPlayerHoldingMainhand(TFItems.itemTome, player)) {
+					return new GuiLexiconStudy(player.inventory, new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory));
 				}
 				return null;
 			case LEXICON_TRANSMUTE_ID:
-				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
+				if (ItemHelper.isPlayerHoldingMainhand(TFItems.itemTome, player)) {
 					return new GuiLexiconTransmute(player.inventory, new ContainerLexiconTransmute(player.inventory));
 				}
 				return null;
