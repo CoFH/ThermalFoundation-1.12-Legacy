@@ -48,7 +48,7 @@ public class TFFluids {
 
 		FluidRegistry.registerFluid(new FluidCore("steam", "thermalfoundation").setLuminosity(0).setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true));
 
-		FluidRegistry.registerFluid(new FluidCore("creosote", "thermalfoundation").setLuminosity(0).setDensity(1200).setViscosity(2000).setTemperature(300));
+		FluidRegistry.registerFluid(new FluidCore("creosote", "thermalfoundation").setLuminosity(0).setDensity(1100).setViscosity(2000).setTemperature(300));
 		FluidRegistry.registerFluid(new FluidCore("coal", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300));
 		FluidRegistry.registerFluid(new FluidCore("crude_oil", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300));
 		FluidRegistry.registerFluid(new FluidCore("refined_oil", "thermalfoundation").setLuminosity(0).setDensity(800).setViscosity(1400).setTemperature(300));

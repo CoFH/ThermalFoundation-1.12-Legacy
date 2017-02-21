@@ -27,116 +27,134 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	@Override
 	public boolean preInit() {
 
-		/* Vanilla Derived */
 		dustIron = addOreDictItem(0, "dustIron");
 		dustGold = addOreDictItem(1, "dustGold");
-		dustCoal = addOreDictItem(2, "dustCoal");
-		dustCharcoal = addOreDictItem(3, "dustCharcoal");
-		dustObsidian = addOreDictItem(4, "dustObsidian");
+		// dustDiamond = addOreDictItem(2, "dustDiamond");
+		nuggetDiamond = addOreDictItem(16, "nuggetDiamond");
+		gearIron = addOreDictItem(24, "gearIron");
+		gearGold = addOreDictItem(25, "gearGold");
+		// coinIron = addOreDictItem(32, "coinIron");
+		// coinGold = addOreDictItem(33, "coinGold");
 
 		/* Dusts */
-		dustCopper = addOreDictItem(32, "dustCopper");
-		dustTin = addOreDictItem(33, "dustTin");
-		dustSilver = addOreDictItem(34, "dustSilver");
-		dustLead = addOreDictItem(35, "dustLead");
-		dustAluminum = addOreDictItem(36, "dustAluminum");
-		dustNickel = addOreDictItem(37, "dustNickel");
-		dustPlatinum = addOreDictItem(38, "dustPlatinum", EnumRarity.UNCOMMON);
-		dustIridium = addOreDictItem(39, "dustIridium", EnumRarity.UNCOMMON);
-		dustMithril = addOreDictItem(40, "dustMithril", EnumRarity.RARE);
+		dustCopper = addOreDictItem(64, "dustCopper");
+		dustTin = addOreDictItem(65, "dustTin");
+		dustSilver = addOreDictItem(66, "dustSilver");
+		dustLead = addOreDictItem(67, "dustLead");
+		dustAluminum = addOreDictItem(68, "dustAluminum");
+		dustNickel = addOreDictItem(69, "dustNickel");
+		dustPlatinum = addOreDictItem(70, "dustPlatinum", EnumRarity.UNCOMMON);
+		dustIridium = addOreDictItem(71, "dustIridium", EnumRarity.UNCOMMON);
+		dustMithril = addOreDictItem(72, "dustMithril", EnumRarity.RARE);
 
-		dustSteel = addOreDictItem(48, "dustSteel");
-		dustElectrum = addOreDictItem(49, "dustElectrum");
-		dustInvar = addOreDictItem(50, "dustInvar");
-		dustBronze = addOreDictItem(51, "dustBronze");
-		dustConstantan = addOreDictItem(52, "dustConstantan");
-		dustSignalum = addOreDictItem(53, "dustSignalum", EnumRarity.UNCOMMON);
-		dustLumium = addOreDictItem(54, "dustLumium", EnumRarity.UNCOMMON);
-		dustEnderium = addOreDictItem(55, "dustEnderium", EnumRarity.RARE);
+		dustSteel = addOreDictItem(96, "dustSteel");
+		dustElectrum = addOreDictItem(97, "dustElectrum");
+		dustInvar = addOreDictItem(98, "dustInvar");
+		dustBronze = addOreDictItem(99, "dustBronze");
+		dustConstantan = addOreDictItem(100, "dustConstantan");
+		dustSignalum = addOreDictItem(101, "dustSignalum", EnumRarity.UNCOMMON);
+		dustLumium = addOreDictItem(102, "dustLumium", EnumRarity.UNCOMMON);
+		dustEnderium = addOreDictItem(103, "dustEnderium", EnumRarity.RARE);
 
 		/* Ingots */
-		ingotCopper = addOreDictItem(64, "ingotCopper");
-		ingotTin = addOreDictItem(65, "ingotTin");
-		ingotSilver = addOreDictItem(66, "ingotSilver");
-		ingotLead = addOreDictItem(67, "ingotLead");
-		ingotAluminum = addOreDictItem(68, "ingotAluminum");
-		ingotNickel = addOreDictItem(69, "ingotNickel");
-		ingotPlatinum = addOreDictItem(70, "ingotPlatinum", EnumRarity.UNCOMMON);
-		ingotIridium = addOreDictItem(71, "ingotIridium", EnumRarity.UNCOMMON);
-		ingotMithril = addOreDictItem(72, "ingotMithril", EnumRarity.RARE);
+		ingotCopper = addOreDictItem(128, "ingotCopper");
+		ingotTin = addOreDictItem(129, "ingotTin");
+		ingotSilver = addOreDictItem(130, "ingotSilver");
+		ingotLead = addOreDictItem(131, "ingotLead");
+		ingotAluminum = addOreDictItem(132, "ingotAluminum");
+		ingotNickel = addOreDictItem(133, "ingotNickel");
+		ingotPlatinum = addOreDictItem(134, "ingotPlatinum", EnumRarity.UNCOMMON);
+		ingotIridium = addOreDictItem(135, "ingotIridium", EnumRarity.UNCOMMON);
+		ingotMithril = addOreDictItem(136, "ingotMithril", EnumRarity.RARE);
 
-		ingotSteel = addOreDictItem(80, "ingotSteel");
-		ingotElectrum = addOreDictItem(81, "ingotElectrum");
-		ingotInvar = addOreDictItem(82, "ingotInvar");
-		ingotBronze = addOreDictItem(83, "ingotBronze");
-		ingotConstantan = addOreDictItem(84, "ingotConstantan");
-		ingotSignalum = addOreDictItem(85, "ingotSignalum", EnumRarity.UNCOMMON);
-		ingotLumium = addOreDictItem(86, "ingotLumium", EnumRarity.UNCOMMON);
-		ingotEnderium = addOreDictItem(87, "ingotEnderium", EnumRarity.RARE);
+		ingotSteel = addOreDictItem(160, "ingotSteel");
+		ingotElectrum = addOreDictItem(161, "ingotElectrum");
+		ingotInvar = addOreDictItem(162, "ingotInvar");
+		ingotBronze = addOreDictItem(163, "ingotBronze");
+		ingotConstantan = addOreDictItem(164, "ingotConstantan");
+		ingotSignalum = addOreDictItem(165, "ingotSignalum", EnumRarity.UNCOMMON);
+		ingotLumium = addOreDictItem(166, "ingotLumium", EnumRarity.UNCOMMON);
+		ingotEnderium = addOreDictItem(167, "ingotEnderium", EnumRarity.RARE);
 
 		/* Nuggets */
-		nuggetDiamond = addOreDictItem(8, "nuggetDiamond");
-		nuggetCopper = addOreDictItem(96, "nuggetCopper");
-		nuggetTin = addOreDictItem(97, "nuggetTin");
-		nuggetSilver = addOreDictItem(98, "nuggetSilver");
-		nuggetLead = addOreDictItem(99, "nuggetLead");
-		nuggetAluminum = addOreDictItem(100, "nuggetAluminum");
-		nuggetNickel = addOreDictItem(101, "nuggetNickel");
-		nuggetPlatinum = addOreDictItem(102, "nuggetPlatinum", EnumRarity.UNCOMMON);
-		nuggetIridium = addOreDictItem(103, "nuggetIridium", EnumRarity.UNCOMMON);
-		nuggetMithril = addOreDictItem(104, "nuggetMithril", EnumRarity.RARE);
+		nuggetCopper = addOreDictItem(192, "nuggetCopper");
+		nuggetTin = addOreDictItem(193, "nuggetTin");
+		nuggetSilver = addOreDictItem(194, "nuggetSilver");
+		nuggetLead = addOreDictItem(195, "nuggetLead");
+		nuggetAluminum = addOreDictItem(196, "nuggetAluminum");
+		nuggetNickel = addOreDictItem(197, "nuggetNickel");
+		nuggetPlatinum = addOreDictItem(198, "nuggetPlatinum", EnumRarity.UNCOMMON);
+		nuggetIridium = addOreDictItem(199, "nuggetIridium", EnumRarity.UNCOMMON);
+		nuggetMithril = addOreDictItem(200, "nuggetMithril", EnumRarity.RARE);
 
-		nuggetSteel = addOreDictItem(112, "nuggetSteel");
-		nuggetElectrum = addOreDictItem(113, "nuggetElectrum");
-		nuggetInvar = addOreDictItem(114, "nuggetInvar");
-		nuggetBronze = addOreDictItem(115, "nuggetBronze");
-		nuggetConstantan = addOreDictItem(116, "nuggetConstantan");
-		nuggetSignalum = addOreDictItem(117, "nuggetSignalum", EnumRarity.UNCOMMON);
-		nuggetLumium = addOreDictItem(118, "nuggetLumium", EnumRarity.UNCOMMON);
-		nuggetEnderium = addOreDictItem(119, "nuggetEnderium", EnumRarity.RARE);
+		nuggetSteel = addOreDictItem(224, "nuggetSteel");
+		nuggetElectrum = addOreDictItem(225, "nuggetElectrum");
+		nuggetInvar = addOreDictItem(226, "nuggetInvar");
+		nuggetBronze = addOreDictItem(227, "nuggetBronze");
+		nuggetConstantan = addOreDictItem(228, "nuggetConstantan");
+		nuggetSignalum = addOreDictItem(229, "nuggetSignalum", EnumRarity.UNCOMMON);
+		nuggetLumium = addOreDictItem(230, "nuggetLumium", EnumRarity.UNCOMMON);
+		nuggetEnderium = addOreDictItem(231, "nuggetEnderium", EnumRarity.RARE);
 
 		/* Gears */
-		gearIron = addOreDictItem(12, "gearIron");
-		gearGold = addOreDictItem(13, "gearGold");
-		gearCopper = addOreDictItem(128, "gearCopper");
-		gearTin = addOreDictItem(129, "gearTin");
-		gearSilver = addOreDictItem(130, "gearSilver");
-		gearLead = addOreDictItem(131, "gearLead");
-		gearAluminum = addOreDictItem(132, "gearAluminum");
-		gearNickel = addOreDictItem(133, "gearNickel");
-		gearPlatinum = addOreDictItem(134, "gearPlatinum", EnumRarity.UNCOMMON);
-		gearIridium = addOreDictItem(135, "gearIridium", EnumRarity.UNCOMMON);
-		gearMithril = addOreDictItem(136, "gearMithril", EnumRarity.RARE);
+		gearCopper = addOreDictItem(256, "gearCopper");
+		gearTin = addOreDictItem(257, "gearTin");
+		gearSilver = addOreDictItem(258, "gearSilver");
+		gearLead = addOreDictItem(259, "gearLead");
+		gearAluminum = addOreDictItem(260, "gearAluminum");
+		gearNickel = addOreDictItem(261, "gearNickel");
+		gearPlatinum = addOreDictItem(262, "gearPlatinum", EnumRarity.UNCOMMON);
+		gearIridium = addOreDictItem(263, "gearIridium", EnumRarity.UNCOMMON);
+		gearMithril = addOreDictItem(264, "gearMithril", EnumRarity.RARE);
 
-		gearSteel = addOreDictItem(144, "gearSteel");
-		gearElectrum = addOreDictItem(145, "gearElectrum");
-		gearInvar = addOreDictItem(146, "gearInvar");
-		gearBronze = addOreDictItem(147, "gearBronze");
-		gearConstantan = addOreDictItem(148, "gearConstantan");
-		gearSignalum = addOreDictItem(149, "gearSignalum", EnumRarity.UNCOMMON);
-		gearLumium = addOreDictItem(150, "gearLumium", EnumRarity.UNCOMMON);
-		gearEnderium = addOreDictItem(151, "gearEnderium", EnumRarity.RARE);
+		gearSteel = addOreDictItem(288, "gearSteel");
+		gearElectrum = addOreDictItem(289, "gearElectrum");
+		gearInvar = addOreDictItem(290, "gearInvar");
+		gearBronze = addOreDictItem(291, "gearBronze");
+		gearConstantan = addOreDictItem(292, "gearConstantan");
+		gearSignalum = addOreDictItem(293, "gearSignalum", EnumRarity.UNCOMMON);
+		gearLumium = addOreDictItem(294, "gearLumium", EnumRarity.UNCOMMON);
+		gearEnderium = addOreDictItem(295, "gearEnderium", EnumRarity.RARE);
 
 		/* Plates */
+		plateCopper = addOreDictItem(320, "plateCopper");
+		plateTin = addOreDictItem(321, "plateTin");
+		plateSilver = addOreDictItem(322, "plateSilver");
+		plateLead = addOreDictItem(323, "plateLead");
+		plateAluminum = addOreDictItem(324, "plateAluminum");
+		plateNickel = addOreDictItem(325, "plateNickel");
+		platePlatinum = addOreDictItem(326, "platePlatinum", EnumRarity.UNCOMMON);
+		plateIridium = addOreDictItem(327, "plateIridium", EnumRarity.UNCOMMON);
+		plateMithril = addOreDictItem(328, "plateMithril", EnumRarity.RARE);
 
-		plateCopper = addOreDictItem(160, "plateCopper");
-		plateTin = addOreDictItem(161, "plateTin");
-		plateSilver = addOreDictItem(162, "plateSilver");
-		plateLead = addOreDictItem(163, "plateLead");
-		plateAluminum = addOreDictItem(164, "plateAluminum");
-		plateNickel = addOreDictItem(165, "plateNickel");
-		platePlatinum = addOreDictItem(166, "platePlatinum", EnumRarity.UNCOMMON);
-		plateIridium = addOreDictItem(167, "plateIridium", EnumRarity.UNCOMMON);
-		plateMithril = addOreDictItem(168, "plateMithril", EnumRarity.RARE);
+		plateSteel = addOreDictItem(352, "plateSteel");
+		plateElectrum = addOreDictItem(353, "plateElectrum");
+		plateInvar = addOreDictItem(354, "plateInvar");
+		plateBronze = addOreDictItem(355, "plateBronze");
+		plateConstantan = addOreDictItem(356, "plateConstantan");
+		plateSignalum = addOreDictItem(357, "plateSignalum", EnumRarity.UNCOMMON);
+		plateLumium = addOreDictItem(358, "plateLumium", EnumRarity.UNCOMMON);
+		plateEnderium = addOreDictItem(359, "plateEnderium", EnumRarity.RARE);
 
-		plateSteel = addOreDictItem(176, "plateSteel");
-		plateElectrum = addOreDictItem(177, "plateElectrum");
-		plateInvar = addOreDictItem(178, "plateInvar");
-		plateBronze = addOreDictItem(179, "plateBronze");
-		plateConstantan = addOreDictItem(180, "plateConstantan");
-		plateSignalum = addOreDictItem(181, "plateSignalum", EnumRarity.UNCOMMON);
-		plateLumium = addOreDictItem(182, "plateLumium", EnumRarity.UNCOMMON);
-		plateEnderium = addOreDictItem(183, "plateEnderium", EnumRarity.RARE);
+		/* Coins */
+		//		coinCopper = addOreDictItem(384, "coinCopper");
+		//		coinTin = addOreDictItem(385, "coinTin");
+		//		coinSilver = addOreDictItem(386, "coinSilver");
+		//		coinLead = addOreDictItem(387, "coinLead");
+		//		coinAluminum = addOreDictItem(388, "coinAluminum");
+		//		coinNickel = addOreDictItem(389, "coinNickel");
+		//		coinPlatinum = addOreDictItem(390, "coinPlatinum", EnumRarity.UNCOMMON);
+		//		coinIridium = addOreDictItem(391, "coinIridium", EnumRarity.UNCOMMON);
+		//		coinMithril = addOreDictItem(392, "coinMithril", EnumRarity.RARE);
+		//
+		//		coinSteel = addOreDictItem(416, "coinSteel");
+		//		coinElectrum = addOreDictItem(417, "coinElectrum");
+		//		coinInvar = addOreDictItem(418, "coinInvar");
+		//		coinBronze = addOreDictItem(419, "coinBronze");
+		//		coinConstantan = addOreDictItem(420, "coinConstantan");
+		//		coinSignalum = addOreDictItem(421, "coinSignalum", EnumRarity.UNCOMMON);
+		//		coinLumium = addOreDictItem(422, "coinLumium", EnumRarity.UNCOMMON);
+		//		coinEnderium = addOreDictItem(423, "coinEnderium", EnumRarity.RARE);
 
 		/* Parts */
 		redstoneServo = addItem(512, "redstoneServo");
@@ -145,15 +163,18 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		powerCoilElectrum = addItem(515, "powerCoilElectrum");
 
 		/* Process Items */
-		dustSulfur = addOreDictItem(768, "dustSulfur");
-		dustNiter = addItem(769, "dustNiter");
+		dustCoal = addOreDictItem(768, "dustCoal");
+		dustCharcoal = addOreDictItem(769, "dustCharcoal");
+		dustObsidian = addOreDictItem(770, "dustObsidian");
+		dustSulfur = addOreDictItem(771, "dustSulfur");
+		dustNiter = addItem(772, "dustNiter");
 
 		dustWood = addOreDictItem(800, "dustWood");
 		dustWoodCompressed = addItem(801, "dustWoodCompressed");
 		gemCoke = addItem(802, "gemCoke");
 
-		globRosin = addItem(816, "globRosin");
-		globTar = addItem(817, "globTar");
+		globRosin = addItem(832, "globRosin");
+		globTar = addItem(833, "globTar");
 
 		crystalSlag = addOreDictItem(864, "crystalSlag");
 		crystalSlagRich = addOreDictItem(865, "crystalSlagRich");
@@ -329,9 +350,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 	public static ItemStack dustIron;
 	public static ItemStack dustGold;
-	public static ItemStack dustCoal;
-	public static ItemStack dustCharcoal;
-	public static ItemStack dustObsidian;
 
 	public static ItemStack nuggetDiamond;
 
@@ -433,11 +451,33 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack plateLumium;
 	public static ItemStack plateEnderium;
 
+	public static ItemStack coinCopper;
+	public static ItemStack coinTin;
+	public static ItemStack coinSilver;
+	public static ItemStack coinLead;
+	public static ItemStack coinAluminum;
+	public static ItemStack coinNickel;
+	public static ItemStack coinPlatinum;
+	public static ItemStack coinIridium;
+	public static ItemStack coinMithril;
+
+	public static ItemStack coinSteel;
+	public static ItemStack coinElectrum;
+	public static ItemStack coinInvar;
+	public static ItemStack coinBronze;
+	public static ItemStack coinConstantan;
+	public static ItemStack coinSignalum;
+	public static ItemStack coinLumium;
+	public static ItemStack coinEnderium;
+
 	public static ItemStack redstoneServo;
 	public static ItemStack powerCoilGold;
 	public static ItemStack powerCoilSilver;
 	public static ItemStack powerCoilElectrum;
 
+	public static ItemStack dustCoal;
+	public static ItemStack dustCharcoal;
+	public static ItemStack dustObsidian;
 	public static ItemStack dustSulfur;
 	public static ItemStack dustNiter;
 
