@@ -33,8 +33,8 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		nuggetDiamond = addOreDictItem(16, "nuggetDiamond");
 		gearIron = addOreDictItem(24, "gearIron");
 		gearGold = addOreDictItem(25, "gearGold");
-		// coinIron = addOreDictItem(32, "coinIron");
-		// coinGold = addOreDictItem(33, "coinGold");
+		plateIron = addOreDictItem(32, "plateIron");
+		plateGold = addOreDictItem(33, "plateGold");
 
 		/* Dusts */
 		dustCopper = addOreDictItem(64, "dustCopper");
@@ -135,26 +135,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		plateSignalum = addOreDictItem(357, "plateSignalum", EnumRarity.UNCOMMON);
 		plateLumium = addOreDictItem(358, "plateLumium", EnumRarity.UNCOMMON);
 		plateEnderium = addOreDictItem(359, "plateEnderium", EnumRarity.RARE);
-
-		/* Coins */
-		//		coinCopper = addOreDictItem(384, "coinCopper");
-		//		coinTin = addOreDictItem(385, "coinTin");
-		//		coinSilver = addOreDictItem(386, "coinSilver");
-		//		coinLead = addOreDictItem(387, "coinLead");
-		//		coinAluminum = addOreDictItem(388, "coinAluminum");
-		//		coinNickel = addOreDictItem(389, "coinNickel");
-		//		coinPlatinum = addOreDictItem(390, "coinPlatinum", EnumRarity.UNCOMMON);
-		//		coinIridium = addOreDictItem(391, "coinIridium", EnumRarity.UNCOMMON);
-		//		coinMithril = addOreDictItem(392, "coinMithril", EnumRarity.RARE);
-		//
-		//		coinSteel = addOreDictItem(416, "coinSteel");
-		//		coinElectrum = addOreDictItem(417, "coinElectrum");
-		//		coinInvar = addOreDictItem(418, "coinInvar");
-		//		coinBronze = addOreDictItem(419, "coinBronze");
-		//		coinConstantan = addOreDictItem(420, "coinConstantan");
-		//		coinSignalum = addOreDictItem(421, "coinSignalum", EnumRarity.UNCOMMON);
-		//		coinLumium = addOreDictItem(422, "coinLumium", EnumRarity.UNCOMMON);
-		//		coinEnderium = addOreDictItem(423, "coinEnderium", EnumRarity.RARE);
 
 		/* Parts */
 		redstoneServo = addItem(512, "redstoneServo");
@@ -333,8 +313,15 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addSmelting(dustWoodCompressed, new ItemStack(Items.COAL, 1, 1), 0.15F);
 
 		addRecipe(ShapedRecipe(dustWoodCompressed, "###", "# #", "###", '#', "dustWood"));
-		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "R", "S", 'R', globRosin, 'S', Items.STICK));
-		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "R", "S", 'R', globTar, 'S', Items.STICK));
+
+		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', globRosin, '#', "string"));
+		addRecipe(ShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', globRosin, 'P', Blocks.PISTON));
+		addRecipe(ShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', globRosin));
+
+		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', globTar, '#', "string"));
+		addRecipe(ShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', globTar, 'P', Blocks.PISTON));
+		addRecipe(ShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', globTar));
+
 		addRecipe(ShapelessRecipe(new ItemStack(Items.CLAY_BALL, 4), crystalSlag, crystalSlag, Blocks.DIRT, Items.WATER_BUCKET));
 
 		return true;
@@ -355,6 +342,9 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 	public static ItemStack gearIron;
 	public static ItemStack gearGold;
+
+	public static ItemStack plateIron;
+	public static ItemStack plateGold;
 
 	public static ItemStack ingotCopper;
 	public static ItemStack ingotTin;
@@ -450,25 +440,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack plateSignalum;
 	public static ItemStack plateLumium;
 	public static ItemStack plateEnderium;
-
-	public static ItemStack coinCopper;
-	public static ItemStack coinTin;
-	public static ItemStack coinSilver;
-	public static ItemStack coinLead;
-	public static ItemStack coinAluminum;
-	public static ItemStack coinNickel;
-	public static ItemStack coinPlatinum;
-	public static ItemStack coinIridium;
-	public static ItemStack coinMithril;
-
-	public static ItemStack coinSteel;
-	public static ItemStack coinElectrum;
-	public static ItemStack coinInvar;
-	public static ItemStack coinBronze;
-	public static ItemStack coinConstantan;
-	public static ItemStack coinSignalum;
-	public static ItemStack coinLumium;
-	public static ItemStack coinEnderium;
 
 	public static ItemStack redstoneServo;
 	public static ItemStack powerCoilGold;

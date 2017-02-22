@@ -97,6 +97,26 @@ item.thermalfoundation.armor.helmet.platinum.name=Platinum Helmet
 item.thermalfoundation.armor.helmet.silver.name=Silver Helmet
 item.thermalfoundation.armor.helmet.tin.name=Tin Helmet
 
+item.thermalfoundation.coin.coinAluminum.name=Aluminum Coin
+item.thermalfoundation.coin.coinBronze.name=Bronze Coin
+item.thermalfoundation.coin.coinConstantan.name=Constantan Coin
+item.thermalfoundation.coin.coinCopper.name=Copper Coin
+item.thermalfoundation.coin.coinElectrum.name=Electrum Coin
+item.thermalfoundation.coin.coinEnderium.name=Enderium Coin
+item.thermalfoundation.coin.coinGold.name=Gold Coin
+item.thermalfoundation.coin.coinInvar.name=Invar Coin
+item.thermalfoundation.coin.coinIridium.name=Iridium Coin
+item.thermalfoundation.coin.coinIron.name=Iron Coin
+item.thermalfoundation.coin.coinLead.name=Lead Coin
+item.thermalfoundation.coin.coinLumium.name=Lumium Coin
+item.thermalfoundation.coin.coinMithril.name=Mana Infused Coin
+item.thermalfoundation.coin.coinNickel.name=Nickel Coin
+item.thermalfoundation.coin.coinPlatinum.name=Platinum Coin
+item.thermalfoundation.coin.coinSignalum.name=Signalum Coin
+item.thermalfoundation.coin.coinSilver.name=Silver Coin
+item.thermalfoundation.coin.coinSteel.name=Steel Coin
+item.thermalfoundation.coin.coinTin.name=Tin Coin
+
 item.thermalfoundation.diagram.formula.name=Formula
 item.thermalfoundation.diagram.pattern.name=Pattern
 item.thermalfoundation.diagram.redprint.name=Redprint

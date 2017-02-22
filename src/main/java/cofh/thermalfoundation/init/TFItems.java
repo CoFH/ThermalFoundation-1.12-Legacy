@@ -19,6 +19,7 @@ public class TFItems {
 		itemTome = new ItemTome();
 		itemSecurity = new ItemSecurity();
 		itemDiagram = new ItemDiagram();
+		itemCoin = new ItemCoin();
 		itemFertilizer = new ItemFertilizer();
 		itemMaterial = new ItemMaterial();
 		itemGeode = new ItemGeode();
@@ -28,6 +29,7 @@ public class TFItems {
 		initList.add(itemTome);
 		initList.add(itemSecurity);
 		initList.add(itemDiagram);
+		initList.add(itemCoin);
 		initList.add(itemFertilizer);
 		initList.add(itemMaterial);
 		initList.add(itemGeode);
@@ -37,6 +39,7 @@ public class TFItems {
 		ThermalFoundation.proxy.addIModelRegister(itemTome);
 		ThermalFoundation.proxy.addIModelRegister(itemSecurity);
 		ThermalFoundation.proxy.addIModelRegister(itemDiagram);
+		ThermalFoundation.proxy.addIModelRegister(itemCoin);
 		ThermalFoundation.proxy.addIModelRegister(itemFertilizer);
 		ThermalFoundation.proxy.addIModelRegister(itemMaterial);
 		ThermalFoundation.proxy.addIModelRegister(itemGeode);
@@ -71,6 +74,7 @@ public class TFItems {
 	public static ItemDiagram itemDiagram;
 	public static ItemFertilizer itemFertilizer;
 	public static ItemMaterial itemMaterial;
+	public static ItemCoin itemCoin;
 	public static ItemGeode itemGeode;
 
 }

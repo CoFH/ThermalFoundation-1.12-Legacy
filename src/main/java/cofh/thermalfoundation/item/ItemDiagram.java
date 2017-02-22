@@ -200,7 +200,7 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 	@Override
 	public boolean postInit() {
 
-		addRecipe(ShapelessRecipe(schematic, Items.PAPER, Items.PAPER, "dyeBlue"));
+		// addRecipe(ShapelessRecipe(schematic, Items.PAPER, Items.PAPER, "dyeBlue"));
 		addRecipe(ShapelessRecipe(redprint, Items.PAPER, Items.PAPER, "dustRedstone"));
 
 		return true;
