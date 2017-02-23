@@ -33,6 +33,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -227,6 +228,8 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 		glassPlatinum = new ItemStack(this, 1, Type.PLATINUM.getMetadata());
 		glassIridium = new ItemStack(this, 1, Type.IRIDIUM.getMetadata());
 		glassMithril = new ItemStack(this, 1, Type.MITHRIL.getMetadata());
+
+		OreDictionary.registerOre("blockGlassHardened", new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE));
 
 		return true;
 	}
