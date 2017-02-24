@@ -310,7 +310,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addRecipe(ShapelessRecipe(cloneStack(dustBasalz, 2), "rodBasalz"));
 
 		/* Misc Recipes */
-		addSmelting(dustWoodCompressed, new ItemStack(Items.COAL, 1, 1), 0.15F);
+		addSmelting(new ItemStack(Items.COAL, 1, 1), dustWoodCompressed, 0.15F);
 
 		addRecipe(ShapedRecipe(dustWoodCompressed, "###", "# #", "###", '#', "dustWood"));
 
