@@ -55,6 +55,7 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 		setHardness(3.0F);
 		setResistance(200.0F);
 		setSoundType(SoundType.GLASS);
+		setDefaultState(getBlockState().getBaseState().withProperty(VARIANT, Type.COPPER));
 	}
 
 	@Override

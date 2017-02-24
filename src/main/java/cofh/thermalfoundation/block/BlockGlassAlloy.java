@@ -55,7 +55,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 		setHardness(3.0F);
 		setResistance(200.0F);
 		setSoundType(SoundType.GLASS);
-		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.STEEL));
+		setDefaultState(getBlockState().getBaseState().withProperty(VARIANT, Type.STEEL));
 	}
 
 	@Override

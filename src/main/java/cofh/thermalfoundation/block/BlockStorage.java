@@ -45,7 +45,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		setHardness(5.0F);
 		setResistance(10.0F);
 		setSoundType(SoundType.METAL);
-		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.COPPER));
+		setDefaultState(getBlockState().getBaseState().withProperty(VARIANT, Type.COPPER));
 
 		setHarvestLevel("pickaxe", 2);
 		setHarvestLevel("pickaxe", 1, getStateFromMeta(Type.COPPER.getMetadata()));

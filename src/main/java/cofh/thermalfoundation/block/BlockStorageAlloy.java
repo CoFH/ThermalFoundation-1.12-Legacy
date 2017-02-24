@@ -46,7 +46,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		setHardness(5.0F);
 		setResistance(10.0F);
 		setSoundType(SoundType.METAL);
-		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.STEEL));
+		setDefaultState(getBlockState().getBaseState().withProperty(VARIANT, Type.STEEL));
 
 		setHarvestLevel("pickaxe", 2);
 		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.ENDERIUM.getMetadata()));
