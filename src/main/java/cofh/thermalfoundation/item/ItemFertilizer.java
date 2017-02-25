@@ -112,9 +112,9 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 	public boolean postInit() {
 
 		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlag"));
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 16), "dustCharcoal", "dustSaltpeter", "crystalSlag"));
+		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 12), "dustCharcoal", "dustSaltpeter", "crystalSlag"));
 		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlagRich"));
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 16), "dustCharcoal", "dustSaltpeter", "crystalSlagRich"));
+		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 12), "dustCharcoal", "dustSaltpeter", "crystalSlagRich"));
 
 		return true;
 	}
