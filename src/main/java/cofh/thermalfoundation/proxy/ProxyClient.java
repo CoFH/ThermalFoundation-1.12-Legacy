@@ -53,49 +53,13 @@ public class ProxyClient extends Proxy {
 	/* REGISTRATION */
 	public void registerRenderInformation() {
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityBasalz.class, new IRenderFactory<EntityBasalz>() {
-			@Override
-			public Render<? super EntityBasalz> createRenderFor(RenderManager manager) {
+		RenderingRegistry.registerEntityRenderingHandler(EntityBasalz.class, manager -> new RenderEntityBasalz(manager));
+		RenderingRegistry.registerEntityRenderingHandler(EntityBlitz.class, manager -> new RenderEntityBlitz(manager));
+		RenderingRegistry.registerEntityRenderingHandler(EntityBlizz.class, manager -> new RenderEntityBlizz(manager));
 
-				return new RenderEntityBasalz(manager);
-			}
-		});
-		RenderingRegistry.registerEntityRenderingHandler(EntityBlitz.class, new IRenderFactory<EntityBlitz>() {
-			@Override
-			public Render<? super EntityBlitz> createRenderFor(RenderManager manager) {
-
-				return new RenderEntityBlitz(manager);
-			}
-		});
-		RenderingRegistry.registerEntityRenderingHandler(EntityBlizz.class, new IRenderFactory<EntityBlizz>() {
-			@Override
-			public Render<? super EntityBlizz> createRenderFor(RenderManager manager) {
-
-				return new RenderEntityBlizz(manager);
-			}
-		});
-
-		RenderingRegistry.registerEntityRenderingHandler(EntityBlizzBolt.class, new IRenderFactory<EntityBlizzBolt>() {
-			@Override
-			public Render<? super EntityBlizzBolt> createRenderFor(RenderManager manager) {
-
-				return new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_blizz");
-			}
-		});
-		RenderingRegistry.registerEntityRenderingHandler(EntityBlitzBolt.class, new IRenderFactory<EntityBlitzBolt>() {
-			@Override
-			public Render<? super EntityBlitzBolt> createRenderFor(RenderManager manager) {
-
-				return new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_blitz");
-			}
-		});
-		RenderingRegistry.registerEntityRenderingHandler(EntityBasalzBolt.class, new IRenderFactory<EntityBasalzBolt>() {
-			@Override
-			public Render<? super EntityBasalzBolt> createRenderFor(RenderManager manager) {
-
-				return new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_basalz");
-			}
-		});
+		RenderingRegistry.registerEntityRenderingHandler(EntityBlizzBolt.class, manager -> new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_blizz"));
+		RenderingRegistry.registerEntityRenderingHandler(EntityBlitzBolt.class, manager -> new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_blitz"));
+		RenderingRegistry.registerEntityRenderingHandler(EntityBasalzBolt.class, manager -> new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_basalz"));
 	}
 
 	/* EVENT HANDLERS */
