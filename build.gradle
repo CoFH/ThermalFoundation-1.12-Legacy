@@ -17,6 +17,9 @@ apply plugin: 'maven'
 group = "cofh"
 archivesBaseName = "ThermalFoundation"
 
+targetCompatibility = "1.8"
+sourceCompatibility = "1.8"
+
 // Define properties file
 ext.configFile = file "build.properties"
 
