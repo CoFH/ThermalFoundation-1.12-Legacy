@@ -37,7 +37,7 @@ repositories {
 	}
 	maven {
 		name = "Covers Maven"
-		url = "http://maven.podgeweb.com"
+		url = "http://maven.covers1624.net"
 	}
 	maven {
 		name = "JEI Maven"
