@@ -81,7 +81,7 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 	@Override
 	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 
-		boolean ret = false;
+		boolean ret;
 
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
 			case LOCK:

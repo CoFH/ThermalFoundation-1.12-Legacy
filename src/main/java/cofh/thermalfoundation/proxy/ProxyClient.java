@@ -12,10 +12,7 @@ import cofh.thermalfoundation.render.entity.RenderEntityAsIcon;
 import cofh.thermalfoundation.render.entity.RenderEntityBasalz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlitz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlizz;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraftforge.client.event.TextureStitchEvent;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -75,6 +72,6 @@ public class ProxyClient extends Proxy {
 		return modelList.add(modelRegister);
 	}
 
-	private static ArrayList<IModelRegister> modelList = new ArrayList<IModelRegister>();
+	private static ArrayList<IModelRegister> modelList = new ArrayList<>();
 
 }

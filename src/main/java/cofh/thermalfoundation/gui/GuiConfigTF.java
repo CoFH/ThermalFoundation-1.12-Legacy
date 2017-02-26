@@ -20,7 +20,7 @@ public class GuiConfigTF extends GuiConfig {
 
 	private static List<IConfigElement> getConfigElements(GuiScreen parent) {
 
-		List<IConfigElement> list = new ArrayList<IConfigElement>();
+		List<IConfigElement> list = new ArrayList<>();
 
 		for (int i = 0; i < CATEGORIES.length; i++) {
 			list.add(new ConfigElement(ThermalFoundation.CONFIG.getCategory(CATEGORIES[i])));

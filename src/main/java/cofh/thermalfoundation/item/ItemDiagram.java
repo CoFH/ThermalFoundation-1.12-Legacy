@@ -73,7 +73,7 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
 
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
 			case SCHEMATIC:
@@ -137,7 +137,7 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 			stack.setTagCompound(null);
 		}
 		player.swingArm(hand);
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
+		return new ActionResult<>(EnumActionResult.SUCCESS, stack);
 	}
 
 	@Override
@@ -215,7 +215,7 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 
 	/* TYPE */
 	public enum Type {
-		SCHEMATIC, FORMULA, SCROLL, REDPRINT, ENDERPRINT;
+		SCHEMATIC, FORMULA, SCROLL, REDPRINT, ENDERPRINT
 	}
 
 }

@@ -64,7 +64,7 @@ public class TFItems {
 		initList.clear();
 	}
 
-	private static ArrayList<IInitializer> initList = new ArrayList<IInitializer>();
+	private static ArrayList<IInitializer> initList = new ArrayList<>();
 
 	/* REFERENCES */
 	public static ItemWrench itemWrench;

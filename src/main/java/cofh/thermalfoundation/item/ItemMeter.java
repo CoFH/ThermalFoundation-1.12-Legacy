@@ -54,7 +54,7 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 		player.swingArm(hand);
 		IBlockState state = world.getBlockState(pos);
 		Block block = state.getBlock();
-		ArrayList<ITextComponent> info = new ArrayList<ITextComponent>();
+		ArrayList<ITextComponent> info = new ArrayList<>();
 
 		if (ServerHelper.isClientWorld(world)) {
 			if (block instanceof IBlockConfigGui || block instanceof IBlockInfo) {
@@ -90,7 +90,7 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
 
 		if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
 			tooltip.add(StringHelper.shiftForDetails());

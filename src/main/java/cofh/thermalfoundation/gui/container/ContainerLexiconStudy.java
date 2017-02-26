@@ -166,11 +166,7 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 	@Override
 	public void updateProgressBar(int i, int j) {
 
-		if (j == 1) {
-			hasPreferredStack = true;
-		} else {
-			hasPreferredStack = false;
-		}
+		hasPreferredStack = j == 1;
 	}
 
 	@Override

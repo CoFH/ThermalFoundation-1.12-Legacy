@@ -56,24 +56,24 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
 
 		if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
-			list.add(StringHelper.shiftForDetails());
+			tooltip.add(StringHelper.shiftForDetails());
 		}
 		if (!StringHelper.isShiftKeyDown()) {
 			return;
 		}
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
 			case LEXICON:
-				list.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.a.0"));
+				tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.a.0"));
 
 				if (isEmpowered(stack)) {
-					list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.c.0") + StringHelper.END);
-					list.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.c.1") + StringHelper.END);
+					tooltip.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.c.0") + StringHelper.END);
+					tooltip.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.c.1") + StringHelper.END);
 				} else {
-					list.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.b.0") + StringHelper.END);
-					list.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.b.1") + StringHelper.END);
+					tooltip.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.b.0") + StringHelper.END);
+					tooltip.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.b.1") + StringHelper.END);
 				}
 				break;
 			default:
@@ -133,7 +133,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
 
 		if (CoreUtils.isFakePlayer(player) || hand != EnumHand.MAIN_HAND) {
-			return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
+			return new ActionResult<>(EnumActionResult.FAIL, stack);
 		}
 		if (ServerHelper.isServerWorld(world) && LexiconManager.getSortedOreNames().size() > 0) {
 
@@ -143,7 +143,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 				player.openGui(ThermalFoundation.instance, GuiHandler.LEXICON_STUDY_ID, world, 0, 0, 0);
 			}
 		}
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
+		return new ActionResult<>(EnumActionResult.SUCCESS, stack);
 	}
 
 	/* IModelRegister */

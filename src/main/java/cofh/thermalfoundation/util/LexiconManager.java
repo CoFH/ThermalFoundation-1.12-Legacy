@@ -58,7 +58,7 @@ public class LexiconManager {
 
 		boolean writingDefaultFile = false;
 		BufferedWriter out = null;
-		ArrayList<String> defaultList = new ArrayList<String>();
+		ArrayList<String> defaultList = new ArrayList<>();
 
 		if (writeDefaultFile && alwaysWriteFile && filterList.exists()) {
 			filterList.delete();
@@ -258,9 +258,9 @@ public class LexiconManager {
 		return blacklistStacks.remove(new ItemWrapper(stack));
 	}
 
-	private static HashSet<String> listNames = new HashSet<String>();
-	private static HashSet<ItemWrapper> blacklistStacks = new HashSet<ItemWrapper>();
-	private static List<String> sortedNames = new ArrayList<String>();
+	private static HashSet<String> listNames = new HashSet<>();
+	private static HashSet<ItemWrapper> blacklistStacks = new HashSet<>();
+	private static List<String> sortedNames = new ArrayList<>();
 
 	private static boolean isWhitelist = true;
 	private static boolean logEntries = false;

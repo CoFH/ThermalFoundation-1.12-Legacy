@@ -194,7 +194,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 
 			CoreUtils.dismantleLog(player.getName(), this, metadata, pos);
 		}
-		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+		ArrayList<ItemStack> ret = new ArrayList<>();
 		ret.add(dropBlock);
 		return ret;
 	}

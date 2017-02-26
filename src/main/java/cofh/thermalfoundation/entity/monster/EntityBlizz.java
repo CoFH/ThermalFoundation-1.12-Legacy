@@ -41,7 +41,7 @@ public class EntityBlizz extends EntityElemental {
 		EntityRegistry.registerModEntity(EntityBlizz.class, "blizz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
 
 		// Add Blizz spawn to Cold biomes
-		List<Biome> validBiomes = new ArrayList<Biome>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.COLD)));
+		List<Biome> validBiomes = new ArrayList<>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.COLD)));
 
 		// Add Blizz spawn to Snowy biomes (in vanilla, all snowy are also cold)
 		for (Biome biome : BiomeDictionary.getBiomesForType(Type.SNOWY)) {

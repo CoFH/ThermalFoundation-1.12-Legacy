@@ -142,7 +142,7 @@ public class TFFluids {
 		FluidRegistry.addBucketForFluid(fluidMana);
 	}
 
-	private static ArrayList<IInitializer> initList = new ArrayList<IInitializer>();
+	private static ArrayList<IInitializer> initList = new ArrayList<>();
 
 	/* REFERENCES */
 	public static Fluid fluidSteam;

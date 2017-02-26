@@ -35,7 +35,7 @@ public class SchematicHelper {
 		list.add(StringHelper.getDeactivationText("info.thermalfoundation.diagram.erase"));
 
 		boolean hasOre = false;
-		TMap<String, Integer> aMap = new THashMap<String, Integer>();
+		TMap<String, Integer> aMap = new THashMap<>();
 		String curName;
 
 		for (int i = 0; i < 9; i++) {

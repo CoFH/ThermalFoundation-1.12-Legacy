@@ -39,5 +39,4 @@ public class ItemGeode extends ItemMulti implements IInitializer {
 	/* REFERENCES */
 	public static ItemStack geode;
 
-
 }

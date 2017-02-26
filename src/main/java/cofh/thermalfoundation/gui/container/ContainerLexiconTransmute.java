@@ -272,9 +272,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		ItemStack input = inventory.getStackInSlot(0);
 
-		if (input == null || !ItemHelper.hasOreName(input)) {
-			// do nothing
-		} else {
+		if (input != null && ItemHelper.hasOreName(input)) {
 			// if there is an input and no prior transmute or the input has no common types with last transmute
 			if (!equivalentOres(input, oreStack)) {
 				nameList = OreDictionaryArbiter.getAllOreNames(input);

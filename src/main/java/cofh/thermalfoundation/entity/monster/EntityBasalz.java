@@ -43,7 +43,7 @@ public class EntityBasalz extends EntityElemental {
 		EntityRegistry.registerModEntity(EntityBasalz.class, "basalz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0x606060, 0xB3ABA3);
 
 		// Add Basalz spawn to Mountain biomes
-		List<Biome> validBiomes = new ArrayList<Biome>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.MOUNTAIN)));
+		List<Biome> validBiomes = new ArrayList<>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.MOUNTAIN)));
 
 		// Add Basalz spawn to Wasteland biomes
 		for (Biome biome : BiomeDictionary.getBiomesForType(Type.WASTELAND)) {
