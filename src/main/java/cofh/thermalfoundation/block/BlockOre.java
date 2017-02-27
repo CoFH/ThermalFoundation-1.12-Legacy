@@ -150,8 +150,10 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		addSmelting(ItemMaterial.ingotTin, oreTin, 0.7F);
 		addSmelting(ItemMaterial.ingotSilver, oreSilver, 0.9F);
 		addSmelting(ItemMaterial.ingotLead, oreLead, 0.8F);
+		addSmelting(ItemMaterial.ingotAluminum, oreAluminum, 0.6F);
 		addSmelting(ItemMaterial.ingotNickel, oreNickel, 1.0F);
 		addSmelting(ItemMaterial.ingotPlatinum, orePlatinum, 1.0F);
+		addSmelting(ItemMaterial.ingotIridium, oreIridium, 1.2F);
 		addSmelting(ItemMaterial.ingotMithril, oreMithril, 1.5F);
 
 		return true;
