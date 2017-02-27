@@ -297,7 +297,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addGearRecipe(gearEnderium, "ingotEnderium");
 
 		/* Parts */
-		addRecipe(ShapedRecipe(powerCoilGold, "R R", " I ", "R R", 'R', "dustRedstone", 'I', "ingotIron"));
+		addRecipe(ShapedRecipe(redstoneServo, "R R", " I ", "R R", 'R', "dustRedstone", 'I', "ingotIron"));
 		addRecipe(ShapedRecipe(powerCoilGold, "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotGold"));
 		addRecipe(ShapedRecipe(powerCoilSilver, "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotSilver"));
 		addRecipe(ShapedRecipe(powerCoilElectrum, "R  ", " G ", "  R", 'R', "dustRedstone", 'G', "ingotElectrum"));
