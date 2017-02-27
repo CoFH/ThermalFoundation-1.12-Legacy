@@ -9,6 +9,7 @@ import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.proxy.Proxy;
 import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
+import cofh.thermalfoundation.util.ShapelessOreFluidRecipe;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -20,6 +21,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.event.FMLInterModComms.IMCEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.oredict.RecipeSorter;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -76,6 +78,8 @@ public class ThermalFoundation {
 		TFItems.preInit();
 		TFEquipment.preInit();
 		TFFluids.preInit();
+
+		RecipeSorter.register("thermalfoundation:fluids", ShapelessOreFluidRecipe.class, RecipeSorter.Category.SHAPELESS, "after:forge:shapelessore");
 
 		proxy.preInit(event);
 	}

@@ -4,7 +4,9 @@ import cofh.api.core.IInitializer;
 import cofh.core.energy.FurnaceFuelHandler;
 import cofh.core.item.ItemMulti;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.init.TFFluids;
 import cofh.thermalfoundation.init.TFProps;
+import cofh.thermalfoundation.util.ShapelessOreFluidRecipe;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
@@ -227,9 +229,9 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addRecipe(ShapelessRecipe(cloneStack(dustInvar, 3), "dustIron", "dustIron", "dustNickel"));
 		addRecipe(ShapelessRecipe(cloneStack(dustBronze, 4), "dustCopper", "dustCopper", "dustCopper", "dustTin"));
 		addRecipe(ShapelessRecipe(cloneStack(dustConstantan, 2), "dustCopper", "dustNickel"));
-		addRecipe(ShapelessRecipe(cloneStack(dustSignalum, 4), "dustCopper", "dustCopper", "dustCopper", "dustSilver", "bucketRedstone"));
-		addRecipe(ShapelessRecipe(cloneStack(dustLumium, 4), "dustTin", "dustTin", "dustTin", "dustSilver", "bucketGlowstone"));
-		addRecipe(ShapelessRecipe(cloneStack(dustEnderium, 4), "dustTin", "dustTin", "dustSilver", "dustPlatinum", "bucketEnder"));
+		addRecipe(new ShapelessOreFluidRecipe(cloneStack(dustSignalum, 4), "dustCopper", "dustCopper", "dustCopper", "dustSilver", TFFluids.fluidRedstone));
+		addRecipe(new ShapelessOreFluidRecipe(cloneStack(dustLumium, 4), "dustTin", "dustTin", "dustTin", "dustSilver", TFFluids.fluidGlowstone));
+		addRecipe(new ShapelessOreFluidRecipe(cloneStack(dustEnderium, 4), "dustTin", "dustTin", "dustSilver", "dustPlatinum", TFFluids.fluidEnder));
 
 		/* Storage */
 		addTwoWayStorageRecipe(gemDiamond, "gemDiamond", nuggetDiamond, "nuggetDiamond");
