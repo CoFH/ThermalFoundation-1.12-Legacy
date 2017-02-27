@@ -62,7 +62,11 @@ public class ShapelessOreFluidRecipe extends ShapelessOreRecipe {
 				ItemStack copy = stackInSlot.copy();
 				copy.stackSize = 1;
 				Validate.notNull(FluidUtil.getFluidHandler(copy)).drain(Fluid.BUCKET_VOLUME, true);
-				ret[i] = copy;
+				if (copy.getItem() != null && copy.stackSize > 0 && (!copy.isItemStackDamageable() || copy.getMetadata() <= copy.getMaxDamage())) {
+					ret[i] = copy;
+				} else {
+					ret[i] = null;
+				}
 			}
 		}
 		return ret;
