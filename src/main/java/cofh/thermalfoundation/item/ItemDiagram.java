@@ -154,7 +154,6 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 				player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
 			}
 			stack.setTagCompound(null);
-			return EnumActionResult.SUCCESS;
 		}
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
 			case REDPRINT:
