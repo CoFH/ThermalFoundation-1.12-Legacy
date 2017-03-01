@@ -11,13 +11,13 @@ import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
@@ -51,13 +51,13 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 		if (tile instanceof ISecurable) {
 			if (((ISecurable) tile).setOwner(player.getGameProfile())) {
 				((ISecurable) tile).setAccess(AccessMode.PUBLIC);
-				player.playSound(SoundEvents.UI_BUTTON_CLICK, 0.6F, 0.7F);
 
 				if (!player.capabilities.isCreativeMode) {
 					stack.stackSize--;
 				}
+				player.addChatComponentMessage(new TextComponentTranslation("chat.cofh.secure.block.success"));
 			}
-			return ServerHelper.isServerWorld(world);
+			return true;
 		}
 		return false;
 	}
