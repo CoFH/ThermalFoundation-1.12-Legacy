@@ -97,13 +97,13 @@ public class EntityBlizz extends EntityElemental {
 	protected void dropFewItems(boolean wasHitByPlayer, int looting) {
 
 		if (wasHitByPlayer) {
-			int items = this.rand.nextInt(4 + looting);
+			int items = rand.nextInt(4 + looting);
 			for (int i = 0; i < items; i++) {
-				this.entityDropItem(new ItemStack(Items.SNOWBALL), 0);
+				entityDropItem(new ItemStack(Items.SNOWBALL), 0);
 			}
-			items = this.rand.nextInt(2 + looting);
+			items = rand.nextInt(2 + looting);
 			for (int i = 0; i < items; i++) {
-				this.entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBlizz, 1), 0);
+				entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBlizz, 1), 0);
 			}
 		}
 	}
@@ -111,13 +111,13 @@ public class EntityBlizz extends EntityElemental {
 	@Override
 	protected void initEntityAI() {
 
-		this.tasks.addTask(4, new EntityBlizz.AIBlizzballAttack(this));
-		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-		this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
-		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(8, new EntityAILookIdle(this));
-		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
-		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+		tasks.addTask(4, new EntityBlizz.AIBlizzballAttack(this));
+		tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+		tasks.addTask(7, new EntityAIWander(this, 1.0D));
+		tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		tasks.addTask(8, new EntityAILookIdle(this));
+		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 	}
 
 	@Override
@@ -141,74 +141,75 @@ public class EntityBlizz extends EntityElemental {
 
 		public AIBlizzballAttack(EntityBlizz entity) {
 
-			this.blizz = entity;
-			this.setMutexBits(3);
+			blizz = entity;
+			setMutexBits(3);
 		}
 
 		@Override
 		public boolean shouldExecute() {
 
-			EntityLivingBase entitylivingbase = this.blizz.getAttackTarget();
-			return entitylivingbase != null && entitylivingbase.isEntityAlive();
+			EntityLivingBase target = blizz.getAttackTarget();
+			return target != null && target.isEntityAlive();
 		}
 
 		@Override
 		public void startExecuting() {
 
-			this.attackStep = 0;
+			attackStep = 0;
 		}
 
 		@Override
 		public void resetTask() {
 
-			this.blizz.setInAttackMode(false);
+			blizz.setInAttackMode(false);
 		}
 
 		@Override
 		public void updateTask() {
 
-			--this.attackTime;
-			EntityLivingBase entitylivingbase = this.blizz.getAttackTarget();
-			double d0 = this.blizz.getDistanceSqToEntity(entitylivingbase);
+			--attackTime;
+			EntityLivingBase target = blizz.getAttackTarget();
+			double d0 = blizz.getDistanceSqToEntity(target);
 
 			if (d0 < 4.0D) {
-				if (this.attackTime <= 0) {
-					this.attackTime = 20;
-					this.blizz.attackEntityAsMob(entitylivingbase);
+				if (attackTime <= 0) {
+					attackTime = 20;
+					blizz.attackEntityAsMob(target);
 				}
 
-				this.blizz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+				blizz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			} else if (d0 < 256.0D) {
 
-				if (this.attackTime <= 0) {
-					++this.attackStep;
+				if (attackTime <= 0) {
+					++attackStep;
 
-					if (this.attackStep == 1) {
-						this.attackTime = 60;
-						this.blizz.setInAttackMode(true);
-					} else if (this.attackStep <= 4) {
-						this.attackTime = 6;
+					if (attackStep == 1) {
+						attackTime = 60;
+						blizz.setInAttackMode(true);
+					} else if (attackStep <= 4) {
+						attackTime = 6;
 					} else {
-						this.attackTime = 100;
-						this.attackStep = 0;
-						this.blizz.setInAttackMode(false);
+						attackTime = 100;
+						attackStep = 0;
+						blizz.setInAttackMode(false);
 					}
 
-					if (this.attackStep > 1) {
-						this.blizz.worldObj.playEvent(null, 1009, new BlockPos((int) this.blizz.posX, (int) this.blizz.posY, (int) this.blizz.posZ), 0);
+					if (attackStep > 1) {
+						blizz.worldObj.playEvent(null, 1009, new BlockPos((int) blizz.posX, (int) blizz.posY, (int) blizz.posZ), 0);
 
 						for (int i = 0; i < 1; ++i) {
-							EntityBlizzBolt bolt = new EntityBlizzBolt(this.blizz.worldObj, this.blizz);
-							bolt.posY = this.blizz.posY + this.blizz.height / 2.0F + 0.5D;
-							this.blizz.playSound(TFSounds.BLIZZ_ATTACK, 2.0F, (blizz.rand.nextFloat() - blizz.rand.nextFloat()) * 0.2F + 1.0F);
-							this.blizz.worldObj.spawnEntityInWorld(bolt);
+							EntityBlizzBolt bolt = new EntityBlizzBolt(blizz.worldObj, blizz);
+							bolt.posY = blizz.posY + blizz.height / 2.0F + 0.5D;
+							bolt.setThrowableHeading(target.posX - blizz.posX, target.posY - blizz.posY, target.posZ - blizz.posZ, 1.5F, 1.0F);
+							blizz.playSound(TFSounds.BLIZZ_ATTACK, 2.0F, (blizz.rand.nextFloat() - blizz.rand.nextFloat()) * 0.2F + 1.0F);
+							blizz.worldObj.spawnEntityInWorld(bolt);
 						}
 					}
 				}
-				this.blizz.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
+				blizz.getLookHelper().setLookPositionWithEntity(target, 10.0F, 10.0F);
 			} else {
-				this.blizz.getNavigator().clearPathEntity();
-				this.blizz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+				blizz.getNavigator().clearPathEntity();
+				blizz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			}
 			super.updateTask();
 		}

@@ -110,13 +110,13 @@ public class EntityBasalz extends EntityElemental {
 	@Override
 	protected void initEntityAI() {
 
-		this.tasks.addTask(4, new AIBasalzBoltAttack(this));
-		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-		this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
-		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(8, new EntityAILookIdle(this));
-		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
-		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+		tasks.addTask(4, new AIBasalzBoltAttack(this));
+		tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+		tasks.addTask(7, new EntityAIWander(this, 1.0D));
+		tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		tasks.addTask(8, new EntityAILookIdle(this));
+		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 	}
 
 	@Override
@@ -140,15 +140,15 @@ public class EntityBasalz extends EntityElemental {
 
 		public AIBasalzBoltAttack(EntityBasalz entity) {
 
-			this.basalz = entity;
-			this.setMutexBits(3);
+			basalz = entity;
+			setMutexBits(3);
 		}
 
 		@Override
 		public boolean shouldExecute() {
 
-			EntityLivingBase entitylivingbase = this.basalz.getAttackTarget();
-			return entitylivingbase != null && entitylivingbase.isEntityAlive();
+			EntityLivingBase target = basalz.getAttackTarget();
+			return target != null && target.isEntityAlive();
 		}
 
 		@Override
@@ -167,47 +167,48 @@ public class EntityBasalz extends EntityElemental {
 		public void updateTask() {
 
 			--this.attackTime;
-			EntityLivingBase entitylivingbase = this.basalz.getAttackTarget();
-			double d0 = this.basalz.getDistanceSqToEntity(entitylivingbase);
+			EntityLivingBase target = this.basalz.getAttackTarget();
+			double d0 = this.basalz.getDistanceSqToEntity(target);
 
 			if (d0 < 4.0D) {
-				if (this.attackTime <= 0) {
-					this.attackTime = 20;
-					this.basalz.attackEntityAsMob(entitylivingbase);
+				if (attackTime <= 0) {
+					attackTime = 20;
+					basalz.attackEntityAsMob(target);
 				}
 
-				this.basalz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+				basalz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			} else if (d0 < 256.0D) {
 
-				if (this.attackTime <= 0) {
-					++this.attackStep;
+				if (attackTime <= 0) {
+					++attackStep;
 
-					if (this.attackStep == 1) {
-						this.attackTime = 60;
-						this.basalz.setInAttackMode(true);
-					} else if (this.attackStep <= 4) {
-						this.attackTime = 6;
+					if (attackStep == 1) {
+						attackTime = 60;
+						basalz.setInAttackMode(true);
+					} else if (attackStep <= 4) {
+						attackTime = 6;
 					} else {
-						this.attackTime = 100;
-						this.attackStep = 0;
-						this.basalz.setInAttackMode(false);
+						attackTime = 100;
+						attackStep = 0;
+						basalz.setInAttackMode(false);
 					}
 
-					if (this.attackStep > 1) {
-						this.basalz.worldObj.playEvent(null, 1009, new BlockPos((int) this.basalz.posX, (int) this.basalz.posY, (int) this.basalz.posZ), 0);
+					if (attackStep > 1) {
+						basalz.worldObj.playEvent(null, 1009, new BlockPos((int) basalz.posX, (int) basalz.posY, (int) basalz.posZ), 0);
 
 						for (int i = 0; i < 1; ++i) {
-							EntityBasalzBolt bolt = new EntityBasalzBolt(this.basalz.worldObj, this.basalz);
-							bolt.posY = this.basalz.posY + this.basalz.height / 2.0F + 0.5D;
+							EntityBasalzBolt bolt = new EntityBasalzBolt(basalz.worldObj, basalz);
+							bolt.setThrowableHeading(target.posX - basalz.posX, target.posY - basalz.posY, target.posZ - basalz.posZ, 1.5F, 1.0F);
+							bolt.posY = basalz.posY + basalz.height / 2.0F + 0.5D;
 							basalz.playSound(TFSounds.BASALZ_ATTACK, 2.0F, (basalz.rand.nextFloat() - basalz.rand.nextFloat()) * 0.2F + 1.0F);
-							this.basalz.worldObj.spawnEntityInWorld(bolt);
+							basalz.worldObj.spawnEntityInWorld(bolt);
 						}
 					}
 				}
-				this.basalz.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
+				basalz.getLookHelper().setLookPositionWithEntity(target, 10.0F, 10.0F);
 			} else {
-				this.basalz.getNavigator().clearPathEntity();
-				this.basalz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+				basalz.getNavigator().clearPathEntity();
+				basalz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			}
 			super.updateTask();
 		}

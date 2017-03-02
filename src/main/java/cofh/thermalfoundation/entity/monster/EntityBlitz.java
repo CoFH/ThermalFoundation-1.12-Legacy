@@ -96,13 +96,13 @@ public class EntityBlitz extends EntityElemental {
 	protected void dropFewItems(boolean wasHitByPlayer, int looting) {
 
 		if (wasHitByPlayer) {
-			int items = this.rand.nextInt(2 + looting);
+			int items = rand.nextInt(2 + looting);
 			for (int i = 0; i < items; i++) {
-				this.entityDropItem(ItemHelper.cloneStack(ItemMaterial.dustNiter, 1), 0);
+				entityDropItem(ItemHelper.cloneStack(ItemMaterial.dustNiter, 1), 0);
 			}
-			items = this.rand.nextInt(2 + looting);
+			items = rand.nextInt(2 + looting);
 			for (int i = 0; i < items; i++) {
-				this.entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBlitz, 1), 0);
+				entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBlitz, 1), 0);
 			}
 		}
 	}
@@ -110,13 +110,13 @@ public class EntityBlitz extends EntityElemental {
 	@Override
 	protected void initEntityAI() {
 
-		this.tasks.addTask(4, new AIBlitzBoltAttack(this));
-		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-		this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
-		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(8, new EntityAILookIdle(this));
-		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
-		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+		tasks.addTask(4, new AIBlitzBoltAttack(this));
+		tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+		tasks.addTask(7, new EntityAIWander(this, 1.0D));
+		tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		tasks.addTask(8, new EntityAILookIdle(this));
+		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true, new Class[0]));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
 	}
 
 	@Override
@@ -140,74 +140,75 @@ public class EntityBlitz extends EntityElemental {
 
 		public AIBlitzBoltAttack(EntityBlitz entity) {
 
-			this.blitz = entity;
-			this.setMutexBits(3);
+			blitz = entity;
+			setMutexBits(3);
 		}
 
 		@Override
 		public boolean shouldExecute() {
 
-			EntityLivingBase entitylivingbase = this.blitz.getAttackTarget();
-			return entitylivingbase != null && entitylivingbase.isEntityAlive();
+			EntityLivingBase target = blitz.getAttackTarget();
+			return target != null && target.isEntityAlive();
 		}
 
 		@Override
 		public void startExecuting() {
 
-			this.attackStep = 0;
+			attackStep = 0;
 		}
 
 		@Override
 		public void resetTask() {
 
-			this.blitz.setInAttackMode(false);
+			blitz.setInAttackMode(false);
 		}
 
 		@Override
 		public void updateTask() {
 
-			--this.attackTime;
-			EntityLivingBase entitylivingbase = this.blitz.getAttackTarget();
-			double d0 = this.blitz.getDistanceSqToEntity(entitylivingbase);
+			--attackTime;
+			EntityLivingBase target = blitz.getAttackTarget();
+			double d0 = blitz.getDistanceSqToEntity(target);
 
 			if (d0 < 4.0D) {
-				if (this.attackTime <= 0) {
-					this.attackTime = 20;
-					this.blitz.attackEntityAsMob(entitylivingbase);
+				if (attackTime <= 0) {
+					attackTime = 20;
+					blitz.attackEntityAsMob(target);
 				}
 
-				this.blitz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+				blitz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			} else if (d0 < 256.0D) {
 
-				if (this.attackTime <= 0) {
-					++this.attackStep;
+				if (attackTime <= 0) {
+					++attackStep;
 
-					if (this.attackStep == 1) {
-						this.attackTime = 60;
-						this.blitz.setInAttackMode(true);
-					} else if (this.attackStep <= 4) {
-						this.attackTime = 6;
+					if (attackStep == 1) {
+						attackTime = 60;
+						blitz.setInAttackMode(true);
+					} else if (attackStep <= 4) {
+						attackTime = 6;
 					} else {
-						this.attackTime = 100;
-						this.attackStep = 0;
-						this.blitz.setInAttackMode(false);
+						attackTime = 100;
+						attackStep = 0;
+						blitz.setInAttackMode(false);
 					}
 
-					if (this.attackStep > 1) {
-						this.blitz.worldObj.playEvent(null, 1009, new BlockPos((int) this.blitz.posX, (int) this.blitz.posY, (int) this.blitz.posZ), 0);
+					if (attackStep > 1) {
+						blitz.worldObj.playEvent(null, 1009, new BlockPos((int) blitz.posX, (int) blitz.posY, (int) blitz.posZ), 0);
 
 						for (int i = 0; i < 1; ++i) {
-							EntityBlitzBolt bolt = new EntityBlitzBolt(this.blitz.worldObj, this.blitz);
-							bolt.posY = this.blitz.posY + this.blitz.height / 2.0F + 0.5D;
-							this.blitz.playSound(TFSounds.BLITZ_ATTACK, 2.0F, (blitz.rand.nextFloat() - blitz.rand.nextFloat()) * 0.2F + 1.0F);
-							this.blitz.worldObj.spawnEntityInWorld(bolt);
+							EntityBlitzBolt bolt = new EntityBlitzBolt(blitz.worldObj, blitz);
+							bolt.posY = blitz.posY + blitz.height / 2.0F + 0.5D;
+							bolt.setThrowableHeading(target.posX - blitz.posX, target.posY - blitz.posY, target.posZ - blitz.posZ, 1.5F, 1.0F);
+							blitz.playSound(TFSounds.BLITZ_ATTACK, 2.0F, (blitz.rand.nextFloat() - blitz.rand.nextFloat()) * 0.2F + 1.0F);
+							blitz.worldObj.spawnEntityInWorld(bolt);
 						}
 					}
 				}
-				this.blitz.getLookHelper().setLookPositionWithEntity(entitylivingbase, 10.0F, 10.0F);
+				blitz.getLookHelper().setLookPositionWithEntity(target, 10.0F, 10.0F);
 			} else {
-				this.blitz.getNavigator().clearPathEntity();
-				this.blitz.getMoveHelper().setMoveTo(entitylivingbase.posX, entitylivingbase.posY, entitylivingbase.posZ, 1.0D);
+				blitz.getNavigator().clearPathEntity();
+				blitz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			}
 			super.updateTask();
 		}
