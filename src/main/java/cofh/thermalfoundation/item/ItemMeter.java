@@ -58,6 +58,7 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 
 		if (ServerHelper.isClientWorld(world)) {
 			if (block instanceof IBlockConfigGui || block instanceof IBlockInfo) {
+				ServerHelper.sendItemUsePacket(world, pos, side, hand, hitX, hitY, hitZ);
 				return true;
 			}
 			TileEntity tile = world.getTileEntity(pos);
