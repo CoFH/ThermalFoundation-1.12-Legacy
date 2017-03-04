@@ -63,8 +63,8 @@ public class TFProps {
 		/* GRAPHICS */
 		category = "Render";
 
-		comment = "If TRUE, Blaze Powder uses a custom icon.";
-		iconBlazePowder = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("BlazePowder", category, iconBlazePowder, comment);
+		//		comment = "If TRUE, Blaze Powder uses a custom icon.";
+		//		iconBlazePowder = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("BlazePowder", category, iconBlazePowder, comment);
 
 		comment = "If TRUE, Ender devices will be a bit more Cagey year-round.";
 		renderStarfieldCage = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("CageyEnder", category, renderStarfieldCage, comment);
