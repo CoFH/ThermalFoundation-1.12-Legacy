@@ -29,15 +29,16 @@ import org.apache.logging.log4j.core.helpers.Loader;
 
 import java.io.File;
 
-@Mod (modid = ThermalFoundation.MOD_ID, name = ThermalFoundation.MOD_NAME, version = ThermalFoundation.VERSION, dependencies = ThermalFoundation.DEPENDENCIES, guiFactory = ThermalFoundation.MOD_GUI_FACTORY)
+@Mod (modid = ThermalFoundation.MOD_ID, name = ThermalFoundation.MOD_NAME, version = ThermalFoundation.VERSION, dependencies = ThermalFoundation.DEPENDENCIES, updateJSON = ThermalFoundation.UPDATE_URL)
 public class ThermalFoundation {
 
 	public static final String MOD_ID = "thermalfoundation";
 	public static final String MOD_NAME = "Thermal Foundation";
 
-	public static final String VERSION = "1.3.0";
-	public static final String VERSION_MAX = "1.4.0";
+	public static final String VERSION = "2.0.0";
+	public static final String VERSION_MAX = "2.1.0";
 	public static final String VERSION_GROUP = "required-after:" + MOD_ID + "@[" + VERSION + "," + VERSION_MAX + ");";
+	public static final String UPDATE_URL = "https://raw.github.com/cofh/version/master/" + MOD_ID + "_update.json";
 
 	public static final String DEPENDENCIES = CoFHCore.VERSION_GROUP;
 	public static final String MOD_GUI_FACTORY = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
