@@ -4,6 +4,7 @@ import cofh.api.core.IInitializer;
 import cofh.api.tileentity.ISecurable;
 import cofh.api.tileentity.ISecurable.AccessMode;
 import cofh.core.item.ItemMulti;
+import cofh.core.util.ChatHelper;
 import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
@@ -55,7 +56,7 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 				if (!player.capabilities.isCreativeMode) {
 					stack.stackSize--;
 				}
-				player.addChatComponentMessage(new TextComponentTranslation("chat.cofh.secure.block.success"));
+				ChatHelper.sendIndexedChatMessageToPlayer(player, new TextComponentTranslation("chat.cofh.secure.block.success"));
 			}
 			return true;
 		}
