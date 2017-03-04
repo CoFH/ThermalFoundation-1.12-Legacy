@@ -135,7 +135,7 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 		addSmelting(ItemMaterial.crystalSlag, rockwoolSilver, 0.0F);
 
 		for (int i = 0; i < 16; i++) {
-			addRecipe(ShapelessRecipe(new ItemStack(this, 1, i), this, new ItemStack(Items.DYE, 1, 15 - i)));
+			addRecipe(ShapelessRecipe(new ItemStack(this, 1, i), new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.DYE, 1, i)));
 		}
 		return true;
 	}
