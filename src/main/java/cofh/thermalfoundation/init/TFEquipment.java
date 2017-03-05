@@ -282,7 +282,7 @@ public class TFEquipment {
 			toolPickaxe = itemPickaxe.addItem(metadata, name, material, ingot);
 			toolAxe = itemAxe.addItem(metadata, name, material, ingot);
 			toolHoe = itemHoe.addItem(metadata, name, material, ingot);
-			toolBow = itemBow.addItem(metadata, name, material, ingot, material.getDamageVsEntity() / 2, material.getEfficiencyOnProperMaterial() / 10);
+			toolBow = itemBow.addItem(metadata, name, material, ingot, material.getDamageVsEntity() / 2, material.getEfficiencyOnProperMaterial() / 20);
 			toolFishingRod = itemFishingRod.addItem(metadata, name, material, ingot, material.getHarvestLevel() / 2, (int) material.getEfficiencyOnProperMaterial() / 3);
 			toolShears = itemShears.addItem(metadata, name, material, ingot);
 			toolSickle = itemSickle.addItem(metadata, name, material, ingot);
