@@ -1,0 +1,6 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "thermalfoundation:items/tool/lead/lead_sword"
+	}
+}

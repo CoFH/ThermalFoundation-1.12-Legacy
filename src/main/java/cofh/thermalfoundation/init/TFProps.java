@@ -2,6 +2,8 @@ package cofh.thermalfoundation.init;
 
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.gui.CreativeTabTF;
+import cofh.thermalfoundation.init.TFEquipment.ArmorSet;
+import cofh.thermalfoundation.init.TFEquipment.ToolSet;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.item.ItemStack;
 
@@ -49,10 +51,10 @@ public class TFProps {
 		/* EQUIPMENT */
 		category = "Equipment";
 		comment = "If TRUE, recipes for all Armor Sets are disabled.";
-		disableAllArmorRecipes = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllArmorRecipes", category, disableAllArmorRecipes, comment);
+		disableAllArmor = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllArmorRecipes", category, disableAllArmor, comment);
 
 		comment = "If TRUE, recipes for all Tools are disabled.";
-		disableAllToolRecipes = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllToolRecipes", category, disableAllToolRecipes, comment);
+		disableAllTools = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllToolRecipes", category, disableAllTools, comment);
 	}
 
 	private static void configClient() {
@@ -90,7 +92,7 @@ public class TFProps {
 				@Override
 				protected ItemStack getStack() {
 
-					return TFEquipment.ArmorSet.INVAR.armorChestplate;
+					return ArmorSet.INVAR.armorChestplate;
 				}
 			};
 		}
@@ -102,15 +104,16 @@ public class TFProps {
 				@Override
 				protected ItemStack getStack() {
 
-					return TFEquipment.ToolSet.INVAR.toolPickaxe;
+					return ToolSet.INVAR.toolPickaxe;
 				}
 			};
 		}
 	}
 
 	/* INTERFACE */
-	public static boolean disableAllToolRecipes = false;
-	public static boolean disableAllArmorRecipes = false;
+	public static boolean disableAllTools = false;
+	public static boolean disableAllArmor = false;
+	public static boolean showDisabledEquipment = true;
 
 	/* GENERAL */
 	public static boolean dropSulfurFireImmuneMobs = true;
