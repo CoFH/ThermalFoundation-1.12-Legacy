@@ -1,159 +1,31 @@
-#en_US
-
-death.attack.basalz=%1$s had their world rocked!
-death.attack.blitz=%1$s was tragically enlightened!
-death.attack.blizz=%1$s met a frigid fate!
-death.attack.cryotheum.player=%1$s froze to death trying to escape %2$s!
-death.attack.cryotheum=%1$s froze to death!
-death.attack.flux.player=%1$s was Fluxed to death by %2$s!
-death.attack.flux=%1$s had their reality torn apart by Flux!
-death.attack.mana.player=%1$s ran into another state of being attempting to escape %2$s!
-death.attack.mana=%1$s was torn apart by raw Mana!
-death.attack.petrotheum.player=%1$s shattered while trying to escape %2$s!
-death.attack.petrotheum=%1$s got all shook up!
-death.attack.pyrotheum.player=%1$s burned alive trying to escape %2$s!
-death.attack.pyrotheum=%1$s mistook Pyrotheum for Water!
-
-entity.thermalfoundation.basalz.name=Basalz
-entity.thermalfoundation.blitz.name=Blitz
-entity.thermalfoundation.blizz.name=Blizz
+#ja_JP
 
 fluid.aerotheum=清風のエアロジウム
 fluid.coal=液化石炭
-fluid.creosote=Creosote Oil
-fluid.crude_oil=Crude Oil
 fluid.cryotheum=凍て付くクリオジウム
 fluid.ender=共鳴エンダーパール
-fluid.fuel=Refined Fuel
 fluid.glowstone=活性化グロウストーン
 fluid.mana=原初のマナ
 fluid.petrotheum=地動のペトロジウム
 fluid.pyrotheum=燃え盛るパイロジウム
 fluid.redstone=励起レッドストーン
-fluid.refined_oil=Naphtha
-fluid.resin=Resin
 fluid.steam=蒸気
-fluid.tree_oil=Tree Oil
-
-gui.thermalfoundation.lexicon.clearPreference=Clear Preference
-gui.thermalfoundation.lexicon.nextEntry=Next Entry
-gui.thermalfoundation.lexicon.prevEntry=Previous Entry
-gui.thermalfoundation.lexicon.search=Search
-gui.thermalfoundation.lexicon.setPreference=Set Preference
-gui.thermalfoundation.lexicon.singleEntry=Only One Entry
-gui.thermalfoundation.lexicon.study=Lexicon - Knowledge
-gui.thermalfoundation.lexicon.transmute=Lexicon - Transmutation
-
-info.thermalfoundation.diagram.erase=Use while sneaking to erase.
-info.thermalfoundation.diagram.redprint.0=Use on a device to copy its settings.
-info.thermalfoundation.diagram.redprint.1=Use on a device to transfer stored settings.
-
-info.thermalfoundation.tome.lexicon.a.0=Converts items to equivalent forms.
-info.thermalfoundation.tome.lexicon.b.0=Right click (open) to study.
-info.thermalfoundation.tome.lexicon.b.1=to gain wisdom!
-info.thermalfoundation.tome.lexicon.c.0=Right click (open) to transmute items.
-info.thermalfoundation.tome.lexicon.c.1=to forsake knowledge.
-
-info.thermalfoundation.util.multimeter.0=Provides information about things.
-info.thermalfoundation.util.multimeter.1=Use while sneaking to configure some devices.
-
-item.thermalfoundation.armor.bronzeBoots.name=Bronze Boots
-item.thermalfoundation.armor.bronzeHelmet.name=Bronze Helmet
-item.thermalfoundation.armor.bronzeLegs.name=Bronze Leggings
-item.thermalfoundation.armor.bronzeChestplate.name=Bronze Chestplate
-
-item.thermalfoundation.armor.copperBoots.name=Copper Boots
-item.thermalfoundation.armor.copperHelmet.name=Copper Helmet
-item.thermalfoundation.armor.copperLegs.name=Copper Leggings
-item.thermalfoundation.armor.copperChestplate.name=Copper Chestplate
-
-item.thermalfoundation.armor.electrumBoots.name=Electrum Boots
-item.thermalfoundation.armor.electrumHelmet.name=Electrum Helmet
-item.thermalfoundation.armor.electrumLegs.name=Electrum Leggings
-item.thermalfoundation.armor.electrumChestplate.name=Electrum Chestplate
-
-item.thermalfoundation.armor.invarBoots.name=Invar Boots
-item.thermalfoundation.armor.invarHelmet.name=Invar Helmet
-item.thermalfoundation.armor.invarLegs.name=Invar Leggings
-item.thermalfoundation.armor.invarChestplate.name=Invar Chestplate
-
-item.thermalfoundation.armor.leadBoots.name=Lead Boots
-item.thermalfoundation.armor.leadHelmet.name=Lead Helmet
-item.thermalfoundation.armor.leadLegs.name=Lead Leggings
-item.thermalfoundation.armor.leadChestplate.name=Lead Chestplate
-
-item.thermalfoundation.armor.nickelBoots.name=Nickel Boots
-item.thermalfoundation.armor.nickelHelmet.name=Nickel Helmet
-item.thermalfoundation.armor.nickelLegs.name=Nickel Leggings
-item.thermalfoundation.armor.nickelChestplate.name=Nickel Chestplate
-
-item.thermalfoundation.armor.platinumBoots.name=Platinum Boots
-item.thermalfoundation.armor.platinumHelmet.name=Platinum Helmet
-item.thermalfoundation.armor.platinumLegs.name=Platinum Leggings
-item.thermalfoundation.armor.platinumChestplate.name=Platinum Chestplate
-
-item.thermalfoundation.armor.silverBoots.name=Silver Boots
-item.thermalfoundation.armor.silverHelmet.name=Silver Helmet
-item.thermalfoundation.armor.silverLegs.name=Silver Leggings
-item.thermalfoundation.armor.silverChestplate.name=Silver Chestplate
-
-item.thermalfoundation.armor.tinBoots.name=Tin Boots
-item.thermalfoundation.armor.tinHelmet.name=Tin Helmet
-item.thermalfoundation.armor.tinLegs.name=Tin Leggings
-item.thermalfoundation.armor.tinChestplate.name=Tin Chestplate
-
-item.thermalfoundation.coin.coinAluminum.name=Aluminum Coin
-item.thermalfoundation.coin.coinBronze.name=Bronze Coin
-item.thermalfoundation.coin.coinConstantan.name=Constantan Coin
-item.thermalfoundation.coin.coinCopper.name=Copper Coin
-item.thermalfoundation.coin.coinElectrum.name=Electrum Coin
-item.thermalfoundation.coin.coinEnderium.name=Enderium Coin
-item.thermalfoundation.coin.coinGold.name=Gold Coin
-item.thermalfoundation.coin.coinInvar.name=Invar Coin
-item.thermalfoundation.coin.coinIridium.name=Iridium Coin
-item.thermalfoundation.coin.coinIron.name=Iron Coin
-item.thermalfoundation.coin.coinLead.name=Lead Coin
-item.thermalfoundation.coin.coinLumium.name=Lumium Coin
-item.thermalfoundation.coin.coinMithril.name=Mana Infused Coin
-item.thermalfoundation.coin.coinNickel.name=Nickel Coin
-item.thermalfoundation.coin.coinPlatinum.name=Platinum Coin
-item.thermalfoundation.coin.coinSignalum.name=Signalum Coin
-item.thermalfoundation.coin.coinSilver.name=Silver Coin
-item.thermalfoundation.coin.coinSteel.name=Steel Coin
-item.thermalfoundation.coin.coinTin.name=Tin Coin
-
-item.thermalfoundation.diagram.formula.name=Formula
-item.thermalfoundation.diagram.pattern.name=Pattern
-item.thermalfoundation.diagram.redprint.name=Redprint
-item.thermalfoundation.diagram.schematic.name=Schematic
-item.thermalfoundation.diagram.scroll.name=Scroll
-
-item.thermalfoundation.fertilizer.fertilizerBasic.name=Phyto-Gro
-item.thermalfoundation.fertilizer.fertilizerFlux.name=Fluxed Phyto-Gro
-item.thermalfoundation.fertilizer.fertilizerRich.name=Rich Phyto-Gro
-
-item.thermalfoundation.geode.geode.name=Geode
 
 item.thermalfoundation.material.crystalCinnabar.name=辰砂
-item.thermalfoundation.material.crystalSlag.name=Slag
-item.thermalfoundation.material.crystalSlagRich.name=Rich Slag
 
 item.thermalfoundation.material.dustAerotheum.name=エアロジウムの粉
-item.thermalfoundation.material.dustAluminum.name=Pulverized Aluminum
 item.thermalfoundation.material.dustBasalz.name=バザルツパウダー
 item.thermalfoundation.material.dustBlitz.name=ブリッツパウダー
 item.thermalfoundation.material.dustBlizz.name=ブリーズパウダー
 item.thermalfoundation.material.dustBronze.name=青銅の粉
 item.thermalfoundation.material.dustCharcoal.name=木炭の粉
 item.thermalfoundation.material.dustCoal.name=石炭の粉
-item.thermalfoundation.material.dustConstantan.name=Constantan Blend
 item.thermalfoundation.material.dustCopper.name=銅の粉
 item.thermalfoundation.material.dustCryotheum.name=クリオジウムの粉
 item.thermalfoundation.material.dustElectrum.name=エレクトラムの粉
 item.thermalfoundation.material.dustEnderium.name=エンダリウムの粉
 item.thermalfoundation.material.dustGold.name=金の粉
 item.thermalfoundation.material.dustInvar.name=インバーの粉
-item.thermalfoundation.material.dustIridium.name=Pulverized Iridium
 item.thermalfoundation.material.dustIron.name=鉄の粉
 item.thermalfoundation.material.dustLead.name=鉛の粉
 item.thermalfoundation.material.dustLumium.name=ルミウムの粉
@@ -167,21 +39,15 @@ item.thermalfoundation.material.dustPlatinum.name=シャイニーの粉
 item.thermalfoundation.material.dustPyrotheum.name=パイロジウムの粉
 item.thermalfoundation.material.dustSignalum.name=シグナルムの粉
 item.thermalfoundation.material.dustSilver.name=銀の粉
-item.thermalfoundation.material.dustSteel.name=Steel Blend
 item.thermalfoundation.material.dustSulfur.name=硫黄
 item.thermalfoundation.material.dustTin.name=錫の粉
-item.thermalfoundation.material.dustWood.name=Sawdust
-item.thermalfoundation.material.dustWoodCompressed.name=Compressed Sawdust
 
-item.thermalfoundation.material.gearAluminum.name=Aluminum Gear
 item.thermalfoundation.material.gearBronze.name=青銅の歯車
-item.thermalfoundation.material.gearConstantan.name=Constantan Gear
 item.thermalfoundation.material.gearCopper.name=銅の歯車
 item.thermalfoundation.material.gearElectrum.name=エレクトラムの歯車
 item.thermalfoundation.material.gearEnderium.name=エンダリウムの歯車
 item.thermalfoundation.material.gearGold.name=金の歯車
 item.thermalfoundation.material.gearInvar.name=インバーの歯車
-item.thermalfoundation.material.gearIridium.name=Iridium Gear
 item.thermalfoundation.material.gearIron.name=鉄の歯車
 item.thermalfoundation.material.gearLead.name=鉛の歯車
 item.thermalfoundation.material.gearLumium.name=ルミウムの歯車
@@ -190,22 +56,13 @@ item.thermalfoundation.material.gearNickel.name=フェロースの歯車
 item.thermalfoundation.material.gearPlatinum.name=シャイニーの歯車
 item.thermalfoundation.material.gearSignalum.name=シグナルムの歯車
 item.thermalfoundation.material.gearSilver.name=銀の歯車
-item.thermalfoundation.material.gearSteel.name=Steel Gear
 item.thermalfoundation.material.gearTin.name=錫の歯車
 
-item.thermalfoundation.material.gemCoke.name=Coal Coke
-
-item.thermalfoundation.material.globRosin.name=Rosin
-item.thermalfoundation.material.globTar.name=Tar
-
-item.thermalfoundation.material.ingotAluminum.name=Aluminum Ingot
 item.thermalfoundation.material.ingotBronze.name=青銅インゴット
-item.thermalfoundation.material.ingotConstantan.name=Constantan Ingot
 item.thermalfoundation.material.ingotCopper.name=銅インゴット
 item.thermalfoundation.material.ingotElectrum.name=エレクトラムインゴット
 item.thermalfoundation.material.ingotEnderium.name=エンダリウムインゴット
 item.thermalfoundation.material.ingotInvar.name=インバーインゴット
-item.thermalfoundation.material.ingotIridium.name=Iridium Ingot
 item.thermalfoundation.material.ingotLead.name=鉛インゴット
 item.thermalfoundation.material.ingotLumium.name=ルミウムインゴット
 item.thermalfoundation.material.ingotMithril.name=マナ含有金属インゴット
@@ -213,19 +70,14 @@ item.thermalfoundation.material.ingotNickel.name=フェロースインゴット
 item.thermalfoundation.material.ingotPlatinum.name=シャイニーインゴット
 item.thermalfoundation.material.ingotSignalum.name=シグナルムインゴット
 item.thermalfoundation.material.ingotSilver.name=銀インゴット
-item.thermalfoundation.material.ingotSteel.name=Steel Ingot
 item.thermalfoundation.material.ingotTin.name=錫インゴット
 
-item.thermalfoundation.material.nuggetAluminum.name=Aluminum Nugget
 item.thermalfoundation.material.nuggetBronze.name=青銅ナゲット
-item.thermalfoundation.material.nuggetConstantan.name=Constantan Nugget
 item.thermalfoundation.material.nuggetCopper.name=銅ナゲット
-item.thermalfoundation.material.nuggetDiamond.name=Diamond Nugget
 item.thermalfoundation.material.nuggetElectrum.name=エレクトラムナゲット
 item.thermalfoundation.material.nuggetEnderium.name=エンダリウムナゲット
 item.thermalfoundation.material.nuggetInvar.name=インバーナゲット
 item.thermalfoundation.material.nuggetIron.name=鉄ナゲット
-item.thermalfoundation.material.nuggetIridium.name=Iridium Nugget
 item.thermalfoundation.material.nuggetLead.name=鉛ナゲット
 item.thermalfoundation.material.nuggetLumium.name=ルミウムナゲット
 item.thermalfoundation.material.nuggetMithril.name=マナ含有金属ナゲット
@@ -233,194 +85,11 @@ item.thermalfoundation.material.nuggetNickel.name=フェロースナゲット
 item.thermalfoundation.material.nuggetPlatinum.name=シャイニーナゲット
 item.thermalfoundation.material.nuggetSignalum.name=シグナルムナゲット
 item.thermalfoundation.material.nuggetSilver.name=銀ナゲット
-item.thermalfoundation.material.nuggetSteel.name=Steel Nugget
 item.thermalfoundation.material.nuggetTin.name=錫ナゲット
-
-item.thermalfoundation.material.plateAluminum.name=Aluminum Plate
-item.thermalfoundation.material.plateBronze.name=Bronze Plate
-item.thermalfoundation.material.plateConstantan.name=Constantan Plate
-item.thermalfoundation.material.plateCopper.name=Copper Plate
-item.thermalfoundation.material.plateElectrum.name=Electrum Plate
-item.thermalfoundation.material.plateEnderium.name=Enderium Plate
-item.thermalfoundation.material.plateGold.name=Gold Plate
-item.thermalfoundation.material.plateInvar.name=Invar Plate
-item.thermalfoundation.material.plateIridium.name=Iridium Plate
-item.thermalfoundation.material.plateIron.name=Iron Plate
-item.thermalfoundation.material.plateLead.name=Lead Plate
-item.thermalfoundation.material.plateLumium.name=Lumium Plate
-item.thermalfoundation.material.plateMithril.name=Mana Infused Plate
-item.thermalfoundation.material.plateNickel.name=Nickel Plate
-item.thermalfoundation.material.platePlatinum.name=Platinum Plate
-item.thermalfoundation.material.plateSignalum.name=Signalum Plate
-item.thermalfoundation.material.plateSilver.name=Silver Plate
-item.thermalfoundation.material.plateSteel.name=Steel Plate
-item.thermalfoundation.material.plateTin.name=Tin Plate
-
-item.thermalfoundation.material.powerCoilElectrum.name=Redstone Conductance Coil
-item.thermalfoundation.material.powerCoilGold.name=Redstone Reception Coil
-item.thermalfoundation.material.powerCoilSilver.name=Redstone Transmission Coil
-item.thermalfoundation.material.redstoneServo.name=Redstone Servo
 
 item.thermalfoundation.material.rodBasalz.name=バザルツロッド
 item.thermalfoundation.material.rodBlitz.name=ブリッツロッド
 item.thermalfoundation.material.rodBlizz.name=ブリーズロッド
-
-item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexicon (Empowered)
-item.thermalfoundation.tome.lexicon.name=Forge Lexicon
-
-item.thermalfoundation.tool.bronzeAxe.name=Bronze Axe
-item.thermalfoundation.tool.bronzeBow.name=Bronze Reinforced Bow
-item.thermalfoundation.tool.bronzeFishingRod.name=Bronze Fishing Rod
-item.thermalfoundation.tool.bronzeHammer.name=Bronze Hammer
-item.thermalfoundation.tool.bronzeHoe.name=Bronze Hoe
-item.thermalfoundation.tool.bronzePickaxe.name=Bronze Pickaxe
-item.thermalfoundation.tool.bronzeShears.name=Bronze Shears
-item.thermalfoundation.tool.bronzeShield.name=Bronze Shield
-item.thermalfoundation.tool.bronzeShovel.name=Bronze Shovel
-item.thermalfoundation.tool.bronzeSickle.name=Bronze Sickle
-item.thermalfoundation.tool.bronzeSword.name=Bronze Sword
-
-item.thermalfoundation.tool.copperAxe.name=Copper Axe
-item.thermalfoundation.tool.copperBow.name=Copper Reinforced Bow
-item.thermalfoundation.tool.copperFishingRod.name=Copper Fishing Rod
-item.thermalfoundation.tool.copperHammer.name=Copper Hammer
-item.thermalfoundation.tool.copperHoe.name=Copper Hoe
-item.thermalfoundation.tool.copperPickaxe.name=Copper Pickaxe
-item.thermalfoundation.tool.copperShears.name=Copper Shears
-item.thermalfoundation.tool.copperShield.name=Copper Shield
-item.thermalfoundation.tool.copperShovel.name=Copper Shovel
-item.thermalfoundation.tool.copperSickle.name=Copper Sickle
-item.thermalfoundation.tool.copperSword.name=Copper Sword
-
-item.thermalfoundation.tool.diamondBow.name=Diamond Reinforced Bow
-item.thermalfoundation.tool.diamondFishingRod.name=Diamond Fishing Rod
-item.thermalfoundation.tool.diamondHammer.name=Diamond Hammer
-item.thermalfoundation.tool.diamondShears.name=Diamond Shears
-item.thermalfoundation.tool.diamondShield.name=Diamond Shield
-item.thermalfoundation.tool.diamondSickle.name=Diamond Sickle
-
-item.thermalfoundation.tool.electrumAxe.name=Electrum Axe
-item.thermalfoundation.tool.electrumBow.name=Electrum Reinforced Bow
-item.thermalfoundation.tool.electrumFishingRod.name=Electrum Fishing Rod
-item.thermalfoundation.tool.electrumHammer.name=Electrum Hammer
-item.thermalfoundation.tool.electrumHoe.name=Electrum Hoe
-item.thermalfoundation.tool.electrumPickaxe.name=Electrum Pickaxe
-item.thermalfoundation.tool.electrumShears.name=Electrum Shears
-item.thermalfoundation.tool.electrumShield.name=Electrum Shield
-item.thermalfoundation.tool.electrumShovel.name=Electrum Shovel
-item.thermalfoundation.tool.electrumSickle.name=Electrum Sickle
-item.thermalfoundation.tool.electrumSword.name=Electrum Sword
-
-item.thermalfoundation.tool.goldBow.name=Gold Reinforced Bow
-item.thermalfoundation.tool.goldFishingRod.name=Gold Fishing Rod
-item.thermalfoundation.tool.goldHammer.name=Gold Hammer
-item.thermalfoundation.tool.goldShears.name=Gold Shears
-item.thermalfoundation.tool.goldShield.name=Gold Shield
-item.thermalfoundation.tool.goldSickle.name=Gold Sickle
-
-item.thermalfoundation.tool.invarAxe.name=Invar Axe
-item.thermalfoundation.tool.invarBow.name=Invar Reinforced Bow
-item.thermalfoundation.tool.invarFishingRod.name=Invar Fishing Rod
-item.thermalfoundation.tool.invarHammer.name=Invar Hammer
-item.thermalfoundation.tool.invarHoe.name=Invar Hoe
-item.thermalfoundation.tool.invarPickaxe.name=Invar Pickaxe
-item.thermalfoundation.tool.invarShears.name=Invar Shears
-item.thermalfoundation.tool.invarShield.name=Invar Shield
-item.thermalfoundation.tool.invarShovel.name=Invar Shovel
-item.thermalfoundation.tool.invarSickle.name=Invar Sickle
-item.thermalfoundation.tool.invarSword.name=Invar Sword
-
-item.thermalfoundation.tool.ironBow.name=Iron Reinforced Bow
-item.thermalfoundation.tool.ironFishingRod.name=Iron Fishing Rod
-item.thermalfoundation.tool.ironHammer.name=Iron Hammer
-item.thermalfoundation.tool.ironShears.name=Iron Shears
-item.thermalfoundation.tool.ironShield.name=Iron Shield
-item.thermalfoundation.tool.ironSickle.name=Iron Sickle
-
-item.thermalfoundation.tool.leadAxe.name=Lead Axe
-item.thermalfoundation.tool.leadBow.name=Lead Reinforced Bow
-item.thermalfoundation.tool.leadFishingRod.name=Lead Fishing Rod
-item.thermalfoundation.tool.leadHammer.name=Lead Hammer
-item.thermalfoundation.tool.leadHoe.name=Lead Hoe
-item.thermalfoundation.tool.leadPickaxe.name=Lead Pickaxe
-item.thermalfoundation.tool.leadShears.name=Lead Shears
-item.thermalfoundation.tool.leadShield.name=Lead Shield
-item.thermalfoundation.tool.leadShovel.name=Lead Shovel
-item.thermalfoundation.tool.leadSickle.name=Lead Sickle
-item.thermalfoundation.tool.leadSword.name=Lead Sword
-
-item.thermalfoundation.tool.nickelAxe.name=Nickel Axe
-item.thermalfoundation.tool.nickelBow.name=Nickel Reinforced Bow
-item.thermalfoundation.tool.nickelFishingRod.name=Nickel Fishing Rod
-item.thermalfoundation.tool.nickelHammer.name=Nickel Hammer
-item.thermalfoundation.tool.nickelHoe.name=Nickel Hoe
-item.thermalfoundation.tool.nickelPickaxe.name=Nickel Pickaxe
-item.thermalfoundation.tool.nickelShears.name=Nickel Shears
-item.thermalfoundation.tool.nickelShield.name=Nickel Shield
-item.thermalfoundation.tool.nickelShovel.name=Nickel Shovel
-item.thermalfoundation.tool.nickelSickle.name=Nickel Sickle
-item.thermalfoundation.tool.nickelSword.name=Nickel Sword
-
-item.thermalfoundation.tool.platinumAxe.name=Platinum Axe
-item.thermalfoundation.tool.platinumBow.name=Platinum Reinforced Bow
-item.thermalfoundation.tool.platinumFishingRod.name=Platinum Fishing Rod
-item.thermalfoundation.tool.platinumHammer.name=Platinum Hammer
-item.thermalfoundation.tool.platinumHoe.name=Platinum Hoe
-item.thermalfoundation.tool.platinumPickaxe.name=Platinum Pickaxe
-item.thermalfoundation.tool.platinumShears.name=Platinum Shears
-item.thermalfoundation.tool.platinumShield.name=Platinum Shield
-item.thermalfoundation.tool.platinumShovel.name=Platinum Shovel
-item.thermalfoundation.tool.platinumSickle.name=Platinum Sickle
-item.thermalfoundation.tool.platinumSword.name=Platinum Sword
-
-item.thermalfoundation.tool.silverAxe.name=Silver Axe
-item.thermalfoundation.tool.silverBow.name=Silver Reinforced Bow
-item.thermalfoundation.tool.silverFishingRod.name=Silver Fishing Rod
-item.thermalfoundation.tool.silverHammer.name=Silver Hammer
-item.thermalfoundation.tool.silverHoe.name=Silver Hoe
-item.thermalfoundation.tool.silverPickaxe.name=Silver Pickaxe
-item.thermalfoundation.tool.silverShears.name=Silver Shears
-item.thermalfoundation.tool.silverShield.name=Silver Shield
-item.thermalfoundation.tool.silverShovel.name=Silver Shovel
-item.thermalfoundation.tool.silverSickle.name=Silver Sickle
-item.thermalfoundation.tool.silverSword.name=Silver Sword
-
-item.thermalfoundation.tool.stoneBow.name=Stone Reinforced Bow
-item.thermalfoundation.tool.stoneFishingRod.name=Stone Fishing Rod
-item.thermalfoundation.tool.stoneHammer.name=Stone Hammer
-item.thermalfoundation.tool.stoneShears.name=Stone Shears
-item.thermalfoundation.tool.stoneShield.name=Stone Shield
-item.thermalfoundation.tool.stoneSickle.name=Stone Sickle
-
-item.thermalfoundation.tool.tinAxe.name=Tin Axe
-item.thermalfoundation.tool.tinBow.name=Tin Reinforced Bow
-item.thermalfoundation.tool.tinFishingRod.name=Tin Fishing Rod
-item.thermalfoundation.tool.tinHammer.name=Tin Hammer
-item.thermalfoundation.tool.tinHoe.name=Tin Hoe
-item.thermalfoundation.tool.tinPickaxe.name=Tin Pickaxe
-item.thermalfoundation.tool.tinShears.name=Tin Shears
-item.thermalfoundation.tool.tinShield.name=Tin Shield
-item.thermalfoundation.tool.tinShovel.name=Tin Shovel
-item.thermalfoundation.tool.tinSickle.name=Tin Sickle
-item.thermalfoundation.tool.tinSword.name=Tin Sword
-
-item.thermalfoundation.tool.woodHammer.name=Wooden Hammer
-item.thermalfoundation.tool.woodShears.name=Wooden Shears
-item.thermalfoundation.tool.woodShield.name=Wooden Shield
-item.thermalfoundation.tool.woodSickle.name=Wooden Sickle
-
-item.thermalfoundation.util.lock.name=Signalum Security Lock
-item.thermalfoundation.util.multimeter.name=Multimeter
-item.thermalfoundation.util.wrenchBasic.name=Crescent Hammer
-
-itemGroup.thermalfoundation.creativeTab=Thermal Foundation
-itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armor
-itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Tools
-
-tab.thermalfoundation.lexicon.study.0=Consult the knowledge of the world and alter your personal destiny.
-tab.thermalfoundation.lexicon.study.1=Empower the Lexicon to force the world to obey your choices.
-tab.thermalfoundation.lexicon.transmute.0=Transmute equivalent items according to an arcane set of rules laid down by higher powers.
-tab.thermalfoundation.lexicon.transmute.1=Quell the Lexicon to relinquish mastery over the world.
 
 tile.thermalfoundation.fluid.aerotheum.name=清風のエアロジウム
 tile.thermalfoundation.fluid.cryotheum.name=凍て付くクリオジウム
@@ -431,59 +100,19 @@ tile.thermalfoundation.fluid.petrotheum.name=地動のペトロジウム
 tile.thermalfoundation.fluid.pyrotheum.name=燃え盛るパイロジウム
 tile.thermalfoundation.fluid.redstone.name=励起レッドストーン
 
-tile.thermalfoundation.glass.aluminum.name=Hardened Aluminum Glass
-tile.thermalfoundation.glass.bronze.name=Hardened Bronze Glass
-tile.thermalfoundation.glass.constantan.name=Hardened Constantan Glass
-tile.thermalfoundation.glass.copper.name=Hardened Copper Glass
-tile.thermalfoundation.glass.electrum.name=Hardened Electrum Glass
-tile.thermalfoundation.glass.enderium.name=Hardened Enderium Glass
-tile.thermalfoundation.glass.invar.name=Hardened Invar Glass
-tile.thermalfoundation.glass.iridium.name=Hardened Iridium Glass
-tile.thermalfoundation.glass.lead.name=Hardened Glass
-tile.thermalfoundation.glass.lumium.name=Hardened Lumium Glass
-tile.thermalfoundation.glass.mithril.name=Hardened Mana Infused Glass
-tile.thermalfoundation.glass.nickel.name=Hardened Nickel Glass
-tile.thermalfoundation.glass.platinum.name=Hardened Platinum Glass
-tile.thermalfoundation.glass.signalum.name=Hardened Signalum Glass
-tile.thermalfoundation.glass.silver.name=Hardened Silver Glass
-tile.thermalfoundation.glass.steel.name=Hardened Steel Glass
-tile.thermalfoundation.glass.tin.name=Hardened Tin Glass
-
-tile.thermalfoundation.ore.aluminum.name=Aluminum Ore
 tile.thermalfoundation.ore.copper.name=銅鉱石
 tile.thermalfoundation.ore.lead.name=鉛鉱石
-tile.thermalfoundation.ore.iridium.name=Iridium Ore
 tile.thermalfoundation.ore.mithril.name=マナ含有鉱石
 tile.thermalfoundation.ore.nickel.name=フェロース鉱石
 tile.thermalfoundation.ore.platinum.name=シャイニー鉱石
 tile.thermalfoundation.ore.silver.name=銀鉱石
 tile.thermalfoundation.ore.tin.name=錫鉱石
 
-tile.thermalfoundation.rockwool.black.name=Black Rockwool
-tile.thermalfoundation.rockwool.blue.name=Blue Rockwool
-tile.thermalfoundation.rockwool.brown.name=Brown Rockwool
-tile.thermalfoundation.rockwool.cyan.name=Cyan Rockwool
-tile.thermalfoundation.rockwool.gray.name=Gray Rockwool
-tile.thermalfoundation.rockwool.green.name=Green Rockwool
-tile.thermalfoundation.rockwool.light_blue.name=Light Blue Rockwool
-tile.thermalfoundation.rockwool.lime.name=Lime Rockwool
-tile.thermalfoundation.rockwool.magenta.name=Magenta Rockwool
-tile.thermalfoundation.rockwool.orange.name=Orange Rockwool
-tile.thermalfoundation.rockwool.pink.name=Pink Rockwool
-tile.thermalfoundation.rockwool.purple.name=Purple Rockwool
-tile.thermalfoundation.rockwool.red.name=Red Rockwool
-tile.thermalfoundation.rockwool.silver.name=Light Gray Rockwool
-tile.thermalfoundation.rockwool.white.name=White Rockwool
-tile.thermalfoundation.rockwool.yellow.name=Yellow Rockwool
-
-tile.thermalfoundation.storage.aluminum.name=Aluminum Block
 tile.thermalfoundation.storage.bronze.name=青銅ブロック
-tile.thermalfoundation.storage.constantan.name=Constantan Block
 tile.thermalfoundation.storage.copper.name=銅ブロック
 tile.thermalfoundation.storage.electrum.name=エレクトラムブロック
 tile.thermalfoundation.storage.enderium.name=エンダリウムブロック
 tile.thermalfoundation.storage.invar.name=インバーブロック
-tile.thermalfoundation.storage.iridium.name=Iridium Block
 tile.thermalfoundation.storage.lead.name=鉛ブロック
 tile.thermalfoundation.storage.lumium.name=ルミウムブロック
 tile.thermalfoundation.storage.mithril.name=マナ含有金属ブロック
@@ -491,5 +120,4 @@ tile.thermalfoundation.storage.nickel.name=フェロースブロック
 tile.thermalfoundation.storage.platinum.name=シャイニーブロック
 tile.thermalfoundation.storage.signalum.name=シグナルムブロック
 tile.thermalfoundation.storage.silver.name=銀ブロック
-tile.thermalfoundation.storage.steel.name=Steel Block
 tile.thermalfoundation.storage.tin.name=錫ブロック
