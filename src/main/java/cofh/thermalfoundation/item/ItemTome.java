@@ -70,10 +70,10 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 
 				if (isEmpowered(stack)) {
 					tooltip.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.c.0") + StringHelper.END);
-					tooltip.add(StringHelper.YELLOW + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.c.1") + StringHelper.END);
+					tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.lexicon.c.1", StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey())));
 				} else {
 					tooltip.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.b.0") + StringHelper.END);
-					tooltip.add(StringHelper.BRIGHT_BLUE + StringHelper.ITALIC + StringHelper.localize("info.cofh.press") + " " + StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey()) + " " + StringHelper.localize("info.thermalfoundation.tome.lexicon.b.1") + StringHelper.END);
+					tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.lexicon.b.1", StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey())));
 				}
 				break;
 			default:

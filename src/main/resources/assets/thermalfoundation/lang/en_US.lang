@@ -50,9 +50,9 @@ info.thermalfoundation.diagram.redprint.1=Use on a device to transfer stored set
 
 info.thermalfoundation.tome.lexicon.a.0=Converts items to equivalent forms.
 info.thermalfoundation.tome.lexicon.b.0=Right click (open) to study.
-info.thermalfoundation.tome.lexicon.b.1=to gain wisdom!
+info.thermalfoundation.tome.lexicon.b.1=§b§oPress (%s) to gain wisdom!§r
 info.thermalfoundation.tome.lexicon.c.0=Right click (open) to transmute items.
-info.thermalfoundation.tome.lexicon.c.1=to forsake knowledge.
+info.thermalfoundation.tome.lexicon.c.1=§e§oPress (%s) to forsake knowledge.§r
 
 info.thermalfoundation.util.multimeter.0=Provides information about things.
 info.thermalfoundation.util.multimeter.1=Use while sneaking to configure some devices.
