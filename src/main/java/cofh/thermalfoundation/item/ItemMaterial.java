@@ -213,7 +213,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addSmelting(ingotIridium, dustIridium, 0.0F);
 		addSmelting(ingotMithril, dustMithril, 0.0F);
 
-		// No Steel
+		addSmelting(ingotSteel, dustSteel, 0.0F);
 		addSmelting(ingotElectrum, dustElectrum, 0.0F);
 		addSmelting(ingotInvar, dustInvar, 0.0F);
 		addSmelting(ingotBronze, dustBronze, 0.0F);
@@ -223,8 +223,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// No Enderium
 
 		/* Alloy Recipes */
-		addRecipe(ShapelessRecipe(cloneStack(dustSteel, 1), "dustIron", "dustCoal", "dustCoal", "dustCoal", "dustCoal"));
-		addRecipe(ShapelessRecipe(cloneStack(dustSteel, 1), "dustIron", "dustCharcoal", "dustCharcoal", "dustCharcoal", "dustCharcoal"));
 		addRecipe(ShapelessRecipe(cloneStack(dustElectrum, 2), "dustGold", "dustSilver"));
 		addRecipe(ShapelessRecipe(cloneStack(dustInvar, 3), "dustIron", "dustIron", "dustNickel"));
 		addRecipe(ShapelessRecipe(cloneStack(dustBronze, 4), "dustCopper", "dustCopper", "dustCopper", "dustTin"));
