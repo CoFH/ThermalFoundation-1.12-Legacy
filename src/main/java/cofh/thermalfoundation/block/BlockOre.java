@@ -48,6 +48,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		setHarvestLevel("pickaxe", 2);
 		setHarvestLevel("pickaxe", 1, getStateFromMeta(Type.COPPER.getMetadata()));
 		setHarvestLevel("pickaxe", 1, getStateFromMeta(Type.TIN.getMetadata()));
+		setHarvestLevel("pickaxe", 1, getStateFromMeta(Type.ALUMINUM.getMetadata()));
 		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.PLATINUM.getMetadata()));
 		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.IRIDIUM.getMetadata()));
 		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.MITHRIL.getMetadata()));
