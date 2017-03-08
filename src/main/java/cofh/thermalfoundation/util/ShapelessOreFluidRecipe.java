@@ -21,20 +21,23 @@ import java.util.List;
 
 public class ShapelessOreFluidRecipe extends ShapelessOreRecipe {
 
-
 	public ShapelessOreFluidRecipe(Block result, Object... recipe) {
+
 		super(result, replaceFluidWithUniversalBucket(recipe));
 	}
 
 	public ShapelessOreFluidRecipe(Item result, Object... recipe) {
+
 		super(result, replaceFluidWithUniversalBucket(recipe));
 	}
 
 	public ShapelessOreFluidRecipe(ItemStack result, Object... recipe) {
+
 		super(result, replaceFluidWithUniversalBucket(recipe));
 	}
 
 	public static Object[] replaceFluidWithUniversalBucket(Object[] array) {
+
 		for (int i = 0; i < array.length; i++) {
 			Object obj = array[i];
 			if (obj instanceof Fluid) {
@@ -52,6 +55,7 @@ public class ShapelessOreFluidRecipe extends ShapelessOreRecipe {
 
 	@Override
 	public ItemStack[] getRemainingItems(InventoryCrafting inv) {
+
 		ItemStack[] ret = new ItemStack[inv.getSizeInventory()];
 		for (int i = 0; i < ret.length; i++) {
 			ItemStack stackInSlot = inv.getStackInSlot(i);
@@ -74,6 +78,7 @@ public class ShapelessOreFluidRecipe extends ShapelessOreRecipe {
 
 	@Override
 	public boolean matches(InventoryCrafting inventoryCrafting, World world) {
+
 		ArrayList<Object> required = new ArrayList<Object>(input);
 
 		for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++) {
@@ -117,8 +122,9 @@ public class ShapelessOreFluidRecipe extends ShapelessOreRecipe {
 					}
 				}
 
-				if (!inRecipe)
+				if (!inRecipe) {
 					return false;
+				}
 			}
 		}
 

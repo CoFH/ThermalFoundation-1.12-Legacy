@@ -234,15 +234,15 @@ public class TFEquipment {
 
 		private final String name;
 		private final String ingot;
-		private final ToolMaterial TOOL_MATERIAL;
+		private final ToolMaterial material;
 
 		/* BOW */
-		private float arrowDamage = 1.5F;
-		private float arrowSpeed = 3.0F;
+		private float arrowDamage = 0.0F;
+		private float arrowSpeed = 0.0F;
 
 		/* FISHING ROD */
-		private int luckModifier = 1;
-		private int speedModifier = 1;
+		private int luckModifier = 0;
+		private int speedModifier = 0;
 
 		/* TOOLS */
 		public ItemSwordCore itemSword;
@@ -271,26 +271,32 @@ public class TFEquipment {
 
 		public boolean[] enable = new boolean[11];
 
-		ToolSet(String name, ToolMaterial material, String ingot) {
+		ToolSet(String name, ToolMaterial materialIn, String ingot) {
 
 			this.name = name.toLowerCase(Locale.US);
 			this.ingot = ingot;
-			TOOL_MATERIAL = material;
+			this.material = materialIn;
+
+			arrowDamage = material.getDamageVsEntity() / 4;
+			arrowSpeed = material.getEfficiencyOnProperMaterial() / 20;
+
+			luckModifier = material.getHarvestLevel() / 2;
+			speedModifier = (int) material.getEfficiencyOnProperMaterial() / 3;
 		}
 
 		protected void create() {
 
-			itemSword = new ItemSwordCore(TOOL_MATERIAL);
-			itemShovel = new ItemShovelCore(TOOL_MATERIAL);
-			itemPickaxe = new ItemPickaxeCore(TOOL_MATERIAL);
-			itemAxe = new ItemAxeCore(TOOL_MATERIAL);
-			itemHoe = new ItemHoeCore(TOOL_MATERIAL);
-			itemBow = new ItemBowCore(TOOL_MATERIAL);
-			itemFishingRod = new ItemFishingRodCore(TOOL_MATERIAL);
-			itemShears = new ItemShearsCore(TOOL_MATERIAL);
-			itemSickle = new ItemSickleCore(TOOL_MATERIAL);
-			itemHammer = new ItemHammerCore(TOOL_MATERIAL);
-			itemShield = new ItemShieldCore(TOOL_MATERIAL);
+			itemSword = new ItemSwordCore(material);
+			itemShovel = new ItemShovelCore(material);
+			itemPickaxe = new ItemPickaxeCore(material);
+			itemAxe = new ItemAxeCore(material);
+			itemHoe = new ItemHoeCore(material);
+			itemBow = new ItemBowCore(material);
+			itemFishingRod = new ItemFishingRodCore(material);
+			itemShears = new ItemShearsCore(material);
+			itemSickle = new ItemSickleCore(material);
+			itemHammer = new ItemHammerCore(material);
+			itemShield = new ItemShieldCore(material);
 		}
 
 		protected void preInit() {
@@ -309,11 +315,7 @@ public class TFEquipment {
 			enable[7] = ThermalFoundation.CONFIG.getConfiguration().get(category, "FishingRod", true).getBoolean(true);
 			enable[8] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", true).getBoolean(true);
 			enable[9] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
-
-			// TODO: Add Shield
-			// enable[10] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
-
-			enable[10] = false;
+			enable[10] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
 
 			for (int i = 0; i < enable.length; i++) {
 				enable[i] &= !TFProps.disableAllTools;
@@ -384,7 +386,7 @@ public class TFEquipment {
 
 			/* SHIELD */
 			itemShield.setUnlocalizedName(TOOL + "Shield").setCreativeTab(ThermalFoundation.tabTools);
-			itemShield.setShowInCreative(enable[10]);// | TFProps.showDisabledEquipment);
+			itemShield.setShowInCreative(enable[10] | TFProps.showDisabledEquipment);
 			itemShield.setRegistryName("tool.shield_" + name);
 			GameRegistry.register(itemShield);
 
@@ -436,7 +438,7 @@ public class TFEquipment {
 				addRecipe(ShapedRecipe(toolHammer, "III", "ISI", " S ", 'I', ingot, 'S', "stickWood"));
 			}
 			if (enable[10]) {
-				addRecipe(ShapedRecipe(toolShield, "ISI", "III", " I ", 'I', ingot, 'S', "ingotIron"));
+				addRecipe(ShapedRecipe(toolShield, "III", "ISI", " I ", 'I', ingot, 'S', Items.SHIELD));
 			}
 		}
 
@@ -477,9 +479,9 @@ public class TFEquipment {
 
     			itemBow = Items.BOW;
     			itemFishingRod = Items.FISHING_ROD;
-				itemShears = new ItemShearsCore(TOOL_MATERIAL);
-    			itemSickle = new ItemSickleCore(TOOL_MATERIAL);
-    			itemHammer = new ItemHammerCore(TOOL_MATERIAL);
+				itemShears = new ItemShearsCore(material);
+    			itemSickle = new ItemSickleCore(material);
+    			itemHammer = new ItemHammerCore(material);
     			itemShield = Items.SHIELD;
     		}
     	},
@@ -489,12 +491,12 @@ public class TFEquipment {
     		@Override
     		protected void create() {
 
-				itemBow = new ItemBowCore(TOOL_MATERIAL);
-    			itemFishingRod = new ItemFishingRodCore(TOOL_MATERIAL);
+				itemBow = new ItemBowCore(material);
+    			itemFishingRod = new ItemFishingRodCore(material);
 				itemShears = Items.SHEARS;
-    			itemSickle = new ItemSickleCore(TOOL_MATERIAL);
-				itemHammer = new ItemHammerCore(TOOL_MATERIAL);
-				itemShield = new ItemShieldCore(TOOL_MATERIAL);
+    			itemSickle = new ItemSickleCore(material);
+				itemHammer = new ItemHammerCore(material);
+				itemShield = new ItemShieldCore(material);
 
     		}
     	},
@@ -504,11 +506,11 @@ public class TFEquipment {
 
 		private final String name;
 		private final String ingot;
-		public final ToolMaterial TOOL_MATERIAL;
+		public final ToolMaterial material;
 
 		/* BOW */
-		private float arrowSpeed = 1.0F;
-		private float arrowDamage = 1.0F;
+		private float arrowSpeed = 0.0F;
+		private float arrowDamage = 0.0F;
 
 		/* FISHING ROD */
 		private int luckModifier = 0;
@@ -531,29 +533,29 @@ public class TFEquipment {
 
 		public boolean[] enable = new boolean[6];
 
-		ToolSetVanilla(String name, ToolMaterial material, String ingot) {
+		ToolSetVanilla(String name, ToolMaterial materialIn, String ingot) {
 
 			this.name = name.toLowerCase(Locale.US);
 			this.ingot = ingot;
-			TOOL_MATERIAL = material;
+			this.material = materialIn;
 
 			/* BOW */
-			arrowDamage = 1.0F + TOOL_MATERIAL.getDamageVsEntity() / 8F;
-			// arrowSpeed = 2.0F + speed / 8F;
+			arrowDamage = material.getDamageVsEntity() / 4;
+			arrowSpeed = material.getEfficiencyOnProperMaterial() / 20;
 
 			/* FISHING ROD */
-			luckModifier = TOOL_MATERIAL.getHarvestLevel() / 2;
-			speedModifier = (int) (TOOL_MATERIAL.getEfficiencyOnProperMaterial() / 5);
+			luckModifier = material.getHarvestLevel() / 2;
+			speedModifier = (int) material.getEfficiencyOnProperMaterial() / 3;
 		}
 
 		protected void create() {
 
-			itemBow = new ItemBowCore(TOOL_MATERIAL);
-			itemFishingRod = new ItemFishingRodCore(TOOL_MATERIAL);
-			itemShears = new ItemShearsCore(TOOL_MATERIAL);
-			itemSickle = new ItemSickleCore(TOOL_MATERIAL);
-			itemHammer = new ItemHammerCore(TOOL_MATERIAL);
-			itemShield = new ItemShieldCore(TOOL_MATERIAL);
+			itemBow = new ItemBowCore(material);
+			itemFishingRod = new ItemFishingRodCore(material);
+			itemShears = new ItemShearsCore(material);
+			itemSickle = new ItemSickleCore(material);
+			itemHammer = new ItemHammerCore(material);
+			itemShield = new ItemShieldCore(material);
 		}
 
 		protected void preInit() {
@@ -572,11 +574,9 @@ public class TFEquipment {
 			enable[3] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", true).getBoolean(true);
 			enable[4] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
 
-			// TODO: Add Shield
-			// if (this != WOOD) {
-			// enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
-			// }
-			enable[5] = false;
+			if (this != WOOD) {
+				enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
+			}
 
 			for (int i = 0; i < enable.length; i++) {
 				enable[i] &= !TFProps.disableAllTools;
@@ -626,7 +626,7 @@ public class TFEquipment {
 			/* SHIELD */
 			if (itemShield instanceof ItemShieldCore) {
 				((ItemShieldCore) itemShield).setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shield").setCreativeTab(CreativeTabs.COMBAT);
-				((ItemShieldCore) itemShield).setShowInCreative(enable[5]);// | TFProps.showDisabledEquipment);
+				((ItemShieldCore) itemShield).setShowInCreative(enable[5] | TFProps.showDisabledEquipment);
 				itemShield.setRegistryName("tool.shield_" + name);
 				GameRegistry.register(itemShield);
 			}
@@ -657,7 +657,7 @@ public class TFEquipment {
 				addRecipe(ShapedRecipe(toolHammer, "III", "ISI", " S ", 'I', ingot, 'S', "stickWood"));
 			}
 			if (enable[5]) {
-				addRecipe(ShapedRecipe(toolShield, "ISI", "III", " I ", 'I', ingot, 'S', "ingotIron"));
+				addRecipe(ShapedRecipe(toolShield, "III", "ISI", " I ", 'I', ingot, 'S', Items.SHIELD));
 			}
 		}
 
