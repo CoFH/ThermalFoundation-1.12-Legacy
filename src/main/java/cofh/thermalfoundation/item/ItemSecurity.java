@@ -1,10 +1,10 @@
 package cofh.thermalfoundation.item;
 
-import cofh.api.core.IInitializer;
-import cofh.api.tileentity.ISecurable;
-import cofh.api.tileentity.ISecurable.AccessMode;
+import cofh.core.util.core.IInitializer;
+import cofh.api.core.ISecurable;
+import cofh.api.core.ISecurable.AccessMode;
 import cofh.core.item.ItemMulti;
-import cofh.core.util.ChatHelper;
+import cofh.core.util.helpers.ChatHelper;
 import cofh.core.util.StateMapper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;

@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.proxy;
 
-import cofh.api.core.IModelRegister;
+import cofh.core.render.IModelRegister;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;

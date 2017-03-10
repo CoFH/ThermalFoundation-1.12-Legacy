@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.item;
 
-import cofh.api.core.IInitializer;
+import cofh.core.util.core.IInitializer;
 import cofh.core.item.ItemMulti;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.item.ItemStack;

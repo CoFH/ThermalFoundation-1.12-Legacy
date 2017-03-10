@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.init;
 
-import cofh.api.core.IInitializer;
+import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.block.*;
 

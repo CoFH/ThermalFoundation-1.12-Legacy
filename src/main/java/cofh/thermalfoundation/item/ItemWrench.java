@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.item;
 
 import cofh.api.block.IDismantleable;
-import cofh.api.core.IInitializer;
+import cofh.core.util.core.IInitializer;
 import cofh.api.item.IToolHammer;
 import cofh.asm.relauncher.Implementable;
 import cofh.core.item.ItemMulti;

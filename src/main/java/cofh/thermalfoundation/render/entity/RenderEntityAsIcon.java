@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.render.entity;
 
-import cofh.lib.render.RenderHelper;
+import cofh.lib.util.helpers.RenderHelper;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.VertexBuffer;

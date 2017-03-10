@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.init;
 
-import cofh.api.core.IModelRegister;
+import cofh.core.render.IModelRegister;
 import cofh.core.item.ItemArmorCore;
 import cofh.core.item.tool.*;
 import cofh.lib.util.helpers.StringHelper;
