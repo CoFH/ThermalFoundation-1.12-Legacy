@@ -14,9 +14,9 @@ death.attack.petrotheum=%1$s 被震碎了胆！
 death.attack.pyrotheum.player=%1$s 为了逃脱 %2$s 却被活活烧死！
 death.attack.pyrotheum=%1$s 误把烈焰之炽焱当成了水！
 
-entity.thermalfoundation.basalz.name=Basalz
-entity.thermalfoundation.blitz.name=Blitz
-entity.thermalfoundation.blizz.name=Blizz
+entity.thermalfoundation.basalz.name=岩石人
+entity.thermalfoundation.blitz.name=狂风人
+entity.thermalfoundation.blizz.name=暴雪人
 
 fluid.aerotheum=和谐之空气
 fluid.coal=液态煤炭
@@ -148,7 +148,7 @@ item.thermalfoundation.material.dustCharcoal.name=炭粉
 item.thermalfoundation.material.dustCoal.name=煤粉
 item.thermalfoundation.material.dustConstantan.name=康铜粉
 item.thermalfoundation.material.dustCopper.name=铜粉
-item.thermalfoundation.material.dustCryotheum.name=凛冰之尘
+item.thermalfoundation.material.dustCryotheum.name=凛冰粉
 item.thermalfoundation.material.dustElectrum.name=琥珀金粉
 item.thermalfoundation.material.dustEnderium.name=末影粉
 item.thermalfoundation.material.dustGold.name=金粉
