@@ -305,14 +305,14 @@ public class TFEquipment {
 
 			String category = "Equipment.Tools." + StringHelper.titleCase(name);
 
-			enable[0] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Wrench", true).getBoolean(true);
-			enable[1] = ThermalFoundation.CONFIG.getConfiguration().get(category, "BattleWrench", true).getBoolean(true);
-			enable[2] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sword", true).getBoolean(true);
-			enable[3] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shovel", true).getBoolean(true);
-			enable[4] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Pickaxe", true).getBoolean(true);
-			enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Axe", true).getBoolean(true);
-			enable[6] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Bow", true).getBoolean(true);
-			enable[7] = ThermalFoundation.CONFIG.getConfiguration().get(category, "FishingRod", true).getBoolean(true);
+			enable[0] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sword", true).getBoolean(true);
+			enable[1] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shovel", true).getBoolean(true);
+			enable[2] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Pickaxe", true).getBoolean(true);
+			enable[3] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Axe", true).getBoolean(true);
+			enable[4] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hoe", true).getBoolean(true);
+			enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Bow", true).getBoolean(true);
+			enable[6] = ThermalFoundation.CONFIG.getConfiguration().get(category, "FishingRod", true).getBoolean(true);
+			enable[7] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shears", true).getBoolean(true);
 			enable[8] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", true).getBoolean(true);
 			enable[9] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
 			enable[10] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
