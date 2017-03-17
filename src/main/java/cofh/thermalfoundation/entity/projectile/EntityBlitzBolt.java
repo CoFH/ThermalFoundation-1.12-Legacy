@@ -108,7 +108,7 @@ public class EntityBlitzBolt extends EntityThrowable {
 
 		public PotionEffectBlitz(int duration, int amplifier) {
 
-			this(MobEffects.NAUSEA, duration, amplifier, false);
+			this(MobEffects.BLINDNESS, duration, amplifier, false);
 		}
 
 	}
