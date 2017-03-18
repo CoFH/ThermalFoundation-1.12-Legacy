@@ -61,7 +61,10 @@ public class EntityBlitzBolt extends EntityThrowable {
 				} else {
 					if (traceResult.entityHit.attackEntityFrom(DamageSourceBlitz.causeDamage(this, getThrower()), 5F) && traceResult.entityHit instanceof EntityLivingBase) {
 						EntityLivingBase living = (EntityLivingBase) traceResult.entityHit;
-						living.addPotionEffect(new PotionEffect(EntityBlitzBolt.blitzEffect));
+
+						if (EntityBlitz.effect) {
+							living.addPotionEffect(new PotionEffect(EntityBlitzBolt.blitzEffect));
+						}
 					}
 				}
 			}

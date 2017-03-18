@@ -33,6 +33,8 @@ public class EntityBlitz extends EntityElemental {
 	static int spawnMin = 1;
 	static int spawnMax = 4;
 
+	public static boolean effect = true;
+
 	public static void initialize(int id) {
 
 		config();
@@ -82,6 +84,9 @@ public class EntityBlitz extends EntityElemental {
 
 		comment = "This sets the relative spawn weight for Blitzes.";
 		spawnWeight = ThermalFoundation.CONFIG.getConfiguration().getInt("SpawnWeight", category, spawnWeight, 1, 20, comment);
+
+		comment = "If TRUE, Blitz attacks will inflict Blindness.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Effect", category, effect, comment);
 	}
 
 	public EntityBlitz(World world) {

@@ -33,6 +33,8 @@ public class EntityBasalz extends EntityElemental {
 	static int spawnMin = 1;
 	static int spawnMax = 4;
 
+	public static boolean effect = true;
+
 	public static void initialize(int id) {
 
 		config();
@@ -82,6 +84,9 @@ public class EntityBasalz extends EntityElemental {
 
 		comment = "This sets the relative spawn weight for Basalzes.";
 		spawnWeight = ThermalFoundation.CONFIG.getConfiguration().getInt("SpawnWeight", category, spawnWeight, 1, 20, comment);
+
+		comment = "If TRUE, Basalz attacks will inflict Weakness.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Effect", category, effect, comment);
 	}
 
 	public EntityBasalz(World world) {

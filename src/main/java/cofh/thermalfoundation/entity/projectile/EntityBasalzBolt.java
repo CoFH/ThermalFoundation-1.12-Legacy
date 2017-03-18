@@ -61,7 +61,10 @@ public class EntityBasalzBolt extends EntityThrowable {
 				} else {
 					if (traceResult.entityHit.attackEntityFrom(DamageSourceBasalz.causeDamage(this, getThrower()), 5F) && traceResult.entityHit instanceof EntityLivingBase) {
 						EntityLivingBase living = (EntityLivingBase) traceResult.entityHit;
-						living.addPotionEffect(new PotionEffect(EntityBasalzBolt.basalzEffect));
+
+						if (EntityBasalz.effect) {
+							living.addPotionEffect(new PotionEffect(EntityBasalzBolt.basalzEffect));
+						}
 					}
 				}
 			}

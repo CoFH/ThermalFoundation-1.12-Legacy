@@ -312,7 +312,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		/* Misc Recipes */
 		addSmelting(new ItemStack(Items.COAL, 1, 1), dustWoodCompressed, 0.15F);
 
-		addRecipe(ShapedRecipe(dustWoodCompressed, "###", "# #", "###", '#', "dustWood"));
+		addStorageRecipe(dustWoodCompressed, "dustWood");
 
 		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', globRosin, '#', "string"));
 		addRecipe(ShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', globRosin, 'P', Blocks.PISTON));
@@ -322,6 +322,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addRecipe(ShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', globTar, 'P', Blocks.PISTON));
 		addRecipe(ShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', globTar));
 
+		addGearRecipe(new ItemStack(Items.PAPER, 2), "dustWood", new ItemStack(Items.WATER_BUCKET));
 		addRecipe(ShapelessRecipe(new ItemStack(Items.CLAY_BALL, 4), crystalSlag, crystalSlag, Blocks.DIRT, Items.WATER_BUCKET));
 
 		return true;

@@ -61,7 +61,10 @@ public class EntityBlizzBolt extends EntityThrowable {
 				} else {
 					if (traceResult.entityHit.attackEntityFrom(DamageSourceBlizz.causeDamage(this, getThrower()), traceResult.entityHit.isImmuneToFire() ? 8F : 5F) && traceResult.entityHit instanceof EntityLivingBase) {
 						EntityLivingBase living = (EntityLivingBase) traceResult.entityHit;
-						living.addPotionEffect(new PotionEffect(EntityBlizzBolt.blizzEffect));
+
+						if (EntityBlizz.effect) {
+							living.addPotionEffect(new PotionEffect(EntityBlizzBolt.blizzEffect));
+						}
 					}
 				}
 			} else {
