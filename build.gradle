@@ -46,7 +46,6 @@ repositories {
 }
 
 dependencies {
-	compile "codechicken:CodeChickenLib:${config.mc_version}-${config.ccl_version}:deobf"
 	compile "cofh:CoFHCore:${config.mc_version}-${config.cofhcore_version}:deobf"
 }
 
