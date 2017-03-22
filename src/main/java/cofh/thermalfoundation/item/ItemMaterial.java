@@ -241,7 +241,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addTwoWayStorageRecipe(ingotTin, "ingotTin", nuggetTin, "nuggetTin");
 		addTwoWayStorageRecipe(ingotSilver, "ingotSilver", nuggetSilver, "nuggetSilver");
 		addTwoWayStorageRecipe(ingotLead, "ingotLead", nuggetLead, "nuggetLead");
-		addTwoWayStorageRecipe(ingotAluminum, "ingotAluminum", nuggetLead, "nuggetAluminum");
+		addTwoWayStorageRecipe(ingotAluminum, "ingotAluminum", nuggetAluminum, "nuggetAluminum");
 		addTwoWayStorageRecipe(ingotNickel, "ingotNickel", nuggetNickel, "nuggetNickel");
 		addTwoWayStorageRecipe(ingotPlatinum, "ingotPlatinum", nuggetPlatinum, "nuggetPlatinum");
 		addTwoWayStorageRecipe(ingotIridium, "ingotIridium", nuggetIridium, "nuggetIridium");
