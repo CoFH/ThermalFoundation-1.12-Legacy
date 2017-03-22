@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.item;
 
-import cofh.core.util.core.IInitializer;
 import cofh.core.item.ItemMulti;
+import cofh.core.util.core.IInitializer;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;

@@ -1,8 +1,8 @@
 package cofh.thermalfoundation.block;
 
-import cofh.core.util.core.IInitializer;
-import cofh.core.render.IModelRegister;
 import cofh.core.block.BlockCore;
+import cofh.core.render.IModelRegister;
+import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.block.SoundType;

@@ -244,18 +244,12 @@ public class LexiconManager {
 	/* ENTRY MANAGEMENT */
 	public static boolean addBlacklistEntry(ItemStack stack) {
 
-		if (stack == null) {
-			return false;
-		}
-		return blacklistStacks.add(new ItemWrapper(stack));
+		return stack != null && blacklistStacks.add(new ItemWrapper(stack));
 	}
 
 	public static boolean removeBlacklistEntry(ItemStack stack) {
 
-		if (stack == null) {
-			return false;
-		}
-		return blacklistStacks.remove(new ItemWrapper(stack));
+		return stack != null && blacklistStacks.remove(new ItemWrapper(stack));
 	}
 
 	private static HashSet<String> listNames = new HashSet<>();

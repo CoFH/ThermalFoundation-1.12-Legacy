@@ -1,8 +1,8 @@
 package cofh.thermalfoundation.item;
 
-import cofh.core.util.core.IInitializer;
 import cofh.core.energy.FurnaceFuelHandler;
 import cofh.core.item.ItemMulti;
+import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
 import cofh.thermalfoundation.init.TFProps;
@@ -179,6 +179,8 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 		OreDictionary.registerOre("dustSaltpeter", dustNiter);
 		FurnaceFuelHandler.registerFuel(gemCoke, TFProps.gemCokeFuel);
+		FurnaceFuelHandler.registerFuel(globRosin, TFProps.globRosinFuel);
+		FurnaceFuelHandler.registerFuel(globTar, TFProps.globTarFuel);
 		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
 
 		return true;

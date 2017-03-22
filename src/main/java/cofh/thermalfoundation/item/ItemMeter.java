@@ -2,11 +2,11 @@ package cofh.thermalfoundation.item;
 
 import cofh.api.block.IBlockConfigGui;
 import cofh.api.block.IBlockInfo;
-import cofh.core.util.core.IInitializer;
 import cofh.api.tileentity.ITileInfo;
 import cofh.core.item.ItemMulti;
-import cofh.core.util.helpers.ChatHelper;
 import cofh.core.util.StateMapper;
+import cofh.core.util.core.IInitializer;
+import cofh.core.util.helpers.ChatHelper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.StringHelper;

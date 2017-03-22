@@ -1,9 +1,9 @@
 package cofh.thermalfoundation.item;
 
-import cofh.core.util.core.IInitializer;
 import cofh.api.core.IPortableData;
 import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
+import cofh.core.util.core.IInitializer;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.StringHelper;

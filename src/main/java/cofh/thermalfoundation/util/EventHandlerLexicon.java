@@ -1,5 +1,6 @@
 package cofh.thermalfoundation.util;
 
+import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -30,7 +31,7 @@ public class EventHandlerLexicon {
 			return;
 		}
 		NBTTagCompound tag = event.getEntityPlayer().getEntityData(); // Cannot be null
-		if (event.getEntityPlayer().worldObj.getTotalWorldTime() - tag.getLong("cofh.LexiconUpdate") > 20) {
+		if (event.getEntityPlayer().worldObj.getTotalWorldTime() - tag.getLong(TFProps.LEXICON_TIMER) > 20) {
 			return;
 		}
 		event.setResult(Event.Result.DENY);

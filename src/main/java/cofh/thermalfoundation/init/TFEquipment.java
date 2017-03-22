@@ -1,8 +1,8 @@
 package cofh.thermalfoundation.init;
 
-import cofh.core.render.IModelRegister;
 import cofh.core.item.ItemArmorCore;
 import cofh.core.item.tool.*;
+import cofh.core.render.IModelRegister;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -72,20 +72,20 @@ public class TFEquipment {
 	public static final ArmorMaterial ARMOR_MATERIAL_SILVER = EnumHelper.addArmorMaterial("TF:SILVER", "silver_armor", 11, new int[] { 2, 4, 4, 1 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0F);
 	public static final ArmorMaterial ARMOR_MATERIAL_LEAD = EnumHelper.addArmorMaterial("TF:LEAD", "lead_armor", 15, new int[] { 2, 5, 4, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0F);
 	public static final ArmorMaterial ARMOR_MATERIAL_NICKEL = EnumHelper.addArmorMaterial("TF:NICKEL", "nickel_armor", 15, new int[] { 2, 5, 5, 2 }, 18, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0F);
+	public static final ArmorMaterial ARMOR_MATERIAL_PLATINUM = EnumHelper.addArmorMaterial("TF:PLATINUM", "platinum_armor", 40, new int[] { 3, 8, 6, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2F);
 	public static final ArmorMaterial ARMOR_MATERIAL_ELECTRUM = EnumHelper.addArmorMaterial("TF:ELECTRUM", "electrum_armor", 8, new int[] { 2, 4, 4, 2 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0F);
 	public static final ArmorMaterial ARMOR_MATERIAL_INVAR = EnumHelper.addArmorMaterial("TF:INVAR", "invar_armor", 21, new int[] { 2, 7, 5, 2 }, 16, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1F);
 	public static final ArmorMaterial ARMOR_MATERIAL_BRONZE = EnumHelper.addArmorMaterial("TF:BRONZE", "bronze_armor", 18, new int[] { 3, 6, 6, 2 }, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1F);
-	public static final ArmorMaterial ARMOR_MATERIAL_PLATINUM = EnumHelper.addArmorMaterial("TF:PLATINUM", "platinum_armor", 40, new int[] { 3, 8, 6, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2F);
 
 	public static final ToolMaterial TOOL_MATERIAL_COPPER = EnumHelper.addToolMaterial("TF:COPPER", 1, 175, 4.0F, 0.75F, 6);
 	public static final ToolMaterial TOOL_MATERIAL_TIN = EnumHelper.addToolMaterial("TF:TIN", 1, 200, 4.5F, 1.0F, 7);
 	public static final ToolMaterial TOOL_MATERIAL_SILVER = EnumHelper.addToolMaterial("TF:SILVER", 2, 200, 6.0F, 1.5F, 20);
 	public static final ToolMaterial TOOL_MATERIAL_LEAD = EnumHelper.addToolMaterial("TF:LEAD", 1, 150, 5.0F, 1.0F, 9);
 	public static final ToolMaterial TOOL_MATERIAL_NICKEL = EnumHelper.addToolMaterial("TF:NICKEL", 2, 300, 6.5F, 2.5F, 18);
+	public static final ToolMaterial TOOL_MATERIAL_PLATINUM = EnumHelper.addToolMaterial("TF:PLATINUM", 4, 1700, 9.0F, 4.0F, 9);
 	public static final ToolMaterial TOOL_MATERIAL_ELECTRUM = EnumHelper.addToolMaterial("TF:ELECTRUM", 0, 100, 14.0F, 0.5F, 30);
 	public static final ToolMaterial TOOL_MATERIAL_INVAR = EnumHelper.addToolMaterial("TF:INVAR", 2, 450, 7.0F, 3.0F, 16);
 	public static final ToolMaterial TOOL_MATERIAL_BRONZE = EnumHelper.addToolMaterial("TF:BRONZE", 2, 500, 6.0F, 2.0F, 15);
-	public static final ToolMaterial TOOL_MATERIAL_PLATINUM = EnumHelper.addToolMaterial("TF:PLATINUM", 4, 1700, 9.0F, 4.0F, 9);
 
 	/* ARMOR */
 	public enum ArmorSet implements IModelRegister {
@@ -95,11 +95,16 @@ public class TFEquipment {
 		TIN("tin", ARMOR_MATERIAL_TIN, "ingotTin"),
 		SILVER("silver", ARMOR_MATERIAL_SILVER, "ingotSilver"),
 		LEAD("lead", ARMOR_MATERIAL_LEAD, "ingotLead"),
+		// ALUMINUM
 		NICKEL("nickel", ARMOR_MATERIAL_NICKEL, "ingotNickel"),
+		PLATINUM("platinum", ARMOR_MATERIAL_PLATINUM, "ingotPlatinum"),
+		// IRIDIUM
+		// MITHRIL
+		// STEEL
 		ELECTRUM("electrum", ARMOR_MATERIAL_ELECTRUM, "ingotElectrum"),
 		INVAR("invar", ARMOR_MATERIAL_INVAR, "ingotInvar"),
-		BRONZE("bronze", ARMOR_MATERIAL_BRONZE, "ingotBronze"),
-		PLATINUM("platinum", ARMOR_MATERIAL_PLATINUM, "ingotPlatinum");
+		BRONZE("bronze", ARMOR_MATERIAL_BRONZE, "ingotBronze");
+		// CONSTANTAN
 		// @formatter: on
 
 		private final String name;
@@ -225,11 +230,16 @@ public class TFEquipment {
 		TIN("tin", TOOL_MATERIAL_TIN, "ingotTin"),
 		SILVER("silver", TOOL_MATERIAL_SILVER, "ingotSilver"),
 		LEAD("lead", TOOL_MATERIAL_LEAD, "ingotLead"),
+		// ALUMINUM
 		NICKEL("nickel", TOOL_MATERIAL_NICKEL, "ingotNickel"),
 		PLATINUM("platinum", TOOL_MATERIAL_PLATINUM, "ingotPlatinum"),
+		// IRIDIUM
+		// MITHRIL
+		// STEEL
 		ELECTRUM("electrum", TOOL_MATERIAL_ELECTRUM, "ingotElectrum"),
 		INVAR("invar",TOOL_MATERIAL_INVAR, "ingotInvar"),
 		BRONZE("bronze", TOOL_MATERIAL_BRONZE, "ingotBronze");
+		// CONSTANTAN
 		// @formatter: on
 
 		private final String name;
@@ -310,12 +320,12 @@ public class TFEquipment {
 			enable[2] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Pickaxe", true).getBoolean(true);
 			enable[3] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Axe", true).getBoolean(true);
 			enable[4] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hoe", true).getBoolean(true);
-			enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Bow", true).getBoolean(true);
-			enable[6] = ThermalFoundation.CONFIG.getConfiguration().get(category, "FishingRod", true).getBoolean(true);
-			enable[7] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shears", true).getBoolean(true);
+			enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Bow", true).getBoolean(true) & !TFProps.disableAllBows;
+			enable[6] = ThermalFoundation.CONFIG.getConfiguration().get(category, "FishingRod", true).getBoolean(true) & !TFProps.disableAllFishingRods;
+			enable[7] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shears", true).getBoolean(true) & !TFProps.disableAllShears;
 			enable[8] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", true).getBoolean(true);
 			enable[9] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
-			enable[10] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
+			enable[10] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true) & !TFProps.disableAllShields;
 
 			for (int i = 0; i < enable.length; i++) {
 				enable[i] &= !TFProps.disableAllTools;
@@ -558,6 +568,11 @@ public class TFEquipment {
 			itemShield = new ItemShieldCore(material);
 		}
 
+		protected boolean enableDefault(ToolSetVanilla type) {
+
+			return type != WOOD && type != STONE;
+		}
+
 		protected void preInit() {
 
 			final String TOOL = "thermalfoundation.tool." + name;
@@ -565,21 +580,22 @@ public class TFEquipment {
 			String category = "Equipment.Tool." + StringHelper.titleCase(name);
 
 			if (this != WOOD) {
-				enable[0] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Bow", true).getBoolean(true);
-				enable[1] = ThermalFoundation.CONFIG.getConfiguration().get(category, "FishingRod", true).getBoolean(true);
+				enable[0] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Bow", enableDefault(this)).getBoolean(enableDefault(this)) & !TFProps.disableAllBows;
+				enable[1] = ThermalFoundation.CONFIG.getConfiguration().get(category, "FishingRod", enableDefault(this)).getBoolean(enableDefault(this)) & !TFProps.disableAllFishingRods;
 			}
 			if (this != IRON) {
-				enable[2] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shears", true).getBoolean(true);
+				enable[2] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shears", enableDefault(this)).getBoolean(enableDefault(this)) & !TFProps.disableAllShears;
 			}
-			enable[3] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", true).getBoolean(true);
-			enable[4] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
+			enable[3] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", enableDefault(this)).getBoolean(enableDefault(this));
+			enable[4] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", enableDefault(this)).getBoolean(enableDefault(this));
 
 			if (this != WOOD) {
-				enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true);
+				enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", enableDefault(this)).getBoolean(enableDefault(this)) & !TFProps.disableAllShields;
 			}
 
 			for (int i = 0; i < enable.length; i++) {
 				enable[i] &= !TFProps.disableAllTools;
+				enable[i] &= !TFProps.disableVanillaTools;
 			}
 			create();
 

@@ -1,17 +1,18 @@
 package cofh.thermalfoundation.item;
 
-import cofh.core.util.core.IInitializer;
 import cofh.api.item.IInventoryContainerItem;
 import cofh.api.item.IMultiModeItem;
 import cofh.core.item.ItemMulti;
 import cofh.core.key.KeyBindingItemMultiMode;
 import cofh.core.util.CoreUtils;
 import cofh.core.util.StateMapper;
+import cofh.core.util.core.IInitializer;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.gui.GuiHandler;
+import cofh.thermalfoundation.init.TFProps;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -98,7 +99,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
 			case LEXICON:
 				NBTTagCompound tag = entity.getEntityData();
-				tag.setLong("cofh.LexiconUpdate", entity.worldObj.getTotalWorldTime());
+				tag.setLong(TFProps.LEXICON_TIMER, entity.worldObj.getTotalWorldTime());
 				break;
 			default:
 		}

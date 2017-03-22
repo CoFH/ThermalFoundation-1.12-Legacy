@@ -55,6 +55,24 @@ public class TFProps {
 
 		comment = "If TRUE, recipes for all Tools are disabled.";
 		disableAllTools = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllToolRecipes", category, disableAllTools, comment);
+
+		comment = "If TRUE, recipes for new Vanilla material (Wood, Stone, Iron, Gold, Diamond) Tools are disabled.";
+		disableVanillaTools = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableVanillaToolRecipes", category, disableVanillaTools, comment);
+
+		comment = "If TRUE, recipes for all new Bows will be disabled, leaving only the Vanilla Bow";
+		disableAllBows = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllBows", category, disableAllBows, comment);
+
+		comment = "If TRUE, recipes for all new Shears will be disabled, leaving only the Vanilla (Iron) Shears.";
+		disableAllBows = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllShears", category, disableAllShears, comment);
+
+		comment = "If TRUE, recipes for all new Fishing Rods will be disabled, leaving only the Vanilla (Wood) Fishing Rod";
+		disableAllBows = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllFishingRods", category, disableAllFishingRods, comment);
+
+		comment = "If TRUE, recipes for all new Shields will be disabled, leaving only the Vanilla (Wood) Shield";
+		disableAllBows = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllShields", category, disableAllShields, comment);
+
+		comment = "If TRUE, items which have had their recipes disabled will show in the Creative Tab and JEI.";
+		showDisabledEquipment = ThermalFoundation.CONFIG.getConfiguration().getBoolean("ShowDisabledEquipment", category, showDisabledEquipment, comment);
 	}
 
 	private static void configClient() {
@@ -113,12 +131,23 @@ public class TFProps {
 	/* INTERFACE */
 	public static boolean disableAllTools = false;
 	public static boolean disableAllArmor = false;
-	public static boolean showDisabledEquipment = true;
+	public static boolean disableVanillaTools = false;
+
+	public static boolean disableAllBows = true;
+	public static boolean disableAllFishingRods = true;
+	public static boolean disableAllShears = true;
+	public static boolean disableAllShields = true;
+
+	public static boolean showDisabledEquipment = false;
 
 	/* GENERAL */
+	public static final String LEXICON_TIMER = "thermalexpansion.lexicon_timer";
+
 	public static boolean dropSulfurFireImmuneMobs = true;
 
 	public static int gemCokeFuel = 3200;
+	public static int globRosinFuel = 800;
+	public static int globTarFuel = 800;
 	public static int dustPyrotheumFuel = 24000;
 
 	/* RENDER */

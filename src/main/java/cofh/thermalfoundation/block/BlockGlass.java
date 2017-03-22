@@ -1,10 +1,10 @@
 package cofh.thermalfoundation.block;
 
 import cofh.api.block.IDismantleable;
-import cofh.core.util.core.IInitializer;
-import cofh.core.render.IModelRegister;
 import cofh.core.block.BlockCore;
+import cofh.core.render.IModelRegister;
 import cofh.core.util.CoreUtils;
+import cofh.core.util.core.IInitializer;
 import cofh.lib.util.RayTracer;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.WrenchHelper;

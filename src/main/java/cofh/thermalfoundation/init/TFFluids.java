@@ -1,8 +1,8 @@
 package cofh.thermalfoundation.init;
 
-import cofh.core.util.core.IInitializer;
 import cofh.core.fluid.BlockFluidCore;
 import cofh.core.fluid.FluidCore;
+import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.fluid.*;
 import net.minecraft.item.EnumRarity;
