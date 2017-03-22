@@ -178,6 +178,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		dustBasalz = addOreDictItem(2053, "dustBasalz");
 
 		OreDictionary.registerOre("dustSaltpeter", dustNiter);
+
 		FurnaceFuelHandler.registerFuel(gemCoke, TFProps.gemCokeFuel);
 		FurnaceFuelHandler.registerFuel(globRosin, TFProps.globRosinFuel);
 		FurnaceFuelHandler.registerFuel(globTar, TFProps.globTarFuel);

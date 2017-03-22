@@ -9,6 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.stats.AchievementList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -59,6 +60,17 @@ public class EventHandlerLexicon {
 
 		if (stack.stackSize <= 0) {
 			event.getItem().setDead();
+		}
+	}
+
+	@SubscribeEvent (priority = EventPriority.HIGHEST)
+	public void handlePlayerCloneEvent(PlayerEvent.Clone event) {
+
+		NBTTagCompound newTag = event.getEntityPlayer().getEntityData();
+		NBTTagCompound oldTag = event.getOriginal().getEntityData();
+
+		if (oldTag.hasKey(TFProps.LEXICON_DATA)) {
+			newTag.setTag(TFProps.LEXICON_DATA, oldTag.getCompoundTag(TFProps.LEXICON_DATA));
 		}
 	}
 

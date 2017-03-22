@@ -6,6 +6,7 @@ import cofh.lib.inventory.ComparableItemStackSafe;
 import cofh.lib.util.ItemWrapper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -176,8 +177,9 @@ public class LexiconManager {
 	public static ItemStack getPreferredStack(EntityPlayer player, ItemStack stack) {
 
 		NBTTagCompound tag = player.getEntityData();
-		if (tag.hasKey("cofh.Lexicon")) {
-			NBTTagCompound lexicon = tag.getCompoundTag("cofh.Lexicon");
+
+		if (tag.hasKey(TFProps.LEXICON_DATA)) {
+			NBTTagCompound lexicon = tag.getCompoundTag(TFProps.LEXICON_DATA);
 			String oreName = OreDictionaryArbiter.getOreName(stack);
 
 			if (lexicon.hasKey(oreName)) {
@@ -198,8 +200,9 @@ public class LexiconManager {
 	public static ItemStack getPreferredStack(EntityPlayer player, String oreName) {
 
 		NBTTagCompound tag = player.getEntityData();
-		if (tag.hasKey("cofh.Lexicon")) {
-			NBTTagCompound lexicon = tag.getCompoundTag("cofh.Lexicon");
+
+		if (tag.hasKey(TFProps.LEXICON_DATA)) {
+			NBTTagCompound lexicon = tag.getCompoundTag(TFProps.LEXICON_DATA);
 
 			if (lexicon.hasKey(oreName)) {
 				ItemStack retStack = ItemStack.loadItemStackFromNBT(lexicon.getCompoundTag(oreName));
@@ -215,28 +218,28 @@ public class LexiconManager {
 
 		NBTTagCompound tag = player.getEntityData();
 
-		NBTTagCompound lexicon = tag.getCompoundTag("cofh.Lexicon");
+		NBTTagCompound lexicon = tag.getCompoundTag(TFProps.LEXICON_DATA);
 		String oreName = OreDictionaryArbiter.getOreName(stack);
 		lexicon.setTag(oreName, stack.writeToNBT(new NBTTagCompound()));
 
-		tag.setTag("cofh.Lexicon", lexicon);
+		tag.setTag(TFProps.LEXICON_DATA, lexicon);
 	}
 
 	public static void clearPreferredStack(EntityPlayer player, ItemStack stack) {
 
 		NBTTagCompound tag = player.getEntityData();
 
-		NBTTagCompound lexicon = tag.getCompoundTag("cofh.Lexicon");
+		NBTTagCompound lexicon = tag.getCompoundTag(TFProps.LEXICON_DATA);
 		String oreName = OreDictionaryArbiter.getOreName(stack);
 		lexicon.removeTag(oreName);
 
-		tag.setTag("cofh.Lexicon", lexicon);
+		tag.setTag(TFProps.LEXICON_DATA, lexicon);
 	}
 
 	public static boolean hasPreferredStack(EntityPlayer player, String oreName) {
 
 		NBTTagCompound tag = player.getEntityData();
-		NBTTagCompound lexicon = tag.getCompoundTag("cofh.Lexicon");
+		NBTTagCompound lexicon = tag.getCompoundTag(TFProps.LEXICON_DATA);
 
 		return lexicon.hasKey(oreName);
 	}

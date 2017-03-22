@@ -142,6 +142,7 @@ public class TFProps {
 
 	/* GENERAL */
 	public static final String LEXICON_TIMER = "thermalexpansion.lexicon_timer";
+	public static final String LEXICON_DATA = "thermalexpansion.lexicon_data";
 
 	public static boolean dropSulfurFireImmuneMobs = true;
 

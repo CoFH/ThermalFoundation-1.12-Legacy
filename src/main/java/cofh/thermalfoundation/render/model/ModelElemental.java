@@ -12,8 +12,8 @@ public class ModelElemental extends ModelBase {
 
 	public static final ModelElemental INSTANCE = new ModelElemental();
 
-	protected final ModelRenderer[] elementalRods = new ModelRenderer[12];
-	protected final ModelRenderer elementalHead;
+	final ModelRenderer[] elementalRods = new ModelRenderer[12];
+	final ModelRenderer elementalHead;
 
 	public ModelElemental() {
 
@@ -26,9 +26,9 @@ public class ModelElemental extends ModelBase {
 	}
 
 	@Override
-	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 
-		setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
+		setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
 		elementalHead.render(scale);
 
 		for (int i = 0; i < elementalRods.length; i++) {
@@ -37,7 +37,7 @@ public class ModelElemental extends ModelBase {
 	}
 
 	@Override
-	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
 
 		float f = ageInTicks * (float) Math.PI * -0.1F;
 		int i;
