@@ -176,6 +176,9 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		dustBlitz = addOreDictItem(2051, "dustBlitz");
 		rodBasalz = addOreDictItem(2052, "rodBasalz");
 		dustBasalz = addOreDictItem(2053, "dustBasalz");
+		// Cold Gel
+		// Air Gel
+		// Rock Gel
 
 		OreDictionary.registerOre("dustSaltpeter", dustNiter);
 
@@ -311,6 +314,9 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addRecipe(ShapelessRecipe(cloneStack(dustBlizz, 2), "rodBlizz"));
 		addRecipe(ShapelessRecipe(cloneStack(dustBlitz, 2), "rodBlitz"));
 		addRecipe(ShapelessRecipe(cloneStack(dustBasalz, 2), "rodBasalz"));
+		// Cold Gel
+		// Air Gel
+		// Rock Gel
 
 		/* Misc Recipes */
 		addSmelting(new ItemStack(Items.COAL, 1, 1), dustWoodCompressed, 0.15F);
@@ -479,5 +485,8 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack dustBlitz;
 	public static ItemStack rodBasalz;
 	public static ItemStack dustBasalz;
+	// Cold Gel
+	// Air Gel
+	// Rock Gel
 
 }

@@ -8,6 +8,8 @@ import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -115,6 +117,8 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 12), "dustCharcoal", "dustSaltpeter", "crystalSlag"));
 		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlagRich"));
 		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 12), "dustCharcoal", "dustSaltpeter", "crystalSlagRich"));
+
+		addRecipe(ShapelessRecipe(fertilizerRich, fertilizerBasic, new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage())));
 
 		return true;
 	}

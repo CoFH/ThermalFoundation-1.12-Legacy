@@ -46,24 +46,26 @@ public class TFFluids {
 	/* HELPERS */
 	public static void registerAllFluids() {
 
-		FluidRegistry.registerFluid(new FluidCore("steam", "thermalfoundation").setLuminosity(0).setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true));
+		FluidRegistry.registerFluid(new FluidCore("steam", "thermalfoundation").setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true));
 
-		FluidRegistry.registerFluid(new FluidCore("creosote", "thermalfoundation").setLuminosity(0).setDensity(1100).setViscosity(2000).setTemperature(300));
-		FluidRegistry.registerFluid(new FluidCore("coal", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300));
-		FluidRegistry.registerFluid(new FluidCore("crude_oil", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(2000).setTemperature(300));
-		FluidRegistry.registerFluid(new FluidCore("refined_oil", "thermalfoundation").setLuminosity(0).setDensity(800).setViscosity(1400).setTemperature(300));
-		FluidRegistry.registerFluid(new FluidCore("fuel", "thermalfoundation").setLuminosity(0).setDensity(700).setViscosity(800).setTemperature(300));
+		FluidRegistry.registerFluid(new FluidCore("creosote", "thermalfoundation").setDensity(1100).setViscosity(2000));
+		FluidRegistry.registerFluid(new FluidCore("coal", "thermalfoundation").setDensity(900).setViscosity(2000));
+		FluidRegistry.registerFluid(new FluidCore("crude_oil", "thermalfoundation").setDensity(900).setViscosity(2000));
+		FluidRegistry.registerFluid(new FluidCore("refined_oil", "thermalfoundation").setDensity(800).setViscosity(1400));
+		FluidRegistry.registerFluid(new FluidCore("fuel", "thermalfoundation").setDensity(700).setViscosity(800));
 
-		FluidRegistry.registerFluid(new FluidCore("resin", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(3000).setTemperature(300));
-		FluidRegistry.registerFluid(new FluidCore("tree_oil", "thermalfoundation").setLuminosity(0).setDensity(900).setViscosity(1200).setTemperature(300));
+		//		FluidRegistry.registerFluid(new FluidCore("sap", "thermalfoundation").setDensity(1050).setViscosity(1500));
+		//		FluidRegistry.registerFluid(new FluidCore("syrup", "thermalfoundation").setDensity(1400).setViscosity(2500));
+		FluidRegistry.registerFluid(new FluidCore("resin", "thermalfoundation").setDensity(900).setViscosity(3000));
+		FluidRegistry.registerFluid(new FluidCore("tree_oil", "thermalfoundation").setDensity(900).setViscosity(1200));
 
-		FluidRegistry.registerFluid(new FluidCore("redstone", "thermalfoundation").setLuminosity(7).setDensity(1200).setViscosity(1500).setTemperature(300).setRarity(EnumRarity.UNCOMMON));
-		FluidRegistry.registerFluid(new FluidCore("glowstone", "thermalfoundation").setLuminosity(15).setDensity(-500).setViscosity(100).setTemperature(300).setGaseous(true).setRarity(EnumRarity.UNCOMMON));
-		FluidRegistry.registerFluid(new FluidCore("ender", "thermalfoundation").setLuminosity(3).setDensity(4000).setViscosity(2500).setTemperature(300).setRarity(EnumRarity.UNCOMMON));
+		FluidRegistry.registerFluid(new FluidCore("redstone", "thermalfoundation").setLuminosity(7).setDensity(1200).setViscosity(1500).setRarity(EnumRarity.UNCOMMON));
+		FluidRegistry.registerFluid(new FluidCore("glowstone", "thermalfoundation").setLuminosity(15).setDensity(-500).setViscosity(100).setGaseous(true).setRarity(EnumRarity.UNCOMMON));
+		FluidRegistry.registerFluid(new FluidCore("ender", "thermalfoundation").setLuminosity(3).setDensity(4000).setViscosity(2500).setRarity(EnumRarity.UNCOMMON));
 		FluidRegistry.registerFluid(new FluidCore("pyrotheum", "thermalfoundation").setLuminosity(15).setDensity(2000).setViscosity(1200).setTemperature(4000).setRarity(EnumRarity.RARE));
-		FluidRegistry.registerFluid(new FluidCore("cryotheum", "thermalfoundation").setLuminosity(0).setDensity(4000).setViscosity(4000).setTemperature(50).setRarity(EnumRarity.RARE));
-		FluidRegistry.registerFluid(new FluidCore("aerotheum", "thermalfoundation").setLuminosity(0).setDensity(-800).setViscosity(100).setTemperature(300).setGaseous(true).setRarity(EnumRarity.RARE));
-		FluidRegistry.registerFluid(new FluidCore("petrotheum", "thermalfoundation").setLuminosity(0).setDensity(4000).setViscosity(1500).setTemperature(400).setRarity(EnumRarity.RARE));
+		FluidRegistry.registerFluid(new FluidCore("cryotheum", "thermalfoundation").setDensity(4000).setViscosity(4000).setTemperature(50).setRarity(EnumRarity.RARE));
+		FluidRegistry.registerFluid(new FluidCore("aerotheum", "thermalfoundation").setDensity(-800).setViscosity(100).setGaseous(true).setRarity(EnumRarity.RARE));
+		FluidRegistry.registerFluid(new FluidCore("petrotheum", "thermalfoundation").setDensity(4000).setViscosity(1500).setTemperature(400).setRarity(EnumRarity.RARE));
 		FluidRegistry.registerFluid(new FluidCore("mana", "thermalfoundation").setLuminosity(15).setDensity(600).setViscosity(6000).setTemperature(350).setRarity(EnumRarity.EPIC));
 
 		fluidSteam = FluidRegistry.getFluid("steam");
@@ -74,6 +76,8 @@ public class TFFluids {
 		fluidRefinedOil = FluidRegistry.getFluid("refined_oil");
 		fluidFuel = FluidRegistry.getFluid("fuel");
 
+		//		fluidSap = FluidRegistry.getFluid("sap");
+		//		fluidSyrup = FluidRegistry.getFluid("syrup");
 		fluidResin = FluidRegistry.getFluid("resin");
 		fluidTreeOil = FluidRegistry.getFluid("tree_oil");
 
@@ -129,6 +133,9 @@ public class TFFluids {
 		FluidRegistry.addBucketForFluid(fluidCrudeOil);
 		FluidRegistry.addBucketForFluid(fluidRefinedOil);
 		FluidRegistry.addBucketForFluid(fluidFuel);
+
+		//		FluidRegistry.addBucketForFluid(fluidSap);
+		//		FluidRegistry.addBucketForFluid(fluidSyrup);
 		FluidRegistry.addBucketForFluid(fluidResin);
 		FluidRegistry.addBucketForFluid(fluidTreeOil);
 
@@ -153,6 +160,8 @@ public class TFFluids {
 	public static Fluid fluidRefinedOil;
 	public static Fluid fluidFuel;
 
+	//	public static Fluid fluidSap;
+	//	public static Fluid fluidSyrup;
 	public static Fluid fluidResin;
 	public static Fluid fluidTreeOil;
 
