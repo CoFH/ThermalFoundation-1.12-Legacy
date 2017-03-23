@@ -63,13 +63,13 @@ public class TFProps {
 		disableAllBows = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllBows", category, disableAllBows, comment);
 
 		comment = "If TRUE, recipes for all new Shears will be disabled, leaving only the Vanilla (Iron) Shears.";
-		disableAllBows = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllShears", category, disableAllShears, comment);
+		disableAllShears = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllShears", category, disableAllShears, comment);
 
 		comment = "If TRUE, recipes for all new Fishing Rods will be disabled, leaving only the Vanilla (Wood) Fishing Rod";
-		disableAllBows = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllFishingRods", category, disableAllFishingRods, comment);
+		disableAllFishingRods = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllFishingRods", category, disableAllFishingRods, comment);
 
 		comment = "If TRUE, recipes for all new Shields will be disabled, leaving only the Vanilla (Wood) Shield";
-		disableAllBows = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllShields", category, disableAllShields, comment);
+		disableAllShields = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableAllShields", category, disableAllShields, comment);
 
 		comment = "If TRUE, items which have had their recipes disabled will show in the Creative Tab and JEI.";
 		showDisabledEquipment = ThermalFoundation.CONFIG.getConfiguration().getBoolean("ShowDisabledEquipment", category, showDisabledEquipment, comment);
