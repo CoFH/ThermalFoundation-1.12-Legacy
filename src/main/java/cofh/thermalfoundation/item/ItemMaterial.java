@@ -181,6 +181,11 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// Rock Gel
 
 		OreDictionary.registerOre("dustSaltpeter", dustNiter);
+		OreDictionary.registerOre("fuelCoke", gemCoke);
+
+		OreDictionary.registerOre("itemSlag", crystalSlag);
+		OreDictionary.registerOre("itemSlagRich", crystalSlagRich);
+		OreDictionary.registerOre("itemCinnabar", crystalCinnabar);
 
 		FurnaceFuelHandler.registerFuel(gemCoke, TFProps.gemCokeFuel);
 		FurnaceFuelHandler.registerFuel(globRosin, TFProps.globRosinFuel);
