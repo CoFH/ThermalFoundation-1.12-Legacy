@@ -187,6 +187,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	@Override
 	public boolean postInit() {
 
+		addStorageRecipe(blockSteel, "ingotSteel");
 		addStorageRecipe(blockElectrum, "ingotElectrum");
 		addStorageRecipe(blockInvar, "ingotInvar");
 		addStorageRecipe(blockBronze, "ingotBronze");

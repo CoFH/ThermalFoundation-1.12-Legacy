@@ -190,8 +190,10 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		addStorageRecipe(blockTin, "ingotTin");
 		addStorageRecipe(blockSilver, "ingotSilver");
 		addStorageRecipe(blockLead, "ingotLead");
+		addStorageRecipe(blockAluminum, "ingotAluminum");
 		addStorageRecipe(blockNickel, "ingotNickel");
 		addStorageRecipe(blockPlatinum, "ingotPlatinum");
+		addStorageRecipe(blockIridium, "ingotIridium");
 		addStorageRecipe(blockMithril, "ingotMithril");
 
 		return true;
