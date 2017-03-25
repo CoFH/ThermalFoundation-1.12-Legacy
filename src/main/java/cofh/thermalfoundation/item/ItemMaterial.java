@@ -7,7 +7,6 @@ import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
 import cofh.thermalfoundation.init.TFProps;
 import cofh.thermalfoundation.util.ShapelessOreFluidRecipe;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -322,22 +321,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// Cold Gel
 		// Air Gel
 		// Rock Gel
-
-		/* Misc Recipes */
-		addSmelting(new ItemStack(Items.COAL, 1, 1), dustWoodCompressed, 0.15F);
-
-		addStorageRecipe(dustWoodCompressed, "dustWood");
-
-		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', globRosin, '#', "string"));
-		addRecipe(ShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', globRosin, 'P', Blocks.PISTON));
-		addRecipe(ShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', globRosin));
-
-		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', globTar, '#', "string"));
-		addRecipe(ShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', globTar, 'P', Blocks.PISTON));
-		addRecipe(ShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', globTar));
-
-		addGearRecipe(new ItemStack(Items.PAPER, 2), "dustWood", new ItemStack(Items.WATER_BUCKET));
-		addRecipe(ShapelessRecipe(new ItemStack(Items.CLAY_BALL, 4), crystalSlag, crystalSlag, Blocks.DIRT, Items.WATER_BUCKET));
 
 		return true;
 	}

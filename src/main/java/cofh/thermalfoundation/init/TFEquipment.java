@@ -3,6 +3,7 @@ package cofh.thermalfoundation.init;
 import cofh.core.item.ItemArmorCore;
 import cofh.core.item.tool.*;
 import cofh.core.render.IModelRegister;
+import cofh.lib.util.helpers.MathHelper;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -249,6 +250,7 @@ public class TFEquipment {
 		/* BOW */
 		private float arrowDamage = 0.0F;
 		private float arrowSpeed = 0.0F;
+		private float zoomMultiplier = 0.15F;
 
 		/* FISHING ROD */
 		private int luckModifier = 0;
@@ -289,6 +291,7 @@ public class TFEquipment {
 
 			arrowDamage = material.getDamageVsEntity() / 4;
 			arrowSpeed = material.getEfficiencyOnProperMaterial() / 20;
+			zoomMultiplier = MathHelper.clamp(material.getEfficiencyOnProperMaterial() / 30, zoomMultiplier, zoomMultiplier * 2);
 
 			luckModifier = material.getHarvestLevel() / 2;
 			speedModifier = (int) material.getEfficiencyOnProperMaterial() / 3;
@@ -333,25 +336,25 @@ public class TFEquipment {
 			create();
 
 			/* SWORD */
-			itemSword.setUnlocalizedName(TOOL + "Sword").setCreativeTab(ThermalFoundation.tabTools);
+			itemSword.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sword").setCreativeTab(ThermalFoundation.tabTools);
 			itemSword.setShowInCreative(enable[0] | TFProps.showDisabledEquipment);
 			itemSword.setRegistryName("tool.sword_" + name);
 			GameRegistry.register(itemSword);
 
 			/* SHOVEL */
-			itemShovel.setUnlocalizedName(TOOL + "Shovel").setCreativeTab(ThermalFoundation.tabTools);
+			itemShovel.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shovel").setCreativeTab(ThermalFoundation.tabTools);
 			itemShovel.setShowInCreative(enable[1] | TFProps.showDisabledEquipment);
 			itemShovel.setRegistryName("tool.shovel_" + name);
 			GameRegistry.register(itemShovel);
 
 			/* PICKAXE */
-			itemPickaxe.setUnlocalizedName(TOOL + "Pickaxe").setCreativeTab(ThermalFoundation.tabTools);
+			itemPickaxe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Pickaxe").setCreativeTab(ThermalFoundation.tabTools);
 			itemPickaxe.setShowInCreative(enable[2] | TFProps.showDisabledEquipment);
 			itemPickaxe.setRegistryName("tool.pickaxe_" + name);
 			GameRegistry.register(itemPickaxe);
 
 			/* AXE */
-			itemAxe.setUnlocalizedName(TOOL + "Axe").setCreativeTab(ThermalFoundation.tabTools);
+			itemAxe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Axe").setCreativeTab(ThermalFoundation.tabTools);
 			itemAxe.setShowInCreative(enable[3] | TFProps.showDisabledEquipment);
 			itemAxe.setRegistryName("tool.axe_" + name);
 			GameRegistry.register(itemAxe);
@@ -363,14 +366,14 @@ public class TFEquipment {
 			GameRegistry.register(itemHoe);
 
 			/* BOW */
-			itemBow.setUnlocalizedName(TOOL + "Bow").setCreativeTab(ThermalFoundation.tabTools);
-			itemBow.setArrowDamage(arrowDamage).setArrowSpeed(arrowSpeed);
+			itemBow.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Bow").setCreativeTab(ThermalFoundation.tabTools);
+			itemBow.setArrowDamage(arrowDamage).setArrowSpeed(arrowSpeed).setZoomMultiplier(zoomMultiplier);
 			itemBow.setShowInCreative(enable[5] | TFProps.showDisabledEquipment);
 			itemBow.setRegistryName("tool.bow_" + name);
 			GameRegistry.register(itemBow);
 
 			/* FISHING ROD */
-			itemFishingRod.setUnlocalizedName(TOOL + "FishingRod").setCreativeTab(ThermalFoundation.tabTools);
+			itemFishingRod.setRepairIngot(ingot).setUnlocalizedName(TOOL + "FishingRod").setCreativeTab(ThermalFoundation.tabTools);
 			itemFishingRod.setLuckModifier(luckModifier).setSpeedModifier(speedModifier);
 			itemFishingRod.setShowInCreative(enable[6]);
 			itemFishingRod.setRegistryName("tool.fishing_rod_" + name);
@@ -383,19 +386,19 @@ public class TFEquipment {
 			GameRegistry.register(itemShears);
 
 			/* SICKLE */
-			itemSickle.setUnlocalizedName(TOOL + "Sickle").setCreativeTab(ThermalFoundation.tabTools);
+			itemSickle.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sickle").setCreativeTab(ThermalFoundation.tabTools);
 			itemSickle.setShowInCreative(enable[8] | TFProps.showDisabledEquipment);
 			itemSickle.setRegistryName("tool.sickle_" + name);
 			GameRegistry.register(itemSickle);
 
 			/* HAMMER */
-			itemHammer.setUnlocalizedName(TOOL + "Hammer").setCreativeTab(ThermalFoundation.tabTools);
+			itemHammer.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Hammer").setCreativeTab(ThermalFoundation.tabTools);
 			itemHammer.setShowInCreative(enable[9] | TFProps.showDisabledEquipment);
 			itemHammer.setRegistryName("tool.hammer_" + name);
 			GameRegistry.register(itemHammer);
 
 			/* SHIELD */
-			itemShield.setUnlocalizedName(TOOL + "Shield").setCreativeTab(ThermalFoundation.tabTools);
+			itemShield.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shield").setCreativeTab(ThermalFoundation.tabTools);
 			itemShield.setShowInCreative(enable[10] | TFProps.showDisabledEquipment);
 			itemShield.setRegistryName("tool.shield_" + name);
 			GameRegistry.register(itemShield);
@@ -521,6 +524,7 @@ public class TFEquipment {
 		/* BOW */
 		private float arrowSpeed = 0.0F;
 		private float arrowDamage = 0.0F;
+		private float zoomMultiplier = 0.15F;
 
 		/* FISHING ROD */
 		private int luckModifier = 0;
@@ -552,6 +556,7 @@ public class TFEquipment {
 			/* BOW */
 			arrowDamage = material.getDamageVsEntity() / 4;
 			arrowSpeed = material.getEfficiencyOnProperMaterial() / 20;
+			zoomMultiplier = MathHelper.clamp(material.getEfficiencyOnProperMaterial() / 30, zoomMultiplier, zoomMultiplier * 2);
 
 			/* FISHING ROD */
 			luckModifier = material.getHarvestLevel() / 2;
@@ -602,7 +607,8 @@ public class TFEquipment {
 			/* BOW */
 			if (itemBow instanceof ItemBowCore) {
 				ItemBowCore itemBow = (ItemBowCore) this.itemBow;
-				itemBow.setRepairIngot(ingot).setArrowSpeed(arrowSpeed).setArrowDamage(arrowDamage).setUnlocalizedName(TOOL + "Bow").setCreativeTab(CreativeTabs.COMBAT);
+				itemBow.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Bow").setCreativeTab(CreativeTabs.COMBAT);
+				itemBow.setArrowDamage(arrowDamage).setArrowSpeed(arrowSpeed).setZoomMultiplier(zoomMultiplier);
 				itemBow.setShowInCreative(enable[0] | TFProps.showDisabledEquipment);
 				itemBow.setRegistryName("tool.bow_" + name);
 				GameRegistry.register(itemBow);
