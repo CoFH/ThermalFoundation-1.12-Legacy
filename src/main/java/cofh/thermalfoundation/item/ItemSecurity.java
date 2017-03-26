@@ -120,13 +120,13 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 	@Override
 	public boolean initialize() {
 
+		addRecipe(ShapedRecipe(lock, " S ", "SBS", "SSS", 'B', "ingotBronze", 'S', "nuggetSignalum"));
+
 		return true;
 	}
 
 	@Override
 	public boolean postInit() {
-
-		addRecipe(ShapedRecipe(lock, new Object[] { " S ", "SBS", "SSS", 'B', "ingotBronze", 'S', "nuggetSignalum" }));
 
 		return true;
 	}

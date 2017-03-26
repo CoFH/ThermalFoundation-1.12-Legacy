@@ -191,12 +191,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		FurnaceFuelHandler.registerFuel(globTar, TFProps.globTarFuel);
 		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
 
-		return true;
-	}
-
-	@Override
-	public boolean initialize() {
-
+		/* Vanilla References */
 		nuggetIron = null; // TODO
 		nuggetGold = new ItemStack(Items.GOLD_NUGGET);
 
@@ -208,7 +203,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean postInit() {
+	public boolean initialize() {
 
 		/* Smelting */
 		addSmelting(ingotIron, dustIron, 0.0F);
@@ -321,6 +316,12 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// Cold Gel
 		// Air Gel
 		// Rock Gel
+
+		return true;
+	}
+
+	@Override
+	public boolean postInit() {
 
 		return true;
 	}

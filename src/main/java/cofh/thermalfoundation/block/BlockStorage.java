@@ -180,12 +180,6 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	@Override
 	public boolean initialize() {
 
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
-
 		addStorageRecipe(blockCopper, "ingotCopper");
 		addStorageRecipe(blockTin, "ingotTin");
 		addStorageRecipe(blockSilver, "ingotSilver");
@@ -195,6 +189,12 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		addStorageRecipe(blockPlatinum, "ingotPlatinum");
 		addStorageRecipe(blockIridium, "ingotIridium");
 		addStorageRecipe(blockMithril, "ingotMithril");
+
+		return true;
+	}
+
+	@Override
+	public boolean postInit() {
 
 		return true;
 	}

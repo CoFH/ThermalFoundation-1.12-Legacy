@@ -141,12 +141,6 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 	@Override
 	public boolean initialize() {
 
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
-
 		addSmelting(ItemMaterial.ingotCopper, oreCopper, 0.6F);
 		addSmelting(ItemMaterial.ingotTin, oreTin, 0.7F);
 		addSmelting(ItemMaterial.ingotSilver, oreSilver, 0.9F);
@@ -156,6 +150,12 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		addSmelting(ItemMaterial.ingotPlatinum, orePlatinum, 1.0F);
 		addSmelting(ItemMaterial.ingotIridium, oreIridium, 1.2F);
 		addSmelting(ItemMaterial.ingotMithril, oreMithril, 1.5F);
+
+		return true;
+	}
+
+	@Override
+	public boolean postInit() {
 
 		return true;
 	}

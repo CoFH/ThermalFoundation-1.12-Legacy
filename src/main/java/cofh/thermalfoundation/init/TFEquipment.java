@@ -50,20 +50,20 @@ public class TFEquipment {
 
 	public static boolean initialize() {
 
+		for (ArmorSet e : ArmorSet.values()) {
+			e.initialize();
+		}
+		for (ToolSet e : ToolSet.values()) {
+			e.initialize();
+		}
+		for (ToolSetVanilla e : ToolSetVanilla.values()) {
+			e.initialize();
+		}
 		return true;
 	}
 
 	public static boolean postInit() {
 
-		for (ArmorSet e : ArmorSet.values()) {
-			e.postInit();
-		}
-		for (ToolSet e : ToolSet.values()) {
-			e.postInit();
-		}
-		for (ToolSetVanilla e : ToolSetVanilla.values()) {
-			e.postInit();
-		}
 		return true;
 	}
 
@@ -188,7 +188,7 @@ public class TFEquipment {
 			armorBoots = new ItemStack(itemBoots);
 		}
 
-		protected void postInit() {
+		protected void initialize() {
 
 			if (enable[0]) {
 				addRecipe(ShapedRecipe(armorHelmet, "III", "I I", 'I', ingot));
@@ -418,7 +418,7 @@ public class TFEquipment {
 			toolShield = new ItemStack(itemShield);
 		}
 
-		protected void postInit() {
+		protected void initialize() {
 
 			if (enable[0]) {
 				addRecipe(ShapedRecipe(toolSword, "I", "I", "S", 'I', ingot, 'S', "stickWood"));
@@ -661,7 +661,7 @@ public class TFEquipment {
 			toolShield = new ItemStack(itemShield);
 		}
 
-		protected void postInit() {
+		protected void initialize() {
 
 			if (enable[0]) {
 				addRecipe(ShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.STRING));

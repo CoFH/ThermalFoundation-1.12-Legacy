@@ -174,13 +174,13 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	@Override
 	public boolean initialize() {
 
+		addRecipe(ShapedRecipe(wrenchBasic, "I I", " T ", " I ", 'I', "ingotIron", 'T', "ingotTin" ));
+
 		return true;
 	}
 
 	@Override
 	public boolean postInit() {
-
-		addRecipe(ShapedRecipe(wrenchBasic, new Object[] { "I I", " T ", " I ", 'I', "ingotIron", 'T', "ingotTin" }));
 
 		return true;
 	}

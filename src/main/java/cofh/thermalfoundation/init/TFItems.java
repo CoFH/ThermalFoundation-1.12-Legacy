@@ -71,6 +71,7 @@ public class TFItems {
 		addRecipes();
 	}
 
+	/* HELPERS */
 	public static void addRecipes() {
 
 		addSmelting(new ItemStack(Items.COAL, 1, 1), ItemMaterial.dustWoodCompressed, 0.15F);

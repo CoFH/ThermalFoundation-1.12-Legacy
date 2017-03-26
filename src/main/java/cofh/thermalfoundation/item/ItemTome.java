@@ -243,13 +243,13 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 	@Override
 	public boolean initialize() {
 
+		addRecipe(ShapedRecipe(lexicon, " D ", "GBI", " R ", 'D', "gemDiamond", 'G', "ingotGold", 'B', Items.BOOK, 'I', "ingotIron", 'R', "dustRedstone"));
+
 		return true;
 	}
 
 	@Override
 	public boolean postInit() {
-
-		addRecipe(ShapedRecipe(lexicon, " D ", "GBI", " R ", 'D', "gemDiamond", 'G', "ingotGold", 'B', Items.BOOK, 'I', "ingotIron", 'R', "dustRedstone"));
 
 		return true;
 	}

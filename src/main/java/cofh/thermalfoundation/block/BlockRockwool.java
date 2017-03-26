@@ -118,25 +118,25 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 		rockwoolOrange = new ItemStack(this, 1, Type.ORANGE.getMetadata());
 		rockwoolWhite = new ItemStack(this, 1, Type.WHITE.getMetadata());
 
-		return true;
-	}
-
-	@Override
-	public boolean initialize() {
-
 		OreDictionary.registerOre("blockRockwool", new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE));
 
 		return true;
 	}
 
 	@Override
-	public boolean postInit() {
+	public boolean initialize() {
 
 		addSmelting(rockwoolSilver, ItemMaterial.crystalSlag, 0.0F);
 
 		for (int i = 0; i < 16; i++) {
 			addRecipe(ShapelessRecipe(new ItemStack(this, 1, i), new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.DYE, 1, i)));
 		}
+		return true;
+	}
+
+	@Override
+	public boolean postInit() {
+
 		return true;
 	}
 
