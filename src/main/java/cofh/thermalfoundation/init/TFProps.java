@@ -24,16 +24,6 @@ public class TFProps {
 	public static void loadComplete() {
 
 		LexiconManager.loadComplete();
-
-		String prefix = "config.thermalfoundation.";
-		String[] categoryNames = ThermalFoundation.CONFIG.getCategoryNames().toArray(new String[ThermalFoundation.CONFIG.getCategoryNames().size()]);
-		for (int i = 0; i < categoryNames.length; i++) {
-			ThermalFoundation.CONFIG.getCategory(categoryNames[i]).setLanguageKey(prefix + categoryNames[i]).setRequiresMcRestart(true);
-		}
-		categoryNames = ThermalFoundation.CONFIG_CLIENT.getCategoryNames().toArray(new String[ThermalFoundation.CONFIG_CLIENT.getCategoryNames().size()]);
-		for (int i = 0; i < categoryNames.length; i++) {
-			ThermalFoundation.CONFIG_CLIENT.getCategory(categoryNames[i]).setLanguageKey(prefix + categoryNames[i]).setRequiresMcRestart(true);
-		}
 	}
 
 	/* HELPERS */
@@ -47,6 +37,13 @@ public class TFProps {
 
 		comment = "If TRUE, Fire-Immune mobs have a chance to drop Sulfur.";
 		dropSulfurFireImmuneMobs = ThermalFoundation.CONFIG.getConfiguration().getBoolean("FireImmuneMobsDropSulfur", category, dropSulfurFireImmuneMobs, comment);
+
+		/* CRAFTING */
+		comment = "If TRUE, Pyrotheum Dust can be used to smelt Ores into Ingots.";
+		enablePyrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePyrotheumSmelting", category, enablePyrotheumCrafting, comment);
+
+		comment = "If TRUE, Petrotheum Dust can be used to break Ores into Dusts.";
+		enablePetrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePetrotheumSmashing", category, enablePetrotheumCrafting, comment);
 
 		/* EQUIPMENT */
 		category = "Equipment";
@@ -145,6 +142,10 @@ public class TFProps {
 	public static final String LEXICON_DATA = "thermalexpansion.lexicon_data";
 
 	public static boolean dropSulfurFireImmuneMobs = true;
+
+	/* CRAFTING */
+	public static boolean enablePyrotheumCrafting = true;
+	public static boolean enablePetrotheumCrafting = true;
 
 	public static int gemCokeFuel = 3200;
 	public static int globRosinFuel = 800;

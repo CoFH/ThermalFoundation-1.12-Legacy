@@ -137,7 +137,6 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 			return new ActionResult<>(EnumActionResult.FAIL, stack);
 		}
 		if (ServerHelper.isServerWorld(world) && LexiconManager.getSortedOreNames().size() > 0) {
-
 			if (isEmpowered(stack)) {
 				player.openGui(ThermalFoundation.instance, GuiHandler.LEXICON_TRANSMUTE_ID, world, 0, 0, 0);
 			} else {

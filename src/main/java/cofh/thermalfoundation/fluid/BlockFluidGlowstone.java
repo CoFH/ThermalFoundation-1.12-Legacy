@@ -24,7 +24,7 @@ import java.util.Random;
 
 public class BlockFluidGlowstone extends BlockFluidCore {
 
-	public static final int LEVELS = 6;
+	public static final int LEVELS = 2;
 	public static final Material materialFluidGlowstone = new MaterialLiquid(MapColor.YELLOW);
 
 	private static boolean effect = true;
@@ -113,7 +113,7 @@ public class BlockFluidGlowstone extends BlockFluidCore {
 					return;
 				}
 				if (shouldSourceBlockFloat(world, pos)) {
-					world.setBlockState(pos.add(0, densityDir, 0), this.getDefaultState(), 3);//TODO, is default state meta 0?
+					world.setBlockState(pos.add(0, densityDir, 0), this.getDefaultState(), 3);
 					world.setBlockToAir(pos);
 					return;
 				}
