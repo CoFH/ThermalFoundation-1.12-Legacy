@@ -11,12 +11,11 @@ import java.util.List;
 
 import static cofh.lib.util.helpers.ItemHelper.ShapelessRecipe;
 
-public class CraftingManager {
+public class TFCraftingManager {
 
 	public static void loadRecipes() {
 
 		String[] oreNameList = OreDictionary.getOreNames();
-		String oreType = "";
 
 		for (String oreName : oreNameList) {
 			if (oreName.length() > 3 && oreName.startsWith("ore")) {
@@ -32,10 +31,21 @@ public class CraftingManager {
 					continue;
 				}
 				if (TFProps.enablePetrotheumCrafting && !registeredDust.isEmpty()) {
-					GameRegistry.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(registeredDust.get(0), 1), oreName, "dustPetrotheum"));
+					GameRegistry.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(registeredDust.get(0), 2), oreName, "dustPetrotheum"));
+
+					if (!registeredIngot.isEmpty()) {
+						GameRegistry.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(registeredDust.get(0), 1), ingotName, "dustPetrotheum"));
+					}
 				}
 				if (TFProps.enablePyrotheumCrafting && !registeredIngot.isEmpty()) {
 					GameRegistry.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 1), oreName, "dustPyrotheum"));
+
+					if (!registeredDust.isEmpty()) {
+						GameRegistry.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 1), dustName, "dustPyrotheum"));
+					}
+				}
+				if (TFProps.enablePetrotheumCrafting && TFProps.enablePyrotheumCrafting && !registeredDust.isEmpty() && !registeredIngot.isEmpty()) {
+					GameRegistry.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 2), oreName, "dustPetrotheum", "dustPyrotheum"));
 				}
 			}
 		}

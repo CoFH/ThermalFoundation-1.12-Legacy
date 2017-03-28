@@ -7,7 +7,7 @@ import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.init.*;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.proxy.Proxy;
-import cofh.thermalfoundation.util.CraftingManager;
+import cofh.thermalfoundation.util.TFCraftingManager;
 import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
 import cofh.thermalfoundation.util.ShapelessOreFluidRecipe;
@@ -111,7 +111,7 @@ public class ThermalFoundation {
 		TFEquipment.postInit();
 		TFFluids.postInit();
 
-		CraftingManager.loadRecipes();
+		TFCraftingManager.loadRecipes();
 
 		proxy.postInit(event);
 	}
