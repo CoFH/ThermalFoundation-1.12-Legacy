@@ -169,6 +169,12 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 		return BlockRenderLayer.CUTOUT;
 	}
 
+	@Override
+	public float[] getBeaconColorMultiplier(IBlockState state, World world, BlockPos pos, BlockPos beaconPos) {
+
+		return Type.byMetadata(state.getBlock().getMetaFromState(state)).beaconMult;
+	}
+
 	/* IDismantleable */
 	@Override
 	public ArrayList<ItemStack> dismantleBlock(World world, BlockPos pos, IBlockState state, EntityPlayer player, boolean returnDrops) {
@@ -251,40 +257,42 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 	public enum Type implements IStringSerializable {
 
 		// @formatter:off
-		COPPER(0, "copper"),
-		TIN(1, "tin"),
-		SILVER(2, "silver", 4),
-		LEAD(3, "lead"),
-		ALUMINUM(4, "aluminum"),
-		NICKEL(5, "nickel"),
-		PLATINUM(6, "platinum", 4, EnumRarity.UNCOMMON),
-		IRIDIUM(7, "iridium", 4, EnumRarity.UNCOMMON),
-		MITHRIL(8, "mithril", 8, EnumRarity.RARE);
+		COPPER(0, "copper", new float[] { 0.792F, 0.478F, 0.137F }),
+		TIN(1, "tin", new float[] { 0.565F, 0.639F, 0.686F }),
+		SILVER(2, "silver", 4, new float[] { 0.663F, 0.761F, 0.784F }),
+		LEAD(3, "lead", new float[] { 0.427F, 0.471F, 0.604F }),
+		ALUMINUM(4, "aluminum", new float[] { 0.694F, 0.702F, 0.741F }),
+		NICKEL(5, "nickel", new float[] { 0.816F, 0.792F, 0.608F }),
+		PLATINUM(6, "platinum", 4, new float[] { 0.537F, 0.808F, 0.910F }, EnumRarity.UNCOMMON),
+		IRIDIUM(7, "iridium", 4, new float[] { 0.800F, 0.804F, 0.890F }, EnumRarity.UNCOMMON),
+		MITHRIL(8, "mithril", 8, new float[] { 0.416F, 0.612F, 0.722F }, EnumRarity.RARE);
 		// @formatter: on
 
 		private static final BlockGlass.Type[] METADATA_LOOKUP = new BlockGlass.Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;
+		private final float[] beaconMult;
 		private final EnumRarity rarity;
 
-		Type(int metadata, String name, int light, EnumRarity rarity) {
+		Type(int metadata, String name, int light, float[] beaconMult, EnumRarity rarity) {
 
 			this.metadata = metadata;
 			this.name = name;
 			this.light = light;
+			this.beaconMult = beaconMult;
 			this.rarity = rarity;
 		}
 
-		Type(int metadata, String name, int light) {
+		Type(int metadata, String name, int light, float[] beaconMult) {
 
-			this(metadata, name, light, EnumRarity.COMMON);
+			this(metadata, name, light, beaconMult, EnumRarity.COMMON);
 		}
 
 
-		Type(int metadata, String name) {
+		Type(int metadata, String name, float[] beaconMult) {
 
-			this(metadata, name, 0, EnumRarity.COMMON);
+			this(metadata, name, 0, beaconMult, EnumRarity.COMMON);
 		}
 
 		public int getMetadata() {

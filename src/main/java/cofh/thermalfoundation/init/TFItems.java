@@ -90,7 +90,7 @@ public class TFItems {
 		addRecipe(ShapelessRecipe(new ItemStack(Items.CLAY_BALL, 4), ItemMaterial.crystalSlag, ItemMaterial.crystalSlag, Blocks.DIRT, Items.WATER_BUCKET));
 
 		addRecipe(ShapelessRecipe(new ItemStack(Blocks.MYCELIUM, 1), Blocks.DIRT, ItemFertilizer.fertilizerRich, Items.WATER_BUCKET, Blocks.BROWN_MUSHROOM, Blocks.RED_MUSHROOM));
-		addRecipe(ShapelessRecipe(new ItemStack(Blocks.DIRT, 1, 2), Blocks.DIRT, ItemFertilizer.fertilizerRich, Items.WATER_BUCKET, "treeLeaves", "treeLeaves"));
+		addRecipe(ShapelessRecipe(new ItemStack(Blocks.DIRT, 1, 2), new ItemStack(Blocks.DIRT, 1, 1), ItemFertilizer.fertilizerRich, Items.WATER_BUCKET, "treeLeaves", "treeLeaves"));
 	}
 
 	private static ArrayList<IInitializer> initList = new ArrayList<>();
