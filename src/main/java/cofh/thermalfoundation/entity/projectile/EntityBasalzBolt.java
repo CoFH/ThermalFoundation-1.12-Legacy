@@ -69,7 +69,7 @@ public class EntityBasalzBolt extends EntityThrowable {
 				}
 			}
 			for (int i = 0; i < 8; i++) {
-				worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble(), new int[0]);
+				worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble());
 			}
 			setDead();
 		}

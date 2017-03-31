@@ -186,11 +186,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		OreDictionary.registerOre("itemSlagRich", crystalSlagRich);
 		OreDictionary.registerOre("itemCinnabar", crystalCinnabar);
 
-		FurnaceFuelHandler.registerFuel(gemCoke, TFProps.gemCokeFuel);
-		FurnaceFuelHandler.registerFuel(globRosin, TFProps.globRosinFuel);
-		FurnaceFuelHandler.registerFuel(globTar, TFProps.globTarFuel);
-		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
-
 		/* Vanilla References */
 		nuggetIron = null; // TODO
 		nuggetGold = new ItemStack(Items.GOLD_NUGGET);
@@ -322,6 +317,11 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 	@Override
 	public boolean postInit() {
+
+		FurnaceFuelHandler.registerFuel(gemCoke, TFProps.gemCokeFuel);
+		FurnaceFuelHandler.registerFuel(globRosin, TFProps.globRosinFuel);
+		FurnaceFuelHandler.registerFuel(globTar, TFProps.globTarFuel);
+		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
 
 		return true;
 	}

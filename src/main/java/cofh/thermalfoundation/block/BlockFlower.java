@@ -36,7 +36,7 @@ import java.util.Random;
 public class BlockFlower extends BlockCore implements IInitializer, IModelRegister, IPlantable {
 
 	protected static final AxisAlignedBB FLOWER_AABB = new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
-	public static final PropertyEnum<BlockFlower.Type> VARIANT = PropertyEnum.<BlockFlower.Type>create("type", BlockFlower.Type.class);
+	public static final PropertyEnum<BlockFlower.Type> VARIANT = PropertyEnum.create("type", BlockFlower.Type.class);
 
 	public BlockFlower() {
 

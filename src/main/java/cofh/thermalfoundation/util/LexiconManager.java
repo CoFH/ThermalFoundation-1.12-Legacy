@@ -76,17 +76,17 @@ public class LexiconManager {
 		}
 		if (writingDefaultFile) {
 			String[] registeredOreNames = OreDictionary.getOreNames();
-			for (int i = 0; i < registeredOreNames.length; i++) {
-				if (isWhitelist && ComparableItemStackSafe.safeOreType(registeredOreNames[i])) {
-					if (registeredOreNames[i].contains("blockCloth") || registeredOreNames[i].contains("blockGlass")) {
+			for (String oreName : registeredOreNames) {
+				if (isWhitelist && ComparableItemStackSafe.safeOreType(oreName)) {
+					if (oreName.contains("blockCloth") || oreName.contains("blockGlass")) {
 						// ignore Cloth and Glass
 					} else {
-						listNames.add(registeredOreNames[i]);
-						defaultList.add(registeredOreNames[i]);
+						listNames.add(oreName);
+						defaultList.add(oreName);
 					}
-				} else if (!isWhitelist && !ComparableItemStackSafe.safeOreType(registeredOreNames[i]) || registeredOreNames[i].contains("blockCloth") || registeredOreNames[i].contains("blockGlass")) {
-					listNames.add(registeredOreNames[i]);
-					defaultList.add(registeredOreNames[i]);
+				} else if (!isWhitelist && !ComparableItemStackSafe.safeOreType(oreName) || oreName.contains("blockCloth") || oreName.contains("blockGlass")) {
+					listNames.add(oreName);
+					defaultList.add(oreName);
 				}
 			}
 			Collections.sort(defaultList);
@@ -96,8 +96,8 @@ public class LexiconManager {
 				ThermalFoundation.LOG.info("[Blacklist] Generating Default Blacklist.");
 			}
 			try {
-				for (int i = 0; i < defaultList.size(); i++) {
-					out.write(defaultList.get(i) + "\n");
+				for (String listEntry : defaultList) {
+					out.write(listEntry + "\n");
 				}
 				out.close();
 				defaultList.clear();
@@ -147,9 +147,9 @@ public class LexiconManager {
 
 		String[] ores = OreDictionary.getOreNames();
 
-		for (int i = 0; i < ores.length; i++) {
-			if (validType(ores[i]) && OreDictionaryArbiter.getOres(ores[i]) != null) {
-				sortedNames.add(ores[i]);
+		for (String ore : ores) {
+			if (validType(ore) && OreDictionaryArbiter.getOres(ore) != null) {
+				sortedNames.add(ore);
 			}
 		}
 		Collections.sort(sortedNames);

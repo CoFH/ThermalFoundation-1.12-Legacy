@@ -34,7 +34,7 @@ import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
 
 public class BlockStorageAlloy extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockStorageAlloy.Type> VARIANT = PropertyEnum.<BlockStorageAlloy.Type>create("type", BlockStorageAlloy.Type.class);
+	public static final PropertyEnum<BlockStorageAlloy.Type> VARIANT = PropertyEnum.create("type", BlockStorageAlloy.Type.class);
 
 	public BlockStorageAlloy() {
 

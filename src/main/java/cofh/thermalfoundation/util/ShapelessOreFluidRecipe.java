@@ -79,7 +79,7 @@ public class ShapelessOreFluidRecipe extends ShapelessOreRecipe {
 	@Override
 	public boolean matches(InventoryCrafting inventoryCrafting, World world) {
 
-		ArrayList<Object> required = new ArrayList<Object>(input);
+		ArrayList<Object> required = new ArrayList<>(input);
 
 		for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++) {
 			ItemStack stackInSlot = inventoryCrafting.getStackInSlot(i);
@@ -127,7 +127,7 @@ public class ShapelessOreFluidRecipe extends ShapelessOreRecipe {
 				}
 			}
 		}
-
 		return required.isEmpty();
 	}
+
 }

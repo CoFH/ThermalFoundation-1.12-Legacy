@@ -97,8 +97,7 @@ public class SchematicHelper {
 		copyInventory(craftSlots, workingSet); // defensive copy
 		{
 			List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
-			for (int i = 0, e = recipes.size(); i < e; ++i) {
-				IRecipe irecipe = recipes.get(i);
+			for (IRecipe irecipe : recipes) {
 				if (irecipe.matches(workingSet, world)) {
 					if (ItemHelper.itemsIdentical(output, irecipe.getCraftingResult(workingSet))) {
 						recipe = irecipe;
@@ -146,7 +145,7 @@ public class SchematicHelper {
 								}
 								stack = new ItemStack(stack.getItem(), 1, damage);
 								if (tag != null) {
-									stack.setTagCompound((NBTTagCompound) tag.copy());
+									stack.setTagCompound(tag.copy());
 								}
 								workingSet.setInventorySlotContents(i, stack);
 								if (!recipe.matches(workingSet, world)) {

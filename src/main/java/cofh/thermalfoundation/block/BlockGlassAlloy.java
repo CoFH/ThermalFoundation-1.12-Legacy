@@ -43,7 +43,7 @@ import java.util.Random;
 
 public class BlockGlassAlloy extends BlockCore implements IDismantleable, IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockGlassAlloy.Type> VARIANT = PropertyEnum.<BlockGlassAlloy.Type>create("type", BlockGlassAlloy.Type.class);
+	public static final PropertyEnum<BlockGlassAlloy.Type> VARIANT = PropertyEnum.create("type", BlockGlassAlloy.Type.class);
 
 	public BlockGlassAlloy() {
 

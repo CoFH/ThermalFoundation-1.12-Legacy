@@ -33,7 +33,7 @@ import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
 
 public class BlockStorage extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockStorage.Type> VARIANT = PropertyEnum.<BlockStorage.Type>create("type", BlockStorage.Type.class);
+	public static final PropertyEnum<BlockStorage.Type> VARIANT = PropertyEnum.create("type", BlockStorage.Type.class);
 
 	public BlockStorage() {
 

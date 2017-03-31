@@ -8,6 +8,7 @@ import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -227,10 +228,10 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		super.detectAndSendChanges();
 
-		for (int j = 0; j < this.listeners.size(); ++j) {
+		for (IContainerListener listener : this.listeners) {
 			if (syncClient) {
-				this.listeners.get(j).sendProgressBarUpdate(this, 0, nameSelection);
-				this.listeners.get(j).sendProgressBarUpdate(this, 1, oreSelection);
+				listener.sendProgressBarUpdate(this, 0, nameSelection);
+				listener.sendProgressBarUpdate(this, 1, oreSelection);
 				syncClient = false;
 			}
 		}
@@ -317,7 +318,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
 
 		ItemStack stack = null;
-		Slot slot = (Slot) inventorySlots.get(slotIndex);
+		Slot slot = inventorySlots.get(slotIndex);
 
 		int invPlayer = 27;
 		int invFull = invPlayer + 9;
@@ -335,7 +336,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 				return null;
 			}
 			if (stackInSlot.stackSize <= 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.onSlotChanged();
 			}
@@ -357,7 +358,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		if (stack.isStackable()) {
 			while (stack.stackSize > 0 && (!ascending && k < slotMax || ascending && k >= slotMin)) {
-				slot = (Slot) this.inventorySlots.get(k);
+				slot = this.inventorySlots.get(k);
 				stackInSlot = slot.getStack();
 
 				if (slot.isItemValid(stack) && ItemHelper.itemsEqualWithMetadata(stack, stackInSlot, true)) {
@@ -383,7 +384,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 			k = ascending ? slotMax - 1 : slotMin;
 
 			while (!ascending && k < slotMax || ascending && k >= slotMin) {
-				slot = (Slot) this.inventorySlots.get(k);
+				slot = this.inventorySlots.get(k);
 				stackInSlot = slot.getStack();
 
 				if (slot.isItemValid(stack) && stackInSlot == null) {

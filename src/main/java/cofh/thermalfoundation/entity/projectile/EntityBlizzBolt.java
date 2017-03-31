@@ -79,7 +79,7 @@ public class EntityBlizzBolt extends EntityThrowable {
 				}
 			}
 			for (int i = 0; i < 8; i++) {
-				worldObj.spawnParticle(EnumParticleTypes.SNOWBALL, posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble(), new int[0]);
+				worldObj.spawnParticle(EnumParticleTypes.SNOWBALL, posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble());
 			}
 			setDead();
 		}

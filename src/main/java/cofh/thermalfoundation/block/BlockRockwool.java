@@ -29,7 +29,7 @@ import static cofh.lib.util.helpers.ItemHelper.*;
 
 public class BlockRockwool extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockRockwool.Type> VARIANT = PropertyEnum.<BlockRockwool.Type>create("type", BlockRockwool.Type.class);
+	public static final PropertyEnum<BlockRockwool.Type> VARIANT = PropertyEnum.create("type", BlockRockwool.Type.class);
 
 	public BlockRockwool() {
 

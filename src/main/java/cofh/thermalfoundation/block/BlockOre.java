@@ -31,7 +31,7 @@ import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
 
 public class BlockOre extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockOre.Type> VARIANT = PropertyEnum.<BlockOre.Type>create("type", BlockOre.Type.class);
+	public static final PropertyEnum<BlockOre.Type> VARIANT = PropertyEnum.create("type", BlockOre.Type.class);
 
 	public BlockOre() {
 

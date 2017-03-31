@@ -31,8 +31,8 @@ public class ModelElemental extends ModelBase {
 		setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
 		elementalHead.render(scale);
 
-		for (int i = 0; i < elementalRods.length; i++) {
-			elementalRods[i].render(scale);
+		for (ModelRenderer elementalRod : elementalRods) {
+			elementalRod.render(scale);
 		}
 	}
 

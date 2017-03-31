@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public abstract class EntityElemental extends EntityMob {
 
-	private static final DataParameter<Boolean> ATTACK_MODE = EntityDataManager.<Boolean>createKey(EntityBlizz.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Boolean> ATTACK_MODE = EntityDataManager.createKey(EntityBlizz.class, DataSerializers.BOOLEAN);
 
 	protected int SOUND_AMBIENT_FREQUENCY = 400; // How often it does ambient sound loop
 
@@ -131,7 +131,7 @@ public abstract class EntityElemental extends EntityMob {
 			//                        this.rand.nextFloat() * 0.3F + 0.4F);
 			//            }
 			for (int i = 0; i < 2; i++) {
-				this.worldObj.spawnParticle(ambientParticle, this.posX + (this.rand.nextDouble() - 0.5D) * this.width, this.posY + this.rand.nextDouble() * this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * this.width, 0.0D, 0.0D, 0.0D, new int[0]);
+				this.worldObj.spawnParticle(ambientParticle, this.posX + (this.rand.nextDouble() - 0.5D) * this.width, this.posY + this.rand.nextDouble() * this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * this.width, 0.0D, 0.0D, 0.0D);
 			}
 		}
 		super.onLivingUpdate();

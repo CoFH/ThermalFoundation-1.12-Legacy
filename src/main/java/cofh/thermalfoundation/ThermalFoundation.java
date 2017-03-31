@@ -7,10 +7,10 @@ import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.init.*;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.proxy.Proxy;
-import cofh.thermalfoundation.util.TFCraftingManager;
 import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
 import cofh.thermalfoundation.util.ShapelessOreFluidRecipe;
+import cofh.thermalfoundation.util.TFCraftingManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -81,7 +81,8 @@ public class ThermalFoundation {
 		TFEquipment.preInit();
 		TFFluids.preInit();
 
-		RecipeSorter.register("thermalfoundation:fluids", ShapelessOreFluidRecipe.class, RecipeSorter.Category.SHAPELESS, "after:forge:shapelessore");
+		/* Register Handlers */
+		registerHandlers();
 
 		proxy.preInit(event);
 	}
@@ -93,9 +94,6 @@ public class ThermalFoundation {
 		TFItems.initialize();
 		TFEquipment.initialize();
 		TFFluids.initialize();
-
-		/* Register Handlers */
-		registerHandlers();
 
 		/* Add World Generation */
 		addWorldGeneration();
@@ -129,16 +127,6 @@ public class ThermalFoundation {
 	}
 
 	@EventHandler
-	public void serverStart(FMLServerAboutToStartEvent event) {
-
-	}
-
-	@EventHandler
-	public void serverStarting(FMLServerStartingEvent event) {
-
-	}
-
-	@EventHandler
 	public void handleIMC(IMCEvent event) {
 
 		IMCHandler.instance.handleIMC(event.getMessages());
@@ -152,6 +140,8 @@ public class ThermalFoundation {
 
 		EventHandlerLexicon.initialize();
 		PacketTFBase.initialize();
+
+		RecipeSorter.register("thermalfoundation:fluids", ShapelessOreFluidRecipe.class, RecipeSorter.Category.SHAPELESS, "after:forge:shapelessore");
 	}
 
 	private void addWorldGeneration() {

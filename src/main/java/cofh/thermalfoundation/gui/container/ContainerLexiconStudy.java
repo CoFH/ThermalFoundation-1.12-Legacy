@@ -8,6 +8,7 @@ import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
@@ -155,9 +156,9 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 
 		super.detectAndSendChanges();
 
-		for (int j = 0; j < this.listeners.size(); ++j) {
+		for (IContainerListener listener : this.listeners) {
 			if (syncClient) {
-				this.listeners.get(j).sendProgressBarUpdate(this, 0, hasPreferredStack ? 1 : 0);
+				listener.sendProgressBarUpdate(this, 0, hasPreferredStack ? 1 : 0);
 				syncClient = false;
 			}
 		}
