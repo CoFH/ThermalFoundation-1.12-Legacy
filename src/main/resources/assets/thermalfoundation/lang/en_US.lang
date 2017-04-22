@@ -32,7 +32,9 @@ fluid.pyrotheum=Blazing Pyrotheum
 fluid.redstone=Destabilized Redstone
 fluid.refined_oil=Naphtha
 fluid.resin=Resin
+fluid.sap=Sap
 fluid.steam=Steam
+fluid.syrup=Syrup
 fluid.tree_oil=Tree Oil
 
 gui.thermalfoundation.lexicon.clearPreference=Clear Preference

@@ -54,8 +54,8 @@ public class TFFluids {
 		FluidRegistry.registerFluid(new FluidCore("refined_oil", "thermalfoundation").setDensity(800).setViscosity(1400));
 		FluidRegistry.registerFluid(new FluidCore("fuel", "thermalfoundation").setDensity(700).setViscosity(800));
 
-		//		FluidRegistry.registerFluid(new FluidCore("sap", "thermalfoundation").setDensity(1050).setViscosity(1500));
-		//		FluidRegistry.registerFluid(new FluidCore("syrup", "thermalfoundation").setDensity(1400).setViscosity(2500));
+		FluidRegistry.registerFluid(new FluidCore("sap", "thermalfoundation").setDensity(1050).setViscosity(1500));
+		FluidRegistry.registerFluid(new FluidCore("syrup", "thermalfoundation").setDensity(1400).setViscosity(2500));
 		FluidRegistry.registerFluid(new FluidCore("resin", "thermalfoundation").setDensity(900).setViscosity(3000));
 		FluidRegistry.registerFluid(new FluidCore("tree_oil", "thermalfoundation").setDensity(900).setViscosity(1200));
 
@@ -76,8 +76,8 @@ public class TFFluids {
 		fluidRefinedOil = FluidRegistry.getFluid("refined_oil");
 		fluidFuel = FluidRegistry.getFluid("fuel");
 
-		//		fluidSap = FluidRegistry.getFluid("sap");
-		//		fluidSyrup = FluidRegistry.getFluid("syrup");
+		fluidSap = FluidRegistry.getFluid("sap");
+		fluidSyrup = FluidRegistry.getFluid("syrup");
 		fluidResin = FluidRegistry.getFluid("resin");
 		fluidTreeOil = FluidRegistry.getFluid("tree_oil");
 
@@ -134,8 +134,8 @@ public class TFFluids {
 		FluidRegistry.addBucketForFluid(fluidRefinedOil);
 		FluidRegistry.addBucketForFluid(fluidFuel);
 
-		//		FluidRegistry.addBucketForFluid(fluidSap);
-		//		FluidRegistry.addBucketForFluid(fluidSyrup);
+		FluidRegistry.addBucketForFluid(fluidSap);
+		FluidRegistry.addBucketForFluid(fluidSyrup);
 		FluidRegistry.addBucketForFluid(fluidResin);
 		FluidRegistry.addBucketForFluid(fluidTreeOil);
 
@@ -160,8 +160,8 @@ public class TFFluids {
 	public static Fluid fluidRefinedOil;
 	public static Fluid fluidFuel;
 
-	//	public static Fluid fluidSap;
-	//	public static Fluid fluidSyrup;
+	public static Fluid fluidSap;
+	public static Fluid fluidSyrup;
 	public static Fluid fluidResin;
 	public static Fluid fluidTreeOil;
 
@@ -185,4 +185,3 @@ public class TFFluids {
 	public static BlockFluidCore blockFluidMana;
 
 }
-

@@ -21,6 +21,8 @@ public class TFTextures {
 		registerFluidTextures(map, TFFluids.fluidRefinedOil);
 		registerFluidTextures(map, TFFluids.fluidFuel);
 
+		registerFluidTextures(map, TFFluids.fluidSap);
+		registerFluidTextures(map, TFFluids.fluidSyrup);
 		registerFluidTextures(map, TFFluids.fluidResin);
 		registerFluidTextures(map, TFFluids.fluidTreeOil);
 	}
