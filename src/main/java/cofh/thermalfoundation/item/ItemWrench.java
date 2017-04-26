@@ -26,6 +26,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -143,22 +144,16 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 	}
 
+	/* IMPLEMENTABLES */
+
 	/* IToolWrench */
-	public boolean canWrench(EntityPlayer player, BlockPos pos) {
+	public boolean canWrench(EntityPlayer player, EnumHand hand, ItemStack wrench, RayTraceResult rayTrace) {
 
+		ItemStack stack = player.getHeldItemMainhand();
 		return true;
 	}
 
-	public boolean canWrench(EntityPlayer player, Entity entity) {
-
-		return true;
-	}
-
-	public void wrenchUsed(EntityPlayer player, BlockPos pos) {
-
-	}
-
-	public void wrenchUsed(EntityPlayer player, Entity entity) {
+	public void wrenchUsed(EntityPlayer player, EnumHand hand, ItemStack wrench, RayTraceResult rayTrace) {
 
 	}
 
