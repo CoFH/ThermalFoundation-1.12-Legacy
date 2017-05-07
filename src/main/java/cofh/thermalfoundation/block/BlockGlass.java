@@ -116,12 +116,6 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 	}
 
 	@Override
-	public boolean canProvidePower(IBlockState state) {
-
-		return true;
-	}
-
-	@Override
 	public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
 
 		return true;

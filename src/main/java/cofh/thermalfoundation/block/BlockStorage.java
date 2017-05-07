@@ -97,12 +97,6 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	}
 
 	@Override
-	public boolean canProvidePower(IBlockState state) {
-
-		return true;
-	}
-
-	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon) {
 
 		return true;
