@@ -3,6 +3,7 @@ package cofh.thermalfoundation.init;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class TFSounds {
 
@@ -23,7 +24,10 @@ public class TFSounds {
 
 	private static SoundEvent getRegisteredSoundEvent(String id) {
 
-		return new SoundEvent(new ResourceLocation(ThermalFoundation.MOD_ID + ":" + id));
+		SoundEvent sound = new SoundEvent(new ResourceLocation(ThermalFoundation.MOD_ID + ":" + id));
+		sound.setRegistryName(id);
+		GameRegistry.register(sound);
+		return sound;
 	}
 
 	public static final SoundEvent BLIZZ_AMBIENT;
