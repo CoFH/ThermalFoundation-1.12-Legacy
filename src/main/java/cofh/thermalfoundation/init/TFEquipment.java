@@ -108,9 +108,9 @@ public class TFEquipment {
 		// CONSTANTAN
 		// @formatter: on
 
-		private final String name;
-		private final String ingot;
-		private final ArmorMaterial ARMOR_MATERIAL;
+		public final String name;
+		public final String ingot;
+		public final ArmorMaterial ARMOR_MATERIAL;
 
 		public ItemArmorCore itemHelmet;
 		public ItemArmorCore itemChestplate;
@@ -243,9 +243,9 @@ public class TFEquipment {
 		// CONSTANTAN
 		// @formatter: on
 
-		private final String name;
-		private final String ingot;
-		private final ToolMaterial material;
+		public final String name;
+		public final String ingot;
+		public final ToolMaterial material;
 
 		/* BOW */
 		private float arrowDamage = 0.0F;
@@ -517,8 +517,8 @@ public class TFEquipment {
     	GOLD("gold", ToolMaterial.GOLD, "ingotGold");
 		// @formatter:on
 
-		private final String name;
-		private final String ingot;
+		public final String name;
+		public final String ingot;
 		public final ToolMaterial material;
 
 		/* BOW */
