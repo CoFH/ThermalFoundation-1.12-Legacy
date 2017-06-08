@@ -57,7 +57,7 @@ public class GuiHandler implements IGuiHandler {
 				return null;
 			case LEXICON_STUDY_ID:
 				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
-					return new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory); // TODO Add off-hand support
+					return new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory);
 				}
 				return null;
 			case LEXICON_TRANSMUTE_ID:

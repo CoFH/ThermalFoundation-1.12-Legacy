@@ -124,7 +124,7 @@ public class BlockFluidAerotheum extends BlockFluidCore {
 					return;
 				}
 				if (shouldSourceBlockFloat(world, pos)) {
-					world.setBlockState(pos.add(0, densityDir, 0), this.getDefaultState(), 3);//TODO, is default state meta 0?
+					world.setBlockState(pos.add(0, densityDir, 0), this.getDefaultState(), 3);
 					world.setBlockToAir(pos);
 					return;
 				}

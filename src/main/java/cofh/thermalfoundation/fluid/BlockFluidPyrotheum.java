@@ -66,7 +66,6 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 			return;
 		}
 		if (entity instanceof EntityCreeper) {
-			//TODO EntityCreeper.explode;
 			world.createExplosion(entity, entity.posX, entity.posY, entity.posZ, 6.0F, entity.worldObj.getGameRules().getBoolean("mobGriefing"));
 			entity.setDead();
 		}
@@ -114,7 +113,7 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 			int bMeta = offsetState.getBlock().getMetaFromState(offsetState);
 
 			if (offsetState.getBlock() == this && bMeta != 0 || offsetState.getBlock().isFlammable(world, offsetPos, EnumFacing.UP)) {
-				world.setBlockState(offsetPos, this.getDefaultState(), 3);//TODO is meta 0 full block.
+				world.setBlockState(offsetPos, this.getDefaultState(), 3);
 				world.setBlockToAir(pos);
 				return;
 			}
