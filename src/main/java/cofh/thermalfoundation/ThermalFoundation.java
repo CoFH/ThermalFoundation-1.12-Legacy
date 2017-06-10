@@ -78,6 +78,7 @@ public class ThermalFoundation {
 		TFItems.preInit();
 		TFEquipment.preInit();
 		TFFluids.preInit();
+		TFPlugins.preInit();
 
 		/* Register Handlers */
 		registerHandlers();
@@ -92,6 +93,7 @@ public class ThermalFoundation {
 		TFItems.initialize();
 		TFEquipment.initialize();
 		TFFluids.initialize();
+		TFPlugins.initialize();
 
 		/* Add World Generation */
 		addWorldGeneration();
@@ -106,6 +108,7 @@ public class ThermalFoundation {
 		TFItems.postInit();
 		TFEquipment.postInit();
 		TFFluids.postInit();
+		TFPlugins.postInit();
 
 		TFCraftingManager.loadRecipes();
 
