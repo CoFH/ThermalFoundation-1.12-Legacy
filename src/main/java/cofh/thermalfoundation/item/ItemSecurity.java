@@ -114,6 +114,8 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 
 		lock = addItem(Type.LOCK.ordinal(), "lock");
 
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		return true;
 	}
 

@@ -163,6 +163,8 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 		wrenchBasic = addItem(0, "wrenchBasic");
 
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		return true;
 	}
 

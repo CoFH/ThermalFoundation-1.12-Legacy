@@ -1,7 +1,6 @@
 package cofh.thermalfoundation.init;
 
 import cofh.core.util.core.IInitializer;
-import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.item.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -38,16 +37,6 @@ public class TFItems {
 		initList.add(itemFertilizer);
 		initList.add(itemMaterial);
 		initList.add(itemGeode);
-
-		ThermalFoundation.proxy.addIModelRegister(itemWrench);
-		ThermalFoundation.proxy.addIModelRegister(itemMeter);
-		ThermalFoundation.proxy.addIModelRegister(itemTome);
-		ThermalFoundation.proxy.addIModelRegister(itemSecurity);
-		ThermalFoundation.proxy.addIModelRegister(itemDiagram);
-		ThermalFoundation.proxy.addIModelRegister(itemCoin);
-		ThermalFoundation.proxy.addIModelRegister(itemFertilizer);
-		ThermalFoundation.proxy.addIModelRegister(itemMaterial);
-		ThermalFoundation.proxy.addIModelRegister(itemGeode);
 
 		for (IInitializer init : initList) {
 			init.preInit();

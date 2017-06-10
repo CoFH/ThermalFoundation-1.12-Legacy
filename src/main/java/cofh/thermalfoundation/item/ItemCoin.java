@@ -42,6 +42,8 @@ public class ItemCoin extends ItemMulti implements IInitializer {
 		coinLumium = addOreDictItem(102, "coinLumium", EnumRarity.UNCOMMON);
 		coinEnderium = addOreDictItem(103, "coinEnderium", EnumRarity.RARE);
 
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		return true;
 	}
 

@@ -166,6 +166,8 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 
 		multimeter = addItem(Type.MULTIMETER.ordinal(), "multimeter");
 
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		return true;
 	}
 

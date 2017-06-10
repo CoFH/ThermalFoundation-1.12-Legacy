@@ -187,6 +187,8 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 		schematic = addItem(Type.SCHEMATIC.ordinal(), "schematic");
 		redprint = addItem(Type.REDPRINT.ordinal(), "redprint");
 
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		return true;
 	}
 

@@ -21,6 +21,8 @@ public class ItemGeode extends ItemMulti implements IInitializer {
 
 		geode = addItem(0, "geode");
 
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		return true;
 	}
 

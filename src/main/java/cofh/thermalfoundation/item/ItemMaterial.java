@@ -194,6 +194,8 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		ingotGold = new ItemStack(Items.GOLD_INGOT);
 		gemDiamond = new ItemStack(Items.DIAMOND);
 
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		return true;
 	}
 

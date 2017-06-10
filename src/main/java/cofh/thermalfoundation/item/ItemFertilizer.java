@@ -101,6 +101,8 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 		fertilizerRich = addItem(1, "fertilizerRich");
 		fertilizerFlux = addItem(2, "fertilizerFlux");
 
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		return true;
 	}
 

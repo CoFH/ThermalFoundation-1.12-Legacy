@@ -236,6 +236,8 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 
 		lexicon = addItem(0, "lexicon");
 
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		return true;
 	}
 
