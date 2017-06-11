@@ -3,61 +3,43 @@ package cofh.thermalfoundation.render.entity;
 import cofh.lib.util.helpers.HolidayHelper;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cofh.thermalfoundation.render.model.ModelElemental;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-@SideOnly(Side.CLIENT)
-public class RenderEntityBlizz extends RenderLiving {
+@SideOnly (Side.CLIENT)
+public class RenderEntityBlizz extends RenderLiving<EntityBlizz> {
 
-	public static final RenderEntityBlizz instance = new RenderEntityBlizz();
-
-	static ResourceLocation texture;
+	private static ResourceLocation texture;
+	private static ResourceLocation textureXmas;
 
 	static {
-		RenderingRegistry.registerEntityRenderingHandler(EntityBlizz.class, instance);
+		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "blizz.png");
+		textureXmas = new ResourceLocation("thermalfoundation:textures/entity/" + "blizz_xmas.png");
 	}
 
-	public static void initialize() {
+	public RenderEntityBlizz(RenderManager renderManager) {
 
-		if (HolidayHelper.isChristmas()) {
-			texture = new ResourceLocation("thermalfoundation:textures/entity/" + "xmas/Blizz.png");
-			return;
-		}
-		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "Blizz.png");
-	}
-
-	public RenderEntityBlizz() {
-
-		super(ModelElemental.instance, 0.5F);
+		super(renderManager, ModelElemental.INSTANCE, 0.5F);
 	}
 
 	@Override
-	public void doRender(Entity entity, double d0, double d1, double d2, float f, float f1) {
+	protected ResourceLocation getEntityTexture(EntityBlizz par1Entity) {
 
-		doRenderBlizz((EntityBlizz) entity, d0, d1, d2, f, f1);
+		return HolidayHelper.isChristmas() ? textureXmas : texture;
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(Entity par1Entity) {
+	public void doRender(EntityBlizz entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
-		return texture;
+		doRenderBlizz(entity, x, y, z, entityYaw, partialTicks);
 	}
 
-	@Override
-	public void doRender(EntityLivingBase entity, double d0, double d1, double d2, float f, float f1) {
+	private void doRenderBlizz(EntityBlizz entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
-		this.doRenderBlizz((EntityBlizz) entity, d0, d1, d2, f, f1);
-	}
-
-	protected void doRenderBlizz(EntityBlizz entity, double d0, double d1, double d2, float f, float f1) {
-
-		super.doRender(entity, d0, d1, d2, f, f1);
+		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	}
 
 }

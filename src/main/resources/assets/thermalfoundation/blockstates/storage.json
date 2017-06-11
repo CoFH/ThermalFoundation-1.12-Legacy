@@ -1,0 +1,56 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "cube_all",
+		"transform": "forge:default-block"
+	},
+	"variants": {
+		"type": {
+			"copper": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_copper"
+				}
+			},
+			"tin": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_tin"
+				}
+			},
+			"silver": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_silver"
+				}
+			},
+			"lead": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_lead"
+				}
+			},
+			"aluminum": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_aluminum"
+				}
+			},
+			"nickel": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_nickel"
+				}
+			},
+			"platinum": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_platinum"
+				}
+			},
+			"iridium": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_iridium"
+				}
+			},
+			"mithril": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_mithril"
+				}
+			}
+		}
+	}
+}

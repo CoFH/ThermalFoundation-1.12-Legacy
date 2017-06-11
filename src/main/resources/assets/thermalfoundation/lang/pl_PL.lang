@@ -1,152 +1,130 @@
 #pl_PL
 
 death.attack.blizz=%1$s spotkał oziębłe przeznaczenie!
-death.attack.cryotheum=%1$s zamarzł!
 death.attack.cryotheum.player=%1$s zamarzł usiłując uciec %2$s!
-death.attack.flux=Flux rozerwał %1$s rzeczywistość!
+death.attack.cryotheum=%1$s zamarzł!
 death.attack.flux.player=%1$s został zafluxowany na śmierć przez %2$s!
-death.attack.pyrotheum=%1$s pomyliło się Pyrotheum z Wodą!
-death.attack.pyrotheum.player=%1$s spłonął żywcem usiłując uciec %2$s!
-death.attack.mana=%1$s został rozerwany przez czystą Mane!
+death.attack.flux=Flux rozerwał %1$s rzeczywistość!
 death.attack.mana.player=%1$s wbiegł w inny stan usiłując uciec %2$s!
+death.attack.mana=%1$s został rozerwany przez czystą Mane!
+death.attack.pyrotheum.player=%1$s spłonął żywcem usiłując uciec %2$s!
+death.attack.pyrotheum=%1$s pomyliło się Pyrotheum z Wodą!
 
-entity.Blizz.name=Blizz
-
-fluid.redstone=Zdestabilizowany redstone
-fluid.glowstone=Zenergizowany glowstone
-fluid.ender=Rezonujący ender
-fluid.pyrotheum=Buchające pyrotheum
-fluid.cryotheum=Żelowe cryotheum
-fluid.mana=Pierwotna mana
-fluid.steam=Para
 fluid.coal=Upłynniony węgiel
-
-item.thermalfoundation.bucket.bucketRedstone.name=Wiadro zdestabilizowanego redstone'u
-item.thermalfoundation.bucket.bucketGlowstone.name=Wiadro zenergizowanego glowstone'u
-item.thermalfoundation.bucket.bucketEnder.name=Wiadro rezonującego endera
-item.thermalfoundation.bucket.bucketPyrotheum.name=Wiadro buchającego pyrotheum
-item.thermalfoundation.bucket.bucketCryotheum.name=Wiadro żelowego cryotheum
-item.thermalfoundation.bucket.bucketMana.name=Wiadro pierwotnej many
-item.thermalfoundation.bucket.bucketCoal.name=Wiadro upłynnionego węgla
-
-info.thermalfoundation.tome.lexicon.1=Konwertuje przedmioty na ich ekwiwalenty.
-info.thermalfoundation.tome.lexicon.2=PPM (otwórz) by przestudiować.
-info.thermalfoundation.tome.lexicon.3=by zdobyć mądrość!
-info.thermalfoundation.tome.lexicon.4=PPM (otwórz) by transmutować przedmioty.
-info.thermalfoundation.tome.lexicon.5=by porzucić wiedzę.
-item.thermalfoundation.tome.lexicon.name=Leksykon Forge'owy
-item.thermalfoundation.tome.lexicon.empowered.name=Leksykon Forge'owy (Mocarny)
-
-item.thermalfoundation.material.dustIron.name=Sproszkowane żelazo
-item.thermalfoundation.material.dustGold.name=Sproszkowane złoto
-item.thermalfoundation.material.dustCoal.name=Sproszkowany węgiel
-item.thermalfoundation.material.dustCharcoal.name=Sproszkowany węgiel drzewny
-item.thermalfoundation.material.dustObsidian.name=Sproszkowany obsydian
-
-item.thermalfoundation.material.nuggetIron.name=Bryłka żelaza
-item.thermalfoundation.material.gearIron.name=Żelazna przekładnia
-item.thermalfoundation.material.gearGold.name=Złota przekładnia
-
-item.thermalfoundation.material.dustSulfur.name=Siarka
-item.thermalfoundation.material.dustNiter.name=Saletra
+fluid.cryotheum=Żelowe cryotheum
+fluid.ender=Rezonujący ender
+fluid.glowstone=Zenergizowany glowstone
+fluid.mana=Pierwotna mana
+fluid.pyrotheum=Buchające pyrotheum
+fluid.redstone=Zdestabilizowany redstone
+fluid.steam=Para
 
 item.thermalfoundation.material.crystalCinnabar.name=Cynober
 
-item.thermalfoundation.material.dustCopper.name=Sproszkowana miedź
-item.thermalfoundation.material.dustTin.name=Sproszkowana cyna
-item.thermalfoundation.material.dustSilver.name=Sproszkowane srebro
-item.thermalfoundation.material.dustLead.name=Sproszkowany ołów
-item.thermalfoundation.material.dustNickel.name=Sproszkowany nikiel
-item.thermalfoundation.material.dustPlatinum.name=Sproszkowana platyna
-item.thermalfoundation.material.dustMithril.name=Sproszkowany mitryl
-item.thermalfoundation.material.dustElectrum.name=Mieszanka elektrum
-item.thermalfoundation.material.dustInvar.name=Mieszanka inwaru
+item.thermalfoundation.material.dustBlizz.name=Proch z Blizza
 item.thermalfoundation.material.dustBronze.name=Mieszanka bronzu
-item.thermalfoundation.material.dustSignalum.name=Mieszanka signalum
-item.thermalfoundation.material.dustLumium.name=Mieszanka lumium
-item.thermalfoundation.material.dustEnderium.name=Mieszanka enderium
-
-item.thermalfoundation.material.ingotCopper.name=Sztaba miedzi
-item.thermalfoundation.material.ingotTin.name=Sztaba cyny
-item.thermalfoundation.material.ingotSilver.name=Sztaba srebra
-item.thermalfoundation.material.ingotLead.name=Sztaba ołowiu
-item.thermalfoundation.material.ingotNickel.name=Sztaba niklu
-item.thermalfoundation.material.ingotPlatinum.name=Sztaba platyny
-item.thermalfoundation.material.ingotMithril.name=Sztaba mitrylu
-item.thermalfoundation.material.ingotElectrum.name=Sztaba elektrum
-item.thermalfoundation.material.ingotInvar.name=Sztaba inwaru
-item.thermalfoundation.material.ingotBronze.name=Sztaba bronzu
-item.thermalfoundation.material.ingotSignalum.name=Sztaba signalum
-item.thermalfoundation.material.ingotLumium.name=Sztaba lumium
-item.thermalfoundation.material.ingotEnderium.name=Sztaba enderium
-
-item.thermalfoundation.material.nuggetCopper.name=Bryłka miedzi
-item.thermalfoundation.material.nuggetTin.name=Bryłka cyny
-item.thermalfoundation.material.nuggetSilver.name=Bryłka srebra
-item.thermalfoundation.material.nuggetLead.name=Bryłka ołowiu
-item.thermalfoundation.material.nuggetNickel.name=Bryłka niklu
-item.thermalfoundation.material.nuggetPlatinum.name=Bryłka platyny
-item.thermalfoundation.material.nuggetMithril.name=Bryłka mitrylu
-item.thermalfoundation.material.nuggetElectrum.name=Bryłka elektrum
-item.thermalfoundation.material.nuggetInvar.name=Bryłka inwaru
-item.thermalfoundation.material.nuggetBronze.name=Bryłka bronzu
-item.thermalfoundation.material.nuggetSignalum.name=Bryłka signalum
-item.thermalfoundation.material.nuggetLumium.name=Bryłka lumium
-item.thermalfoundation.material.nuggetEnderium.name=Bryłka enderium
-
-item.thermalfoundation.material.dustPyrotheum.name=Sproszkowane pyrotheum
+item.thermalfoundation.material.dustCharcoal.name=Sproszkowany węgiel drzewny
+item.thermalfoundation.material.dustCoal.name=Sproszkowany węgiel
+item.thermalfoundation.material.dustCopper.name=Sproszkowana miedź
 item.thermalfoundation.material.dustCryotheum.name=Sproszkowane cryotheum
+item.thermalfoundation.material.dustElectrum.name=Mieszanka elektrum
+item.thermalfoundation.material.dustEnderium.name=Mieszanka enderium
+item.thermalfoundation.material.dustGold.name=Sproszkowane złoto
+item.thermalfoundation.material.dustInvar.name=Mieszanka inwaru
+item.thermalfoundation.material.dustIron.name=Sproszkowane żelazo
+item.thermalfoundation.material.dustLead.name=Sproszkowany ołów
+item.thermalfoundation.material.dustLumium.name=Mieszanka lumium
 item.thermalfoundation.material.dustMana.name=Sproszkowana mana
+item.thermalfoundation.material.dustMithril.name=Sproszkowany mitryl
+item.thermalfoundation.material.dustNickel.name=Sproszkowany nikiel
+item.thermalfoundation.material.dustNiter.name=Saletra
+item.thermalfoundation.material.dustObsidian.name=Sproszkowany obsydian
+item.thermalfoundation.material.dustPetrotheum.name=Petrotheum Dust
+item.thermalfoundation.material.dustPlatinum.name=Sproszkowana platyna
+item.thermalfoundation.material.dustPyrotheum.name=Sproszkowane pyrotheum
+item.thermalfoundation.material.dustSignalum.name=Mieszanka signalum
+item.thermalfoundation.material.dustSilver.name=Sproszkowane srebro
+item.thermalfoundation.material.dustSulfur.name=Siarka
+item.thermalfoundation.material.dustTin.name=Sproszkowana cyna
 
+item.thermalfoundation.material.gearBronze.name=Pzekładnia z bronzu
 item.thermalfoundation.material.gearCopper.name=Pzekładnia z miedzi
-item.thermalfoundation.material.gearTin.name=Pzekładnia z cyny
-item.thermalfoundation.material.gearSilver.name=Pzekładnia z srebra
+item.thermalfoundation.material.gearElectrum.name=Pzekładnia z elektrum
+item.thermalfoundation.material.gearEnderium.name=Pzekładnia z enderium
+item.thermalfoundation.material.gearGold.name=Złota przekładnia
+item.thermalfoundation.material.gearInvar.name=Pzekładnia z inwaru
+item.thermalfoundation.material.gearIron.name=Żelazna przekładnia
 item.thermalfoundation.material.gearLead.name=Pzekładnia z ołowiu
+item.thermalfoundation.material.gearLumium.name=Pzekładnia z lumium
+item.thermalfoundation.material.gearMithril.name=Pzekładnia z mitrylu
 item.thermalfoundation.material.gearNickel.name=Pzekładnia z niklu
 item.thermalfoundation.material.gearPlatinum.name=Pzekładnia z platyny
-item.thermalfoundation.material.gearMithril.name=Pzekładnia z mitrylu
-item.thermalfoundation.material.gearElectrum.name=Pzekładnia z elektrum
-item.thermalfoundation.material.gearInvar.name=Pzekładnia z inwaru
-item.thermalfoundation.material.gearBronze.name=Pzekładnia z bronzu
 item.thermalfoundation.material.gearSignalum.name=Pzekładnia z signalum
-item.thermalfoundation.material.gearLumium.name=Pzekładnia z lumium
-item.thermalfoundation.material.gearEnderium.name=Pzekładnia z enderium
+item.thermalfoundation.material.gearSilver.name=Pzekładnia z srebra
+item.thermalfoundation.material.gearTin.name=Pzekładnia z cyny
+
+item.thermalfoundation.material.ingotBronze.name=Sztaba bronzu
+item.thermalfoundation.material.ingotCopper.name=Sztaba miedzi
+item.thermalfoundation.material.ingotElectrum.name=Sztaba elektrum
+item.thermalfoundation.material.ingotEnderium.name=Sztaba enderium
+item.thermalfoundation.material.ingotInvar.name=Sztaba inwaru
+item.thermalfoundation.material.ingotLead.name=Sztaba ołowiu
+item.thermalfoundation.material.ingotLumium.name=Sztaba lumium
+item.thermalfoundation.material.ingotMithril.name=Sztaba mitrylu
+item.thermalfoundation.material.ingotNickel.name=Sztaba niklu
+item.thermalfoundation.material.ingotPlatinum.name=Sztaba platyny
+item.thermalfoundation.material.ingotSignalum.name=Sztaba signalum
+item.thermalfoundation.material.ingotSilver.name=Sztaba srebra
+item.thermalfoundation.material.ingotTin.name=Sztaba cyny
+
+item.thermalfoundation.material.nuggetBronze.name=Bryłka bronzu
+item.thermalfoundation.material.nuggetCopper.name=Bryłka miedzi
+item.thermalfoundation.material.nuggetElectrum.name=Bryłka elektrum
+item.thermalfoundation.material.nuggetEnderium.name=Bryłka enderium
+item.thermalfoundation.material.nuggetInvar.name=Bryłka inwaru
+item.thermalfoundation.material.nuggetIron.name=Bryłka żelaza
+item.thermalfoundation.material.nuggetLead.name=Bryłka ołowiu
+item.thermalfoundation.material.nuggetLumium.name=Bryłka lumium
+item.thermalfoundation.material.nuggetMithril.name=Bryłka mitrylu
+item.thermalfoundation.material.nuggetNickel.name=Bryłka niklu
+item.thermalfoundation.material.nuggetPlatinum.name=Bryłka platyny
+item.thermalfoundation.material.nuggetSignalum.name=Bryłka signalum
+item.thermalfoundation.material.nuggetSilver.name=Bryłka srebra
+item.thermalfoundation.material.nuggetTin.name=Bryłka cyny
 
 item.thermalfoundation.material.rodBlizz.name=Pręt z Blizza
-item.thermalfoundation.material.dustBlizz.name=Proch z Blizza
 
-itemGroup.thermalfoundation.creativeTab=Thermal Foundation
+item.thermalfoundation.tome.lexicon.empowered.name=Leksykon Forge'owy (Mocarny)
+item.thermalfoundation.tome.lexicon.name=Leksykon Forge'owy
 
 tab.thermalfoundation.lexicon.study.0=Skonsultuj się z wiedzą świata i zmień swoje przeznaczenie
 tab.thermalfoundation.lexicon.transmute.0=Przekonwertuj równowartościowe przedmioty zgodnie z arkanicznymi zasadami ustalonymi przez wyższe moce.
 
-tile.thermalfoundation.fluid.redstone.name=Zdestabiizowany redstone
-tile.thermalfoundation.fluid.glowstone.name=Zenergizowany glowstone
-tile.thermalfoundation.fluid.ender.name=Rezonujący ender
-tile.thermalfoundation.fluid.pyrotheum.name=Buchające pyrotheum
 tile.thermalfoundation.fluid.cryotheum.name=Żelowe cryotheum
+tile.thermalfoundation.fluid.ender.name=Rezonujący ender
+tile.thermalfoundation.fluid.glowstone.name=Zenergizowany glowstone
 tile.thermalfoundation.fluid.mana.name=Pierwotna mana
-tile.thermalfoundation.fluid.steam.name=Para
-tile.thermalfoundation.fluid.coal.name=Upłynniony węgiel
+tile.thermalfoundation.fluid.pyrotheum.name=Buchające pyrotheum
+tile.thermalfoundation.fluid.redstone.name=Zdestabiizowany redstone
 
 tile.thermalfoundation.ore.copper.name=Ruda miedzi
-tile.thermalfoundation.ore.tin.name=Ruda cyny
-tile.thermalfoundation.ore.silver.name=Ruda srebra
 tile.thermalfoundation.ore.lead.name=Ruda ołowiu
+tile.thermalfoundation.ore.mithril.name=Ruda mitrylu
 tile.thermalfoundation.ore.nickel.name=Ruda niklu
 tile.thermalfoundation.ore.platinum.name=Ruda platyny
-tile.thermalfoundation.ore.mithril.name=Ruda mitrylu
+tile.thermalfoundation.ore.silver.name=Ruda srebra
+tile.thermalfoundation.ore.tin.name=Ruda cyny
 
+tile.thermalfoundation.storage.bronze.name=Blok bronzu
 tile.thermalfoundation.storage.copper.name=Blok miedzi
-tile.thermalfoundation.storage.tin.name=Blok cyny
-tile.thermalfoundation.storage.silver.name=Blok srebra
+tile.thermalfoundation.storage.electrum.name=Blok elektrum
+tile.thermalfoundation.storage.enderium.name=Blok enderium
+tile.thermalfoundation.storage.invar.name=Blok inwaru
 tile.thermalfoundation.storage.lead.name=Blok ołowiu
+tile.thermalfoundation.storage.lumium.name=Blok lumium
+tile.thermalfoundation.storage.mithril.name=Blok mitrylu
 tile.thermalfoundation.storage.nickel.name=Blok niklu
 tile.thermalfoundation.storage.platinum.name=Blok platyny
-tile.thermalfoundation.storage.mithril.name=Blok mitrylu
-tile.thermalfoundation.storage.electrum.name=Blok elektrum
-tile.thermalfoundation.storage.invar.name=Blok inwaru
-tile.thermalfoundation.storage.bronze.name=Blok bronzu
 tile.thermalfoundation.storage.signalum.name=Blok signalum
-tile.thermalfoundation.storage.lumium.name=Blok lumium
-tile.thermalfoundation.storage.enderium.name=Blok enderium
+tile.thermalfoundation.storage.silver.name=Blok srebra
+tile.thermalfoundation.storage.tin.name=Blok cyny

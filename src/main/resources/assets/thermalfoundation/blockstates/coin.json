@@ -1,0 +1,109 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "builtin/generated",
+		"textures": {
+			"layer0": "blocks/dirt"
+		},
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"type": {
+			"coiniron": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_iron"
+				}
+			},
+			"coingold": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_gold"
+				}
+			},
+			"coincopper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_copper"
+				}
+			},
+			"cointin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_tin"
+				}
+			},
+			"coinsilver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_silver"
+				}
+			},
+			"coinlead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_lead"
+				}
+			},
+			"coinaluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_aluminum"
+				}
+			},
+			"coinnickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_nickel"
+				}
+			},
+			"coinplatinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_platinum"
+				}
+			},
+			"coiniridium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_iridium"
+				}
+			},
+			"coinmithril": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_mithril"
+				}
+			},
+			"coinsteel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_steel"
+				}
+			},
+			"coinelectrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_electrum"
+				}
+			},
+			"coininvar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_invar"
+				}
+			},
+			"coinbronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_bronze"
+				}
+			},
+			"coinconstantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_constantan"
+				}
+			},
+			"coinsignalum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_signalum"
+				}
+			},
+			"coinlumium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_lumium"
+				}
+			},
+			"coinenderium": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/coin_enderium"
+				}
+			}
+		}
+	}
+}

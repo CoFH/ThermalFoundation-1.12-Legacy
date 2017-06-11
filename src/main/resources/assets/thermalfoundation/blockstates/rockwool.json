@@ -1,0 +1,91 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "cube_all",
+		"transform": "forge:default-block"
+	},
+	"variants": {
+		"type": {
+			"black": {
+				"textures": {
+					"all": "blocks/wool_colored_black"
+				}
+			},
+			"red": {
+				"textures": {
+					"all": "blocks/wool_colored_red"
+				}
+			},
+			"green": {
+				"textures": {
+					"all": "blocks/wool_colored_green"
+				}
+			},
+			"brown": {
+				"textures": {
+					"all": "blocks/wool_colored_brown"
+				}
+			},
+			"blue": {
+				"textures": {
+					"all": "blocks/wool_colored_blue"
+				}
+			},
+			"purple": {
+				"textures": {
+					"all": "blocks/wool_colored_purple"
+				}
+			},
+			"cyan": {
+				"textures": {
+					"all": "blocks/wool_colored_cyan"
+				}
+			},
+			"silver": {
+				"textures": {
+					"all": "blocks/wool_colored_silver"
+				}
+			},
+			"gray": {
+				"textures": {
+					"all": "blocks/wool_colored_gray"
+				}
+			},
+			"pink": {
+				"textures": {
+					"all": "blocks/wool_colored_pink"
+				}
+			},
+			"lime": {
+				"textures": {
+					"all": "blocks/wool_colored_lime"
+				}
+			},
+			"yellow": {
+				"textures": {
+					"all": "blocks/wool_colored_yellow"
+				}
+			},
+			"light_blue": {
+				"textures": {
+					"all": "blocks/wool_colored_light_blue"
+				}
+			},
+			"magenta": {
+				"textures": {
+					"all": "blocks/wool_colored_magenta"
+				}
+			},
+			"orange": {
+				"textures": {
+					"all": "blocks/wool_colored_orange"
+				}
+			},
+			"white": {
+				"textures": {
+					"all": "blocks/wool_colored_white"
+				}
+			}
+		}
+	}
+}

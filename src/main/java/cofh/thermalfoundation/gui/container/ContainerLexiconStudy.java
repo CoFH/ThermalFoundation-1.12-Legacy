@@ -6,13 +6,12 @@ import cofh.lib.gui.slot.SlotLocked;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
-
-import java.util.ArrayList;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.item.ItemStack;
+
+import java.util.ArrayList;
 
 public class ContainerLexiconStudy extends ContainerInventoryItem {
 
@@ -116,38 +115,38 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 	public void handlePacket(PacketTFBase payload) {
 
 		switch (payload.getByte()) {
-		case ORE_PREV:
-			prevOre();
-			return;
-		case ORE_NEXT:
-			nextOre();
-			return;
-		case SET_PREFERRED:
-			doSetPreferred();
-			return;
-		case CLEAR_PREFERRED:
-			doClearPreferred();
-			return;
-		case SELECT_ORE:
-			String oreName = payload.getString();
-			oreList = OreDictionaryArbiter.getOres(oreName);
-			if (LexiconManager.hasPreferredStack(player, oreName)) {
-				ItemStack ore = LexiconManager.getPreferredStack(player, oreName);
-				lexiconInv.setInventorySlotContents(0, ore);
-				for (int i = 0; i < oreList.size(); i++) {
-					if (ItemHelper.itemsIdentical(oreList.get(i), ore)) {
-						oreSelection = i;
-						break;
+			case ORE_PREV:
+				prevOre();
+				return;
+			case ORE_NEXT:
+				nextOre();
+				return;
+			case SET_PREFERRED:
+				doSetPreferred();
+				return;
+			case CLEAR_PREFERRED:
+				doClearPreferred();
+				return;
+			case SELECT_ORE:
+				String oreName = payload.getString();
+				oreList = OreDictionaryArbiter.getOres(oreName);
+				if (LexiconManager.hasPreferredStack(player, oreName)) {
+					ItemStack ore = LexiconManager.getPreferredStack(player, oreName);
+					lexiconInv.setInventorySlotContents(0, ore);
+					for (int i = 0; i < oreList.size(); i++) {
+						if (ItemHelper.itemsIdentical(oreList.get(i), ore)) {
+							oreSelection = i;
+							break;
+						}
 					}
+					hasPreferredStack = true;
+				} else {
+					lexiconInv.setInventorySlotContents(0, OreDictionaryArbiter.getOres(oreName).get(0));
+					oreSelection = 0;
+					hasPreferredStack = false;
 				}
-				hasPreferredStack = true;
-			} else {
-				lexiconInv.setInventorySlotContents(0, OreDictionaryArbiter.getOres(oreName).get(0));
-				oreSelection = 0;
-				hasPreferredStack = false;
-			}
-			syncClient = true;
-		default:
+				syncClient = true;
+			default:
 
 		}
 	}
@@ -157,9 +156,9 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 
 		super.detectAndSendChanges();
 
-		for (int j = 0; j < this.crafters.size(); ++j) {
+		for (IContainerListener listener : this.listeners) {
 			if (syncClient) {
-				((ICrafting) this.crafters.get(j)).sendProgressBarUpdate(this, 0, hasPreferredStack ? 1 : 0);
+				listener.sendProgressBarUpdate(this, 0, hasPreferredStack ? 1 : 0);
 				syncClient = false;
 			}
 		}
@@ -168,11 +167,7 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 	@Override
 	public void updateProgressBar(int i, int j) {
 
-		if (j == 1) {
-			hasPreferredStack = true;
-		} else {
-			hasPreferredStack = false;
-		}
+		hasPreferredStack = j == 1;
 	}
 
 	@Override

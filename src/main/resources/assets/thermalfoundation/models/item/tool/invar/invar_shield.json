@@ -1,0 +1,14 @@
+{
+	"parent":"thermalfoundation:item/tool/shield",
+	"textures": {
+		"layer0":"thermalfoundation:items/tool/invar/invar_shield"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"blocking": 1
+			},
+			"model": "thermalfoundation:item/tool/invar/invar_shield_blocking"
+		}
+	]
+}

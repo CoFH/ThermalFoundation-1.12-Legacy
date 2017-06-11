@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.gui.client;
 
-import cofh.core.gui.GuiBaseAdv;
+import cofh.core.gui.GuiCore;
 import cofh.core.gui.element.TabInfo;
 import cofh.lib.gui.GuiColor;
 import cofh.lib.gui.element.ElementButton;
@@ -13,23 +13,20 @@ import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.gui.container.ContainerLexiconStudy;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
+import org.lwjgl.input.Keyboard;
 
 import java.util.Locale;
 
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.util.ResourceLocation;
+public class GuiLexiconStudy extends GuiCore {
 
-import org.lwjgl.input.Keyboard;
+	private static final String TEX_PATH = "thermalfoundation:textures/gui/lexicon_study.png";
+	private static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);
 
-public class GuiLexiconStudy extends GuiBaseAdv {
+	private String searchLocal = "<" + StringHelper.localize("gui.thermalfoundation.lexicon.search") + ">";
 
-	static final String TEX_PATH = "thermalfoundation:textures/gui/LexiconStudy.png";
-	static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);
-
-	public String searchLocal = "<" + StringHelper.localize("info.thermalfoundation.lexicon.search") + ">";
-	public String myInfo = "";
-
-	ElementTextField searchBox = new ElementTextField(this, 42, 87, 124, 10) {
+	private ElementTextField searchBox = new ElementTextField(this, 42, 87, 124, 10) {
 
 		public boolean searchUp = true;
 		boolean rightClick = false;
@@ -108,7 +105,7 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 		}
 	};
 
-	ElementListBox oreList = new ElementListBox(this, 22, 104, 162, 84) {
+	ElementListBox oreList = new ElementListBox(this, 22, 104, 162, 82) {
 
 		@Override
 		protected void onSelectionChanged(int newIndex, IListBoxElement newElement) {
@@ -181,7 +178,7 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 		buildFullOreList();
 		lexicon.onSelectionChanged((String) oreList.getSelectedElement().getValue());
 
-		oreSlider = new SliderVertical(this, 184, 105, 8, 82, oreList.getElementCount() - 8) {
+		oreSlider = new SliderVertical(this, 184, 105, 8, 80, oreList.getElementCount() - 8) {
 
 			@Override
 			public void onValueChanged(int value) {
@@ -206,24 +203,24 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 		if (lexicon.hasMultipleOres()) {
 			prevOre.setActive();
 			nextOre.setActive();
-			prevOre.setToolTip("info.thermalfoundation.lexicon.prevEntry");
-			nextOre.setToolTip("info.thermalfoundation.lexicon.nextEntry");
+			prevOre.setToolTip("gui.thermalfoundation.lexicon.prevEntry");
+			nextOre.setToolTip("gui.thermalfoundation.lexicon.nextEntry");
 		} else {
 			prevOre.setDisabled();
 			nextOre.setDisabled();
-			prevOre.setToolTip("info.thermalfoundation.lexicon.singleEntry");
-			nextOre.setToolTip("info.thermalfoundation.lexicon.singleEntry");
+			prevOre.setToolTip("gui.thermalfoundation.lexicon.singleEntry");
+			nextOre.setToolTip("gui.thermalfoundation.lexicon.singleEntry");
 		}
 		if (lexicon.canSetPreferred()) {
 			setPreferredOre.setActive();
-			setPreferredOre.setToolTip("info.thermalfoundation.lexicon.setPreference");
+			setPreferredOre.setToolTip("gui.thermalfoundation.lexicon.setPreference");
 		} else {
 			setPreferredOre.setDisabled();
 			setPreferredOre.clearToolTip();
 		}
 		if (lexicon.hasPreferredOre()) {
 			clearPreferredOre.setActive();
-			clearPreferredOre.setToolTip("info.thermalfoundation.lexicon.clearPreference");
+			clearPreferredOre.setToolTip("gui.thermalfoundation.lexicon.clearPreference");
 		} else {
 			clearPreferredOre.setDisabled();
 			clearPreferredOre.clearToolTip();
@@ -249,9 +246,7 @@ public class GuiLexiconStudy extends GuiBaseAdv {
 
 		fontRendererObj.drawString(StringHelper.localize(name), getCenteredOffset(StringHelper.localize(name)), 16, 0xddbb1d);
 
-		if (searchBox.isFocused()) {
-
-		} else if (searchBox.getText().isEmpty()) {
+		if (!searchBox.isFocused() && searchBox.getText().isEmpty()) {
 			fontRendererObj.drawString(searchLocal, getCenteredOffset(searchLocal), 88, 0xe0e0e0);
 		}
 		super.drawGuiContainerForegroundLayer(x, y);

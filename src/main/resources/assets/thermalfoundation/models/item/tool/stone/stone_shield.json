@@ -1,0 +1,14 @@
+{
+	"parent":"thermalfoundation:item/tool/shield",
+	"textures": {
+		"layer0":"thermalfoundation:items/tool/stone/stone_shield"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"blocking": 1
+			},
+			"model": "thermalfoundation:item/tool/stone/stone_shield_blocking"
+		}
+	]
+}

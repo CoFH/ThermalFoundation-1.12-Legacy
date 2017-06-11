@@ -1,0 +1,23 @@
+#fr_FR
+
+fluid.glowstone=Glowstone Energisé
+fluid.redstone=Redstone Déstabilisé
+
+item.thermalfoundation.material.dustCharcoal.name=Poudre de Charbon Charbon de Bois
+item.thermalfoundation.material.dustCoal.name=Poudre de Charbon
+item.thermalfoundation.material.dustCopper.name=Poudre de Cuivre
+item.thermalfoundation.material.dustGold.name=Poudre d'Or
+item.thermalfoundation.material.dustIron.name=Poudre de Fer
+item.thermalfoundation.material.dustLead.name=Poudre de Plomb
+item.thermalfoundation.material.dustMithril.name=Métal de Mana Instable Broyé
+item.thermalfoundation.material.dustNickel.name=Poudre de Métal Ferreux
+item.thermalfoundation.material.dustNiter.name=Nitrate de Potassium
+item.thermalfoundation.material.dustObsidian.name=Poudre d'Obsidienne
+item.thermalfoundation.material.dustPlatinum.name=Poudre de Métal Brillant
+item.thermalfoundation.material.dustSilver.name=Poudre d'Argent
+item.thermalfoundation.material.dustSulfur.name=Soufre
+item.thermalfoundation.material.dustTin.name=Poudre d'Etain
+
+tile.thermalfoundation.fluid.glowstone.name=Glowstone Energisé
+tile.thermalfoundation.fluid.redstone.name=Redstone Déstabilisé
+

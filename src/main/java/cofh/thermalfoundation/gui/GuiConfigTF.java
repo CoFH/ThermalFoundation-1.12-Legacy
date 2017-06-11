@@ -1,32 +1,51 @@
 package cofh.thermalfoundation.gui;
 
 import cofh.thermalfoundation.ThermalFoundation;
-import cpw.mods.fml.client.config.GuiConfig;
-import cpw.mods.fml.client.config.IConfigElement;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraftforge.common.config.ConfigElement;
+import net.minecraftforge.fml.client.config.DummyConfigElement.DummyCategoryElement;
+import net.minecraftforge.fml.client.config.GuiConfig;
+import net.minecraftforge.fml.client.config.IConfigElement;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraftforge.common.config.ConfigCategory;
-import net.minecraftforge.common.config.ConfigElement;
 
 public class GuiConfigTF extends GuiConfig {
 
 	public GuiConfigTF(GuiScreen parentScreen) {
 
-		super(parentScreen, getConfigElements(parentScreen), ThermalFoundation.modId, false, false, ThermalFoundation.modName);
+		super(parentScreen, getConfigElements(parentScreen), ThermalFoundation.MOD_ID, false, true, ThermalFoundation.MOD_NAME);
 	}
 
-	public static final String[] CATEGORIES = { "Equipment", "Fluid", "Lexicon" };
+	public static final String[] CATEGORIES_CLIENT = {};
+	public static final String[] CATEGORIES_COMMON = {};
 
-	@SuppressWarnings("rawtypes")
 	private static List<IConfigElement> getConfigElements(GuiScreen parent) {
 
-		List<IConfigElement> list = new ArrayList<IConfigElement>();
+		List<IConfigElement> list = new ArrayList<>();
 
-		for (int i = 0; i < CATEGORIES.length; i++) {
-			list.add(new ConfigElement<ConfigCategory>(ThermalFoundation.config.getCategory(CATEGORIES[i])));
+		list.add(new DummyCategoryElement("Client", "config.client", getClientConfigElements()));
+		list.add(new DummyCategoryElement("Common", "config.common", getCommonConfigElements()));
+
+		return list;
+	}
+
+	private static List<IConfigElement> getClientConfigElements() {
+
+		List<IConfigElement> list = new ArrayList<>();
+
+		for (String category : CATEGORIES_CLIENT) {
+			list.add(new ConfigElement(ThermalFoundation.CONFIG_CLIENT.getCategory(category)));
+		}
+		return list;
+	}
+
+	private static List<IConfigElement> getCommonConfigElements() {
+
+		List<IConfigElement> list = new ArrayList<>();
+
+		for (String category : CATEGORIES_COMMON) {
+			list.add(new ConfigElement(ThermalFoundation.CONFIG.getCategory(category)));
 		}
 		return list;
 	}

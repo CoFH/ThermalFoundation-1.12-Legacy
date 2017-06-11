@@ -2,57 +2,41 @@ package cofh.thermalfoundation.render.entity;
 
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import cofh.thermalfoundation.render.model.ModelElemental;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-@SideOnly(Side.CLIENT)
-public class RenderEntityBlitz extends RenderLiving {
+@SideOnly (Side.CLIENT)
+public class RenderEntityBlitz extends RenderLiving<EntityBlitz> {
 
-	public static final RenderEntityBlitz instance = new RenderEntityBlitz();
-
-	static ResourceLocation texture;
+	private static ResourceLocation texture;
 
 	static {
-		RenderingRegistry.registerEntityRenderingHandler(EntityBlitz.class, instance);
+		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "blitz.png");
 	}
 
-	public static void initialize() {
+	public RenderEntityBlitz(RenderManager manager) {
 
-		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "Blitz.png");
-	}
-
-	public RenderEntityBlitz() {
-
-		super(ModelElemental.instance, 0.5F);
+		super(manager, ModelElemental.INSTANCE, 0.5F);
 	}
 
 	@Override
-	public void doRender(Entity entity, double d0, double d1, double d2, float f, float f1) {
-
-		doRenderBlitz((EntityBlitz) entity, d0, d1, d2, f, f1);
-	}
-
-	@Override
-	protected ResourceLocation getEntityTexture(Entity par1Entity) {
+	protected ResourceLocation getEntityTexture(EntityBlitz par1Entity) {
 
 		return texture;
 	}
 
 	@Override
-	public void doRender(EntityLivingBase entity, double d0, double d1, double d2, float f, float f1) {
+	public void doRender(EntityBlitz entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
-		this.doRenderBlitz((EntityBlitz) entity, d0, d1, d2, f, f1);
+		doRenderBlitz(entity, x, y, z, entityYaw, partialTicks);
 	}
 
-	protected void doRenderBlitz(EntityBlitz entity, double d0, double d1, double d2, float f, float f1) {
+	private void doRenderBlitz(EntityBlitz entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
-		super.doRender(entity, d0, d1, d2, f, f1);
+		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	}
 
 }

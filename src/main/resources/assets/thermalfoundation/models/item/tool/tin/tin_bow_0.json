@@ -1,0 +1,6 @@
+{
+	"parent": "thermalfoundation:item/tool/tin/tin_bow",
+	"textures": {
+		"layer0": "thermalfoundation:items/tool/tin/tin_bow_0"
+	}
+}

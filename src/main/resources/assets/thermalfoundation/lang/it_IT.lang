@@ -1,684 +1,139 @@
 #it_IT
 
 death.attack.blizz=%1$s ha incontrato un destino gelido!
-death.attack.cryotheum=%1$s è morto congelato!
 death.attack.cryotheum.player=%1$s è morto congelato cercando di scappare da %2$s!
-death.attack.flux=%1$s è stato dilanato dal flux!
+death.attack.cryotheum=%1$s è morto congelato!
 death.attack.flux.player=%1$s è stato fluxato fino alla morte da %2$s!
-death.attack.pyrotheum=%1$s ha scambiato piroteo per acqua!
-death.attack.pyrotheum.player=%1$s è bruciato vivo cercando di scappare %2$s!
-death.attack.mana=%1$s è stato mutilato da mana grezza!
+death.attack.flux=%1$s è stato dilanato dal flux!
 death.attack.mana.player=%1$s è entrato in un altro stato di cercare di scappare da %2$s!
+death.attack.mana=%1$s è stato mutilato da mana grezza!
+death.attack.pyrotheum.player=%1$s è bruciato vivo cercando di scappare %2$s!
+death.attack.pyrotheum=%1$s ha scambiato piroteo per acqua!
 
-entity.Blizz.name=Folata
-
-fluid.redstone=Pietrarossa destabilizata
-fluid.glowstone=Luminite energizata
-fluid.ender=Omega risonante
-fluid.pyrotheum=Piroteo fiammeggiante
-fluid.cryotheum=Crioteo gelido
-fluid.mana=Mana primaria
-fluid.steam=Vapore
 fluid.coal=Carbone liquifatto
+fluid.cryotheum=Crioteo gelido
+fluid.ender=Omega risonante
+fluid.glowstone=Luminite energizata
+fluid.mana=Mana primaria
+fluid.petrotheum=Tectonic Petrotheum
+fluid.pyrotheum=Piroteo fiammeggiante
+fluid.redstone=Pietrarossa destabilizata
+fluid.steam=Vapore
 
 gui.thermalfoundation.lexicon.study=Vocabolario - Conoscenza
 gui.thermalfoundation.lexicon.transmute=Vocabolario - Trasmutazione
 
-item.thermalfoundation.bucket.bucketRedstone.name=Secchio di pietrarossa destabilizata
-item.thermalfoundation.bucket.bucketGlowstone.name=Secchio di luminite energizata
-item.thermalfoundation.bucket.bucketEnder.name=Secchio d'omega risonante
-item.thermalfoundation.bucket.bucketPyrotheum.name=Secchio di piroteo fiammeggiante
-item.thermalfoundation.bucket.bucketCryotheum.name=Secchio di crioteo gelido
-item.thermalfoundation.bucket.bucketMana.name=Secchio di mana primaria
-item.thermalfoundation.bucket.bucketCoal.name=Secchio di carbone liquifatto
-
-info.thermalfoundation.tome.lexicon.1=Trasmuta oggetti in forme equivalenti.
-info.thermalfoundation.tome.lexicon.2=Click destro (apri) per studiare.
-info.thermalfoundation.tome.lexicon.3=per ottenere conoscenze!
-info.thermalfoundation.tome.lexicon.4=Click destro (apri) per trasmutare gli oggetti.
-info.thermalfoundation.tome.lexicon.5=per abbandonare conoscenze.
-item.thermalfoundation.tome.lexicon.name=Vocabolario Forge
-item.thermalfoundation.tome.lexicon.empowered.name=Vocabolario Forge (Potenziato)
-
-item.thermalfoundation.material.dustIron.name=Ferro polverizato
-item.thermalfoundation.material.dustGold.name=Oro polverizato
-item.thermalfoundation.material.dustCoal.name=Carbone polverizato
-item.thermalfoundation.material.dustCharcoal.name=Carbonella polverizata
-item.thermalfoundation.material.dustObsidian.name=Ossidiana polverizata
-
-item.thermalfoundation.material.nuggetIron.name=Pepita di ferro
-item.thermalfoundation.material.gearIron.name=Ingranaggio di ferro
-item.thermalfoundation.material.gearGold.name=Ingranaggio d'oro
-
-item.thermalfoundation.material.dustSulfur.name=Zolfo
-item.thermalfoundation.material.dustNiter.name=Salnitro
-
 item.thermalfoundation.material.crystalCinnabar.name=Cinabro
 
-item.thermalfoundation.material.dustCopper.name=Rame polverizato
-item.thermalfoundation.material.dustTin.name=Stagno polverizato
-item.thermalfoundation.material.dustSilver.name=Argento polverizato
-item.thermalfoundation.material.dustLead.name=Piombo polverizato
-item.thermalfoundation.material.dustNickel.name=Metallo ferroso polverizato
-item.thermalfoundation.material.dustPlatinum.name=Metallo scintillante polverizato
-item.thermalfoundation.material.dustMithril.name=Metallo infuso di mana polverizato
-item.thermalfoundation.material.dustElectrum.name=Miscuglio di elettro
-item.thermalfoundation.material.dustInvar.name=Miscuglio di invar
+item.thermalfoundation.material.dustBlizz.name=Polvere di Folata
 item.thermalfoundation.material.dustBronze.name=Miscuglio di bronzo
-item.thermalfoundation.material.dustSignalum.name=Miscuglio di signalo
-item.thermalfoundation.material.dustLumium.name=Miscuglio di luminio
-item.thermalfoundation.material.dustEnderium.name=Miscuglio d'omeghio
-
-item.thermalfoundation.material.ingotCopper.name=Lingotto di rame
-item.thermalfoundation.material.ingotTin.name=Lingotto di stagno
-item.thermalfoundation.material.ingotSilver.name=Lingotto d'argento
-item.thermalfoundation.material.ingotLead.name=Lingotto di piombo
-item.thermalfoundation.material.ingotNickel.name=Lingotto ferroso
-item.thermalfoundation.material.ingotPlatinum.name=Lingotto di metallo scintillante
-item.thermalfoundation.material.ingotMithril.name=Lingotto di metallo infuso di mana
-item.thermalfoundation.material.ingotElectrum.name=Lingotto di elettro
-item.thermalfoundation.material.ingotInvar.name=Lingotto di invar
-item.thermalfoundation.material.ingotBronze.name=Lingotto di bronzo
-item.thermalfoundation.material.ingotSignalum.name=Lingotto di signalo
-item.thermalfoundation.material.ingotLumium.name=Lingotto di lumio
-item.thermalfoundation.material.ingotEnderium.name=Lingotto d'omeghio
-
-item.thermalfoundation.material.nuggetCopper.name=Pepita di rame
-item.thermalfoundation.material.nuggetTin.name=Pepita di stagno
-item.thermalfoundation.material.nuggetSilver.name=Pepita d'argento
-item.thermalfoundation.material.nuggetLead.name=Pepita di piombo
-item.thermalfoundation.material.nuggetNickel.name=Pepita ferrosa
-item.thermalfoundation.material.nuggetPlatinum.name=Pepita di metallo scintillante
-item.thermalfoundation.material.nuggetMithril.name=Pepita di metallo infuso di mana
-item.thermalfoundation.material.nuggetElectrum.name=Pepita di elettro
-item.thermalfoundation.material.nuggetInvar.name=Pepita di invar
-item.thermalfoundation.material.nuggetBronze.name=Pepita di bronzo
-item.thermalfoundation.material.nuggetSignalum.name=Pepita di signalo
-item.thermalfoundation.material.nuggetLumium.name=Pepita di lumio
-item.thermalfoundation.material.nuggetEnderium.name=Pepita d'omeghio
-
-item.thermalfoundation.material.dustPyrotheum.name=Polvere di piroteo
+item.thermalfoundation.material.dustCharcoal.name=Carbonella polverizata
+item.thermalfoundation.material.dustCoal.name=Carbone polverizato
+item.thermalfoundation.material.dustCopper.name=Rame polverizato
 item.thermalfoundation.material.dustCryotheum.name=Polvere di crioteo
+item.thermalfoundation.material.dustElectrum.name=Miscuglio di elettro
+item.thermalfoundation.material.dustEnderium.name=Miscuglio d'omeghio
+item.thermalfoundation.material.dustGold.name=Oro polverizato
+item.thermalfoundation.material.dustInvar.name=Miscuglio di invar
+item.thermalfoundation.material.dustIron.name=Ferro polverizato
+item.thermalfoundation.material.dustLead.name=Piombo polverizato
+item.thermalfoundation.material.dustLumium.name=Miscuglio di luminio
 item.thermalfoundation.material.dustMana.name=Polvere di mana
+item.thermalfoundation.material.dustMithril.name=Metallo infuso di mana polverizato
+item.thermalfoundation.material.dustNickel.name=Metallo ferroso polverizato
+item.thermalfoundation.material.dustNiter.name=Salnitro
+item.thermalfoundation.material.dustObsidian.name=Ossidiana polverizata
+item.thermalfoundation.material.dustPetrotheum.name=Petrotheum Dust
+item.thermalfoundation.material.dustPlatinum.name=Metallo scintillante polverizato
+item.thermalfoundation.material.dustPyrotheum.name=Polvere di piroteo
+item.thermalfoundation.material.dustSignalum.name=Miscuglio di signalo
+item.thermalfoundation.material.dustSilver.name=Argento polverizato
+item.thermalfoundation.material.dustSulfur.name=Zolfo
+item.thermalfoundation.material.dustTin.name=Stagno polverizato
 
+item.thermalfoundation.material.gearBronze.name=Ingranaggio di bronzo
 item.thermalfoundation.material.gearCopper.name=Ingranaggio di rame
-item.thermalfoundation.material.gearTin.name=Ingranaggio di stagno
-item.thermalfoundation.material.gearSilver.name=Ingranaggio d'argento
+item.thermalfoundation.material.gearElectrum.name=Ingranaggio di elettro
+item.thermalfoundation.material.gearEnderium.name=Ingranaggio d'omeghio
+item.thermalfoundation.material.gearGold.name=Ingranaggio d'oro
+item.thermalfoundation.material.gearInvar.name=Ingranaggio di invar
+item.thermalfoundation.material.gearIron.name=Ingranaggio di ferro
 item.thermalfoundation.material.gearLead.name=Ingranaggio di piombo
+item.thermalfoundation.material.gearLumium.name=Ingranaggio di lumio
+item.thermalfoundation.material.gearMithril.name=Ingranaggio di metallo infuso di mana
 item.thermalfoundation.material.gearNickel.name=Ingranaggio ferroso
 item.thermalfoundation.material.gearPlatinum.name=Ingranaggio di metallo scintillante
-item.thermalfoundation.material.gearMithril.name=Ingranaggio di metallo infuso di mana
-item.thermalfoundation.material.gearElectrum.name=Ingranaggio di elettro
-item.thermalfoundation.material.gearInvar.name=Ingranaggio di invar
-item.thermalfoundation.material.gearBronze.name=Ingranaggio di bronzo
 item.thermalfoundation.material.gearSignalum.name=Ingranaggio di signalo
-item.thermalfoundation.material.gearLumium.name=Ingranaggio di lumio
-item.thermalfoundation.material.gearEnderium.name=Ingranaggio d'omeghio
+item.thermalfoundation.material.gearSilver.name=Ingranaggio d'argento
+item.thermalfoundation.material.gearTin.name=Ingranaggio di stagno
+
+item.thermalfoundation.material.ingotBronze.name=Lingotto di bronzo
+item.thermalfoundation.material.ingotCopper.name=Lingotto di rame
+item.thermalfoundation.material.ingotElectrum.name=Lingotto di elettro
+item.thermalfoundation.material.ingotEnderium.name=Lingotto d'omeghio
+item.thermalfoundation.material.ingotInvar.name=Lingotto di invar
+item.thermalfoundation.material.ingotLead.name=Lingotto di piombo
+item.thermalfoundation.material.ingotLumium.name=Lingotto di lumio
+item.thermalfoundation.material.ingotMithril.name=Lingotto di metallo infuso di mana
+item.thermalfoundation.material.ingotNickel.name=Lingotto ferroso
+item.thermalfoundation.material.ingotPlatinum.name=Lingotto di metallo scintillante
+item.thermalfoundation.material.ingotSignalum.name=Lingotto di signalo
+item.thermalfoundation.material.ingotSilver.name=Lingotto d'argento
+item.thermalfoundation.material.ingotTin.name=Lingotto di stagno
+
+item.thermalfoundation.material.nuggetBronze.name=Pepita di bronzo
+item.thermalfoundation.material.nuggetCopper.name=Pepita di rame
+item.thermalfoundation.material.nuggetElectrum.name=Pepita di elettro
+item.thermalfoundation.material.nuggetEnderium.name=Pepita d'omeghio
+item.thermalfoundation.material.nuggetInvar.name=Pepita di invar
+item.thermalfoundation.material.nuggetIron.name=Pepita di ferro
+item.thermalfoundation.material.nuggetLead.name=Pepita di piombo
+item.thermalfoundation.material.nuggetLumium.name=Pepita di lumio
+item.thermalfoundation.material.nuggetMithril.name=Pepita di metallo infuso di mana
+item.thermalfoundation.material.nuggetNickel.name=Pepita ferrosa
+item.thermalfoundation.material.nuggetPlatinum.name=Pepita di metallo scintillante
+item.thermalfoundation.material.nuggetSignalum.name=Pepita di signalo
+item.thermalfoundation.material.nuggetSilver.name=Pepita d'argento
+item.thermalfoundation.material.nuggetTin.name=Pepita di stagno
 
 item.thermalfoundation.material.rodBlizz.name=Verga di Folata
-item.thermalfoundation.material.dustBlizz.name=Polvere di Folata
 
-item.thermalfoundation.armor.copperHelmet.name=Elmo di rame
-item.thermalfoundation.armor.copperPlate.name=Corazza di rame
-item.thermalfoundation.armor.copperLegs.name=Gambiera di rame
-item.thermalfoundation.armor.copperBoots.name=Stivali di rame
+item.thermalfoundation.tome.lexicon.empowered.name=Vocabolario Forge (Potenziato)
+item.thermalfoundation.tome.lexicon.name=Vocabolario Forge
 
-item.thermalfoundation.armor.tinHelmet.name=Elmo di stagno
-item.thermalfoundation.armor.tinPlate.name=Corazza di stagno
-item.thermalfoundation.armor.tinLegs.name=Gambiera di stagno
-item.thermalfoundation.armor.tinBoots.name=Stivali di stagno
-
-item.thermalfoundation.armor.electrumHelmet.name=Elmo di elettro
-item.thermalfoundation.armor.electrumPlate.name=Corazza di elettro
-item.thermalfoundation.armor.electrumLegs.name=Gambiera di elettro
-item.thermalfoundation.armor.electrumBoots.name=Stivali di elettro
-
-item.thermalfoundation.armor.leadHelmet.name=Elmo di piombo
-item.thermalfoundation.armor.leadPlate.name=Corazza di piombo
-item.thermalfoundation.armor.leadLegs.name=Gambiera di piombo
-item.thermalfoundation.armor.leadBoots.name=Stivali di piombo
-
-item.thermalfoundation.armor.silverHelmet.name=Elmo d'argento
-item.thermalfoundation.armor.silverPlate.name=Corazza d'argento
-item.thermalfoundation.armor.silverLegs.name=Gambiera d'argento
-item.thermalfoundation.armor.silverBoots.name=Stivali d'argento
-
-item.thermalfoundation.armor.nickelHelmet.name=Elmo ferroso
-item.thermalfoundation.armor.nickelPlate.name=Corazza ferrosa
-item.thermalfoundation.armor.nickelLegs.name=Gambiera ferrosa
-item.thermalfoundation.armor.nickelBoots.name=Stivali ferrosi
-
-item.thermalfoundation.armor.bronzeHelmet.name=Elmo di bronzo
-item.thermalfoundation.armor.bronzePlate.name=Corazza di bronzo
-item.thermalfoundation.armor.bronzeLegs.name=Gambiera di bronzo
-item.thermalfoundation.armor.bronzeBoots.name=Stivali di bronzo
-
-item.thermalfoundation.armor.invarHelmet.name=Elmo di invar
-item.thermalfoundation.armor.invarPlate.name=Corazza di invar
-item.thermalfoundation.armor.invarLegs.name=Gambiera di invar
-item.thermalfoundation.armor.invarBoots.name=Stivali di invar
-
-item.thermalfoundation.armor.platinumHelmet.name=Elmo di metallo scintillante
-item.thermalfoundation.armor.platinumPlate.name=Corazza di metallo scintillante
-item.thermalfoundation.armor.platinumLegs.name=Gambiera di metallo scintillante
-item.thermalfoundation.armor.platinumBoots.name=Stivali di metallo scintillante
-
-item.thermalfoundation.tool.copperSword.name=Spada di rame
-item.thermalfoundation.tool.copperShovel.name=Pala di rame
-item.thermalfoundation.tool.copperPickaxe.name=Piccone di rame
-item.thermalfoundation.tool.copperAxe.name=Ascia di rame
-item.thermalfoundation.tool.copperHoe.name=Zappa di rame
-item.thermalfoundation.tool.copperShears.name=Cesoie di rame
-item.thermalfoundation.tool.copperFishingRod.name=Canna da pesca di rame
-item.thermalfoundation.tool.copperSickle.name=Falce di rame
-item.thermalfoundation.tool.copperBow.name=Arco rinforzato di rame
-
-item.thermalfoundation.tool.tinSword.name=Spada di stagno
-item.thermalfoundation.tool.tinShovel.name=Pala di stagno
-item.thermalfoundation.tool.tinPickaxe.name=Piccone di stagno
-item.thermalfoundation.tool.tinAxe.name=Ascia di stagno
-item.thermalfoundation.tool.tinHoe.name=Zappa di stagno
-item.thermalfoundation.tool.tinShears.name=Cesoie di stagno
-item.thermalfoundation.tool.tinFishingRod.name=Canna da pesca di stagno
-item.thermalfoundation.tool.tinSickle.name=Falce di stagno
-item.thermalfoundation.tool.tinBow.name=Arco rinforzato di stagno
-
-item.thermalfoundation.tool.electrumSword.name=Spada di elettro
-item.thermalfoundation.tool.electrumShovel.name=Pala di elettro
-item.thermalfoundation.tool.electrumPickaxe.name=Piccone di elettro
-item.thermalfoundation.tool.electrumAxe.name=Ascia di elettro
-item.thermalfoundation.tool.electrumHoe.name=Zappa di elettro
-item.thermalfoundation.tool.electrumShears.name=Cesoie di elettro
-item.thermalfoundation.tool.electrumFishingRod.name=Canna da pesca di elettro
-item.thermalfoundation.tool.electrumSickle.name=Falce di elettro
-item.thermalfoundation.tool.electrumBow.name=Arco rinforzato di elettro
-
-item.thermalfoundation.tool.leadSword.name=Spada di piombo
-item.thermalfoundation.tool.leadShovel.name=Pala di piombo
-item.thermalfoundation.tool.leadPickaxe.name=Piccone di piombo
-item.thermalfoundation.tool.leadAxe.name=Ascia di piombo
-item.thermalfoundation.tool.leadHoe.name=Zappa di piombo
-item.thermalfoundation.tool.leadShears.name=Cesoie di piombo
-item.thermalfoundation.tool.leadFishingRod.name=Canna da pesca di piombo
-item.thermalfoundation.tool.leadSickle.name=Falce di piombo
-item.thermalfoundation.tool.leadBow.name=Arco rinforzato di piombo
-
-item.thermalfoundation.tool.silverSword.name=Spada d'argento
-item.thermalfoundation.tool.silverShovel.name=Pala d'argento
-item.thermalfoundation.tool.silverPickaxe.name=Piccone d'argento
-item.thermalfoundation.tool.silverAxe.name=Ascia d'argento
-item.thermalfoundation.tool.silverHoe.name=Zappa d'argento
-item.thermalfoundation.tool.silverShears.name=Cesoie d'argento
-item.thermalfoundation.tool.silverFishingRod.name=Canna da pesca d'argento
-item.thermalfoundation.tool.silverSickle.name=Falce d'argento
-item.thermalfoundation.tool.silverBow.name=Arco d'argento
-
-item.thermalfoundation.tool.nickelSword.name=Spada ferrosa
-item.thermalfoundation.tool.nickelShovel.name=Pala ferrosa
-item.thermalfoundation.tool.nickelPickaxe.name=Piccone ferroso
-item.thermalfoundation.tool.nickelAxe.name=Ascia ferrosa
-item.thermalfoundation.tool.nickelHoe.name=Zappa ferrosa
-item.thermalfoundation.tool.nickelShears.name=Cesoie ferrose
-item.thermalfoundation.tool.nickelFishingRod.name=Canna da pesca ferroso
-item.thermalfoundation.tool.nickelSickle.name=Falce ferrosa
-item.thermalfoundation.tool.nickelBow.name=Arco rinforzato ferroso
-
-item.thermalfoundation.tool.bronzeSword.name=Spada di bronzo
-item.thermalfoundation.tool.bronzeShovel.name=Pala di bronzo
-item.thermalfoundation.tool.bronzePickaxe.name=Piccone di bronzo
-item.thermalfoundation.tool.bronzeAxe.name=Ascia di bronzo
-item.thermalfoundation.tool.bronzeHoe.name=Zappa di bronzo
-item.thermalfoundation.tool.bronzeShears.name=Cesoie di bronzo
-item.thermalfoundation.tool.bronzeFishingRod.name=Canna da pesca di bronzo
-item.thermalfoundation.tool.bronzeSickle.name=Falce di bronzo
-item.thermalfoundation.tool.bronzeBow.name=Arco rinforzato di bronzo
-
-item.thermalfoundation.tool.invarSword.name=Spada di invar
-item.thermalfoundation.tool.invarShovel.name=Pala di invar
-item.thermalfoundation.tool.invarPickaxe.name=Piccone di invar
-item.thermalfoundation.tool.invarAxe.name=Ascia di invar
-item.thermalfoundation.tool.invarHoe.name=Zappa di invar
-item.thermalfoundation.tool.invarShears.name=Cesoie di invar
-item.thermalfoundation.tool.invarFishingRod.name=Canna da pesca di invar
-item.thermalfoundation.tool.invarSickle.name=Falce di invar
-item.thermalfoundation.tool.invarBow.name=Arco rinforzato di invar
-
-item.thermalfoundation.tool.platinumSword.name=Spada di metallo scintillante
-item.thermalfoundation.tool.platinumShovel.name=Pala di metallo scintillante
-item.thermalfoundation.tool.platinumPickaxe.name=Piccone di metallo scintillante
-item.thermalfoundation.tool.platinumAxe.name=Ascia di metallo scintillante
-item.thermalfoundation.tool.platinumHoe.name=Zappa di metallo scintillante
-item.thermalfoundation.tool.platinumShears.name=Cesoie di metallo scintillante
-item.thermalfoundation.tool.platinumFishingRod.name=Canna da pesca di metallo scintillante
-item.thermalfoundation.tool.platinumSickle.name=Falce di metallo scintillante
-item.thermalfoundation.tool.platinumBow.name=Arco rinforzato di metallo scintillante
-
-itemGroup.thermalfoundation.creativeTab=Thermal Foundation
-itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: attrezzi
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: armature
+itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: attrezzi
 
 tab.thermalfoundation.lexicon.study.0=Consulta la conoscenza del mondo e altera il tuo destino.
 tab.thermalfoundation.lexicon.study.1=Dai potere al Vocabolario per forzare il mondo ad obbedirti.
 tab.thermalfoundation.lexicon.transmute.0=Trasmuta oggetti equivalenti secondo regole arcane decise da potenze superiori.
 tab.thermalfoundation.lexicon.transmute.1=Placa il Vocabolario per lasciare la padronanza sul mondo.
 
-tile.thermalfoundation.fluid.redstone.name=Pietrarossa destabilizata
-tile.thermalfoundation.fluid.glowstone.name=Luminite energizata
-tile.thermalfoundation.fluid.ender.name=Omega risonante
-tile.thermalfoundation.fluid.pyrotheum.name=Piroteo fiammeggiante
 tile.thermalfoundation.fluid.cryotheum.name=Crioteo gelido
+tile.thermalfoundation.fluid.ender.name=Omega risonante
+tile.thermalfoundation.fluid.glowstone.name=Luminite energizata
 tile.thermalfoundation.fluid.mana.name=Mana primaria
-tile.thermalfoundation.fluid.steam.name=Vapore
-tile.thermalfoundation.fluid.coal.name=Carbone liquifatto
+tile.thermalfoundation.fluid.pyrotheum.name=Piroteo fiammeggiante
+tile.thermalfoundation.fluid.redstone.name=Pietrarossa destabilizata
 
 tile.thermalfoundation.ore.copper.name=Rame grezzo
-tile.thermalfoundation.ore.tin.name=Stagno grezzo
-tile.thermalfoundation.ore.silver.name=Argento grezzo
 tile.thermalfoundation.ore.lead.name=Piombo grezzo
+tile.thermalfoundation.ore.mithril.name=Mithril grezzo
 tile.thermalfoundation.ore.nickel.name=Nichel grezzo
 tile.thermalfoundation.ore.platinum.name=Platino grezzo
-tile.thermalfoundation.ore.mithril.name=Mithril grezzo
+tile.thermalfoundation.ore.silver.name=Argento grezzo
+tile.thermalfoundation.ore.tin.name=Stagno grezzo
 
+tile.thermalfoundation.storage.bronze.name=Blocco di bronzo
 tile.thermalfoundation.storage.copper.name=Blocco di rame
-tile.thermalfoundation.storage.tin.name=Blocco di stagno
-tile.thermalfoundation.storage.silver.name=Blocco d'argento
+tile.thermalfoundation.storage.electrum.name=Blocco di elettro
+tile.thermalfoundation.storage.enderium.name=Blocco d'omeghio
+tile.thermalfoundation.storage.invar.name=Blocco di invar
 tile.thermalfoundation.storage.lead.name=Blocco di piombo
+tile.thermalfoundation.storage.lumium.name=Blocco di lumio
+tile.thermalfoundation.storage.mithril.name=Blocco di metallo infuso di mana
 tile.thermalfoundation.storage.nickel.name=Blocco ferroso
 tile.thermalfoundation.storage.platinum.name=Blocco di metallo scintillante
-tile.thermalfoundation.storage.mithril.name=Blocco di metallo infuso di mana
-tile.thermalfoundation.storage.electrum.name=Blocco di elettro
-tile.thermalfoundation.storage.invar.name=Blocco di invar
-tile.thermalfoundation.storage.bronze.name=Blocco di bronzo
 tile.thermalfoundation.storage.signalum.name=Blocco di signalo
-tile.thermalfoundation.storage.lumium.name=Blocco di lumio
-tile.thermalfoundation.storage.enderium.name=Blocco d'omeghio
-
-#Tinker's Construct Compatibility
-material.thermalfoundation.invar=Invar
-material.thermalfoundation.nickel=Nichel
-material.thermalfoundation.lead=Piombo
-material.thermalfoundation.lead.ability=Pesante
-material.thermalfoundation.silver=Argento
-material.thermalfoundation.silver.ability=Scintillante
-material.thermalfoundation.platinum=Platino
-material.thermalfoundation.platinum.ability=Denso
-material.thermalfoundation.electrum=Elettro
-material.thermalfoundation.electrum.ability=Eccentrico
-
-+#Custom Names
-material.thermalfoundation.electrum.display=Elettro
-material.thermalfoundation.invar.display=Invar
-material.thermalfoundation.lead.display=Piombo
-material.thermalfoundation.nickel.display=Nichel
-material.thermalfoundation.platinum.display=Platino
-material.thermalfoundation.silver.display=Argento
-
-toolpart.material.thermalfoundation.electrum=Elettro
-toolpart.material.thermalfoundation.invar=Invar
-toolpart.material.thermalfoundation.lead=Piombo
-toolpart.material.thermalfoundation.nickel=Nichel
-toolpart.material.thermalfoundation.platinum=Platino
-toolpart.material.thermalfoundation.silver=Argento
-
-tool.pickaxe.invar=Piccone di invar
-tool.pickaxe.nickel=Piccone di nichel
-tool.pickaxe.lead=Piccone di piombo
-tool.pickaxe.silver=Piccone d'argento
-tool.pickaxe.platinum=Piccone di platino
-tool.pickaxe.electrum=Piccone di elettro
-
-tool.shovel.invar=Pala di invar
-tool.shovel.nickel=Pala di nichel
-tool.shovel.lead=Pala di piombo
-tool.shovel.silver=Pala d'argento
-tool.shovel.platinum=Pala di platino
-tool.shovel.electrum=Pala di elettro
-
-tool.hatchet.invar=Accetta di invar
-tool.hatchet.nickel=Accetta di nichel
-tool.hatchet.lead=Accetta di piombo
-tool.hatchet.silver=Accetta d'argento
-tool.hatchet.platinum=Accetta di platino
-tool.hatchet.electrum=Accetta di elettro
-
-tool.broadsword.invar=Spadone di invar
-tool.broadsword.nickel=Spadone di nichel
-tool.broadsword.lead=Spadone di piombo
-tool.broadsword.silver=Spadone d'argento
-tool.broadsword.platinum=Spadone di platino
-tool.broadsword.electrum=Spadone di elettro
-
-tool.longsword.invar=Spada lunga di invar
-tool.longsword.nickel=Spada lunga di nichel
-tool.longsword.lead=Spada lunga di piombo
-tool.longsword.silver=Spada lunga d'argento
-tool.longsword.platinum=Spada lunga di platino
-tool.longsword.electrum=Spada lunga di elettro
-
-tool.rapier.invar=Stocco di invar
-tool.rapier.nickel=Stocco di nichel
-tool.rapier.lead=Stocco di piombo
-tool.rapier.silver=Stocco d'argento
-tool.rapier.platinum=Stocco di platino
-tool.rapier.electrum=Stocco di elettro
-
-tool.dagger.invar=Daga di invar
-tool.dagger.nickel=Daga di nichel
-tool.dagger.lead=Daga di piombo
-tool.dagger.silver=Daga d'argento
-tool.dagger.platinum=Daga di platino
-tool.dagger.electrum=Daga di elettro
-
-tool.cutlass.invar=Sciabola di invar
-tool.cutlass.nickel=Sciabola di nichel
-tool.cutlass.lead=Sciabola di piombo
-tool.cutlass.silver=Sciabola d'argento
-tool.cutlass.platinum=Sciabola di platino
-tool.cutlass.electrum=Sciabola di elettro
-
-tool.fryingpan.invar=Padella di invar
-tool.fryingpan.nickel=Padella di nichel
-tool.fryingpan.lead=Padella di piombo
-tool.fryingpan.silver=Padella d'argento
-tool.fryingpan.platinum=Padella di platino
-tool.fryingpan.electrum=Padella di elettro
-
-tool.battlesign.invar=Padella di invar
-tool.battlesign.nickel=Padella di nichel
-tool.battlesign.lead=Padella di piombo
-tool.battlesign.silver=Padella d'argento
-tool.battlesign.platinum=Padella di platino
-tool.battlesign.electrum=Padella di elettro
-
-tool.battlesign.invar=Insegna da guerra di invar
-tool.battlesign.nickel=Insegna da guerra di nichel
-tool.battlesign.lead=Insegna da guerra di piombo
-tool.battlesign.silver=Insegna da guerra d'argento
-tool.battlesign.platinum=Insegna da guerra di platino
-tool.battlesign.electrum=Insegna da guerra di elettro
-
-tool.mattock.invar=Zappa di invar
-tool.mattock.nickel=Zappa di nichel
-tool.mattock.lead=Zappa di piombo
-tool.mattock.silver=Zappa d'argento
-tool.mattock.platinum=Zappa di platino
-tool.mattock.electrum=Zappa di elettro
-
-tool.chisel.invar=Scalpello di invar
-tool.chisel.nickel=Scalpello di nichel
-tool.chisel.lead=Scalpello di piombo
-tool.chisel.silver=Scalpello d'argento
-tool.chisel.platinum=Scalpello di platino
-tool.chisel.electrum=Scalpello di elettro
-
-tool.lumberaxe.invar=Ascia di invar
-tool.lumberaxe.nickel=Ascia di nichel
-tool.lumberaxe.lead=Ascia di piombo
-tool.lumberaxe.silver=Ascia d'argento
-tool.lumberaxe.platinum=Ascia di platino
-tool.lumberaxe.electrum=Ascia di elettro
-
-tool.cleaver.invar=Mannaia di invar
-tool.cleaver.nickel=Mannaia di nichel
-tool.cleaver.lead=Mannaia di piombo
-tool.cleaver.silver=Mannaia d'argento
-tool.cleaver.platinum=Mannaia di platino
-tool.cleaver.electrum=Mannaia di elettro
-
-tool.scythe.invar=Falce di invar
-tool.scythe.nickel=Falce di nichel
-tool.scythe.lead=Falce di piombo
-tool.scythe.silver=Falce d'argento
-tool.scythe.platinum=Falce di platino
-tool.scythe.electrum=Falce di elettro
-
-tool.excavator.invar=Vanga di invar
-tool.excavator.nickel=Vanga di nichel
-tool.excavator.lead=Vanga di piombo
-tool.excavator.silver=Vanga d'argento
-tool.excavator.platinum=Vanga di platino
-tool.excavator.electrum=Vanga di elettro
-
-tool.hammer.invar=Martello di invar
-tool.hammer.nickel=Martello di nichel
-tool.hammer.lead=Martello di piombo
-tool.hammer.silver=Martello d'argento
-tool.hammer.platinum=Martello di platino
-tool.hammer.electrum=Martello di elettro
-
-tool.battleaxe.invar=Ascia da battaglia di invar
-tool.battleaxe.nickel=Ascia da battaglia di nichel
-tool.battleaxe.lead=Ascia da battaglia di piombo
-tool.battleaxe.silver=Ascia da battaglia d'argento
-tool.battleaxe.platinum=Ascia da battaglia di platino
-tool.battleaxe.electrum=Ascia da battaglia di elettro
-
-tool.shortbow.invar=Arco corto di invar
-tool.shortbow.nickel=Arco corto di nichel
-tool.shortbow.lead=Arco corto di piombo
-tool.shortbow.silver=Arco corto d'argento
-tool.shortbow.platinum=Arco corto di platino
-tool.shortbow.electrum=Arco corto di elettro
-
-tool.longbow.invar=Arco lungo di invar
-tool.longbow.nickel=Arco lungo di nichel
-tool.longbow.lead=Arco lungo di piombo
-tool.longbow.silver=Arco lungo d'argento
-tool.longbow.platinum=Arco lungo di platino
-tool.longbow.electrum=Arco lungo di elettro
-
-tool.crossbow.invar=Balestra di invar
-tool.crossbow.nickel=Balestra di nichel
-tool.crossbow.lead=Balestra di piombo
-tool.crossbow.silver=Balestra d'argento
-tool.crossbow.platinum=Balestra di platino
-tool.crossbow.electrum=Balestra di elettro
-
-tool.arrowammo.invar=Frecce di invar
-tool.arrowammo.nickel=Frecce di nichel
-tool.arrowammo.lead=Frecce di piombo
-tool.arrowammo.silver=Frecce d'argento
-tool.arrowammo.platinum=Frecce di platino
-tool.arrowammo.electrum=Frecce di elettro
-
-tool.shuriken.invar=Shuriken di invar
-tool.shuriken.nickel=Shuriken di nichel
-tool.shuriken.lead=Shuriken di piombo
-tool.shuriken.silver=Shuriken d'argento
-tool.shuriken.platinum=Shuriken di platino
-tool.shuriken.electrum=Shuriken di elettro
-
-tool.throwingknife.invar=Coltello da lancio di invar
-tool.throwingknife.nickel=Coltello da lancio di nichel
-tool.throwingknife.lead=Coltello da lancio di piombo
-tool.throwingknife.silver=Coltello da lancio d'argento
-tool.throwingknife.platinum=Coltello da lancio di platino
-tool.throwingknife.electrum=Coltello da lancio di elettro
-
-tool.javelin.invar=Giavellotto di invar
-tool.javelin.nickel=Giavellotto di nichel
-tool.javelin.lead=Giavellotto di piombo
-tool.javelin.silver=Giavellotto d'argento
-tool.javelin.platinum=Giavellotto di platino
-tool.javelin.electrum=Giavellotto di elettro
-
-#Tool Parts
-toolpart.ToolRod.thermalfoundation.invar=Manico di invar
-toolpart.PickaxeHead.thermalfoundation.invar=Testa di piccone di invar
-toolpart.ShovelHead.thermalfoundation.invar=Testa di pala di invar
-toolpart.AxeHead.thermalfoundation.invar=Testa d'ascia di invar
-toolpart.Binding.thermalfoundation.invar=Legatura di invar
-toolpart.ToughBinding.thermalfoundation.invar=Legatura resistente di invar
-toolpart.ToughRod.thermalfoundation.invar=Manico resistente di invar
-toolpart.LargePlate.thermalfoundation.invar=Piastra grande di invar
-toolpart.SwordBlade.thermalfoundation.invar=Lama di spada di invar
-toolpart.LargeGuard.thermalfoundation.invar=Guardia larga di invar
-toolpart.MediumGuard.thermalfoundation.invar=Guardia media di invar
-toolpart.Crossbar.thermalfoundation.invar=Guardia traversa di invar
-toolpart.KnifeBlade.thermalfoundation.invar=Lama di coltello di invar
-toolpart.FullGuard.thermalfoundation.invar=Guardia piena di invar
-toolpart.FrypanHead.thermalfoundation.invar=Padella di invar
-toolpart.SignHead.thermalfoundation.invar=Testa di cartello di invar
-toolpart.ChiselHead.thermalfoundation.invar=Testa di scalpello di invar
-toolpart.ScytheHead.thermalfoundation.invar=Testa di falce di invar
-toolpart.LumberAxeHead.thermalfoundation.invar=Testa d'ascia larga di invar
-toolpart.ExcavatorHead.thermalfoundation.invar=Testa di vanga di invar
-toolpart.ToolShard.thermalfoundation.invar=Frammento di invar
-toolpart.LargeSwordBlade.thermalfoundation.invar=Grande lama di spada di invar
-toolpart.HammerHead.thermalfoundation.invar=Testa di martello di invar
-toolpart.ArrowHead.thermalfoundation.invar=Testa di freccia di invar
-toolpart.Shuriken.thermalfoundation.invar=Shuriken di invar
-toolpart.CrossbowLimb.thermalfoundation.invar=Fusto di balestra di invar
-toolpart.CrossbowBody.thermalfoundation.invar=Flettente di balestra di invar
-toolpart.BowLimb.thermalfoundation.invar=Flettente di arco di invar
-toolpart.Bolt.thermalfoundation.invar=Dardo di invar
-
-toolpart.ToolRod.thermalfoundation.nickel=Manico di nichel
-toolpart.PickaxeHead.thermalfoundation.nickel=Testa di piccone di nichel
-toolpart.ShovelHead.thermalfoundation.nickel=Testa di pala di nichel
-toolpart.AxeHead.thermalfoundation.nickel=Testa d'ascia di nichel
-toolpart.Binding.thermalfoundation.nickel=Legatura di nichel
-toolpart.ToughBinding.thermalfoundation.nickel=Legatura resistente di nichel
-toolpart.ToughRod.thermalfoundation.nickel=Manico resistente di nichel
-toolpart.LargePlate.thermalfoundation.nickel=Piastra grande di nichel
-toolpart.SwordBlade.thermalfoundation.nickel=Lama di spada di nichel
-toolpart.LargeGuard.thermalfoundation.nickel=Guardia larga di nichel
-toolpart.MediumGuard.thermalfoundation.nickel=Guardia media di nichel
-toolpart.Crossbar.thermalfoundation.nickel=Guardia traversa di nichel
-toolpart.KnifeBlade.thermalfoundation.nickel=Lama di coltello di nichel
-toolpart.FullGuard.thermalfoundation.nickel=Guardia piena di nichel
-toolpart.FrypanHead.thermalfoundation.nickel=Padella di nichel
-toolpart.SignHead.thermalfoundation.nickel=Testa di cartello di nichel
-toolpart.ChiselHead.thermalfoundation.nickel=Testa di scalpello di nichel
-toolpart.ScytheHead.thermalfoundation.nickel=Testa di falce di nichel
-toolpart.LumberAxeHead.thermalfoundation.nickel=Testa d'ascia larga di nichel
-toolpart.ExcavatorHead.thermalfoundation.nickel=Testa di vanga di nichel
-toolpart.ToolShard.thermalfoundation.nickel=Frammento di nichel
-toolpart.LargeSwordBlade.thermalfoundation.nickel=Grande lama di spada di nichel
-toolpart.HammerHead.thermalfoundation.nickel=Testa di martello di nichel
-toolpart.ArrowHead.thermalfoundation.nickel=Testa di freccia di nichel
-toolpart.Shuriken.thermalfoundation.nickel=Shuriken di nichel
-toolpart.CrossbowLimb.thermalfoundation.nickel=Fusto di balestra di nichel
-toolpart.CrossbowBody.thermalfoundation.nickel=Flettente di balestra di nichel
-toolpart.BowLimb.thermalfoundation.nickel=Flettente di arco di nichel
-toolpart.Bolt.thermalfoundation.nickel=Dardo di nichel
-
-toolpart.ToolRod.thermalfoundation.lead=Manico di piombo
-toolpart.PickaxeHead.thermalfoundation.lead=Testa di piccone di piombo
-toolpart.ShovelHead.thermalfoundation.lead=Testa di pala di piombo
-toolpart.AxeHead.thermalfoundation.lead=Testa d'ascia di piombo
-toolpart.Binding.thermalfoundation.lead=Legatura di piombo
-toolpart.ToughBinding.thermalfoundation.lead=Legatura resistente di piombo
-toolpart.ToughRod.thermalfoundation.lead=Manico resistente di piombo
-toolpart.LargePlate.thermalfoundation.lead=Piastra grande di piombo
-toolpart.SwordBlade.thermalfoundation.lead=Lama di spada di piombo
-toolpart.LargeGuard.thermalfoundation.lead=Guardia larga di piombo
-toolpart.MediumGuard.thermalfoundation.lead=Guardia media di piombo
-toolpart.Crossbar.thermalfoundation.lead=Guardia traversa di piombo
-toolpart.KnifeBlade.thermalfoundation.lead=Lama di coltello di piombo
-toolpart.FullGuard.thermalfoundation.lead=Guardia piena di piombo
-toolpart.FrypanHead.thermalfoundation.lead=Padella di piombo
-toolpart.SignHead.thermalfoundation.lead=Testa di cartello di piombo
-toolpart.ChiselHead.thermalfoundation.lead=Testa di scalpello di piombo
-toolpart.ScytheHead.thermalfoundation.lead=Testa di falce di piombo
-toolpart.LumberAxeHead.thermalfoundation.lead=Testa d'ascia larga di piombo
-toolpart.ExcavatorHead.thermalfoundation.lead=Testa di vanga di piombo
-toolpart.ToolShard.thermalfoundation.lead=Frammento di piombo
-toolpart.LargeSwordBlade.thermalfoundation.lead=Grande lama di spada di piombo
-toolpart.HammerHead.thermalfoundation.lead=Testa di martello di piombo
-toolpart.ArrowHead.thermalfoundation.lead=Testa di freccia di piombo
-toolpart.Shuriken.thermalfoundation.lead=Shuriken di piombo
-toolpart.CrossbowLimb.thermalfoundation.lead=Fusto di balestra di piombo
-toolpart.CrossbowBody.thermalfoundation.lead=Flettente di balestra di piombo
-toolpart.BowLimb.thermalfoundation.lead=Flettente di arco di piombo
-toolpart.Bolt.thermalfoundation.lead=Dardo di piombo
-
-toolpart.ToolRod.thermalfoundation.silver=Manico d'argento
-toolpart.PickaxeHead.thermalfoundation.silver=Testa di piccone d'argento
-toolpart.ShovelHead.thermalfoundation.silver=Testa di pala d'argento
-toolpart.AxeHead.thermalfoundation.silver=Testa d'ascia d'argento
-toolpart.Binding.thermalfoundation.silver=Legatura d'argento
-toolpart.ToughBinding.thermalfoundation.silver=Legatura resistente d'argento
-toolpart.ToughRod.thermalfoundation.silver=Manico resistente d'argento
-toolpart.LargePlate.thermalfoundation.silver=Piastra grande d'argento
-toolpart.SwordBlade.thermalfoundation.silver=Lama di spada d'argento
-toolpart.LargeGuard.thermalfoundation.silver=Guardia larga d'argento
-toolpart.MediumGuard.thermalfoundation.silver=Guardia media d'argento
-toolpart.Crossbar.thermalfoundation.silver=Guardia traversa d'argento
-toolpart.KnifeBlade.thermalfoundation.silver=Lama di coltello d'argento
-toolpart.FullGuard.thermalfoundation.silver=Guardia piena d'argento
-toolpart.FrypanHead.thermalfoundation.silver=Padella d'argento
-toolpart.SignHead.thermalfoundation.silver=Testa di cartello d'argento
-toolpart.ChiselHead.thermalfoundation.silver=Testa di scalpello d'argento
-toolpart.ScytheHead.thermalfoundation.silver=Testa di falce d'argento
-toolpart.LumberAxeHead.thermalfoundation.silver=Testa d'ascia larga d'argento
-toolpart.ExcavatorHead.thermalfoundation.silver=Testa di vanga d'argento
-toolpart.ToolShard.thermalfoundation.silver=Frammento d'argento
-toolpart.LargeSwordBlade.thermalfoundation.silver=Grande lama di spada d'argento
-toolpart.HammerHead.thermalfoundation.silver=Testa di martello d'argento
-toolpart.ArrowHead.thermalfoundation.silver=Testa di freccia d'argento
-toolpart.Shuriken.thermalfoundation.silver=Shuriken d'argento
-toolpart.CrossbowLimb.thermalfoundation.silver=Fusto di balestra d'argento
-toolpart.CrossbowBody.thermalfoundation.silver=Flettente di balestra d'argento
-toolpart.BowLimb.thermalfoundation.silver=Flettente di arco d'argento
-toolpart.Bolt.thermalfoundation.silver=Dardo d'argento
-
-toolpart.ToolRod.thermalfoundation.platinum=Manico di platino
-toolpart.PickaxeHead.thermalfoundation.platinum=Testa di piccone di platino
-toolpart.ShovelHead.thermalfoundation.platinum=Testa di pala di platino
-toolpart.AxeHead.thermalfoundation.platinum=Testa d'ascia di platino
-toolpart.Binding.thermalfoundation.platinum=Legatura di platino
-toolpart.ToughBinding.thermalfoundation.platinum=Legatura resistente di platino
-toolpart.ToughRod.thermalfoundation.platinum=Manico resistente di platino
-toolpart.LargePlate.thermalfoundation.platinum=Piastra grande di platino
-toolpart.SwordBlade.thermalfoundation.platinum=Lama di spada di platino
-toolpart.LargeGuard.thermalfoundation.platinum=Guardia larga di platino
-toolpart.MediumGuard.thermalfoundation.platinum=Guardia media di platino
-toolpart.Crossbar.thermalfoundation.platinum=Guardia traversa di platino
-toolpart.KnifeBlade.thermalfoundation.platinum=Lama di coltello di platino
-toolpart.FullGuard.thermalfoundation.platinum=Guardia piena di platino
-toolpart.FrypanHead.thermalfoundation.platinum=Padella di platino
-toolpart.SignHead.thermalfoundation.platinum=Testa di cartello di platino
-toolpart.ChiselHead.thermalfoundation.platinum=Testa di scalpello di platino
-toolpart.ScytheHead.thermalfoundation.platinum=Testa di falce di platino
-toolpart.LumberAxeHead.thermalfoundation.platinum=Testa d'ascia larga di platino
-toolpart.ExcavatorHead.thermalfoundation.platinum=Testa di vanga di platino
-toolpart.ToolShard.thermalfoundation.platinum=Frammento di platino
-toolpart.LargeSwordBlade.thermalfoundation.platinum=Grande lama di spada di platino
-toolpart.HammerHead.thermalfoundation.platinum=Testa di martello di platino
-toolpart.ArrowHead.thermalfoundation.platinum=Testa di freccia di platino
-toolpart.Shuriken.thermalfoundation.platinum=Shuriken di platino
-toolpart.CrossbowLimb.thermalfoundation.platinum=Fusto di balestra di platino
-toolpart.CrossbowBody.thermalfoundation.platinum=Flettente di balestra di platino
-toolpart.BowLimb.thermalfoundation.platinum=Flettente di arco di platino
-toolpart.Bolt.thermalfoundation.platinum=Dardo di platino
-
-toolpart.ToolRod.thermalfoundation.electrum=Manico di elettro
-toolpart.PickaxeHead.thermalfoundation.electrum=Testa di piccone di elettro
-toolpart.ShovelHead.thermalfoundation.electrum=Testa di pala di elettro
-toolpart.AxeHead.thermalfoundation.electrum=Testa d'ascia di elettro
-toolpart.Binding.thermalfoundation.electrum=Legatura di elettro
-toolpart.ToughBinding.thermalfoundation.electrum=Legatura resistente di elettro
-toolpart.ToughRod.thermalfoundation.electrum=Manico resistente di elettro
-toolpart.LargePlate.thermalfoundation.electrum=Piastra grande di elettro
-toolpart.SwordBlade.thermalfoundation.electrum=Lama di spada di elettro
-toolpart.LargeGuard.thermalfoundation.electrum=Guardia larga di elettro
-toolpart.MediumGuard.thermalfoundation.electrum=Guardia media di elettro
-toolpart.Crossbar.thermalfoundation.electrum=Guardia traversa di elettro
-toolpart.KnifeBlade.thermalfoundation.electrum=Lama di coltello di elettro
-toolpart.FullGuard.thermalfoundation.electrum=Guardia piena di elettro
-toolpart.FrypanHead.thermalfoundation.electrum=Padella di elettro
-toolpart.SignHead.thermalfoundation.electrum=Testa di cartello di elettro
-toolpart.ChiselHead.thermalfoundation.electrum=Testa di scalpello di elettro
-toolpart.ScytheHead.thermalfoundation.electrum=Testa di falce di elettro
-toolpart.LumberAxeHead.thermalfoundation.electrum=Testa d'ascia larga di elettro
-toolpart.ExcavatorHead.thermalfoundation.electrum=Testa di vanga di elettro
-toolpart.ToolShard.thermalfoundation.electrum=Frammento di elettro
-toolpart.LargeSwordBlade.thermalfoundation.electrum=Grande lama di spada di elettro
-toolpart.HammerHead.thermalfoundation.electrum=Testa di martello di elettro
-toolpart.ArrowHead.thermalfoundation.electrum=Testa di freccia di elettro
-toolpart.Shuriken.thermalfoundation.electrum=Shuriken di elettro
-toolpart.CrossbowLimb.thermalfoundation.electrum=Fusto di balestra di elettro
-toolpart.CrossbowBody.thermalfoundation.electrum=Flettente di balestra di elettro
-toolpart.BowLimb.thermalfoundation.electrum=Flettente di arco di elettro
-toolpart.Bolt.thermalfoundation.electrum=Dardo di elettro
+tile.thermalfoundation.storage.silver.name=Blocco d'argento
+tile.thermalfoundation.storage.tin.name=Blocco di stagno

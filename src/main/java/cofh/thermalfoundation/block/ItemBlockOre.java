@@ -1,14 +1,12 @@
 package cofh.thermalfoundation.block;
 
+import cofh.core.block.ItemBlockCore;
 import cofh.lib.util.helpers.ItemHelper;
-import cofh.lib.util.helpers.StringHelper;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class ItemBlockOre extends ItemBlock {
+public class ItemBlockOre extends ItemBlockCore {
 
 	public ItemBlockOre(Block block) {
 
@@ -18,27 +16,15 @@ public class ItemBlockOre extends ItemBlock {
 	}
 
 	@Override
-	public String getItemStackDisplayName(ItemStack item) {
+	public String getUnlocalizedName(ItemStack stack) {
 
-		return StringHelper.localize(getUnlocalizedName(item));
-	}
-
-	@Override
-	public String getUnlocalizedName(ItemStack item) {
-
-		return "tile.thermalfoundation.ore." + BlockOre.NAMES[ItemHelper.getItemDamage(item)] + ".name";
-	}
-
-	@Override
-	public int getMetadata(int i) {
-
-		return i;
+		return "tile.thermalfoundation.ore." + BlockOre.Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
 	}
 
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 
-		return EnumRarity.values()[BlockOre.RARITY[ItemHelper.getItemDamage(stack)]];
+		return BlockOre.Type.byMetadata(ItemHelper.getItemDamage(stack)).getRarity();
 	}
 
 }

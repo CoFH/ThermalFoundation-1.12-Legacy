@@ -1,0 +1,29 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "builtin/generated",
+		"textures": {
+			"layer0": "blocks/dirt"
+		},
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"type": {
+			"fertilizerbasic": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/fertilizer_basic"
+				}
+			},
+			"fertilizerrich": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/fertilizer_rich"
+				}
+			},
+			"fertilizerflux": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/fertilizer_flux"
+				}
+			}
+		}
+	}
+}

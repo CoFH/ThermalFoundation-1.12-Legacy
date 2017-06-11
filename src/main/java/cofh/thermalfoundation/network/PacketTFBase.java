@@ -5,7 +5,6 @@ import cofh.core.network.PacketHandler;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.gui.container.ContainerLexiconStudy;
 import cofh.thermalfoundation.gui.container.ContainerLexiconTransmute;
-
 import net.minecraft.entity.player.EntityPlayer;
 
 public class PacketTFBase extends PacketCoFHBase {
@@ -16,7 +15,7 @@ public class PacketTFBase extends PacketCoFHBase {
 	}
 
 	public enum PacketTypes {
-		LEXICON_STUDY, LEXICON_TRANSMUTE, CONFIG_SYNC
+		CONFIG_SYNC, LEXICON_STUDY, LEXICON_TRANSMUTE
 	}
 
 	@Override
@@ -26,21 +25,21 @@ public class PacketTFBase extends PacketCoFHBase {
 			int type = getByte();
 
 			switch (PacketTypes.values()[type]) {
-			case LEXICON_STUDY:
-				if (player.openContainer instanceof ContainerLexiconStudy) {
-					((ContainerLexiconStudy) player.openContainer).handlePacket(this);
-				}
-				return;
-			case LEXICON_TRANSMUTE:
-				if (player.openContainer instanceof ContainerLexiconTransmute) {
-					((ContainerLexiconTransmute) player.openContainer).handlePacket(this);
-				}
-				return;
-			default:
-				ThermalFoundation.log.error("Unknown Packet! Internal: TFPH, ID: " + type);
+				case LEXICON_STUDY:
+					if (player.openContainer instanceof ContainerLexiconStudy) {
+						((ContainerLexiconStudy) player.openContainer).handlePacket(this);
+					}
+					return;
+				case LEXICON_TRANSMUTE:
+					if (player.openContainer instanceof ContainerLexiconTransmute) {
+						((ContainerLexiconTransmute) player.openContainer).handlePacket(this);
+					}
+					return;
+				default:
+					ThermalFoundation.LOG.error("Unknown Packet! Internal: TFPH, ID: " + type);
 			}
 		} catch (Exception e) {
-			ThermalFoundation.log.error("Packet payload failure! Please check your config files!");
+			ThermalFoundation.LOG.error("Packet payload failure! Please check your config files!");
 			e.printStackTrace();
 		}
 	}

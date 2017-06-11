@@ -1,21 +1,15 @@
 package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidInteractive;
-import cofh.lib.util.BlockWrapper;
-import cofh.lib.util.helpers.BlockHelper;
 import cofh.lib.util.helpers.DamageHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
-import cofh.thermalfoundation.block.TFBlocks;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
-import cpw.mods.fml.common.registry.GameRegistry;
-
-import java.util.Random;
-
-import net.minecraft.block.Block;
+import cofh.thermalfoundation.init.TFFluids;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityBlaze;
@@ -23,25 +17,31 @@ import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntitySnowman;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Blocks;
-import net.minecraft.potion.Potion;
+import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import java.util.Random;
 
 public class BlockFluidCryotheum extends BlockFluidInteractive {
 
 	Random random = new Random();
 
 	public static final int LEVELS = 5;
-	public static final Material materialFluidCryotheum = new MaterialLiquid(MapColor.iceColor);
+	public static final Material materialFluidCryotheum = new MaterialLiquid(MapColor.ICE);
 
 	private static boolean enableSourceFall = true;
 	private static boolean effect = true;
 
-	public BlockFluidCryotheum() {
+	public BlockFluidCryotheum(Fluid fluid) {
 
-		super("thermalfoundation", TFFluids.fluidCryotheum, materialFluidCryotheum, "cryotheum");
+		super(fluid, materialFluidCryotheum, "thermalfoundation", "cryotheum");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(15);
 
@@ -50,37 +50,20 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		setParticleColor(0.15F, 0.7F, 1.0F);
 	}
 
-	@Override
-	public boolean preInit() {
-
-		GameRegistry.registerBlock(this, "FluidCryotheum");
-
-		addInteraction(Blocks.grass, Blocks.dirt);
-		addInteraction(Blocks.water, 0, Blocks.ice);
-		addInteraction(Blocks.water, Blocks.snow);
-		addInteraction(Blocks.flowing_water, 0, Blocks.ice);
-		addInteraction(Blocks.flowing_water, Blocks.snow);
-		addInteraction(Blocks.lava, 0, Blocks.obsidian);
-		addInteraction(Blocks.lava, Blocks.stone);
-		addInteraction(Blocks.flowing_lava, 0, Blocks.obsidian);
-		addInteraction(Blocks.flowing_lava, Blocks.stone);
-		addInteraction(Blocks.leaves, Blocks.air);
-		addInteraction(Blocks.tallgrass, Blocks.air);
-		addInteraction(Blocks.fire, Blocks.air);
-		addInteraction(TFBlocks.blockFluidGlowstone, 0, Blocks.glowstone);
+	public static void config() {
 
 		String category = "Fluid.Cryotheum";
-		String comment = "Enable this for Fluid Cryotheum to be worse than lava, except cold.";
-		effect = ThermalFoundation.config.get(category, "Effect", true, comment);
+		String comment;
 
-		comment = "Enable this for Fluid Cryotheum Source blocks to gradually fall downwards.";
-		enableSourceFall = ThermalFoundation.config.get(category, "Fall", enableSourceFall, comment);
+		comment = "If TRUE, Fluid Cryotheum will be worse than lava, except cold.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Effect", category, effect, comment);
 
-		return true;
+		comment = "If TRUE, Fluid Cryotheum Source blocks will gradually fall downwards.";
+		enableSourceFall = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Fall", category, enableSourceFall, comment);
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 
 		entity.extinguish();
 
@@ -109,8 +92,8 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 
 			entity.setDead();
 		} else if (entity instanceof EntityBlizz || entity instanceof EntitySnowman) {
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 6 * 20, 0));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 6 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SPEED, 6 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 6 * 20, 0));
 		} else if (entity instanceof EntityBlaze) {
 			entity.attackEntityFrom(DamageHelper.cryotheum, 10F);
 		} else {
@@ -121,72 +104,96 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 	}
 
 	@Override
-	public int getLightValue(IBlockAccess world, int x, int y, int z) {
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
 		return TFFluids.fluidCryotheum.getLuminosity();
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 
 		if (effect) {
-			checkForInteraction(world, x, y, z);
+			checkForInteraction(world, pos);
 		}
-		if (enableSourceFall && world.getBlockMetadata(x, y, z) == 0) {
-			Block block = world.getBlock(x, y + densityDir, z);
-			int bMeta = world.getBlockMetadata(x, y + densityDir, z);
+		if (enableSourceFall && getMetaFromState(state) == 0) {
+			BlockPos offsetPos = pos.add(0, densityDir, 0);
+			IBlockState offsetState = world.getBlockState(offsetPos);
+			int bMeta = offsetState.getBlock().getMetaFromState(offsetState);
 
-			if (block == this && bMeta != 0) {
-				world.setBlock(x, y + densityDir, z, this, 0, 3);
-				world.setBlockToAir(x, y, z);
+			if (offsetState.getBlock() == this && bMeta != 0) {
+				world.setBlockState(offsetPos, this.getDefaultState(), 3);
+				world.setBlockToAir(pos);
 				return;
 			}
 		}
-		super.updateTick(world, x, y, z, rand);
+		super.updateTick(world, pos, state, rand);
 	}
 
-	protected void checkForInteraction(World world, int x, int y, int z) {
+	protected void checkForInteraction(World world, BlockPos pos) {
 
-		if (world.getBlock(x, y, z) != this) {
+		if (world.getBlockState(pos) != this) {
 			return;
 		}
-		int x2 = x;
-		int y2 = y;
-		int z2 = z;
 
-		for (int i = 0; i < 6; i++) {
-			x2 = x + BlockHelper.SIDE_COORD_MOD[i][0];
-			y2 = y + BlockHelper.SIDE_COORD_MOD[i][1];
-			z2 = z + BlockHelper.SIDE_COORD_MOD[i][2];
-
-			interactWithBlock(world, x2, y2, z2);
+		for (EnumFacing face : EnumFacing.VALUES) {
+			interactWithBlock(world, pos.offset(face));
 		}
-		interactWithBlock(world, x - 1, y, z - 1);
-		interactWithBlock(world, x - 1, y, z + 1);
-		interactWithBlock(world, x + 1, y, z - 1);
-		interactWithBlock(world, x + 1, y, z + 1);
+		//Corners
+		interactWithBlock(world, pos.add(-1, 0, -1));
+		interactWithBlock(world, pos.add(-1, 0, 1));
+		interactWithBlock(world, pos.add(1, 0, -1));
+		interactWithBlock(world, pos.add(1, 0, 1));
 	}
 
-	protected void interactWithBlock(World world, int x, int y, int z) {
+	protected void interactWithBlock(World world, BlockPos pos) {
 
-		Block block = world.getBlock(x, y, z);
+		IBlockState state = world.getBlockState(pos);
 
-		if (block == Blocks.air || block == this) {
+		if (state.getBlock().isAir(state, world, pos) || state.getBlock() == this) {
 			return;
 		}
-		int bMeta = world.getBlockMetadata(x, y, z);
-
-		if (hasInteraction(block, bMeta)) {
-			BlockWrapper result = getInteraction(block, bMeta);
-			world.setBlock(x, y, z, result.block, result.metadata, 3);
-			// triggerInteractionEffects(world, x, y, z);
-		} else if (world.isSideSolid(x, y, z, ForgeDirection.UP) && world.isAirBlock(x, y + 1, z)) {
-			world.setBlock(x, y + 1, z, Blocks.snow_layer, 0, 3);
+		//TODO Unify block interactions in parent class.
+		if (hasInteraction(state)) {
+			world.setBlockState(pos, getInteraction(state), 3);
+		} else if (state.isSideSolid(world, pos, EnumFacing.UP) && world.isAirBlock(pos.offset(EnumFacing.UP))) {
+			world.setBlockState(pos.offset(EnumFacing.UP), Blocks.SNOW_LAYER.getDefaultState(), 3);
 		}
 	}
 
-	protected void triggerInteractionEffects(World world, int x, int y, int z) {
+	/* IInitializer */
+	@Override
+	public boolean preInit() {
 
+		this.setRegistryName("fluid_cryotheum");
+		GameRegistry.register(this);
+		ItemBlock itemBlock = new ItemBlock(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		GameRegistry.register(itemBlock);
+
+		config();
+
+		return true;
+	}
+
+	@Override
+	public boolean initialize() {
+
+		addInteraction(Blocks.GRASS, Blocks.DIRT);
+		addInteraction(Blocks.WATER.getDefaultState(), Blocks.ICE);
+		addInteraction(Blocks.WATER, Blocks.SNOW);
+		addInteraction(Blocks.FLOWING_WATER.getDefaultState(), Blocks.ICE);
+		addInteraction(Blocks.FLOWING_WATER, Blocks.SNOW);
+		addInteraction(Blocks.LAVA.getDefaultState(), Blocks.OBSIDIAN);
+		addInteraction(Blocks.LAVA, Blocks.STONE);
+		addInteraction(Blocks.FLOWING_WATER.getDefaultState(), Blocks.OBSIDIAN);
+		addInteraction(Blocks.FLOWING_WATER, Blocks.STONE);
+		addInteraction(Blocks.LEAVES, Blocks.AIR);
+		addInteraction(Blocks.LEAVES2, Blocks.AIR);
+		addInteraction(Blocks.TALLGRASS, Blocks.AIR);
+		addInteraction(Blocks.FIRE, Blocks.AIR);
+		addInteraction(TFFluids.blockFluidGlowstone.getDefaultState(), Blocks.GLOWSTONE);
+
+		return true;
 	}
 
 }

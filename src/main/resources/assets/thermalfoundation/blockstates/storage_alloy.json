@@ -1,0 +1,51 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "cube_all",
+		"transform": "forge:default-block"
+	},
+	"variants": {
+		"type": {
+			"steel": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_steel"
+				}
+			},
+			"electrum": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_electrum"
+				}
+			},
+			"invar": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_invar"
+				}
+			},
+			"bronze": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_bronze"
+				}
+			},
+			"constantan": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_constantan"
+				}
+			},
+			"signalum": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_signalum"
+				}
+			},
+			"lumium": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_lumium"
+				}
+			},
+			"enderium": {
+				"textures": {
+					"all": "thermalfoundation:blocks/storage/block_enderium"
+				}
+			}
+		}
+	}
+}

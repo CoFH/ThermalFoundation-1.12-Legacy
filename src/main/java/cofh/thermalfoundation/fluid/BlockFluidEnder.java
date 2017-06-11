@@ -1,27 +1,32 @@
 package cofh.thermalfoundation.fluid;
 
-import cofh.core.fluid.BlockFluidCoFHBase;
+import cofh.core.fluid.BlockFluidCore;
 import cofh.core.util.CoreUtils;
+import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
-import cpw.mods.fml.common.registry.GameRegistry;
-
+import cofh.thermalfoundation.init.TFFluids;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class BlockFluidEnder extends BlockFluidCoFHBase {
+public class BlockFluidEnder extends BlockFluidCore {
 
 	public static final int LEVELS = 4;
-	public static final Material materialFluidEnder = new MaterialLiquid(MapColor.greenColor);
+	public static final Material materialFluidEnder = new MaterialLiquid(MapColor.GREEN);
 
 	private static boolean effect = true;
 
-	public BlockFluidEnder() {
+	public BlockFluidEnder(Fluid fluid) {
 
-		super("thermalfoundation", TFFluids.fluidEnder, materialFluidEnder, "ender");
+		super(fluid, materialFluidEnder, "thermalfoundation", "ender");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(20);
 
@@ -30,39 +35,49 @@ public class BlockFluidEnder extends BlockFluidCoFHBase {
 		setParticleColor(0.05F, 0.2F, 0.2F);
 	}
 
-	@Override
-	public boolean preInit() {
-
-		GameRegistry.registerBlock(this, "FluidEnder");
+	public static void config() {
 
 		String category = "Fluid.Ender";
-		String comment = "Enable this for Fluid Ender to randomly teleport entities on contact.";
-		effect = ThermalFoundation.config.get(category, "Effect", true, comment);
-
-		return true;
+		String comment = "If TRUE, Fluid Ender will randomly teleport entities on contact.";
+		effect = ThermalFoundation.CONFIG.getConfiguration().getBoolean("Effect", category, effect, comment);
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 
-		if (!effect || world.isRemote) {
+		if (!effect || ServerHelper.isClientWorld(world)) {
 			return;
 		}
 		if (world.getTotalWorldTime() % 8 == 0) {
-			int x2 = x - 8 + world.rand.nextInt(17);
-			int y2 = y + world.rand.nextInt(8);
-			int z2 = z - 8 + world.rand.nextInt(17);
+			int x = pos.getX() - 8 + world.rand.nextInt(17);
+			int y = pos.getY() + world.rand.nextInt(8);
+			int z = pos.getZ() - 8 + world.rand.nextInt(17);
 
-			if (!world.getBlock(x2, y2, z2).getMaterial().isSolid()) {
-				CoreUtils.teleportEntityTo(entity, x2, y2, z2);
+			if (!world.getBlockState(new BlockPos(x, y, z)).getMaterial().isSolid()) {
+				CoreUtils.teleportEntityTo(entity, x, y, z);
 			}
 		}
 	}
 
 	@Override
-	public int getLightValue(IBlockAccess world, int x, int y, int z) {
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
 		return TFFluids.fluidEnder.getLuminosity();
+	}
+
+	/* IInitializer */
+	@Override
+	public boolean preInit() {
+
+		this.setRegistryName("fluid_ender");
+		GameRegistry.register(this);
+		ItemBlock itemBlock = new ItemBlock(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		GameRegistry.register(itemBlock);
+
+		config();
+
+		return true;
 	}
 
 }

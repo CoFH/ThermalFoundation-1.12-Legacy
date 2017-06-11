@@ -1,20 +1,19 @@
 package cofh.thermalfoundation.render.model;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-@SideOnly(Side.CLIENT)
+@SideOnly (Side.CLIENT)
 public class ModelElemental extends ModelBase {
 
-	public static ModelElemental instance = new ModelElemental();
+	public static final ModelElemental INSTANCE = new ModelElemental();
 
-	protected final ModelRenderer[] elementalRods = new ModelRenderer[12];
-	protected final ModelRenderer elementalHead;
+	final ModelRenderer[] elementalRods = new ModelRenderer[12];
+	final ModelRenderer elementalHead;
 
 	public ModelElemental() {
 
@@ -27,46 +26,46 @@ public class ModelElemental extends ModelBase {
 	}
 
 	@Override
-	public void render(Entity entity, float par2, float par3, float par4, float par5, float par6, float par7) {
+	public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 
-		setRotationAngles(par2, par3, par4, par5, par6, par7, entity);
-		elementalHead.render(par7);
+		setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
+		elementalHead.render(scale);
 
-		for (int i = 0; i < elementalRods.length; i++) {
-			elementalRods[i].render(par7);
+		for (ModelRenderer elementalRod : elementalRods) {
+			elementalRod.render(scale);
 		}
 	}
 
 	@Override
-	public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity entity) {
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
 
-		float f6 = par3 * (float) Math.PI * -0.1F;
+		float f = ageInTicks * (float) Math.PI * -0.1F;
 		int i;
 
 		for (i = 0; i < 4; i++) {
-			elementalRods[i].rotationPointY = -2.0F + MathHelper.cos((i * 2 + par3) * 0.25F);
-			elementalRods[i].rotationPointX = MathHelper.cos(f6) * 9.0F;
-			elementalRods[i].rotationPointZ = MathHelper.sin(f6) * 9.0F;
-			++f6;
+			elementalRods[i].rotationPointY = -2.0F + MathHelper.cos((i * 2 + ageInTicks) * 0.25F);
+			elementalRods[i].rotationPointX = MathHelper.cos(f) * 9.0F;
+			elementalRods[i].rotationPointZ = MathHelper.sin(f) * 9.0F;
+			++f;
 		}
-		f6 = ((float) Math.PI / 4F) + par3 * (float) Math.PI * 0.03F;
+		f = ((float) Math.PI / 4F) + ageInTicks * (float) Math.PI * 0.03F;
 
 		for (i = 4; i < 8; i++) {
-			elementalRods[i].rotationPointY = 2.0F + MathHelper.cos((i * 2 + par3) * 0.25F);
-			elementalRods[i].rotationPointX = MathHelper.cos(f6) * 7.0F;
-			elementalRods[i].rotationPointZ = MathHelper.sin(f6) * 7.0F;
-			++f6;
+			elementalRods[i].rotationPointY = 2.0F + MathHelper.cos((i * 2 + ageInTicks) * 0.25F);
+			elementalRods[i].rotationPointX = MathHelper.cos(f) * 7.0F;
+			elementalRods[i].rotationPointZ = MathHelper.sin(f) * 7.0F;
+			++f;
 		}
-		f6 = 0.47123894F + par3 * (float) Math.PI * -0.05F;
+		f = 0.47123894F + ageInTicks * (float) Math.PI * -0.05F;
 
 		for (i = 8; i < 12; i++) {
-			elementalRods[i].rotationPointY = 11.0F + MathHelper.cos((i * 1.5F + par3) * 0.5F);
-			elementalRods[i].rotationPointX = MathHelper.cos(f6) * 5.0F;
-			elementalRods[i].rotationPointZ = MathHelper.sin(f6) * 5.0F;
-			++f6;
+			elementalRods[i].rotationPointY = 11.0F + MathHelper.cos((i * 1.5F + ageInTicks) * 0.5F);
+			elementalRods[i].rotationPointX = MathHelper.cos(f) * 5.0F;
+			elementalRods[i].rotationPointZ = MathHelper.sin(f) * 5.0F;
+			++f;
 		}
-		elementalHead.rotateAngleY = par4 / (180F / (float) Math.PI);
-		elementalHead.rotateAngleX = par5 / (180F / (float) Math.PI);
+		elementalHead.rotateAngleY = netHeadYaw / (180F / (float) Math.PI);
+		elementalHead.rotateAngleX = headPitch / (180F / (float) Math.PI);
 	}
 
 }

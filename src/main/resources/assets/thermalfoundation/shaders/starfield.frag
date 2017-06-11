@@ -19,7 +19,7 @@ mat4 rotationMatrix(vec3 axis, float angle)
     float s = sin(angle);
     float c = cos(angle);
     float oc = 1.0 - c;
-    
+
     return mat4(oc * axis.x * axis.x + c,           oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s,  0.0,
                 oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c,           oc * axis.y * axis.z - axis.x * s,  0.0,
                 oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c,           0.0,
@@ -88,10 +88,10 @@ float snoise(vec2 v)
 }
 
 void main() {
-    // background colour
+    // background color
 
     vec4 col = vec4(0.047, 0.035, 0.063, 1) + snoise(gl_FragCoord.xy) * vec4(0.0196, 0.0216, 0.0235, 0);
-    
+
     // get ray from camera to fragment
     vec4 dir = normalize(vec4( -position, 0));
 
@@ -99,11 +99,11 @@ void main() {
 	float sb = sin(pitch);
 	float cb = cos(pitch);
 	dir = normalize(vec4(dir.x, dir.y * cb - dir.z * sb, dir.y * sb + dir.z * cb, 0));
-	
+
 	float sa = sin(-yaw);
 	float ca = cos(-yaw);
 	dir = normalize(vec4(dir.z * sa + dir.x * ca, dir.y, dir.z * ca - dir.x * sa, 0));
-	
+
 	vec4 ray;
 
 	// draw the layers
@@ -137,12 +137,12 @@ void main() {
 		// set the alpha, blending out at the bunched ends
 		float a = tcol.r * (0.05 + (1.0/mult) * 0.65) * (1-smoothstep(0.15, 0.48, abs(v-0.5)));
 
-		// get end-portal-y colours
+		// get end-portal-y colors
 		float r = (mod(rand1, 29.0)/29.0) * 0.5 + 0.1;
     	float g = (mod(rand2, 35.0)/35.0) * 0.5 + 0.4;
     	float b = (mod(rand1, 17.0)/17.0) * 0.5 + 0.5;
 
-		// mix the colours
+		// mix the colors
 		col = col*(1-a) + vec4(r,g,b,1)*a;
 	}
 
@@ -154,6 +154,6 @@ void main() {
     col.rgb = clamp(col.rgb * (1+alpha*4),0,1);
 
     col.a = 1;
-    
+
     gl_FragColor = col;
 }

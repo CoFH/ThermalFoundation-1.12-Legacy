@@ -1,331 +1,145 @@
 #ko_KR
 
-death.attack.basalz=%1$s had their world rocked!
-death.attack.blitz=%1$s was tragically enlightened!
 death.attack.blizz=%1$s가 혹한에 죽었습니다!
-death.attack.cryotheum=%1$s가 얼어죽었습니다!
 death.attack.cryotheum.player=%1$s는 %2$s에게서 탈출하기 위해 얼어죽을 수 밖에 없었습니다!
-death.attack.flux=%1$s가 감전사했습니다!
+death.attack.cryotheum=%1$s가 얼어죽었습니다!
 death.attack.flux.player=%1$s가 %2$s에 의해 감전사당했습니다!
-death.attack.mana=%1$s가 마나 때문에 찢겨져 죽었습니다!
+death.attack.flux=%1$s가 감전사했습니다!
 death.attack.mana.player=%1$s는 %2$s에게서 탈출하기 위해 다른 상태가 될 수 밖에 없었습니다!
-death.attack.petrotheum=%1$s got all shook up!
-death.attack.petrotheum.player=%1$s shattered while trying to escape %2$s!
-death.attack.pyrotheum=%1$s가 파이로시움을 물로 착각했습니다!
+death.attack.mana=%1$s가 마나 때문에 찢겨져 죽었습니다!
 death.attack.pyrotheum.player=%1$s는 %2$s에게서 탈출하기 위해 산 채로 태워질 수 밖에 없었습니다!
+death.attack.pyrotheum=%1$s가 파이로시움을 물로 착각했습니다!
 
-entity.Basalz.name=바살즈
-entity.Blitz.name=블리츠
-entity.Blizz.name=블리즈
-
-fluid.redstone=불안정한 레드스톤
-fluid.glowstone=활력의 발광석
-fluid.ender=공명하는 엔더
-fluid.pyrotheum=불타오르는 파이로시움
-fluid.cryotheum=혹한의 크라이오시움
 fluid.aerotheum=서풍의 에어로티움
-fluid.petrotheum=지각의 페트로티움
-fluid.mana=태초의 마나
-fluid.steam=증기
 fluid.coal=액화 석탄
+fluid.cryotheum=혹한의 크라이오시움
+fluid.ender=공명하는 엔더
+fluid.glowstone=활력의 발광석
+fluid.mana=태초의 마나
+fluid.petrotheum=지각의 페트로티움
+fluid.pyrotheum=불타오르는 파이로시움
+fluid.redstone=불안정한 레드스톤
+fluid.steam=증기
 
 gui.thermalfoundation.lexicon.study=사전 - 지식
 gui.thermalfoundation.lexicon.transmute=사전 - 변환
 
-item.thermalfoundation.bucket.bucketRedstone.name=불안정한 레드스톤 양동이
-item.thermalfoundation.bucket.bucketGlowstone.name=활력의 발광석 양동이
-item.thermalfoundation.bucket.bucketEnder.name=공명하는 엔더 양동이
-item.thermalfoundation.bucket.bucketPyrotheum.name=불타오르는 파이로시움 양동이
-item.thermalfoundation.bucket.bucketCryotheum.name=혹한의 크라이오시움 양동이
-item.thermalfoundation.bucket.bucketAerotheum.name=서풍의 에어로티움 양동이
-item.thermalfoundation.bucket.bucketPetrotheum.name=지각의 페트로티움 양동이
-item.thermalfoundation.bucket.bucketMana.name=태초의 마나 양동이
-item.thermalfoundation.bucket.bucketCoal.name=액화 석탄 양동이
-
-info.thermalfoundation.tome.lexicon.1=아이템을 다른 형태의 같은 물질로 바꿉니다.
-info.thermalfoundation.tome.lexicon.2=공부하기 위해서는 오른쪽 클릭으로 여십시오.
-info.thermalfoundation.tome.lexicon.3=지혜를 얻는 것!
-info.thermalfoundation.tome.lexicon.4=아이템을 바꾸기 위해서 우클릭(열기)
-info.thermalfoundation.tome.lexicon.5=지식을 버리는 것.
-item.thermalfoundation.tome.lexicon.name=포지 렉시콘
-item.thermalfoundation.tome.lexicon.empowered.name=포지 렉시콘 (권한 부여)
-
-info.thermalfoundation.lexicon.clearPreference=설정 취소
-info.thermalfoundation.lexicon.setPreference=설정
-info.thermalfoundation.lexicon.nextEntry=다음 항목
-info.thermalfoundation.lexicon.prevEntry=이전 항목
-info.thermalfoundation.lexicon.singleEntry=단일 항목
-info.thermalfoundation.lexicon.search=검색
-
-item.thermalfoundation.material.dustIron.name=분쇄된 철
-item.thermalfoundation.material.dustGold.name=분쇄된 금
-item.thermalfoundation.material.dustCoal.name=분쇄된 석탄
-item.thermalfoundation.material.dustCharcoal.name=분쇄된 목탄
-item.thermalfoundation.material.dustObsidian.name=분쇄된 흑요석
-
-item.thermalfoundation.material.nuggetIron.name=철 조각
-item.thermalfoundation.material.gearIron.name=철 톱니바퀴
-item.thermalfoundation.material.gearGold.name=금 톱니바퀴
-
-item.thermalfoundation.material.dustSulfur.name=유황
-item.thermalfoundation.material.dustNiter.name=초석
-
 item.thermalfoundation.material.crystalCinnabar.name=진사
 
-item.thermalfoundation.material.dustCopper.name=분쇄된 구리
-item.thermalfoundation.material.dustTin.name=분쇄된 주석
-item.thermalfoundation.material.dustSilver.name=분쇄된 은
-item.thermalfoundation.material.dustLead.name=분쇄된 납
-item.thermalfoundation.material.dustNickel.name=분쇄된 니켈
-item.thermalfoundation.material.dustPlatinum.name=분쇄된 백금
-item.thermalfoundation.material.dustMithril.name=분쇄된 미스릴
-item.thermalfoundation.material.dustElectrum.name=일렉트럼 혼합물
-item.thermalfoundation.material.dustInvar.name=인바 혼합물
-item.thermalfoundation.material.dustBronze.name=청동 혼합물
-item.thermalfoundation.material.dustSignalum.name=시그날룸 혼합물
-item.thermalfoundation.material.dustLumium.name=루미눔 혼합물
-item.thermalfoundation.material.dustEnderium.name=엔더륨 혼합물
-
-item.thermalfoundation.material.ingotCopper.name=구리 주괴
-item.thermalfoundation.material.ingotTin.name=주석 주괴
-item.thermalfoundation.material.ingotSilver.name=은 주괴
-item.thermalfoundation.material.ingotLead.name=납 주괴
-item.thermalfoundation.material.ingotNickel.name=니켈 주괴
-item.thermalfoundation.material.ingotPlatinum.name=백금 주괴
-item.thermalfoundation.material.ingotMithril.name=미스릴 주괴
-item.thermalfoundation.material.ingotElectrum.name=일렉트럼 주괴
-item.thermalfoundation.material.ingotInvar.name=인바 주괴
-item.thermalfoundation.material.ingotBronze.name=청동 주괴
-item.thermalfoundation.material.ingotSignalum.name=시그날룸 주괴
-item.thermalfoundation.material.ingotLumium.name=루미눔 주괴
-item.thermalfoundation.material.ingotEnderium.name=엔더륨 주괴
-
-item.thermalfoundation.material.nuggetCopper.name=구리 조각
-item.thermalfoundation.material.nuggetTin.name=주석 조각
-item.thermalfoundation.material.nuggetSilver.name=은 조각
-item.thermalfoundation.material.nuggetLead.name=납 조각
-item.thermalfoundation.material.nuggetNickel.name=니켈 조각
-item.thermalfoundation.material.nuggetPlatinum.name=백금 조각
-item.thermalfoundation.material.nuggetMithril.name=미스릴 조각
-item.thermalfoundation.material.nuggetElectrum.name=일렉트럼 조각
-item.thermalfoundation.material.nuggetInvar.name=인바 조각
-item.thermalfoundation.material.nuggetBronze.name=청동 조각
-item.thermalfoundation.material.nuggetSignalum.name=시그날룸 조각
-item.thermalfoundation.material.nuggetLumium.name=루미눔 조각
-item.thermalfoundation.material.nuggetEnderium.name=엔더륨 조각
-
-item.thermalfoundation.material.dustPyrotheum.name=파이로세움 가루
-item.thermalfoundation.material.dustCryotheum.name=사이로세움 가루
 item.thermalfoundation.material.dustAerotheum.name=에어로티움 가루
-item.thermalfoundation.material.dustPetrotheum.name=페트로티움 가루
+item.thermalfoundation.material.dustBasalz.name=바살즈 가루
+item.thermalfoundation.material.dustBlitz.name=블리츠 가루
+item.thermalfoundation.material.dustBlizz.name=블리즈 가루
+item.thermalfoundation.material.dustBronze.name=청동 혼합물
+item.thermalfoundation.material.dustCharcoal.name=분쇄된 목탄
+item.thermalfoundation.material.dustCoal.name=분쇄된 석탄
+item.thermalfoundation.material.dustCopper.name=분쇄된 구리
+item.thermalfoundation.material.dustCryotheum.name=사이로세움 가루
+item.thermalfoundation.material.dustElectrum.name=일렉트럼 혼합물
+item.thermalfoundation.material.dustEnderium.name=엔더륨 혼합물
+item.thermalfoundation.material.dustGold.name=분쇄된 금
+item.thermalfoundation.material.dustInvar.name=인바 혼합물
+item.thermalfoundation.material.dustIron.name=분쇄된 철
+item.thermalfoundation.material.dustLead.name=분쇄된 납
+item.thermalfoundation.material.dustLumium.name=루미눔 혼합물
 item.thermalfoundation.material.dustMana.name=마나 가루
+item.thermalfoundation.material.dustMithril.name=분쇄된 미스릴
+item.thermalfoundation.material.dustNickel.name=분쇄된 니켈
+item.thermalfoundation.material.dustNiter.name=초석
+item.thermalfoundation.material.dustObsidian.name=분쇄된 흑요석
+item.thermalfoundation.material.dustPetrotheum.name=페트로티움 가루
+item.thermalfoundation.material.dustPlatinum.name=분쇄된 백금
+item.thermalfoundation.material.dustPyrotheum.name=파이로세움 가루
+item.thermalfoundation.material.dustSignalum.name=시그날룸 혼합물
+item.thermalfoundation.material.dustSilver.name=분쇄된 은
+item.thermalfoundation.material.dustSulfur.name=유황
+item.thermalfoundation.material.dustTin.name=분쇄된 주석
 
+item.thermalfoundation.material.gearBronze.name=청동 톱니바퀴
 item.thermalfoundation.material.gearCopper.name=구리 톱니바퀴
-item.thermalfoundation.material.gearTin.name=주석 톱니바퀴
-item.thermalfoundation.material.gearSilver.name=은 기어
+item.thermalfoundation.material.gearElectrum.name=일렉트럼 톱니바퀴
+item.thermalfoundation.material.gearEnderium.name=엔더륨 톱니바퀴
+item.thermalfoundation.material.gearGold.name=금 톱니바퀴
+item.thermalfoundation.material.gearInvar.name=인바 톱니바퀴
+item.thermalfoundation.material.gearIron.name=철 톱니바퀴
 item.thermalfoundation.material.gearLead.name=납 톱니바퀴
+item.thermalfoundation.material.gearLumium.name=루미눔 톱니바퀴
+item.thermalfoundation.material.gearMithril.name=미스릴된 톱니바퀴
 item.thermalfoundation.material.gearNickel.name=니켈 톱니바퀴
 item.thermalfoundation.material.gearPlatinum.name=백금 톱니바퀴
-item.thermalfoundation.material.gearMithril.name=미스릴된 톱니바퀴
-item.thermalfoundation.material.gearElectrum.name=일렉트럼 톱니바퀴
-item.thermalfoundation.material.gearInvar.name=인바 톱니바퀴
-item.thermalfoundation.material.gearBronze.name=청동 톱니바퀴
 item.thermalfoundation.material.gearSignalum.name=시그날룸 톱니바퀴
-item.thermalfoundation.material.gearLumium.name=루미눔 톱니바퀴
-item.thermalfoundation.material.gearEnderium.name=엔더륨 톱니바퀴
+item.thermalfoundation.material.gearSilver.name=은 기어
+item.thermalfoundation.material.gearTin.name=주석 톱니바퀴
 
-item.thermalfoundation.material.rodBlizz.name=블리즈 막대
-item.thermalfoundation.material.dustBlizz.name=블리즈 가루
-item.thermalfoundation.material.rodBlitz.name=블리츠 막대
-item.thermalfoundation.material.dustBlitz.name=블리츠 가루
+item.thermalfoundation.material.ingotBronze.name=청동 주괴
+item.thermalfoundation.material.ingotCopper.name=구리 주괴
+item.thermalfoundation.material.ingotElectrum.name=일렉트럼 주괴
+item.thermalfoundation.material.ingotEnderium.name=엔더륨 주괴
+item.thermalfoundation.material.ingotInvar.name=인바 주괴
+item.thermalfoundation.material.ingotLead.name=납 주괴
+item.thermalfoundation.material.ingotLumium.name=루미눔 주괴
+item.thermalfoundation.material.ingotMithril.name=미스릴 주괴
+item.thermalfoundation.material.ingotNickel.name=니켈 주괴
+item.thermalfoundation.material.ingotPlatinum.name=백금 주괴
+item.thermalfoundation.material.ingotSignalum.name=시그날룸 주괴
+item.thermalfoundation.material.ingotSilver.name=은 주괴
+item.thermalfoundation.material.ingotTin.name=주석 주괴
+
+item.thermalfoundation.material.nuggetBronze.name=청동 조각
+item.thermalfoundation.material.nuggetCopper.name=구리 조각
+item.thermalfoundation.material.nuggetElectrum.name=일렉트럼 조각
+item.thermalfoundation.material.nuggetEnderium.name=엔더륨 조각
+item.thermalfoundation.material.nuggetInvar.name=인바 조각
+item.thermalfoundation.material.nuggetIron.name=철 조각
+item.thermalfoundation.material.nuggetLead.name=납 조각
+item.thermalfoundation.material.nuggetLumium.name=루미눔 조각
+item.thermalfoundation.material.nuggetMithril.name=미스릴 조각
+item.thermalfoundation.material.nuggetNickel.name=니켈 조각
+item.thermalfoundation.material.nuggetPlatinum.name=백금 조각
+item.thermalfoundation.material.nuggetSignalum.name=시그날룸 조각
+item.thermalfoundation.material.nuggetSilver.name=은 조각
+item.thermalfoundation.material.nuggetTin.name=주석 조각
+
 item.thermalfoundation.material.rodBasalz.name=바살즈 막대
-item.thermalfoundation.material.dustBasalz.name=바살즈 가루
+item.thermalfoundation.material.rodBlitz.name=블리츠 막대
+item.thermalfoundation.material.rodBlizz.name=블리즈 막대
 
-item.thermalfoundation.armor.copperHelmet.name=구리 투구
-item.thermalfoundation.armor.copperPlate.name=구리 갑옷
-item.thermalfoundation.armor.copperLegs.name=구리 레깅스
-item.thermalfoundation.armor.copperBoots.name=구리 부츠
-
-item.thermalfoundation.armor.tinHelmet.name=주석 투구
-item.thermalfoundation.armor.tinPlate.name=주석 갑옷
-item.thermalfoundation.armor.tinLegs.name=주석 레깅스
-item.thermalfoundation.armor.tinBoots.name=주석 부츠
-
-item.thermalfoundation.armor.electrumHelmet.name=일렉트럼 투구
-item.thermalfoundation.armor.electrumPlate.name=일렉트럼 갑옷
-item.thermalfoundation.armor.electrumLegs.name=일렉트럼 레깅스
-item.thermalfoundation.armor.electrumBoots.name=일렉트럼 부츠
-
-item.thermalfoundation.armor.leadHelmet.name=납 투구
-item.thermalfoundation.armor.leadPlate.name=납 갑옷
-item.thermalfoundation.armor.leadLegs.name=납 레깅스
-item.thermalfoundation.armor.leadBoots.name=납 부츠
-
-item.thermalfoundation.armor.silverHelmet.name=은 투구
-item.thermalfoundation.armor.silverPlate.name=은 갑옷
-item.thermalfoundation.armor.silverLegs.name=은 레깅스
-item.thermalfoundation.armor.silverBoots.name=은 부츠
-
-item.thermalfoundation.armor.nickelHelmet.name=니켈 투구
-item.thermalfoundation.armor.nickelPlate.name=니켈 갑옷
-item.thermalfoundation.armor.nickelLegs.name=니켈 레깅스
-item.thermalfoundation.armor.nickelBoots.name=니켈 부츠
-
-item.thermalfoundation.armor.bronzeHelmet.name=청동 투구
-item.thermalfoundation.armor.bronzePlate.name=청동 갑옷
-item.thermalfoundation.armor.bronzeLegs.name=청동 레깅스
-item.thermalfoundation.armor.bronzeBoots.name=청동 부츠
-
-item.thermalfoundation.armor.invarHelmet.name=인바 핼맷
-item.thermalfoundation.armor.invarPlate.name=인바 갑옷
-item.thermalfoundation.armor.invarLegs.name=인바 레깅스
-item.thermalfoundation.armor.invarBoots.name=인바 부츠
-
-item.thermalfoundation.armor.platinumHelmet.name=백금 투구
-item.thermalfoundation.armor.platinumPlate.name=백금 갑옷
-item.thermalfoundation.armor.platinumLegs.name=백금 레깅스
-item.thermalfoundation.armor.platinumBoots.name=백금 부츠
-
-item.thermalfoundation.tool.copperSword.name=구리 검
-item.thermalfoundation.tool.copperShovel.name=구리 삽
-item.thermalfoundation.tool.copperPickaxe.name=구리 곡괭이
-item.thermalfoundation.tool.copperAxe.name=구리 도끼
-item.thermalfoundation.tool.copperHoe.name=구리 괭이
-item.thermalfoundation.tool.copperShears.name=구리 가위
-item.thermalfoundation.tool.copperFishingRod.name=구리 낚싯대
-item.thermalfoundation.tool.copperSickle.name=구리 낫
-item.thermalfoundation.tool.copperBow.name=구리 강화 활
-
-item.thermalfoundation.tool.tinSword.name=주석 검
-item.thermalfoundation.tool.tinShovel.name=주석 삽
-item.thermalfoundation.tool.tinPickaxe.name=주석 곡괭이
-item.thermalfoundation.tool.tinAxe.name=주석 도끼
-item.thermalfoundation.tool.tinHoe.name=주석 괭이
-item.thermalfoundation.tool.tinShears.name=주석 가위
-item.thermalfoundation.tool.tinFishingRod.name=주석 낚싯대
-item.thermalfoundation.tool.tinSickle.name=주석 낫
-item.thermalfoundation.tool.tinBow.name=주석 강화 활
-
-item.thermalfoundation.tool.electrumSword.name=일렉트럼 검
-item.thermalfoundation.tool.electrumShovel.name=일렉트럼 삽
-item.thermalfoundation.tool.electrumPickaxe.name=일렉트럼 곡괭이
-item.thermalfoundation.tool.electrumAxe.name=일렉트럼 도끼
-item.thermalfoundation.tool.electrumHoe.name=일렉트럼 괭이
-item.thermalfoundation.tool.electrumShears.name=일렉트럼 가위
-item.thermalfoundation.tool.electrumFishingRod.name=일렉트럼 낚싯대
-item.thermalfoundation.tool.electrumSickle.name=일렉트럼 낫
-item.thermalfoundation.tool.electrumBow.name=일렉트럼 강화 활
-
-item.thermalfoundation.tool.leadSword.name=납 검
-item.thermalfoundation.tool.leadShovel.name=납 삽
-item.thermalfoundation.tool.leadPickaxe.name=납 곡괭이
-item.thermalfoundation.tool.leadAxe.name=납 도끼
-item.thermalfoundation.tool.leadHoe.name=납 괭이
-item.thermalfoundation.tool.leadShears.name=납 가위
-item.thermalfoundation.tool.leadFishingRod.name=납 낚싯대
-item.thermalfoundation.tool.leadSickle.name=납 낫
-item.thermalfoundation.tool.leadBow.name=납 강화 활
-
-item.thermalfoundation.tool.silverSword.name=은 검
-item.thermalfoundation.tool.silverShovel.name=은 삽
-item.thermalfoundation.tool.silverPickaxe.name=은 곡괭이
-item.thermalfoundation.tool.silverAxe.name=은 도끼
-item.thermalfoundation.tool.silverHoe.name=은 괭이
-item.thermalfoundation.tool.silverShears.name=은 가위
-item.thermalfoundation.tool.silverFishingRod.name=은 낚싯대
-item.thermalfoundation.tool.silverSickle.name=은 낫
-item.thermalfoundation.tool.silverBow.name=은 강화 활
-
-item.thermalfoundation.tool.nickelSword.name=니켈 검
-item.thermalfoundation.tool.nickelShovel.name=니켈 삽
-item.thermalfoundation.tool.nickelPickaxe.name=니켈 곡괭이
-item.thermalfoundation.tool.nickelAxe.name=니켈 도끼
-item.thermalfoundation.tool.nickelHoe.name=니켈 괭이
-item.thermalfoundation.tool.nickelShears.name=니켈 가위
-item.thermalfoundation.tool.nickelFishingRod.name=니켈 낚싯대
-item.thermalfoundation.tool.nickelSickle.name=니켈 낫
-item.thermalfoundation.tool.nickelBow.name=니켈 강화 활
-
-item.thermalfoundation.tool.bronzeSword.name=청동 검
-item.thermalfoundation.tool.bronzeShovel.name=청동 삽
-item.thermalfoundation.tool.bronzePickaxe.name=청동 곡괭이
-item.thermalfoundation.tool.bronzeAxe.name=청동 도끼
-item.thermalfoundation.tool.bronzeHoe.name=청동 괭이
-item.thermalfoundation.tool.bronzeShears.name=청동 가위
-item.thermalfoundation.tool.bronzeFishingRod.name=청동 낚싯대
-item.thermalfoundation.tool.bronzeSickle.name=청동 낫
-item.thermalfoundation.tool.bronzeBow.name=청동 강화 활
-
-item.thermalfoundation.tool.invarSword.name=인바 검
-item.thermalfoundation.tool.invarShovel.name=인바 삽
-item.thermalfoundation.tool.invarPickaxe.name=인바 곡괭이
-item.thermalfoundation.tool.invarAxe.name=인바 도끼
-item.thermalfoundation.tool.invarHoe.name=인바 괭이
-item.thermalfoundation.tool.invarShears.name=인바 가위
-item.thermalfoundation.tool.invarFishingRod.name=인바 낚싯대
-item.thermalfoundation.tool.invarSickle.name=인바 낫
-item.thermalfoundation.tool.invarBow.name=인바 강화 활
-
-item.thermalfoundation.tool.platinumSword.name=백금 검
-item.thermalfoundation.tool.platinumShovel.name=백금 삽
-item.thermalfoundation.tool.platinumPickaxe.name=백금 곡괭이
-item.thermalfoundation.tool.platinumAxe.name=백금 도끼
-item.thermalfoundation.tool.platinumHoe.name=백금 괭이
-item.thermalfoundation.tool.platinumShears.name=백금 가위
-item.thermalfoundation.tool.platinumFishingRod.name=백금 낚싯대
-item.thermalfoundation.tool.platinumSickle.name=백금 낫
-item.thermalfoundation.tool.platinumBow.name=백금 강화 활
+item.thermalfoundation.tome.lexicon.empowered.name=포지 렉시콘 (권한 부여)
+item.thermalfoundation.tome.lexicon.name=포지 렉시콘
 
 itemGroup.thermalfoundation.creativeTab=써멀 파운데이션
-itemGroup.thermalfoundation.creativeTabTools=써멀 파운데이션: 도구
 itemGroup.thermalfoundation.creativeTabArmor=써멀 파운데이션: 갑주
+itemGroup.thermalfoundation.creativeTabTools=써멀 파운데이션: 도구
 
 tab.thermalfoundation.lexicon.study.0=세계의 지식을 찾고 당신의 운명을 바꿉니다.
-tab.thermalfoundation.lexicon.study.1=Empower the Lexicon to force the world to obey your choices.
 tab.thermalfoundation.lexicon.transmute.0=일련의 규칙에 의해 고도의 마법력으로 같은 아이템종류일 경우 변환해줍니다.
-tab.thermalfoundation.lexicon.transmute.1=Quell the Lexicon to relinquish mastery over the world.
 
-tile.thermalfoundation.fluid.redstone.name=불안정한 레드스톤
-tile.thermalfoundation.fluid.glowstone.name=활력의 발광석
-tile.thermalfoundation.fluid.ender.name=공명하는 엔더
-tile.thermalfoundation.fluid.pyrotheum.name=불타오르는 파이로세움
-tile.thermalfoundation.fluid.cryotheum.name=혹한의 크라이오시움
 tile.thermalfoundation.fluid.aerotheum.name=서풍의 에어로티움
-tile.thermalfoundation.fluid.petrootheum.name=지각의 페트로티움
+tile.thermalfoundation.fluid.cryotheum.name=혹한의 크라이오시움
+tile.thermalfoundation.fluid.ender.name=공명하는 엔더
+tile.thermalfoundation.fluid.glowstone.name=활력의 발광석
 tile.thermalfoundation.fluid.mana.name=태초의 마나
-tile.thermalfoundation.fluid.steam.name=증기
-tile.thermalfoundation.fluid.coal.name=액화 석탄
+tile.thermalfoundation.fluid.pyrotheum.name=불타오르는 파이로세움
+tile.thermalfoundation.fluid.redstone.name=불안정한 레드스톤
 
 tile.thermalfoundation.ore.copper.name=구리 광석
-tile.thermalfoundation.ore.tin.name=주석 광석
-tile.thermalfoundation.ore.silver.name=은 광석
 tile.thermalfoundation.ore.lead.name=납 광석
+tile.thermalfoundation.ore.mithril.name=미스릴 광석
 tile.thermalfoundation.ore.nickel.name=니켈 광석
 tile.thermalfoundation.ore.platinum.name=백금 광석
-tile.thermalfoundation.ore.mithril.name=미스릴 광석
+tile.thermalfoundation.ore.silver.name=은 광석
+tile.thermalfoundation.ore.tin.name=주석 광석
 
+tile.thermalfoundation.storage.bronze.name=청동 블럭
 tile.thermalfoundation.storage.copper.name=구리 블럭
-tile.thermalfoundation.storage.tin.name=주석 블럭
-tile.thermalfoundation.storage.silver.name=은 블럭
+tile.thermalfoundation.storage.electrum.name=일렉트럼 블럭
+tile.thermalfoundation.storage.enderium.name=엔더륨 블럭
+tile.thermalfoundation.storage.invar.name=인바 블럭
 tile.thermalfoundation.storage.lead.name=납 블럭
+tile.thermalfoundation.storage.lumium.name=루미눔 블럭
+tile.thermalfoundation.storage.mithril.name=미스릴 블럭
 tile.thermalfoundation.storage.nickel.name=니켈 블럭
 tile.thermalfoundation.storage.platinum.name=백금 블럭
-tile.thermalfoundation.storage.mithril.name=미스릴 블럭
-tile.thermalfoundation.storage.electrum.name=일렉트럼 블럭
-tile.thermalfoundation.storage.invar.name=인바 블럭
-tile.thermalfoundation.storage.bronze.name=청동 블럭
 tile.thermalfoundation.storage.signalum.name=시그날룸 블럭
-tile.thermalfoundation.storage.lumium.name=루미눔 블럭
-tile.thermalfoundation.storage.enderium.name=엔더륨 블럭
-
-#Tinker's Construct Compatibility
-material.thermalfoundation.invar=Invar
-material.thermalfoundation.nickel=Ferrous
-material.thermalfoundation.lead=Lead
-material.thermalfoundation.lead.ability=Heavy
-material.thermalfoundation.silver=Silver
-material.thermalfoundation.silver.ability=Shiny
-material.thermalfoundation.platinum=Shiny
-material.thermalfoundation.platinum.ability=Dense
-material.thermalfoundation.electrum=Electrum
-material.thermalfoundation.electrum.ability=Fancy
+tile.thermalfoundation.storage.silver.name=은 블럭
+tile.thermalfoundation.storage.tin.name=주석 블럭

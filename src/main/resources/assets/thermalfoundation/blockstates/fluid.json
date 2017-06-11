@@ -1,0 +1,71 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "forge:fluid"
+	},
+	"variants": {
+		"redstone": [
+			{
+				"custom": {
+					"fluid": "redstone"
+				}
+			}
+		],
+		"glowstone": [
+			{
+				"custom": {
+					"fluid": "glowstone"
+				}
+			}
+		],
+		"ender": [
+			{
+				"custom": {
+					"fluid": "ender"
+				}
+			}
+		],
+		"pyrotheum": [
+			{
+				"custom": {
+					"fluid": "pyrotheum"
+				}
+			}
+		],
+		"cryotheum": [
+			{
+				"custom": {
+					"fluid": "cryotheum"
+				}
+			}
+		],
+		"aerotheum": [
+			{
+				"custom": {
+					"fluid": "aerotheum"
+				}
+			}
+		],
+		"petrotheum": [
+			{
+				"custom": {
+					"fluid": "petrotheum"
+				}
+			}
+		],
+		"mana": [
+			{
+				"custom": {
+					"fluid": "mana"
+				}
+			}
+		],
+		"crude_oil": [
+			{
+				"custom": {
+					"fluid": "crude_oil"
+				}
+			}
+		]
+	}
+}

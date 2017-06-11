@@ -1,10 +1,6 @@
 package cofh.thermalfoundation.util;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.eventhandler.Event;
-import cpw.mods.fml.common.eventhandler.EventPriority;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-
+import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -13,6 +9,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.stats.AchievementList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.eventhandler.Event;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EventHandlerLexicon {
 
@@ -23,42 +24,53 @@ public class EventHandlerLexicon {
 		MinecraftForge.EVENT_BUS.register(instance);
 	}
 
-	@SubscribeEvent(priority = EventPriority.HIGHEST)
+	@SubscribeEvent (priority = EventPriority.HIGHEST)
 	public void handleEntityItemPickupEvent(EntityItemPickupEvent event) {
 
-		ItemStack stack = event.item.getEntityItem();
+		ItemStack stack = event.getItem().getEntityItem();
 		if (stack == null || !LexiconManager.validOre(stack)) {
 			return;
 		}
-		NBTTagCompound tag = event.entityPlayer.getEntityData(); // Cannot be null
-		if (event.entityPlayer.worldObj.getTotalWorldTime() - tag.getLong("cofh.LexiconUpdate") > 20) {
+		NBTTagCompound tag = event.getEntityPlayer().getEntityData(); // Cannot be null
+		if (event.getEntityPlayer().worldObj.getTotalWorldTime() - tag.getLong(TFProps.LEXICON_TIMER) > 20) {
 			return;
 		}
 		event.setResult(Event.Result.DENY);
-		ItemStack lexiconStack = LexiconManager.getPreferredStack(event.entityPlayer, stack);
+		ItemStack lexiconStack = LexiconManager.getPreferredStack(event.getEntityPlayer(), stack);
 
-		if (!event.entityPlayer.inventory.addItemStackToInventory(lexiconStack)) {
+		if (!event.getEntityPlayer().inventory.addItemStackToInventory(lexiconStack)) {
 			stack.stackSize = lexiconStack.stackSize;
-			event.item.setEntityItemStack(stack);
+			event.getItem().setEntityItemStack(stack);
 			return;
 		}
 		stack.stackSize = 0;
 
-		if (stack.getItem() == Item.getItemFromBlock(Blocks.log)) {
-			event.entityPlayer.triggerAchievement(AchievementList.mineWood);
-		} else if (stack.getItem() == Item.getItemFromBlock(Blocks.log2)) {
-			event.entityPlayer.triggerAchievement(AchievementList.mineWood);
-		} else if (stack.getItem() == Items.leather) {
-			event.entityPlayer.triggerAchievement(AchievementList.killCow);
-		} else if (stack.getItem() == Items.diamond) {
-			event.entityPlayer.triggerAchievement(AchievementList.diamonds);
-		} else if (stack.getItem() == Items.blaze_rod) {
-			event.entityPlayer.triggerAchievement(AchievementList.blazeRod);
+		if (stack.getItem() == Item.getItemFromBlock(Blocks.LOG)) {
+			event.getEntityPlayer().addStat(AchievementList.MINE_WOOD);
+		} else if (stack.getItem() == Item.getItemFromBlock(Blocks.LOG2)) {
+			event.getEntityPlayer().addStat(AchievementList.MINE_WOOD);
+		} else if (stack.getItem() == Items.LEATHER) {
+			event.getEntityPlayer().addStat(AchievementList.KILL_COW);
+		} else if (stack.getItem() == Items.DIAMOND) {
+			event.getEntityPlayer().addStat(AchievementList.DIAMONDS);
+		} else if (stack.getItem() == Items.BLAZE_ROD) {
+			event.getEntityPlayer().addStat(AchievementList.BLAZE_ROD);
 		}
-		FMLCommonHandler.instance().firePlayerItemPickupEvent(event.entityPlayer, event.item);
+		FMLCommonHandler.instance().firePlayerItemPickupEvent(event.getEntityPlayer(), event.getItem());
 
 		if (stack.stackSize <= 0) {
-			event.item.setDead();
+			event.getItem().setDead();
+		}
+	}
+
+	@SubscribeEvent (priority = EventPriority.HIGHEST)
+	public void handlePlayerCloneEvent(PlayerEvent.Clone event) {
+
+		NBTTagCompound newTag = event.getEntityPlayer().getEntityData();
+		NBTTagCompound oldTag = event.getOriginal().getEntityData();
+
+		if (oldTag.hasKey(TFProps.LEXICON_DATA)) {
+			newTag.setTag(TFProps.LEXICON_DATA, oldTag.getCompoundTag(TFProps.LEXICON_DATA));
 		}
 	}
 
