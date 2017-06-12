@@ -99,7 +99,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 	private BlockFluidCore getFluidBlock(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).fluid;
+		return fluidBlocks[state.getValue(VARIANT).getMetadata()];
 	}
 
 	@Override
@@ -130,9 +130,9 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		int densityDir = fluid.getDensityDir();
 
 		if (density < 0) {
-			py = pos.getY() + 2.10D;
+			py = pos.getY() + 1.10D;
 		}
-		if (rand.nextInt(20) == 0 && world.isSideSolid(pos.add(0, densityDir, 0), densityDir == -1 ? EnumFacing.UP : EnumFacing.DOWN) && !world.getBlockState(pos.add(0, 2 * densityDir, 0)).getMaterial().blocksMovement()) {
+		if (rand.nextInt(20) == 0 && !world.isSideSolid(pos.add(0, densityDir, 0), densityDir == -1 ? EnumFacing.UP : EnumFacing.DOWN) && !world.getBlockState(pos.add(0, densityDir, 0)).getMaterial().blocksMovement()) {
 			Particle fx = new EntityDropParticleFX(world, px, py, pz, fluid.getParticleRed(), fluid.getParticleGreen(), fluid.getParticleBlue(), densityDir);
 			FMLClientHandler.instance().getClient().effectRenderer.addEffect(fx);
 		}
@@ -177,6 +177,11 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public boolean initialize() {
 
+		fluidBlocks[Type.CRUDE_OIL.getMetadata()] = TFFluids.blockFluidCrudeOil;
+		fluidBlocks[Type.REDSTONE.getMetadata()] = TFFluids.blockFluidRedstone;
+		fluidBlocks[Type.GLOWSTONE.getMetadata()] = TFFluids.blockFluidGlowstone;
+		fluidBlocks[Type.ENDER.getMetadata()] = TFFluids.blockFluidEnder;
+
 		return true;
 	}
 
@@ -185,6 +190,8 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 		return true;
 	}
+
+	BlockFluidCore fluidBlocks[] = new BlockFluidCore[Type.values().length];
 
 	/* TYPE */
 	public enum Type implements IStringSerializable {
@@ -199,7 +206,6 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		private static final BlockOreFluid.Type[] METADATA_LOOKUP = new BlockOreFluid.Type[values().length];
 		private final int metadata;
 		private final String name;
-		private final BlockFluidCore fluid;
 		private final int light;
 		private final EnumRarity rarity;
 
@@ -207,7 +213,6 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 			this.metadata = metadata;
 			this.name = name;
-			this.fluid = fluid;
 			this.light = light;
 			this.rarity = rarity;
 		}
@@ -231,11 +236,6 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		public String getName() {
 
 			return this.name;
-		}
-
-		public BlockFluidCore getFluidBlock() {
-
-			return this.fluid;
 		}
 
 		public int getLight() {
