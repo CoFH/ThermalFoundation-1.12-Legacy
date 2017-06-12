@@ -74,7 +74,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, BlockStorage.Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
 	}
 
 	@Override
@@ -167,6 +167,8 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		registerWithHandlers("blockPlatinum", blockPlatinum);
 		registerWithHandlers("blockIridium", blockIridium);
 		registerWithHandlers("blockMithril", blockMithril);
+
+		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}

@@ -1,7 +1,6 @@
 package cofh.thermalfoundation.init;
 
 import cofh.core.util.core.IInitializer;
-import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.block.*;
 
 import java.util.ArrayList;
@@ -15,6 +14,7 @@ public class TFBlocks {
 	public static void preInit() {
 
 		blockOre = new BlockOre();
+		blockOreFluid = new BlockOreFluid();
 		blockStorage = new BlockStorage();
 		blockStorageAlloy = new BlockStorageAlloy();
 		blockGlass = new BlockGlass();
@@ -22,18 +22,12 @@ public class TFBlocks {
 		blockRockwool = new BlockRockwool();
 
 		initList.add(blockOre);
+		initList.add(blockOreFluid);
 		initList.add(blockStorage);
 		initList.add(blockStorageAlloy);
 		initList.add(blockGlass);
 		initList.add(blockGlassAlloy);
 		initList.add(blockRockwool);
-
-		ThermalFoundation.proxy.addIModelRegister(blockOre);
-		ThermalFoundation.proxy.addIModelRegister(blockStorage);
-		ThermalFoundation.proxy.addIModelRegister(blockStorageAlloy);
-		ThermalFoundation.proxy.addIModelRegister(blockGlass);
-		ThermalFoundation.proxy.addIModelRegister(blockGlassAlloy);
-		ThermalFoundation.proxy.addIModelRegister(blockRockwool);
 
 		for (IInitializer init : initList) {
 			init.preInit();
@@ -59,6 +53,7 @@ public class TFBlocks {
 
 	/* REFERENCES */
 	public static BlockOre blockOre;
+	public static BlockOreFluid blockOreFluid;
 	public static BlockStorage blockStorage;
 	public static BlockStorageAlloy blockStorageAlloy;
 	public static BlockGlass blockGlass;

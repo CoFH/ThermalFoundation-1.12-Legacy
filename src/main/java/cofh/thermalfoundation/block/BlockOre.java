@@ -73,7 +73,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, BlockOre.Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
 	}
 
 	@Override
@@ -134,6 +134,8 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		registerWithHandlers("orePlatinum", orePlatinum);
 		registerWithHandlers("oreIridium", oreIridium);
 		registerWithHandlers("oreMithril", oreMithril);
+
+		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}

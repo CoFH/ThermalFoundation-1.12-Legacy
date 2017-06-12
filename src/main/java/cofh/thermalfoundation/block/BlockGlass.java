@@ -232,6 +232,8 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 
 		OreDictionary.registerOre("blockGlassHardened", new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE));
 
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		return true;
 	}
 

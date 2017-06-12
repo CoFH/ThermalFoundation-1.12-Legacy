@@ -120,6 +120,8 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 
 		OreDictionary.registerOre("blockRockwool", new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE));
 
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		return true;
 	}
 

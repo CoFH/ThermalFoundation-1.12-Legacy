@@ -158,25 +158,25 @@ public class TFEquipment {
 			create();
 
 			/* HELMET */
-			itemHelmet.setArmorTextures(TEXTURE).setUnlocalizedName(ARMOR + "Helmet").setCreativeTab(ThermalFoundation.tabArmor);
+			itemHelmet.setArmorTextures(TEXTURE).setRepairIngot(ingot).setUnlocalizedName(ARMOR + "Helmet").setCreativeTab(ThermalFoundation.tabArmor);
 			itemHelmet.setShowInCreative(enable[0]);
 			itemHelmet.setRegistryName("armor.helmet_" + name);
 			GameRegistry.register(itemHelmet);
 
 			/* PLATE */
-			itemChestplate.setArmorTextures(TEXTURE).setUnlocalizedName(ARMOR + "Chestplate").setCreativeTab(ThermalFoundation.tabArmor);
+			itemChestplate.setArmorTextures(TEXTURE).setRepairIngot(ingot).setUnlocalizedName(ARMOR + "Chestplate").setCreativeTab(ThermalFoundation.tabArmor);
 			itemChestplate.setShowInCreative(enable[1]);
 			itemChestplate.setRegistryName("armor.plate_" + name);
 			GameRegistry.register(itemChestplate);
 
 			/* LEGS */
-			itemLegs.setArmorTextures(TEXTURE).setUnlocalizedName(ARMOR + "Legs").setCreativeTab(ThermalFoundation.tabArmor);
+			itemLegs.setArmorTextures(TEXTURE).setRepairIngot(ingot).setUnlocalizedName(ARMOR + "Legs").setCreativeTab(ThermalFoundation.tabArmor);
 			itemLegs.setShowInCreative(enable[2]);
 			itemLegs.setRegistryName("armor.legs_" + name);
 			GameRegistry.register(itemLegs);
 
 			/* BOOTS */
-			itemBoots.setArmorTextures(TEXTURE).setUnlocalizedName(ARMOR + "Boots").setCreativeTab(ThermalFoundation.tabArmor);
+			itemBoots.setArmorTextures(TEXTURE).setRepairIngot(ingot).setUnlocalizedName(ARMOR + "Boots").setCreativeTab(ThermalFoundation.tabArmor);
 			itemBoots.setShowInCreative(enable[3]);
 			itemBoots.setRegistryName("armor.boots_" + name);
 			GameRegistry.register(itemBoots);

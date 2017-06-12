@@ -243,6 +243,8 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 
 		OreDictionary.registerOre("blockGlassHardened", new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE));
 
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		return true;
 	}
 

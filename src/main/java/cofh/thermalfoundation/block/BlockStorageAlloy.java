@@ -71,7 +71,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, BlockStorageAlloy.Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
 	}
 
 	@Override
@@ -174,6 +174,8 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		registerWithHandlers("blockSignalum", blockSignalum);
 		registerWithHandlers("blockLumium", blockLumium);
 		registerWithHandlers("blockEnderium", blockEnderium);
+
+		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}

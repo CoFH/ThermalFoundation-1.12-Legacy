@@ -462,6 +462,11 @@ tile.thermalfoundation.ore.platinum.name=Platinum Ore
 tile.thermalfoundation.ore.silver.name=Silver Ore
 tile.thermalfoundation.ore.tin.name=Tin Ore
 
+tile.thermalfoundation.ore.crude_oil=Fluid Crude Oil
+tile.thermalfoundation.ore.ender=Fluid Ender
+tile.thermalfoundation.ore.glowstone=Fluid Glowstone
+tile.thermalfoundation.ore.redstone=Fluid Redstone
+
 tile.thermalfoundation.rockwool.black.name=Black Rockwool
 tile.thermalfoundation.rockwool.blue.name=Blue Rockwool
 tile.thermalfoundation.rockwool.brown.name=Brown Rockwool
