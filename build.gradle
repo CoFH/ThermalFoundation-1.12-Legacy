@@ -105,8 +105,16 @@ artifacts {
 uploadArchives {
 	repositories {
 		mavenDeployer {
-			if (project.hasProperty("local_maven")) {
-				repository(url: "file://${local_maven}")
+			if (project.hasProperty("local_maven") || project.hasProperty("maven_pass")) {
+				if (project.hasProperty("maven_pass")) {
+					println "Uploading to remote maven."
+					repository(url: "http://maven_upload.covers1624.net/") {
+						authentication(userName: "cofh", password: project.getProperty("maven_pass"))
+					}
+				} else {
+					println "Uploading to local maven."
+					repository(url: "file://${local_maven}")
+				}
 				pom {
 					groupId = project.group
 					// Force the maven upload to use the <mcversion>-<version> syntax preferred at files
@@ -115,17 +123,33 @@ uploadArchives {
 						name project.archivesBaseName
 						packaging 'jar'
 						description 'ThermalFoundation'
-						url 'https://github.com/TheCBProject/ThermalFoundation'
+						url 'https://github.com/CoFH/ThermalFoundation'
 
 						scm {
-							url 'https://github.com/TheCBProject/ThermalFoundation'
-							connection 'scm:git:git://github.com/TheCBProject/ThermalFoundation.git'
-							developerConnection 'scm:git:git@github.com:TheCBProject/ThermalFoundation.git'
+							url 'https://github.com/CoFH/ThermalFoundation'
+							connection 'scm:git:git://github.com/CoFH/ThermalFoundation.git'
+							developerConnection 'scm:git:git@github.com:CoFH/ThermalFoundation.git'
 						}
 
 						issueManagement {
 							system 'github'
 							url 'https://github.com/TheCBProject/ThermalFoundation/issues'
+						}
+
+						licenses {
+							license {
+								name "CoFH Don't Be a Jerk License"
+								url 'https://github.com/CoFH/ThermalFoundation/blob/master/README.md'
+								distribution 'repo'
+							}
+						}
+
+						developers {
+							developer {
+								id 'TeamCoFH'
+								name 'TeamCoFH'
+								roles { role 'developer' }
+							}
 						}
 					}
 				}
