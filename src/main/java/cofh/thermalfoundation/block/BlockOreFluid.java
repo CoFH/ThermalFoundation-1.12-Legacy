@@ -53,7 +53,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		setHardness(3.0F);
 		setResistance(5.0F);
 		setSoundType(SoundType.STONE);
-		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.CRUDE_OIL));
+		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.CRUDE_OIL_SAND));
 
 		setHarvestLevel("pickaxe", 1);
 	}
@@ -143,13 +143,13 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face) {
 
-		return getMetaFromState(world.getBlockState(pos)) == Type.CRUDE_OIL.getMetadata();
+		return getMetaFromState(world.getBlockState(pos)) <= Type.CRUDE_OIL_GRAVEL.getMetadata();
 	}
 
 	@Override
 	public boolean isFireSource(World world, BlockPos pos, EnumFacing face) {
 
-		return getMetaFromState(world.getBlockState(pos)) == Type.CRUDE_OIL.getMetadata();
+		return getMetaFromState(world.getBlockState(pos)) <= Type.CRUDE_OIL_GRAVEL.getMetadata();
 	}
 
 	@Override
@@ -163,7 +163,9 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		Random rand = world instanceof World ? ((World) world).rand : new Random();
 
 		switch (Type.values()[metadata]) {
-			case CRUDE_OIL:
+			case CRUDE_OIL_SAND:
+				return MathHelper.getRandomIntegerInRange(rand, 0, 2);
+			case CRUDE_OIL_GRAVEL:
 				return MathHelper.getRandomIntegerInRange(rand, 0, 2);
 			case REDSTONE:
 				return MathHelper.getRandomIntegerInRange(rand, 1, 5);
@@ -179,13 +181,13 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
 
-		return getMetaFromState(world.getBlockState(pos)) == Type.CRUDE_OIL.getMetadata() ? 15 : 0;
+		return getMetaFromState(world.getBlockState(pos)) <= Type.CRUDE_OIL_GRAVEL.getMetadata() ? 15 : 0;
 	}
 
 	@Override
 	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
 
-		return getMetaFromState(world.getBlockState(pos)) == Type.CRUDE_OIL.getMetadata() ? 1 : 0;
+		return getMetaFromState(world.getBlockState(pos)) <= Type.CRUDE_OIL_GRAVEL.getMetadata() ? 1 : 0;
 	}
 
 	@Override
@@ -254,12 +256,14 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		itemBlock.setRegistryName(this.getRegistryName());
 		GameRegistry.register(itemBlock);
 
-		oreFluidCrudeOil = new ItemStack(this, 1, Type.CRUDE_OIL.getMetadata());
+		oreFluidCrudeOilSand = new ItemStack(this, 1, Type.CRUDE_OIL_SAND.getMetadata());
+		oreFluidCrudeOilGravel = new ItemStack(this, 1, Type.CRUDE_OIL_GRAVEL.getMetadata());
 		oreFluidRedstone = new ItemStack(this, 1, Type.REDSTONE.getMetadata());
 		oreFluidGlowstone = new ItemStack(this, 1, Type.GLOWSTONE.getMetadata());
 		oreFluidEnder = new ItemStack(this, 1, Type.ENDER.getMetadata());
 
-		registerWithHandlers("oreFluidCrudeOil", oreFluidCrudeOil);
+		registerWithHandlers("oreFluidCrudeOilSand", oreFluidCrudeOilSand);
+		registerWithHandlers("oreFluidCrudeOilShale", oreFluidCrudeOilGravel);
 		registerWithHandlers("oreFluidRedstone", oreFluidRedstone);
 		registerWithHandlers("oreFluidGlowstone", oreFluidGlowstone);
 		registerWithHandlers("oreFluidEnder", oreFluidEnder);
@@ -272,12 +276,14 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public boolean initialize() {
 
-		fluidBlocks[Type.CRUDE_OIL.getMetadata()] = TFFluids.blockFluidCrudeOil;
+		fluidBlocks[Type.CRUDE_OIL_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;
+		fluidBlocks[Type.CRUDE_OIL_GRAVEL.getMetadata()] = TFFluids.blockFluidCrudeOil;
 		fluidBlocks[Type.REDSTONE.getMetadata()] = TFFluids.blockFluidRedstone;
 		fluidBlocks[Type.GLOWSTONE.getMetadata()] = TFFluids.blockFluidGlowstone;
 		fluidBlocks[Type.ENDER.getMetadata()] = TFFluids.blockFluidEnder;
 
-		drops[Type.CRUDE_OIL.getMetadata()] = ItemMaterial.crystalCrudeOil;
+		drops[Type.CRUDE_OIL_SAND.getMetadata()] = ItemMaterial.crystalCrudeOil;
+		drops[Type.CRUDE_OIL_GRAVEL.getMetadata()] = ItemMaterial.crystalCrudeOil;
 		drops[Type.REDSTONE.getMetadata()] = ItemMaterial.crystalRedstone;
 		drops[Type.GLOWSTONE.getMetadata()] = ItemMaterial.crystalGlowstone;
 		drops[Type.ENDER.getMetadata()] = ItemMaterial.crystalEnder;
@@ -295,10 +301,11 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	public enum Type implements IStringSerializable {
 
 		// @formatter:off
-		CRUDE_OIL(0, "crude_oil", TFFluids.blockFluidCrudeOil),
-		REDSTONE(1, "redstone", TFFluids.blockFluidRedstone, 7, EnumRarity.UNCOMMON),
-		GLOWSTONE(2, "glowstone", TFFluids.blockFluidGlowstone, 15, EnumRarity.UNCOMMON),
-		ENDER(3, "ender", TFFluids.blockFluidEnder, 3, EnumRarity.RARE);
+		CRUDE_OIL_SAND(0, "crude_oil_sand", TFFluids.blockFluidCrudeOil),
+		CRUDE_OIL_GRAVEL(1, "crude_oil_gravel", TFFluids.blockFluidCrudeOil),
+		REDSTONE(2, "redstone", TFFluids.blockFluidRedstone, 7, EnumRarity.UNCOMMON),
+		GLOWSTONE(3, "glowstone", TFFluids.blockFluidGlowstone, 15, EnumRarity.UNCOMMON),
+		ENDER(4, "ender", TFFluids.blockFluidEnder, 3, EnumRarity.RARE);
 		// @formatter: on
 
 		private static final BlockOreFluid.Type[] METADATA_LOOKUP = new BlockOreFluid.Type[values().length];
@@ -365,7 +372,8 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	private ItemStack drops[] = new ItemStack[Type.values().length];
 
 	/* REFERENCES */
-	public static ItemStack oreFluidCrudeOil;
+	public static ItemStack oreFluidCrudeOilSand;
+	public static ItemStack oreFluidCrudeOilGravel;
 	public static ItemStack oreFluidRedstone;
 	public static ItemStack oreFluidGlowstone;
 	public static ItemStack oreFluidEnder;

@@ -6,9 +6,14 @@
 	},
 	"variants": {
 		"type": {
-			"crude_oil": {
+			"crude_oil_sand": {
 				"textures": {
-					"all": "thermalfoundation:blocks/ore/ore_fluid_crude_oil"
+					"all": "thermalfoundation:blocks/ore/ore_fluid_crude_oil_sand"
+				}
+			},
+			"crude_oil_gravel": {
+				"textures": {
+					"all": "thermalfoundation:blocks/ore/ore_fluid_crude_oil_gravel"
 				}
 			},
 			"redstone": {

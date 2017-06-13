@@ -458,7 +458,8 @@ tile.thermalfoundation.glass.tin.name=Hardened Tin Glass
 
 tile.thermalfoundation.ore.aluminum.name=Aluminum Ore
 tile.thermalfoundation.ore.copper.name=Copper Ore
-tile.thermalfoundation.ore.crude_oil.name=Oil Sands
+tile.thermalfoundation.ore.crude_oil_gravel.name=Oil Shale
+tile.thermalfoundation.ore.crude_oil_sand.name=Oil Sand
 tile.thermalfoundation.ore.ender.name=Resonant End Stone
 tile.thermalfoundation.ore.glowstone.name=Energized Netherrack
 tile.thermalfoundation.ore.lead.name=Lead Ore
