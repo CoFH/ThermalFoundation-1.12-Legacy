@@ -96,7 +96,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	@Override
 	public boolean canProvidePower(IBlockState state) {
 
-		return true;
+		return getMetaFromState(state) == Type.SIGNALUM.getMetadata();
 	}
 
 	@Override

@@ -5,8 +5,10 @@ import cofh.core.fluid.BlockFluidCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.render.particle.EntityDropParticleFX;
 import cofh.core.util.core.IInitializer;
+import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
+import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -22,6 +24,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
@@ -52,9 +55,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		setSoundType(SoundType.STONE);
 		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.CRUDE_OIL));
 
-		setHarvestLevel("pickaxe", 2);
-		setHarvestLevel("pickaxe", 1, getStateFromMeta(Type.CRUDE_OIL.getMetadata()));
-		setHarvestLevel("pickaxe", 3, getStateFromMeta(Type.ENDER.getMetadata()));
+		setHarvestLevel("pickaxe", 1);
 	}
 
 	@Override
@@ -97,21 +98,115 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
 	}
 
-	private BlockFluidCore getFluidBlock(IBlockState state, IBlockAccess world, BlockPos pos) {
+	/* BLOCK METHODS */
+	@Override
+	public void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
 
-		return fluidBlocks[state.getValue(VARIANT).getMetadata()];
+		BlockPos north = pos.add(0, 0, -1);
+		BlockPos south = pos.add(0, 0, 1);
+		BlockPos west = pos.add(-1, 0, 0);
+		BlockPos east = pos.add(1, 0, 0);
+
+		if (world.isAirBlock(north)) {
+			world.setBlockState(north, fluidBlocks[state.getValue(VARIANT).getMetadata()].getDefaultState().withProperty(BlockFluidCore.LEVEL, 1), 3);
+		}
+		if (world.isAirBlock(south)) {
+			world.setBlockState(south, fluidBlocks[state.getValue(VARIANT).getMetadata()].getDefaultState().withProperty(BlockFluidCore.LEVEL, 1), 3);
+		}
+		if (world.isAirBlock(west)) {
+			world.setBlockState(west, fluidBlocks[state.getValue(VARIANT).getMetadata()].getDefaultState().withProperty(BlockFluidCore.LEVEL, 1), 3);
+		}
+		if (world.isAirBlock(east)) {
+			world.setBlockState(east, fluidBlocks[state.getValue(VARIANT).getMetadata()].getDefaultState().withProperty(BlockFluidCore.LEVEL, 1), 3);
+		}
 	}
 
 	@Override
-	public int quantityDropped(Random rand) {
+	public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest)
+	{
+		this.onBlockHarvested(world, pos, state, player);
+		return world.setBlockState(pos, fluidBlocks[state.getValue(VARIANT).getMetadata()].getDefaultState().withProperty(BlockFluidCore.LEVEL, 1), world.isRemote ? 11 : 3);
+	}
 
-		return 0;
+	@Override
+	public boolean canProvidePower(IBlockState state) {
+
+		return getMetaFromState(state) == Type.REDSTONE.getMetadata();
 	}
 
 	@Override
 	public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
 
 		return true;
+	}
+
+	@Override
+	public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face) {
+
+		return getMetaFromState(world.getBlockState(pos)) == Type.CRUDE_OIL.getMetadata();
+	}
+
+	@Override
+	public boolean isFireSource(World world, BlockPos pos, EnumFacing face) {
+
+		return getMetaFromState(world.getBlockState(pos)) == Type.CRUDE_OIL.getMetadata();
+	}
+
+	@Override
+	public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
+
+		int metadata = getMetaFromState(state);
+
+		if (metadata >= Type.values().length) {
+			return 0;
+		}
+		Random rand = world instanceof World ? ((World) world).rand : new Random();
+
+		switch (Type.values()[metadata]) {
+			case CRUDE_OIL:
+				return MathHelper.getRandomIntegerInRange(rand, 0, 2);
+			case REDSTONE:
+				return MathHelper.getRandomIntegerInRange(rand, 1, 5);
+			case GLOWSTONE:
+				return MathHelper.getRandomIntegerInRange(rand, 2, 5);
+			case ENDER:
+				return MathHelper.getRandomIntegerInRange(rand, 3, 7);
+			default:
+				return 0;
+		}
+	}
+
+	@Override
+	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+
+		return getMetaFromState(world.getBlockState(pos)) == Type.CRUDE_OIL.getMetadata() ? 15 : 0;
+	}
+
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+
+		return getMetaFromState(world.getBlockState(pos)) == Type.CRUDE_OIL.getMetadata() ? 1 : 0;
+	}
+
+	@Override
+	public int getWeakPower(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
+
+		return getMetaFromState(state) == Type.REDSTONE.getMetadata() ? 7 : 0;
+	}
+
+	@Override
+	public int quantityDropped(IBlockState state, int fortune, Random rand) {
+
+		return 1 + rand.nextInt(fortune + 1);
+	}
+
+	@Override
+	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+
+		List<ItemStack> ret = new java.util.ArrayList<>();
+		ret.add(ItemHelper.cloneStack(drops[damageDropped(state)], quantityDropped(state, fortune, world instanceof World ? ((World) world).rand : RANDOM)));
+
+		return ret;
 	}
 
 	@Override
@@ -124,7 +219,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		double py = pos.getY() - 0.05D;
 		double pz = pos.getZ() + rand.nextFloat();
 
-		BlockFluidCore fluid = getFluidBlock(state, world, pos);
+		BlockFluidCore fluid = fluidBlocks[state.getValue(VARIANT).getMetadata()];
 
 		int density = fluid.getDensity();
 		int densityDir = fluid.getDensityDir();
@@ -182,6 +277,11 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		fluidBlocks[Type.GLOWSTONE.getMetadata()] = TFFluids.blockFluidGlowstone;
 		fluidBlocks[Type.ENDER.getMetadata()] = TFFluids.blockFluidEnder;
 
+		drops[Type.CRUDE_OIL.getMetadata()] = ItemMaterial.crystalCrudeOil;
+		drops[Type.REDSTONE.getMetadata()] = ItemMaterial.crystalRedstone;
+		drops[Type.GLOWSTONE.getMetadata()] = ItemMaterial.crystalGlowstone;
+		drops[Type.ENDER.getMetadata()] = ItemMaterial.crystalEnder;
+
 		return true;
 	}
 
@@ -190,8 +290,6 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 		return true;
 	}
-
-	BlockFluidCore fluidBlocks[] = new BlockFluidCore[Type.values().length];
 
 	/* TYPE */
 	public enum Type implements IStringSerializable {
@@ -262,6 +360,9 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 			}
 		}
 	}
+
+	private BlockFluidCore fluidBlocks[] = new BlockFluidCore[Type.values().length];
+	private ItemStack drops[] = new ItemStack[Type.values().length];
 
 	/* REFERENCES */
 	public static ItemStack oreFluidCrudeOil;

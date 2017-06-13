@@ -124,7 +124,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	@Override
 	public boolean canProvidePower(IBlockState state) {
 
-		return true;
+		return getMetaFromState(state) == Type.SIGNALUM.getMetadata();
 	}
 
 	@Override

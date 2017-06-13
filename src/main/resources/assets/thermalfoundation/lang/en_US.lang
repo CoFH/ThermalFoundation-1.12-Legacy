@@ -137,6 +137,10 @@ item.thermalfoundation.fertilizer.fertilizerRich.name=Rich Phyto-Gro
 item.thermalfoundation.geode.geode.name=Geode
 
 item.thermalfoundation.material.crystalCinnabar.name=Cinnabar
+item.thermalfoundation.material.crystalCrudeOil.name=Bitumen
+item.thermalfoundation.material.crystalEnder.name=Resonant Clathrate
+item.thermalfoundation.material.crystalGlowstone.name=Energized Clathrate
+item.thermalfoundation.material.crystalRedstone.name=Destabilized Clathrate
 item.thermalfoundation.material.crystalSlag.name=Slag
 item.thermalfoundation.material.crystalSlagRich.name=Rich Slag
 
@@ -454,18 +458,17 @@ tile.thermalfoundation.glass.tin.name=Hardened Tin Glass
 
 tile.thermalfoundation.ore.aluminum.name=Aluminum Ore
 tile.thermalfoundation.ore.copper.name=Copper Ore
+tile.thermalfoundation.ore.crude_oil.name=Oil Sands
+tile.thermalfoundation.ore.ender.name=Resonant End Stone
+tile.thermalfoundation.ore.glowstone.name=Energized Netherrack
 tile.thermalfoundation.ore.lead.name=Lead Ore
 tile.thermalfoundation.ore.iridium.name=Iridium Ore
 tile.thermalfoundation.ore.mithril.name=Mana Infused Ore
 tile.thermalfoundation.ore.nickel.name=Nickel Ore
 tile.thermalfoundation.ore.platinum.name=Platinum Ore
+tile.thermalfoundation.ore.redstone.name=Destabilized Stone
 tile.thermalfoundation.ore.silver.name=Silver Ore
 tile.thermalfoundation.ore.tin.name=Tin Ore
-
-tile.thermalfoundation.ore.crude_oil=Fluid Crude Oil
-tile.thermalfoundation.ore.ender=Fluid Ender
-tile.thermalfoundation.ore.glowstone=Fluid Glowstone
-tile.thermalfoundation.ore.redstone=Fluid Redstone
 
 tile.thermalfoundation.rockwool.black.name=Black Rockwool
 tile.thermalfoundation.rockwool.blue.name=Blue Rockwool

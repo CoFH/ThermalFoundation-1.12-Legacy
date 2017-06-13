@@ -554,6 +554,26 @@
 					"layer0": "thermalfoundation:items/material/crystal_cinnabar"
 				}
 			},
+			"crystalcrudeoil": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/crystal_crude_oil"
+				}
+			},
+			"crystalredstone": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/crystal_redstone"
+				}
+			},
+			"crystalglowstone": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/crystal_glowstone"
+				}
+			},
+			"crystalender": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/crystal_ender"
+				}
+			},
 			"dustpyrotheum": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/dust_pyrotheum"

@@ -196,7 +196,6 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 		itemBlock.setRegistryName(this.getRegistryName());
 		GameRegistry.register(itemBlock);
 
-
 		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;

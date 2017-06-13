@@ -3,13 +3,14 @@ package cofh.thermalfoundation.item;
 import cofh.core.energy.FurnaceFuelHandler;
 import cofh.core.item.ItemMulti;
 import cofh.core.util.core.IInitializer;
+import cofh.core.util.crafting.RecipeShapelessOreFluid;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
 import cofh.thermalfoundation.init.TFProps;
-import cofh.core.util.crafting.RecipeShapelessOreFluid;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
 
 import static cofh.lib.util.helpers.ItemHelper.*;
@@ -161,6 +162,11 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		crystalSlagRich = addOreDictItem(865, "crystalSlagRich");
 		crystalCinnabar = addOreDictItem(866, "crystalCinnabar");
 
+		crystalCrudeOil = addOreDictItem(892, "crystalCrudeOil");
+		crystalRedstone = addOreDictItem(893, "crystalRedstone", EnumRarity.UNCOMMON);
+		crystalGlowstone = addOreDictItem(894, "crystalGlowstone", EnumRarity.UNCOMMON);
+		crystalEnder = addOreDictItem(895, "crystalEnder", EnumRarity.RARE);
+
 		/* Additional Items */
 		dustPyrotheum = addOreDictItem(1024, "dustPyrotheum", EnumRarity.RARE);
 		dustCryotheum = addOreDictItem(1025, "dustCryotheum", EnumRarity.RARE);
@@ -223,6 +229,14 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addSmelting(ingotSignalum, dustSignalum, 0.0F);
 		addSmelting(ingotLumium, dustLumium, 0.0F);
 		// No Enderium
+
+		if (!Loader.isModLoaded("thermalexpansion")) {
+			addSmelting(ingotEnderium, dustEnderium, 0.0F);
+
+			addSmelting(new ItemStack(Items.REDSTONE), crystalRedstone, 0.0F);
+			addSmelting(new ItemStack(Items.GLOWSTONE_DUST), crystalGlowstone, 0.0F);
+			addSmelting(new ItemStack(Items.ENDER_PEARL), crystalEnder, 0.0F);
+		}
 
 		/* Alloy Recipes */
 		addRecipe(ShapelessRecipe(cloneStack(dustElectrum, 2), "dustGold", "dustSilver"));
@@ -323,6 +337,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		FurnaceFuelHandler.registerFuel(gemCoke, TFProps.gemCokeFuel);
 		FurnaceFuelHandler.registerFuel(globRosin, TFProps.globRosinFuel);
 		FurnaceFuelHandler.registerFuel(globTar, TFProps.globTarFuel);
+		FurnaceFuelHandler.registerFuel(crystalCrudeOil, TFProps.gemCokeFuel);
 		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
 
 		return true;
@@ -463,6 +478,11 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack crystalSlag;
 	public static ItemStack crystalSlagRich;
 	public static ItemStack crystalCinnabar;
+
+	public static ItemStack crystalCrudeOil;
+	public static ItemStack crystalRedstone;
+	public static ItemStack crystalGlowstone;
+	public static ItemStack crystalEnder;
 
 	public static ItemStack dustPyrotheum;
 	public static ItemStack dustCryotheum;
