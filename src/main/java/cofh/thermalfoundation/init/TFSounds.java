@@ -11,7 +11,8 @@ public class TFSounds {
 
 	}
 
-	static {
+	public static void initialize() {
+
 		BLIZZ_AMBIENT = getRegisteredSoundEvent("mob_blizz_ambient");
 		BLIZZ_ATTACK = getRegisteredSoundEvent("mob_blizz_attack");
 
@@ -30,13 +31,13 @@ public class TFSounds {
 		return sound;
 	}
 
-	public static final SoundEvent BLIZZ_AMBIENT;
-	public static final SoundEvent BLIZZ_ATTACK;
+	public static SoundEvent BLIZZ_AMBIENT;
+	public static SoundEvent BLIZZ_ATTACK;
 
-	public static final SoundEvent BLITZ_AMBIENT;
-	public static final SoundEvent BLITZ_ATTACK;
+	public static SoundEvent BLITZ_AMBIENT;
+	public static SoundEvent BLITZ_ATTACK;
 
-	public static final SoundEvent BASALZ_AMBIENT;
-	public static final SoundEvent BASALZ_ATTACK;
+	public static SoundEvent BASALZ_AMBIENT;
+	public static SoundEvent BASALZ_ATTACK;
 
 }
