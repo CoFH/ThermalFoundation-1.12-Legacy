@@ -13,6 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -23,6 +24,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class EntityBlizz extends EntityElemental {
 
@@ -40,19 +42,19 @@ public class EntityBlizz extends EntityElemental {
 	public static void initialize(int id) {
 
 		config();
-		EntityRegistry.registerModEntity(EntityBlizz.class, "blizz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
+		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blizz"), EntityBlizz.class, "blizz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
 
 		// Add Blizz spawn to Cold biomes
-		List<Biome> validBiomes = new ArrayList<>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.COLD)));
+		Set<Biome> validBiomes = BiomeDictionary.getBiomes(Type.COLD);
 
 		// Add Blizz spawn to Snowy biomes (in vanilla, all snowy are also cold)
-		for (Biome biome : BiomeDictionary.getBiomesForType(Type.SNOWY)) {
+		for (Biome biome : BiomeDictionary.getBiomes(Type.SNOWY)) {
 			if (!validBiomes.contains(biome)) {
 				validBiomes.add(biome);
 			}
 		}
 		// Remove Blizz spawn from End biomes
-		for (Biome biome : BiomeDictionary.getBiomesForType(Type.END)) {
+		for (Biome biome : BiomeDictionary.getBiomes(Type.END)) {
 			if (validBiomes.contains(biome)) {
 				validBiomes.remove(biome);
 			}
@@ -200,14 +202,14 @@ public class EntityBlizz extends EntityElemental {
 					}
 
 					if (attackStep > 1) {
-						blizz.worldObj.playEvent(null, 1009, new BlockPos((int) blizz.posX, (int) blizz.posY, (int) blizz.posZ), 0);
+						blizz.world.playEvent(null, 1009, new BlockPos((int) blizz.posX, (int) blizz.posY, (int) blizz.posZ), 0);
 
 						for (int i = 0; i < 1; ++i) {
-							EntityBlizzBolt bolt = new EntityBlizzBolt(blizz.worldObj, blizz);
+							EntityBlizzBolt bolt = new EntityBlizzBolt(blizz.world, blizz);
 							bolt.posY = blizz.posY + blizz.height / 2.0F + 0.5D;
 							bolt.setThrowableHeading(target.posX - blizz.posX, target.posY - blizz.posY, target.posZ - blizz.posZ, 1.5F, 1.0F);
 							blizz.playSound(TFSounds.BLIZZ_ATTACK, 2.0F, (blizz.rand.nextFloat() - blizz.rand.nextFloat()) * 0.2F + 1.0F);
-							blizz.worldObj.spawnEntityInWorld(bolt);
+							blizz.world.spawnEntity(bolt);
 						}
 					}
 				}

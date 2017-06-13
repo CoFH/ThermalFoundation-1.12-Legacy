@@ -62,7 +62,7 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 					stack.setTagCompound(null);
 				} else {
 					stack.getTagCompound().setString("Type", ((IPortableData) tile).getDataType());
-					player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.6F, 0.7F);
+					player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 0.6F, 0.7F);
 				}
 			} else {
 				if (stack.getTagCompound().getString("Type").equals(((IPortableData) tile).getDataType())) {
@@ -128,11 +128,12 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 
+		ItemStack stack = player.getHeldItem(hand);
 		if (player.isSneaking()) {
 			if (stack.getTagCompound() != null) {
-				player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
+				player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5F, 0.3F);
 			}
 			stack.setTagCompound(null);
 		}
@@ -141,17 +142,18 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-		return player.canPlayerEdit(pos.offset(facing), facing, stack) ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
+		return player.canPlayerEdit(pos.offset(facing), facing, player.getHeldItem(hand)) ? EnumActionResult.SUCCESS : EnumActionResult.PASS;
 	}
 
 	@Override
-	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 
+		ItemStack stack = player.getHeldItem(hand);
 		if (player.isSneaking()) {
 			if (stack.getTagCompound() != null) {
-				player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, 0.5F, 0.3F);
+				player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5F, 0.3F);
 			}
 			stack.setTagCompound(null);
 		}
@@ -216,7 +218,11 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 
 	/* TYPE */
 	public enum Type {
-		SCHEMATIC, FORMULA, SCROLL, REDPRINT, ENDERPRINT
+		SCHEMATIC,
+		FORMULA,
+		SCROLL,
+		REDPRINT,
+		ENDERPRINT
 	}
 
 }

@@ -25,10 +25,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
@@ -83,7 +80,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public void getSubItems(@Nonnull Item item, CreativeTabs tab, List<ItemStack> list) {
+	public void getSubItems(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
 
 		ItemStack lexicon = new ItemStack(item, 1, 0);
 		setMode(lexicon, 0);
@@ -99,7 +96,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
 			case LEXICON:
 				NBTTagCompound tag = entity.getEntityData();
-				tag.setLong(TFProps.LEXICON_TIMER, entity.worldObj.getTotalWorldTime());
+				tag.setLong(TFProps.LEXICON_TIMER, entity.world.getTotalWorldTime());
 				break;
 			default:
 		}
@@ -131,8 +128,9 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 
+		ItemStack stack = player.getHeldItem(hand);
 		if (CoreUtils.isFakePlayer(player) || hand != EnumHand.MAIN_HAND) {
 			return new ActionResult<>(EnumActionResult.FAIL, stack);
 		}
@@ -224,9 +222,9 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 	public void onModeChange(EntityPlayer player, ItemStack stack) {
 
 		if (isEmpowered(stack)) {
-			player.worldObj.playSound(null, player.getPosition(), SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.PLAYERS, 0.4F, 1.0F);
+			player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.PLAYERS, 0.4F, 1.0F);
 		} else {
-			player.worldObj.playSound(null, player.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, SoundCategory.PLAYERS, 0.2F, 0.6F);
+			player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.2F, 0.6F);
 		}
 	}
 

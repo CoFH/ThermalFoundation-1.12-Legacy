@@ -162,7 +162,7 @@ public class BlockFluidMana extends BlockFluidInteractive {
 	protected void triggerInteractionEffects(World world, BlockPos pos) {
 
 		if (MathHelper.RANDOM.nextInt(10) == 0) {
-			world.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.ENTITY_EXPERIENCE_ORB_TOUCH, SoundCategory.BLOCKS, 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
+			world.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.BLOCKS, 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
 		}
 		for (int i = 0; i < 8; i++) {
 			world.spawnParticle(EnumParticleTypes.ENCHANTMENT_TABLE, pos.getX() + Math.random() * 1.1, pos.getY() + 1.3D, pos.getZ() + Math.random() * 1.1, 0.0D, -0.5D, 0.0D);

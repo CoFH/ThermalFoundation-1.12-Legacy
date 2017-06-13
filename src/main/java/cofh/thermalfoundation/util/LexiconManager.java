@@ -183,9 +183,9 @@ public class LexiconManager {
 			String oreName = OreDictionaryArbiter.getOreName(stack);
 
 			if (lexicon.hasKey(oreName)) {
-				ItemStack retStack = ItemStack.loadItemStackFromNBT(lexicon.getCompoundTag(oreName));
+				ItemStack retStack = new ItemStack(lexicon.getCompoundTag(oreName));
 				if (ItemHelper.isOreNameEqual(retStack, oreName)) {
-					return ItemHelper.cloneStack(retStack, stack.stackSize);
+					return ItemHelper.cloneStack(retStack, stack.getCount());
 				}
 			}
 		}
@@ -194,7 +194,7 @@ public class LexiconManager {
 		if (ItemHelper.getItemDamage(defaultStack) == OreDictionary.WILDCARD_VALUE) {
 			return stack;
 		}
-		return ItemHelper.cloneStack(defaultStack, stack.stackSize);
+		return ItemHelper.cloneStack(defaultStack, stack.getCount());
 	}
 
 	public static ItemStack getPreferredStack(EntityPlayer player, String oreName) {
@@ -205,7 +205,7 @@ public class LexiconManager {
 			NBTTagCompound lexicon = tag.getCompoundTag(TFProps.LEXICON_DATA);
 
 			if (lexicon.hasKey(oreName)) {
-				ItemStack retStack = ItemStack.loadItemStackFromNBT(lexicon.getCompoundTag(oreName));
+				ItemStack retStack = new ItemStack(lexicon.getCompoundTag(oreName));
 				if (ItemHelper.isOreNameEqual(retStack, oreName)) {
 					return ItemHelper.cloneStack(retStack, 1);
 				}
@@ -247,12 +247,12 @@ public class LexiconManager {
 	/* ENTRY MANAGEMENT */
 	public static boolean addBlacklistEntry(ItemStack stack) {
 
-		return stack != null && blacklistStacks.add(new ItemWrapper(stack));
+		return !stack.isEmpty() && blacklistStacks.add(new ItemWrapper(stack));
 	}
 
 	public static boolean removeBlacklistEntry(ItemStack stack) {
 
-		return stack != null && blacklistStacks.remove(new ItemWrapper(stack));
+		return !stack.isEmpty() && blacklistStacks.remove(new ItemWrapper(stack));
 	}
 
 	private static HashSet<String> listNames = new HashSet<>();

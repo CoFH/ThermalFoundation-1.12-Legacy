@@ -193,7 +193,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		OreDictionary.registerOre("itemCinnabar", crystalCinnabar);
 
 		/* Vanilla References */
-		nuggetIron = null; // TODO 1.11
+		nuggetIron = new ItemStack(Items.field_191525_da);
 		nuggetGold = new ItemStack(Items.GOLD_NUGGET);
 
 		ingotIron = new ItemStack(Items.IRON_INGOT);

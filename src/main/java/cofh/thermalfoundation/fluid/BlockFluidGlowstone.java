@@ -141,7 +141,7 @@ public class BlockFluidGlowstone extends BlockFluidCore {
 				} else {
 					world.setBlockState(pos, getDefaultState().withProperty(LEVEL, quantaPerBlock - expQuanta), 3);
 					world.scheduleBlockUpdate(pos, this, tickRate, 0);
-					world.notifyNeighborsOfStateChange(pos, this);
+					world.notifyNeighborsOfStateChange(pos, this, false);
 				}
 			}
 			return;

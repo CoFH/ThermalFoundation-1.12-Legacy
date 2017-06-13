@@ -54,7 +54,7 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 				((ISecurable) tile).setAccess(AccessMode.PUBLIC);
 
 				if (!player.capabilities.isCreativeMode) {
-					stack.stackSize--;
+					stack.shrink(1);
 				}
 				ChatHelper.sendIndexedChatMessageToPlayer(player, new TextComponentTranslation("chat.cofh.secure.block.success"));
 			}
@@ -74,14 +74,15 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-		return player.canPlayerEdit(pos.offset(facing), facing, stack) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
+		return player.canPlayerEdit(pos.offset(facing), facing, player.getHeldItem(hand)) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
 	}
 
 	@Override
-	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 
+		ItemStack stack = player.getHeldItem(hand);
 		boolean ret;
 
 		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {

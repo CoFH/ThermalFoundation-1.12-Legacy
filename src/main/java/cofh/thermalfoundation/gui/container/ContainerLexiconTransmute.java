@@ -78,7 +78,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 	private boolean equivalentOres(ItemStack ore1, ItemStack ore2) {
 
-		if (ore1 == null || ore2 == null) {
+		if (ore1.isEmpty() || ore2.isEmpty()) {
 			return false;
 		}
 		ArrayList<String> nameList1 = OreDictionaryArbiter.getAllOreNames(ore1);
@@ -106,12 +106,12 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		ItemStack input = lexiconInv.getStackInSlot(0);
 
-		if (input == null || !LexiconManager.validOre(input)) {
+		if (input.isEmpty() || !LexiconManager.validOre(input)) {
 			return false;
 		}
 		ItemStack entry = lexiconInv.getStackInSlot(2);
 
-		if (entry == null || !LexiconManager.validOre(entry)) {
+		if (entry.isEmpty() || !LexiconManager.validOre(entry)) {
 			return false;
 		}
 		if (input.isItemEqual(entry)) {
@@ -122,7 +122,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		}
 		ItemStack output = lexiconInv.getStackInSlot(1);
 
-		return output == null || (output.equals(entry) && output.stackSize < output.getMaxStackSize());
+		return output.isEmpty() || (output.equals(entry) && output.getCount() < output.getMaxStackSize());
 	}
 
 	public boolean doTransmute() {
@@ -136,16 +136,16 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		oreStack = ItemHelper.cloneStack(entry, 1);
 
-		if (output == null) {
-			output = ItemHelper.cloneStack(entry, input.stackSize);
-			input = null;
-		} else if (output.stackSize + input.stackSize > output.getMaxStackSize()) {
-			int diff = output.getMaxStackSize() - output.stackSize;
-			output.stackSize = output.getMaxStackSize();
-			input.stackSize -= diff;
+		if (output.isEmpty()) {
+			output = ItemHelper.cloneStack(entry, input.getCount());
+			input = ItemStack.EMPTY;
+		} else if (output.getCount() + input.getCount() > output.getMaxStackSize()) {
+			int diff = output.getMaxStackSize() - output.getCount();
+			output.setCount(output.getMaxStackSize());
+			input.shrink(diff);
 		} else {
-			output.stackSize += input.stackSize;
-			input = null;
+			output.grow(input.getCount());
+			input = ItemStack.EMPTY;
 		}
 		lexiconInv.setInventorySlotContents(1, output);
 		lexiconInv.setInventorySlotContents(0, input);
@@ -252,7 +252,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 
-		return lexiconInv.isUseableByPlayer(player);
+		return lexiconInv.isUsableByPlayer(player);
 	}
 
 	@Override
@@ -261,7 +261,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		super.onContainerClosed(player);
 
 		ItemStack stack = this.lexiconInv.removeStackFromSlot(0);
-		if (stack != null && !mergeItemStack(stack, 0, 36, false)) {
+		if (!stack.isEmpty() && !mergeItemStack(stack, 0, 36, false)) {
 			player.dropItem(stack, false);
 		}
 	}
@@ -273,7 +273,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		ItemStack input = inventory.getStackInSlot(0);
 
-		if (input != null && ItemHelper.hasOreName(input)) {
+		if (!input.isEmpty() && ItemHelper.hasOreName(input)) {
 			// if there is an input and no prior transmute or the input has no common types with last transmute
 			if (!equivalentOres(input, oreStack)) {
 				nameList = OreDictionaryArbiter.getAllOreNames(input);
@@ -317,7 +317,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
 
-		ItemStack stack = null;
+		ItemStack stack = ItemStack.EMPTY;
 		Slot slot = inventorySlots.get(slotIndex);
 
 		int invPlayer = 27;
@@ -330,18 +330,18 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 			if (slotIndex < invFull) {
 				if (!this.mergeItemStack(stackInSlot, invFull, invTile, false)) {
-					return null;
+					return ItemStack.EMPTY;
 				}
 			} else if (!this.mergeItemStack(stackInSlot, 0, invFull, true)) {
-				return null;
+				return ItemStack.EMPTY;
 			}
-			if (stackInSlot.stackSize <= 0) {
-				slot.putStack(null);
+			if (stackInSlot.getCount() <= 0) {
+				slot.putStack(ItemStack.EMPTY);
 			} else {
 				slot.onSlotChanged();
 			}
-			if (stackInSlot.stackSize == stack.stackSize) {
-				return null;
+			if (stackInSlot.getCount() == stack.getCount()) {
+				return ItemStack.EMPTY;
 			}
 		}
 		return stack;
@@ -357,22 +357,22 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		ItemStack stackInSlot;
 
 		if (stack.isStackable()) {
-			while (stack.stackSize > 0 && (!ascending && k < slotMax || ascending && k >= slotMin)) {
+			while (stack.getCount() > 0 && (!ascending && k < slotMax || ascending && k >= slotMin)) {
 				slot = this.inventorySlots.get(k);
 				stackInSlot = slot.getStack();
 
 				if (slot.isItemValid(stack) && ItemHelper.itemsEqualWithMetadata(stack, stackInSlot, true)) {
-					int l = stackInSlot.stackSize + stack.stackSize;
+					int l = stackInSlot.getCount() + stack.getCount();
 					int slotLimit = Math.min(stack.getMaxStackSize(), slot.getSlotStackLimit());
 
 					if (l <= slotLimit) {
-						stack.stackSize = 0;
-						stackInSlot.stackSize = l;
+						stack.setCount(0);
+						stackInSlot.setCount(l);
 						slot.onSlotChanged();
 						slotFound = true;
-					} else if (stackInSlot.stackSize < slotLimit) {
-						stack.stackSize -= slotLimit - stackInSlot.stackSize;
-						stackInSlot.stackSize = slotLimit;
+					} else if (stackInSlot.getCount() < slotLimit) {
+						stack.shrink(slotLimit - stackInSlot.getCount());
+						stackInSlot.setCount(slotLimit);
 						slot.onSlotChanged();
 						slotFound = true;
 					}
@@ -380,19 +380,19 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 				k += ascending ? -1 : 1;
 			}
 		}
-		if (stack.stackSize > 0) {
+		if (stack.getCount() > 0) {
 			k = ascending ? slotMax - 1 : slotMin;
 
 			while (!ascending && k < slotMax || ascending && k >= slotMin) {
 				slot = this.inventorySlots.get(k);
 				stackInSlot = slot.getStack();
 
-				if (slot.isItemValid(stack) && stackInSlot == null) {
-					slot.putStack(ItemHelper.cloneStack(stack, Math.min(stack.stackSize, slot.getSlotStackLimit())));
+				if (slot.isItemValid(stack) && stackInSlot.isEmpty()) {
+					slot.putStack(ItemHelper.cloneStack(stack, Math.min(stack.getCount(), slot.getSlotStackLimit())));
 					slot.onSlotChanged();
 
-					if (slot.getStack() != null) {
-						stack.stackSize -= slot.getStack().stackSize;
+					if (!slot.getStack().isEmpty()) {
+						stack.shrink(slot.getStack().getCount());
 						slotFound = true;
 					}
 					break;

@@ -21,10 +21,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
@@ -66,7 +63,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, List<ItemStack> list) {
+	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
 			list.add(new ItemStack(item, 1, i));
@@ -146,7 +143,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 
 		if (player.isSneaking()) {
 			RayTraceResult traceResult = RayTracer.retrace(player);
@@ -196,7 +193,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 			double z2 = world.rand.nextFloat() * f + (1.0F - f) * 0.5D;
 			EntityItem dropEntity = new EntityItem(world, pos.getX() + x2, pos.getY() + y2, pos.getZ() + z2, dropBlock);
 			dropEntity.setPickupDelay(10);
-			world.spawnEntityInWorld(dropEntity);
+			world.spawnEntity(dropEntity);
 
 			CoreUtils.dismantleLog(player.getName(), this, metadata, pos);
 		}

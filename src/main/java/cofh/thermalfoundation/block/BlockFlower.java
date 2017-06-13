@@ -17,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -57,7 +58,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, List<ItemStack> list) {
+	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
 
 		for (int i = 0; i < BlockFlower.Type.METADATA_LOOKUP.length; i++) {
 			list.add(new ItemStack(item, 1, i));
@@ -98,9 +99,9 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	}
 
 	@Override
-	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos from) {
 
-		super.neighborChanged(state, world, pos, block);
+		super.neighborChanged(state, world, pos, block, from);
 		this.checkAndDropBlock(world, pos, state);
 	}
 

@@ -20,10 +20,10 @@ public class IMCHandler {
 					theNBT = theMessage.getNBTValue();
 
 					if (theMessage.key.equalsIgnoreCase("AddLexiconBlacklistEntry")) {
-						LexiconManager.addBlacklistEntry(ItemStack.loadItemStackFromNBT(theNBT.getCompoundTag("entry")));
+						LexiconManager.addBlacklistEntry(new ItemStack(theNBT.getCompoundTag("entry")));
 						continue;
 					} else if (theMessage.key.equalsIgnoreCase("RemoveLexiconBlacklistEntry")) {
-						LexiconManager.removeBlacklistEntry(ItemStack.loadItemStackFromNBT(theNBT.getCompoundTag("entry")));
+						LexiconManager.removeBlacklistEntry(new ItemStack(theNBT.getCompoundTag("entry")));
 						continue;
 					}
 					ThermalFoundation.LOG.warn(ThermalFoundation.MOD_NAME + " received an invalid IMC from " + theMessage.getSender() + "! Key was " + theMessage.key);

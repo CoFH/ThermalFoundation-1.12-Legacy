@@ -42,7 +42,7 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 
 		ItemStack input = lexiconInv.getStackInSlot(0);
 
-		if (input == null) {
+		if (input.isEmpty()) {
 			return false;
 		}
 		return LexiconManager.validOre(input);
@@ -179,7 +179,7 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
 
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override

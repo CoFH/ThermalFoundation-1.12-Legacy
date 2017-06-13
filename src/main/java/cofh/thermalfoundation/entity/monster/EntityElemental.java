@@ -77,16 +77,16 @@ public abstract class EntityElemental extends EntityMob {
 		}
 		BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
 
-		if (this.worldObj.getLightFor(EnumSkyBlock.SKY, blockpos) > this.rand.nextInt(32)) {
+		if (this.world.getLightFor(EnumSkyBlock.SKY, blockpos) > this.rand.nextInt(32)) {
 			return false;
 		} else {
-			int i = this.worldObj.getLightFromNeighbors(blockpos);
+			int i = this.world.getLightFromNeighbors(blockpos);
 
-			if (this.worldObj.isThundering()) {
-				int j = this.worldObj.getSkylightSubtracted();
-				this.worldObj.setSkylightSubtracted(10);
-				i = this.worldObj.getLightFromNeighbors(blockpos);
-				this.worldObj.setSkylightSubtracted(j);
+			if (this.world.isThundering()) {
+				int j = this.world.getSkylightSubtracted();
+				this.world.setSkylightSubtracted(10);
+				i = this.world.getLightFromNeighbors(blockpos);
+				this.world.setSkylightSubtracted(j);
 			}
 			return i <= this.rand.nextInt(getSpawnLightLevel());
 		}
@@ -125,13 +125,13 @@ public abstract class EntityElemental extends EntityMob {
 		if (!this.onGround && this.motionY < 0.0D) {
 			this.motionY *= 0.6D;
 		}
-		if (ServerHelper.isClientWorld(worldObj)) {
+		if (ServerHelper.isClientWorld(world)) {
 			//            if (this.rand.nextInt(SOUND_AMBIENT_FREQUENCY) == 0) {
 			//                this.worldObj.playSoundEffect(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, soundAmbient, this.rand.nextFloat() * 0.2F + 0.1F,
 			//                        this.rand.nextFloat() * 0.3F + 0.4F);
 			//            }
 			for (int i = 0; i < 2; i++) {
-				this.worldObj.spawnParticle(ambientParticle, this.posX + (this.rand.nextDouble() - 0.5D) * this.width, this.posY + this.rand.nextDouble() * this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * this.width, 0.0D, 0.0D, 0.0D);
+				this.world.spawnParticle(ambientParticle, this.posX + (this.rand.nextDouble() - 0.5D) * this.width, this.posY + this.rand.nextDouble() * this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * this.width, 0.0D, 0.0D, 0.0D);
 			}
 		}
 		super.onLivingUpdate();

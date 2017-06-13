@@ -113,7 +113,7 @@ public class SchematicHelper {
 			return getNBTForSchematic(craftSlots, output);
 		}
 		for (int i = 0; i < 9 && i < craftSlots.getSizeInventory(); i++) {
-			if (craftSlots.getStackInSlot(i) == null) {
+			if (craftSlots.getStackInSlot(i).isEmpty()) {
 				nbt.removeTag("Slot" + i);
 				nbt.removeTag("Name" + i);
 				nbt.removeTag("Ore" + i);
@@ -165,7 +165,7 @@ public class SchematicHelper {
 				}
 			}
 		}
-		nbt.setString("Output", output.stackSize + "x " + output.getDisplayName());
+		nbt.setString("Output", output.getCount() + "x " + output.getDisplayName());
 		return nbt;
 	}
 
@@ -174,7 +174,7 @@ public class SchematicHelper {
 
 		NBTTagCompound nbt = new NBTTagCompound();
 		for (int i = 0; i < 9 && i < craftSlots.getSizeInventory(); i++) {
-			if (craftSlots.getStackInSlot(i) == null) {
+			if (craftSlots.getStackInSlot(i).isEmpty()) {
 				nbt.removeTag("Slot" + i);
 				nbt.removeTag("Name" + i);
 				nbt.removeTag("Ore" + i);
@@ -195,7 +195,7 @@ public class SchematicHelper {
 
 			}
 		}
-		nbt.setString("Output", output.stackSize + "x " + output.getDisplayName());
+		nbt.setString("Output", output.getCount() + "x " + output.getDisplayName());
 		return nbt;
 	}
 
@@ -217,13 +217,13 @@ public class SchematicHelper {
 
 	public static ItemStack getSchematicSlot(ItemStack stack, int slot) {
 
-		if (stack == null) {
-			return null;
+		if (stack.isEmpty()) {
+			return ItemStack.EMPTY;
 		}
 		if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Slot" + slot)) {
-			return ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag("Slot" + slot));
+			return new ItemStack(stack.getTagCompound().getCompoundTag("Slot" + slot));
 		}
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	public static String getSchematicOreSlot(ItemStack stack, int slot) {

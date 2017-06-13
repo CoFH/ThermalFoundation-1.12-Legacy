@@ -70,7 +70,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	}
 
 	@Override
-	public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 
 		IBlockState state = world.getBlockState(pos);
 		Block block = state.getBlock();
@@ -78,7 +78,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 		if (world.isAirBlock(pos)) {
 			return EnumActionResult.PASS;
 		}
-		PlayerInteractEvent event = new PlayerInteractEvent.RightClickBlock(player, hand, stack, pos, side, new Vec3d(hitX, hitY, hitZ));
+		PlayerInteractEvent event = new PlayerInteractEvent.RightClickBlock(player, hand, pos, side, new Vec3d(hitX, hitY, hitZ));
 		if (MinecraftForge.EVENT_BUS.post(event) || event.getResult() == Result.DENY) {
 			return EnumActionResult.PASS;
 		}
@@ -100,9 +100,9 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	@Override
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
 
-		Multimap multimap = HashMultimap.create();
+		Multimap<String, AttributeModifier> multimap = HashMultimap.create();
 		if (slot == EntityEquipmentSlot.MAINHAND) {
-			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", 1, 0));
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", 1, 0));
 		}
 		return multimap;
 	}

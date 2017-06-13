@@ -10,10 +10,7 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EntityDamageSource;
-import net.minecraft.util.EntityDamageSourceIndirect;
-import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.*;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -26,7 +23,7 @@ public class EntityBlitzBolt extends EntityThrowable {
 
 	public static void initialize(int id) {
 
-		EntityRegistry.registerModEntity(EntityBlitzBolt.class, "blitz_bolt", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true);
+		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blitz_bolt"), EntityBlitzBolt.class, "blitz_bolt", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true);
 	}
 
 	/* REQUIRED CONSTRUCTOR */
@@ -54,7 +51,7 @@ public class EntityBlitzBolt extends EntityThrowable {
 	@Override
 	protected void onImpact(RayTraceResult traceResult) {
 
-		if (ServerHelper.isServerWorld(worldObj)) {
+		if (ServerHelper.isServerWorld(world)) {
 			if (traceResult.entityHit != null) {
 				if (traceResult.entityHit instanceof EntityBlitz) {
 					traceResult.entityHit.attackEntityFrom(DamageSourceBlitz.causeDamage(this, getThrower()), 0);
@@ -69,7 +66,7 @@ public class EntityBlitzBolt extends EntityThrowable {
 				}
 			}
 			for (int i = 0; i < 8; i++) {
-				worldObj.spawnParticle(EnumParticleTypes.CLOUD, posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble());
+				world.spawnParticle(EnumParticleTypes.CLOUD, posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble());
 			}
 			setDead();
 		}

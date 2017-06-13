@@ -11,6 +11,7 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -21,6 +22,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class EntityBlitz extends EntityElemental {
 
@@ -42,19 +44,19 @@ public class EntityBlitz extends EntityElemental {
 		if (!enable) {
 			return;
 		}
-		EntityRegistry.registerModEntity(EntityBlitz.class, "blitz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xF0F8FF, 0xFFEFD5);
+		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blitz"), EntityBlitz.class, "blitz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xF0F8FF, 0xFFEFD5);
 
 		// Add Blitz spawn to Plains biomes
-		List<Biome> validBiomes = new ArrayList<>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.PLAINS)));
+		Set<Biome> validBiomes = BiomeDictionary.getBiomes(Type.PLAINS);
 
 		// Add Blitz spawn to Sandy biomes
-		for (Biome biome : BiomeDictionary.getBiomesForType(Type.SANDY)) {
+		for (Biome biome : BiomeDictionary.getBiomes(Type.SANDY)) {
 			if (!validBiomes.contains(biome)) {
 				validBiomes.add(biome);
 			}
 		}
 		// Remove Blitz spawn from End biomes
-		for (Biome biome : BiomeDictionary.getBiomesForType(Type.END)) {
+		for (Biome biome : BiomeDictionary.getBiomes(Type.END)) {
 			if (validBiomes.contains(biome)) {
 				validBiomes.remove(biome);
 			}
@@ -199,14 +201,14 @@ public class EntityBlitz extends EntityElemental {
 					}
 
 					if (attackStep > 1) {
-						blitz.worldObj.playEvent(null, 1009, new BlockPos((int) blitz.posX, (int) blitz.posY, (int) blitz.posZ), 0);
+						blitz.world.playEvent(null, 1009, new BlockPos((int) blitz.posX, (int) blitz.posY, (int) blitz.posZ), 0);
 
 						for (int i = 0; i < 1; ++i) {
-							EntityBlitzBolt bolt = new EntityBlitzBolt(blitz.worldObj, blitz);
+							EntityBlitzBolt bolt = new EntityBlitzBolt(blitz.world, blitz);
 							bolt.posY = blitz.posY + blitz.height / 2.0F + 0.5D;
 							bolt.setThrowableHeading(target.posX - blitz.posX, target.posY - blitz.posY, target.posZ - blitz.posZ, 1.5F, 1.0F);
 							blitz.playSound(TFSounds.BLITZ_ATTACK, 2.0F, (blitz.rand.nextFloat() - blitz.rand.nextFloat()) * 0.2F + 1.0F);
-							blitz.worldObj.spawnEntityInWorld(bolt);
+							blitz.world.spawnEntity(bolt);
 						}
 					}
 				}

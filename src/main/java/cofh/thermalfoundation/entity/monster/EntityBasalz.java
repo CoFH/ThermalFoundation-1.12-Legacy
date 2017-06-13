@@ -11,6 +11,7 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -21,6 +22,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class EntityBasalz extends EntityElemental {
 
@@ -42,19 +44,19 @@ public class EntityBasalz extends EntityElemental {
 		if (!enable) {
 			return;
 		}
-		EntityRegistry.registerModEntity(EntityBasalz.class, "basalz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0x606060, 0xB3ABA3);
+		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:basalz"), EntityBasalz.class, "basalz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0x606060, 0xB3ABA3);
 
 		// Add Basalz spawn to Mountain biomes
-		List<Biome> validBiomes = new ArrayList<>(Arrays.asList(BiomeDictionary.getBiomesForType(Type.MOUNTAIN)));
+		Set<Biome> validBiomes = BiomeDictionary.getBiomes(Type.MOUNTAIN);
 
 		// Add Basalz spawn to Wasteland biomes
-		for (Biome biome : BiomeDictionary.getBiomesForType(Type.WASTELAND)) {
+		for (Biome biome : BiomeDictionary.getBiomes(Type.WASTELAND)) {
 			if (!validBiomes.contains(biome)) {
 				validBiomes.add(biome);
 			}
 		}
 		// Remove Basalz spawn from End biomes
-		for (Biome biome : BiomeDictionary.getBiomesForType(Type.END)) {
+		for (Biome biome : BiomeDictionary.getBiomes(Type.END)) {
 			if (validBiomes.contains(biome)) {
 				validBiomes.remove(biome);
 			}
@@ -199,14 +201,14 @@ public class EntityBasalz extends EntityElemental {
 					}
 
 					if (attackStep > 1) {
-						basalz.worldObj.playEvent(null, 1009, new BlockPos((int) basalz.posX, (int) basalz.posY, (int) basalz.posZ), 0);
+						basalz.world.playEvent(null, 1009, new BlockPos((int) basalz.posX, (int) basalz.posY, (int) basalz.posZ), 0);
 
 						for (int i = 0; i < 1; ++i) {
-							EntityBasalzBolt bolt = new EntityBasalzBolt(basalz.worldObj, basalz);
+							EntityBasalzBolt bolt = new EntityBasalzBolt(basalz.world, basalz);
 							bolt.setThrowableHeading(target.posX - basalz.posX, target.posY - basalz.posY, target.posZ - basalz.posZ, 1.5F, 1.0F);
 							bolt.posY = basalz.posY + basalz.height / 2.0F + 0.5D;
 							basalz.playSound(TFSounds.BASALZ_ATTACK, 2.0F, (basalz.rand.nextFloat() - basalz.rand.nextFloat()) * 0.2F + 1.0F);
-							basalz.worldObj.spawnEntityInWorld(bolt);
+							basalz.world.spawnEntity(bolt);
 						}
 					}
 				}

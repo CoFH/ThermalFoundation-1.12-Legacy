@@ -1,22 +1,32 @@
 package cofh.thermalfoundation.gui.container;
 
+import cofh.lib.util.helpers.InventoryHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
 
+import java.util.Arrays;
+
 public class InventoryLexiconStudy implements IInventory {
 
-	protected ItemStack[] stackList = new ItemStack[1];
+	protected ItemStack[] stackList;
 
 	public InventoryLexiconStudy() {
 
+		stackList = new ItemStack[1];
+		Arrays.fill(stackList, ItemStack.EMPTY);
 	}
 
 	@Override
 	public int getSizeInventory() {
 
 		return stackList.length;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return InventoryHelper.isEmpty(stackList);
 	}
 
 	@Override
@@ -28,13 +38,13 @@ public class InventoryLexiconStudy implements IInventory {
 	@Override
 	public ItemStack decrStackSize(int slot, int amount) {
 
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override
 	public ItemStack removeStackFromSlot(int slot) {
 
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override
@@ -55,7 +65,7 @@ public class InventoryLexiconStudy implements IInventory {
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 
 		return true;
 	}

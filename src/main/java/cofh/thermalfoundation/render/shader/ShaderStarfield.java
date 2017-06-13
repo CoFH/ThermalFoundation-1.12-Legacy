@@ -37,10 +37,10 @@ public class ShaderStarfield {
 			Minecraft mc = Minecraft.getMinecraft();
 
 			int x = ARBShaderObjects.glGetUniformLocationARB(shader, "yaw");
-			ARBShaderObjects.glUniform1fARB(x, (float) ((mc.thePlayer.rotationYaw * 2 * Math.PI) / 360.0));
+			ARBShaderObjects.glUniform1fARB(x, (float) ((mc.player.rotationYaw * 2 * Math.PI) / 360.0));
 
 			int z = ARBShaderObjects.glGetUniformLocationARB(shader, "pitch");
-			ARBShaderObjects.glUniform1fARB(z, -(float) ((mc.thePlayer.rotationPitch * 2 * Math.PI) / 360.0));
+			ARBShaderObjects.glUniform1fARB(z, -(float) ((mc.player.rotationPitch * 2 * Math.PI) / 360.0));
 		}
 	}
 

@@ -26,7 +26,7 @@ public class EntityBlizzBolt extends EntityThrowable {
 
 	public static void initialize(int id) {
 
-		EntityRegistry.registerModEntity(EntityBlizzBolt.class, "blizz_bolt", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true);
+		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blizz_bolt"), EntityBlizzBolt.class, "blizz_bolt", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true);
 	}
 
 	/* REQUIRED CONSTRUCTOR */
@@ -54,7 +54,7 @@ public class EntityBlizzBolt extends EntityThrowable {
 	@Override
 	protected void onImpact(RayTraceResult traceResult) {
 
-		if (ServerHelper.isServerWorld(worldObj)) {
+		if (ServerHelper.isServerWorld(world)) {
 			if (traceResult.entityHit != null) {
 				if (traceResult.entityHit instanceof EntityBlizz) {
 					traceResult.entityHit.attackEntityFrom(DamageSourceBlizz.causeDamage(this, getThrower()), 0);
@@ -70,16 +70,16 @@ public class EntityBlizzBolt extends EntityThrowable {
 			} else {
 				BlockPos hitPosOffset = traceResult.getBlockPos().offset(traceResult.sideHit);
 
-				if (worldObj.isAirBlock(hitPosOffset)) {
-					IBlockState state = worldObj.getBlockState(hitPosOffset.offset(EnumFacing.DOWN));
+				if (world.isAirBlock(hitPosOffset)) {
+					IBlockState state = world.getBlockState(hitPosOffset.offset(EnumFacing.DOWN));
 
-					if (state.isSideSolid(worldObj, hitPosOffset.offset(EnumFacing.DOWN), EnumFacing.UP)) {
-						worldObj.setBlockState(hitPosOffset, Blocks.SNOW_LAYER.getDefaultState());
+					if (state.isSideSolid(world, hitPosOffset.offset(EnumFacing.DOWN), EnumFacing.UP)) {
+						world.setBlockState(hitPosOffset, Blocks.SNOW_LAYER.getDefaultState());
 					}
 				}
 			}
 			for (int i = 0; i < 8; i++) {
-				worldObj.spawnParticle(EnumParticleTypes.SNOWBALL, posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble());
+				world.spawnParticle(EnumParticleTypes.SNOWBALL, posX, posY, posZ, this.rand.nextDouble(), this.rand.nextDouble(), this.rand.nextDouble());
 			}
 			setDead();
 		}

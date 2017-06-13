@@ -1,26 +1,36 @@
 package cofh.thermalfoundation.gui.container;
 
+import cofh.lib.util.helpers.InventoryHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
 
+import java.util.Arrays;
+
 public class InventoryLexiconTransmute implements IInventory {
 
 	public static final byte INPUT = 0;
 
-	protected ItemStack[] stackList = new ItemStack[3];
+	protected ItemStack[] stackList;
 	ContainerLexiconTransmute eventHandler;
 
 	public InventoryLexiconTransmute(ContainerLexiconTransmute container) {
 
 		this.eventHandler = container;
+		stackList = new ItemStack[3];
+		Arrays.fill(stackList, ItemStack.EMPTY);
 	}
 
 	@Override
 	public int getSizeInventory() {
 
 		return stackList.length;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return InventoryHelper.isEmpty(stackList);
 	}
 
 	@Override
@@ -32,37 +42,37 @@ public class InventoryLexiconTransmute implements IInventory {
 	@Override
 	public ItemStack decrStackSize(int slot, int amount) {
 
-		if (this.stackList[slot] != null) {
+		if (!this.stackList[slot].isEmpty()) {
 			ItemStack stack;
 
-			if (this.stackList[slot].stackSize <= amount) {
+			if (this.stackList[slot].getCount() <= amount) {
 				stack = this.stackList[slot];
-				this.stackList[slot] = null;
+				this.stackList[slot] = ItemStack.EMPTY;
 				this.eventHandler.onCraftMatrixChanged(this);
 				return stack;
 			} else {
 				stack = this.stackList[slot].splitStack(amount);
 
-				if (this.stackList[slot].stackSize == 0) {
-					this.stackList[slot] = null;
+				if (this.stackList[slot].getCount() == 0) {
+					this.stackList[slot] = ItemStack.EMPTY;
 				}
 				this.eventHandler.onCraftMatrixChanged(this);
 				return stack;
 			}
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public ItemStack removeStackFromSlot(int slot) {
 
-		if (slot == 0 && this.stackList[slot] != null) {
+		if (slot == 0 && !this.stackList[slot].isEmpty()) {
 			ItemStack stack = this.stackList[slot];
-			this.stackList[slot] = null;
+			this.stackList[slot] = ItemStack.EMPTY;
 			return stack;
 		} else {
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
@@ -106,7 +116,7 @@ public class InventoryLexiconTransmute implements IInventory {
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer player) {
+	public boolean isUsableByPlayer(EntityPlayer player) {
 
 		return true;
 	}

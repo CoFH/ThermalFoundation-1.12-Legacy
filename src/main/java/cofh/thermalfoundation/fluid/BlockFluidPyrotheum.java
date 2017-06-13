@@ -66,7 +66,7 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 			return;
 		}
 		if (entity instanceof EntityCreeper) {
-			world.createExplosion(entity, entity.posX, entity.posY, entity.posZ, 6.0F, entity.worldObj.getGameRules().getBoolean("mobGriefing"));
+			world.createExplosion(entity, entity.posX, entity.posY, entity.posZ, 6.0F, entity.world.getGameRules().getBoolean("mobGriefing"));
 			entity.setDead();
 		}
 	}

@@ -54,12 +54,12 @@ public class Proxy {
 
 		Entity entity = event.getEntity();
 
-		if (entity.isImmuneToFire() && TFProps.dropSulfurFireImmuneMobs && event.getEntityLiving().worldObj.getGameRules().getBoolean("doMobLoot")) {
+		if (entity.isImmuneToFire() && TFProps.dropSulfurFireImmuneMobs && event.getEntityLiving().world.getGameRules().getBoolean("doMobLoot")) {
 			boolean s = entity instanceof EntitySlime;
 			if (event.getEntityLiving().getRNG().nextInt(6 + (s ? 16 : 0)) != 0) {
 				return;
 			}
-			event.getDrops().add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, ItemMaterial.dustSulfur.copy()));
+			event.getDrops().add(new EntityItem(entity.world, entity.posX, entity.posY, entity.posZ, ItemMaterial.dustSulfur.copy()));
 		}
 	}
 

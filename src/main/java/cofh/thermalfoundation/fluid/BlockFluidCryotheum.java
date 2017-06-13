@@ -88,7 +88,7 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		if (entity instanceof EntityZombie || entity instanceof EntityCreeper) {
 			EntitySnowman snowman = new EntitySnowman(world);
 			snowman.setLocationAndAngles(entity.posX, entity.posY, entity.posZ, entity.rotationYaw, entity.rotationPitch);
-			world.spawnEntityInWorld(snowman);
+			world.spawnEntity(snowman);
 
 			entity.setDead();
 		} else if (entity instanceof EntityBlizz || entity instanceof EntitySnowman) {
