@@ -30,6 +30,7 @@ public class InventoryLexiconTransmute implements IInventory {
 
 	@Override
 	public boolean isEmpty() {
+
 		return InventoryHelper.isEmpty(stackList);
 	}
 

@@ -24,7 +24,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
-import java.util.List;
 
 import static cofh.lib.util.helpers.ItemHelper.*;
 

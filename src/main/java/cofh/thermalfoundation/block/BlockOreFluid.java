@@ -165,15 +165,15 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 		switch (Type.values()[metadata]) {
 			case CRUDE_OIL_SAND:
-				return MathHelper.getRandomIntegerInRange(rand, 0, 2);
+				return MathHelper.getInt(rand, 0, 2);
 			case CRUDE_OIL_GRAVEL:
-				return MathHelper.getRandomIntegerInRange(rand, 0, 2);
+				return MathHelper.getInt(rand, 0, 2);
 			case REDSTONE:
-				return MathHelper.getRandomIntegerInRange(rand, 1, 5);
+				return MathHelper.getInt(rand, 1, 5);
 			case GLOWSTONE:
-				return MathHelper.getRandomIntegerInRange(rand, 2, 5);
+				return MathHelper.getInt(rand, 2, 5);
 			case ENDER:
-				return MathHelper.getRandomIntegerInRange(rand, 3, 7);
+				return MathHelper.getInt(rand, 3, 7);
 			default:
 				return 0;
 		}

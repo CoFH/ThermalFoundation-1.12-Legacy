@@ -218,11 +218,7 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 
 	/* TYPE */
 	public enum Type {
-		SCHEMATIC,
-		FORMULA,
-		SCROLL,
-		REDPRINT,
-		ENDERPRINT
+		SCHEMATIC, FORMULA, SCROLL, REDPRINT, ENDERPRINT
 	}
 
 }
