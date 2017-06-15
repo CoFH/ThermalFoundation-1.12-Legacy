@@ -34,7 +34,7 @@ public class ThermalFoundation {
 	public static final String MOD_ID = "thermalfoundation";
 	public static final String MOD_NAME = "Thermal Foundation";
 
-	public static final String VERSION = "2.1.0";
+	public static final String VERSION = "2.1.1";
 	public static final String VERSION_MAX = "2.2.0";
 	public static final String VERSION_GROUP = "required-after:" + MOD_ID + "@[" + VERSION + "," + VERSION_MAX + ");";
 	public static final String UPDATE_URL = "https://raw.github.com/cofh/version/master/" + MOD_ID + "_update.json";
@@ -145,19 +145,42 @@ public class ThermalFoundation {
 
 	private void addWorldGeneration() {
 
-		File worldGenOres;
+		File worldGenFile;
 		String worldGenPath = "assets/" + MOD_ID + "/world/";
+
+		String worldGenClathrates = "thermalfoundation_clathrates.json";
+		String worldGenOil = "thermalfoundation_oil.json";
 		String worldGenOre = "thermalfoundation_ores.json";
 
 		if (!CONFIG.getConfiguration().getBoolean("GenerateDefaultFiles", "World", true, "If TRUE, Thermal Foundation will create default world generation files if it cannot find existing ones. Only disable if you know what you are doing.")) {
 			return;
 		}
-		worldGenOres = new File(CoreProps.configDir, "/cofh/world/" + worldGenOre);
 
-		if (!worldGenOres.exists()) {
+		worldGenFile = new File(CoreProps.configDir, "/cofh/world/" + worldGenClathrates);
+		if (!worldGenFile.exists()) {
 			try {
-				worldGenOres.createNewFile();
-				FileUtils.copyInputStreamToFile(Loader.getResource(worldGenPath + worldGenOre, null).openStream(), worldGenOres);
+				worldGenFile.createNewFile();
+				FileUtils.copyInputStreamToFile(Loader.getResource(worldGenPath + worldGenClathrates, null).openStream(), worldGenFile);
+			} catch (Throwable t) {
+				t.printStackTrace();
+			}
+		}
+
+		worldGenFile = new File(CoreProps.configDir, "/cofh/world/" + worldGenOil);
+		if (!worldGenFile.exists()) {
+			try {
+				worldGenFile.createNewFile();
+				FileUtils.copyInputStreamToFile(Loader.getResource(worldGenPath + worldGenOil, null).openStream(), worldGenFile);
+			} catch (Throwable t) {
+				t.printStackTrace();
+			}
+		}
+
+		worldGenFile = new File(CoreProps.configDir, "/cofh/world/" + worldGenOre);
+		if (!worldGenFile.exists()) {
+			try {
+				worldGenFile.createNewFile();
+				FileUtils.copyInputStreamToFile(Loader.getResource(worldGenPath + worldGenOre, null).openStream(), worldGenFile);
 			} catch (Throwable t) {
 				t.printStackTrace();
 			}

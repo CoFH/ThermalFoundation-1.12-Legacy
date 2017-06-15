@@ -14,10 +14,6 @@ death.attack.petrotheum=%1$s got all shook up!
 death.attack.pyrotheum.player=%1$s verbrannte lebent beim Versuch %2$s zu entfliehen!
 death.attack.pyrotheum=%1$s verwechselte Pyrotheum mit Wasser!
 
-entity.thermalfoundation.basalz.name=Basalz
-entity.thermalfoundation.blitz.name=Blitz
-entity.thermalfoundation.blizz.name=Blizz
-
 fluid.aerotheum=Zephyränes Aerotheum
 fluid.coal=Verflüssigte Kohle
 fluid.creosote=Teeröl
