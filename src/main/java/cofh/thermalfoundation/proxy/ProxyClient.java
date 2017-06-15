@@ -50,9 +50,9 @@ public class ProxyClient extends Proxy {
 	/* REGISTRATION */
 	public void registerRenderInformation() {
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityBasalz.class, manager -> new RenderEntityBasalz(manager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityBlitz.class, manager -> new RenderEntityBlitz(manager));
-		RenderingRegistry.registerEntityRenderingHandler(EntityBlizz.class, manager -> new RenderEntityBlizz(manager));
+		RenderingRegistry.registerEntityRenderingHandler(EntityBasalz.class, RenderEntityBasalz::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBlitz.class, RenderEntityBlitz::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBlizz.class, RenderEntityBlizz::new);
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityBlizzBolt.class, manager -> new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_blizz"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBlitzBolt.class, manager -> new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_blitz"));

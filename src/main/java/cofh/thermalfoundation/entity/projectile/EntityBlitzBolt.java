@@ -23,7 +23,7 @@ public class EntityBlitzBolt extends EntityThrowable {
 
 	public static void initialize(int id) {
 
-		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blitz_bolt"), EntityBlitzBolt.class, "blitz_bolt", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true);
+		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blitz_bolt"), EntityBlitzBolt.class, "thermalfoundation.blitz_bolt", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true);
 	}
 
 	/* REQUIRED CONSTRUCTOR */

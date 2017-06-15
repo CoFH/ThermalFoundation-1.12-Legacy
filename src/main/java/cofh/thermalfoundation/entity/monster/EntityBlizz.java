@@ -39,7 +39,7 @@ public class EntityBlizz extends EntityElemental {
 	public static void initialize(int id) {
 
 		config();
-		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blizz"), EntityBlizz.class, "blizz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
+		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blizz"), EntityBlizz.class, "thermalfoundation.blizz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
 
 		// Add Blizz spawn to Cold biomes
 		Set<Biome> validBiomes = BiomeDictionary.getBiomes(Type.COLD);

@@ -41,7 +41,7 @@ public class EntityBlitz extends EntityElemental {
 		if (!enable) {
 			return;
 		}
-		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blitz"), EntityBlitz.class, "blitz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xF0F8FF, 0xFFEFD5);
+		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blitz"), EntityBlitz.class, "thermalfoundation.blitz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xF0F8FF, 0xFFEFD5);
 
 		// Add Blitz spawn to Plains biomes
 		Set<Biome> validBiomes = BiomeDictionary.getBiomes(Type.PLAINS);

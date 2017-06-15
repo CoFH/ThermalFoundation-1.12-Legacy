@@ -23,7 +23,7 @@ public class EntityBasalzBolt extends EntityThrowable {
 
 	public static void initialize(int id) {
 
-		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:basalzBolt"), EntityBasalzBolt.class, "basalzBolt", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true);
+		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:basalz_bolt"), EntityBasalzBolt.class, "thermalfoundation.basalz_bolt", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true);
 	}
 
 	/* REQUIRED CONSTRUCTOR */
