@@ -125,7 +125,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest) {
 
 		this.onBlockHarvested(world, pos, state, player);
-		return world.setBlockState(pos, fluidBlocks[state.getValue(VARIANT).getMetadata()].getDefaultState().withProperty(BlockFluidCore.LEVEL, 1), world.isRemote ? 11 : 3);
+		return world.setBlockState(new BlockPos(pos), fluidBlocks[state.getValue(VARIANT).getMetadata()].getDefaultState().withProperty(BlockFluidCore.LEVEL, 1), world.isRemote ? 11 : 3);
 	}
 
 	@Override
