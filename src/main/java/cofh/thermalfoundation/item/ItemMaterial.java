@@ -226,8 +226,8 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addSmelting(ingotInvar, dustInvar, 0.0F);
 		addSmelting(ingotBronze, dustBronze, 0.0F);
 		addSmelting(ingotConstantan, dustConstantan, 0.0F);
-		addSmelting(ingotSignalum, dustSignalum, 0.0F);
-		addSmelting(ingotLumium, dustLumium, 0.0F);
+		// No Signalum
+		// No Lumium
 		// No Enderium
 
 		if (!Loader.isModLoaded("thermalexpansion")) {
