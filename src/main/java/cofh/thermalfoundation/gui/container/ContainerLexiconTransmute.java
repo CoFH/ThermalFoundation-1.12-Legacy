@@ -28,7 +28,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 	int oreSelection = -1;
 	int nameSelection = -1;
 	String oreName = OreDictionaryArbiter.UNKNOWN;
-	ItemStack oreStack;
+	ItemStack oreStack = ItemStack.EMPTY;
 
 	boolean syncClient = false;
 
