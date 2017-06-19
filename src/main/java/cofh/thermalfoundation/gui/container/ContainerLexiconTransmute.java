@@ -54,7 +54,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		}
 		for (int i = 0; i < 9; i++) {
 			if (i == inventory.currentItem) {
-				addSlotToContainer(new SlotViewOnly(inventory, i, xOffset + i * 18, yOffset + 58));
+				addSlotToContainer(new SlotLocked(inventory, i, xOffset + i * 18, yOffset + 58));
 			} else {
 				addSlotToContainer(new Slot(inventory, i, xOffset + i * 18, yOffset + 58));
 			}
