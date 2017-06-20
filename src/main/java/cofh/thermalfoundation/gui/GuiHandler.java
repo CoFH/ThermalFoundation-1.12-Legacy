@@ -56,12 +56,12 @@ public class GuiHandler implements IGuiHandler {
 				}
 				return null;
 			case LEXICON_STUDY_ID:
-				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
+				if (ItemHelper.isPlayerHoldingMainhand(TFItems.itemTome, player)) {
 					return new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory);
 				}
 				return null;
 			case LEXICON_TRANSMUTE_ID:
-				if (ItemHelper.isPlayerHoldingItem(ItemTome.class, player)) {
+				if (ItemHelper.isPlayerHoldingMainhand(TFItems.itemTome, player)) {
 					return new ContainerLexiconTransmute(player.inventory);
 				}
 				return null;

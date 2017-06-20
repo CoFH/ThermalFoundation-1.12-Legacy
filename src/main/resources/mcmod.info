@@ -13,7 +13,7 @@
 		"parent": "",
 		"screenshots": [],
 		"dependencies": [
-			"Forge,cofhcore"
+			"forge,cofhcore"
 		]
 	}
 ]

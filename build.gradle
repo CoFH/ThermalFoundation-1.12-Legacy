@@ -61,7 +61,6 @@ minecraft {
 	makeObfSourceJar = false
 }
 
-
 processResources {
 	inputs.property "version", project.version
 	inputs.property "mc_version", project.config.mc_version
@@ -133,7 +132,7 @@ uploadArchives {
 
 						issueManagement {
 							system 'github'
-							url 'https://github.com/TheCBProject/ThermalFoundation/issues'
+							url 'https://github.com/CoFH/Feedback/issues'
 						}
 
 						licenses {
