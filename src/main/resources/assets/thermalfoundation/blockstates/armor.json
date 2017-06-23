@@ -1,0 +1,254 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "builtin/generated",
+		"textures": {
+			"layer0": "blocks/dirt"
+		},
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"type": {
+			"helmet_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/helmet_copper"
+				}
+			},
+			"chestplate_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/chestplate_copper"
+				}
+			},
+			"leggings_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/leggings_copper"
+				}
+			},
+			"boots_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/boots_copper"
+				}
+			},
+			"helmet_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/helmet_tin"
+				}
+			},
+			"chestplate_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/chestplate_tin"
+				}
+			},
+			"leggings_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/leggings_tin"
+				}
+			},
+			"boots_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/boots_tin"
+				}
+			},
+			"helmet_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/helmet_silver"
+				}
+			},
+			"chestplate_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/chestplate_silver"
+				}
+			},
+			"leggings_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/leggings_silver"
+				}
+			},
+			"boots_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/boots_silver"
+				}
+			},
+			"helmet_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/helmet_lead"
+				}
+			},
+			"chestplate_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/chestplate_lead"
+				}
+			},
+			"leggings_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/leggings_lead"
+				}
+			},
+			"boots_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/boots_lead"
+				}
+			},
+			"helmet_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/helmet_aluminum"
+				}
+			},
+			"chestplate_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/chestplate_aluminum"
+				}
+			},
+			"leggings_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/leggings_aluminum"
+				}
+			},
+			"boots_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/boots_aluminum"
+				}
+			},
+			"helmet_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/helmet_nickel"
+				}
+			},
+			"chestplate_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/chestplate_nickel"
+				}
+			},
+			"leggings_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/leggings_nickel"
+				}
+			},
+			"boots_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/boots_nickel"
+				}
+			},
+			"helmet_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/helmet_platinum"
+				}
+			},
+			"chestplate_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/chestplate_platinum"
+				}
+			},
+			"leggings_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/leggings_platinum"
+				}
+			},
+			"boots_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/boots_platinum"
+				}
+			},
+			"helmet_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/helmet_steel"
+				}
+			},
+			"chestplate_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/chestplate_steel"
+				}
+			},
+			"leggings_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/leggings_steel"
+				}
+			},
+			"boots_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/boots_steel"
+				}
+			},
+			"helmet_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/helmet_electrum"
+				}
+			},
+			"chestplate_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/chestplate_electrum"
+				}
+			},
+			"leggings_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/leggings_electrum"
+				}
+			},
+			"boots_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/boots_electrum"
+				}
+			},
+			"helmet_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/helmet_invar"
+				}
+			},
+			"chestplate_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/chestplate_invar"
+				}
+			},
+			"leggings_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/leggings_invar"
+				}
+			},
+			"boots_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/boots_invar"
+				}
+			},
+			"helmet_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/helmet_bronze"
+				}
+			},
+			"chestplate_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/chestplate_bronze"
+				}
+			},
+			"leggings_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/leggings_bronze"
+				}
+			},
+			"boots_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/boots_bronze"
+				}
+			},
+			"helmet_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/helmet_constantan"
+				}
+			},
+			"chestplate_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/chestplate_constantan"
+				}
+			},
+			"leggings_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/leggings_constantan"
+				}
+			},
+			"boots_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/boots_constantan"
+				}
+			}
+		}
+	}
+}

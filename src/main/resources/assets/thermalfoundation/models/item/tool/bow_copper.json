@@ -1,0 +1,28 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "thermalfoundation:items/tool/bow_copper"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"pulling": 1.0
+			},
+			"model": "thermalfoundation:item/tool/bow_copper_0"
+		},
+		{
+			"predicate": {
+				"pulling": 1.0,
+				"pull": 0.65
+			},
+			"model": "thermalfoundation:item/tool/bow_copper_1"
+		},
+		{
+			"predicate": {
+				"pulling": 1.0,
+				"pull": 0.9
+			},
+			"model": "thermalfoundation:item/tool/bow_copper_2"
+		}
+	]
+}

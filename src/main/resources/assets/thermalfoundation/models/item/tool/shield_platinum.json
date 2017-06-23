@@ -1,0 +1,14 @@
+{
+	"parent":"thermalfoundation:item/tool/shield",
+	"textures": {
+		"layer0":"thermalfoundation:items/tool/shield_platinum"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"blocking": 1
+			},
+			"model": "thermalfoundation:item/tool/shield_platinum_blocking"
+		}
+	]
+}

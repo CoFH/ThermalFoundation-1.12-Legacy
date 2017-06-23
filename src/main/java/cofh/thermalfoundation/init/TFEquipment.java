@@ -208,7 +208,7 @@ public class TFEquipment {
 		@SideOnly (Side.CLIENT)
 		public void registerModel(Item item, String stackName) {
 
-			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(ThermalFoundation.MOD_ID + ":armor/" + name + "/" + stackName, "inventory"));
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(ThermalFoundation.MOD_ID + ":armor", "type=" + stackName));
 		}
 
 		/* IModelRegister */
@@ -216,10 +216,10 @@ public class TFEquipment {
 		@SideOnly (Side.CLIENT)
 		public void registerModels() {
 
-			registerModel(itemHelmet, name + "_helmet");
-			registerModel(itemChestplate, name + "_chestplate");
-			registerModel(itemLegs, name + "_leggings");
-			registerModel(itemBoots, name + "_boots");
+			registerModel(itemHelmet, "helmet_" + name);
+			registerModel(itemChestplate, "chestplate_" + name);
+			registerModel(itemLegs, "leggings_" + name);
+			registerModel(itemBoots, "boots_" + name);
 		}
 	}
 
@@ -459,7 +459,13 @@ public class TFEquipment {
 		@SideOnly (Side.CLIENT)
 		public void registerModel(Item item, String stackName) {
 
-			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(ThermalFoundation.MOD_ID + ":tool/" + name + "/" + stackName, "inventory"));
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(ThermalFoundation.MOD_ID + ":tool", "type=" + stackName));
+		}
+
+		@SideOnly (Side.CLIENT)
+		public void registerModelOverride(Item item, String stackName) {
+
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(ThermalFoundation.MOD_ID + ":tool/" + stackName, "inventory"));
 		}
 
 		/* IModelRegister */
@@ -467,17 +473,17 @@ public class TFEquipment {
 		@SideOnly (Side.CLIENT)
 		public void registerModels() {
 
-			registerModel(itemSword, name + "_sword");
-			registerModel(itemShovel, name + "_shovel");
-			registerModel(itemPickaxe, name + "_pickaxe");
-			registerModel(itemAxe, name + "_axe");
-			registerModel(itemHoe, name + "_hoe");
-			registerModel(itemBow, name + "_bow");
-			registerModel(itemFishingRod, name + "_fishing_rod");
-			registerModel(itemShears, name + "_shears");
-			registerModel(itemSickle, name + "_sickle");
-			registerModel(itemHammer, name + "_hammer");
-			registerModel(itemShield, name + "_shield");
+			registerModel(itemSword, "sword_" + name);
+			registerModel(itemShovel, "shovel_" + name);
+			registerModel(itemPickaxe, "pickaxe_" + name);
+			registerModel(itemAxe, "axe_" + name);
+			registerModel(itemHoe, "hoe_" + name);
+			registerModelOverride(itemBow, "bow_" + name);
+			registerModelOverride(itemFishingRod, "fishing_rod_" + name);
+			registerModel(itemShears, "shears_" + name);
+			registerModel(itemSickle, "sickle_" + name);
+			registerModel(itemHammer, "hammer_" + name);
+			registerModelOverride(itemShield, "shield_" + name);
 		}
 	}
 
@@ -687,7 +693,13 @@ public class TFEquipment {
 		@SideOnly (Side.CLIENT)
 		public void registerModel(Item item, String stackName) {
 
-			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(ThermalFoundation.MOD_ID + ":tool/" + name + "/" + stackName, "inventory"));
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(ThermalFoundation.MOD_ID + ":tool", "type=" + stackName));
+		}
+
+		@SideOnly (Side.CLIENT)
+		public void registerModelOverride(Item item, String stackName) {
+
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(ThermalFoundation.MOD_ID + ":tool/" + stackName, "inventory"));
 		}
 
 		/* IModelRegister */
@@ -696,19 +708,19 @@ public class TFEquipment {
 		public void registerModels() {
 
 			if (itemBow instanceof ItemBowCore) {
-				registerModel(itemBow, name + "_bow");
+				registerModelOverride(itemBow, "bow_" + name);
 			}
 			if (itemFishingRod instanceof ItemFishingRodCore) {
-				registerModel(itemFishingRod, name + "_fishing_rod");
+				registerModelOverride(itemFishingRod, "fishing_rod_" + name);
 			}
 			if (itemShears instanceof ItemShearsCore) {
-				registerModel(itemShears, name + "_shears");
+				registerModel(itemShears, "shears_" + name);
 			}
-			registerModel(itemSickle, name + "_sickle");
-			registerModel(itemHammer, name + "_hammer");
+			registerModel(itemSickle, "sickle_" + name);
+			registerModel(itemHammer, "hammer_" + name);
 
 			if (itemShield instanceof ItemShieldCore) {
-				registerModel(itemShield, name + "_shield");
+				registerModelOverride(itemShield, "shield_" + name);
 			}
 		}
 	}

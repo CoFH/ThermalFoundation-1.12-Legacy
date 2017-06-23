@@ -1,6 +1,0 @@
-{
-	"parent":"thermalfoundation:item/tool/shield_blocking",
-	"textures": {
-		"layer0":"thermalfoundation:items/tool/platinum/platinum_shield"
-	}
-}

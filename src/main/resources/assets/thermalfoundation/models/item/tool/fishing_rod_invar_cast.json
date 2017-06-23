@@ -1,0 +1,6 @@
+{
+	"parent": "thermalfoundation:item/tool/fishing_rod_invar",
+	"textures": {
+		"layer0": "thermalfoundation:items/tool/fishing_rod_invar_cast"
+	}
+}
