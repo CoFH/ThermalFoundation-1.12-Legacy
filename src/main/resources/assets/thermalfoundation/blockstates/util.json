@@ -5,7 +5,7 @@
 		"textures": {
 			"layer0": "blocks/dirt"
 		},
-		"transform": "forge:default-item"
+		"transform": "forge:default-tool"
 	},
 	"variants": {
 		"type": {

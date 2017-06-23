@@ -1,0 +1,14 @@
+{
+	"parent": "item/handheld_rod",
+	"textures": {
+		"layer0": "thermalfoundation:items/tool/fishing_rod_stone"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"cast": 1.0
+			},
+			"model": "thermalfoundation:item/tool/fishing_rod_stone_cast"
+		}
+	]
+}

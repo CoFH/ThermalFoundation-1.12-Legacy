@@ -1,0 +1,6 @@
+{
+	"parent": "thermalfoundation:item/tool/bow_bronze",
+	"textures": {
+		"layer0": "thermalfoundation:items/tool/bow_bronze_0"
+	}
+}

@@ -1,0 +1,644 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "builtin/generated",
+		"textures": {
+			"layer0": "blocks/dirt"
+		},
+		"transform": "forge:default-tool"
+	},
+	"variants": {
+		"type": {
+			"sword_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sword_copper"
+				}
+			},
+			"shovel_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shovel_copper"
+				}
+			},
+			"pickaxe_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/pickaxe_copper"
+				}
+			},
+			"axe_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/axe_copper"
+				}
+			},
+			"hoe_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hoe_copper"
+				}
+			},
+			"shears_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_copper"
+				}
+			},
+			"sickle_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_copper"
+				}
+			},
+			"hammer_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_copper"
+				}
+			},
+			"shield_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_copper"
+				}
+			},
+			"sword_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sword_tin"
+				}
+			},
+			"shovel_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shovel_tin"
+				}
+			},
+			"pickaxe_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/pickaxe_tin"
+				}
+			},
+			"axe_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/axe_tin"
+				}
+			},
+			"hoe_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hoe_tin"
+				}
+			},
+			"shears_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_tin"
+				}
+			},
+			"sickle_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_tin"
+				}
+			},
+			"hammer_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_tin"
+				}
+			},
+			"shield_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_tin"
+				}
+			},
+			"sword_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sword_silver"
+				}
+			},
+			"shovel_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shovel_silver"
+				}
+			},
+			"pickaxe_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/pickaxe_silver"
+				}
+			},
+			"axe_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/axe_silver"
+				}
+			},
+			"hoe_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hoe_silver"
+				}
+			},
+			"shears_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_silver"
+				}
+			},
+			"sickle_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_silver"
+				}
+			},
+			"hammer_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_silver"
+				}
+			},
+			"shield_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_silver"
+				}
+			},
+			"sword_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sword_lead"
+				}
+			},
+			"shovel_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shovel_lead"
+				}
+			},
+			"pickaxe_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/pickaxe_lead"
+				}
+			},
+			"axe_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/axe_lead"
+				}
+			},
+			"hoe_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hoe_lead"
+				}
+			},
+			"shears_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_lead"
+				}
+			},
+			"sickle_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_lead"
+				}
+			},
+			"hammer_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_lead"
+				}
+			},
+			"shield_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_lead"
+				}
+			},
+			"sword_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sword_aluminum"
+				}
+			},
+			"shovel_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shovel_aluminum"
+				}
+			},
+			"pickaxe_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/pickaxe_aluminum"
+				}
+			},
+			"axe_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/axe_aluminum"
+				}
+			},
+			"hoe_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hoe_aluminum"
+				}
+			},
+			"shears_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_aluminum"
+				}
+			},
+			"sickle_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_aluminum"
+				}
+			},
+			"hammer_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_aluminum"
+				}
+			},
+			"shield_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_aluminum"
+				}
+			},
+			"sword_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sword_nickel"
+				}
+			},
+			"shovel_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shovel_nickel"
+				}
+			},
+			"pickaxe_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/pickaxe_nickel"
+				}
+			},
+			"axe_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/axe_nickel"
+				}
+			},
+			"hoe_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hoe_nickel"
+				}
+			},
+			"shears_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_nickel"
+				}
+			},
+			"sickle_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_nickel"
+				}
+			},
+			"hammer_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_nickel"
+				}
+			},
+			"shield_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_nickel"
+				}
+			},
+			"sword_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sword_platinum"
+				}
+			},
+			"shovel_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shovel_platinum"
+				}
+			},
+			"pickaxe_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/pickaxe_platinum"
+				}
+			},
+			"axe_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/axe_platinum"
+				}
+			},
+			"hoe_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hoe_platinum"
+				}
+			},
+			"shears_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_platinum"
+				}
+			},
+			"sickle_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_platinum"
+				}
+			},
+			"hammer_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_platinum"
+				}
+			},
+			"shield_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_platinum"
+				}
+			},
+			"sword_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sword_steel"
+				}
+			},
+			"shovel_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shovel_steel"
+				}
+			},
+			"pickaxe_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/pickaxe_steel"
+				}
+			},
+			"axe_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/axe_steel"
+				}
+			},
+			"hoe_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hoe_steel"
+				}
+			},
+			"shears_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_steel"
+				}
+			},
+			"sickle_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_steel"
+				}
+			},
+			"hammer_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_steel"
+				}
+			},
+			"shield_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_steel"
+				}
+			},
+			"sword_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sword_electrum"
+				}
+			},
+			"shovel_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shovel_electrum"
+				}
+			},
+			"pickaxe_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/pickaxe_electrum"
+				}
+			},
+			"axe_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/axe_electrum"
+				}
+			},
+			"hoe_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hoe_electrum"
+				}
+			},
+			"shears_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_electrum"
+				}
+			},
+			"sickle_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_electrum"
+				}
+			},
+			"hammer_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_electrum"
+				}
+			},
+			"shield_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_electrum"
+				}
+			},
+			"sword_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sword_invar"
+				}
+			},
+			"shovel_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shovel_invar"
+				}
+			},
+			"pickaxe_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/pickaxe_invar"
+				}
+			},
+			"axe_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/axe_invar"
+				}
+			},
+			"hoe_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hoe_invar"
+				}
+			},
+			"shears_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_invar"
+				}
+			},
+			"sickle_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_invar"
+				}
+			},
+			"hammer_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_invar"
+				}
+			},
+			"shield_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_invar"
+				}
+			},
+			"sword_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sword_bronze"
+				}
+			},
+			"shovel_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shovel_bronze"
+				}
+			},
+			"pickaxe_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/pickaxe_bronze"
+				}
+			},
+			"axe_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/axe_bronze"
+				}
+			},
+			"hoe_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hoe_bronze"
+				}
+			},
+			"shears_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_bronze"
+				}
+			},
+			"sickle_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_bronze"
+				}
+			},
+			"hammer_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_bronze"
+				}
+			},
+			"shield_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_bronze"
+				}
+			},
+			"sword_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sword_constantan"
+				}
+			},
+			"shovel_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shovel_constantan"
+				}
+			},
+			"pickaxe_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/pickaxe_constantan"
+				}
+			},
+			"axe_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/axe_constantan"
+				}
+			},
+			"hoe_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hoe_constantan"
+				}
+			},
+			"shears_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_constantan"
+				}
+			},
+			"sickle_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_constantan"
+				}
+			},
+			"hammer_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_constantan"
+				}
+			},
+			"shield_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_constantan"
+				}
+			},
+			"shears_wood": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_wood"
+				}
+			},
+			"sickle_wood": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_wood"
+				}
+			},
+			"hammer_wood": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_wood"
+				}
+			},
+			"shears_stone": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_stone"
+				}
+			},
+			"sickle_stone": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_stone"
+				}
+			},
+			"hammer_stone": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_stone"
+				}
+			},
+			"shield_stone": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_stone"
+				}
+			},
+			"sickle_iron": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_iron"
+				}
+			},
+			"hammer_iron": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_iron"
+				}
+			},
+			"shield_iron": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_iron"
+				}
+			},
+			"shears_gold": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_gold"
+				}
+			},
+			"sickle_gold": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_gold"
+				}
+			},
+			"hammer_gold": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_gold"
+				}
+			},
+			"shield_gold": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_gold"
+				}
+			},
+			"shears_diamond": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shears_diamond"
+				}
+			},
+			"sickle_diamond": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/sickle_diamond"
+				}
+			},
+			"hammer_diamond": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/hammer_diamond"
+				}
+			},
+			"shield_diamond": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/shield_diamond"
+				}
+			}
+		}
+	}
+}

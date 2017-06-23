@@ -1,6 +1,0 @@
-{
-	"parent": "thermalfoundation:item/tool/electrum/electrum_bow",
-	"textures": {
-		"layer0": "thermalfoundation:items/tool/electrum/electrum_bow_1"
-	}
-}
