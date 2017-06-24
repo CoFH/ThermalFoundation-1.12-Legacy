@@ -212,7 +212,7 @@ public class SchematicHelper {
 		for (int i = 0; i < 9; i++) {
 			tempCraft.setInventorySlotContents(i, getSchematicSlot(stack, i));
 		}
-		return ItemHelper.findMatchingRecipe(tempCraft, world);
+		return ItemHelper.getCraftingResult(tempCraft, world);
 	}
 
 	public static ItemStack getSchematicSlot(ItemStack stack, int slot) {
