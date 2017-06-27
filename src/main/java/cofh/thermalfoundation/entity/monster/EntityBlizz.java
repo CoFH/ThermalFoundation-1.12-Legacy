@@ -10,6 +10,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
@@ -17,10 +18,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class EntityBlizz extends EntityElemental {
@@ -39,26 +39,41 @@ public class EntityBlizz extends EntityElemental {
 	public static void initialize(int id) {
 
 		config();
-		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blizz"), EntityBlizz.class, "thermalfoundation.blizz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
 
-		// Add Blizz spawn to Cold biomes
-		Set<Biome> validBiomes = BiomeDictionary.getBiomes(Type.COLD);
-
-		// Add Blizz spawn to Snowy biomes (in vanilla, all snowy are also cold)
-		for (Biome biome : BiomeDictionary.getBiomes(Type.SNOWY)) {
-			if (!validBiomes.contains(biome)) {
-				validBiomes.add(biome);
-			}
-		}
-		// Remove Blizz spawn from End biomes
-		for (Biome biome : BiomeDictionary.getBiomes(Type.END)) {
-			if (validBiomes.contains(biome)) {
-				validBiomes.remove(biome);
-			}
-		}
 		if (!enable) {
 			return;
 		}
+		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blizz"), EntityBlizz.class, "thermalfoundation.blizz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
+
+		//		// Add Blizz spawn to Cold biomes
+		//		Set<Biome> validBiomes = BiomeDictionary.getBiomes(Type.COLD);
+		//
+		//		// Add Blizz spawn to Snowy biomes (in vanilla, all snowy are also cold)
+		//		for (Biome biome : BiomeDictionary.getBiomes(Type.SNOWY)) {
+		//			if (!validBiomes.contains(biome)) {
+		//				validBiomes.add(biome);
+		//			}
+		//		}
+		//		// Remove Blizz spawn from End biomes
+		//		for (Biome biome : BiomeDictionary.getBiomes(Type.END)) {
+		//			if (validBiomes.contains(biome)) {
+		//				validBiomes.remove(biome);
+		//			}
+		//		}
+
+		// TODO: Remove once Forge gets the BiomeDictionary fixed.
+		Set<Biome> validBiomes = new HashSet<>();
+		validBiomes.add(Biomes.TAIGA);
+		validBiomes.add(Biomes.FROZEN_OCEAN);
+		validBiomes.add(Biomes.FROZEN_RIVER);
+		validBiomes.add(Biomes.ICE_PLAINS);
+		validBiomes.add(Biomes.ICE_MOUNTAINS);
+		validBiomes.add(Biomes.COLD_BEACH);
+		validBiomes.add(Biomes.COLD_TAIGA);
+		validBiomes.add(Biomes.COLD_TAIGA_HILLS);
+		validBiomes.add(Biomes.MUTATED_TAIGA);
+		validBiomes.add(Biomes.MUTATED_TAIGA_COLD);
+
 		EntityRegistry.addSpawn(EntityBlizz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));
 	}
 
