@@ -62,12 +62,19 @@
 				"value": [
 					{
 						"type": "dictionary",
-						"entry": [
-							"MESA",
-							"OCEAN",
-							"SNOWY",
-							"SWAMP"
-						]
+						"entry": "MESA"
+					},
+					{
+						"type": "dictionary",
+						"entry": "OCEAN"
+					},
+					{
+						"type": "dictionary",
+						"entry": "SNOWY"
+					},
+					{
+						"type": "dictionary",
+						"entry": "SWAMP"
 					}
 				]
 			},
