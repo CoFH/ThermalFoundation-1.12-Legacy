@@ -397,7 +397,7 @@ item.thermalfoundation.tool.woodSickle.name=Holzsichel
 
 item.thermalfoundation.util.lock.name=Signalumsicherheitsschloss
 item.thermalfoundation.util.multimeter.name=Multimeter
-item.thermalfoundation.util.wrenchBasic.name=Rollgabelschlüssel
+item.thermalfoundation.util.wrench0.name=Rollgabelschlüssel
 
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Rüstung

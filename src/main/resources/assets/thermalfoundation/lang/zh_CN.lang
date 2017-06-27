@@ -411,7 +411,7 @@ item.thermalfoundation.tool.woodSickle.name=木镰刀
 
 item.thermalfoundation.util.lock.name=信素安全锁
 item.thermalfoundation.util.multimeter.name=万用表
-item.thermalfoundation.util.wrenchBasic.name=新月锤
+item.thermalfoundation.util.wrench0.name=新月锤
 
 itemGroup.thermalfoundation.creativeTab=热力基本
 itemGroup.thermalfoundation.creativeTabArmor=热力基本|护甲

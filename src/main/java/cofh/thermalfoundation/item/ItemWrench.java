@@ -6,7 +6,9 @@ import cofh.asm.relauncher.Implementable;
 import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
 import cofh.core.util.core.IInitializer;
+import cofh.core.util.crafting.RecipeUpgrade;
 import cofh.lib.util.helpers.BlockHelper;
+import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import com.google.common.collect.HashMultimap;
@@ -21,6 +23,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -75,6 +78,8 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 		IBlockState state = world.getBlockState(pos);
 		Block block = state.getBlock();
 
+
+
 		if (world.isAirBlock(pos)) {
 			return EnumActionResult.PASS;
 		}
@@ -100,9 +105,11 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	@Override
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
 
+		int metadata = ItemHelper.getItemDamage(stack);
+
 		Multimap<String, AttributeModifier> multimap = HashMultimap.create();
 		if (slot == EntityEquipmentSlot.MAINHAND) {
-			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", 1, 0));
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", metadata > 0 ? 2 : 1, 0));
 		}
 		return multimap;
 	}
@@ -120,6 +127,65 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 			ModelLoader.setCustomModelResourceLocation(this, entry.getKey(), new ModelResourceLocation(modName + ":" + "util", "type=" + entry.getValue().name));
 		}
 	}
+
+	//	/* IMultiModeItem */
+	//	@Override
+	//	public int getMode(ItemStack stack) {
+	//
+	//		return !stack.hasTagCompound() ? 0 : stack.getTagCompound().getInteger("Mode");
+	//	}
+	//
+	//	@Override
+	//	public boolean setMode(ItemStack stack, int mode) {
+	//
+	//		if (!stack.hasTagCompound()) {
+	//			stack.setTagCompound(new NBTTagCompound());
+	//		}
+	//		stack.getTagCompound().setInteger("Mode", mode);
+	//		return false;
+	//	}
+	//
+	//	@Override
+	//	public boolean incrMode(ItemStack stack) {
+	//
+	//		if (!stack.hasTagCompound()) {
+	//			stack.setTagCompound(new NBTTagCompound());
+	//		}
+	//		int curMode = getMode(stack);
+	//		curMode++;
+	//		if (curMode >= getNumModes(stack)) {
+	//			curMode = 0;
+	//		}
+	//		stack.getTagCompound().setInteger("Mode", curMode);
+	//		return true;
+	//	}
+	//
+	//	@Override
+	//	public boolean decrMode(ItemStack stack) {
+	//
+	//		if (!stack.hasTagCompound()) {
+	//			stack.setTagCompound(new NBTTagCompound());
+	//		}
+	//		int curMode = getMode(stack);
+	//		curMode--;
+	//		if (curMode <= 0) {
+	//			curMode = getNumModes(stack) - 1;
+	//		}
+	//		stack.getTagCompound().setInteger("Mode", curMode);
+	//		return true;
+	//	}
+	//
+	//	@Override
+	//	public int getNumModes(ItemStack stack) {
+	//
+	//		return 3;
+	//	}
+	//
+	//	@Override
+	//	public void onModeChange(EntityPlayer player, ItemStack stack) {
+	//
+	//		ChatHelper.sendIndexedChatMessageToPlayer(player, new TextComponentTranslation("info.thermalexpansion.capacitor.a." + getMode(stack)));
+	//	}
 
 	/* IToolHammer */
 	@Override
@@ -161,7 +227,11 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	@Override
 	public boolean preInit() {
 
-		wrenchBasic = addItem(0, "wrenchBasic");
+		wrenchBasic = addItem(0, "wrench0");
+		wrenchHardened = addItem(1, "wrench1");
+		wrenchReinforced = addItem(2, "wrench2", EnumRarity.UNCOMMON);
+		wrenchSignalum = addItem(3, "wrench3", EnumRarity.UNCOMMON);
+		wrenchResonant = addItem(4, "wrench4", EnumRarity.RARE);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
@@ -171,7 +241,49 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	@Override
 	public boolean initialize() {
 
-		addRecipe(ShapedRecipe(wrenchBasic, "I I", " T ", " I ", 'I', "ingotIron", 'T', "ingotTin"));
+		// @formatter:off
+
+		addRecipe(ShapedRecipe(wrenchBasic,
+				"I I",
+				" T ",
+				" I ",
+				'I', "ingotIron",
+				'T', "ingotTin"
+		));
+		addRecipe(new RecipeUpgrade(wrenchHardened,
+			"Y Y",
+				"IXI",
+				" Y ",
+				'I', "ingotInvar",
+				'X', wrenchBasic,
+				'Y', "nuggetTin"
+		));
+		addRecipe(new RecipeUpgrade(wrenchReinforced,
+				"Y Y",
+				"IXI",
+				" Y ",
+				'I', "ingotElectrum",
+				'X', wrenchHardened,
+				'Y', "nuggetInvar"
+		));
+		addRecipe(new RecipeUpgrade(wrenchSignalum,
+				"Y Y",
+				"IXI",
+				" Y ",
+				'I', "ingotSignalum",
+				'X', wrenchReinforced,
+				'Y', "nuggetElectrum"
+		));
+		addRecipe(new RecipeUpgrade(wrenchResonant,
+				"Y Y",
+				"IXI",
+				" Y ",
+				'I', "ingotEnderium",
+				'X', wrenchSignalum,
+				'Y', "nuggetSignalum"
+		));
+
+		// @formatter:on
 
 		return true;
 	}
@@ -184,10 +296,9 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 	/* REFERENCES */
 	public static ItemStack wrenchBasic;
-
-	/* TYPE */
-	enum Type {
-		BASIC, ENDER
-	}
+	public static ItemStack wrenchHardened;
+	public static ItemStack wrenchReinforced;
+	public static ItemStack wrenchSignalum;
+	public static ItemStack wrenchResonant;
 
 }

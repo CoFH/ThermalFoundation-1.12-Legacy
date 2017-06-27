@@ -9,9 +9,29 @@
 	},
 	"variants": {
 		"type": {
-			"wrenchbasic": {
+			"wrench0": {
 				"textures": {
-					"layer0": "thermalfoundation:items/util/wrench_basic"
+					"layer0": "thermalfoundation:items/util/wrench_0"
+				}
+			},
+			"wrench1": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/wrench_1"
+				}
+			},
+			"wrench2": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/wrench_2"
+				}
+			},
+			"wrench3": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/wrench_3"
+				}
+			},
+			"wrench4": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/wrench_4"
 				}
 			},
 			"multimeter": {
@@ -47,6 +67,11 @@
 			"redprint": {
 				"textures": {
 					"layer0": "thermalfoundation:items/util/redprint"
+				}
+			},
+			"enderprint": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/enderprint"
 				}
 			}
 		}
