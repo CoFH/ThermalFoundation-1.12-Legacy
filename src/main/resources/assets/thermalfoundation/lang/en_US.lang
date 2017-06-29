@@ -109,6 +109,11 @@ item.thermalfoundation.armor.silverHelmet.name=Silver Helmet
 item.thermalfoundation.armor.silverLegs.name=Silver Leggings
 item.thermalfoundation.armor.silverChestplate.name=Silver Chestplate
 
+item.thermalfoundation.armor.steelBoots.name=Steel Boots
+item.thermalfoundation.armor.steelHelmet.name=Steel Helmet
+item.thermalfoundation.armor.steelLegs.name=Steel Leggings
+item.thermalfoundation.armor.steelChestplate.name=Steel Chestplate
+
 item.thermalfoundation.armor.tinBoots.name=Tin Boots
 item.thermalfoundation.armor.tinHelmet.name=Tin Helmet
 item.thermalfoundation.armor.tinLegs.name=Tin Leggings
@@ -424,6 +429,18 @@ item.thermalfoundation.tool.silverShield.name=Silver Shield
 item.thermalfoundation.tool.silverShovel.name=Silver Shovel
 item.thermalfoundation.tool.silverSickle.name=Silver Sickle
 item.thermalfoundation.tool.silverSword.name=Silver Sword
+
+item.thermalfoundation.tool.steelAxe.name=Steel Axe
+item.thermalfoundation.tool.steelBow.name=Steel Reinforced Bow
+item.thermalfoundation.tool.steelFishingRod.name=Steel Fishing Rod
+item.thermalfoundation.tool.steelHammer.name=Steel Hammer
+item.thermalfoundation.tool.steelHoe.name=Steel Hoe
+item.thermalfoundation.tool.steelPickaxe.name=Steel Pickaxe
+item.thermalfoundation.tool.steelShears.name=Steel Shears
+item.thermalfoundation.tool.steelShield.name=Steel Shield
+item.thermalfoundation.tool.steelShovel.name=Steel Shovel
+item.thermalfoundation.tool.steelSickle.name=Steel Sickle
+item.thermalfoundation.tool.steelSword.name=Steel Sword
 
 item.thermalfoundation.tool.stoneBow.name=Stone Reinforced Bow
 item.thermalfoundation.tool.stoneFishingRod.name=Stone Fishing Rod

@@ -6,7 +6,6 @@ import cofh.asm.relauncher.Implementable;
 import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
 import cofh.core.util.core.IInitializer;
-import cofh.core.util.crafting.RecipeUpgrade;
 import cofh.lib.util.helpers.BlockHelper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.ServerHelper;
@@ -23,7 +22,6 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -77,8 +75,6 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 		IBlockState state = world.getBlockState(pos);
 		Block block = state.getBlock();
-
-
 
 		if (world.isAirBlock(pos)) {
 			return EnumActionResult.PASS;
@@ -228,10 +224,10 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	public boolean preInit() {
 
 		wrenchBasic = addItem(0, "wrench0");
-		wrenchHardened = addItem(1, "wrench1");
-		wrenchReinforced = addItem(2, "wrench2", EnumRarity.UNCOMMON);
-		wrenchSignalum = addItem(3, "wrench3", EnumRarity.UNCOMMON);
-		wrenchResonant = addItem(4, "wrench4", EnumRarity.RARE);
+		//		wrenchHardened = addItem(1, "wrench1");
+		//		wrenchReinforced = addItem(2, "wrench2", EnumRarity.UNCOMMON);
+		//		wrenchSignalum = addItem(3, "wrench3", EnumRarity.UNCOMMON);
+		//		wrenchResonant = addItem(4, "wrench4", EnumRarity.RARE);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
@@ -250,38 +246,38 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 				'I', "ingotIron",
 				'T', "ingotTin"
 		));
-		addRecipe(new RecipeUpgrade(wrenchHardened,
-			"Y Y",
-				"IXI",
-				" Y ",
-				'I', "ingotInvar",
-				'X', wrenchBasic,
-				'Y', "nuggetTin"
-		));
-		addRecipe(new RecipeUpgrade(wrenchReinforced,
-				"Y Y",
-				"IXI",
-				" Y ",
-				'I', "ingotElectrum",
-				'X', wrenchHardened,
-				'Y', "nuggetInvar"
-		));
-		addRecipe(new RecipeUpgrade(wrenchSignalum,
-				"Y Y",
-				"IXI",
-				" Y ",
-				'I', "ingotSignalum",
-				'X', wrenchReinforced,
-				'Y', "nuggetElectrum"
-		));
-		addRecipe(new RecipeUpgrade(wrenchResonant,
-				"Y Y",
-				"IXI",
-				" Y ",
-				'I', "ingotEnderium",
-				'X', wrenchSignalum,
-				'Y', "nuggetSignalum"
-		));
+//		addRecipe(new RecipeUpgrade(wrenchHardened,
+//			"Y Y",
+//				"IXI",
+//				" Y ",
+//				'I', "ingotInvar",
+//				'X', wrenchBasic,
+//				'Y', "nuggetTin"
+//		));
+//		addRecipe(new RecipeUpgrade(wrenchReinforced,
+//				"Y Y",
+//				"IXI",
+//				" Y ",
+//				'I', "ingotElectrum",
+//				'X', wrenchHardened,
+//				'Y', "nuggetInvar"
+//		));
+//		addRecipe(new RecipeUpgrade(wrenchSignalum,
+//				"Y Y",
+//				"IXI",
+//				" Y ",
+//				'I', "ingotSignalum",
+//				'X', wrenchReinforced,
+//				'Y', "nuggetElectrum"
+//		));
+//		addRecipe(new RecipeUpgrade(wrenchResonant,
+//				"Y Y",
+//				"IXI",
+//				" Y ",
+//				'I', "ingotEnderium",
+//				'X', wrenchSignalum,
+//				'Y', "nuggetSignalum"
+//		));
 
 		// @formatter:on
 

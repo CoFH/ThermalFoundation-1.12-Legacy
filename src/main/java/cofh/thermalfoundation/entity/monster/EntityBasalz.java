@@ -10,12 +10,13 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Biomes;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 import java.util.HashSet;
@@ -43,35 +44,11 @@ public class EntityBasalz extends EntityElemental {
 		}
 		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:basalz"), EntityBasalz.class, "thermalfoundation.basalz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0x606060, 0xB3ABA3);
 
-		//		// Add Basalz spawn to Mountain biomes
-		//		Set<Biome> validBiomes = BiomeDictionary.getBiomes(Type.MOUNTAIN);
-		//
-		//		// Add Basalz spawn to Wasteland biomes
-		//		for (Biome biome : BiomeDictionary.getBiomes(Type.WASTELAND)) {
-		//			if (!validBiomes.contains(biome)) {
-		//				validBiomes.add(biome);
-		//			}
-		//		}
-		//		// Remove Basalz spawn from End biomes
-		//		for (Biome biome : BiomeDictionary.getBiomes(Type.END)) {
-		//			if (validBiomes.contains(biome)) {
-		//				validBiomes.remove(biome);
-		//			}
-		//		}
-
-		// TODO: Remove once Forge gets the BiomeDictionary fixed.
 		Set<Biome> validBiomes = new HashSet<>();
-		validBiomes.add(Biomes.EXTREME_HILLS);
-		validBiomes.add(Biomes.EXTREME_HILLS_EDGE);
-		validBiomes.add(Biomes.EXTREME_HILLS_WITH_TREES);
-		validBiomes.add(Biomes.MUTATED_EXTREME_HILLS);
-		validBiomes.add(Biomes.MUTATED_EXTREME_HILLS_WITH_TREES);
-		validBiomes.add(Biomes.MUTATED_TAIGA);
-		validBiomes.add(Biomes.MUTATED_BIRCH_FOREST_HILLS);
-		validBiomes.add(Biomes.MUTATED_ROOFED_FOREST);
-		validBiomes.add(Biomes.MUTATED_SAVANNA);
-		validBiomes.add(Biomes.MUTATED_MESA);
-		validBiomes.add(Biomes.MUTATED_MESA_CLEAR_ROCK);
+
+		validBiomes.addAll(BiomeDictionary.getBiomes(Type.MOUNTAIN));
+		validBiomes.addAll(BiomeDictionary.getBiomes(Type.WASTELAND));
+		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.END));
 
 		EntityRegistry.addSpawn(EntityBasalz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));
 	}
