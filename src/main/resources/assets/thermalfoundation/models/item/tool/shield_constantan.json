@@ -1,0 +1,14 @@
+{
+	"parent":"thermalfoundation:item/tool/shield",
+	"textures": {
+		"layer0":"thermalfoundation:items/tool/shield_constantan"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"blocking": 1
+			},
+			"model": "thermalfoundation:item/tool/shield_constantan_blocking"
+		}
+	]
+}

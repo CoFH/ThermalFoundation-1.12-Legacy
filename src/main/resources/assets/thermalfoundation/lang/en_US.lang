@@ -59,10 +59,20 @@ info.thermalfoundation.tome.lexicon.c.1=§ePress (%s) to forsake knowledge.§r
 info.thermalfoundation.util.multimeter.0=Provides information about things.
 info.thermalfoundation.util.multimeter.1=Use while sneaking to configure some devices.
 
+item.thermalfoundation.armor.aluminumBoots.name=Aluminum Boots
+item.thermalfoundation.armor.aluminumHelmet.name=Aluminum Helmet
+item.thermalfoundation.armor.aluminumLegs.name=Aluminum Leggings
+item.thermalfoundation.armor.aluminumChestplate.name=Aluminum Chestplate
+
 item.thermalfoundation.armor.bronzeBoots.name=Bronze Boots
 item.thermalfoundation.armor.bronzeHelmet.name=Bronze Helmet
 item.thermalfoundation.armor.bronzeLegs.name=Bronze Leggings
 item.thermalfoundation.armor.bronzeChestplate.name=Bronze Chestplate
+
+item.thermalfoundation.armor.constantanBoots.name=Constantan Boots
+item.thermalfoundation.armor.constantanHelmet.name=Constantan Helmet
+item.thermalfoundation.armor.constantanLegs.name=Constantan Leggings
+item.thermalfoundation.armor.constantanChestplate.name=Constantan Chestplate
 
 item.thermalfoundation.armor.copperBoots.name=Copper Boots
 item.thermalfoundation.armor.copperHelmet.name=Copper Helmet
@@ -98,6 +108,11 @@ item.thermalfoundation.armor.silverBoots.name=Silver Boots
 item.thermalfoundation.armor.silverHelmet.name=Silver Helmet
 item.thermalfoundation.armor.silverLegs.name=Silver Leggings
 item.thermalfoundation.armor.silverChestplate.name=Silver Chestplate
+
+item.thermalfoundation.armor.steelBoots.name=Steel Boots
+item.thermalfoundation.armor.steelHelmet.name=Steel Helmet
+item.thermalfoundation.armor.steelLegs.name=Steel Leggings
+item.thermalfoundation.armor.steelChestplate.name=Steel Chestplate
 
 item.thermalfoundation.armor.tinBoots.name=Tin Boots
 item.thermalfoundation.armor.tinHelmet.name=Tin Helmet
@@ -274,6 +289,18 @@ item.thermalfoundation.material.rodBlizz.name=Blizz Rod
 item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexicon (Empowered)
 item.thermalfoundation.tome.lexicon.name=Forge Lexicon
 
+item.thermalfoundation.tool.aluminumAxe.name=Aluminum Axe
+item.thermalfoundation.tool.aluminumBow.name=Aluminum Reinforced Bow
+item.thermalfoundation.tool.aluminumFishingRod.name=Aluminum Fishing Rod
+item.thermalfoundation.tool.aluminumHammer.name=Aluminum Hammer
+item.thermalfoundation.tool.aluminumHoe.name=Aluminum Hoe
+item.thermalfoundation.tool.aluminumPickaxe.name=Aluminum Pickaxe
+item.thermalfoundation.tool.aluminumShears.name=Aluminum Shears
+item.thermalfoundation.tool.aluminumShield.name=Aluminum Shield
+item.thermalfoundation.tool.aluminumShovel.name=Aluminum Shovel
+item.thermalfoundation.tool.aluminumSickle.name=Aluminum Sickle
+item.thermalfoundation.tool.aluminumSword.name=Aluminum Sword
+
 item.thermalfoundation.tool.bronzeAxe.name=Bronze Axe
 item.thermalfoundation.tool.bronzeBow.name=Bronze Reinforced Bow
 item.thermalfoundation.tool.bronzeFishingRod.name=Bronze Fishing Rod
@@ -285,6 +312,18 @@ item.thermalfoundation.tool.bronzeShield.name=Bronze Shield
 item.thermalfoundation.tool.bronzeShovel.name=Bronze Shovel
 item.thermalfoundation.tool.bronzeSickle.name=Bronze Sickle
 item.thermalfoundation.tool.bronzeSword.name=Bronze Sword
+
+item.thermalfoundation.tool.constantanAxe.name=Constantan Axe
+item.thermalfoundation.tool.constantanBow.name=Constantan Reinforced Bow
+item.thermalfoundation.tool.constantanFishingRod.name=Constantan Fishing Rod
+item.thermalfoundation.tool.constantanHammer.name=Constantan Hammer
+item.thermalfoundation.tool.constantanHoe.name=Constantan Hoe
+item.thermalfoundation.tool.constantanPickaxe.name=Constantan Pickaxe
+item.thermalfoundation.tool.constantanShears.name=Constantan Shears
+item.thermalfoundation.tool.constantanShield.name=Constantan Shield
+item.thermalfoundation.tool.constantanShovel.name=Constantan Shovel
+item.thermalfoundation.tool.constantanSickle.name=Constantan Sickle
+item.thermalfoundation.tool.constantanSword.name=Constantan Sword
 
 item.thermalfoundation.tool.copperAxe.name=Copper Axe
 item.thermalfoundation.tool.copperBow.name=Copper Reinforced Bow
@@ -390,6 +429,18 @@ item.thermalfoundation.tool.silverShield.name=Silver Shield
 item.thermalfoundation.tool.silverShovel.name=Silver Shovel
 item.thermalfoundation.tool.silverSickle.name=Silver Sickle
 item.thermalfoundation.tool.silverSword.name=Silver Sword
+
+item.thermalfoundation.tool.steelAxe.name=Steel Axe
+item.thermalfoundation.tool.steelBow.name=Steel Reinforced Bow
+item.thermalfoundation.tool.steelFishingRod.name=Steel Fishing Rod
+item.thermalfoundation.tool.steelHammer.name=Steel Hammer
+item.thermalfoundation.tool.steelHoe.name=Steel Hoe
+item.thermalfoundation.tool.steelPickaxe.name=Steel Pickaxe
+item.thermalfoundation.tool.steelShears.name=Steel Shears
+item.thermalfoundation.tool.steelShield.name=Steel Shield
+item.thermalfoundation.tool.steelShovel.name=Steel Shovel
+item.thermalfoundation.tool.steelSickle.name=Steel Sickle
+item.thermalfoundation.tool.steelSword.name=Steel Sword
 
 item.thermalfoundation.tool.stoneBow.name=Stone Reinforced Bow
 item.thermalfoundation.tool.stoneFishingRod.name=Stone Fishing Rod

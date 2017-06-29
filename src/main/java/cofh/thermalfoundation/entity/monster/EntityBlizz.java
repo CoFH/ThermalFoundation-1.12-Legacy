@@ -13,6 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -20,9 +21,7 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class EntityBlizz extends EntityElemental {
 
@@ -40,6 +39,10 @@ public class EntityBlizz extends EntityElemental {
 	public static void initialize(int id) {
 
 		config();
+
+		if (!enable) {
+			return;
+		}
 		EntityRegistry.registerModEntity(EntityBlizz.class, "blizz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
 
 		// Add Blizz spawn to Cold biomes
@@ -56,9 +59,6 @@ public class EntityBlizz extends EntityElemental {
 			if (validBiomes.contains(biome)) {
 				validBiomes.remove(biome);
 			}
-		}
-		if (!enable) {
-			return;
 		}
 		EntityRegistry.addSpawn(EntityBlizz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));
 	}
