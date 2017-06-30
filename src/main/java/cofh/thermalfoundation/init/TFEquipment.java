@@ -22,8 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Locale;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
-import static cofh.lib.util.helpers.ItemHelper.addRecipe;
+import static cofh.lib.util.helpers.RecipeHelper.addShapedRecipe;
 
 public class TFEquipment {
 
@@ -197,16 +196,16 @@ public class TFEquipment {
 		protected void initialize() {
 
 			if (enable[0]) {
-				addRecipe(ShapedRecipe(armorHelmet, "III", "I I", 'I', ingot));
+				addShapedRecipe(armorHelmet, "III", "I I", 'I', ingot);
 			}
 			if (enable[1]) {
-				addRecipe(ShapedRecipe(armorChestplate, "I I", "III", "III", 'I', ingot));
+				addShapedRecipe(armorChestplate, "I I", "III", "III", 'I', ingot);
 			}
 			if (enable[2]) {
-				addRecipe(ShapedRecipe(armorLegs, "III", "I I", "I I", 'I', ingot));
+				addShapedRecipe(armorLegs, "III", "I I", "I I", 'I', ingot);
 			}
 			if (enable[3]) {
-				addRecipe(ShapedRecipe(armorBoots, "I I", "I I", 'I', ingot));
+				addShapedRecipe(armorBoots, "I I", "I I", 'I', ingot);
 			}
 		}
 
@@ -427,37 +426,37 @@ public class TFEquipment {
 		protected void initialize() {
 
 			if (enable[0]) {
-				addRecipe(ShapedRecipe(toolSword, "I", "I", "S", 'I', ingot, 'S', "stickWood"));
+				addShapedRecipe(toolSword, "I", "I", "S", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[1]) {
-				addRecipe(ShapedRecipe(toolShovel, "I", "S", "S", 'I', ingot, 'S', "stickWood"));
+				addShapedRecipe(toolShovel, "I", "S", "S", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[2]) {
-				addRecipe(ShapedRecipe(toolPickaxe, "III", " S ", " S ", 'I', ingot, 'S', "stickWood"));
+				addShapedRecipe(toolPickaxe, "III", " S ", " S ", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[3]) {
-				addRecipe(ShapedRecipe(toolAxe, "II", "IS", " S", 'I', ingot, 'S', "stickWood"));
+				addShapedRecipe(toolAxe, "II", "IS", " S", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[4]) {
-				addRecipe(ShapedRecipe(toolHoe, "II", " S", " S", 'I', ingot, 'S', "stickWood"));
+				addShapedRecipe(toolHoe, "II", " S", " S", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[5]) {
-				addRecipe(ShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.STRING));
+				addShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
 			}
 			if (enable[6]) {
-				addRecipe(ShapedRecipe(toolFishingRod, "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', Items.STRING));
+				addShapedRecipe(toolFishingRod, "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
 			}
 			if (enable[7]) {
-				addRecipe(ShapedRecipe(toolShears, " I", "I ", 'I', ingot));
+				addShapedRecipe(toolShears, " I", "I ", 'I', ingot);
 			}
 			if (enable[8]) {
-				addRecipe(ShapedRecipe(toolSickle, " I ", "  I", "SI ", 'I', ingot, 'S', "stickWood"));
+				addShapedRecipe(toolSickle, " I ", "  I", "SI ", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[9]) {
-				addRecipe(ShapedRecipe(toolHammer, "III", "ISI", " S ", 'I', ingot, 'S', "stickWood"));
+				addShapedRecipe(toolHammer, "III", "ISI", " S ", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[10]) {
-				addRecipe(ShapedRecipe(toolShield, "III", "ISI", " I ", 'I', ingot, 'S', Items.SHIELD));
+				addShapedRecipe(toolShield, "III", "ISI", " I ", 'I', ingot, 'S', Items.SHIELD);
 			}
 		}
 
@@ -676,22 +675,22 @@ public class TFEquipment {
 		protected void initialize() {
 
 			if (enable[0]) {
-				addRecipe(ShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.STRING));
+				addShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
 			}
 			if (enable[1]) {
-				addRecipe(ShapedRecipe(toolFishingRod, "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', Items.STRING));
+				addShapedRecipe(toolFishingRod, "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
 			}
 			if (enable[2]) {
-				addRecipe(ShapedRecipe(toolShears, " I", "I ", 'I', ingot));
+				addShapedRecipe(toolShears, " I", "I ", 'I', ingot);
 			}
 			if (enable[3]) {
-				addRecipe(ShapedRecipe(toolSickle, " I ", "  I", "SI ", 'I', ingot, 'S', "stickWood"));
+				addShapedRecipe(toolSickle, " I ", "  I", "SI ", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[4]) {
-				addRecipe(ShapedRecipe(toolHammer, "III", "ISI", " S ", 'I', ingot, 'S', "stickWood"));
+				addShapedRecipe(toolHammer, "III", "ISI", " S ", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[5]) {
-				addRecipe(ShapedRecipe(toolShield, "III", "ISI", " I ", 'I', ingot, 'S', Items.SHIELD));
+				addShapedRecipe(toolShield, "III", "ISI", " I ", 'I', ingot, 'S', Items.SHIELD);
 			}
 		}
 

@@ -24,8 +24,8 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static cofh.lib.util.helpers.ItemHelper.addSmelting;
 import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
+import static cofh.lib.util.helpers.RecipeHelper.addSmelting;
 
 public class BlockOre extends BlockCore implements IInitializer, IModelRegister {
 
@@ -140,15 +140,15 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 	@Override
 	public boolean initialize() {
 
-		addSmelting(ItemMaterial.ingotCopper, oreCopper, 0.6F);
-		addSmelting(ItemMaterial.ingotTin, oreTin, 0.7F);
-		addSmelting(ItemMaterial.ingotSilver, oreSilver, 0.9F);
-		addSmelting(ItemMaterial.ingotLead, oreLead, 0.8F);
-		addSmelting(ItemMaterial.ingotAluminum, oreAluminum, 0.6F);
-		addSmelting(ItemMaterial.ingotNickel, oreNickel, 1.0F);
-		addSmelting(ItemMaterial.ingotPlatinum, orePlatinum, 1.0F);
-		addSmelting(ItemMaterial.ingotIridium, oreIridium, 1.2F);
-		addSmelting(ItemMaterial.ingotMithril, oreMithril, 1.5F);
+		addSmelting(oreCopper, ItemMaterial.ingotCopper, 0.6F);
+		addSmelting(oreTin, ItemMaterial.ingotTin, 0.7F);
+		addSmelting(oreSilver, ItemMaterial.ingotSilver, 0.9F);
+		addSmelting(oreLead, ItemMaterial.ingotLead, 0.8F);
+		addSmelting(oreAluminum, ItemMaterial.ingotAluminum, 0.6F);
+		addSmelting(oreNickel, ItemMaterial.ingotNickel, 1.0F);
+		addSmelting(orePlatinum, ItemMaterial.ingotPlatinum, 1.0F);
+		addSmelting(oreIridium, ItemMaterial.ingotIridium, 1.2F);
+		addSmelting(oreMithril, ItemMaterial.ingotMithril, 1.5F);
 
 		return true;
 	}

@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
 
-import static cofh.lib.util.helpers.ItemHelper.*;
+import static cofh.lib.util.helpers.RecipeHelper.*;
 
 public class TFItems {
 
@@ -63,23 +63,23 @@ public class TFItems {
 	/* HELPERS */
 	public static void addRecipes() {
 
-		addSmelting(new ItemStack(Items.COAL, 1, 1), ItemMaterial.dustWoodCompressed, 0.15F);
+		addSmelting(ItemMaterial.dustWoodCompressed, new ItemStack(Items.COAL, 1, 1), 0.15F);
 
 		addStorageRecipe(ItemMaterial.dustWoodCompressed, "dustWood");
 
-		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globRosin, '#', "string"));
-		addRecipe(ShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', ItemMaterial.globRosin, 'P', Blocks.PISTON));
-		addRecipe(ShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globRosin));
+		addShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globRosin, '#', "string");
+		addShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', ItemMaterial.globRosin, 'P', Blocks.PISTON);
+		addShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globRosin);
 
-		addRecipe(ShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globTar, '#', "string"));
-		addRecipe(ShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', ItemMaterial.globTar, 'P', Blocks.PISTON));
-		addRecipe(ShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globTar));
+		addShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globTar, '#', "string");
+		addShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', ItemMaterial.globTar, 'P', Blocks.PISTON);
+		addShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globTar);
 
 		addGearRecipe(new ItemStack(Items.PAPER, 2), "dustWood", new ItemStack(Items.WATER_BUCKET));
-		addRecipe(ShapelessRecipe(new ItemStack(Items.CLAY_BALL, 4), ItemMaterial.crystalSlag, ItemMaterial.crystalSlag, Blocks.DIRT, Items.WATER_BUCKET));
+		addShapelessRecipe(new ItemStack(Items.CLAY_BALL, 4), ItemMaterial.crystalSlag, ItemMaterial.crystalSlag, Blocks.DIRT, Items.WATER_BUCKET);
 
-		addRecipe(ShapelessRecipe(new ItemStack(Blocks.MYCELIUM, 1), Blocks.DIRT, ItemFertilizer.fertilizerRich, Items.WATER_BUCKET, Blocks.BROWN_MUSHROOM, Blocks.RED_MUSHROOM));
-		addRecipe(ShapelessRecipe(new ItemStack(Blocks.DIRT, 1, 2), new ItemStack(Blocks.DIRT, 1, 1), ItemFertilizer.fertilizerRich, Items.WATER_BUCKET, "treeLeaves", "treeLeaves"));
+		addShapelessRecipe(new ItemStack(Blocks.MYCELIUM, 1), Blocks.DIRT, ItemFertilizer.fertilizerRich, Items.WATER_BUCKET, Blocks.BROWN_MUSHROOM, Blocks.RED_MUSHROOM);
+		addShapelessRecipe(new ItemStack(Blocks.DIRT, 1, 2), new ItemStack(Blocks.DIRT, 1, 1), ItemFertilizer.fertilizerRich, Items.WATER_BUCKET, "treeLeaves", "treeLeaves");
 	}
 
 	private static ArrayList<IInitializer> initList = new ArrayList<>();

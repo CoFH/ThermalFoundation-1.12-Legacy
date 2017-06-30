@@ -4,12 +4,11 @@ import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.List;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapelessRecipe;
+import static cofh.lib.util.helpers.RecipeHelper.addShapelessRecipe;
 
 public class TFCraftingManager {
 
@@ -31,21 +30,21 @@ public class TFCraftingManager {
 					continue;
 				}
 				if (TFProps.enablePetrotheumCrafting && !registeredDust.isEmpty()) {
-					GameRegistry.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(registeredDust.get(0), 2), oreName, "dustPetrotheum"));
+					addShapelessRecipe(ItemHelper.cloneStack(registeredDust.get(0), 2), oreName, "dustPetrotheum");
 
 					if (!registeredIngot.isEmpty()) {
-						GameRegistry.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(registeredDust.get(0), 1), ingotName, "dustPetrotheum"));
+						addShapelessRecipe(ItemHelper.cloneStack(registeredDust.get(0), 1), ingotName, "dustPetrotheum");
 					}
 				}
 				if (TFProps.enablePyrotheumCrafting && !registeredIngot.isEmpty()) {
-					GameRegistry.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 1), oreName, "dustPyrotheum"));
+					addShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 1), oreName, "dustPyrotheum");
 
 					if (!registeredDust.isEmpty()) {
-						GameRegistry.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 1), dustName, "dustPyrotheum"));
+						addShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 1), dustName, "dustPyrotheum");
 					}
 				}
 				if (TFProps.enablePetrotheumCrafting && TFProps.enablePyrotheumCrafting && !registeredDust.isEmpty() && !registeredIngot.isEmpty()) {
-					GameRegistry.addRecipe(ShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 2), oreName, "dustPetrotheum", "dustPyrotheum"));
+					addShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 2), oreName, "dustPetrotheum", "dustPyrotheum");
 				}
 			}
 		}

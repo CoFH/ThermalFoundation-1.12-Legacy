@@ -35,8 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
-import static cofh.lib.util.helpers.ItemHelper.addRecipe;
+import static cofh.lib.util.helpers.RecipeHelper.addShapedRecipe;
 
 public class ItemMeter extends ItemMulti implements IInitializer {
 
@@ -177,7 +176,7 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 	@Override
 	public boolean initialize() {
 
-		addRecipe(ShapedRecipe(multimeter, "C C", "LPL", " G ", 'C', "ingotCopper", 'L', "ingotLead", 'P', ItemMaterial.powerCoilElectrum, 'G', "gearElectrum"));
+		addShapedRecipe(multimeter, "C C", "LPL", " G ", 'C', "ingotCopper", 'L', "ingotLead", 'P', ItemMaterial.powerCoilElectrum, 'G', "gearElectrum");
 
 		return true;
 	}

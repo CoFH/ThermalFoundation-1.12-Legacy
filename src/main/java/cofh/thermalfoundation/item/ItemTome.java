@@ -35,8 +35,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
-import static cofh.lib.util.helpers.ItemHelper.addRecipe;
+import static cofh.lib.util.helpers.RecipeHelper.addShapedRecipe;
 
 public class ItemTome extends ItemMulti implements IInitializer, IInventoryContainerItem, IMultiModeItem {
 
@@ -243,7 +242,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 	@Override
 	public boolean initialize() {
 
-		addRecipe(ShapedRecipe(lexicon, " D ", "GBI", " R ", 'D', "gemDiamond", 'G', "ingotGold", 'B', Items.BOOK, 'I', "ingotIron", 'R', "dustRedstone"));
+		addShapedRecipe(lexicon, " D ", "GBI", " R ", 'D', "gemDiamond", 'G', "ingotGold", 'B', Items.BOOK, 'I', "ingotIron", 'R', "dustRedstone");
 
 		return true;
 	}

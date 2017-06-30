@@ -40,8 +40,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Map;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
-import static cofh.lib.util.helpers.ItemHelper.addRecipe;
+import static cofh.lib.util.helpers.RecipeHelper.addShapedRecipe;
 
 @Implementable ({ "buildcraft.api.tools.IToolWrench", "com.brandon3055.draconicevolution.api.ICrystalBinder" })
 public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
@@ -239,13 +238,13 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 		// @formatter:off
 
-		addRecipe(ShapedRecipe(wrenchBasic,
+		addShapedRecipe(wrenchBasic,
 				"I I",
 				" T ",
 				" I ",
 				'I', "ingotIron",
 				'T', "ingotTin"
-		));
+		);
 //		addRecipe(new RecipeUpgrade(wrenchHardened,
 //			"Y Y",
 //				"IXI",

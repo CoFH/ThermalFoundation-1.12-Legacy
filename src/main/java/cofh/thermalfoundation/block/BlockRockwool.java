@@ -23,7 +23,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-import static cofh.lib.util.helpers.ItemHelper.*;
+import static cofh.lib.util.helpers.RecipeHelper.addShapelessRecipe;
+import static cofh.lib.util.helpers.RecipeHelper.addSmelting;
 
 public class BlockRockwool extends BlockCore implements IInitializer, IModelRegister {
 
@@ -125,10 +126,10 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public boolean initialize() {
 
-		addSmelting(rockwoolSilver, ItemMaterial.crystalSlag, 0.0F);
+		addSmelting(ItemMaterial.crystalSlag, rockwoolSilver);
 
 		for (int i = 0; i < 16; i++) {
-			addRecipe(ShapelessRecipe(new ItemStack(this, 1, i), new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.DYE, 1, i)));
+			addShapelessRecipe(new ItemStack(this, 1, i), new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.DYE, 1, i));
 		}
 		return true;
 	}

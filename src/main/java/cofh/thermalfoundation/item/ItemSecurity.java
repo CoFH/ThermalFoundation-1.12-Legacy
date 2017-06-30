@@ -29,8 +29,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
-import static cofh.lib.util.helpers.ItemHelper.addRecipe;
+import static cofh.lib.util.helpers.RecipeHelper.addShapedRecipe;
 
 public class ItemSecurity extends ItemMulti implements IInitializer {
 
@@ -125,7 +124,7 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 	@Override
 	public boolean initialize() {
 
-		addRecipe(ShapedRecipe(lock, " S ", "SBS", "SSS", 'B', "ingotBronze", 'S', "nuggetSignalum"));
+		addShapedRecipe(lock, " S ", "SBS", "SSS", 'B', "ingotBronze", 'S', "nuggetSignalum");
 
 		return true;
 	}

@@ -14,8 +14,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapelessRecipe;
-import static cofh.lib.util.helpers.ItemHelper.addRecipe;
+import static cofh.lib.util.helpers.RecipeHelper.addShapelessRecipe;
 
 public class ItemBait extends ItemMulti implements IInitializer {
 
@@ -59,9 +58,9 @@ public class ItemBait extends ItemMulti implements IInitializer {
 	@Override
 	public boolean initialize() {
 
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(baitBasic, 2), "dustWood", "dustWood", "dustSaltpeter", "crystalSlag"));
+		addShapelessRecipe(ItemHelper.cloneStack(baitBasic, 2), "dustWood", "dustWood", "dustSaltpeter", "crystalSlag");
 
-		addRecipe(ShapelessRecipe(baitRich, baitBasic, new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage())));
+		addShapelessRecipe(baitRich, baitBasic, new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()));
 
 		return true;
 	}

@@ -34,8 +34,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapelessRecipe;
-import static cofh.lib.util.helpers.ItemHelper.addRecipe;
+import static cofh.lib.util.helpers.RecipeHelper.addShapelessRecipe;
 
 public class ItemDiagram extends ItemMulti implements IInitializer {
 
@@ -199,8 +198,8 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 	@Override
 	public boolean initialize() {
 
-		// addRecipe(ShapelessRecipe(schematic, Items.PAPER, Items.PAPER, "dyeBlue"));
-		addRecipe(ShapelessRecipe(redprint, Items.PAPER, Items.PAPER, "dustRedstone"));
+		// addShapelessRecipe(schematic, Items.PAPER, Items.PAPER, "dyeBlue"));
+		addShapelessRecipe(redprint, Items.PAPER, Items.PAPER, "dustRedstone");
 
 		return true;
 	}
