@@ -2,7 +2,6 @@ package cofh.thermalfoundation.item;
 
 import cofh.api.block.IDismantleable;
 import cofh.api.item.IToolHammer;
-import cofh.asm.relauncher.Implementable;
 import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
 import cofh.core.util.core.IInitializer;
@@ -42,7 +41,8 @@ import java.util.Map;
 
 import static cofh.lib.util.helpers.RecipeHelper.addShapedRecipe;
 
-@Implementable ({ "buildcraft.api.tools.IToolWrench", "com.brandon3055.draconicevolution.api.ICrystalBinder" })
+//TODO FIXME @Optional
+//@Implementable ({ "buildcraft.api.tools.IToolWrench", "com.brandon3055.draconicevolution.api.ICrystalBinder" })
 public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 	public ItemWrench() {
