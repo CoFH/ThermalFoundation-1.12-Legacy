@@ -1,0 +1,30 @@
+{
+	"type": "thermalfoundation:fluid_shapeless",
+	"result": {
+		"item": "thermalfoundation:material",
+		"data": 102,
+		"count": 4
+	},
+	"ingredients": [
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustTin"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustTin"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustTin"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustSilver"
+		},
+		{
+			"type": "thermalfoundation:fluid",
+			"fluid": "glowstone"
+		}
+	]
+}

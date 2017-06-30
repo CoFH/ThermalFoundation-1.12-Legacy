@@ -1,0 +1,26 @@
+{
+	"type": "thermalfoundation:fluid_shapeless",
+	"result": {
+		"item": "minecraft:mycelium"
+	},
+	"ingredients": [
+		{
+			"item": "minecraft:brown_mushroom"
+		},
+		{
+			"item": "minecraft:red_mushroom"
+		},
+		{
+			"item": "minecraft:dirt",
+			"data": 0
+		},
+		{
+			"item": "thermalfoundation:fertilizer",
+			"data": 1
+		},
+		{
+			"type": "thermalfoundation:fluid",
+			"fluid": "water"
+		}
+	]
+}

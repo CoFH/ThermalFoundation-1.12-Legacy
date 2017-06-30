@@ -1,0 +1,30 @@
+{
+	"type": "thermalfoundation:fluid_shapeless",
+	"result": {
+		"item": "thermalfoundation:material",
+		"data": 103,
+		"count": 4
+	},
+	"ingredients": [
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustLead"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustLead"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustLead"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustPlatinum"
+		},
+		{
+			"type": "thermalfoundation:fluid",
+			"fluid": "ender"
+		}
+	]
+}

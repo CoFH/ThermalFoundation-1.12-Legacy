@@ -74,12 +74,6 @@ public class TFItems {
 		addShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globTar, '#', "string");
 		addShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', ItemMaterial.globTar, 'P', Blocks.PISTON);
 		addShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globTar);
-
-		addGearRecipe(new ItemStack(Items.PAPER, 2), "dustWood", new ItemStack(Items.WATER_BUCKET));
-		addShapelessRecipe(new ItemStack(Items.CLAY_BALL, 4), ItemMaterial.crystalSlag, ItemMaterial.crystalSlag, Blocks.DIRT, Items.WATER_BUCKET);
-
-		addShapelessRecipe(new ItemStack(Blocks.MYCELIUM, 1), Blocks.DIRT, ItemFertilizer.fertilizerRich, Items.WATER_BUCKET, Blocks.BROWN_MUSHROOM, Blocks.RED_MUSHROOM);
-		addShapelessRecipe(new ItemStack(Blocks.DIRT, 1, 2), new ItemStack(Blocks.DIRT, 1, 1), ItemFertilizer.fertilizerRich, Items.WATER_BUCKET, "treeLeaves", "treeLeaves");
 	}
 
 	private static ArrayList<IInitializer> initList = new ArrayList<>();

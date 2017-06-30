@@ -243,11 +243,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addShapelessRecipe(cloneStack(dustBronze, 4), "dustCopper", "dustCopper", "dustCopper", "dustTin");
 		addShapelessRecipe(cloneStack(dustConstantan, 2), "dustCopper", "dustNickel");
 
-		// TODO: FIXME.
-		//		addRecipe(new RecipeShapelessOreFluid(cloneStack(dustSignalum, 4), "dustCopper", "dustCopper", "dustCopper", "dustSilver", TFFluids.fluidRedstone));
-		//		addRecipe(new RecipeShapelessOreFluid(cloneStack(dustLumium, 4), "dustTin", "dustTin", "dustTin", "dustSilver", TFFluids.fluidGlowstone));
-		//		addRecipe(new RecipeShapelessOreFluid(cloneStack(dustEnderium, 4), "dustTin", "dustTin", "dustSilver", "dustPlatinum", TFFluids.fluidEnder));
-
 		/* Storage */
 		addTwoWayStorageRecipe(gemDiamond, "gemDiamond", nuggetDiamond, "nuggetDiamond");
 

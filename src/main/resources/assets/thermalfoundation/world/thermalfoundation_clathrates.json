@@ -1,8 +1,6 @@
 {
 	"dependencies": "thermalfoundation",
-
 	"populate": {
-
 		"redstone_clathrate": {
 			"distribution": "uniform",
 			"generator": {
@@ -34,7 +32,6 @@
 				]
 			}
 		},
-
 		"glowstone_clathrate": {
 			"distribution": "uniform",
 			"generator": {
@@ -68,7 +65,6 @@
 			},
 			"dimension": "all"
 		},
-
 		"ender_clathrate": {
 			"distribution": "uniform",
 			"generator": {

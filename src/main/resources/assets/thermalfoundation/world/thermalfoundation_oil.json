@@ -1,8 +1,6 @@
 {
 	"dependencies": "thermalfoundation",
-
 	"populate": {
-
 		"oil_sand_clathrate": {
 			"distribution": "uniform",
 			"generator": {
@@ -30,7 +28,6 @@
 			},
 			"dimension": "all"
 		},
-
 		"oil_shale_clathrate": {
 			"distribution": "uniform",
 			"generator": {
@@ -80,7 +77,6 @@
 			},
 			"dimension": "all"
 		},
-
 		"oil_sand": {
 			"distribution": "uniform",
 			"generator": {
@@ -127,7 +123,6 @@
 				]
 			}
 		},
-
 		"oil_shale": {
 			"distribution": "uniform",
 			"generator": {

@@ -1,0 +1,29 @@
+{
+	"type": "thermalfoundation:fluid_shapeless",
+	"result": {
+		"item": "minecraft:dirt",
+		"data": 2
+	},
+	"ingredients": [
+		{
+			"type": "forge:ore_dict",
+			"ore": "treeLeaves"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "treeLeaves"
+		},
+		{
+			"item": "minecraft:dirt",
+			"data": 1
+		},
+		{
+			"item": "thermalfoundation:fertilizer",
+			"data": 1
+		},
+		{
+			"type": "thermalfoundation:fluid",
+			"fluid": "water"
+		}
+	]
+}
