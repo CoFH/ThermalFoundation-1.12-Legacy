@@ -16,7 +16,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -167,25 +167,25 @@ public class TFEquipment {
 			itemHelmet.setArmorTextures(TEXTURE).setRepairIngot(ingot).setUnlocalizedName(ARMOR + "Helmet").setCreativeTab(ThermalFoundation.tabArmor);
 			itemHelmet.setShowInCreative(enable[0]);
 			itemHelmet.setRegistryName("armor.helmet_" + name);
-			GameRegistry.register(itemHelmet);
+			ForgeRegistries.ITEMS.register(itemHelmet);
 
 			/* PLATE */
 			itemChestplate.setArmorTextures(TEXTURE).setRepairIngot(ingot).setUnlocalizedName(ARMOR + "Chestplate").setCreativeTab(ThermalFoundation.tabArmor);
 			itemChestplate.setShowInCreative(enable[1]);
 			itemChestplate.setRegistryName("armor.plate_" + name);
-			GameRegistry.register(itemChestplate);
+			ForgeRegistries.ITEMS.register(itemChestplate);
 
 			/* LEGS */
 			itemLegs.setArmorTextures(TEXTURE).setRepairIngot(ingot).setUnlocalizedName(ARMOR + "Legs").setCreativeTab(ThermalFoundation.tabArmor);
 			itemLegs.setShowInCreative(enable[2]);
 			itemLegs.setRegistryName("armor.legs_" + name);
-			GameRegistry.register(itemLegs);
+			ForgeRegistries.ITEMS.register(itemLegs);
 
 			/* BOOTS */
 			itemBoots.setArmorTextures(TEXTURE).setRepairIngot(ingot).setUnlocalizedName(ARMOR + "Boots").setCreativeTab(ThermalFoundation.tabArmor);
 			itemBoots.setShowInCreative(enable[3]);
 			itemBoots.setRegistryName("armor.boots_" + name);
-			GameRegistry.register(itemBoots);
+			ForgeRegistries.ITEMS.register(itemBoots);
 
 			/* REFERENCES */
 			armorHelmet = new ItemStack(itemHelmet);
@@ -345,69 +345,69 @@ public class TFEquipment {
 			itemSword.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sword").setCreativeTab(ThermalFoundation.tabTools);
 			itemSword.setShowInCreative(enable[0] | TFProps.showDisabledEquipment);
 			itemSword.setRegistryName("tool.sword_" + name);
-			GameRegistry.register(itemSword);
+			ForgeRegistries.ITEMS.register(itemSword);
 
 			/* SHOVEL */
 			itemShovel.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shovel").setCreativeTab(ThermalFoundation.tabTools);
 			itemShovel.setShowInCreative(enable[1] | TFProps.showDisabledEquipment);
 			itemShovel.setRegistryName("tool.shovel_" + name);
-			GameRegistry.register(itemShovel);
+			ForgeRegistries.ITEMS.register(itemShovel);
 
 			/* PICKAXE */
 			itemPickaxe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Pickaxe").setCreativeTab(ThermalFoundation.tabTools);
 			itemPickaxe.setShowInCreative(enable[2] | TFProps.showDisabledEquipment);
 			itemPickaxe.setRegistryName("tool.pickaxe_" + name);
-			GameRegistry.register(itemPickaxe);
+			ForgeRegistries.ITEMS.register(itemPickaxe);
 
 			/* AXE */
 			itemAxe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Axe").setCreativeTab(ThermalFoundation.tabTools);
 			itemAxe.setShowInCreative(enable[3] | TFProps.showDisabledEquipment);
 			itemAxe.setRegistryName("tool.axe_" + name);
-			GameRegistry.register(itemAxe);
+			ForgeRegistries.ITEMS.register(itemAxe);
 
 			/* HOE */
 			itemHoe.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Hoe").setCreativeTab(ThermalFoundation.tabTools);
 			itemHoe.setShowInCreative(enable[4] | TFProps.showDisabledEquipment);
 			itemHoe.setRegistryName("tool.hoe_" + name);
-			GameRegistry.register(itemHoe);
+			ForgeRegistries.ITEMS.register(itemHoe);
 
 			/* BOW */
 			itemBow.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Bow").setCreativeTab(ThermalFoundation.tabTools);
 			itemBow.setArrowDamage(arrowDamage).setArrowSpeed(arrowSpeed).setZoomMultiplier(zoomMultiplier);
 			itemBow.setShowInCreative(enable[5] | TFProps.showDisabledEquipment);
 			itemBow.setRegistryName("tool.bow_" + name);
-			GameRegistry.register(itemBow);
+			ForgeRegistries.ITEMS.register(itemBow);
 
 			/* FISHING ROD */
 			itemFishingRod.setRepairIngot(ingot).setUnlocalizedName(TOOL + "FishingRod").setCreativeTab(ThermalFoundation.tabTools);
 			itemFishingRod.setLuckModifier(luckModifier).setSpeedModifier(speedModifier);
 			itemFishingRod.setShowInCreative(enable[6]);
 			itemFishingRod.setRegistryName("tool.fishing_rod_" + name);
-			GameRegistry.register(itemFishingRod);
+			ForgeRegistries.ITEMS.register(itemFishingRod);
 
 			/* SHEARS */
 			itemShears.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shears").setCreativeTab(ThermalFoundation.tabTools);
 			itemShears.setShowInCreative(enable[7] | TFProps.showDisabledEquipment);
 			itemShears.setRegistryName("tool.shears_" + name);
-			GameRegistry.register(itemShears);
+			ForgeRegistries.ITEMS.register(itemShears);
 
 			/* SICKLE */
 			itemSickle.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sickle").setCreativeTab(ThermalFoundation.tabTools);
 			itemSickle.setShowInCreative(enable[8] | TFProps.showDisabledEquipment);
 			itemSickle.setRegistryName("tool.sickle_" + name);
-			GameRegistry.register(itemSickle);
+			ForgeRegistries.ITEMS.register(itemSickle);
 
 			/* HAMMER */
 			itemHammer.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Hammer").setCreativeTab(ThermalFoundation.tabTools);
 			itemHammer.setShowInCreative(enable[9] | TFProps.showDisabledEquipment);
 			itemHammer.setRegistryName("tool.hammer_" + name);
-			GameRegistry.register(itemHammer);
+			ForgeRegistries.ITEMS.register(itemHammer);
 
 			/* SHIELD */
 			itemShield.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shield").setCreativeTab(ThermalFoundation.tabTools);
 			itemShield.setShowInCreative(enable[10] | TFProps.showDisabledEquipment);
 			itemShield.setRegistryName("tool.shield_" + name);
-			GameRegistry.register(itemShield);
+			ForgeRegistries.ITEMS.register(itemShield);
 
 
 			/* REFERENCES */
@@ -623,7 +623,7 @@ public class TFEquipment {
 				itemBow.setArrowDamage(arrowDamage).setArrowSpeed(arrowSpeed).setZoomMultiplier(zoomMultiplier);
 				itemBow.setShowInCreative(enable[0] | TFProps.showDisabledEquipment);
 				itemBow.setRegistryName("tool.bow_" + name);
-				GameRegistry.register(itemBow);
+				ForgeRegistries.ITEMS.register(itemBow);
 			}
 
 			/* FISHING ROD */
@@ -633,7 +633,7 @@ public class TFEquipment {
 				itemFishingRod.setLuckModifier(luckModifier).setSpeedModifier(speedModifier);
 				itemFishingRod.setShowInCreative(enable[1] | TFProps.showDisabledEquipment);
 				itemFishingRod.setRegistryName("tool.fishing_rod_" + name);
-				GameRegistry.register(itemFishingRod);
+				ForgeRegistries.ITEMS.register(itemFishingRod);
 			}
 
 			/* SHEARS */
@@ -642,27 +642,27 @@ public class TFEquipment {
 				itemShears.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shears").setCreativeTab(CreativeTabs.TOOLS);
 				itemShears.setShowInCreative(enable[2] | TFProps.showDisabledEquipment);
 				itemShears.setRegistryName("tool.shears_" + name);
-				GameRegistry.register(itemShears);
+				ForgeRegistries.ITEMS.register(itemShears);
 			}
 
 			/* SICKLE */
 			itemSickle.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Sickle").setCreativeTab(CreativeTabs.TOOLS);
 			itemSickle.setShowInCreative(enable[3] | TFProps.showDisabledEquipment);
 			itemSickle.setRegistryName("tool.sickle_" + name);
-			GameRegistry.register(itemSickle);
+			ForgeRegistries.ITEMS.register(itemSickle);
 
 			/* HAMMER */
 			itemHammer.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Hammer").setCreativeTab(CreativeTabs.TOOLS);
 			itemHammer.setShowInCreative(enable[4] | TFProps.showDisabledEquipment);
 			itemHammer.setRegistryName("tool.hammer_" + name);
-			GameRegistry.register(itemHammer);
+			ForgeRegistries.ITEMS.register(itemHammer);
 
 			/* SHIELD */
 			if (itemShield instanceof ItemShieldCore) {
 				((ItemShieldCore) itemShield).setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shield").setCreativeTab(CreativeTabs.COMBAT);
 				((ItemShieldCore) itemShield).setShowInCreative(enable[5] | TFProps.showDisabledEquipment);
 				itemShield.setRegistryName("tool.shield_" + name);
-				GameRegistry.register(itemShield);
+				ForgeRegistries.ITEMS.register(itemShield);
 			}
 
 			toolBow = new ItemStack(itemBow);

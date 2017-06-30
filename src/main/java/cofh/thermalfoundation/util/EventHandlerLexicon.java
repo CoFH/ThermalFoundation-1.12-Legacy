@@ -1,12 +1,8 @@
 package cofh.thermalfoundation.util;
 
 import cofh.thermalfoundation.init.TFProps;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.stats.AchievementList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -27,7 +23,7 @@ public class EventHandlerLexicon {
 	@SubscribeEvent (priority = EventPriority.HIGHEST)
 	public void handleEntityItemPickupEvent(EntityItemPickupEvent event) {
 
-		ItemStack stack = event.getItem().getEntityItem();
+		ItemStack stack = event.getItem().getItem();
 		if (stack.isEmpty() || !LexiconManager.validOre(stack)) {
 			return;
 		}
@@ -40,22 +36,23 @@ public class EventHandlerLexicon {
 
 		if (!event.getEntityPlayer().inventory.addItemStackToInventory(lexiconStack)) {
 			stack.setCount(lexiconStack.getCount());
-			event.getItem().setEntityItemStack(stack);
+			event.getItem().setItem(stack);
 			return;
 		}
 		stack.setCount(0);
 
-		if (stack.getItem() == Item.getItemFromBlock(Blocks.LOG)) {
-			event.getEntityPlayer().addStat(AchievementList.MINE_WOOD);
-		} else if (stack.getItem() == Item.getItemFromBlock(Blocks.LOG2)) {
-			event.getEntityPlayer().addStat(AchievementList.MINE_WOOD);
-		} else if (stack.getItem() == Items.LEATHER) {
-			event.getEntityPlayer().addStat(AchievementList.KILL_COW);
-		} else if (stack.getItem() == Items.DIAMOND) {
-			event.getEntityPlayer().addStat(AchievementList.DIAMONDS);
-		} else if (stack.getItem() == Items.BLAZE_ROD) {
-			event.getEntityPlayer().addStat(AchievementList.BLAZE_ROD);
-		}
+		// TODO: This still a thing?
+		//		if (stack.getItem() == Item.getItemFromBlock(Blocks.LOG)) {
+		//			event.getEntityPlayer().addStat(AchievementList.MINE_WOOD);
+		//		} else if (stack.getItem() == Item.getItemFromBlock(Blocks.LOG2)) {
+		//			event.getEntityPlayer().addStat(AchievementList.MINE_WOOD);
+		//		} else if (stack.getItem() == Items.LEATHER) {
+		//			event.getEntityPlayer().addStat(AchievementList.KILL_COW);
+		//		} else if (stack.getItem() == Items.DIAMOND) {
+		//			event.getEntityPlayer().addStat(AchievementList.DIAMONDS);
+		//		} else if (stack.getItem() == Items.BLAZE_ROD) {
+		//			event.getEntityPlayer().addStat(AchievementList.BLAZE_ROD);
+		//		}
 		FMLCommonHandler.instance().firePlayerItemPickupEvent(event.getEntityPlayer(), event.getItem());
 
 		if (stack.getCount() <= 0) {

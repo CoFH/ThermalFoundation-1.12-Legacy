@@ -16,13 +16,13 @@ import cofh.thermalfoundation.init.TFProps;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
@@ -31,7 +31,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +54,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 
 		if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
 			tooltip.add(StringHelper.shiftForDetails());
@@ -79,12 +79,13 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
-	public void getSubItems(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 
-		ItemStack lexicon = new ItemStack(item, 1, 0);
-		setMode(lexicon, 0);
-		list.add(lexicon);
+		if (isInCreativeTab(tab)) {
+			ItemStack lexicon = new ItemStack(this, 1, 0);
+			setMode(lexicon, 0);
+			items.add(lexicon);
+		}
 	}
 
 	@Override

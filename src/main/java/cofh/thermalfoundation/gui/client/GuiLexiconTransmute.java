@@ -103,12 +103,12 @@ public class GuiLexiconTransmute extends GuiCore {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y) {
 
-		fontRendererObj.drawString(StringHelper.localize(name), getCenteredOffset(StringHelper.localize(name)), 16, 0xddbb1d);
+		fontRenderer.drawString(StringHelper.localize(name), getCenteredOffset(StringHelper.localize(name)), 16, 0xddbb1d);
 		// 0xd2c0a3
 		if (lexicon != null) {
 			String oreName = lexicon.getOreName();
 			if (!oreName.equals(OreDictionaryArbiter.UNKNOWN)) {
-				fontRendererObj.drawString(oreName, getCenteredOffset(oreName), 88, 0xffffff);
+				fontRenderer.drawString(oreName, getCenteredOffset(oreName), 88, 0xffffff);
 			}
 		}
 		super.drawGuiContainerForegroundLayer(x, y);

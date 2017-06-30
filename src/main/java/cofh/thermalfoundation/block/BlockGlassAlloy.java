@@ -27,12 +27,11 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -60,11 +59,10 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
-			list.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
@@ -221,11 +219,11 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	public boolean preInit() {
 
 		this.setRegistryName("glass_alloy");
-		GameRegistry.register(this);
+		ForgeRegistries.BLOCKS.register(this);
 
 		ItemBlockGlassAlloy itemBlock = new ItemBlockGlassAlloy(this);
 		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
+		ForgeRegistries.ITEMS.register(itemBlock);
 
 		glassSteel = new ItemStack(this, 1, Type.STEEL.getMetadata());
 		glassElectrum = new ItemStack(this, 1, Type.ELECTRUM.getMetadata());

@@ -10,11 +10,8 @@ import gnu.trove.map.hash.THashMap;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,86 +85,87 @@ public class SchematicHelper {
 		}
 	}
 
+	// TODO : Reimplement this in a sane manner.
 	/* MUST BE PASSED AN INVENTORY WITH 9 SLOTS! */
-	public static NBTTagCompound getNBTForSchematic(InventoryCrafting craftSlots, World world, ItemStack output) {
-
-		NBTTagCompound nbt = new NBTTagCompound();
-		IRecipe recipe = null;
-		InventoryCrafting workingSet = new InventoryCraftingFalse(3, 3);
-		copyInventory(craftSlots, workingSet); // defensive copy
-		{
-			List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
-			for (IRecipe irecipe : recipes) {
-				if (irecipe.matches(workingSet, world)) {
-					if (ItemHelper.itemsIdentical(output, irecipe.getCraftingResult(workingSet))) {
-						recipe = irecipe;
-						break;
-					} else {
-						copyInventory(craftSlots, workingSet); // defensive copy
-					}
-				}
-			}
-		}
-		if (recipe == null) {
-			// no recipe for the exact output? use the dumb search
-			return getNBTForSchematic(craftSlots, output);
-		}
-		for (int i = 0; i < 9 && i < craftSlots.getSizeInventory(); i++) {
-			if (craftSlots.getStackInSlot(i).isEmpty()) {
-				nbt.removeTag("Slot" + i);
-				nbt.removeTag("Name" + i);
-				nbt.removeTag("Ore" + i);
-			} else {
-				NBTTagCompound itemTag = new NBTTagCompound();
-				craftSlots.getStackInSlot(i).writeToNBT(itemTag);
-				nbt.setTag("Slot" + i, itemTag);
-				nbt.setString("Name" + i, craftSlots.getStackInSlot(i).getDisplayName());
-
-				ArrayList<String> oreNames = OreDictionaryArbiter.getAllOreNames(craftSlots.getStackInSlot(i));
-				if (oreNames != null) {
-					String validName = "";
-					int validSize = 0;
-					for (String oreName : oreNames) {
-						if (oreName.equals(OreDictionaryArbiter.UNKNOWN)) {
-							continue;
-						}
-						l:
-						{
-							copyInventory(craftSlots, workingSet);
-							int size = 0;
-							for (ItemStack stack : OreDictionaryArbiter.getOres(oreName)) {
-								NBTTagCompound tag = stack.getTagCompound();
-								int damage = Math.max(0, stack.getItemDamage());
-								if (damage == OreDictionary.WILDCARD_VALUE) {
-									damage = 0;
-									// may or may not work. woo. can't iterate, may crash. could be 37k valid values. could have invalid values in the middle.
-									// wish net.minecraft.item.Item.getSubItems worked on server
-								}
-								stack = new ItemStack(stack.getItem(), 1, damage);
-								if (tag != null) {
-									stack.setTagCompound(tag.copy());
-								}
-								workingSet.setInventorySlotContents(i, stack);
-								if (!recipe.matches(workingSet, world)) {
-									break l;
-								}
-								++size;
-							}
-							if (size > validSize) {
-								validName = oreName;
-								validSize = size;
-							}
-						}
-					}
-					if (validSize > 1) { // don't use ore names for single registrations. might break in the future.
-						nbt.setString("Ore" + i, validName);
-					}
-				}
-			}
-		}
-		nbt.setString("Output", output.getCount() + "x " + output.getDisplayName());
-		return nbt;
-	}
+	//	public static NBTTagCompound getNBTForSchematic(InventoryCrafting craftSlots, World world, ItemStack output) {
+	//
+	//		NBTTagCompound nbt = new NBTTagCompound();
+	//		IRecipe recipe = null;
+	//		InventoryCrafting workingSet = new InventoryCraftingFalse(3, 3);
+	//		copyInventory(craftSlots, workingSet); // defensive copy
+	//		{
+	//			List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
+	//			for (IRecipe irecipe : recipes) {
+	//				if (irecipe.matches(workingSet, world)) {
+	//					if (ItemHelper.itemsIdentical(output, irecipe.getCraftingResult(workingSet))) {
+	//						recipe = irecipe;
+	//						break;
+	//					} else {
+	//						copyInventory(craftSlots, workingSet); // defensive copy
+	//					}
+	//				}
+	//			}
+	//		}
+	//		if (recipe == null) {
+	//			// no recipe for the exact output? use the dumb search
+	//			return getNBTForSchematic(craftSlots, output);
+	//		}
+	//		for (int i = 0; i < 9 && i < craftSlots.getSizeInventory(); i++) {
+	//			if (craftSlots.getStackInSlot(i).isEmpty()) {
+	//				nbt.removeTag("Slot" + i);
+	//				nbt.removeTag("Name" + i);
+	//				nbt.removeTag("Ore" + i);
+	//			} else {
+	//				NBTTagCompound itemTag = new NBTTagCompound();
+	//				craftSlots.getStackInSlot(i).writeToNBT(itemTag);
+	//				nbt.setTag("Slot" + i, itemTag);
+	//				nbt.setString("Name" + i, craftSlots.getStackInSlot(i).getDisplayName());
+	//
+	//				ArrayList<String> oreNames = OreDictionaryArbiter.getAllOreNames(craftSlots.getStackInSlot(i));
+	//				if (oreNames != null) {
+	//					String validName = "";
+	//					int validSize = 0;
+	//					for (String oreName : oreNames) {
+	//						if (oreName.equals(OreDictionaryArbiter.UNKNOWN)) {
+	//							continue;
+	//						}
+	//						l:
+	//						{
+	//							copyInventory(craftSlots, workingSet);
+	//							int size = 0;
+	//							for (ItemStack stack : OreDictionaryArbiter.getOres(oreName)) {
+	//								NBTTagCompound tag = stack.getTagCompound();
+	//								int damage = Math.max(0, stack.getItemDamage());
+	//								if (damage == OreDictionary.WILDCARD_VALUE) {
+	//									damage = 0;
+	//									// may or may not work. woo. can't iterate, may crash. could be 37k valid values. could have invalid values in the middle.
+	//									// wish net.minecraft.item.Item.getSubItems worked on server
+	//								}
+	//								stack = new ItemStack(stack.getItem(), 1, damage);
+	//								if (tag != null) {
+	//									stack.setTagCompound(tag.copy());
+	//								}
+	//								workingSet.setInventorySlotContents(i, stack);
+	//								if (!recipe.matches(workingSet, world)) {
+	//									break l;
+	//								}
+	//								++size;
+	//							}
+	//							if (size > validSize) {
+	//								validName = oreName;
+	//								validSize = size;
+	//							}
+	//						}
+	//					}
+	//					if (validSize > 1) { // don't use ore names for single registrations. might break in the future.
+	//						nbt.setString("Ore" + i, validName);
+	//					}
+	//				}
+	//			}
+	//		}
+	//		nbt.setString("Output", output.getCount() + "x " + output.getDisplayName());
+	//		return nbt;
+	//	}
 
 	/* MUST BE PASSED AN INVENTORY WITH 9 SLOTS! */
 	public static NBTTagCompound getNBTForSchematic(IInventory craftSlots, ItemStack output) {

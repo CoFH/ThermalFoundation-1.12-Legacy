@@ -8,6 +8,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -99,7 +100,7 @@ public abstract class EntityElemental extends EntityMob {
 	}
 
 	@Override
-	protected SoundEvent getHurtSound() {
+	protected SoundEvent getHurtSound(DamageSource source) {
 
 		return SoundEvents.ENTITY_BLAZE_HURT;
 	}
@@ -144,13 +145,13 @@ public abstract class EntityElemental extends EntityMob {
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public int getBrightnessForRender(float partialTicks) {
+	public int getBrightnessForRender() {
 
 		return 0xF000F0;
 	}
 
 	@Override
-	public float getBrightness(float partialTicks) {
+	public float getBrightness() {
 
 		return 1.0F;
 	}

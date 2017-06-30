@@ -51,11 +51,11 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 		return false;
 	}
 
-	private boolean onApplyBonemeal(ItemStack stack, World world, BlockPos pos, EntityPlayer player, int radius, int potency) {
+	private boolean onApplyBonemeal(ItemStack stack, World world, BlockPos pos, EntityPlayer player, EnumHand hand, int radius, int potency) {
 
 		IBlockState state = world.getBlockState(pos);
 
-		int hook = ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack);
+		int hook = ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack, hand);
 		if (hook != 0) {
 			return hook > 0;
 		}
@@ -88,7 +88,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 		int radius = 1 + ItemHelper.getItemDamage(stack);
 		int potency = 2 + ItemHelper.getItemDamage(stack);
 
-		if (onApplyBonemeal(stack, world, pos, player, radius, potency)) {
+		if (onApplyBonemeal(stack, world, pos, player, hand, radius, potency)) {
 			return EnumActionResult.SUCCESS;
 		}
 		return EnumActionResult.PASS;

@@ -158,7 +158,7 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 
 		for (IContainerListener listener : this.listeners) {
 			if (syncClient) {
-				listener.sendProgressBarUpdate(this, 0, hasPreferredStack ? 1 : 0);
+				listener.sendWindowProperty(this, 0, hasPreferredStack ? 1 : 0);
 				syncClient = false;
 			}
 		}

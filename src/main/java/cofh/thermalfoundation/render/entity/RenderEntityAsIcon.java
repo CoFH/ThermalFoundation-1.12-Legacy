@@ -1,9 +1,9 @@
 package cofh.thermalfoundation.render.entity;
 
 import cofh.lib.util.helpers.RenderHelper;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -71,7 +71,7 @@ public class RenderEntityAsIcon extends Render<Entity> {
 		float f6 = 0.25F;
 		GL11.glRotatef(180.0F - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
 		GL11.glRotatef(-this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
-		VertexBuffer buffer = Tessellator.getInstance().getBuffer();
+		BufferBuilder buffer = Tessellator.getInstance().getBuffer();
 		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_NORMAL);
 		buffer.pos(0.0F - f5, 0.0F - f6, 0.0D).tex(minU, maxV).normal(0, 1, 0).endVertex();
 		buffer.pos(f4 - f5, 0.0F - f6, 0.0D).tex(maxU, maxV).normal(0, 1, 0).endVertex();

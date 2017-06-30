@@ -1,7 +1,10 @@
 package cofh.thermalfoundation.gui.container;
 
 import cofh.core.util.oredict.OreDictionaryArbiter;
-import cofh.lib.gui.slot.*;
+import cofh.lib.gui.slot.ISlotValidator;
+import cofh.lib.gui.slot.SlotLocked;
+import cofh.lib.gui.slot.SlotRemoveOnly;
+import cofh.lib.gui.slot.SlotValidated;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
@@ -230,8 +233,8 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 		for (IContainerListener listener : this.listeners) {
 			if (syncClient) {
-				listener.sendProgressBarUpdate(this, 0, nameSelection);
-				listener.sendProgressBarUpdate(this, 1, oreSelection);
+				listener.sendWindowProperty(this, 0, nameSelection);
+				listener.sendWindowProperty(this, 1, oreSelection);
 				syncClient = false;
 			}
 		}

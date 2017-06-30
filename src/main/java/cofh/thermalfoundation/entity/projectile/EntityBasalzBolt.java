@@ -74,7 +74,7 @@ public class EntityBasalzBolt extends EntityThrowable {
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public int getBrightnessForRender(float f) {
+	public int getBrightnessForRender() {
 
 		return 0xF000F0;
 	}

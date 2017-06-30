@@ -18,12 +18,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
-
-import javax.annotation.Nonnull;
 
 import static cofh.lib.util.helpers.ItemHelper.*;
 
@@ -53,11 +51,10 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
-			list.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
@@ -95,11 +92,11 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 	public boolean preInit() {
 
 		this.setRegistryName("rockwool");
-		GameRegistry.register(this);
+		ForgeRegistries.BLOCKS.register(this);
 
 		ItemBlockRockwool itemBlock = new ItemBlockRockwool(this);
 		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
+		ForgeRegistries.ITEMS.register(itemBlock);
 
 		rockwoolBlack = new ItemStack(this, 1, Type.BLACK.getMetadata());
 		rockwoolRed = new ItemStack(this, 1, Type.RED.getMetadata());

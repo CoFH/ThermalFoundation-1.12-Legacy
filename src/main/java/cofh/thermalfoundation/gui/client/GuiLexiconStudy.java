@@ -244,10 +244,10 @@ public class GuiLexiconStudy extends GuiCore {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y) {
 
-		fontRendererObj.drawString(StringHelper.localize(name), getCenteredOffset(StringHelper.localize(name)), 16, 0xddbb1d);
+		fontRenderer.drawString(StringHelper.localize(name), getCenteredOffset(StringHelper.localize(name)), 16, 0xddbb1d);
 
 		if (!searchBox.isFocused() && searchBox.getText().isEmpty()) {
-			fontRendererObj.drawString(searchLocal, getCenteredOffset(searchLocal), 88, 0xe0e0e0);
+			fontRenderer.drawString(searchLocal, getCenteredOffset(searchLocal), 88, 0xe0e0e0);
 		}
 		super.drawGuiContainerForegroundLayer(x, y);
 	}

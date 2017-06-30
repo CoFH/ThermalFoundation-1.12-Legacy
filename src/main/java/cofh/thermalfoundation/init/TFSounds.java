@@ -3,7 +3,7 @@ package cofh.thermalfoundation.init;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class TFSounds {
 
@@ -27,7 +27,7 @@ public class TFSounds {
 
 		SoundEvent sound = new SoundEvent(new ResourceLocation(ThermalFoundation.MOD_ID + ":" + id));
 		sound.setRegistryName(id);
-		GameRegistry.register(sound);
+		ForgeRegistries.SOUND_EVENTS.register(sound);
 		return sound;
 	}
 
