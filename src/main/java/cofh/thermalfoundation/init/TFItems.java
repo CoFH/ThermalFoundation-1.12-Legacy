@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
 
-import static cofh.lib.util.helpers.RecipeHelper.*;
+import static cofh.core.util.helpers.RecipeHelper.*;
 
 public class TFItems {
 

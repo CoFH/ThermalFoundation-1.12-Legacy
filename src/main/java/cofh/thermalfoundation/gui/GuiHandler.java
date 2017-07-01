@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.gui;
 
 import cofh.core.block.TileCore;
-import cofh.lib.util.helpers.ItemHelper;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.gui.client.GuiLexiconStudy;
 import cofh.thermalfoundation.gui.client.GuiLexiconTransmute;
 import cofh.thermalfoundation.gui.container.ContainerLexiconStudy;

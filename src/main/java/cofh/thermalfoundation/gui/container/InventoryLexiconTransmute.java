@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.gui.container;
 
-import cofh.lib.util.helpers.InventoryHelper;
+import cofh.core.util.helpers.InventoryHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;

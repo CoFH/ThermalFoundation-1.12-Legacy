@@ -1,10 +1,10 @@
 package cofh.thermalfoundation.gui.client;
 
 import cofh.core.gui.GuiCore;
-import cofh.core.gui.element.TabInfo;
+import cofh.core.gui.element.tab.TabInfo;
 import cofh.core.util.oredict.OreDictionaryArbiter;
-import cofh.lib.gui.element.ElementButton;
-import cofh.lib.util.helpers.StringHelper;
+import cofh.core.gui.element.ElementButton;
+import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.gui.container.ContainerLexiconTransmute;
 import cofh.thermalfoundation.network.PacketTFBase;
 import net.minecraft.entity.player.InventoryPlayer;

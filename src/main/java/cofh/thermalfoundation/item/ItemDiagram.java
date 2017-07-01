@@ -4,9 +4,9 @@ import cofh.api.core.IPortableData;
 import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
 import cofh.core.util.core.IInitializer;
-import cofh.lib.util.helpers.ItemHelper;
-import cofh.lib.util.helpers.ServerHelper;
-import cofh.lib.util.helpers.StringHelper;
+import cofh.core.util.helpers.ItemHelper;
+import cofh.core.util.helpers.ServerHelper;
+import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.util.helpers.RedprintHelper;
 import cofh.thermalfoundation.util.helpers.SchematicHelper;
@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 
-import static cofh.lib.util.helpers.RecipeHelper.addShapelessRecipe;
+import static cofh.core.util.helpers.RecipeHelper.addShapelessRecipe;
 
 public class ItemDiagram extends ItemMulti implements IInitializer {
 

@@ -23,8 +23,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-import static cofh.lib.util.helpers.RecipeHelper.addShapelessRecipe;
-import static cofh.lib.util.helpers.RecipeHelper.addSmelting;
+import static cofh.core.util.helpers.RecipeHelper.addShapelessRecipe;
+import static cofh.core.util.helpers.RecipeHelper.addSmelting;
 
 public class BlockRockwool extends BlockCore implements IInitializer, IModelRegister {
 

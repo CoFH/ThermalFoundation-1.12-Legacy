@@ -5,7 +5,7 @@ import cofh.core.fluid.BlockFluidCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.render.particle.EntityDropParticleFX;
 import cofh.core.util.core.IInitializer;
-import cofh.lib.util.helpers.ItemHelper;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
 import cofh.thermalfoundation.item.ItemMaterial;
@@ -37,7 +37,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
-import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
+import static cofh.core.util.helpers.ItemHelper.registerWithHandlers;
 
 public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegister {
 

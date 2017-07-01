@@ -2,7 +2,7 @@ package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidInteractive;
 import cofh.core.util.CoreUtils;
-import cofh.lib.util.helpers.MathHelper;
+import cofh.core.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.block.BlockOre;
 import cofh.thermalfoundation.block.BlockStorage;

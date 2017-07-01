@@ -11,8 +11,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
 
-import static cofh.lib.util.helpers.ItemHelper.cloneStack;
-import static cofh.lib.util.helpers.RecipeHelper.*;
+import static cofh.core.util.helpers.ItemHelper.cloneStack;
+import static cofh.core.util.helpers.RecipeHelper.*;
 
 public class ItemMaterial extends ItemMulti implements IInitializer {
 

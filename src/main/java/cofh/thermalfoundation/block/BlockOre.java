@@ -24,8 +24,8 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
-import static cofh.lib.util.helpers.RecipeHelper.addSmelting;
+import static cofh.core.util.helpers.ItemHelper.registerWithHandlers;
+import static cofh.core.util.helpers.RecipeHelper.addSmelting;
 
 public class BlockOre extends BlockCore implements IInitializer, IModelRegister {
 

@@ -1,9 +1,9 @@
 package cofh.thermalfoundation.util.helpers;
 
 import cofh.core.util.oredict.OreDictionaryArbiter;
-import cofh.lib.inventory.InventoryCraftingFalse;
-import cofh.lib.util.helpers.ItemHelper;
-import cofh.lib.util.helpers.StringHelper;
+import cofh.core.inventory.InventoryCraftingFalse;
+import cofh.core.util.helpers.ItemHelper;
+import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.item.ItemDiagram;
 import gnu.trove.map.TMap;
 import gnu.trove.map.hash.THashMap;

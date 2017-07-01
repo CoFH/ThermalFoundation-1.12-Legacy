@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.block;
 
 import cofh.core.block.ItemBlockCore;
-import cofh.lib.util.helpers.ItemHelper;
+import cofh.core.util.helpers.ItemHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 

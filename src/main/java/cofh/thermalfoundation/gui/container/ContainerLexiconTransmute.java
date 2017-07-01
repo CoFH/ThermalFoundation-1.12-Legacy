@@ -1,11 +1,11 @@
 package cofh.thermalfoundation.gui.container;
 
 import cofh.core.util.oredict.OreDictionaryArbiter;
-import cofh.lib.gui.slot.ISlotValidator;
-import cofh.lib.gui.slot.SlotLocked;
-import cofh.lib.gui.slot.SlotRemoveOnly;
-import cofh.lib.gui.slot.SlotValidated;
-import cofh.lib.util.helpers.ItemHelper;
+import cofh.core.gui.slot.ISlotValidator;
+import cofh.core.gui.slot.SlotLocked;
+import cofh.core.gui.slot.SlotRemoveOnly;
+import cofh.core.gui.slot.SlotValidated;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.entity.player.EntityPlayer;
