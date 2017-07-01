@@ -148,9 +148,9 @@ public class ThermalFoundation {
 		File worldGenFile;
 		String worldGenPath = "assets/" + MOD_ID + "/world/";
 
-		String worldGenClathrates = "thermalfoundation_clathrates.json";
-		String worldGenOil = "thermalfoundation_oil.json";
-		String worldGenOre = "thermalfoundation_ores.json";
+		String worldGenClathrates = "03_thermalfoundation_clathrates.json";
+		String worldGenOil = "02_thermalfoundation_oil.json";
+		String worldGenOre = "01_thermalfoundation_ores.json";
 
 		if (!CONFIG.getConfiguration().getBoolean("GenerateDefaultFiles", "World", true, "If TRUE, Thermal Foundation will create default world generation files if it cannot find existing ones. Only disable if you know what you are doing.")) {
 			return;

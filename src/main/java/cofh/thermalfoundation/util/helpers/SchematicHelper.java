@@ -23,13 +23,13 @@ public class SchematicHelper {
 
 	}
 
-	public static void addInformation(ItemStack stack, List<String> list) {
+	public static void addInformation(ItemStack stack, List<String> tooltip) {
 
 		if (!stack.hasTagCompound()) {
-			list.add(StringHelper.getInfoText("info.cofh.blank"));
+			tooltip.add(StringHelper.getInfoText("info.cofh.blank"));
 			return;
 		}
-		list.add(StringHelper.getDeactivationText("info.thermalfoundation.diagram.erase"));
+		tooltip.add(StringHelper.getDeactivationText("info.thermalfoundation.diagram.erase"));
 
 		boolean hasOre = false;
 		TMap<String, Integer> aMap = new THashMap<>();
@@ -58,10 +58,10 @@ public class SchematicHelper {
 			}
 		}
 		for (Map.Entry<String, Integer> entry : aMap.entrySet()) {
-			list.add(StringHelper.LIGHT_GRAY + entry.getValue() + "x " + entry.getKey());
+			tooltip.add(StringHelper.LIGHT_GRAY + entry.getValue() + "x " + entry.getKey());
 		}
 		if (hasOre && StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
-			list.add(StringHelper.shiftForDetails());
+			tooltip.add(StringHelper.shiftForDetails());
 		}
 	}
 
