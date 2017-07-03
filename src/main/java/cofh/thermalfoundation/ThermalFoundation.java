@@ -128,6 +128,12 @@ public class ThermalFoundation {
 	}
 
 	@EventHandler
+	public void handleIdMappingEvent(FMLModIdMappingEvent event) {
+
+		TFFluids.refreshReferences();
+	}
+
+	@EventHandler
 	public void handleIMC(IMCEvent event) {
 
 		IMCHandler.instance.handleIMC(event.getMessages());
