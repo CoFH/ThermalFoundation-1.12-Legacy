@@ -1,6 +1,7 @@
 package cofh.thermalfoundation;
 
 import cofh.CoFHCore;
+import cofh.cofhworld.CoFHWorld;
 import cofh.core.init.CoreProps;
 import cofh.core.util.ConfigHandler;
 import cofh.thermalfoundation.gui.GuiHandler;
@@ -34,12 +35,12 @@ public class ThermalFoundation {
 	public static final String MOD_ID = "thermalfoundation";
 	public static final String MOD_NAME = "Thermal Foundation";
 
-	public static final String VERSION = "2.2.3";
-	public static final String VERSION_MAX = "2.3.0";
+	public static final String VERSION = "2.3.0";
+	public static final String VERSION_MAX = "2.4.0";
 	public static final String VERSION_GROUP = "required-after:" + MOD_ID + "@[" + VERSION + "," + VERSION_MAX + ");";
 	public static final String UPDATE_URL = "https://raw.github.com/cofh/version/master/" + MOD_ID + "_update.json";
 
-	public static final String DEPENDENCIES = CoFHCore.VERSION_GROUP;
+	public static final String DEPENDENCIES = CoFHCore.VERSION_GROUP + CoFHWorld.VERSION_GROUP;
 	public static final String MOD_GUI_FACTORY = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
 
 	@Instance (MOD_ID)
@@ -125,6 +126,12 @@ public class ThermalFoundation {
 		CONFIG_CLIENT.cleanUp(false, true);
 
 		LOG.info(MOD_NAME + ": Load Complete.");
+	}
+
+	@EventHandler
+	public void handleIdMappingEvent(FMLModIdMappingEvent event) {
+
+		TFFluids.refreshReferences();
 	}
 
 	@EventHandler

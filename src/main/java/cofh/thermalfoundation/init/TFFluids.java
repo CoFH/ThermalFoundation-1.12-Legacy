@@ -52,7 +52,7 @@ public class TFFluids {
 		FluidRegistry.registerFluid(new FluidCore("coal", "thermalfoundation").setDensity(900).setViscosity(2000));
 		FluidRegistry.registerFluid(new FluidCore("crude_oil", "thermalfoundation").setDensity(900).setViscosity(2000));
 		FluidRegistry.registerFluid(new FluidCore("refined_oil", "thermalfoundation").setDensity(800).setViscosity(1400));
-		FluidRegistry.registerFluid(new FluidCore("fuel", "thermalfoundation").setDensity(700).setViscosity(800));
+		FluidRegistry.registerFluid(new FluidCore("refined_fuel", "thermalfoundation").setDensity(700).setViscosity(800));
 
 		FluidRegistry.registerFluid(new FluidCore("sap", "thermalfoundation").setDensity(1050).setViscosity(1500));
 		FluidRegistry.registerFluid(new FluidCore("syrup", "thermalfoundation").setDensity(1400).setViscosity(2500));
@@ -74,7 +74,7 @@ public class TFFluids {
 		fluidCoal = FluidRegistry.getFluid("coal");
 		fluidCrudeOil = FluidRegistry.getFluid("crude_oil");
 		fluidRefinedOil = FluidRegistry.getFluid("refined_oil");
-		fluidFuel = FluidRegistry.getFluid("fuel");
+		fluidFuel = FluidRegistry.getFluid("refined_fuel");
 
 		fluidSap = FluidRegistry.getFluid("sap");
 		fluidSyrup = FluidRegistry.getFluid("syrup");
@@ -147,6 +147,31 @@ public class TFFluids {
 		FluidRegistry.addBucketForFluid(fluidAerotheum);
 		FluidRegistry.addBucketForFluid(fluidPetrotheum);
 		FluidRegistry.addBucketForFluid(fluidMana);
+	}
+
+	public static void refreshReferences() {
+
+		fluidSteam = FluidRegistry.getFluid("steam");
+
+		fluidCreosote = FluidRegistry.getFluid("creosote");
+		fluidCoal = FluidRegistry.getFluid("coal");
+		fluidCrudeOil = FluidRegistry.getFluid("crude_oil");
+		fluidRefinedOil = FluidRegistry.getFluid("refined_oil");
+		fluidFuel = FluidRegistry.getFluid("refined_fuel");
+
+		fluidSap = FluidRegistry.getFluid("sap");
+		fluidSyrup = FluidRegistry.getFluid("syrup");
+		fluidResin = FluidRegistry.getFluid("resin");
+		fluidTreeOil = FluidRegistry.getFluid("tree_oil");
+
+		fluidRedstone = FluidRegistry.getFluid("redstone");
+		fluidGlowstone = FluidRegistry.getFluid("glowstone");
+		fluidEnder = FluidRegistry.getFluid("ender");
+		fluidPyrotheum = FluidRegistry.getFluid("pyrotheum");
+		fluidCryotheum = FluidRegistry.getFluid("cryotheum");
+		fluidAerotheum = FluidRegistry.getFluid("aerotheum");
+		fluidPetrotheum = FluidRegistry.getFluid("petrotheum");
+		fluidMana = FluidRegistry.getFluid("mana");
 	}
 
 	private static ArrayList<IInitializer> initList = new ArrayList<>();
