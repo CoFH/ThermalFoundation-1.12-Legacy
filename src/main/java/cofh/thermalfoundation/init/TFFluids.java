@@ -149,6 +149,31 @@ public class TFFluids {
 		FluidRegistry.addBucketForFluid(fluidMana);
 	}
 
+	public static void refreshReferences() {
+
+		fluidSteam = FluidRegistry.getFluid("steam");
+
+		fluidCreosote = FluidRegistry.getFluid("creosote");
+		fluidCoal = FluidRegistry.getFluid("coal");
+		fluidCrudeOil = FluidRegistry.getFluid("crude_oil");
+		fluidRefinedOil = FluidRegistry.getFluid("refined_oil");
+		fluidFuel = FluidRegistry.getFluid("fuel");
+
+		fluidSap = FluidRegistry.getFluid("sap");
+		fluidSyrup = FluidRegistry.getFluid("syrup");
+		fluidResin = FluidRegistry.getFluid("resin");
+		fluidTreeOil = FluidRegistry.getFluid("tree_oil");
+
+		fluidRedstone = FluidRegistry.getFluid("redstone");
+		fluidGlowstone = FluidRegistry.getFluid("glowstone");
+		fluidEnder = FluidRegistry.getFluid("ender");
+		fluidPyrotheum = FluidRegistry.getFluid("pyrotheum");
+		fluidCryotheum = FluidRegistry.getFluid("cryotheum");
+		fluidAerotheum = FluidRegistry.getFluid("aerotheum");
+		fluidPetrotheum = FluidRegistry.getFluid("petrotheum");
+		fluidMana = FluidRegistry.getFluid("mana");
+	}
+
 	private static ArrayList<IInitializer> initList = new ArrayList<>();
 
 	/* REFERENCES */
