@@ -7,7 +7,7 @@ buildscript {
 		}
 	}
 	dependencies {
-		classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
 	}
 }
 
@@ -47,6 +47,8 @@ repositories {
 
 dependencies {
 	compile "cofh:CoFHCore:${config.mc_version}-${config.cofhcore_version}:deobf"
+	compile "cofh:RedstoneFlux:${config.mc_version}-${config.rf_version}:deobf"
+	compile "cofh:CoFHWorld:${config.mc_version}-${config.cofh_world_version}:deobf"
 }
 
 version = "${project.config.mod_version}." + (System.getenv("BUILD_NUMBER") ?: "1")
