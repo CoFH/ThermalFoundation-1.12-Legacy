@@ -1,9 +1,9 @@
 package cofh.thermalfoundation.gui.container;
 
-import cofh.core.util.oredict.OreDictionaryArbiter;
 import cofh.core.gui.container.ContainerInventoryItem;
 import cofh.core.gui.slot.SlotLocked;
 import cofh.core.util.helpers.ItemHelper;
+import cofh.core.util.oredict.OreDictionaryArbiter;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.util.helpers;
 
-import cofh.core.util.helpers.RedstoneControlHelper;
 import cofh.core.util.helpers.ItemHelper;
+import cofh.core.util.helpers.RedstoneControlHelper;
 import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.item.ItemDiagram;
 import net.minecraft.item.ItemStack;

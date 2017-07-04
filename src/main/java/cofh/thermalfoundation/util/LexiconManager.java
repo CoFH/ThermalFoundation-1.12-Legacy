@@ -1,10 +1,10 @@
 package cofh.thermalfoundation.util;
 
 import cofh.core.init.CoreProps;
-import cofh.core.util.oredict.OreDictionaryArbiter;
 import cofh.core.inventory.ComparableItemStackSafe;
 import cofh.core.util.ItemWrapper;
 import cofh.core.util.helpers.ItemHelper;
+import cofh.core.util.oredict.OreDictionaryArbiter;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.entity.player.EntityPlayer;

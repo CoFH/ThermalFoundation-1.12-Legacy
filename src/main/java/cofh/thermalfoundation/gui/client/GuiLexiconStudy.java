@@ -1,14 +1,14 @@
 package cofh.thermalfoundation.gui.client;
 
-import cofh.core.gui.GuiCore;
-import cofh.core.gui.element.tab.TabInfo;
 import cofh.core.gui.GuiColor;
+import cofh.core.gui.GuiCore;
 import cofh.core.gui.element.ElementButton;
 import cofh.core.gui.element.ElementListBox;
 import cofh.core.gui.element.ElementTextField;
 import cofh.core.gui.element.listbox.IListBoxElement;
 import cofh.core.gui.element.listbox.ListBoxElementText;
 import cofh.core.gui.element.listbox.SliderVertical;
+import cofh.core.gui.element.tab.TabInfo;
 import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.gui.container.ContainerLexiconStudy;
 import cofh.thermalfoundation.network.PacketTFBase;
