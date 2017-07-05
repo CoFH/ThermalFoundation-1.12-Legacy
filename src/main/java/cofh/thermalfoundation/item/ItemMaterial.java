@@ -32,6 +32,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		dustGold = addOreDictItem(1, "dustGold");
 		// dustDiamond = addOreDictItem(2, "dustDiamond");
 		nuggetDiamond = addOreDictItem(16, "nuggetDiamond");
+		nuggetEmerald = addOreDictItem(17, "nuggetEmerald");
 		gearIron = addOreDictItem(24, "gearIron");
 		gearGold = addOreDictItem(25, "gearGold");
 		plateIron = addOreDictItem(32, "plateIron");
@@ -198,6 +199,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		ingotIron = new ItemStack(Items.IRON_INGOT);
 		ingotGold = new ItemStack(Items.GOLD_INGOT);
 		gemDiamond = new ItemStack(Items.DIAMOND);
+		gemEmerald = new ItemStack(Items.EMERALD);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
@@ -245,6 +247,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 		/* Storage */
 		addTwoWayStorageRecipe(gemDiamond, "gemDiamond", nuggetDiamond, "nuggetDiamond");
+		addTwoWayStorageRecipe(gemEmerald, "gemEmerald", nuggetEmerald, "nuggetEmerald");
 
 		addTwoWayStorageRecipe(ingotCopper, "ingotCopper", nuggetCopper, "nuggetCopper");
 		addTwoWayStorageRecipe(ingotTin, "ingotTin", nuggetTin, "nuggetTin");
@@ -346,11 +349,13 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack ingotIron;
 	public static ItemStack ingotGold;
 	public static ItemStack gemDiamond;
+	public static ItemStack gemEmerald;
 
 	public static ItemStack dustIron;
 	public static ItemStack dustGold;
 
 	public static ItemStack nuggetDiamond;
+	public static ItemStack nuggetEmerald;
 
 	public static ItemStack gearIron;
 	public static ItemStack gearGold;
