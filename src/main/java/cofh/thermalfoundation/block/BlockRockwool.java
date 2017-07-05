@@ -90,7 +90,7 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("rockwool");
 		ForgeRegistries.BLOCKS.register(this);
@@ -124,19 +124,13 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		addSmelting(ItemMaterial.crystalSlag, rockwoolSilver);
 
 		for (int i = 0; i < 16; i++) {
 			addShapelessRecipe(new ItemStack(this, 1, i), new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.DYE, 1, i));
 		}
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
-
 		return true;
 	}
 

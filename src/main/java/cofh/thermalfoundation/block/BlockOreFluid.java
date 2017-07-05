@@ -246,7 +246,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("ore_fluid");
 		ForgeRegistries.BLOCKS.register(this);
@@ -273,7 +273,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		fluidBlocks[Type.CRUDE_OIL_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;
 		fluidBlocks[Type.CRUDE_OIL_GRAVEL.getMetadata()] = TFFluids.blockFluidCrudeOil;
@@ -286,12 +286,6 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		drops[Type.REDSTONE.getMetadata()] = ItemMaterial.crystalRedstone;
 		drops[Type.GLOWSTONE.getMetadata()] = ItemMaterial.crystalGlowstone;
 		drops[Type.ENDER.getMetadata()] = ItemMaterial.crystalEnder;
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
 
 		return true;
 	}

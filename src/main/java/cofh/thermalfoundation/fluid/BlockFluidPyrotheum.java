@@ -163,23 +163,8 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		}
 	}
 
-	/* IInitializer */
-	@Override
-	public boolean preInit() {
-
-		this.setRegistryName("fluid_pyrotheum");
-		ForgeRegistries.BLOCKS.register(this);
-		ItemBlock itemBlock = new ItemBlock(this);
-		itemBlock.setRegistryName(this.getRegistryName());
-		ForgeRegistries.ITEMS.register(itemBlock);
-
-		config();
-
-		return true;
-	}
-
-	@Override
-	public boolean initialize() {
+	/* HELPERS */
+	public void addInteractions() {
 
 		addInteraction(Blocks.COBBLESTONE, Blocks.STONE);
 		addInteraction(Blocks.GRASS, Blocks.DIRT);
@@ -194,6 +179,21 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		for (int i = 0; i < 8; i++) {
 			addInteraction(Blocks.STONE_STAIRS.getStateFromMeta(i), Blocks.STONE_BRICK_STAIRS.getStateFromMeta(i), false);
 		}
+	}
+
+	/* IInitializer */
+	@Override
+	public boolean initialize() {
+
+		this.setRegistryName("fluid_pyrotheum");
+		ForgeRegistries.BLOCKS.register(this);
+		ItemBlock itemBlock = new ItemBlock(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		ForgeRegistries.ITEMS.register(itemBlock);
+
+		config();
+		addInteractions();
+
 		return true;
 	}
 }

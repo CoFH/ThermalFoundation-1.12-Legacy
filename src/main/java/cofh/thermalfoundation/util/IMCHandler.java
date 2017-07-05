@@ -9,7 +9,7 @@ import java.util.List;
 
 public class IMCHandler {
 
-	public static IMCHandler instance = new IMCHandler();
+	public static final IMCHandler INSTANCE = new IMCHandler();
 
 	public void handleIMC(List<IMCMessage> messages) {
 

@@ -169,23 +169,8 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		}
 	}
 
-	/* IInitializer */
-	@Override
-	public boolean preInit() {
-
-		this.setRegistryName("fluid_mana");
-		ForgeRegistries.BLOCKS.register(this);
-		ItemBlock itemBlock = new ItemBlock(this);
-		itemBlock.setRegistryName(this.getRegistryName());
-		ForgeRegistries.ITEMS.register(itemBlock);
-
-		config();
-
-		return true;
-	}
-
-	@Override
-	public boolean initialize() {
+	/* HELPERS */
+	public void addInteractions() {
 
 		addInteraction(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, DirtType.DIRT), Blocks.GRASS.getDefaultState(), false);
 		addInteraction(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, DirtType.COARSE_DIRT), Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, DirtType.PODZOL), false);
@@ -208,6 +193,20 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		addInteraction(TFBlocks.blockOre.getDefaultState().withProperty(BlockOre.VARIANT, BlockOre.Type.LEAD), Blocks.GOLD_ORE.getDefaultState());
 		addInteraction(TFBlocks.blockStorage.getDefaultState().withProperty(BlockStorage.VARIANT, BlockStorage.Type.SILVER), TFBlocks.blockStorage.getDefaultState().withProperty(BlockStorage.VARIANT, BlockStorage.Type.MITHRIL));
 		addInteraction(TFBlocks.blockStorage.getDefaultState().withProperty(BlockStorage.VARIANT, BlockStorage.Type.LEAD), Blocks.GOLD_BLOCK.getDefaultState());
+	}
+
+	/* IInitializer */
+	@Override
+	public boolean initialize() {
+
+		this.setRegistryName("fluid_mana");
+		ForgeRegistries.BLOCKS.register(this);
+		ItemBlock itemBlock = new ItemBlock(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		ForgeRegistries.ITEMS.register(itemBlock);
+
+		config();
+		addInteractions();
 
 		return true;
 	}

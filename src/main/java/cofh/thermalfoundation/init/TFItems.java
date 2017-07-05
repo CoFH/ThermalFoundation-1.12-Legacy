@@ -2,15 +2,17 @@ package cofh.thermalfoundation.init;
 
 import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.item.*;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
+import cofh.thermalfoundation.util.TFCrafting;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.ArrayList;
 
-import static cofh.core.util.helpers.RecipeHelper.*;
-
 public class TFItems {
+
+	public static final TFItems INSTANCE = new TFItems();
 
 	private TFItems() {
 
@@ -39,41 +41,19 @@ public class TFItems {
 		initList.add(itemGeode);
 
 		for (IInitializer init : initList) {
-			init.preInit();
-		}
-	}
-
-	public static void initialize() {
-
-		for (IInitializer init : initList) {
 			init.initialize();
 		}
+		MinecraftForge.EVENT_BUS.register(INSTANCE);
 	}
 
-	public static void postInit() {
+	/* EVENT HANDLING */
+	@SubscribeEvent
+	public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
 
 		for (IInitializer init : initList) {
-			init.postInit();
+			init.register();
 		}
-		initList.clear();
-
-		addRecipes();
-	}
-
-	/* HELPERS */
-	public static void addRecipes() {
-
-		addSmelting(ItemMaterial.dustWoodCompressed, new ItemStack(Items.COAL, 1, 1), 0.15F);
-
-		addStorageRecipe(ItemMaterial.dustWoodCompressed, "dustWood");
-
-		addShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globRosin, '#', "string");
-		addShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', ItemMaterial.globRosin, 'P', Blocks.PISTON);
-		addShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globRosin);
-
-		addShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globTar, '#', "string");
-		addShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', ItemMaterial.globTar, 'P', Blocks.PISTON);
-		addShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globTar);
+		TFCrafting.loadRecipes();
 	}
 
 	private static ArrayList<IInitializer> initList = new ArrayList<>();

@@ -26,7 +26,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		dustIron = addOreDictItem(0, "dustIron");
 		dustGold = addOreDictItem(1, "dustGold");
@@ -207,7 +207,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		/* Smelting */
 		addSmelting(dustIron, ingotIron);
@@ -326,12 +326,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// Cold Gel
 		// Air Gel
 		// Rock Gel
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
 
 		FurnaceFuelHandler.registerFuel(gemCoke, TFProps.gemCokeFuel);
 		FurnaceFuelHandler.registerFuel(globRosin, TFProps.globRosinFuel);

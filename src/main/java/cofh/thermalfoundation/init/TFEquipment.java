@@ -14,8 +14,12 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -26,44 +30,42 @@ import static cofh.core.util.helpers.RecipeHelper.addShapedRecipe;
 
 public class TFEquipment {
 
+	public static final TFEquipment INSTANCE = new TFEquipment();
+
 	private TFEquipment() {
 
 	}
 
-	public static boolean preInit() {
-
-		for (ArmorSet e : ArmorSet.values()) {
-			e.preInit();
-			ThermalFoundation.proxy.addIModelRegister(e);
-		}
-		for (ToolSet e : ToolSet.values()) {
-			e.preInit();
-			ThermalFoundation.proxy.addIModelRegister(e);
-		}
-		for (ToolSetVanilla e : ToolSetVanilla.values()) {
-			e.preInit();
-			ThermalFoundation.proxy.addIModelRegister(e);
-		}
-		return true;
-	}
-
-	public static boolean initialize() {
+	public static void preInit() {
 
 		for (ArmorSet e : ArmorSet.values()) {
 			e.initialize();
+			ThermalFoundation.proxy.addIModelRegister(e);
 		}
 		for (ToolSet e : ToolSet.values()) {
 			e.initialize();
+			ThermalFoundation.proxy.addIModelRegister(e);
 		}
 		for (ToolSetVanilla e : ToolSetVanilla.values()) {
 			e.initialize();
+			ThermalFoundation.proxy.addIModelRegister(e);
 		}
-		return true;
+		MinecraftForge.EVENT_BUS.register(INSTANCE);
 	}
 
-	public static boolean postInit() {
+	/* EVENT HANDLING */
+	@SubscribeEvent
+	public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
 
-		return true;
+		for (ArmorSet e : ArmorSet.values()) {
+			e.register();
+		}
+		for (ToolSet e : ToolSet.values()) {
+			e.register();
+		}
+		for (ToolSetVanilla e : ToolSetVanilla.values()) {
+			e.register();
+		}
 	}
 
 	/* MATERIALS */
@@ -144,7 +146,7 @@ public class TFEquipment {
 			itemBoots = new ItemArmorCore(ARMOR_MATERIAL, EntityEquipmentSlot.FEET);
 		}
 
-		protected void preInit() {
+		protected void initialize() {
 
 			final String ARMOR = "thermalfoundation.armor." + name;
 			final String PATH_ARMOR = "thermalfoundation:textures/armor/";
@@ -193,7 +195,7 @@ public class TFEquipment {
 			armorBoots = new ItemStack(itemBoots);
 		}
 
-		protected void initialize() {
+		protected void register() {
 
 			if (enable[0]) {
 				addShapedRecipe(armorHelmet, "III", "I I", 'I', ingot);
@@ -317,7 +319,7 @@ public class TFEquipment {
 			itemShield = new ItemShieldCore(material);
 		}
 
-		protected void preInit() {
+		protected void initialize() {
 
 			final String TOOL = "thermalfoundation.tool." + name;
 
@@ -423,7 +425,7 @@ public class TFEquipment {
 			toolShield = new ItemStack(itemShield);
 		}
 
-		protected void initialize() {
+		protected void register() {
 
 			if (enable[0]) {
 				addShapedRecipe(toolSword, "I", "I", "S", 'I', ingot, 'S', "stickWood");
@@ -589,7 +591,7 @@ public class TFEquipment {
 			return type != WOOD && type != STONE;
 		}
 
-		protected void preInit() {
+		protected void initialize() {
 
 			final String TOOL = "thermalfoundation.tool." + name;
 
@@ -672,7 +674,7 @@ public class TFEquipment {
 			toolShield = new ItemStack(itemShield);
 		}
 
-		protected void initialize() {
+		protected void register() {
 
 			if (enable[0]) {
 				addShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.STRING);

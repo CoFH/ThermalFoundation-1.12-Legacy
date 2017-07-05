@@ -6,12 +6,15 @@ import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.fluid.*;
 import net.minecraft.item.EnumRarity;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
 import java.util.ArrayList;
 
 public class TFFluids {
+
+	public static final TFFluids INSTANCE = new TFFluids();
 
 	private TFFluids() {
 
@@ -24,23 +27,9 @@ public class TFFluids {
 		createBuckets();
 
 		for (IInitializer init : initList) {
-			init.preInit();
-		}
-	}
-
-	public static void initialize() {
-
-		for (IInitializer init : initList) {
 			init.initialize();
 		}
-	}
-
-	public static void postInit() {
-
-		for (IInitializer init : initList) {
-			init.postInit();
-		}
-		initList.clear();
+		MinecraftForge.EVENT_BUS.register(INSTANCE);
 	}
 
 	/* HELPERS */

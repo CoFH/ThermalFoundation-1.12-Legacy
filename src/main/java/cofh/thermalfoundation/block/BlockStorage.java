@@ -136,7 +136,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("storage");
 		ForgeRegistries.BLOCKS.register(this);
@@ -171,7 +171,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		addStorageRecipe(blockCopper, "ingotCopper");
 		addStorageRecipe(blockTin, "ingotTin");
@@ -182,12 +182,6 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		addStorageRecipe(blockPlatinum, "ingotPlatinum");
 		addStorageRecipe(blockIridium, "ingotIridium");
 		addStorageRecipe(blockMithril, "ingotMithril");
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
 
 		return true;
 	}

@@ -151,7 +151,7 @@ public class BlockFluidGlowstone extends BlockFluidCore {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("fluid_glowstone");
 		ForgeRegistries.BLOCKS.register(this);

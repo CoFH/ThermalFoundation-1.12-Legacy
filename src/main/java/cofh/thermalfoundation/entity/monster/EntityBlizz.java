@@ -88,7 +88,7 @@ public class EntityBlizz extends EntityElemental {
 		super(world);
 
 		ambientParticle = EnumParticleTypes.SNOWBALL;
-		ambientSound = TFSounds.BLIZZ_AMBIENT;
+		ambientSound = TFSounds.blizzAmbient;
 	}
 
 	@Nullable
@@ -190,7 +190,7 @@ public class EntityBlizz extends EntityElemental {
 							EntityBlizzBolt bolt = new EntityBlizzBolt(blizz.world, blizz);
 							bolt.posY = blizz.posY + blizz.height / 2.0F + 0.5D;
 							bolt.setThrowableHeading(target.posX - blizz.posX, target.posY - blizz.posY, target.posZ - blizz.posZ, 1.5F, 1.0F);
-							blizz.playSound(TFSounds.BLIZZ_ATTACK, 2.0F, (blizz.rand.nextFloat() - blizz.rand.nextFloat()) * 0.2F + 1.0F);
+							blizz.playSound(TFSounds.blizzAttack, 2.0F, (blizz.rand.nextFloat() - blizz.rand.nextFloat()) * 0.2F + 1.0F);
 							blizz.world.spawnEntity(bolt);
 						}
 					}

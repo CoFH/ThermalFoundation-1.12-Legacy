@@ -160,23 +160,8 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		}
 	}
 
-	/* IInitializer */
-	@Override
-	public boolean preInit() {
-
-		this.setRegistryName("fluid_cryotheum");
-		ForgeRegistries.BLOCKS.register(this);
-		ItemBlock itemBlock = new ItemBlock(this);
-		itemBlock.setRegistryName(this.getRegistryName());
-		ForgeRegistries.ITEMS.register(itemBlock);
-
-		config();
-
-		return true;
-	}
-
-	@Override
-	public boolean initialize() {
+	/* HELPERS */
+	public void addInteractions() {
 
 		addInteraction(Blocks.GRASS, Blocks.DIRT);
 		addInteraction(Blocks.WATER.getDefaultState(), Blocks.ICE);
@@ -192,6 +177,20 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		addInteraction(Blocks.TALLGRASS, Blocks.AIR);
 		addInteraction(Blocks.FIRE, Blocks.AIR);
 		addInteraction(TFFluids.blockFluidGlowstone.getDefaultState(), Blocks.GLOWSTONE);
+	}
+
+	/* IInitializer */
+	@Override
+	public boolean initialize() {
+
+		this.setRegistryName("fluid_cryotheum");
+		ForgeRegistries.BLOCKS.register(this);
+		ItemBlock itemBlock = new ItemBlock(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		ForgeRegistries.ITEMS.register(itemBlock);
+
+		config();
+		addInteractions();
 
 		return true;
 	}

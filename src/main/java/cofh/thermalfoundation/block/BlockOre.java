@@ -103,7 +103,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("ore");
 		ForgeRegistries.BLOCKS.register(this);
@@ -138,7 +138,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		addSmelting(oreCopper, ItemMaterial.ingotCopper, 0.6F);
 		addSmelting(oreTin, ItemMaterial.ingotTin, 0.7F);
@@ -149,12 +149,6 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		addSmelting(orePlatinum, ItemMaterial.ingotPlatinum, 1.0F);
 		addSmelting(oreIridium, ItemMaterial.ingotIridium, 1.2F);
 		addSmelting(oreMithril, ItemMaterial.ingotMithril, 1.5F);
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
 
 		return true;
 	}

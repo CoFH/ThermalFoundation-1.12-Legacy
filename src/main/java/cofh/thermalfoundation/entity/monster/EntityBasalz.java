@@ -1,11 +1,9 @@
 package cofh.thermalfoundation.entity.monster;
 
 import cofh.core.init.CoreProps;
-import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.init.TFSounds;
-import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.ai.*;
@@ -90,7 +88,7 @@ public class EntityBasalz extends EntityElemental {
 		super(world);
 
 		ambientParticle = EnumParticleTypes.TOWN_AURA;
-		ambientSound = TFSounds.BASALZ_AMBIENT;
+		ambientSound = TFSounds.basalzAmbient;
 	}
 
 	@Nullable
@@ -192,7 +190,7 @@ public class EntityBasalz extends EntityElemental {
 							EntityBasalzBolt bolt = new EntityBasalzBolt(basalz.world, basalz);
 							bolt.setThrowableHeading(target.posX - basalz.posX, target.posY - basalz.posY, target.posZ - basalz.posZ, 1.5F, 1.0F);
 							bolt.posY = basalz.posY + basalz.height / 2.0F + 0.5D;
-							basalz.playSound(TFSounds.BASALZ_ATTACK, 2.0F, (basalz.rand.nextFloat() - basalz.rand.nextFloat()) * 0.2F + 1.0F);
+							basalz.playSound(TFSounds.basalzAttack, 2.0F, (basalz.rand.nextFloat() - basalz.rand.nextFloat()) * 0.2F + 1.0F);
 							basalz.world.spawnEntity(bolt);
 						}
 					}

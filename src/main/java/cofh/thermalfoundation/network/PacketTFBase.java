@@ -11,7 +11,7 @@ public class PacketTFBase extends PacketCoFHBase {
 
 	public static void initialize() {
 
-		PacketHandler.instance.registerPacket(PacketTFBase.class);
+		PacketHandler.INSTANCE.registerPacket(PacketTFBase.class);
 	}
 
 	public enum PacketTypes {

@@ -220,7 +220,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		wrenchBasic = addItem(0, "wrench0");
 		//		wrenchHardened = addItem(1, "wrench1");
@@ -234,7 +234,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		// @formatter:off
 
@@ -279,12 +279,6 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 //		));
 
 		// @formatter:on
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
 
 		return true;
 	}

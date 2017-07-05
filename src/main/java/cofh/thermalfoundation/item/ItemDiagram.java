@@ -185,7 +185,7 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		schematic = addItem(Type.SCHEMATIC.ordinal(), "schematic");
 		redprint = addItem(Type.REDPRINT.ordinal(), "redprint");
@@ -196,16 +196,10 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		// addShapelessRecipe(schematic, Items.PAPER, Items.PAPER, "dyeBlue"));
 		addShapelessRecipe(redprint, Items.PAPER, Items.PAPER, "dustRedstone");
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
 
 		return true;
 	}

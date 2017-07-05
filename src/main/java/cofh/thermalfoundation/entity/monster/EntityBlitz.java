@@ -1,11 +1,9 @@
 package cofh.thermalfoundation.entity.monster;
 
 import cofh.core.init.CoreProps;
-import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.init.TFSounds;
-import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.ai.*;
@@ -90,7 +88,7 @@ public class EntityBlitz extends EntityElemental {
 		super(world);
 
 		ambientParticle = EnumParticleTypes.CLOUD;
-		ambientSound = TFSounds.BLITZ_AMBIENT;
+		ambientSound = TFSounds.blitzAmbient;
 	}
 
 	@Nullable
@@ -192,7 +190,7 @@ public class EntityBlitz extends EntityElemental {
 							EntityBlitzBolt bolt = new EntityBlitzBolt(blitz.world, blitz);
 							bolt.posY = blitz.posY + blitz.height / 2.0F + 0.5D;
 							bolt.setThrowableHeading(target.posX - blitz.posX, target.posY - blitz.posY, target.posZ - blitz.posZ, 1.5F, 1.0F);
-							blitz.playSound(TFSounds.BLITZ_ATTACK, 2.0F, (blitz.rand.nextFloat() - blitz.rand.nextFloat()) * 0.2F + 1.0F);
+							blitz.playSound(TFSounds.blitzAttack, 2.0F, (blitz.rand.nextFloat() - blitz.rand.nextFloat()) * 0.2F + 1.0F);
 							blitz.world.spawnEntity(bolt);
 						}
 					}

@@ -67,10 +67,10 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 
 				if (isEmpowered(stack)) {
 					tooltip.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.c.0") + StringHelper.END);
-					tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.lexicon.c.1", StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey())));
+					tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.lexicon.c.1", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
 				} else {
 					tooltip.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.b.0") + StringHelper.END);
-					tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.lexicon.b.1", StringHelper.getKeyName(KeyBindingItemMultiMode.instance.getKey())));
+					tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.lexicon.b.1", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
 				}
 				break;
 			default:
@@ -230,7 +230,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		lexicon = addItem(0, "lexicon");
 
@@ -240,15 +240,9 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		addShapedRecipe(lexicon, " D ", "GBI", " R ", 'D', "gemDiamond", 'G', "ingotGold", 'B', Items.BOOK, 'I', "ingotIron", 'R', "dustRedstone");
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
 
 		return true;
 	}

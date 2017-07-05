@@ -59,7 +59,7 @@ public class ProxyClient extends Proxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBasalzBolt.class, manager -> new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_basalz"));
 	}
 
-	/* EVENT HANDLERS */
+	/* EVENT HANDLING */
 	@SubscribeEvent
 	public void registerIcons(TextureStitchEvent.Pre event) {
 

@@ -44,7 +44,7 @@ public class ItemBait extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		baitBasic = addItem(0, "baitBasic");
 		baitRich = addItem(1, "baitRich");
@@ -56,17 +56,11 @@ public class ItemBait extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		addShapelessRecipe(ItemHelper.cloneStack(baitBasic, 2), "dustWood", "dustWood", "dustSaltpeter", "crystalSlag");
 
 		addShapelessRecipe(baitRich, baitBasic, new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()));
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
 
 		return true;
 	}

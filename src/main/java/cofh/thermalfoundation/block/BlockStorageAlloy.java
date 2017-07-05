@@ -145,7 +145,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("storage_alloy");
 		ForgeRegistries.BLOCKS.register(this);
@@ -178,13 +178,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	}
 
 	@Override
-	public boolean initialize() {
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
+	public boolean register() {
 
 		addStorageRecipe(blockSteel, "ingotSteel");
 		addStorageRecipe(blockElectrum, "ingotElectrum");

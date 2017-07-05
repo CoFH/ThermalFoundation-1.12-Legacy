@@ -64,7 +64,7 @@ public class BlockFluidCrudeOil extends BlockFluidCore {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("fluid_crude_oil");
 		ForgeRegistries.BLOCKS.register(this);

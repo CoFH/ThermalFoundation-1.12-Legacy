@@ -10,7 +10,6 @@ import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.proxy.Proxy;
 import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
-import cofh.thermalfoundation.util.TFCraftingManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -79,7 +78,7 @@ public class ThermalFoundation {
 		TFItems.preInit();
 		TFEquipment.preInit();
 		TFFluids.preInit();
-		TFPlugins.preInit();
+		TFSounds.preInit();
 
 		/* Register Handlers */
 		registerHandlers();
@@ -90,12 +89,6 @@ public class ThermalFoundation {
 	@EventHandler
 	public void initialize(FMLInitializationEvent event) {
 
-		TFBlocks.initialize();
-		TFItems.initialize();
-		TFEquipment.initialize();
-		TFFluids.initialize();
-		TFPlugins.initialize();
-
 		/* Add World Generation */
 		addWorldGeneration();
 
@@ -105,21 +98,13 @@ public class ThermalFoundation {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 
-		TFBlocks.postInit();
-		TFItems.postInit();
-		TFEquipment.postInit();
-		TFFluids.postInit();
-		TFPlugins.postInit();
-
-		TFCraftingManager.loadRecipes();
-
 		proxy.postInit(event);
 	}
 
 	@EventHandler
 	public void loadComplete(FMLLoadCompleteEvent event) {
 
-		IMCHandler.instance.handleIMC(FMLInterModComms.fetchRuntimeMessages(this));
+		IMCHandler.INSTANCE.handleIMC(FMLInterModComms.fetchRuntimeMessages(this));
 
 		TFProps.loadComplete();
 		CONFIG.cleanUp(false, true);
@@ -137,7 +122,7 @@ public class ThermalFoundation {
 	@EventHandler
 	public void handleIMC(IMCEvent event) {
 
-		IMCHandler.instance.handleIMC(event.getMessages());
+		IMCHandler.INSTANCE.handleIMC(event.getMessages());
 	}
 
 	/* HELPERS */

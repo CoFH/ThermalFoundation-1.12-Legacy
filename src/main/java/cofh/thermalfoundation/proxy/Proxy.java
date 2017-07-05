@@ -8,7 +8,6 @@ import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
 import cofh.thermalfoundation.init.TFProps;
-import cofh.thermalfoundation.init.TFSounds;
 import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -29,7 +28,6 @@ public class Proxy {
 
 	public void initialize(FMLInitializationEvent event) {
 
-		TFSounds.initialize();
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {

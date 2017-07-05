@@ -13,11 +13,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EventHandlerLexicon {
 
-	public static EventHandlerLexicon instance = new EventHandlerLexicon();
+	public static EventHandlerLexicon INSTANCE = new EventHandlerLexicon();
 
 	public static void initialize() {
 
-		MinecraftForge.EVENT_BUS.register(instance);
+		MinecraftForge.EVENT_BUS.register(INSTANCE);
 	}
 
 	@SubscribeEvent (priority = EventPriority.HIGHEST)

@@ -138,9 +138,18 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 		world.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 0.5F, 0.9F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F, false);
 	}
 
+	/* HELPERS */
+	public void addInteractions() {
+
+		addInteraction(Blocks.STONE, Blocks.GRAVEL);
+		addInteraction(Blocks.COBBLESTONE, Blocks.GRAVEL);
+		addInteraction(Blocks.STONEBRICK, Blocks.GRAVEL);
+		addInteraction(Blocks.MOSSY_COBBLESTONE, Blocks.GRAVEL);
+	}
+
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("fluid_petrotheum");
 		ForgeRegistries.BLOCKS.register(this);
@@ -149,17 +158,7 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 		ForgeRegistries.ITEMS.register(itemBlock);
 
 		config();
-
-		return true;
-	}
-
-	@Override
-	public boolean initialize() {
-
-		addInteraction(Blocks.STONE, Blocks.GRAVEL);
-		addInteraction(Blocks.COBBLESTONE, Blocks.GRAVEL);
-		addInteraction(Blocks.STONEBRICK, Blocks.GRAVEL);
-		addInteraction(Blocks.MOSSY_COBBLESTONE, Blocks.GRAVEL);
+		addInteractions();
 
 		return true;
 	}
