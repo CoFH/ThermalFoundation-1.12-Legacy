@@ -1,26 +1,24 @@
 package cofh.thermalfoundation.entity.monster;
 
 import cofh.core.init.CoreProps;
-import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
 import cofh.thermalfoundation.init.TFSounds;
-import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
+import javax.annotation.Nullable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,6 +26,7 @@ public class EntityBlizz extends EntityElemental {
 
 	static boolean enable = true;
 	static boolean restrictLightLevel = true;
+	static ResourceLocation lootTable;
 
 	static int spawnLightLevel = 8;
 
@@ -40,6 +39,8 @@ public class EntityBlizz extends EntityElemental {
 	public static void initialize(int id) {
 
 		config();
+
+		lootTable = LootTableList.register(new ResourceLocation(ThermalFoundation.MOD_ID, "entities/blizz"));
 
 		if (!enable) {
 			return;
@@ -90,19 +91,10 @@ public class EntityBlizz extends EntityElemental {
 		ambientSound = TFSounds.BLIZZ_AMBIENT;
 	}
 
-	@Override
-	protected void dropFewItems(boolean wasHitByPlayer, int looting) {
+	@Nullable
+	protected ResourceLocation getLootTable() {
 
-		if (wasHitByPlayer) {
-			int items = rand.nextInt(4 + looting);
-			for (int i = 0; i < items; i++) {
-				entityDropItem(new ItemStack(Items.SNOWBALL), 0);
-			}
-			items = rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBlizz, 1), 0);
-			}
-		}
+		return lootTable;
 	}
 
 	@Override

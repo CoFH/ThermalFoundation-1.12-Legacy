@@ -15,10 +15,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
+import javax.annotation.Nullable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,6 +28,7 @@ public class EntityBlitz extends EntityElemental {
 
 	static boolean enable = true;
 	static boolean restrictLightLevel = true;
+	static ResourceLocation lootTable;
 
 	static int spawnLightLevel = 8;
 
@@ -38,6 +41,8 @@ public class EntityBlitz extends EntityElemental {
 	public static void initialize(int id) {
 
 		config();
+
+		lootTable = LootTableList.register(new ResourceLocation(ThermalFoundation.MOD_ID, "entities/blitz"));
 
 		if (!enable) {
 			return;
@@ -88,19 +93,10 @@ public class EntityBlitz extends EntityElemental {
 		ambientSound = TFSounds.BLITZ_AMBIENT;
 	}
 
-	@Override
-	protected void dropFewItems(boolean wasHitByPlayer, int looting) {
+	@Nullable
+	protected ResourceLocation getLootTable() {
 
-		if (wasHitByPlayer) {
-			int items = rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				entityDropItem(ItemHelper.cloneStack(ItemMaterial.dustNiter, 1), 0);
-			}
-			items = rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBlitz, 1), 0);
-			}
-		}
+		return lootTable;
 	}
 
 	@Override
