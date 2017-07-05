@@ -219,6 +219,11 @@
 					"layer0": "thermalfoundation:items/material/nugget_diamond"
 				}
 			},
+			"nuggetemerald": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/nugget_emerald"
+				}
+			},
 			"nuggetcopper": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/nugget_copper"
