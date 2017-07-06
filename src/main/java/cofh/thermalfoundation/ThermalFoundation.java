@@ -10,6 +10,7 @@ import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.proxy.Proxy;
 import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
+import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -21,10 +22,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.event.FMLInterModComms.IMCEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.util.Loader;
 
 import java.io.File;
 
@@ -74,6 +73,7 @@ public class ThermalFoundation {
 		CONFIG_CLIENT.setConfiguration(new Configuration(new File(CoreProps.configDir, "/cofh/" + MOD_ID + "/client.cfg"), true));
 
 		TFProps.preInit();
+
 		TFBlocks.preInit();
 		TFItems.preInit();
 		TFEquipment.preInit();
@@ -89,14 +89,13 @@ public class ThermalFoundation {
 	@EventHandler
 	public void initialize(FMLInitializationEvent event) {
 
-		/* Add World Generation */
-		addWorldGeneration();
-
 		proxy.initialize(event);
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
+
+		pluginInitialize();
 
 		proxy.postInit(event);
 	}
@@ -106,7 +105,8 @@ public class ThermalFoundation {
 
 		IMCHandler.INSTANCE.handleIMC(FMLInterModComms.fetchRuntimeMessages(this));
 
-		TFProps.loadComplete();
+		LexiconManager.loadComplete();
+
 		CONFIG.cleanUp(false, true);
 		CONFIG_CLIENT.cleanUp(false, true);
 
@@ -131,52 +131,13 @@ public class ThermalFoundation {
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, GUI_HANDLER);
 		MinecraftForge.EVENT_BUS.register(proxy);
 
+		LexiconManager.initialize();
 		EventHandlerLexicon.initialize();
 		PacketTFBase.initialize();
 	}
 
-	private void addWorldGeneration() {
+	private void pluginInitialize() {
 
-		File worldGenFile;
-		String worldGenPath = "assets/" + MOD_ID + "/world/";
-
-		String worldGenClathrates = "03_thermalfoundation_clathrates.json";
-		String worldGenOil = "02_thermalfoundation_oil.json";
-		String worldGenOre = "01_thermalfoundation_ores.json";
-
-		if (!CONFIG.getConfiguration().getBoolean("GenerateDefaultFiles", "World", true, "If TRUE, Thermal Foundation will create default world generation files if it cannot find existing ones. Only disable if you know what you are doing.")) {
-			return;
-		}
-
-		worldGenFile = new File(CoreProps.configDir, "/cofh/world/" + worldGenClathrates);
-		if (!worldGenFile.exists()) {
-			try {
-				worldGenFile.createNewFile();
-				FileUtils.copyInputStreamToFile(Loader.getResource(worldGenPath + worldGenClathrates, null).openStream(), worldGenFile);
-			} catch (Throwable t) {
-				t.printStackTrace();
-			}
-		}
-
-		worldGenFile = new File(CoreProps.configDir, "/cofh/world/" + worldGenOil);
-		if (!worldGenFile.exists()) {
-			try {
-				worldGenFile.createNewFile();
-				FileUtils.copyInputStreamToFile(Loader.getResource(worldGenPath + worldGenOil, null).openStream(), worldGenFile);
-			} catch (Throwable t) {
-				t.printStackTrace();
-			}
-		}
-
-		worldGenFile = new File(CoreProps.configDir, "/cofh/world/" + worldGenOre);
-		if (!worldGenFile.exists()) {
-			try {
-				worldGenFile.createNewFile();
-				FileUtils.copyInputStreamToFile(Loader.getResource(worldGenPath + worldGenOre, null).openStream(), worldGenFile);
-			} catch (Throwable t) {
-				t.printStackTrace();
-			}
-		}
 	}
 
 }

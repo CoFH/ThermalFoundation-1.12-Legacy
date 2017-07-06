@@ -6,7 +6,6 @@ import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.fluid.*;
 import net.minecraft.item.EnumRarity;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
@@ -29,7 +28,6 @@ public class TFFluids {
 		for (IInitializer init : initList) {
 			init.initialize();
 		}
-		MinecraftForge.EVENT_BUS.register(INSTANCE);
 	}
 
 	/* HELPERS */

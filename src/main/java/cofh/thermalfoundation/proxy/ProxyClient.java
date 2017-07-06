@@ -61,9 +61,9 @@ public class ProxyClient extends Proxy {
 
 	/* EVENT HANDLING */
 	@SubscribeEvent
-	public void registerIcons(TextureStitchEvent.Pre event) {
+	public void handleTextureStitchPreEvent(TextureStitchEvent.Pre event) {
 
-		TFTextures.registerIcons(event);
+		TFTextures.registerTextures(event.getMap());
 	}
 
 	/* HELPERS */
