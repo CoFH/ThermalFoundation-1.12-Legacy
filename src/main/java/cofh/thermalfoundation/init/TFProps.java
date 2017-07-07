@@ -1,11 +1,14 @@
 package cofh.thermalfoundation.init;
 
+import cofh.core.gui.CreativeTabCore;
 import cofh.core.init.CoreProps;
 import cofh.thermalfoundation.ThermalFoundation;
-import cofh.thermalfoundation.gui.CreativeTabTF;
+import cofh.thermalfoundation.block.BlockOre;
 import cofh.thermalfoundation.init.TFEquipment.ArmorSet;
 import cofh.thermalfoundation.init.TFEquipment.ToolSet;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.core.util.Loader;
 
@@ -96,30 +99,43 @@ public class TFProps {
 		toolTabCommon = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("ToolsInCommonTab", category, toolTabCommon, comment);
 
 		/* CREATIVE TABS */
-		ThermalFoundation.tabCommon = new CreativeTabTF();
+		ThermalFoundation.tabCommon = new CreativeTabCore("thermalfoundation") {
+
+			@Override
+			@SideOnly (Side.CLIENT)
+			public ItemStack getIconItemStack() {
+
+				return BlockOre.oreCopper;
+			}
+
+		};
 
 		if (armorTabCommon) {
 			ThermalFoundation.tabArmor = ThermalFoundation.tabCommon;
 		} else {
-			ThermalFoundation.tabArmor = new CreativeTabTF("Armor") {
+			ThermalFoundation.tabArmor = new CreativeTabCore("thermalfoundation", "Armor") {
 
 				@Override
-				protected ItemStack getStack() {
+				@SideOnly (Side.CLIENT)
+				public ItemStack getIconItemStack() {
 
-					return ArmorSet.INVAR.armorChestplate;
+					return ArmorSet.COPPER.armorChestplate;
 				}
+
 			};
 		}
 		if (toolTabCommon) {
 			ThermalFoundation.tabTools = ThermalFoundation.tabCommon;
 		} else {
-			ThermalFoundation.tabTools = new CreativeTabTF("Tools") {
+			ThermalFoundation.tabTools = new CreativeTabCore("thermalfoundation", "Tools") {
 
 				@Override
-				protected ItemStack getStack() {
+				@SideOnly (Side.CLIENT)
+				public ItemStack getIconItemStack() {
 
-					return ToolSet.INVAR.toolPickaxe;
+					return ToolSet.COPPER.toolPickaxe;
 				}
+
 			};
 		}
 	}

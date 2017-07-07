@@ -37,7 +37,7 @@ import java.util.Random;
 
 public class BlockGlass extends BlockCore implements IDismantleable, IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockGlass.Type> VARIANT = PropertyEnum.create("type", BlockGlass.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockGlass() {
 
@@ -69,7 +69,7 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, BlockGlass.Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
 	}
 
 	@Override
@@ -251,7 +251,7 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 		MITHRIL(8, "mithril", 8, new float[] { 0.416F, 0.612F, 0.722F }, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockGlass.Type[] METADATA_LOOKUP = new BlockGlass.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

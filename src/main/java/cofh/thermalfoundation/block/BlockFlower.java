@@ -34,8 +34,8 @@ import java.util.Random;
 
 public class BlockFlower extends BlockCore implements IInitializer, IModelRegister, IPlantable {
 
-	protected static final AxisAlignedBB FLOWER_AABB = new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
-	public static final PropertyEnum<BlockFlower.Type> VARIANT = PropertyEnum.create("type", BlockFlower.Type.class);
+	protected static final AxisAlignedBB FLOWER_AABB = new AxisAlignedBB(0.3D, 0.0D, 0.3D, 0.7D, 0.6D, 0.7D);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockFlower() {
 
@@ -66,7 +66,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, BlockFlower.Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
 	}
 
 	@Override
@@ -111,7 +111,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return BlockFlower.Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
 	}
 
 	public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
@@ -220,7 +220,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 		MANA(8, "mana");
 		// @formatter:on
 
-		private static final BlockFlower.Type[] METADATA_LOOKUP = new BlockFlower.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

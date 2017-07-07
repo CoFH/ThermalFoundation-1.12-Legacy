@@ -37,7 +37,7 @@ import java.util.Random;
 
 public class BlockGlassAlloy extends BlockCore implements IDismantleable, IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockGlassAlloy.Type> VARIANT = PropertyEnum.create("type", BlockGlassAlloy.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockGlassAlloy() {
 
@@ -69,7 +69,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, BlockGlassAlloy.Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
 	}
 
 	@Override
@@ -261,7 +261,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 		ENDERIUM(7, "enderium", 4, new float[] { 0.165F, 0.459F, 0.459F }, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockGlassAlloy.Type[] METADATA_LOOKUP = new BlockGlassAlloy.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

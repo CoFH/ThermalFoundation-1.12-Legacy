@@ -32,7 +32,7 @@ import static cofh.core.util.helpers.RecipeHelper.addStorageRecipe;
 
 public class BlockStorageAlloy extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockStorageAlloy.Type> VARIANT = PropertyEnum.create("type", BlockStorageAlloy.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockStorageAlloy() {
 
@@ -206,7 +206,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		ENDERIUM(7, "enderium", 4, 40.0F, 120.0F, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockStorageAlloy.Type[] METADATA_LOOKUP = new BlockStorageAlloy.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

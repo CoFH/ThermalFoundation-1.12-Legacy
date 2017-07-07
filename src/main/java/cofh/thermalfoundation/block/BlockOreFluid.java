@@ -41,7 +41,7 @@ import static cofh.core.util.helpers.ItemHelper.registerWithHandlers;
 
 public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockOreFluid.Type> VARIANT = PropertyEnum.create("type", BlockOreFluid.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockOreFluid() {
 
@@ -301,7 +301,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		ENDER(4, "ender", TFFluids.blockFluidEnder, 3, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockOreFluid.Type[] METADATA_LOOKUP = new BlockOreFluid.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

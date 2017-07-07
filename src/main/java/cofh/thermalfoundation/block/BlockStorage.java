@@ -31,7 +31,7 @@ import static cofh.core.util.helpers.RecipeHelper.addStorageRecipe;
 
 public class BlockStorage extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockStorage.Type> VARIANT = PropertyEnum.create("type", BlockStorage.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockStorage() {
 
@@ -201,7 +201,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		MITHRIL(8, "mithril", 8, 30.0F, 120.0F, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockStorage.Type[] METADATA_LOOKUP = new BlockStorage.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

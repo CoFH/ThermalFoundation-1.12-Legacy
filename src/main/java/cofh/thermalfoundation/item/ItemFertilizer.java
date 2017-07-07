@@ -10,6 +10,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -99,7 +100,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 
 		fertilizerBasic = addItem(0, "fertilizerBasic");
 		fertilizerRich = addItem(1, "fertilizerRich");
-		fertilizerFlux = addItem(2, "fertilizerFlux");
+		fertilizerFlux = addItem(2, "fertilizerFlux", EnumRarity.UNCOMMON);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 

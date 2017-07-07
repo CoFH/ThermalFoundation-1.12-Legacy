@@ -29,7 +29,7 @@ import static cofh.core.util.helpers.RecipeHelper.addSmelting;
 
 public class BlockOre extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockOre.Type> VARIANT = PropertyEnum.create("type", BlockOre.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockOre() {
 
@@ -168,7 +168,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		MITHRIL(8, "mithril", 8, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockOre.Type[] METADATA_LOOKUP = new BlockOre.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

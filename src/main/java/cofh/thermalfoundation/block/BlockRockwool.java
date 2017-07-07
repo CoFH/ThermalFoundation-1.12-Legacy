@@ -28,7 +28,7 @@ import static cofh.core.util.helpers.RecipeHelper.addSmelting;
 
 public class BlockRockwool extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockRockwool.Type> VARIANT = PropertyEnum.create("type", BlockRockwool.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockRockwool() {
 
@@ -63,7 +63,7 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, BlockRockwool.Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
 	}
 
 	@Override
@@ -156,7 +156,7 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 		WHITE(15, "white");
 		// @formatter:on
 
-		private static final BlockRockwool.Type[] METADATA_LOOKUP = new BlockRockwool.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 
