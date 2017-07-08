@@ -87,7 +87,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	@Override
@@ -171,7 +171,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	@Override
 	public float[] getBeaconColorMultiplier(IBlockState state, World world, BlockPos pos, BlockPos beaconPos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).beaconMult;
+		return state.getValue(VARIANT).beaconMult;
 	}
 
 	/* IDismantleable */

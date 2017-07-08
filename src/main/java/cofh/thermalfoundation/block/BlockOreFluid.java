@@ -94,7 +94,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	/* BLOCK METHODS */
@@ -213,8 +213,6 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	@SideOnly (Side.CLIENT)
 	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
-
-		super.randomDisplayTick(state, world, pos, rand);
 
 		double px = pos.getX() + rand.nextFloat();
 		double py = pos.getY() - 0.05D;

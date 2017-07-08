@@ -18,7 +18,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.fml.common.Loader;
 
+import static cofh.core.util.helpers.RecipeHelper.addShapelessOreRecipe;
 import static cofh.core.util.helpers.RecipeHelper.addShapelessRecipe;
 
 public class ItemFertilizer extends ItemMulti implements IInitializer {
@@ -115,7 +117,10 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 		addShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlagRich");
 		addShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 12), "dustCharcoal", "dustSaltpeter", "crystalSlagRich");
 
-		addShapelessRecipe(fertilizerRich, fertilizerBasic, new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()));
+		if (!Loader.isModLoaded("thermalexpansion")) {
+			addShapelessRecipe(fertilizerRich, fertilizerBasic, new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()));
+			addShapelessOreRecipe(fertilizerFlux, fertilizerRich, "dustRedstone");
+		}
 
 		return true;
 	}

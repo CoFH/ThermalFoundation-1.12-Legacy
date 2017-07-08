@@ -111,7 +111,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	@Override
@@ -123,14 +123,14 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	@Override
 	public float getBlockHardness(IBlockState state, World world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).hardness;
+		return state.getValue(VARIANT).getHardness();
 	}
 
 	@Override
 	public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion) {
 
 		IBlockState state = world.getBlockState(pos);
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).resistance;
+		return state.getValue(VARIANT).getResistance();
 	}
 
 	/* IModelRegister */

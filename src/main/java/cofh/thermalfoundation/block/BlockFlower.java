@@ -111,7 +111,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
