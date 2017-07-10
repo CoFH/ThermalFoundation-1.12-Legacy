@@ -216,22 +216,26 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addSmelting(dustTin, ingotTin);
 		addSmelting(dustSilver, ingotSilver);
 		addSmelting(dustLead, ingotLead);
-		addSmelting(dustAluminum, ingotAluminum);
+		// addSmelting(dustAluminum, ingotAluminum);
 		addSmelting(dustNickel, ingotNickel);
 		addSmelting(dustPlatinum, ingotPlatinum);
-		addSmelting(dustIridium, ingotIridium);
-		addSmelting(dustMithril, ingotMithril);
+		// addSmelting(dustIridium, ingotIridium);
+		// addSmelting(dustMithril, ingotMithril);
 
-		addSmelting(dustSteel, ingotSteel);
+		// addSmelting(dustSteel, ingotSteel);
 		addSmelting(dustElectrum, ingotElectrum);
 		addSmelting(dustInvar, ingotInvar);
 		addSmelting(dustBronze, ingotBronze);
 		addSmelting(dustConstantan, ingotConstantan);
-		// No Signalum
-		// No Lumium
-		// No Enderium
+		// addSmelting(dustSignalum, ingotSignalum);
+		// addSmelting(dustLumium, ingotLumium);
+		// addSmelting(dustEnderium, ingotEnderium);
 
 		if (!Loader.isModLoaded("thermalexpansion")) {
+			addSmelting(dustAluminum, ingotAluminum);
+			addSmelting(dustSteel, ingotSteel);
+			addSmelting(dustSignalum, ingotSignalum);
+			addSmelting(dustLumium, ingotLumium);
 			addSmelting(dustEnderium, ingotEnderium);
 
 			addSmelting(crystalRedstone, new ItemStack(Items.REDSTONE), 0.5F);

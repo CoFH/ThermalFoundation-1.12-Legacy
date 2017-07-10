@@ -38,10 +38,12 @@ public class TFCrafting {
 
 				String dustName = "dust" + StringHelper.titleCase(oreName.substring(3, oreName.length()));
 				String ingotName = "ingot" + StringHelper.titleCase(oreName.substring(3, oreName.length()));
+				String gemName = "gem" + StringHelper.titleCase(oreName.substring(3, oreName.length()));
 
 				List<ItemStack> registeredOre = OreDictionary.getOres(oreName, false);
 				List<ItemStack> registeredDust = OreDictionary.getOres(dustName, false);
 				List<ItemStack> registeredIngot = OreDictionary.getOres(ingotName, false);
+				List<ItemStack> registeredGem = OreDictionary.getOres(gemName, false);
 
 				if (registeredOre.isEmpty()) {
 					continue;
@@ -52,6 +54,9 @@ public class TFCrafting {
 					if (!registeredIngot.isEmpty()) {
 						addShapelessRecipe(ItemHelper.cloneStack(registeredDust.get(0), 1), ingotName, "dustPetrotheum");
 					}
+				}
+				if (TFProps.enablePetrotheumCrafting && !registeredGem.isEmpty()) {
+					addShapelessRecipe(ItemHelper.cloneStack(registeredGem.get(0), 1), oreName, "dustPetrotheum");
 				}
 				if (TFProps.enablePyrotheumCrafting && !registeredIngot.isEmpty()) {
 					addShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 1), oreName, "dustPyrotheum");

@@ -46,6 +46,8 @@ public class TFFluids {
 		FluidRegistry.registerFluid(new FluidCore("resin", "thermalfoundation").setDensity(900).setViscosity(3000));
 		FluidRegistry.registerFluid(new FluidCore("tree_oil", "thermalfoundation").setDensity(900).setViscosity(1200));
 
+		FluidRegistry.registerFluid(new FluidCore("mushroom_stew", "thermalfoundation").setDensity(2000).setViscosity(2000));
+
 		FluidRegistry.registerFluid(new FluidCore("redstone", "thermalfoundation").setLuminosity(7).setDensity(1200).setViscosity(1500).setRarity(EnumRarity.UNCOMMON));
 		FluidRegistry.registerFluid(new FluidCore("glowstone", "thermalfoundation").setLuminosity(15).setDensity(-500).setViscosity(100).setGaseous(true).setRarity(EnumRarity.UNCOMMON));
 		FluidRegistry.registerFluid(new FluidCore("ender", "thermalfoundation").setLuminosity(3).setDensity(4000).setViscosity(2500).setRarity(EnumRarity.UNCOMMON));
@@ -67,6 +69,8 @@ public class TFFluids {
 		fluidSyrup = FluidRegistry.getFluid("syrup");
 		fluidResin = FluidRegistry.getFluid("resin");
 		fluidTreeOil = FluidRegistry.getFluid("tree_oil");
+
+		fluidMushroomStew = FluidRegistry.getFluid("mushroom_stew");
 
 		fluidRedstone = FluidRegistry.getFluid("redstone");
 		fluidGlowstone = FluidRegistry.getFluid("glowstone");
@@ -125,6 +129,7 @@ public class TFFluids {
 		FluidRegistry.addBucketForFluid(fluidSyrup);
 		FluidRegistry.addBucketForFluid(fluidResin);
 		FluidRegistry.addBucketForFluid(fluidTreeOil);
+		FluidRegistry.addBucketForFluid(fluidMushroomStew);
 
 		FluidRegistry.addBucketForFluid(fluidRedstone);
 		FluidRegistry.addBucketForFluid(fluidGlowstone);
@@ -151,6 +156,8 @@ public class TFFluids {
 		fluidResin = FluidRegistry.getFluid("resin");
 		fluidTreeOil = FluidRegistry.getFluid("tree_oil");
 
+		fluidMushroomStew = FluidRegistry.getFluid("mushroom_stew");
+
 		fluidRedstone = FluidRegistry.getFluid("redstone");
 		fluidGlowstone = FluidRegistry.getFluid("glowstone");
 		fluidEnder = FluidRegistry.getFluid("ender");
@@ -176,6 +183,7 @@ public class TFFluids {
 	public static Fluid fluidSyrup;
 	public static Fluid fluidResin;
 	public static Fluid fluidTreeOil;
+	public static Fluid fluidMushroomStew;
 
 	public static Fluid fluidRedstone;
 	public static Fluid fluidGlowstone;

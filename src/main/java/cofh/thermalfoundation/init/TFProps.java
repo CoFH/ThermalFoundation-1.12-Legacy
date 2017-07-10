@@ -44,7 +44,7 @@ public class TFProps {
 		comment = "If TRUE, Pyrotheum Dust can be used to smelt Ores into Ingots.";
 		enablePyrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePyrotheumSmelting", category, enablePyrotheumCrafting, comment);
 
-		comment = "If TRUE, Petrotheum Dust can be used to break Ores into Dusts.";
+		comment = "If TRUE, Petrotheum Dust can be used to break Ores into Dusts and Gems.";
 		enablePetrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePetrotheumSmashing", category, enablePetrotheumCrafting, comment);
 
 		/* EQUIPMENT */
@@ -197,8 +197,8 @@ public class TFProps {
 	public static boolean showDisabledEquipment = false;
 
 	/* GENERAL */
-	public static final String LEXICON_TIMER = "thermalexpansion.lexicon_timer";
-	public static final String LEXICON_DATA = "thermalexpansion.lexicon_data";
+	public static final String LEXICON_TIMER = "thermalfoundation.lexicon_timer";
+	public static final String LEXICON_DATA = "thermalfoundation.lexicon_data";
 
 	public static boolean dropSulfurFireImmuneMobs = true;
 

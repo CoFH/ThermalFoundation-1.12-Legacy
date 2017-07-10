@@ -33,7 +33,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 		setCreativeTab(ThermalFoundation.tabCommon);
 	}
 
-	private boolean growBlock(World world, BlockPos pos, IBlockState state, int potency) {
+	private boolean growBlock(World world, BlockPos pos, IBlockState state) {
 
 		if (state.getBlock() instanceof IGrowable) {
 			IGrowable growable = (IGrowable) state.getBlock();
@@ -41,9 +41,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 			if (growable.canGrow(world, pos, state, world.isRemote)) {
 				if (ServerHelper.isServerWorld(world)) {
 					if (growable.canUseBonemeal(world, world.rand, pos, state)) {
-						for (int i = 0; i < potency; i++) {
-							growable.grow(world, world.rand, pos, state);
-						}
+						growable.grow(world, world.rand, pos, state);
 						world.playEvent(2005, pos, 0);
 					}
 				}
@@ -53,7 +51,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 		return false;
 	}
 
-	private boolean onApplyBonemeal(ItemStack stack, World world, BlockPos pos, EntityPlayer player, EnumHand hand, int radius, int potency) {
+	private boolean onApplyBonemeal(ItemStack stack, World world, BlockPos pos, EntityPlayer player, EnumHand hand, int radius) {
 
 		IBlockState state = world.getBlockState(pos);
 
@@ -71,7 +69,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 		for (int i = x - radius; i <= x + radius; i++) {
 			for (int k = z - radius; k <= z + radius; k++) {
 				pos2 = new BlockPos(i, y, k);
-				used |= growBlock(world, pos2, world.getBlockState(pos2), potency);
+				used |= growBlock(world, pos2, world.getBlockState(pos2));
 			}
 		}
 		if (used) {
@@ -88,9 +86,8 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 			return EnumActionResult.PASS;
 		}
 		int radius = 1 + ItemHelper.getItemDamage(stack);
-		int potency = 2 + ItemHelper.getItemDamage(stack);
 
-		if (onApplyBonemeal(stack, world, pos, player, hand, radius, potency)) {
+		if (onApplyBonemeal(stack, world, pos, player, hand, radius)) {
 			return EnumActionResult.SUCCESS;
 		}
 		return EnumActionResult.PASS;

@@ -20,6 +20,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -144,12 +145,17 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		addSmelting(oreTin, ItemMaterial.ingotTin, 0.7F);
 		addSmelting(oreSilver, ItemMaterial.ingotSilver, 0.9F);
 		addSmelting(oreLead, ItemMaterial.ingotLead, 0.8F);
-		addSmelting(oreAluminum, ItemMaterial.ingotAluminum, 0.6F);
+		// addSmelting(oreAluminum, ItemMaterial.ingotAluminum, 0.6F);
 		addSmelting(oreNickel, ItemMaterial.ingotNickel, 1.0F);
 		addSmelting(orePlatinum, ItemMaterial.ingotPlatinum, 1.0F);
-		addSmelting(oreIridium, ItemMaterial.ingotIridium, 1.2F);
-		addSmelting(oreMithril, ItemMaterial.ingotMithril, 1.5F);
+		// addSmelting(oreIridium, ItemMaterial.ingotIridium, 1.2F);
+		// addSmelting(oreMithril, ItemMaterial.ingotMithril, 1.5F);
 
+		if (!Loader.isModLoaded("thermalexpansion")) {
+			addSmelting(oreAluminum, ItemMaterial.ingotAluminum, 0.6F);
+			addSmelting(oreIridium, ItemMaterial.ingotIridium, 1.2F);
+			addSmelting(oreMithril, ItemMaterial.ingotMithril, 1.5F);
+		}
 		return true;
 	}
 
