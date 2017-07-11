@@ -51,6 +51,7 @@ public class EntityBlitz extends EntityElemental {
 
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.SANDY));
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.SAVANNA));
+		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.NETHER));
 		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.END));
 
 		EntityRegistry.addSpawn(EntityBlitz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));

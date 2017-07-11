@@ -51,6 +51,7 @@ public class EntityBasalz extends EntityElemental {
 
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.MOUNTAIN));
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.WASTELAND));
+		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.NETHER));
 		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.END));
 
 		EntityRegistry.addSpawn(EntityBasalz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));

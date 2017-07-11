@@ -11,7 +11,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.PotionEffect;
@@ -118,46 +117,31 @@ public class BlockFluidAerotheum extends BlockFluidCore {
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 
 		if (getMetaFromState(state) == 0) {
+			if (shouldSourceBlockDissipate(world, pos)) {
+				world.setBlockToAir(pos);
+				return;
+			}
 			if (rand.nextInt(3) == 0) {
-				if (shouldSourceBlockDissipate(world, pos)) {
-					world.setBlockState(pos, Blocks.GLOWSTONE.getDefaultState());
-					return;
-				}
 				if (shouldSourceBlockFloat(world, pos)) {
 					world.setBlockState(pos.add(0, densityDir, 0), this.getDefaultState(), 3);
 					world.setBlockToAir(pos);
 					return;
 				}
 			}
-		} else if (pos.getY() + densityDir > maxHeight) {
-			int quantaRemaining = quantaPerBlock - getMetaFromState(state);
-			int expQuanta;
-			int y2 = pos.getY() - densityDir;
-
-			if (world.getBlockState(pos.add(0, y2, 0)).getBlock() == this || world.getBlockState(pos.add(-1, y2, 0)).getBlock() == this || world.getBlockState(pos.add(1, y2, 0)).getBlock() == this || world.getBlockState(pos.add(0, y2, -1)).getBlock() == this || world.getBlockState(pos.add(0, y2, 1)).getBlock() == this) {
-				expQuanta = quantaPerBlock - 1;
-			} else {
-				int maxQuanta = -100;
-				maxQuanta = getLargerQuanta(world, pos.add(-1, 0, 0), maxQuanta);
-				maxQuanta = getLargerQuanta(world, pos.add(1, 0, 0), maxQuanta);
-				maxQuanta = getLargerQuanta(world, pos.add(0, 0, -1), maxQuanta);
-				maxQuanta = getLargerQuanta(world, pos.add(0, 0, 1), maxQuanta);
-
-				expQuanta = maxQuanta - 1;
-			}
-			// decay calculation
-			if (expQuanta != quantaRemaining) {
-				if (expQuanta <= 0) {
-					world.setBlockToAir(pos);
-				} else {
-					world.setBlockState(pos, getDefaultState().withProperty(LEVEL, quantaPerBlock - expQuanta), 3);
-					world.scheduleBlockUpdate(pos, this, tickRate, 0);
-					world.notifyNeighborsOfStateChange(pos, this, false);
-				}
-			}
+		} else if (pos.getY() > maxHeight) {
+			world.setBlockToAir(pos);
 			return;
 		}
 		super.updateTick(world, pos, state, rand);
+	}
+
+	@Override
+	protected void flowIntoBlock(World world, BlockPos pos, int meta) {
+
+		if (pos.getY() > maxHeight) {
+			return;
+		}
+		super.flowIntoBlock(world, pos, meta);
 	}
 
 	/* IInitializer */

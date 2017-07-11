@@ -1,6 +1,8 @@
 package cofh.thermalfoundation.init;
 
+import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 
 public class TFTextures {
@@ -29,8 +31,13 @@ public class TFTextures {
 	/* HELPERS */
 	private static void registerFluidTextures(Fluid fluid) {
 
-		textureMap.registerSprite(fluid.getStill());
-		textureMap.registerSprite(fluid.getFlowing());
+		registerFluidTextures(fluid.getName());
+	}
+
+	private static void registerFluidTextures(String fluidName) {
+
+		textureMap.registerSprite(new ResourceLocation(ThermalFoundation.MOD_ID, "blocks/fluid/" + fluidName + "_still"));
+		textureMap.registerSprite(new ResourceLocation(ThermalFoundation.MOD_ID, "blocks/fluid/" + fluidName + "_flow"));
 	}
 
 	private static TextureMap textureMap;

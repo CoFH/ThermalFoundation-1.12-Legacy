@@ -51,6 +51,8 @@ info.thermalfoundation.diagram.erase=Use while sneaking to erase.
 info.thermalfoundation.diagram.redprint.0=Use on a device to copy its settings.
 info.thermalfoundation.diagram.redprint.1=Use on a device to transfer stored settings.
 
+info.thermalfoundation.security.lock=Use on securable blocks or combine with securable items.
+
 info.thermalfoundation.tome.lexicon.a.0=Converts items to equivalent forms.
 info.thermalfoundation.tome.lexicon.b.0=Right click (open) to study.
 info.thermalfoundation.tome.lexicon.b.1=§bPress (%s) to gain wisdom!§r

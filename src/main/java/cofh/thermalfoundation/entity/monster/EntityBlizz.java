@@ -51,6 +51,7 @@ public class EntityBlizz extends EntityElemental {
 
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.COLD));
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.SNOWY));
+		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.NETHER));
 		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.END));
 
 		EntityRegistry.addSpawn(EntityBlizz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));

@@ -6,6 +6,8 @@ import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.block.BlockOre;
 import cofh.thermalfoundation.init.TFEquipment.ArmorSet;
 import cofh.thermalfoundation.init.TFEquipment.ToolSet;
+import cofh.thermalfoundation.item.ItemMaterial;
+import cofh.thermalfoundation.item.ItemWrench;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -105,7 +107,7 @@ public class TFProps {
 			@SideOnly (Side.CLIENT)
 			public ItemStack getIconItemStack() {
 
-				return BlockOre.oreCopper;
+				return ItemWrench.wrenchBasic;
 			}
 
 		};
@@ -119,7 +121,7 @@ public class TFProps {
 				@SideOnly (Side.CLIENT)
 				public ItemStack getIconItemStack() {
 
-					return ArmorSet.COPPER.armorChestplate;
+					return ArmorSet.INVAR.armorChestplate;
 				}
 
 			};
@@ -133,7 +135,7 @@ public class TFProps {
 				@SideOnly (Side.CLIENT)
 				public ItemStack getIconItemStack() {
 
-					return ToolSet.COPPER.toolPickaxe;
+					return ToolSet.INVAR.toolPickaxe;
 				}
 
 			};
