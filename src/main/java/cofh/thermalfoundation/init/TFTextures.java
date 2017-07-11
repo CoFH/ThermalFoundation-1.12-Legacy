@@ -1,6 +1,8 @@
 package cofh.thermalfoundation.init;
 
+import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.fluids.Fluid;
 
@@ -27,11 +29,16 @@ public class TFTextures {
 		registerFluidTextures(map, TFFluids.fluidTreeOil);
 	}
 
-	// Bouncer to make the class readable.
+	/* HELPERS */
 	private static void registerFluidTextures(TextureMap map, Fluid fluid) {
 
-		map.registerSprite(fluid.getStill());
-		map.registerSprite(fluid.getFlowing());
+		registerFluidTextures(map, fluid.getName());
+	}
+
+	private static void registerFluidTextures(TextureMap map, String fluidName) {
+
+		map.registerSprite(new ResourceLocation(ThermalFoundation.MOD_ID, "blocks/fluid/" + fluidName + "_still"));
+		map.registerSprite(new ResourceLocation(ThermalFoundation.MOD_ID, "blocks/fluid/" + fluidName + "_flow"));
 	}
 
 }
