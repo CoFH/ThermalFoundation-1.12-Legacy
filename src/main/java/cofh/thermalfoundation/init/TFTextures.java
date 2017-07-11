@@ -19,6 +19,7 @@ public class TFTextures {
 
 		registerFluidTextures(TFFluids.fluidCreosote);
 		registerFluidTextures(TFFluids.fluidCoal);
+		registerFluidTextures(TFFluids.fluidCrudeOil);
 		registerFluidTextures(TFFluids.fluidRefinedOil);
 		registerFluidTextures(TFFluids.fluidFuel);
 
@@ -26,6 +27,17 @@ public class TFTextures {
 		registerFluidTextures(TFFluids.fluidSyrup);
 		registerFluidTextures(TFFluids.fluidResin);
 		registerFluidTextures(TFFluids.fluidTreeOil);
+
+		registerFluidTextures(TFFluids.fluidMushroomStew);
+
+		registerFluidTextures(TFFluids.fluidRedstone);
+		registerFluidTextures(TFFluids.fluidGlowstone);
+		registerFluidTextures(TFFluids.fluidEnder);
+		registerFluidTextures(TFFluids.fluidPyrotheum);
+		registerFluidTextures(TFFluids.fluidCryotheum);
+		registerFluidTextures(TFFluids.fluidAerotheum);
+		registerFluidTextures(TFFluids.fluidPetrotheum);
+		registerFluidTextures(TFFluids.fluidMana);
 	}
 
 	/* HELPERS */
