@@ -1,5 +1,6 @@
 package cofh.thermalfoundation.init;
 
+import cofh.CoFHCore;
 import cofh.core.gui.CreativeTabCore;
 import cofh.core.init.CoreProps;
 import cofh.thermalfoundation.ThermalFoundation;
@@ -72,6 +73,15 @@ public class TFProps {
 
 		comment = "If TRUE, items which have had their recipes disabled will show in the Creative Tab and JEI.";
 		showDisabledEquipment = ThermalFoundation.CONFIG.getConfiguration().getBoolean("ShowDisabledEquipment", category, showDisabledEquipment, comment);
+
+		/* ITEMS */
+		category = "Items";
+
+		comment = "If TRUE, Horse Armor will be craftable.";
+		enableHorseArmorCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnableHorseArmorCrafting", category, enableHorseArmorCrafting, comment);
+
+		comment = "If TRUE, Saddles will be craftable.";
+		enableSaddleCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnableSaddleCrafting", category, enableSaddleCrafting, comment);
 	}
 
 	private static void configClient() {
@@ -210,6 +220,10 @@ public class TFProps {
 	public static int globRosinFuel = 800;
 	public static int globTarFuel = 800;
 	public static int dustPyrotheumFuel = 24000;
+
+	/* ITEMS */
+	public static boolean enableHorseArmorCrafting = true;
+	public static boolean enableSaddleCrafting = true;
 
 	/* RENDER */
 	public static boolean iconBlazePowder = true;

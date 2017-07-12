@@ -16,6 +16,7 @@
 			"chunk-chance": 10,
 			"min-height": 10,
 			"max-height": 80,
+			"in-village": "false",
 			"retrogen": "true",
 			"biome": {
 				"restriction": "whitelist",
@@ -53,6 +54,7 @@
 			"chunk-chance": 10,
 			"min-height": 10,
 			"max-height": 80,
+			"in-village": "false",
 			"retrogen": "true",
 			"biome": {
 				"restriction": "whitelist",
@@ -105,6 +107,7 @@
 			"chunk-chance": 40,
 			"min-height": 30,
 			"max-height": 60,
+			"in-village": "false",
 			"retrogen": "true",
 			"biome": {
 				"restriction": "whitelist",
@@ -151,6 +154,7 @@
 			"chunk-chance": 50,
 			"min-height": 20,
 			"max-height": 60,
+			"in-village": "false",
 			"retrogen": "true",
 			"biome": "all",
 			"dimension": {

@@ -1,5 +1,6 @@
 package cofh.thermalfoundation.util;
 
+import cofh.core.init.CoreProps;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.init.TFProps;
@@ -70,6 +71,56 @@ public class TFCrafting {
 				}
 			}
 		}
+
+		/* VANILLA RECIPES */
+		loadVanillaRecipes();
+	}
+
+	/* VANILLA RECIPES */
+	public static void loadVanillaRecipes() {
+
+		// @formatter:off
+
+		/* HORSE ARMOR */
+		if (TFProps.enableHorseArmorCrafting) {
+			addShapedRecipe(new ItemStack(Items.IRON_HORSE_ARMOR, 1),
+					"  H",
+					"ICI",
+					"III",
+					'C', "blockWool",
+					'H', Items.IRON_HELMET,
+					'I', "ingotIron"
+			);
+
+			addShapedRecipe(new ItemStack(Items.GOLDEN_HORSE_ARMOR),
+					"  H",
+					"ICI",
+					"III",
+					'C', "blockWool",
+					'H', Items.GOLDEN_HELMET,
+					'I', "ingotGold"
+			);
+
+			addShapedRecipe(new ItemStack(Items.DIAMOND_HORSE_ARMOR),
+					"  H",
+					"ICI",
+					"III",
+					'C', "blockWool",
+					'H', Items.DIAMOND_HELMET,
+					'I', "gemDiamond"
+			);
+		}
+		if (TFProps.enableSaddleCrafting) {
+			addShapedRecipe(new ItemStack(Items.SADDLE),
+					"LLL",
+					"LIL",
+					"I I",
+					'I', "ingotIron",
+					'L', Items.LEATHER
+			);
+		}
+
+		// @formatter:on
 	}
 
 }
