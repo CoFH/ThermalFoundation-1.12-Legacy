@@ -40,19 +40,6 @@ public class EventHandlerLexicon {
 			return;
 		}
 		stack.setCount(0);
-
-		// TODO: This still a thing?
-		//		if (stack.getItem() == Item.getItemFromBlock(Blocks.LOG)) {
-		//			event.getEntityPlayer().addStat(AchievementList.MINE_WOOD);
-		//		} else if (stack.getItem() == Item.getItemFromBlock(Blocks.LOG2)) {
-		//			event.getEntityPlayer().addStat(AchievementList.MINE_WOOD);
-		//		} else if (stack.getItem() == Items.LEATHER) {
-		//			event.getEntityPlayer().addStat(AchievementList.KILL_COW);
-		//		} else if (stack.getItem() == Items.DIAMOND) {
-		//			event.getEntityPlayer().addStat(AchievementList.DIAMONDS);
-		//		} else if (stack.getItem() == Items.BLAZE_ROD) {
-		//			event.getEntityPlayer().addStat(AchievementList.BLAZE_ROD);
-		//		}
 		FMLCommonHandler.instance().firePlayerItemPickupEvent(event.getEntityPlayer(), event.getItem());
 
 		if (stack.getCount() <= 0) {

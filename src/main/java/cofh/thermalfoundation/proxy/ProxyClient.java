@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.proxy;
 
 import cofh.core.render.IModelRegister;
+import cofh.core.render.entity.RenderEntityAsIcon;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
@@ -8,7 +9,6 @@ import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
 import cofh.thermalfoundation.init.TFTextures;
-import cofh.thermalfoundation.render.entity.RenderEntityAsIcon;
 import cofh.thermalfoundation.render.entity.RenderEntityBasalz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlitz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlizz;
