@@ -5,6 +5,7 @@ import cofh.core.item.ItemMulti;
 import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFProps;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -232,6 +233,8 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// addSmelting(dustEnderium, ingotEnderium);
 
 		if (!Loader.isModLoaded("thermalexpansion")) {
+			addSmelting(Blocks.GRAVEL, crystalSlag);
+
 			addSmelting(dustAluminum, ingotAluminum);
 			addSmelting(dustSteel, ingotSteel);
 			addSmelting(dustSignalum, ingotSignalum);
