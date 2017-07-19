@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.util;
 
-import cofh.core.init.CoreProps;
+import cofh.core.util.crafting.FluidIngredientFactory.FluidIngredient;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.init.TFProps;
@@ -8,6 +8,7 @@ import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.List;
@@ -71,6 +72,13 @@ public class TFCrafting {
 				}
 			}
 		}
+
+		/* CRYOTHEUM CRAFTING */
+		addShapelessFluidRecipe(new ItemStack(Blocks.ICE), new FluidIngredient(FluidRegistry.WATER.getName()), "dustCryotheum");
+		addShapelessRecipe(new ItemStack(Blocks.PACKED_ICE), new ItemStack(Blocks.ICE), "dustCryotheum");
+		addShapelessRecipe(new ItemStack(Items.REDSTONE, 2), ItemMaterial.crystalRedstone, "dustCryotheum");
+		addShapelessRecipe(new ItemStack(Items.GLOWSTONE_DUST), ItemMaterial.crystalGlowstone, "dustCryotheum");
+		addShapelessRecipe(new ItemStack(Items.ENDER_PEARL), ItemMaterial.crystalEnder, "dustCryotheum");
 
 		/* VANILLA RECIPES */
 		loadVanillaRecipes();

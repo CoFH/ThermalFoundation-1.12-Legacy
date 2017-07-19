@@ -1,6 +1,5 @@
 package cofh.thermalfoundation.init;
 
-import cofh.CoFHCore;
 import cofh.core.gui.CreativeTabCore;
 import cofh.core.init.CoreProps;
 import cofh.thermalfoundation.ThermalFoundation;
@@ -43,10 +42,19 @@ public class TFProps {
 
 		/* CRAFTING */
 		comment = "If TRUE, Pyrotheum Dust can be used to smelt Ores into Ingots.";
-		enablePyrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePyrotheumSmelting", category, enablePyrotheumCrafting, comment);
+		enablePyrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePyrotheumCrafting", category, enablePyrotheumCrafting, comment);
 
 		comment = "If TRUE, Petrotheum Dust can be used to break Ores into Dusts and Gems.";
-		enablePetrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePetrotheumSmashing", category, enablePetrotheumCrafting, comment);
+		enablePetrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePetrotheumCrafting", category, enablePetrotheumCrafting, comment);
+
+		comment = "If TRUE, Cryotheum Dust can be used to create Ice and solidify Clathrates.";
+		enableCryotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnableCryotheumCrafting", category, enableCryotheumCrafting, comment);
+
+		comment = "If TRUE, Horse Armor will be craftable.";
+		enableHorseArmorCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnableHorseArmorCrafting", category, enableHorseArmorCrafting, comment);
+
+		comment = "If TRUE, Saddles will be craftable.";
+		enableSaddleCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnableSaddleCrafting", category, enableSaddleCrafting, comment);
 
 		/* EQUIPMENT */
 		category = "Equipment";
@@ -73,15 +81,6 @@ public class TFProps {
 
 		comment = "If TRUE, items which have had their recipes disabled will show in the Creative Tab and JEI.";
 		showDisabledEquipment = ThermalFoundation.CONFIG.getConfiguration().getBoolean("ShowDisabledEquipment", category, showDisabledEquipment, comment);
-
-		/* ITEMS */
-		category = "Items";
-
-		comment = "If TRUE, Horse Armor will be craftable.";
-		enableHorseArmorCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnableHorseArmorCrafting", category, enableHorseArmorCrafting, comment);
-
-		comment = "If TRUE, Saddles will be craftable.";
-		enableSaddleCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnableSaddleCrafting", category, enableSaddleCrafting, comment);
 	}
 
 	private static void configClient() {
@@ -210,20 +209,23 @@ public class TFProps {
 	public static final String LEXICON_TIMER = "thermalfoundation.lexicon_timer";
 	public static final String LEXICON_DATA = "thermalfoundation.lexicon_data";
 
+	public static final int MAX_LEVEL = 100;
+	public static final int MAX_EXP = (9 * MAX_LEVEL * MAX_LEVEL - 325 * MAX_LEVEL + 4440) / 2;
+
 	public static boolean dropSulfurFireImmuneMobs = true;
 
 	/* CRAFTING */
 	public static boolean enablePyrotheumCrafting = true;
 	public static boolean enablePetrotheumCrafting = true;
+	public static boolean enableCryotheumCrafting = true;
+
+	public static boolean enableHorseArmorCrafting = true;
+	public static boolean enableSaddleCrafting = true;
 
 	public static int gemCokeFuel = 3200;
 	public static int globRosinFuel = 800;
 	public static int globTarFuel = 800;
 	public static int dustPyrotheumFuel = 24000;
-
-	/* ITEMS */
-	public static boolean enableHorseArmorCrafting = true;
-	public static boolean enableSaddleCrafting = true;
 
 	/* RENDER */
 	public static boolean iconBlazePowder = true;
