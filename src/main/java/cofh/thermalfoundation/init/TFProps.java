@@ -222,7 +222,7 @@ public class TFProps {
 	public static boolean enableHorseArmorCrafting = true;
 	public static boolean enableSaddleCrafting = true;
 
-	public static int gemCokeFuel = 3200;
+	public static int fuelCokeFuel = 3200;
 	public static int globRosinFuel = 800;
 	public static int globTarFuel = 800;
 	public static int dustPyrotheumFuel = 24000;

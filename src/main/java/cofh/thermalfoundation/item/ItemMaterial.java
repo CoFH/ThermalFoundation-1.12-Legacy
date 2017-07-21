@@ -154,7 +154,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 		dustWood = addOreDictItem(800, "dustWood");
 		dustWoodCompressed = addItem(801, "dustWoodCompressed");
-		gemCoke = addItem(802, "gemCoke");
+		fuelCoke = addItem(802, "fuelCoke");
 
 		globRosin = addItem(832, "globRosin");
 		globTar = addItem(833, "globTar");
@@ -187,7 +187,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// Rock Gel
 
 		OreDictionary.registerOre("dustSaltpeter", dustNiter);
-		OreDictionary.registerOre("fuelCoke", gemCoke);
+		OreDictionary.registerOre("fuelCoke", fuelCoke);
 
 		OreDictionary.registerOre("itemSlag", crystalSlag);
 		OreDictionary.registerOre("itemSlagRich", crystalSlagRich);
@@ -334,10 +334,10 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// Air Gel
 		// Rock Gel
 
-		FurnaceFuelHandler.registerFuel(gemCoke, TFProps.gemCokeFuel);
+		FurnaceFuelHandler.registerFuel(fuelCoke, TFProps.fuelCokeFuel);
 		FurnaceFuelHandler.registerFuel(globRosin, TFProps.globRosinFuel);
 		FurnaceFuelHandler.registerFuel(globTar, TFProps.globTarFuel);
-		FurnaceFuelHandler.registerFuel(crystalCrudeOil, TFProps.gemCokeFuel);
+		FurnaceFuelHandler.registerFuel(crystalCrudeOil, TFProps.fuelCokeFuel);
 		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
 
 		return true;
@@ -472,7 +472,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 	public static ItemStack dustWood;
 	public static ItemStack dustWoodCompressed;
-	public static ItemStack gemCoke;
+	public static ItemStack fuelCoke;
 
 	public static ItemStack globRosin;
 	public static ItemStack globTar;
