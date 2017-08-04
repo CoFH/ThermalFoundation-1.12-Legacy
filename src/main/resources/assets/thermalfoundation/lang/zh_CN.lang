@@ -18,7 +18,7 @@ entity.thermalfoundation.basalz.name=岩石人
 entity.thermalfoundation.blitz.name=狂风人
 entity.thermalfoundation.blizz.name=暴雪人
 
-fluid.aerotheum=和谐之空气
+fluid.aerotheum=飞扬之清风
 fluid.coal=液态煤炭
 fluid.creosote=杂酚油
 fluid.crude_oil=石油
@@ -27,12 +27,14 @@ fluid.ender=谐振熔融末影珍珠
 fluid.refined_fuel=精炼油
 fluid.glowstone=充能液态荧石
 fluid.mana=元始魔力
-fluid.petrotheum=构造之地岩
+fluid.petrotheum=板块之层岩
 fluid.pyrotheum=烈焰之炽焱
 fluid.redstone=不稳熔融红石
 fluid.refined_oil=石脑油
 fluid.resin=树脂
 fluid.steam=蒸汽
+fluid.syrup=糖浆
+fluid.sap=树汁
 fluid.tree_oil=树油
 
 gui.thermalfoundation.lexicon.clearPreference=清空偏好
@@ -57,10 +59,20 @@ info.thermalfoundation.tome.lexicon.c.1=§e§o按下 (%s) 以遗忘知识。§r
 info.thermalfoundation.util.multimeter.0=显示目标的信息。
 info.thermalfoundation.util.multimeter.1=某些设备支持用其调整设置（需在潜行时完成）。
 
+item.thermalfoundation.armor.aluminumBoots.name=铝靴子
+item.thermalfoundation.armor.aluminumHelmet.name=铝头盔
+item.thermalfoundation.armor.aluminumLegs.name=铝护腿
+item.thermalfoundation.armor.aluminumChestplate.name=铝胸甲
+
 item.thermalfoundation.armor.bronzeBoots.name=青铜靴子
 item.thermalfoundation.armor.bronzeHelmet.name=青铜头盔
 item.thermalfoundation.armor.bronzeLegs.name=青铜护腿
 item.thermalfoundation.armor.bronzeChestplate.name=青铜胸甲
+
+item.thermalfoundation.armor.constantanBoots.name=康铜靴子
+item.thermalfoundation.armor.constantanHelmet.name=康铜头盔
+item.thermalfoundation.armor.constantanLegs.name=康铜护腿
+item.thermalfoundation.armor.constantanChestplate.name=康铜胸甲
 
 item.thermalfoundation.armor.copperBoots.name=铜靴子
 item.thermalfoundation.armor.copperHelmet.name=铜头盔
@@ -96,6 +108,11 @@ item.thermalfoundation.armor.silverBoots.name=银靴子
 item.thermalfoundation.armor.silverHelmet.name=银头盔
 item.thermalfoundation.armor.silverLegs.name=银护腿
 item.thermalfoundation.armor.silverChestplate.name=银胸甲
+
+item.thermalfoundation.armor.steelBoots.name=钢靴子
+item.thermalfoundation.armor.steelHelmet.name=钢头盔
+item.thermalfoundation.armor.steelLegs.name=钢护腿
+item.thermalfoundation.armor.steelChestplate.name=钢胸甲
 
 item.thermalfoundation.armor.tinBoots.name=锡靴子
 item.thermalfoundation.armor.tinHelmet.name=锡头盔
