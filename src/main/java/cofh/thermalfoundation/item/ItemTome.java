@@ -43,6 +43,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 
 		super("thermalfoundation");
 
+		setMaxStackSize(1);
 		setUnlocalizedName("tome");
 		setCreativeTab(ThermalFoundation.tabCommon);
 	}
