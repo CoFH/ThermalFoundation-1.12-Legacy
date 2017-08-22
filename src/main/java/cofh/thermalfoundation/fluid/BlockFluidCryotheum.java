@@ -31,13 +31,11 @@ import java.util.Random;
 
 public class BlockFluidCryotheum extends BlockFluidInteractive {
 
-	Random random = new Random();
-
 	public static final int LEVELS = 5;
 	public static final Material materialFluidCryotheum = new MaterialLiquid(MapColor.ICE);
 
-	private static boolean enableSourceFall = true;
 	private static boolean effect = true;
+	private static boolean enableSourceFall = true;
 
 	public BlockFluidCryotheum(Fluid fluid) {
 
@@ -129,22 +127,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		super.updateTick(world, pos, state, rand);
 	}
 
-	protected void checkForInteraction(World world, BlockPos pos) {
-
-		if (world.getBlockState(pos) != this) {
-			return;
-		}
-
-		for (EnumFacing face : EnumFacing.VALUES) {
-			interactWithBlock(world, pos.offset(face));
-		}
-		//Corners
-		interactWithBlock(world, pos.add(-1, 0, -1));
-		interactWithBlock(world, pos.add(-1, 0, 1));
-		interactWithBlock(world, pos.add(1, 0, -1));
-		interactWithBlock(world, pos.add(1, 0, 1));
-	}
-
 	protected void interactWithBlock(World world, BlockPos pos) {
 
 		IBlockState state = world.getBlockState(pos);
@@ -152,7 +134,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		if (state.getBlock().isAir(state, world, pos) || state.getBlock() == this) {
 			return;
 		}
-		//TODO Unify block interactions in parent class.
 		if (hasInteraction(state)) {
 			world.setBlockState(pos, getInteraction(state), 3);
 		} else if (state.isSideSolid(world, pos, EnumFacing.UP) && world.isAirBlock(pos.offset(EnumFacing.UP))) {
@@ -170,8 +151,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		addInteraction(Blocks.FLOWING_WATER, Blocks.SNOW);
 		addInteraction(Blocks.LAVA.getDefaultState(), Blocks.OBSIDIAN);
 		addInteraction(Blocks.LAVA, Blocks.STONE);
-		addInteraction(Blocks.FLOWING_WATER.getDefaultState(), Blocks.OBSIDIAN);
-		addInteraction(Blocks.FLOWING_WATER, Blocks.STONE);
 		addInteraction(Blocks.LEAVES, Blocks.AIR);
 		addInteraction(Blocks.LEAVES2, Blocks.AIR);
 		addInteraction(Blocks.TALLGRASS, Blocks.AIR);
