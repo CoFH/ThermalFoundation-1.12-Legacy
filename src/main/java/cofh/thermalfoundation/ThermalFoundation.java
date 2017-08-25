@@ -7,6 +7,7 @@ import cofh.core.util.ConfigHandler;
 import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.init.*;
 import cofh.thermalfoundation.network.PacketTFBase;
+import cofh.thermalfoundation.plugins.TConstructPlugin;
 import cofh.thermalfoundation.proxy.Proxy;
 import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
@@ -80,6 +81,8 @@ public class ThermalFoundation {
 		TFFluids.preInit();
 		TFSounds.preInit();
 
+		pluginInitialize();
+
 		/* Register Handlers */
 		registerHandlers();
 
@@ -94,8 +97,6 @@ public class ThermalFoundation {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-
-		pluginInitialize();
 
 		proxy.postInit(event);
 	}
@@ -138,6 +139,7 @@ public class ThermalFoundation {
 
 	private void pluginInitialize() {
 
+		TConstructPlugin.initialize();
 	}
 
 }
