@@ -24,6 +24,9 @@ public class TFCrafting {
 
 		addStorageRecipe(ItemMaterial.dustWoodCompressed, "dustWood");
 
+		addShapelessOreRecipe(new ItemStack(Items.GUNPOWDER), "dustCoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
+		addShapelessOreRecipe(new ItemStack(Items.GUNPOWDER), "dustCharcoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
+
 		addShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globRosin, '#', "string");
 		addShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', ItemMaterial.globRosin, 'P', Blocks.PISTON);
 		addShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globRosin);
@@ -58,7 +61,7 @@ public class TFCrafting {
 					}
 				}
 				if (TFProps.enablePetrotheumCrafting && !registeredGem.isEmpty()) {
-					addShapelessRecipe(ItemHelper.cloneStack(registeredGem.get(0), 1), oreName, "dustPetrotheum");
+					addShapelessRecipe(ItemHelper.cloneStack(registeredGem.get(0), 2), oreName, "dustPetrotheum");
 				}
 				if (TFProps.enablePyrotheumCrafting && !registeredIngot.isEmpty()) {
 					addShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 1), oreName, "dustPyrotheum");
