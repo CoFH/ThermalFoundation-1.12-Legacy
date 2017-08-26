@@ -83,6 +83,10 @@ public class TFCrafting {
 		addShapelessRecipe(new ItemStack(Items.GLOWSTONE_DUST), ItemMaterial.crystalGlowstone, "dustCryotheum");
 		addShapelessRecipe(new ItemStack(Items.ENDER_PEARL), ItemMaterial.crystalEnder, "dustCryotheum");
 
+		addShapelessFluidRecipe(new ItemStack(Items.REDSTONE, 10), new FluidIngredient("redstone"), "dustCryotheum");
+		addShapelessFluidRecipe(new ItemStack(Items.GLOWSTONE_DUST, 4), new FluidIngredient("glowstone"), "dustCryotheum");
+		addShapelessFluidRecipe(new ItemStack(Items.ENDER_PEARL, 4), new FluidIngredient("ender"), "dustCryotheum");
+
 		/* VANILLA RECIPES */
 		loadVanillaRecipes();
 	}
