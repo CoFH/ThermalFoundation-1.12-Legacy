@@ -194,6 +194,8 @@ item.thermalfoundation.material.dustTin.name=锡粉
 item.thermalfoundation.material.dustWood.name=锯末
 item.thermalfoundation.material.dustWoodCompressed.name=压缩锯末
 
+item.thermalfoundation.material.fuelCoke.name=焦炭
+
 item.thermalfoundation.material.gearAluminum.name=铝齿轮
 item.thermalfoundation.material.gearBronze.name=青铜齿轮
 item.thermalfoundation.material.gearConstantan.name=康铜齿轮
@@ -213,8 +215,6 @@ item.thermalfoundation.material.gearSignalum.name=信素齿轮
 item.thermalfoundation.material.gearSilver.name=银齿轮
 item.thermalfoundation.material.gearSteel.name=钢齿轮
 item.thermalfoundation.material.gearTin.name=锡齿轮
-
-item.thermalfoundation.material.gemCoke.name=焦炭
 
 item.thermalfoundation.material.globRosin.name=松香
 item.thermalfoundation.material.globTar.name=焦油沥青

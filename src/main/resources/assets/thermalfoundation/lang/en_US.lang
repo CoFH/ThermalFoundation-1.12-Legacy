@@ -129,6 +129,10 @@ item.thermalfoundation.armor.tinHelmet.name=Tin Helmet
 item.thermalfoundation.armor.tinLegs.name=Tin Leggings
 item.thermalfoundation.armor.tinChestplate.name=Tin Chestplate
 
+item.thermalfoundation.bait.baitBasic.name=Aqua-Chow
+item.thermalfoundation.bait.baitFlux.name=Fluxed Aqua-Chow
+item.thermalfoundation.bait.baitRich.name=Rich Aqua-Chow
+
 item.thermalfoundation.coin.coinAluminum.name=Aluminum Coin
 item.thermalfoundation.coin.coinBronze.name=Bronze Coin
 item.thermalfoundation.coin.coinConstantan.name=Constantan Coin
@@ -204,6 +208,8 @@ item.thermalfoundation.material.dustTin.name=Pulverized Tin
 item.thermalfoundation.material.dustWood.name=Sawdust
 item.thermalfoundation.material.dustWoodCompressed.name=Compressed Sawdust
 
+item.thermalfoundation.material.fuelCoke.name=Coal Coke
+
 item.thermalfoundation.material.gearAluminum.name=Aluminum Gear
 item.thermalfoundation.material.gearBronze.name=Bronze Gear
 item.thermalfoundation.material.gearConstantan.name=Constantan Gear
@@ -223,8 +229,6 @@ item.thermalfoundation.material.gearSignalum.name=Signalum Gear
 item.thermalfoundation.material.gearSilver.name=Silver Gear
 item.thermalfoundation.material.gearSteel.name=Steel Gear
 item.thermalfoundation.material.gearTin.name=Tin Gear
-
-item.thermalfoundation.material.gemCoke.name=Coal Coke
 
 item.thermalfoundation.material.globRosin.name=Rosin
 item.thermalfoundation.material.globTar.name=Tar

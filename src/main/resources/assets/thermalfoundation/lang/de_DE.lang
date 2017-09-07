@@ -159,6 +159,8 @@ item.thermalfoundation.material.dustTin.name=Pulverisiertes Zinn
 item.thermalfoundation.material.dustWood.name=Sägemehl
 item.thermalfoundation.material.dustWoodCompressed.name=Komprimiertes Sägemehl
 
+item.thermalfoundation.material.fuelCoke.name=Koks
+
 item.thermalfoundation.material.gearAluminum.name=Aluminiumzahnrad
 item.thermalfoundation.material.gearBronze.name=Bronzezahnrad
 item.thermalfoundation.material.gearConstantan.name=Konstantanzahnrad
@@ -178,8 +180,6 @@ item.thermalfoundation.material.gearSignalum.name=Signalumzahnrad
 item.thermalfoundation.material.gearSilver.name=Silberzahnrad
 item.thermalfoundation.material.gearSteel.name=Stahlzahnrad
 item.thermalfoundation.material.gearTin.name=Zinnzahnrad
-
-item.thermalfoundation.material.gemCoke.name=Koks
 
 item.thermalfoundation.material.globRosin.name=Kolophonium
 item.thermalfoundation.material.globTar.name=Teer
