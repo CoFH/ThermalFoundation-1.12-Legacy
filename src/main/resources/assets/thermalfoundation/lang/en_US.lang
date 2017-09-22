@@ -214,7 +214,7 @@ item.thermalfoundation.material.gearSilver.name=Silver Gear
 item.thermalfoundation.material.gearSteel.name=Steel Gear
 item.thermalfoundation.material.gearTin.name=Tin Gear
 
-item.thermalfoundation.material.gemCoke.name=Coal Coke
+item.thermalfoundation.material.fuelCoke.name=Coal Coke
 
 item.thermalfoundation.material.globRosin.name=Rosin
 item.thermalfoundation.material.globTar.name=Tar
