@@ -198,10 +198,10 @@ public class TFProps {
 	public static boolean disableAllArmor = false;
 	public static boolean disableVanillaTools = false;
 
-	public static boolean disableAllBows = true;
-	public static boolean disableAllFishingRods = true;
-	public static boolean disableAllShears = true;
-	public static boolean disableAllShields = true;
+	public static boolean disableAllBows = false;
+	public static boolean disableAllFishingRods = false;
+	public static boolean disableAllShears = false;
+	public static boolean disableAllShields = false;
 
 	public static boolean showDisabledEquipment = false;
 

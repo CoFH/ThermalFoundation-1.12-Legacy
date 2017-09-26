@@ -4,6 +4,7 @@ import cofh.core.fluid.BlockFluidInteractive;
 import cofh.core.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
+import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
@@ -85,6 +86,15 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
 
 		return 0;
+	}
+
+	@Override
+	public Boolean isEntityInsideMaterial(IBlockAccess world, BlockPos blockpos, IBlockState iblockstate, Entity entity, double yToTest, Material materialIn, boolean testingHead) {
+
+		if (materialIn != this.blockMaterial) {
+			return null;
+		}
+		return super.isEntityInsideMaterial(world, blockpos, iblockstate, entity, yToTest, materialIn, testingHead);
 	}
 
 	@Override

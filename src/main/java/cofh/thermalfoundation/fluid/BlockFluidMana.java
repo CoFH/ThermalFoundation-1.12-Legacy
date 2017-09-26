@@ -3,6 +3,7 @@ package cofh.thermalfoundation.fluid;
 import cofh.core.fluid.BlockFluidInteractive;
 import cofh.core.util.CoreUtils;
 import cofh.core.util.helpers.MathHelper;
+import cofh.core.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.block.BlockOre;
 import cofh.thermalfoundation.block.BlockStorage;
@@ -64,7 +65,7 @@ public class BlockFluidMana extends BlockFluidInteractive {
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 
-		if (!effect) {
+		if (!effect || ServerHelper.isClientWorld(world)) {
 			return;
 		}
 		if (world.getTotalWorldTime() % 4 == 0) {

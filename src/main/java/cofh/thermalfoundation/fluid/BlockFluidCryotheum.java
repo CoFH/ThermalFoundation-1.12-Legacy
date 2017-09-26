@@ -93,10 +93,10 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SPEED, 6 * 20, 0));
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 6 * 20, 0));
 		} else if (entity instanceof EntityBlaze) {
-			entity.attackEntityFrom(DamageHelper.cryotheum, 10F);
+			entity.attackEntityFrom(DamageHelper.CRYOTHEUM, 10F);
 		} else {
 			boolean t = entity.velocityChanged;
-			entity.attackEntityFrom(DamageHelper.cryotheum, 2.0F);
+			entity.attackEntityFrom(DamageHelper.CRYOTHEUM, 2.0F);
 			entity.velocityChanged = t;
 		}
 	}
