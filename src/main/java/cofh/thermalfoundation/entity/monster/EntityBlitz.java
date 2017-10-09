@@ -159,7 +159,7 @@ public class EntityBlitz extends EntityElemental {
 
 			--attackTime;
 			EntityLivingBase target = blitz.getAttackTarget();
-			double d0 = blitz.getDistanceSqToEntity(target);
+			double d0 = blitz.getDistance(target);
 
 			if (d0 < 4.0D) {
 				if (attackTime <= 0) {
@@ -190,7 +190,7 @@ public class EntityBlitz extends EntityElemental {
 						for (int i = 0; i < 1; ++i) {
 							EntityBlitzBolt bolt = new EntityBlitzBolt(blitz.world, blitz);
 							bolt.posY = blitz.posY + blitz.height / 2.0F + 0.5D;
-							bolt.setThrowableHeading(target.posX - blitz.posX, target.posY - blitz.posY, target.posZ - blitz.posZ, 1.5F, 1.0F);
+							bolt.shoot(target.posX - blitz.posX, target.posY - blitz.posY, target.posZ - blitz.posZ, 1.5F, 1.0F);
 							blitz.playSound(TFSounds.blitzAttack, 2.0F, (blitz.rand.nextFloat() - blitz.rand.nextFloat()) * 0.2F + 1.0F);
 							blitz.world.spawnEntity(bolt);
 						}
@@ -198,7 +198,7 @@ public class EntityBlitz extends EntityElemental {
 				}
 				blitz.getLookHelper().setLookPositionWithEntity(target, 10.0F, 10.0F);
 			} else {
-				blitz.getNavigator().clearPathEntity();
+				blitz.getNavigator().clearPath();
 				blitz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			}
 			super.updateTask();

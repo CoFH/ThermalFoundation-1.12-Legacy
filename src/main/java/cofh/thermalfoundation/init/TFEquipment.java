@@ -296,12 +296,12 @@ public class TFEquipment {
 			this.ingot = ingot;
 			this.material = materialIn;
 
-			arrowDamage = material.getDamageVsEntity() / 4;
-			arrowSpeed = material.getEfficiencyOnProperMaterial() / 20;
-			zoomMultiplier = MathHelper.clamp(material.getEfficiencyOnProperMaterial() / 30, zoomMultiplier, zoomMultiplier * 2);
+			arrowDamage = material.getAttackDamage() / 4;
+			arrowSpeed = material.getEfficiency() / 20;
+			zoomMultiplier = MathHelper.clamp(material.getEfficiency() / 30, zoomMultiplier, zoomMultiplier * 2);
 
 			luckModifier = material.getHarvestLevel() / 2;
-			speedModifier = (int) material.getEfficiencyOnProperMaterial() / 3;
+			speedModifier = (int) material.getEfficiency() / 3;
 		}
 
 		protected void create() {
@@ -567,13 +567,13 @@ public class TFEquipment {
 			this.material = materialIn;
 
 			/* BOW */
-			arrowDamage = material.getDamageVsEntity() / 4;
-			arrowSpeed = material.getEfficiencyOnProperMaterial() / 20;
-			zoomMultiplier = MathHelper.clamp(material.getEfficiencyOnProperMaterial() / 30, zoomMultiplier, zoomMultiplier * 2);
+			arrowDamage = material.getAttackDamage() / 4;
+			arrowSpeed = material.getEfficiency() / 20;
+			zoomMultiplier = MathHelper.clamp(material.getEfficiency() / 30, zoomMultiplier, zoomMultiplier * 2);
 
 			/* FISHING ROD */
 			luckModifier = material.getHarvestLevel() / 2;
-			speedModifier = (int) material.getEfficiencyOnProperMaterial() / 3;
+			speedModifier = (int) material.getEfficiency() / 3;
 		}
 
 		protected void create() {
