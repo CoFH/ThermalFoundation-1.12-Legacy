@@ -6,7 +6,6 @@ import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;

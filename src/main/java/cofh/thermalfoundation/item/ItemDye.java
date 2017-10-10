@@ -2,7 +2,6 @@ package cofh.thermalfoundation.item;
 
 import cofh.core.item.ItemMulti;
 import cofh.core.util.core.IInitializer;
-import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
