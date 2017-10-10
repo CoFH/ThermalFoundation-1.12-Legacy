@@ -11,7 +11,7 @@ public class TFPlugins {
 
 	}
 
-	public static void initialize() {
+	public static void preInit() {
 
 		pluginTConstruct = new PluginTConstruct();
 

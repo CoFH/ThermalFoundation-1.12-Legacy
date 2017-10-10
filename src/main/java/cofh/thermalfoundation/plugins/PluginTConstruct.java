@@ -147,7 +147,7 @@ public class PluginTConstruct extends ModPlugin {
 
 		public FluidMolten setColor(int color) {
 
-			this.color = color;
+			this.color = 0xFF000000 | color;
 			return this;
 		}
 

@@ -79,6 +79,7 @@ public class ThermalFoundation {
 		TFEquipment.preInit();
 		TFFluids.preInit();
 		TFSounds.preInit();
+		TFPlugins.preInit();
 
 		/* Register Handlers */
 		registerHandlers();
@@ -88,8 +89,6 @@ public class ThermalFoundation {
 
 	@EventHandler
 	public void initialize(FMLInitializationEvent event) {
-
-		TFPlugins.initialize();
 
 		proxy.initialize(event);
 	}
