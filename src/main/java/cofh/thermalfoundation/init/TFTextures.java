@@ -41,6 +41,8 @@ public class TFTextures {
 	}
 
 	/* HELPERS */
+	private static TextureMap textureMap;
+
 	private static void registerFluidTextures(Fluid fluid) {
 
 		registerFluidTextures(fluid.getName());
@@ -51,7 +53,5 @@ public class TFTextures {
 		textureMap.registerSprite(new ResourceLocation(ThermalFoundation.MOD_ID, "blocks/fluid/" + fluidName + "_still"));
 		textureMap.registerSprite(new ResourceLocation(ThermalFoundation.MOD_ID, "blocks/fluid/" + fluidName + "_flow"));
 	}
-
-	private static TextureMap textureMap;
 
 }

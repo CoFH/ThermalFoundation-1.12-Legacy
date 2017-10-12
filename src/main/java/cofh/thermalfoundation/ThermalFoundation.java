@@ -12,7 +12,6 @@ import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -130,7 +129,6 @@ public class ThermalFoundation {
 	private void registerHandlers() {
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, GUI_HANDLER);
-		MinecraftForge.EVENT_BUS.register(proxy);
 
 		LexiconManager.initialize();
 		EventHandlerLexicon.initialize();

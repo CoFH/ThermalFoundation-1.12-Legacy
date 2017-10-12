@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EventHandlerLexicon {
 
-	public static EventHandlerLexicon INSTANCE = new EventHandlerLexicon();
+	public static final EventHandlerLexicon INSTANCE = new EventHandlerLexicon();
 
 	public static void initialize() {
 
