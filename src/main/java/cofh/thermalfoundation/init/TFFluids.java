@@ -48,6 +48,7 @@ public class TFFluids {
 		fluidTreeOil = new FluidCore("tree_oil", "thermalfoundation").setDensity(900).setViscosity(1200);
 
 		fluidMushroomStew = new FluidCore("mushroom_stew", "thermalfoundation").setDensity(2000).setViscosity(2000);
+		fluidExperience = new FluidCore("experience", "thermalfoundation").setLuminosity(12).setDensity(-200).setViscosity(200).setGaseous(true).setRarity(EnumRarity.UNCOMMON);
 
 		fluidRedstone = new FluidCore("redstone", "thermalfoundation").setLuminosity(7).setDensity(1200).setViscosity(1500).setRarity(EnumRarity.UNCOMMON);
 		fluidGlowstone = new FluidCore("glowstone", "thermalfoundation").setLuminosity(15).setDensity(-500).setViscosity(100).setGaseous(true).setRarity(EnumRarity.UNCOMMON);
@@ -72,6 +73,7 @@ public class TFFluids {
 		FluidRegistry.registerFluid(fluidTreeOil);
 
 		FluidRegistry.registerFluid(fluidMushroomStew);
+		FluidRegistry.registerFluid(fluidExperience);
 
 		FluidRegistry.registerFluid(fluidRedstone);
 		FluidRegistry.registerFluid(fluidGlowstone);
@@ -158,6 +160,7 @@ public class TFFluids {
 		fluidTreeOil = FluidRegistry.getFluid("tree_oil");
 
 		fluidMushroomStew = FluidRegistry.getFluid("mushroom_stew");
+		fluidExperience = FluidRegistry.getFluid("experience");
 
 		fluidRedstone = FluidRegistry.getFluid("redstone");
 		fluidGlowstone = FluidRegistry.getFluid("glowstone");
@@ -186,6 +189,7 @@ public class TFFluids {
 	public static Fluid fluidTreeOil;
 
 	public static Fluid fluidMushroomStew;
+	public static Fluid fluidExperience;
 
 	public static Fluid fluidRedstone;
 	public static Fluid fluidGlowstone;

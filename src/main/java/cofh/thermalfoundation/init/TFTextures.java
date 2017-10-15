@@ -29,6 +29,7 @@ public class TFTextures {
 		registerFluidTextures(TFFluids.fluidTreeOil);
 
 		registerFluidTextures(TFFluids.fluidMushroomStew);
+		registerFluidTextures(TFFluids.fluidExperience);
 
 		registerFluidTextures(TFFluids.fluidRedstone);
 		registerFluidTextures(TFFluids.fluidGlowstone);
