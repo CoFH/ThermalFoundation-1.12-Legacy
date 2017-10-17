@@ -50,6 +50,10 @@ public class TFFluids {
 		fluidMushroomStew = new FluidCore("mushroom_stew", "thermalfoundation").setDensity(2000).setViscosity(2000);
 		fluidExperience = new FluidCore("experience", "thermalfoundation").setLuminosity(12).setDensity(-200).setViscosity(200).setGaseous(true).setRarity(EnumRarity.UNCOMMON);
 
+		fluidPotion = new FluidPotion("potion", "thermalfoundation").setLuminosity(3).setDensity(500).setViscosity(1500).setRarity(EnumRarity.UNCOMMON);
+		fluidPotionSplash = new FluidPotion("potion_splash", "thermalfoundation").setLuminosity(3).setDensity(500).setViscosity(1500).setRarity(EnumRarity.UNCOMMON);
+		fluidPotionLingering = new FluidPotion("potion_lingering", "thermalfoundation").setLuminosity(3).setDensity(500).setViscosity(1500).setRarity(EnumRarity.UNCOMMON);
+
 		fluidRedstone = new FluidCore("redstone", "thermalfoundation").setLuminosity(7).setDensity(1200).setViscosity(1500).setRarity(EnumRarity.UNCOMMON);
 		fluidGlowstone = new FluidCore("glowstone", "thermalfoundation").setLuminosity(15).setDensity(-500).setViscosity(100).setGaseous(true).setRarity(EnumRarity.UNCOMMON);
 		fluidEnder = new FluidCore("ender", "thermalfoundation").setLuminosity(3).setDensity(4000).setViscosity(2500).setRarity(EnumRarity.UNCOMMON);
@@ -74,6 +78,10 @@ public class TFFluids {
 
 		FluidRegistry.registerFluid(fluidMushroomStew);
 		FluidRegistry.registerFluid(fluidExperience);
+
+		FluidRegistry.registerFluid(fluidPotion);
+		FluidRegistry.registerFluid(fluidPotionSplash);
+		FluidRegistry.registerFluid(fluidPotionLingering);
 
 		FluidRegistry.registerFluid(fluidRedstone);
 		FluidRegistry.registerFluid(fluidGlowstone);
@@ -132,7 +140,13 @@ public class TFFluids {
 		FluidRegistry.addBucketForFluid(fluidSyrup);
 		FluidRegistry.addBucketForFluid(fluidResin);
 		FluidRegistry.addBucketForFluid(fluidTreeOil);
+
 		FluidRegistry.addBucketForFluid(fluidMushroomStew);
+		FluidRegistry.addBucketForFluid(fluidExperience);
+
+		FluidRegistry.addBucketForFluid(fluidPotion);
+		FluidRegistry.addBucketForFluid(fluidPotionSplash);
+		FluidRegistry.addBucketForFluid(fluidPotionLingering);
 
 		FluidRegistry.addBucketForFluid(fluidRedstone);
 		FluidRegistry.addBucketForFluid(fluidGlowstone);
@@ -162,6 +176,8 @@ public class TFFluids {
 		fluidMushroomStew = FluidRegistry.getFluid("mushroom_stew");
 		fluidExperience = FluidRegistry.getFluid("experience");
 
+		fluidPotion = FluidRegistry.getFluid("potion");
+
 		fluidRedstone = FluidRegistry.getFluid("redstone");
 		fluidGlowstone = FluidRegistry.getFluid("glowstone");
 		fluidEnder = FluidRegistry.getFluid("ender");
@@ -190,6 +206,10 @@ public class TFFluids {
 
 	public static Fluid fluidMushroomStew;
 	public static Fluid fluidExperience;
+
+	public static Fluid fluidPotion;
+	public static Fluid fluidPotionSplash;
+	public static Fluid fluidPotionLingering;
 
 	public static Fluid fluidRedstone;
 	public static Fluid fluidGlowstone;
