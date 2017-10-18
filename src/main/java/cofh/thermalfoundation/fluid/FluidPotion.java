@@ -1,11 +1,11 @@
 package cofh.thermalfoundation.fluid;
 
+import cofh.core.util.helpers.StringHelper;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -15,9 +15,13 @@ public class FluidPotion extends Fluid {
 
 	public static int DEFAULT_COLOR = 16253176;
 
-	public FluidPotion(String fluidName, String modName) {
+	private final String prefix;
+
+	public FluidPotion(String fluidName, String modName, String prefix) {
 
 		super(fluidName, new ResourceLocation(modName, "blocks/fluid/potion_still"), new ResourceLocation(modName, "blocks/fluid/potion_flow"));
+
+		this.prefix = prefix;
 	}
 
 	@Override
@@ -34,10 +38,12 @@ public class FluidPotion extends Fluid {
 
 	public String getLocalizedName(FluidStack stack) {
 
-		String name = getUnlocalizedName() == null ? "" : I18n.translateToLocal(getUnlocalizedName());
-		String type;
-		// TODO Finish this~
-		return name;
+		PotionType type = PotionUtils.getPotionTypeFromNBT(stack.tag);
+
+		if (type == PotionTypes.EMPTY || type == PotionTypes.WATER) {
+			return super.getLocalizedName(stack);
+		}
+		return StringHelper.localize(type.getNamePrefixed(prefix));
 	}
 
 	public static int getPotionColor(FluidStack stack) {

@@ -1,5 +1,6 @@
 package cofh.thermalfoundation.util;
 
+import cofh.core.init.CorePotions;
 import cofh.core.util.crafting.FluidIngredientFactory.FluidIngredient;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.StringHelper;
@@ -7,7 +8,10 @@ import cofh.thermalfoundation.init.TFProps;
 import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.potion.PotionHelper;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -89,6 +93,9 @@ public class TFCrafting {
 
 		/* VANILLA RECIPES */
 		loadVanillaRecipes();
+
+		/* POTIONS */
+		loadPotions();
 	}
 
 	/* VANILLA RECIPES */
@@ -136,6 +143,15 @@ public class TFCrafting {
 		}
 
 		// @formatter:on
+	}
+
+	public static void loadPotions() {
+
+		PotionHelper.addMix(PotionTypes.AWKWARD, Ingredient.fromStacks(ItemMaterial.dustBasalz), CorePotions.haste);
+		PotionHelper.addMix(PotionTypes.AWKWARD, Ingredient.fromStacks(ItemMaterial.dustObsidian), CorePotions.resistance);
+		PotionHelper.addMix(PotionTypes.AWKWARD, Ingredient.fromStacks(ItemMaterial.dustBlitz), CorePotions.levitation);
+		PotionHelper.addMix(PotionTypes.AWKWARD, Ingredient.fromStacks(ItemMaterial.dustBlizz), CorePotions.absorption);
+		PotionHelper.addMix(PotionTypes.AWKWARD, Items.POISONOUS_POTATO, CorePotions.saturation);
 	}
 
 }
