@@ -151,7 +151,19 @@ public class TFCrafting {
 		PotionHelper.addMix(PotionTypes.AWKWARD, Ingredient.fromStacks(ItemMaterial.dustObsidian), CorePotions.resistance);
 		PotionHelper.addMix(PotionTypes.AWKWARD, Ingredient.fromStacks(ItemMaterial.dustBlitz), CorePotions.levitation);
 		PotionHelper.addMix(PotionTypes.AWKWARD, Ingredient.fromStacks(ItemMaterial.dustBlizz), CorePotions.absorption);
-		PotionHelper.addMix(PotionTypes.AWKWARD, Items.POISONOUS_POTATO, CorePotions.saturation);
+		PotionHelper.addMix(PotionTypes.REGENERATION, Items.FERMENTED_SPIDER_EYE, CorePotions.wither);
+
+		PotionHelper.addMix(CorePotions.haste, Items.REDSTONE, CorePotions.hasteLong);
+		PotionHelper.addMix(CorePotions.resistance, Items.REDSTONE, CorePotions.resistanceLong);
+		PotionHelper.addMix(CorePotions.levitation, Items.REDSTONE, CorePotions.levitationLong);
+		PotionHelper.addMix(CorePotions.absorption, Items.REDSTONE, CorePotions.absorptionLong);
+		PotionHelper.addMix(CorePotions.wither, Items.REDSTONE, CorePotions.witherLong);
+
+		PotionHelper.addMix(CorePotions.haste, Items.GLOWSTONE_DUST, CorePotions.hasteStrong);
+		PotionHelper.addMix(CorePotions.resistance, Items.GLOWSTONE_DUST, CorePotions.resistanceStrong);
+		PotionHelper.addMix(CorePotions.absorption, Items.GLOWSTONE_DUST, CorePotions.absorptionStrong);
+		PotionHelper.addMix(CorePotions.wither, Items.GLOWSTONE_DUST, CorePotions.witherStrong);
+
 	}
 
 }
