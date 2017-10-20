@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidInteractive;
+import cofh.core.util.helpers.DamageHelper;
 import cofh.core.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
@@ -33,7 +34,7 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 
 	public BlockFluidPyrotheum(Fluid fluid) {
 
-		super(fluid, Material.LAVA, "thermalfoundation", "pyrotheum");
+		super(fluid, materialFluidPyrotheum, "thermalfoundation", "pyrotheum");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(10);
 
@@ -57,8 +58,17 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 
-		if (!effect) {
+		if (!effect || entity.isImmuneToFire) {
 			return;
+		}
+		if (entity.motionY < -0.25 || entity.motionY > 0.25) {
+			entity.motionY *= 0.25;
+		}
+		if (entity.motionZ < -0.25 || entity.motionZ > 0.25) {
+			entity.motionZ *= 0.25;
+		}
+		if (entity.motionX < -0.25 || entity.motionX > 0.25) {
+			entity.motionX *= 0.25;
 		}
 		if (ServerHelper.isClientWorld(world)) {
 			return;
@@ -66,6 +76,10 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		if (entity instanceof EntityCreeper) {
 			world.createExplosion(entity, entity.posX, entity.posY, entity.posZ, 6.0F, entity.world.getGameRules().getBoolean("mobGriefing"));
 			entity.setDead();
+		} else {
+			boolean t = entity.velocityChanged;
+			entity.attackEntityFrom(DamageHelper.PYROTHEUM, 2.0F);
+			entity.velocityChanged = t;
 		}
 	}
 

@@ -68,14 +68,14 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		if (!effect) {
 			return;
 		}
-		if (entity.motionY < -0.05 || entity.motionY > 0.05) {
-			entity.motionY *= 0.05;
+		if (entity.motionY < -0.25 || entity.motionY > 0.25) {
+			entity.motionY *= 0.25;
 		}
-		if (entity.motionZ < -0.05 || entity.motionZ > 0.05) {
-			entity.motionZ *= 0.05;
+		if (entity.motionZ < -0.25 || entity.motionZ > 0.25) {
+			entity.motionZ *= 0.25;
 		}
-		if (entity.motionX < -0.05 || entity.motionX > 0.05) {
-			entity.motionX *= 0.05;
+		if (entity.motionX < -0.25 || entity.motionX > 0.25) {
+			entity.motionX *= 0.25;
 		}
 		if (ServerHelper.isClientWorld(world)) {
 			return;
