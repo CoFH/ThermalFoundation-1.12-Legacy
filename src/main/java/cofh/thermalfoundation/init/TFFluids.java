@@ -5,9 +5,14 @@ import cofh.core.fluid.FluidCore;
 import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.fluid.*;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.PotionType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 
 import java.util.ArrayList;
 
@@ -186,6 +191,45 @@ public class TFFluids {
 		fluidAerotheum = FluidRegistry.getFluid("aerotheum");
 		fluidPetrotheum = FluidRegistry.getFluid("petrotheum");
 		fluidMana = FluidRegistry.getFluid("mana");
+	}
+
+	/* HELPERS */
+	public static FluidStack getPotion(int amount, PotionType type) {
+
+		if (type == PotionTypes.WATER) {
+			return new FluidStack(FluidRegistry.WATER, amount);
+		}
+		return addPotionToFluidStack(new FluidStack(fluidPotion, amount), type);
+	}
+
+	public static FluidStack getSplashPotion(int amount, PotionType type) {
+
+		return addPotionToFluidStack(new FluidStack(fluidPotionSplash, amount), type);
+	}
+
+	public static FluidStack getLingeringPotion(int amount, PotionType type) {
+
+		return addPotionToFluidStack(new FluidStack(fluidPotionLingering, amount), type);
+	}
+
+	public static FluidStack addPotionToFluidStack(FluidStack stack, PotionType type) {
+
+		ResourceLocation resourcelocation = PotionType.REGISTRY.getNameForObject(type);
+
+		if (type == PotionTypes.EMPTY) {
+			if (stack.tag != null) {
+				stack.tag.removeTag("Potion");
+				if (stack.tag.hasNoTags()) {
+					stack.tag = null;
+				}
+			}
+		} else {
+			if (stack.tag == null) {
+				stack.tag = new NBTTagCompound();
+			}
+			stack.tag.setString("Potion", resourcelocation.toString());
+		}
+		return stack;
 	}
 
 	private static ArrayList<IInitializer> initList = new ArrayList<>();
