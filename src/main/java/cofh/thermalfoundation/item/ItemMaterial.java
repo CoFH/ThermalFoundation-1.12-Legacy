@@ -5,6 +5,7 @@ import cofh.core.item.ItemMulti;
 import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFProps;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -153,7 +154,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 		dustWood = addOreDictItem(800, "dustWood");
 		dustWoodCompressed = addItem(801, "dustWoodCompressed");
-		gemCoke = addItem(802, "gemCoke");
+		fuelCoke = addItem(802, "fuelCoke");
 
 		globRosin = addItem(832, "globRosin");
 		globTar = addItem(833, "globTar");
@@ -186,7 +187,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// Rock Gel
 
 		OreDictionary.registerOre("dustSaltpeter", dustNiter);
-		OreDictionary.registerOre("fuelCoke", gemCoke);
+		OreDictionary.registerOre("fuelCoke", fuelCoke);
 
 		OreDictionary.registerOre("itemSlag", crystalSlag);
 		OreDictionary.registerOre("itemSlagRich", crystalSlagRich);
@@ -216,22 +217,28 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addSmelting(dustTin, ingotTin);
 		addSmelting(dustSilver, ingotSilver);
 		addSmelting(dustLead, ingotLead);
-		addSmelting(dustAluminum, ingotAluminum);
+		// addSmelting(dustAluminum, ingotAluminum);
 		addSmelting(dustNickel, ingotNickel);
 		addSmelting(dustPlatinum, ingotPlatinum);
-		addSmelting(dustIridium, ingotIridium);
-		addSmelting(dustMithril, ingotMithril);
+		// addSmelting(dustIridium, ingotIridium);
+		// addSmelting(dustMithril, ingotMithril);
 
-		addSmelting(dustSteel, ingotSteel);
+		// addSmelting(dustSteel, ingotSteel);
 		addSmelting(dustElectrum, ingotElectrum);
 		addSmelting(dustInvar, ingotInvar);
 		addSmelting(dustBronze, ingotBronze);
 		addSmelting(dustConstantan, ingotConstantan);
-		// No Signalum
-		// No Lumium
-		// No Enderium
+		// addSmelting(dustSignalum, ingotSignalum);
+		// addSmelting(dustLumium, ingotLumium);
+		// addSmelting(dustEnderium, ingotEnderium);
 
 		if (!Loader.isModLoaded("thermalexpansion")) {
+			addSmelting(Blocks.GRAVEL, crystalSlag);
+
+			addSmelting(dustAluminum, ingotAluminum);
+			addSmelting(dustSteel, ingotSteel);
+			addSmelting(dustSignalum, ingotSignalum);
+			addSmelting(dustLumium, ingotLumium);
 			addSmelting(dustEnderium, ingotEnderium);
 
 			addSmelting(crystalRedstone, new ItemStack(Items.REDSTONE), 0.5F);
@@ -327,10 +334,10 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// Air Gel
 		// Rock Gel
 
-		FurnaceFuelHandler.registerFuel(gemCoke, TFProps.gemCokeFuel);
+		FurnaceFuelHandler.registerFuel(fuelCoke, TFProps.fuelCokeFuel);
 		FurnaceFuelHandler.registerFuel(globRosin, TFProps.globRosinFuel);
 		FurnaceFuelHandler.registerFuel(globTar, TFProps.globTarFuel);
-		FurnaceFuelHandler.registerFuel(crystalCrudeOil, TFProps.gemCokeFuel);
+		FurnaceFuelHandler.registerFuel(crystalCrudeOil, TFProps.fuelCokeFuel);
 		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
 
 		return true;
@@ -465,7 +472,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 	public static ItemStack dustWood;
 	public static ItemStack dustWoodCompressed;
-	public static ItemStack gemCoke;
+	public static ItemStack fuelCoke;
 
 	public static ItemStack globRosin;
 	public static ItemStack globTar;

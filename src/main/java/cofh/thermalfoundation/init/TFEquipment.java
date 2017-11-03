@@ -82,9 +82,9 @@ public class TFEquipment {
 	public static final ArmorMaterial ARMOR_MATERIAL_BRONZE = EnumHelper.addArmorMaterial("TF:BRONZE", "bronze_armor", 18, new int[] { 2, 6, 6, 2 }, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1F);
 	public static final ArmorMaterial ARMOR_MATERIAL_CONSTANTAN = EnumHelper.addArmorMaterial("TF:CONSTANTAN", "constantan_armor", 13, new int[] { 2, 4, 4, 2 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0F);
 
-	public static final ToolMaterial TOOL_MATERIAL_COPPER = EnumHelper.addToolMaterial("TF:COPPER", 1, 175, 4.0F, 0.75F, 6);
+	public static final ToolMaterial TOOL_MATERIAL_COPPER = EnumHelper.addToolMaterial("TF:COPPER", 1, 175, 4.0F, 1.0F, 6);
 	public static final ToolMaterial TOOL_MATERIAL_TIN = EnumHelper.addToolMaterial("TF:TIN", 1, 200, 4.5F, 1.0F, 7);
-	public static final ToolMaterial TOOL_MATERIAL_SILVER = EnumHelper.addToolMaterial("TF:SILVER", 2, 200, 6.0F, 1.5F, 20);
+	public static final ToolMaterial TOOL_MATERIAL_SILVER = EnumHelper.addToolMaterial("TF:SILVER", 2, 200, 6.0F, 1.0F, 20);
 	public static final ToolMaterial TOOL_MATERIAL_LEAD = EnumHelper.addToolMaterial("TF:LEAD", 1, 150, 5.0F, 1.0F, 9);
 	public static final ToolMaterial TOOL_MATERIAL_ALUMINUM = EnumHelper.addToolMaterial("TF:ALUMINUM", 1, 225, 10.0F, 1.0F, 14);
 	public static final ToolMaterial TOOL_MATERIAL_NICKEL = EnumHelper.addToolMaterial("TF:NICKEL", 2, 300, 6.5F, 2.5F, 18);
@@ -296,12 +296,12 @@ public class TFEquipment {
 			this.ingot = ingot;
 			this.material = materialIn;
 
-			arrowDamage = material.getDamageVsEntity() / 4;
-			arrowSpeed = material.getEfficiencyOnProperMaterial() / 20;
-			zoomMultiplier = MathHelper.clamp(material.getEfficiencyOnProperMaterial() / 30, zoomMultiplier, zoomMultiplier * 2);
+			arrowDamage = material.getAttackDamage() / 4;
+			arrowSpeed = material.getEfficiency() / 20;
+			zoomMultiplier = MathHelper.clamp(material.getEfficiency() / 30, zoomMultiplier, zoomMultiplier * 2);
 
 			luckModifier = material.getHarvestLevel() / 2;
-			speedModifier = (int) material.getEfficiencyOnProperMaterial() / 3;
+			speedModifier = (int) material.getEfficiency() / 3;
 		}
 
 		protected void create() {
@@ -567,13 +567,13 @@ public class TFEquipment {
 			this.material = materialIn;
 
 			/* BOW */
-			arrowDamage = material.getDamageVsEntity() / 4;
-			arrowSpeed = material.getEfficiencyOnProperMaterial() / 20;
-			zoomMultiplier = MathHelper.clamp(material.getEfficiencyOnProperMaterial() / 30, zoomMultiplier, zoomMultiplier * 2);
+			arrowDamage = material.getAttackDamage() / 4;
+			arrowSpeed = material.getEfficiency() / 20;
+			zoomMultiplier = MathHelper.clamp(material.getEfficiency() / 30, zoomMultiplier, zoomMultiplier * 2);
 
 			/* FISHING ROD */
 			luckModifier = material.getHarvestLevel() / 2;
-			speedModifier = (int) material.getEfficiencyOnProperMaterial() / 3;
+			speedModifier = (int) material.getEfficiency() / 3;
 		}
 
 		protected void create() {

@@ -31,7 +31,7 @@ import static cofh.core.util.helpers.RecipeHelper.addStorageRecipe;
 
 public class BlockStorage extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockStorage.Type> VARIANT = PropertyEnum.create("type", BlockStorage.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockStorage() {
 
@@ -108,20 +108,20 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	@Override
 	public float getBlockHardness(IBlockState state, World world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).hardness;
+		return state.getValue(VARIANT).getHardness();
 	}
 
 	@Override
 	public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion) {
 
 		IBlockState state = world.getBlockState(pos);
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).resistance;
+		return state.getValue(VARIANT).getResistance();
 	}
 
 	/* IModelRegister */
@@ -201,7 +201,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		MITHRIL(8, "mithril", 8, 30.0F, 120.0F, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockStorage.Type[] METADATA_LOOKUP = new BlockStorage.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

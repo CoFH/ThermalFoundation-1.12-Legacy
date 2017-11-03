@@ -1,6 +1,8 @@
 package cofh.thermalfoundation.init;
 
+import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 
 public class TFTextures {
@@ -17,6 +19,7 @@ public class TFTextures {
 
 		registerFluidTextures(TFFluids.fluidCreosote);
 		registerFluidTextures(TFFluids.fluidCoal);
+		registerFluidTextures(TFFluids.fluidCrudeOil);
 		registerFluidTextures(TFFluids.fluidRefinedOil);
 		registerFluidTextures(TFFluids.fluidFuel);
 
@@ -24,15 +27,34 @@ public class TFTextures {
 		registerFluidTextures(TFFluids.fluidSyrup);
 		registerFluidTextures(TFFluids.fluidResin);
 		registerFluidTextures(TFFluids.fluidTreeOil);
+
+		registerFluidTextures(TFFluids.fluidMushroomStew);
+		registerFluidTextures(TFFluids.fluidExperience);
+
+		registerFluidTextures(TFFluids.fluidPotion);
+
+		registerFluidTextures(TFFluids.fluidRedstone);
+		registerFluidTextures(TFFluids.fluidGlowstone);
+		registerFluidTextures(TFFluids.fluidEnder);
+		registerFluidTextures(TFFluids.fluidPyrotheum);
+		registerFluidTextures(TFFluids.fluidCryotheum);
+		registerFluidTextures(TFFluids.fluidAerotheum);
+		registerFluidTextures(TFFluids.fluidPetrotheum);
+		registerFluidTextures(TFFluids.fluidMana);
 	}
 
 	/* HELPERS */
+	private static TextureMap textureMap;
+
 	private static void registerFluidTextures(Fluid fluid) {
 
-		textureMap.registerSprite(fluid.getStill());
-		textureMap.registerSprite(fluid.getFlowing());
+		registerFluidTextures(fluid.getName());
 	}
 
-	private static TextureMap textureMap;
+	private static void registerFluidTextures(String fluidName) {
+
+		textureMap.registerSprite(new ResourceLocation(ThermalFoundation.MOD_ID, "blocks/fluid/" + fluidName + "_still"));
+		textureMap.registerSprite(new ResourceLocation(ThermalFoundation.MOD_ID, "blocks/fluid/" + fluidName + "_flow"));
+	}
 
 }

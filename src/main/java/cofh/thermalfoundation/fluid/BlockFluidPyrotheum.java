@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidInteractive;
+import cofh.core.util.helpers.DamageHelper;
 import cofh.core.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
@@ -25,8 +26,6 @@ import java.util.Random;
 
 public class BlockFluidPyrotheum extends BlockFluidInteractive {
 
-	Random random = new Random();
-
 	public static final int LEVELS = 5;
 	public static final Material materialFluidPyrotheum = new MaterialLiquid(MapColor.TNT);
 
@@ -35,7 +34,7 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 
 	public BlockFluidPyrotheum(Fluid fluid) {
 
-		super(fluid, Material.LAVA, "thermalfoundation", "pyrotheum");
+		super(fluid, materialFluidPyrotheum, "thermalfoundation", "pyrotheum");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(10);
 
@@ -59,8 +58,17 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 
-		if (!effect) {
+		if (!effect || entity.isImmuneToFire) {
 			return;
+		}
+		if (entity.motionY < -0.25 || entity.motionY > 0.25) {
+			entity.motionY *= 0.25;
+		}
+		if (entity.motionZ < -0.25 || entity.motionZ > 0.25) {
+			entity.motionZ *= 0.25;
+		}
+		if (entity.motionX < -0.25 || entity.motionX > 0.25) {
+			entity.motionX *= 0.25;
 		}
 		if (ServerHelper.isClientWorld(world)) {
 			return;
@@ -68,6 +76,10 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		if (entity instanceof EntityCreeper) {
 			world.createExplosion(entity, entity.posX, entity.posY, entity.posZ, 6.0F, entity.world.getGameRules().getBoolean("mobGriefing"));
 			entity.setDead();
+		} else {
+			boolean t = entity.velocityChanged;
+			entity.attackEntityFrom(DamageHelper.PYROTHEUM, 2.0F);
+			entity.velocityChanged = t;
 		}
 	}
 
@@ -87,6 +99,15 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
 
 		return 0;
+	}
+
+	@Override
+	public Boolean isEntityInsideMaterial(IBlockAccess world, BlockPos blockpos, IBlockState iblockstate, Entity entity, double yToTest, Material materialIn, boolean testingHead) {
+
+		if (materialIn != this.blockMaterial) {
+			return null;
+		}
+		return super.isEntityInsideMaterial(world, blockpos, iblockstate, entity, yToTest, materialIn, testingHead);
 	}
 
 	@Override
@@ -121,22 +142,6 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		super.updateTick(world, pos, state, rand);
 	}
 
-	protected void checkForInteraction(World world, BlockPos pos) {
-
-		if (world.getBlockState(pos).getBlock() != this) {
-			return;
-		}
-
-		for (EnumFacing face : EnumFacing.VALUES) {
-			interactWithBlock(world, pos.offset(face));
-		}
-		//Corners
-		interactWithBlock(world, pos.add(-1, 0, -1));
-		interactWithBlock(world, pos.add(-1, 0, 1));
-		interactWithBlock(world, pos.add(1, 0, -1));
-		interactWithBlock(world, pos.add(1, 0, 1));
-	}
-
 	protected void interactWithBlock(World world, BlockPos pos) {
 
 		IBlockState state = world.getBlockState(pos);
@@ -144,7 +149,6 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 		if (state.getBlock().isAir(state, world, pos) || state.getBlock() == this) {
 			return;
 		}
-
 		if (hasInteraction(state)) {
 			IBlockState result = getInteraction(state);
 			world.setBlockState(pos, result, 3);
@@ -158,7 +162,7 @@ public class BlockFluidPyrotheum extends BlockFluidInteractive {
 
 	protected void triggerInteractionEffects(World world, BlockPos pos) {
 
-		if (random.nextInt(16) == 0) {
+		if (world.rand.nextInt(16) == 0) {
 			world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.ENTITY_GENERIC_BURN, SoundCategory.BLOCKS, 0.5F, 2.2F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F, false);
 		}
 	}

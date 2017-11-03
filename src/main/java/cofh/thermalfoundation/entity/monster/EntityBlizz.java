@@ -51,6 +51,7 @@ public class EntityBlizz extends EntityElemental {
 
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.COLD));
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.SNOWY));
+		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.NETHER));
 		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.END));
 
 		EntityRegistry.addSpawn(EntityBlizz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));
@@ -158,7 +159,7 @@ public class EntityBlizz extends EntityElemental {
 
 			--attackTime;
 			EntityLivingBase target = blizz.getAttackTarget();
-			double d0 = blizz.getDistanceSqToEntity(target);
+			double d0 = blizz.getDistance(target);
 
 			if (d0 < 4.0D) {
 				if (attackTime <= 0) {
@@ -189,7 +190,7 @@ public class EntityBlizz extends EntityElemental {
 						for (int i = 0; i < 1; ++i) {
 							EntityBlizzBolt bolt = new EntityBlizzBolt(blizz.world, blizz);
 							bolt.posY = blizz.posY + blizz.height / 2.0F + 0.5D;
-							bolt.setThrowableHeading(target.posX - blizz.posX, target.posY - blizz.posY, target.posZ - blizz.posZ, 1.5F, 1.0F);
+							bolt.shoot(target.posX - blizz.posX, target.posY - blizz.posY, target.posZ - blizz.posZ, 1.5F, 1.0F);
 							blizz.playSound(TFSounds.blizzAttack, 2.0F, (blizz.rand.nextFloat() - blizz.rand.nextFloat()) * 0.2F + 1.0F);
 							blizz.world.spawnEntity(bolt);
 						}
@@ -197,7 +198,7 @@ public class EntityBlizz extends EntityElemental {
 				}
 				blizz.getLookHelper().setLookPositionWithEntity(target, 10.0F, 10.0F);
 			} else {
-				blizz.getNavigator().clearPathEntity();
+				blizz.getNavigator().clearPath();
 				blizz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			}
 			super.updateTask();

@@ -41,7 +41,12 @@
 			},
 			"lexicon": {
 				"textures": {
-					"layer0": "thermalfoundation:items/util/lexicon"
+					"layer0": "thermalfoundation:items/util/tome_lexicon"
+				}
+			},
+			"experience": {
+				"textures": {
+					"layer0": "thermalfoundation:items/util/tome_experience"
 				}
 			},
 			"lock": {

@@ -35,6 +35,7 @@ fluid.sap=树汁
 fluid.resin=树脂
 fluid.steam=蒸汽
 fluid.syrup=糖浆
+fluid.sap=树汁
 fluid.tree_oil=树油
 
 gui.thermalfoundation.lexicon.clearPreference=清空偏好
@@ -153,8 +154,8 @@ item.thermalfoundation.geode.geode.name=晶球
 
 item.thermalfoundation.material.crystalCinnabar.name=朱砂
 item.thermalfoundation.material.crystalCrudeOil.name=沥青
-item.thermalfoundation.material.crystalEnder.name=谐振络合物
-item.thermalfoundation.material.crystalGlowstone.name=充能萤石络合物
+item.thermalfoundation.material.crystalEnder.name=谐振末影络合物
+item.thermalfoundation.material.crystalGlowstone.name=充能络合物
 item.thermalfoundation.material.crystalRedstone.name=不稳红石络合物
 item.thermalfoundation.material.crystalSlag.name=炉渣
 item.thermalfoundation.material.crystalSlagRich.name=富炉渣
@@ -194,6 +195,8 @@ item.thermalfoundation.material.dustTin.name=锡粉
 item.thermalfoundation.material.dustWood.name=锯末
 item.thermalfoundation.material.dustWoodCompressed.name=压缩锯末
 
+item.thermalfoundation.material.fuelCoke.name=焦炭
+
 item.thermalfoundation.material.gearAluminum.name=铝齿轮
 item.thermalfoundation.material.gearBronze.name=青铜齿轮
 item.thermalfoundation.material.gearConstantan.name=康铜齿轮
@@ -213,8 +216,6 @@ item.thermalfoundation.material.gearSignalum.name=信素齿轮
 item.thermalfoundation.material.gearSilver.name=银齿轮
 item.thermalfoundation.material.gearSteel.name=钢齿轮
 item.thermalfoundation.material.gearTin.name=锡齿轮
-
-item.thermalfoundation.material.gemCoke.name=焦炭
 
 item.thermalfoundation.material.globRosin.name=松香
 item.thermalfoundation.material.globTar.name=焦油沥青
@@ -242,6 +243,7 @@ item.thermalfoundation.material.nuggetBronze.name=青铜粒
 item.thermalfoundation.material.nuggetConstantan.name=康铜粒
 item.thermalfoundation.material.nuggetCopper.name=铜粒
 item.thermalfoundation.material.nuggetDiamond.name=钻石粒
+item.thermalfoundation.material.nuggetEmerald.name=绿宝石粒
 item.thermalfoundation.material.nuggetElectrum.name=琥珀金粒
 item.thermalfoundation.material.nuggetEnderium.name=末影粒
 item.thermalfoundation.material.nuggetInvar.name=殷钢粒
@@ -469,6 +471,10 @@ item.thermalfoundation.tool.woodSickle.name=木镰刀
 item.thermalfoundation.util.lock.name=信素安全锁
 item.thermalfoundation.util.multimeter.name=万用表
 item.thermalfoundation.util.wrench0.name=新月锤
+item.thermalfoundation.util.wrench1.name=新月锤 (硬化)
+item.thermalfoundation.util.wrench2.name=新月锤 (强化)
+item.thermalfoundation.util.wrench3.name=新月锤 (信素)
+item.thermalfoundation.util.wrench4.name=新月锤 (谐振)
 
 itemGroup.thermalfoundation.creativeTab=热力基本
 itemGroup.thermalfoundation.creativeTabArmor=热力基本|护甲
@@ -479,13 +485,13 @@ tab.thermalfoundation.lexicon.study.1=借助辞典的力量使世界服从你的
 tab.thermalfoundation.lexicon.transmute.0=你可以通过更强大的能量来转换等价物品。
 tab.thermalfoundation.lexicon.transmute.1=压制此辞典，迫使其放弃对世界的主宰。
 
-tile.thermalfoundation.fluid.aerotheum.name=和谐之空气
+tile.thermalfoundation.fluid.aerotheum.name=飞扬之清风
 tile.thermalfoundation.fluid.crude_oil.name=石油
 tile.thermalfoundation.fluid.cryotheum.name=极寒之凛冰
 tile.thermalfoundation.fluid.ender.name=谐振熔融末影珍珠
 tile.thermalfoundation.fluid.glowstone.name=充能液态荧石
 tile.thermalfoundation.fluid.mana.name=元始魔力
-tile.thermalfoundation.fluid.petrotheum.name=构造之地岩
+tile.thermalfoundation.fluid.petrotheum.name=板块之层岩
 tile.thermalfoundation.fluid.pyrotheum.name=烈焰之炽焱
 tile.thermalfoundation.fluid.redstone.name=熔融红石
 
@@ -513,12 +519,13 @@ tile.thermalfoundation.ore.crude_oil_gravel.name=油页岩
 tile.thermalfoundation.ore.crude_oil_sand.name=油砂
 tile.thermalfoundation.ore.ender.name=谐振末影矿石
 tile.thermalfoundation.ore.glowstone.name=充能荧石地狱岩
+
 tile.thermalfoundation.ore.lead.name=铅矿石
 tile.thermalfoundation.ore.iridium.name=铱矿石
 tile.thermalfoundation.ore.mithril.name=蕴魔秘银矿
 tile.thermalfoundation.ore.nickel.name=镍矿石
 tile.thermalfoundation.ore.platinum.name=铂矿石
-tile.thermalfoundation.ore.redstone.name=不稳红石矿
+tile.thermalfoundation.ore.redstone.name=不稳红石矿石
 tile.thermalfoundation.ore.silver.name=银矿石
 tile.thermalfoundation.ore.tin.name=锡矿石
 
@@ -556,4 +563,3 @@ tile.thermalfoundation.storage.signalum.name=信素块
 tile.thermalfoundation.storage.silver.name=银块
 tile.thermalfoundation.storage.steel.name=钢块
 tile.thermalfoundation.storage.tin.name=锡块
-

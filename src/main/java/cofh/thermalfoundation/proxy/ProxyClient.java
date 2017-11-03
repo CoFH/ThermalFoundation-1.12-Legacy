@@ -1,23 +1,21 @@
 package cofh.thermalfoundation.proxy;
 
 import cofh.core.render.IModelRegister;
+import cofh.core.render.entity.RenderEntityAsIcon;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
-import cofh.thermalfoundation.init.TFTextures;
-import cofh.thermalfoundation.render.entity.RenderEntityAsIcon;
 import cofh.thermalfoundation.render.entity.RenderEntityBasalz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlitz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlizz;
-import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.ArrayList;
 
@@ -28,6 +26,8 @@ public class ProxyClient extends Proxy {
 	public void preInit(FMLPreInitializationEvent event) {
 
 		super.preInit(event);
+
+		MinecraftForge.EVENT_BUS.register(EventHandlerClient.INSTANCE);
 
 		for (IModelRegister register : modelList) {
 			register.registerModels();
@@ -57,13 +57,6 @@ public class ProxyClient extends Proxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBlizzBolt.class, manager -> new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_blizz"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBlitzBolt.class, manager -> new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_blitz"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBasalzBolt.class, manager -> new RenderEntityAsIcon(manager).setIcon("thermalfoundation:items/material/dust_basalz"));
-	}
-
-	/* EVENT HANDLING */
-	@SubscribeEvent
-	public void handleTextureStitchPreEvent(TextureStitchEvent.Pre event) {
-
-		TFTextures.registerTextures(event.getMap());
 	}
 
 	/* HELPERS */

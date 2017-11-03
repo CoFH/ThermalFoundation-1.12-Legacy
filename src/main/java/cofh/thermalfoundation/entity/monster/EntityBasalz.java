@@ -51,6 +51,7 @@ public class EntityBasalz extends EntityElemental {
 
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.MOUNTAIN));
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.WASTELAND));
+		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.NETHER));
 		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.END));
 
 		EntityRegistry.addSpawn(EntityBasalz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));
@@ -158,7 +159,7 @@ public class EntityBasalz extends EntityElemental {
 
 			--this.attackTime;
 			EntityLivingBase target = this.basalz.getAttackTarget();
-			double d0 = this.basalz.getDistanceSqToEntity(target);
+			double d0 = this.basalz.getDistance(target);
 
 			if (d0 < 4.0D) {
 				if (attackTime <= 0) {
@@ -188,7 +189,7 @@ public class EntityBasalz extends EntityElemental {
 
 						for (int i = 0; i < 1; ++i) {
 							EntityBasalzBolt bolt = new EntityBasalzBolt(basalz.world, basalz);
-							bolt.setThrowableHeading(target.posX - basalz.posX, target.posY - basalz.posY, target.posZ - basalz.posZ, 1.5F, 1.0F);
+							bolt.shoot(target.posX - basalz.posX, target.posY - basalz.posY, target.posZ - basalz.posZ, 1.5F, 1.0F);
 							bolt.posY = basalz.posY + basalz.height / 2.0F + 0.5D;
 							basalz.playSound(TFSounds.basalzAttack, 2.0F, (basalz.rand.nextFloat() - basalz.rand.nextFloat()) * 0.2F + 1.0F);
 							basalz.world.spawnEntity(bolt);
@@ -197,7 +198,7 @@ public class EntityBasalz extends EntityElemental {
 				}
 				basalz.getLookHelper().setLookPositionWithEntity(target, 10.0F, 10.0F);
 			} else {
-				basalz.getNavigator().clearPathEntity();
+				basalz.getNavigator().clearPath();
 				basalz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			}
 			super.updateTask();

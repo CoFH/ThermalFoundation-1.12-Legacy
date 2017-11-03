@@ -3,12 +3,12 @@ package cofh.thermalfoundation.fluid;
 import cofh.core.fluid.BlockFluidInteractive;
 import cofh.core.util.CoreUtils;
 import cofh.core.util.helpers.MathHelper;
+import cofh.core.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.block.BlockOre;
 import cofh.thermalfoundation.block.BlockStorage;
 import cofh.thermalfoundation.init.TFBlocks;
 import cofh.thermalfoundation.init.TFFluids;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDirt.DirtType;
 import net.minecraft.block.material.MapColor;
@@ -65,7 +65,7 @@ public class BlockFluidMana extends BlockFluidInteractive {
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 
-		if (!effect) {
+		if (!effect || ServerHelper.isClientWorld(world)) {
 			return;
 		}
 		if (world.getTotalWorldTime() % 4 == 0) {
@@ -117,37 +117,15 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		super.updateTick(world, pos, state, rand);
 	}
 
-	protected void checkForInteraction(World world, BlockPos pos) {
-
-		if (world.getBlockState(pos).getBlock() != this) {
-			return;
-		}
-
-		for (EnumFacing facing : EnumFacing.VALUES) {
-
-			interactWithBlock(world, pos.offset(facing));
-
-			interactWithBlock(world, pos.offset(facing).add(facing.getFrontOffsetX(), 0, facing.getFrontOffsetZ()));
-		}
-		interactWithBlock(world, pos.add(-1, 0, -1));
-		interactWithBlock(world, pos.add(-1, 0, 1));
-		interactWithBlock(world, pos.add(1, 0, -1));
-		interactWithBlock(world, pos.add(1, 0, 1));
-	}
-
 	protected void interactWithBlock(World world, BlockPos pos) {
 
 		IBlockState state = world.getBlockState(pos);
-		Block block = state.getBlock();
 
-		if (block.isAir(state, world, pos) || block == this) {
+		if (state.getBlock().isAir(state, world, pos) || state.getBlock() == this) {
 			return;
 		}
-		int bMeta = block.getMetaFromState(state);
-		IBlockState result;
-
 		if (hasInteraction(state)) {
-			result = getInteraction(state);
+			IBlockState result = getInteraction(state);
 			world.setBlockState(pos, result, 3);
 			triggerInteractionEffects(world, pos);
 		} else if (world.isSideSolid(pos, EnumFacing.UP) && world.isAirBlock(pos.offset(EnumFacing.UP))) {
@@ -186,9 +164,9 @@ public class BlockFluidMana extends BlockFluidInteractive {
 		addInteraction(Blocks.REDSTONE_ORE.getDefaultState(), Blocks.LIT_REDSTONE_ORE.getDefaultState(), true);
 		addInteraction(Blocks.LAPIS_ORE.getDefaultState(), Blocks.LAPIS_BLOCK.getDefaultState(), true);
 		addInteraction(Blocks.FARMLAND.getDefaultState(), Blocks.MYCELIUM.getDefaultState(), true);
-		for (int i = 8; i-- > 0; ) {
-			addInteraction(Blocks.DOUBLE_STONE_SLAB.getStateFromMeta(i), Blocks.DOUBLE_STONE_SLAB.getStateFromMeta(i + 8), false);
-		}
+		//		for (int i = 8; i-- > 0; ) {
+		//			addInteraction(Blocks.DOUBLE_STONE_SLAB.getStateFromMeta(i), Blocks.DOUBLE_STONE_SLAB.getStateFromMeta(i + 8), false);
+		//		}
 		addInteraction(TFBlocks.blockOre.getDefaultState().withProperty(BlockOre.VARIANT, BlockOre.Type.SILVER), TFBlocks.blockOre.getDefaultState().withProperty(BlockOre.VARIANT, BlockOre.Type.MITHRIL));
 		addInteraction(TFBlocks.blockOre.getDefaultState().withProperty(BlockOre.VARIANT, BlockOre.Type.LEAD), Blocks.GOLD_ORE.getDefaultState());
 		addInteraction(TFBlocks.blockStorage.getDefaultState().withProperty(BlockStorage.VARIANT, BlockStorage.Type.SILVER), TFBlocks.blockStorage.getDefaultState().withProperty(BlockStorage.VARIANT, BlockStorage.Type.MITHRIL));

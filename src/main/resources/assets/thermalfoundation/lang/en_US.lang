@@ -20,19 +20,31 @@ entity.thermalfoundation.blizz.name=Blizz
 
 fluid.aerotheum=Zephyrean Aerotheum
 fluid.coal=Liquifacted Coal
+fluid.constantan=Molten Constantan
 fluid.creosote=Creosote Oil
 fluid.crude_oil=Crude Oil
 fluid.cryotheum=Gelid Cryotheum
 fluid.ender=Resonant Ender
-fluid.refined_fuel=Refined Fuel
+fluid.enderium=Molten Enderium
+fluid.experience=Essence of Knowledge
 fluid.glowstone=Energized Glowstone
+fluid.lumium=Molten Lumium
+fluid.invar=Molten Invar
+fluid.iridium=Molten Iridium
 fluid.mana=Primal Mana
+fluid.mushroom_stew=Mushroom Stew
 fluid.petrotheum=Tectonic Petrotheum
+fluid.platinum=Molten Platinum
+fluid.potion=Potion
+fluid.potion_lingering=Lingering Potion
+fluid.potion_splash=Splash Potion
 fluid.pyrotheum=Blazing Pyrotheum
 fluid.redstone=Destabilized Redstone
+fluid.refined_fuel=Refined Fuel
 fluid.refined_oil=Naphtha
 fluid.resin=Resin
 fluid.sap=Sap
+fluid.signalum=Molten Signalum
 fluid.steam=Steam
 fluid.syrup=Syrup
 fluid.tree_oil=Tree Oil
@@ -49,6 +61,8 @@ gui.thermalfoundation.lexicon.transmute=Lexicon - Transmutation
 info.thermalfoundation.diagram.erase=Use while sneaking to erase.
 info.thermalfoundation.diagram.redprint.0=Use on a device to copy its settings.
 info.thermalfoundation.diagram.redprint.1=Use on a device to transfer stored settings.
+
+info.thermalfoundation.security.lock=Use on securable blocks or combine with securable items.
 
 info.thermalfoundation.tome.lexicon.a.0=Converts items to equivalent forms.
 info.thermalfoundation.tome.lexicon.b.0=Right click (open) to study.
@@ -118,6 +132,10 @@ item.thermalfoundation.armor.tinBoots.name=Tin Boots
 item.thermalfoundation.armor.tinHelmet.name=Tin Helmet
 item.thermalfoundation.armor.tinLegs.name=Tin Leggings
 item.thermalfoundation.armor.tinChestplate.name=Tin Chestplate
+
+item.thermalfoundation.bait.baitBasic.name=Aqua-Chow
+item.thermalfoundation.bait.baitFlux.name=Fluxed Aqua-Chow
+item.thermalfoundation.bait.baitRich.name=Rich Aqua-Chow
 
 item.thermalfoundation.coin.coinAluminum.name=Aluminum Coin
 item.thermalfoundation.coin.coinBronze.name=Bronze Coin
@@ -194,6 +212,8 @@ item.thermalfoundation.material.dustTin.name=Pulverized Tin
 item.thermalfoundation.material.dustWood.name=Sawdust
 item.thermalfoundation.material.dustWoodCompressed.name=Compressed Sawdust
 
+item.thermalfoundation.material.fuelCoke.name=Coal Coke
+
 item.thermalfoundation.material.gearAluminum.name=Aluminum Gear
 item.thermalfoundation.material.gearBronze.name=Bronze Gear
 item.thermalfoundation.material.gearConstantan.name=Constantan Gear
@@ -213,8 +233,6 @@ item.thermalfoundation.material.gearSignalum.name=Signalum Gear
 item.thermalfoundation.material.gearSilver.name=Silver Gear
 item.thermalfoundation.material.gearSteel.name=Steel Gear
 item.thermalfoundation.material.gearTin.name=Tin Gear
-
-item.thermalfoundation.material.gemCoke.name=Coal Coke
 
 item.thermalfoundation.material.globRosin.name=Rosin
 item.thermalfoundation.material.globTar.name=Tar
@@ -287,7 +305,7 @@ item.thermalfoundation.material.rodBasalz.name=Basalz Rod
 item.thermalfoundation.material.rodBlitz.name=Blitz Rod
 item.thermalfoundation.material.rodBlizz.name=Blizz Rod
 
-item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexicon (Empowered)
+item.thermalfoundation.tome.experience.name=Tome of Knowledge
 item.thermalfoundation.tome.lexicon.name=Forge Lexicon
 
 item.thermalfoundation.tool.aluminumAxe.name=Aluminum Axe

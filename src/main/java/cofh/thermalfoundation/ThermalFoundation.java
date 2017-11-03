@@ -12,7 +12,6 @@ import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -33,7 +32,7 @@ public class ThermalFoundation {
 	public static final String MOD_ID = "thermalfoundation";
 	public static final String MOD_NAME = "Thermal Foundation";
 
-	public static final String VERSION = "2.3.0";
+	public static final String VERSION = "2.3.6";
 	public static final String VERSION_MAX = "2.4.0";
 	public static final String VERSION_GROUP = "required-after:" + MOD_ID + "@[" + VERSION + "," + VERSION_MAX + ");";
 	public static final String UPDATE_URL = "https://raw.github.com/cofh/version/master/" + MOD_ID + "_update.json";
@@ -79,6 +78,7 @@ public class ThermalFoundation {
 		TFEquipment.preInit();
 		TFFluids.preInit();
 		TFSounds.preInit();
+		TFPlugins.preInit();
 
 		/* Register Handlers */
 		registerHandlers();
@@ -95,7 +95,7 @@ public class ThermalFoundation {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 
-		pluginInitialize();
+		TFPlugins.postInit();
 
 		proxy.postInit(event);
 	}
@@ -129,15 +129,10 @@ public class ThermalFoundation {
 	private void registerHandlers() {
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, GUI_HANDLER);
-		MinecraftForge.EVENT_BUS.register(proxy);
 
 		LexiconManager.initialize();
 		EventHandlerLexicon.initialize();
 		PacketTFBase.initialize();
-	}
-
-	private void pluginInitialize() {
-
 	}
 
 }

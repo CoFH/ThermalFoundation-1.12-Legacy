@@ -20,6 +20,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -29,7 +30,7 @@ import static cofh.core.util.helpers.RecipeHelper.addSmelting;
 
 public class BlockOre extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockOre.Type> VARIANT = PropertyEnum.create("type", BlockOre.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockOre() {
 
@@ -88,7 +89,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	/* IModelRegister */
@@ -144,12 +145,17 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		addSmelting(oreTin, ItemMaterial.ingotTin, 0.7F);
 		addSmelting(oreSilver, ItemMaterial.ingotSilver, 0.9F);
 		addSmelting(oreLead, ItemMaterial.ingotLead, 0.8F);
-		addSmelting(oreAluminum, ItemMaterial.ingotAluminum, 0.6F);
+		// addSmelting(oreAluminum, ItemMaterial.ingotAluminum, 0.6F);
 		addSmelting(oreNickel, ItemMaterial.ingotNickel, 1.0F);
 		addSmelting(orePlatinum, ItemMaterial.ingotPlatinum, 1.0F);
-		addSmelting(oreIridium, ItemMaterial.ingotIridium, 1.2F);
-		addSmelting(oreMithril, ItemMaterial.ingotMithril, 1.5F);
+		// addSmelting(oreIridium, ItemMaterial.ingotIridium, 1.2F);
+		// addSmelting(oreMithril, ItemMaterial.ingotMithril, 1.5F);
 
+		if (!Loader.isModLoaded("thermalexpansion")) {
+			addSmelting(oreAluminum, ItemMaterial.ingotAluminum, 0.6F);
+			addSmelting(oreIridium, ItemMaterial.ingotIridium, 1.2F);
+			addSmelting(oreMithril, ItemMaterial.ingotMithril, 1.5F);
+		}
 		return true;
 	}
 
@@ -168,7 +174,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		MITHRIL(8, "mithril", 8, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockOre.Type[] METADATA_LOOKUP = new BlockOre.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

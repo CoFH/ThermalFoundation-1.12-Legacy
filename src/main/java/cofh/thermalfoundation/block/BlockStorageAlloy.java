@@ -32,7 +32,7 @@ import static cofh.core.util.helpers.RecipeHelper.addStorageRecipe;
 
 public class BlockStorageAlloy extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockStorageAlloy.Type> VARIANT = PropertyEnum.create("type", BlockStorageAlloy.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockStorageAlloy() {
 
@@ -111,7 +111,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	@Override
@@ -123,14 +123,14 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	@Override
 	public float getBlockHardness(IBlockState state, World world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).hardness;
+		return state.getValue(VARIANT).getHardness();
 	}
 
 	@Override
 	public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion) {
 
 		IBlockState state = world.getBlockState(pos);
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).resistance;
+		return state.getValue(VARIANT).getResistance();
 	}
 
 	/* IModelRegister */
@@ -206,7 +206,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		ENDERIUM(7, "enderium", 4, 40.0F, 120.0F, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockStorageAlloy.Type[] METADATA_LOOKUP = new BlockStorageAlloy.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.gui.client;
 
 import cofh.core.gui.GuiColor;
-import cofh.core.gui.GuiCore;
+import cofh.core.gui.GuiContainerCore;
 import cofh.core.gui.element.ElementButton;
 import cofh.core.gui.element.ElementListBox;
 import cofh.core.gui.element.ElementTextField;
@@ -19,7 +19,7 @@ import org.lwjgl.input.Keyboard;
 
 import java.util.Locale;
 
-public class GuiLexiconStudy extends GuiCore {
+public class GuiLexiconStudy extends GuiContainerCore {
 
 	private static final String TEX_PATH = "thermalfoundation:textures/gui/lexicon_study.png";
 	private static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);

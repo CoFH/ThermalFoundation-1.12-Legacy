@@ -6,14 +6,16 @@ import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Loader;
 
+import static cofh.core.util.helpers.RecipeHelper.addShapelessOreRecipe;
 import static cofh.core.util.helpers.RecipeHelper.addShapelessRecipe;
 
 public class ItemBait extends ItemMulti implements IInitializer {
@@ -48,7 +50,7 @@ public class ItemBait extends ItemMulti implements IInitializer {
 
 		baitBasic = addItem(0, "baitBasic");
 		baitRich = addItem(1, "baitRich");
-		baitFlux = addItem(2, "baitFlux");
+		baitFlux = addItem(2, "baitFlux", EnumRarity.UNCOMMON);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
@@ -58,10 +60,15 @@ public class ItemBait extends ItemMulti implements IInitializer {
 	@Override
 	public boolean register() {
 
-		addShapelessRecipe(ItemHelper.cloneStack(baitBasic, 2), "dustWood", "dustWood", "dustSaltpeter", "crystalSlag");
+		addShapelessRecipe(ItemHelper.cloneStack(baitBasic, 4), "dustWood", "slimeball", Items.BREAD);
+		addShapelessRecipe(ItemHelper.cloneStack(baitBasic, 4), "dustWood", ItemMaterial.globRosin, Items.BREAD);
 
-		addShapelessRecipe(baitRich, baitBasic, new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()));
+		addShapelessRecipe(ItemHelper.cloneStack(baitRich, 4), "dustWood", "slimeball", Items.BREAD, Items.NETHER_WART);
+		addShapelessRecipe(ItemHelper.cloneStack(baitRich, 4), "dustWood", ItemMaterial.globRosin, Items.BREAD, Items.NETHER_WART);
 
+		if (!Loader.isModLoaded("thermalexpansion")) {
+			addShapelessOreRecipe(baitFlux, baitRich, "dustRedstone");
+		}
 		return true;
 	}
 

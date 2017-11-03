@@ -8,6 +8,7 @@ import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.ChatHelper;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.ServerHelper;
+import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -67,6 +68,17 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 
+		if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
+			tooltip.add(StringHelper.shiftForDetails());
+		}
+		if (!StringHelper.isShiftKeyDown()) {
+			return;
+		}
+		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
+			case LOCK:
+				tooltip.add(StringHelper.getInfoText("info.thermalfoundation.security.lock"));
+			default:
+		}
 	}
 
 	public boolean isFull3D() {

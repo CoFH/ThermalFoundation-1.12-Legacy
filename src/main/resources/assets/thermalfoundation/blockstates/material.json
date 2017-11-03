@@ -529,9 +529,9 @@
 					"layer0": "thermalfoundation:items/material/dust_wood_compressed"
 				}
 			},
-			"gemcoke": {
+			"fuelcoke": {
 				"textures": {
-					"layer0": "thermalfoundation:items/material/gem_coke"
+					"layer0": "thermalfoundation:items/material/fuel_coke"
 				}
 			},
 			"globrosin": {

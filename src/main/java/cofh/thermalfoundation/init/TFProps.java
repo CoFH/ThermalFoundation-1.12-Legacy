@@ -1,11 +1,14 @@
 package cofh.thermalfoundation.init;
 
+import cofh.core.gui.CreativeTabCore;
 import cofh.core.init.CoreProps;
 import cofh.thermalfoundation.ThermalFoundation;
-import cofh.thermalfoundation.gui.CreativeTabTF;
 import cofh.thermalfoundation.init.TFEquipment.ArmorSet;
 import cofh.thermalfoundation.init.TFEquipment.ToolSet;
+import cofh.thermalfoundation.item.ItemWrench;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.core.util.Loader;
 
@@ -39,10 +42,19 @@ public class TFProps {
 
 		/* CRAFTING */
 		comment = "If TRUE, Pyrotheum Dust can be used to smelt Ores into Ingots.";
-		enablePyrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePyrotheumSmelting", category, enablePyrotheumCrafting, comment);
+		enablePyrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePyrotheumCrafting", category, enablePyrotheumCrafting, comment);
 
-		comment = "If TRUE, Petrotheum Dust can be used to break Ores into Dusts.";
-		enablePetrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePetrotheumSmashing", category, enablePetrotheumCrafting, comment);
+		comment = "If TRUE, Petrotheum Dust can be used to break Ores into Dusts and Gems.";
+		enablePetrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePetrotheumCrafting", category, enablePetrotheumCrafting, comment);
+
+		comment = "If TRUE, Cryotheum Dust can be used to create Ice and solidify Clathrates.";
+		enableCryotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnableCryotheumCrafting", category, enableCryotheumCrafting, comment);
+
+		comment = "If TRUE, Horse Armor will be craftable.";
+		enableHorseArmorCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnableHorseArmorCrafting", category, enableHorseArmorCrafting, comment);
+
+		comment = "If TRUE, Saddles will be craftable.";
+		enableSaddleCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnableSaddleCrafting", category, enableSaddleCrafting, comment);
 
 		/* EQUIPMENT */
 		category = "Equipment";
@@ -96,30 +108,43 @@ public class TFProps {
 		toolTabCommon = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("ToolsInCommonTab", category, toolTabCommon, comment);
 
 		/* CREATIVE TABS */
-		ThermalFoundation.tabCommon = new CreativeTabTF();
+		ThermalFoundation.tabCommon = new CreativeTabCore("thermalfoundation") {
+
+			@Override
+			@SideOnly (Side.CLIENT)
+			public ItemStack getIconItemStack() {
+
+				return ItemWrench.wrenchBasic;
+			}
+
+		};
 
 		if (armorTabCommon) {
 			ThermalFoundation.tabArmor = ThermalFoundation.tabCommon;
 		} else {
-			ThermalFoundation.tabArmor = new CreativeTabTF("Armor") {
+			ThermalFoundation.tabArmor = new CreativeTabCore("thermalfoundation", "Armor") {
 
 				@Override
-				protected ItemStack getStack() {
+				@SideOnly (Side.CLIENT)
+				public ItemStack getIconItemStack() {
 
 					return ArmorSet.INVAR.armorChestplate;
 				}
+
 			};
 		}
 		if (toolTabCommon) {
 			ThermalFoundation.tabTools = ThermalFoundation.tabCommon;
 		} else {
-			ThermalFoundation.tabTools = new CreativeTabTF("Tools") {
+			ThermalFoundation.tabTools = new CreativeTabCore("thermalfoundation", "Tools") {
 
 				@Override
-				protected ItemStack getStack() {
+				@SideOnly (Side.CLIENT)
+				public ItemStack getIconItemStack() {
 
 					return ToolSet.INVAR.toolPickaxe;
 				}
+
 			};
 		}
 	}
@@ -173,24 +198,31 @@ public class TFProps {
 	public static boolean disableAllArmor = false;
 	public static boolean disableVanillaTools = false;
 
-	public static boolean disableAllBows = true;
-	public static boolean disableAllFishingRods = true;
-	public static boolean disableAllShears = true;
-	public static boolean disableAllShields = true;
+	public static boolean disableAllBows = false;
+	public static boolean disableAllFishingRods = false;
+	public static boolean disableAllShears = false;
+	public static boolean disableAllShields = false;
 
 	public static boolean showDisabledEquipment = false;
 
 	/* GENERAL */
-	public static final String LEXICON_TIMER = "thermalexpansion.lexicon_timer";
-	public static final String LEXICON_DATA = "thermalexpansion.lexicon_data";
+	public static final String LEXICON_TIMER = "thermalfoundation.lexicon_timer";
+	public static final String LEXICON_DATA = "thermalfoundation.lexicon_data";
+
+	public static final int MAX_LEVEL = 100;
+	public static final int MAX_EXP = (9 * MAX_LEVEL * MAX_LEVEL - 325 * MAX_LEVEL + 4440) / 2;
 
 	public static boolean dropSulfurFireImmuneMobs = true;
 
 	/* CRAFTING */
 	public static boolean enablePyrotheumCrafting = true;
 	public static boolean enablePetrotheumCrafting = true;
+	public static boolean enableCryotheumCrafting = true;
 
-	public static int gemCokeFuel = 3200;
+	public static boolean enableHorseArmorCrafting = true;
+	public static boolean enableSaddleCrafting = true;
+
+	public static int fuelCokeFuel = 3200;
 	public static int globRosinFuel = 800;
 	public static int globTarFuel = 800;
 	public static int dustPyrotheumFuel = 24000;

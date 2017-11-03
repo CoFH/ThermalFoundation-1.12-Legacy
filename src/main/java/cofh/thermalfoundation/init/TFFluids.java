@@ -5,9 +5,14 @@ import cofh.core.fluid.FluidCore;
 import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.fluid.*;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.PotionType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 
 import java.util.ArrayList;
 
@@ -24,6 +29,7 @@ public class TFFluids {
 		registerAllFluids();
 		registerAllFluidBlocks();
 		createBuckets();
+		refreshReferences();
 
 		for (IInitializer init : initList) {
 			init.initialize();
@@ -33,49 +39,63 @@ public class TFFluids {
 	/* HELPERS */
 	public static void registerAllFluids() {
 
-		FluidRegistry.registerFluid(new FluidCore("steam", "thermalfoundation").setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true));
+		fluidSteam = new FluidCore("steam", "thermalfoundation").setDensity(-1000).setViscosity(200).setTemperature(750).setGaseous(true);
 
-		FluidRegistry.registerFluid(new FluidCore("creosote", "thermalfoundation").setDensity(1100).setViscosity(2000));
-		FluidRegistry.registerFluid(new FluidCore("coal", "thermalfoundation").setDensity(900).setViscosity(2000));
-		FluidRegistry.registerFluid(new FluidCore("crude_oil", "thermalfoundation").setDensity(900).setViscosity(2000));
-		FluidRegistry.registerFluid(new FluidCore("refined_oil", "thermalfoundation").setDensity(800).setViscosity(1400));
-		FluidRegistry.registerFluid(new FluidCore("refined_fuel", "thermalfoundation").setDensity(700).setViscosity(800));
+		fluidCreosote = new FluidCore("creosote", "thermalfoundation").setDensity(1100).setViscosity(2000);
+		fluidCoal = new FluidCore("coal", "thermalfoundation").setDensity(900).setViscosity(2000);
+		fluidCrudeOil = new FluidCore("crude_oil", "thermalfoundation").setDensity(900).setViscosity(2000);
+		fluidRefinedOil = new FluidCore("refined_oil", "thermalfoundation").setDensity(800).setViscosity(1400);
+		fluidFuel = new FluidCore("refined_fuel", "thermalfoundation").setDensity(700).setViscosity(800);
 
-		FluidRegistry.registerFluid(new FluidCore("sap", "thermalfoundation").setDensity(1050).setViscosity(1500));
-		FluidRegistry.registerFluid(new FluidCore("syrup", "thermalfoundation").setDensity(1400).setViscosity(2500));
-		FluidRegistry.registerFluid(new FluidCore("resin", "thermalfoundation").setDensity(900).setViscosity(3000));
-		FluidRegistry.registerFluid(new FluidCore("tree_oil", "thermalfoundation").setDensity(900).setViscosity(1200));
+		fluidSap = new FluidCore("sap", "thermalfoundation").setDensity(1050).setViscosity(1500);
+		fluidSyrup = new FluidCore("syrup", "thermalfoundation").setDensity(1400).setViscosity(2500);
+		fluidResin = new FluidCore("resin", "thermalfoundation").setDensity(900).setViscosity(3000);
+		fluidTreeOil = new FluidCore("tree_oil", "thermalfoundation").setDensity(900).setViscosity(1200);
 
-		FluidRegistry.registerFluid(new FluidCore("redstone", "thermalfoundation").setLuminosity(7).setDensity(1200).setViscosity(1500).setRarity(EnumRarity.UNCOMMON));
-		FluidRegistry.registerFluid(new FluidCore("glowstone", "thermalfoundation").setLuminosity(15).setDensity(-500).setViscosity(100).setGaseous(true).setRarity(EnumRarity.UNCOMMON));
-		FluidRegistry.registerFluid(new FluidCore("ender", "thermalfoundation").setLuminosity(3).setDensity(4000).setViscosity(2500).setRarity(EnumRarity.UNCOMMON));
-		FluidRegistry.registerFluid(new FluidCore("pyrotheum", "thermalfoundation").setLuminosity(15).setDensity(2000).setViscosity(1200).setTemperature(4000).setRarity(EnumRarity.RARE));
-		FluidRegistry.registerFluid(new FluidCore("cryotheum", "thermalfoundation").setDensity(4000).setViscosity(4000).setTemperature(50).setRarity(EnumRarity.RARE));
-		FluidRegistry.registerFluid(new FluidCore("aerotheum", "thermalfoundation").setDensity(-800).setViscosity(100).setGaseous(true).setRarity(EnumRarity.RARE));
-		FluidRegistry.registerFluid(new FluidCore("petrotheum", "thermalfoundation").setDensity(4000).setViscosity(1500).setTemperature(350).setRarity(EnumRarity.RARE));
-		FluidRegistry.registerFluid(new FluidCore("mana", "thermalfoundation").setLuminosity(15).setDensity(600).setViscosity(6000).setTemperature(350).setRarity(EnumRarity.EPIC));
+		fluidMushroomStew = new FluidCore("mushroom_stew", "thermalfoundation").setDensity(2000).setViscosity(2000);
+		fluidExperience = new FluidCore("experience", "thermalfoundation").setLuminosity(12).setDensity(-200).setViscosity(200).setGaseous(true).setRarity(EnumRarity.UNCOMMON);
 
-		fluidSteam = FluidRegistry.getFluid("steam");
+		fluidPotion = new FluidPotion("potion", "thermalfoundation", "potion.effect.").setLuminosity(3).setDensity(500).setViscosity(1500).setRarity(EnumRarity.UNCOMMON);
+		fluidPotionSplash = new FluidPotion("potion_splash", "thermalfoundation", "splash_potion.effect.").setLuminosity(3).setDensity(500).setViscosity(1500).setRarity(EnumRarity.UNCOMMON);
+		fluidPotionLingering = new FluidPotion("potion_lingering", "thermalfoundation", "lingering_potion.effect.").setLuminosity(3).setDensity(500).setViscosity(1500).setRarity(EnumRarity.UNCOMMON);
 
-		fluidCreosote = FluidRegistry.getFluid("creosote");
-		fluidCoal = FluidRegistry.getFluid("coal");
-		fluidCrudeOil = FluidRegistry.getFluid("crude_oil");
-		fluidRefinedOil = FluidRegistry.getFluid("refined_oil");
-		fluidFuel = FluidRegistry.getFluid("refined_fuel");
+		fluidRedstone = new FluidCore("redstone", "thermalfoundation").setLuminosity(7).setDensity(1200).setViscosity(1500).setRarity(EnumRarity.UNCOMMON);
+		fluidGlowstone = new FluidCore("glowstone", "thermalfoundation").setLuminosity(15).setDensity(-500).setViscosity(100).setGaseous(true).setRarity(EnumRarity.UNCOMMON);
+		fluidEnder = new FluidCore("ender", "thermalfoundation").setLuminosity(3).setDensity(4000).setViscosity(2500).setRarity(EnumRarity.UNCOMMON);
+		fluidPyrotheum = new FluidCore("pyrotheum", "thermalfoundation").setLuminosity(15).setDensity(2000).setViscosity(1200).setTemperature(4000).setRarity(EnumRarity.RARE);
+		fluidCryotheum = new FluidCore("cryotheum", "thermalfoundation").setDensity(4000).setViscosity(4000).setTemperature(50).setRarity(EnumRarity.RARE);
+		fluidAerotheum = new FluidCore("aerotheum", "thermalfoundation").setDensity(-800).setViscosity(100).setGaseous(true).setRarity(EnumRarity.RARE);
+		fluidPetrotheum = new FluidCore("petrotheum", "thermalfoundation").setDensity(4000).setViscosity(1500).setTemperature(350).setRarity(EnumRarity.RARE);
+		fluidMana = new FluidCore("mana", "thermalfoundation").setLuminosity(15).setDensity(600).setViscosity(6000).setTemperature(350).setRarity(EnumRarity.EPIC);
 
-		fluidSap = FluidRegistry.getFluid("sap");
-		fluidSyrup = FluidRegistry.getFluid("syrup");
-		fluidResin = FluidRegistry.getFluid("resin");
-		fluidTreeOil = FluidRegistry.getFluid("tree_oil");
+		FluidRegistry.registerFluid(fluidSteam);
 
-		fluidRedstone = FluidRegistry.getFluid("redstone");
-		fluidGlowstone = FluidRegistry.getFluid("glowstone");
-		fluidEnder = FluidRegistry.getFluid("ender");
-		fluidPyrotheum = FluidRegistry.getFluid("pyrotheum");
-		fluidCryotheum = FluidRegistry.getFluid("cryotheum");
-		fluidAerotheum = FluidRegistry.getFluid("aerotheum");
-		fluidPetrotheum = FluidRegistry.getFluid("petrotheum");
-		fluidMana = FluidRegistry.getFluid("mana");
+		FluidRegistry.registerFluid(fluidCreosote);
+		FluidRegistry.registerFluid(fluidCoal);
+		FluidRegistry.registerFluid(fluidCrudeOil);
+		FluidRegistry.registerFluid(fluidRefinedOil);
+		FluidRegistry.registerFluid(fluidFuel);
+
+		FluidRegistry.registerFluid(fluidSap);
+		FluidRegistry.registerFluid(fluidSyrup);
+		FluidRegistry.registerFluid(fluidResin);
+		FluidRegistry.registerFluid(fluidTreeOil);
+
+		FluidRegistry.registerFluid(fluidMushroomStew);
+		FluidRegistry.registerFluid(fluidExperience);
+
+		FluidRegistry.registerFluid(fluidPotion);
+		FluidRegistry.registerFluid(fluidPotionSplash);
+		FluidRegistry.registerFluid(fluidPotionLingering);
+
+		FluidRegistry.registerFluid(fluidRedstone);
+		FluidRegistry.registerFluid(fluidGlowstone);
+		FluidRegistry.registerFluid(fluidEnder);
+		FluidRegistry.registerFluid(fluidPyrotheum);
+		FluidRegistry.registerFluid(fluidCryotheum);
+		FluidRegistry.registerFluid(fluidAerotheum);
+		FluidRegistry.registerFluid(fluidPetrotheum);
+		FluidRegistry.registerFluid(fluidMana);
 	}
 
 	public static void registerAllFluidBlocks() {
@@ -126,6 +146,13 @@ public class TFFluids {
 		FluidRegistry.addBucketForFluid(fluidResin);
 		FluidRegistry.addBucketForFluid(fluidTreeOil);
 
+		FluidRegistry.addBucketForFluid(fluidMushroomStew);
+		FluidRegistry.addBucketForFluid(fluidExperience);
+
+		FluidRegistry.addBucketForFluid(fluidPotion);
+		FluidRegistry.addBucketForFluid(fluidPotionSplash);
+		FluidRegistry.addBucketForFluid(fluidPotionLingering);
+
 		FluidRegistry.addBucketForFluid(fluidRedstone);
 		FluidRegistry.addBucketForFluid(fluidGlowstone);
 		FluidRegistry.addBucketForFluid(fluidEnder);
@@ -151,6 +178,11 @@ public class TFFluids {
 		fluidResin = FluidRegistry.getFluid("resin");
 		fluidTreeOil = FluidRegistry.getFluid("tree_oil");
 
+		fluidMushroomStew = FluidRegistry.getFluid("mushroom_stew");
+		fluidExperience = FluidRegistry.getFluid("experience");
+
+		fluidPotion = FluidRegistry.getFluid("potion");
+
 		fluidRedstone = FluidRegistry.getFluid("redstone");
 		fluidGlowstone = FluidRegistry.getFluid("glowstone");
 		fluidEnder = FluidRegistry.getFluid("ender");
@@ -159,6 +191,45 @@ public class TFFluids {
 		fluidAerotheum = FluidRegistry.getFluid("aerotheum");
 		fluidPetrotheum = FluidRegistry.getFluid("petrotheum");
 		fluidMana = FluidRegistry.getFluid("mana");
+	}
+
+	/* HELPERS */
+	public static FluidStack getPotion(int amount, PotionType type) {
+
+		if (type == PotionTypes.WATER) {
+			return new FluidStack(FluidRegistry.WATER, amount);
+		}
+		return addPotionToFluidStack(new FluidStack(fluidPotion, amount), type);
+	}
+
+	public static FluidStack getSplashPotion(int amount, PotionType type) {
+
+		return addPotionToFluidStack(new FluidStack(fluidPotionSplash, amount), type);
+	}
+
+	public static FluidStack getLingeringPotion(int amount, PotionType type) {
+
+		return addPotionToFluidStack(new FluidStack(fluidPotionLingering, amount), type);
+	}
+
+	public static FluidStack addPotionToFluidStack(FluidStack stack, PotionType type) {
+
+		ResourceLocation resourcelocation = PotionType.REGISTRY.getNameForObject(type);
+
+		if (type == PotionTypes.EMPTY) {
+			if (stack.tag != null) {
+				stack.tag.removeTag("Potion");
+				if (stack.tag.hasNoTags()) {
+					stack.tag = null;
+				}
+			}
+		} else {
+			if (stack.tag == null) {
+				stack.tag = new NBTTagCompound();
+			}
+			stack.tag.setString("Potion", resourcelocation.toString());
+		}
+		return stack;
 	}
 
 	private static ArrayList<IInitializer> initList = new ArrayList<>();
@@ -176,6 +247,13 @@ public class TFFluids {
 	public static Fluid fluidSyrup;
 	public static Fluid fluidResin;
 	public static Fluid fluidTreeOil;
+
+	public static Fluid fluidMushroomStew;
+	public static Fluid fluidExperience;
+
+	public static Fluid fluidPotion;
+	public static Fluid fluidPotionSplash;
+	public static Fluid fluidPotionLingering;
 
 	public static Fluid fluidRedstone;
 	public static Fluid fluidGlowstone;
