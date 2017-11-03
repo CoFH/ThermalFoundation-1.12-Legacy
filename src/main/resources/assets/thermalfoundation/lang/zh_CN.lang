@@ -297,7 +297,7 @@ item.thermalfoundation.tool.aluminumHoe.name=铝锄
 item.thermalfoundation.tool.aluminumPickaxe.name=铝镐
 item.thermalfoundation.tool.aluminumShears.name=铝剪刀
 item.thermalfoundation.tool.aluminumShield.name=铝盾
-item.thermalfoundation.tool.aluminumShovel.name=铝铲
+item.thermalfoundation.tool.aluminumShovel.name=铝锹
 item.thermalfoundation.tool.aluminumSickle.name=铝镰刀
 item.thermalfoundation.tool.aluminumSword.name=铝剑
 
@@ -321,7 +321,7 @@ item.thermalfoundation.tool.constantanHoe.name=康铜锄
 item.thermalfoundation.tool.constantanPickaxe.name=康铜镐
 item.thermalfoundation.tool.constantanShears.name=康铜剪刀
 item.thermalfoundation.tool.constantanShield.name=康铜盾
-item.thermalfoundation.tool.constantanShovel.name=康铜铲
+item.thermalfoundation.tool.constantanShovel.name=康铜锹
 item.thermalfoundation.tool.constantanSickle.name=康铜镰刀
 item.thermalfoundation.tool.constantanSword.name=康铜剑
 
@@ -438,7 +438,7 @@ item.thermalfoundation.tool.steelHoe.name=钢锄
 item.thermalfoundation.tool.steelPickaxe.name=钢镐
 item.thermalfoundation.tool.steelShears.name=钢剪刀
 item.thermalfoundation.tool.steelShield.name=钢盾
-item.thermalfoundation.tool.steelShovel.name=钢铲
+item.thermalfoundation.tool.steelShovel.name=钢锹
 item.thermalfoundation.tool.steelSickle.name=钢镰刀
 item.thermalfoundation.tool.steelSword.name=钢剑
 
@@ -512,7 +512,7 @@ tile.thermalfoundation.ore.copper.name=铜矿石
 tile.thermalfoundation.ore.crude_oil_gravel.name=油页岩
 tile.thermalfoundation.ore.crude_oil_sand.name=油砂
 tile.thermalfoundation.ore.ender.name=谐振末影矿石
-tile.thermalfoundation.ore.glowstone.name=充能萤石地狱岩
+tile.thermalfoundation.ore.glowstone.name=充能荧石地狱岩
 tile.thermalfoundation.ore.lead.name=铅矿石
 tile.thermalfoundation.ore.iridium.name=铱矿石
 tile.thermalfoundation.ore.mithril.name=蕴魔秘银矿
