@@ -75,7 +75,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 				}
 				break;
 			case EXPERIENCE:
-				tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tome.experience.a.0"));
+				tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tome.experience.0"));
 				tooltip.add(StringHelper.formatNumber(getExperience(stack)));
 			default:
 		}
@@ -259,7 +259,7 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 	public boolean initialize() {
 
 		tomeLexicon = addItem(0, "lexicon");
-		// tomeExperience = addItem(1, "experience");
+		tomeExperience = addItem(1, "experience");
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
@@ -269,7 +269,8 @@ public class ItemTome extends ItemMulti implements IInitializer, IInventoryConta
 	@Override
 	public boolean register() {
 
-		addShapedRecipe(tomeLexicon, " D ", "GBI", " R ", 'D', "gemLapis", 'G', "ingotGold", 'B', Items.BOOK, 'I', "ingotIron", 'R', "dustRedstone");
+		addShapedRecipe(tomeLexicon, " L ", "GBI", " R ", 'B', Items.BOOK, 'G', "ingotGold", 'I', "ingotIron", 'L', "gemLapis", 'R', "dustRedstone");
+		addShapedRecipe(tomeExperience, " L ", "EBE", " L ", 'B', Items.BOOK, 'E', "gemEmerald", 'L', "gemLapis");
 
 		return true;
 	}

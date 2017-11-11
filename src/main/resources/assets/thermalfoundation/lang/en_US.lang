@@ -64,6 +64,8 @@ info.thermalfoundation.diagram.redprint.1=Use on a device to transfer stored set
 
 info.thermalfoundation.security.lock=Use on securable blocks or combine with securable items.
 
+info.thermalfoundation.tome.experience.0=Stores experience within its pages.
+
 info.thermalfoundation.tome.lexicon.a.0=Converts items to equivalent forms.
 info.thermalfoundation.tome.lexicon.b.0=Right click (open) to study.
 info.thermalfoundation.tome.lexicon.b.1=§bPress (%s) to gain wisdom!§r
