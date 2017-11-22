@@ -5,6 +5,7 @@ import cofh.core.init.CoreProps;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFEquipment.ArmorSet;
 import cofh.thermalfoundation.init.TFEquipment.ToolSet;
+import cofh.thermalfoundation.item.ItemMaterial;
 import cofh.thermalfoundation.item.ItemWrench;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
@@ -98,8 +99,12 @@ public class TFProps {
 		renderStarfieldCage = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("CageyEnder", category, renderStarfieldCage, comment);
 
 		category = "Interface";
+		boolean utilTabCommon = false;
 		boolean armorTabCommon = false;
 		boolean toolTabCommon = false;
+
+		comment = "If TRUE, Thermal Foundation Utility Items appear under the general \"Thermal Foundation\" Creative Tab.";
+		utilTabCommon = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("UtilsInCommonTab", category, armorTabCommon, comment);
 
 		comment = "If TRUE, Thermal Foundation Armor Sets appear under the general \"Thermal Foundation\" Creative Tab.";
 		armorTabCommon = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("ArmorInCommonTab", category, armorTabCommon, comment);
@@ -114,11 +119,25 @@ public class TFProps {
 			@SideOnly (Side.CLIENT)
 			public ItemStack getIconItemStack() {
 
-				return ItemWrench.wrenchBasic;
+				return ItemMaterial.ingotInvar;
 			}
 
 		};
 
+		if (utilTabCommon) {
+			ThermalFoundation.tabUtils = ThermalFoundation.tabCommon;
+		} else {
+			ThermalFoundation.tabUtils = new CreativeTabCore("thermalfoundation", "Utils") {
+
+				@Override
+				@SideOnly (Side.CLIENT)
+				public ItemStack getIconItemStack() {
+
+					return ItemWrench.wrenchBasic;
+				}
+
+			};
+		}
 		if (armorTabCommon) {
 			ThermalFoundation.tabArmor = ThermalFoundation.tabCommon;
 		} else {
@@ -209,8 +228,11 @@ public class TFProps {
 	public static final String LEXICON_TIMER = "thermalfoundation.lexicon_timer";
 	public static final String LEXICON_DATA = "thermalfoundation.lexicon_data";
 
-	public static final int MAX_LEVEL = 100;
-	public static final int MAX_EXP = (9 * MAX_LEVEL * MAX_LEVEL - 325 * MAX_LEVEL + 4440) / 2;
+	public static final int MAX_EXP_LEVEL = 100;
+	public static final int MAX_EXP = (9 * MAX_EXP_LEVEL * MAX_EXP_LEVEL - 325 * MAX_EXP_LEVEL + 4440) / 2;
+
+	public static final byte LEVEL_MIN = 0;
+	public static final byte LEVEL_MAX = 4;
 
 	public static boolean dropSulfurFireImmuneMobs = true;
 

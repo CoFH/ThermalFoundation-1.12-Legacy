@@ -44,7 +44,7 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 		super("thermalfoundation");
 
 		setUnlocalizedName("util", "meter");
-		setCreativeTab(ThermalFoundation.tabCommon);
+		setCreativeTab(ThermalFoundation.tabUtils);
 
 		setHasSubtypes(true);
 		setMaxStackSize(1);

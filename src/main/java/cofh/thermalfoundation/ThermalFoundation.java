@@ -52,6 +52,7 @@ public class ThermalFoundation {
 	public static final GuiHandler GUI_HANDLER = new GuiHandler();
 
 	public static CreativeTabs tabCommon;
+	public static CreativeTabs tabUtils;
 	public static CreativeTabs tabTools;
 	public static CreativeTabs tabArmor;
 

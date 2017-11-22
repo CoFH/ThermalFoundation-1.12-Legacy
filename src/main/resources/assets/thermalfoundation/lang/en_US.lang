@@ -1,5 +1,10 @@
 #en_US
 
+chat.thermalfoundation.augment.install.failure=Unable to install augment.
+chat.thermalfoundation.augment.install.success=Augment successfully installed!
+chat.thermalfoundation.upgrade.install.failure=Unable to upgrade block.
+chat.thermalfoundation.upgrade.install.success=Block successfully upgraded!
+
 death.attack.basalz=%1$s had their world rocked!
 death.attack.blitz=%1$s was tragically enlightened!
 death.attack.blizz=%1$s met a frigid fate!
@@ -71,6 +76,13 @@ info.thermalfoundation.tome.lexicon.b.0=Right click (open) to study.
 info.thermalfoundation.tome.lexicon.b.1=§bPress (%s) to gain wisdom!§r
 info.thermalfoundation.tome.lexicon.c.0=Right click (open) to transmute items.
 info.thermalfoundation.tome.lexicon.c.1=§ePress (%s) to forsake knowledge.§r
+
+info.thermalfoundation.upgrade.creative.0=Converts a block to a Creative version.
+info.thermalfoundation.upgrade.creative.1=May be used on any tier of block.
+info.thermalfoundation.upgrade.full.0=Fully upgrades a block to a given tier.
+info.thermalfoundation.upgrade.full.1=May be used on any lower tier.
+info.thermalfoundation.upgrade.incremental.0=Incrementally upgrades a block.
+info.thermalfoundation.upgrade.incremental.1=Requires tier immediately preceding.
 
 info.thermalfoundation.util.multimeter.0=Provides information about things.
 info.thermalfoundation.util.multimeter.1=Use while sneaking to configure some devices.
@@ -487,6 +499,16 @@ item.thermalfoundation.tool.woodShears.name=Wooden Shears
 item.thermalfoundation.tool.woodShield.name=Wooden Shield
 item.thermalfoundation.tool.woodSickle.name=Wooden Sickle
 
+item.thermalfoundation.upgrade.creative.name=Creative Conversion Kit
+item.thermalfoundation.upgrade.full1.name=Hardened Conversion Kit
+item.thermalfoundation.upgrade.full2.name=Reinforced Conversion Kit
+item.thermalfoundation.upgrade.full3.name=Signalum Conversion Kit
+item.thermalfoundation.upgrade.full4.name=Resonant Conversion Kit
+item.thermalfoundation.upgrade.incremental1.name=Hardened Upgrade Kit
+item.thermalfoundation.upgrade.incremental2.name=Reinforced Upgrade Kit
+item.thermalfoundation.upgrade.incremental3.name=Signalum Upgrade Kit
+item.thermalfoundation.upgrade.incremental4.name=Resonant Upgrade Kit
+
 item.thermalfoundation.util.lock.name=Signalum Security Lock
 item.thermalfoundation.util.multimeter.name=Multimeter
 item.thermalfoundation.util.wrench0.name=Crescent Hammer
@@ -498,6 +520,7 @@ item.thermalfoundation.util.wrench4.name=Crescent Hammer (Resonant)
 itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armor
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Tools
+itemGroup.thermalfoundation.creativeTabUtils=Thermal Foundation: Utilities
 
 tab.thermalfoundation.lexicon.study.0=Consult the knowledge of the world and alter your personal destiny.
 tab.thermalfoundation.lexicon.study.1=Empower the Lexicon to force the world to obey your choices.

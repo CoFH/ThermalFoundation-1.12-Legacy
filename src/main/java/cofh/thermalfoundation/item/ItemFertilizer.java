@@ -30,7 +30,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 		super("thermalfoundation");
 
 		setUnlocalizedName("fertilizer");
-		setCreativeTab(ThermalFoundation.tabCommon);
+		setCreativeTab(ThermalFoundation.tabUtils);
 	}
 
 	private boolean growBlock(World world, BlockPos pos, IBlockState state) {

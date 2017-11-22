@@ -3,10 +3,14 @@ package cofh.thermalfoundation.init;
 import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.item.*;
 import cofh.thermalfoundation.util.TFCrafting;
+import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.RegistryEvent.MissingMappings;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import java.util.ArrayList;
 
@@ -22,6 +26,7 @@ public class TFItems {
 
 		itemWrench = new ItemWrench();
 		itemMeter = new ItemMeter();
+		itemUpgrade = new ItemUpgrade();
 		itemTome = new ItemTome();
 		itemSecurity = new ItemSecurity();
 		itemDiagram = new ItemDiagram();
@@ -33,6 +38,7 @@ public class TFItems {
 
 		initList.add(itemWrench);
 		initList.add(itemMeter);
+		initList.add(itemUpgrade);
 		initList.add(itemTome);
 		initList.add(itemSecurity);
 		initList.add(itemDiagram);
@@ -58,11 +64,22 @@ public class TFItems {
 		TFCrafting.loadRecipes();
 	}
 
+	@SubscribeEvent
+	public void missingMapping(RegistryEvent.MissingMappings<Item> event) {
+
+		for (MissingMappings.Mapping<Item> entry : event.getAllMappings()) {
+			if (entry.key.toString().equals("thermalexpansion:upgrade")) {
+				entry.remap(ForgeRegistries.ITEMS.getValue(new ResourceLocation("thermalfoundation:upgrade")));
+			}
+		}
+	}
+
 	private static ArrayList<IInitializer> initList = new ArrayList<>();
 
 	/* REFERENCES */
 	public static ItemWrench itemWrench;
 	public static ItemMeter itemMeter;
+	public static ItemUpgrade itemUpgrade;
 	public static ItemTome itemTome;
 	public static ItemSecurity itemSecurity;
 	public static ItemDiagram itemDiagram;

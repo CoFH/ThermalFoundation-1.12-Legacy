@@ -1,5 +1,10 @@
 #zh_CN
 
+chat.thermalfoundation.augment.install.failure=不能安装升级组件。
+chat.thermalfoundation.augment.install.success=升级组件安装成功！
+chat.thermalfoundation.upgrade.install.failure=不能升级该方块。
+chat.thermalfoundation.upgrade.install.success=方块升级成功！
+
 death.attack.basalz=%1$s 的世界天翻地覆！
 death.attack.blitz=%1$s 得到了悲惨的教训！
 death.attack.blizz=%1$s 邂逅了冰冷的命运！
@@ -69,6 +74,13 @@ info.thermalfoundation.tome.lexicon.b.0=右击打开以学习。
 info.thermalfoundation.tome.lexicon.b.1=§b§o按下 %s 以获得知识！§r
 info.thermalfoundation.tome.lexicon.c.0=右击打开以转换。
 info.thermalfoundation.tome.lexicon.c.1=§e§o按下 (%s) 以遗忘知识。§r
+
+info.thermalfoundation.upgrade.creative.0=将目标方块直接升级至创造级。
+info.thermalfoundation.upgrade.creative.1=可在任何级别的方块上使用。
+info.thermalfoundation.upgrade.full.0=将目标方块完整升级到指定等级。
+info.thermalfoundation.upgrade.full.1=可在任何低级别的方块上使用。
+info.thermalfoundation.upgrade.incremental.0=将目标方块提升一个等级。
+info.thermalfoundation.upgrade.incremental.1=目标方块必须比该升级低一级。
 
 info.thermalfoundation.util.multimeter.0=显示目标的信息。
 info.thermalfoundation.util.multimeter.1=某些设备支持用其调整设置（需在潜行时完成）。
@@ -484,6 +496,16 @@ item.thermalfoundation.tool.woodHammer.name=木锤
 item.thermalfoundation.tool.woodShears.name=木剪刀
 item.thermalfoundation.tool.woodShield.name=木盾
 item.thermalfoundation.tool.woodSickle.name=木镰刀
+
+item.thermalfoundation.upgrade.creative.name=创造转换套件
+item.thermalfoundation.upgrade.full1.name=硬化转换套件
+item.thermalfoundation.upgrade.full2.name=强化转换套件
+item.thermalfoundation.upgrade.full3.name=信素转换套件
+item.thermalfoundation.upgrade.full4.name=谐振转换套件
+item.thermalfoundation.upgrade.incremental1.name=硬化升级套件
+item.thermalfoundation.upgrade.incremental2.name=强化升级套件
+item.thermalfoundation.upgrade.incremental3.name=信素升级套件
+item.thermalfoundation.upgrade.incremental4.name=谐振升级套件
 
 item.thermalfoundation.util.lock.name=信素安全锁
 item.thermalfoundation.util.multimeter.name=万用表

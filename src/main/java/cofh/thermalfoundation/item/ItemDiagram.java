@@ -43,7 +43,7 @@ public class ItemDiagram extends ItemMulti implements IInitializer {
 		super("thermalfoundation");
 
 		setUnlocalizedName("diagram");
-		setCreativeTab(ThermalFoundation.tabCommon);
+		setCreativeTab(ThermalFoundation.tabUtils);
 
 		setHasSubtypes(true);
 	}

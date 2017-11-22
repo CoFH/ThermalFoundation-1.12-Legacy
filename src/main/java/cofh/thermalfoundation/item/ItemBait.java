@@ -25,7 +25,7 @@ public class ItemBait extends ItemMulti implements IInitializer {
 		super("thermalfoundation");
 
 		setUnlocalizedName("bait");
-		setCreativeTab(ThermalFoundation.tabCommon);
+		setCreativeTab(ThermalFoundation.tabUtils);
 	}
 
 	@Override
