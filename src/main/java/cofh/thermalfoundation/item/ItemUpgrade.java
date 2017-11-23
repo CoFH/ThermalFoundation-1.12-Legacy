@@ -115,6 +115,8 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 					ChatHelper.sendIndexedChatMessageToPlayer(player, new TextComponentTranslation("chat.thermalfoundation.upgrade.install.failure"));
 				}
 				return EnumActionResult.SUCCESS;
+			} else if (((IUpgradeable) tile).canUpgrade(stack)) {
+				return EnumActionResult.SUCCESS;
 			}
 		}
 		return EnumActionResult.PASS;

@@ -1,6 +1,6 @@
 package cofh.thermalfoundation.item;
 
-import cofh.api.block.IBlockConfigGui;
+import cofh.api.block.IConfigGui;
 import cofh.api.block.IBlockInfo;
 import cofh.api.tileentity.ITileInfo;
 import cofh.core.item.ItemMulti;
@@ -58,31 +58,27 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 		ArrayList<ITextComponent> info = new ArrayList<>();
 
 		if (ServerHelper.isClientWorld(world)) {
-			if (block instanceof IBlockConfigGui || block instanceof IBlockInfo) {
-				ServerHelper.sendItemUsePacket(world, pos, side, hand, hitX, hitY, hitZ);
+			if (block instanceof IConfigGui || block instanceof IBlockInfo) {
 				return true;
 			}
 			TileEntity tile = world.getTileEntity(pos);
 			return tile instanceof ITileInfo;
 		}
-		if (player.isSneaking() && block instanceof IBlockConfigGui) {
-			if (((IBlockConfigGui) block).openConfigGui(world, pos, side, player)) {
+		if (player.isSneaking() && block instanceof IConfigGui) {
+			if (((IConfigGui) block).openConfigGui(world, pos, side, player)) {
 				return true;
 			}
 		}
 		if (block instanceof IBlockInfo) {
 			((IBlockInfo) (block)).getBlockInfo(info, world, pos, side, player, false);
-
 			ChatHelper.sendIndexedChatMessagesToPlayer(player, info);
 			info.clear();
 			return true;
 		} else {
 			TileEntity tile = world.getTileEntity(pos);
 			if (tile instanceof ITileInfo) {
-				if (ServerHelper.isServerWorld(world)) {
-					((ITileInfo) tile).getTileInfo(info, side, player, false);
-					ChatHelper.sendIndexedChatMessagesToPlayer(player, info);
-				}
+				((ITileInfo) tile).getTileInfo(info, side, player, false);
+				ChatHelper.sendIndexedChatMessagesToPlayer(player, info);
 				info.clear();
 				return true;
 			}
