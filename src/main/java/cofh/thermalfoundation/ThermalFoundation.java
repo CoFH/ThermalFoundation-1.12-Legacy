@@ -8,7 +8,6 @@ import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.init.*;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.proxy.Proxy;
-import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.creativetab.CreativeTabs;
@@ -32,7 +31,7 @@ public class ThermalFoundation {
 	public static final String MOD_ID = "thermalfoundation";
 	public static final String MOD_NAME = "Thermal Foundation";
 
-	public static final String VERSION = "2.3.6";
+	public static final String VERSION = "2.3.7";
 	public static final String VERSION_MAX = "2.4.0";
 	public static final String VERSION_GROUP = "required-after:" + MOD_ID + "@[" + VERSION + "," + VERSION_MAX + ");";
 	public static final String UPDATE_URL = "https://raw.github.com/cofh/version/master/" + MOD_ID + "_update.json";
@@ -132,7 +131,6 @@ public class ThermalFoundation {
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, GUI_HANDLER);
 
 		LexiconManager.initialize();
-		EventHandlerLexicon.initialize();
 		PacketTFBase.initialize();
 	}
 

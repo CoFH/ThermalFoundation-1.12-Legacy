@@ -4,6 +4,7 @@ import cofh.core.init.CorePotions;
 import cofh.core.util.crafting.FluidIngredientFactory.FluidIngredient;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.StringHelper;
+import cofh.thermalfoundation.init.TFEquipment.ToolSet;
 import cofh.thermalfoundation.init.TFProps;
 import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.init.Blocks;
@@ -90,6 +91,8 @@ public class TFCrafting {
 		addShapelessFluidRecipe(new ItemStack(Items.REDSTONE, 10), new FluidIngredient("redstone"), "dustCryotheum");
 		addShapelessFluidRecipe(new ItemStack(Items.GLOWSTONE_DUST, 4), new FluidIngredient("glowstone"), "dustCryotheum");
 		addShapelessFluidRecipe(new ItemStack(Items.ENDER_PEARL, 4), new FluidIngredient("ender"), "dustCryotheum");
+
+		addShapelessRecipe(new ItemStack(Blocks.GRAVEL), new ItemStack(Blocks.COBBLESTONE), ToolSet.COPPER.itemHammer);
 
 		/* VANILLA RECIPES */
 		loadVanillaRecipes();

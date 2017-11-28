@@ -225,11 +225,13 @@ public class TFProps {
 	public static boolean showDisabledEquipment = false;
 
 	/* GENERAL */
+	public static final String EXPERIENCE_TIMER = "thermalfoundation.experience_timer";
+
 	public static final String LEXICON_TIMER = "thermalfoundation.lexicon_timer";
 	public static final String LEXICON_DATA = "thermalfoundation.lexicon_data";
 
-	public static final int MAX_EXP_LEVEL = 100;
-	public static final int MAX_EXP = (9 * MAX_EXP_LEVEL * MAX_EXP_LEVEL - 325 * MAX_EXP_LEVEL + 4440) / 2;
+	//	public static final int MAX_EXP_LEVEL = 100;
+	//	public static final int MAX_EXP = (9 * MAX_EXP_LEVEL * MAX_EXP_LEVEL - 325 * MAX_EXP_LEVEL + 4440) / 2;
 
 	public static final byte LEVEL_MIN = 0;
 	public static final byte LEVEL_MAX = 4;

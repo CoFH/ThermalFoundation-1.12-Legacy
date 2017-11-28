@@ -69,7 +69,11 @@ info.thermalfoundation.diagram.redprint.1=Use on a device to transfer stored set
 
 info.thermalfoundation.security.lock=Use on securable blocks or combine with securable items.
 
-info.thermalfoundation.tome.experience.0=Stores experience within its pages.
+info.thermalfoundation.tome.experience.a.0=Stores experience within its pages.
+info.thermalfoundation.tome.experience.a.1=Use to store knowledge in the tome.
+info.thermalfoundation.tome.experience.a.2=Use while sneaking to retrieve stored knowledge.
+info.thermalfoundation.tome.experience.b.0=§bPress (%s) for the tome to automatically collect XP.§r
+info.thermalfoundation.tome.experience.c.0=§ePress (%s) for the tome to no longer collect XP.§r
 
 info.thermalfoundation.tome.lexicon.a.0=Converts items to equivalent forms.
 info.thermalfoundation.tome.lexicon.b.0=Right click (open) to study.
@@ -85,7 +89,7 @@ info.thermalfoundation.upgrade.incremental.0=Incrementally upgrades a block.
 info.thermalfoundation.upgrade.incremental.1=Requires tier immediately preceding.
 
 info.thermalfoundation.util.multimeter.0=Provides information about things.
-info.thermalfoundation.util.multimeter.1=Use while sneaking to configure some devices.
+info.thermalfoundation.util.multimeter.1=Use while sneaking to configure some blocks.
 
 item.thermalfoundation.armor.aluminumBoots.name=Aluminum Boots
 item.thermalfoundation.armor.aluminumHelmet.name=Aluminum Helmet

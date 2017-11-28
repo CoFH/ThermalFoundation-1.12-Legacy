@@ -90,7 +90,7 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 
 		ItemStack stack = player.getHeldItem(hand);
 		IBlockState state = world.getBlockState(pos);
-		Block block = state.getBlock();
+		Block block = world.getBlockState(pos).getBlock();
 
 		if (!block.hasTileEntity(state)) {
 			return EnumActionResult.PASS;

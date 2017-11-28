@@ -211,17 +211,17 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public boolean register() {
 
 		/* Smelting */
-		addSmelting(dustIron, ingotIron);
-		addSmelting(dustGold, ingotGold);
-		addSmelting(dustCopper, ingotCopper);
-		addSmelting(dustTin, ingotTin);
-		addSmelting(dustSilver, ingotSilver);
-		addSmelting(dustLead, ingotLead);
-		// addSmelting(dustAluminum, ingotAluminum);
-		addSmelting(dustNickel, ingotNickel);
-		addSmelting(dustPlatinum, ingotPlatinum);
-		// addSmelting(dustIridium, ingotIridium);
-		// addSmelting(dustMithril, ingotMithril);
+		addSmelting(dustIron, ingotIron, 0.7F);
+		addSmelting(dustGold, ingotGold, 1.0F);
+		addSmelting(dustCopper, ingotCopper, 0.6F);
+		addSmelting(dustTin, ingotTin, 0.7F);
+		addSmelting(dustSilver, ingotSilver, 0.9F);
+		addSmelting(dustLead, ingotLead, 0.8F);
+		addSmelting(dustAluminum, ingotAluminum, 0.6F);
+		addSmelting(dustNickel, ingotNickel, 1.0F);
+		addSmelting(dustPlatinum, ingotPlatinum, 1.0F);
+		addSmelting(dustIridium, ingotIridium, 1.2F);
+		addSmelting(dustMithril, ingotMithril, 1.5F);
 
 		// addSmelting(dustSteel, ingotSteel);
 		addSmelting(dustElectrum, ingotElectrum);
@@ -235,7 +235,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		if (!Loader.isModLoaded("thermalexpansion")) {
 			addSmelting(Blocks.GRAVEL, crystalSlag);
 
-			addSmelting(dustAluminum, ingotAluminum);
 			addSmelting(dustSteel, ingotSteel);
 			addSmelting(dustSignalum, ingotSignalum);
 			addSmelting(dustLumium, ingotLumium);

@@ -30,12 +30,12 @@ public class GuiHandler implements IGuiHandler {
 				}
 				return null;
 			case LEXICON_STUDY_ID:
-				if (ItemHelper.isPlayerHoldingMainhand(TFItems.itemTome, player)) {
+				if (ItemHelper.isPlayerHoldingMainhand(TFItems.itemTomeLexicon, player)) {
 					return new GuiLexiconStudy(player.inventory, new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory));
 				}
 				return null;
 			case LEXICON_TRANSMUTE_ID:
-				if (ItemHelper.isPlayerHoldingMainhand(TFItems.itemTome, player)) {
+				if (ItemHelper.isPlayerHoldingMainhand(TFItems.itemTomeLexicon, player)) {
 					return new GuiLexiconTransmute(player.inventory, new ContainerLexiconTransmute(player.inventory));
 				}
 				return null;
@@ -55,12 +55,12 @@ public class GuiHandler implements IGuiHandler {
 				}
 				return null;
 			case LEXICON_STUDY_ID:
-				if (ItemHelper.isPlayerHoldingMainhand(TFItems.itemTome, player)) {
+				if (ItemHelper.isPlayerHoldingMainhand(TFItems.itemTomeLexicon, player)) {
 					return new ContainerLexiconStudy(player.getHeldItemMainhand(), player.inventory);
 				}
 				return null;
 			case LEXICON_TRANSMUTE_ID:
-				if (ItemHelper.isPlayerHoldingMainhand(TFItems.itemTome, player)) {
+				if (ItemHelper.isPlayerHoldingMainhand(TFItems.itemTomeLexicon, player)) {
 					return new ContainerLexiconTransmute(player.inventory);
 				}
 				return null;

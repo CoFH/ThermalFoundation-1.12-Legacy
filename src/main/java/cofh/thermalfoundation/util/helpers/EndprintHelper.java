@@ -1,16 +1,13 @@
 package cofh.thermalfoundation.util.helpers;
 
-import cofh.core.util.helpers.ItemHelper;
-import cofh.core.util.helpers.RedstoneControlHelper;
 import cofh.core.util.helpers.StringHelper;
-import cofh.thermalfoundation.init.TFItems;
 import net.minecraft.item.ItemStack;
 
 import java.util.List;
 
-public class RedprintHelper {
+public class EndprintHelper {
 
-	private RedprintHelper() {
+	private EndprintHelper() {
 
 	}
 
@@ -29,7 +26,6 @@ public class RedprintHelper {
 		}
 		tooltip.add(StringHelper.getDeactivationText("info.thermalfoundation.diagram.erase"));
 		tooltip.add(StringHelper.getActivationText("info.thermalfoundation.diagram.redprint.1"));
-		RedstoneControlHelper.addRSControlInformation(stack, tooltip);
 	}
 
 	public static String getDisplayName(ItemStack stack) {
@@ -43,9 +39,10 @@ public class RedprintHelper {
 		return ": " + StringHelper.localize(stack.getTagCompound().getString("Type"));
 	}
 
-	public static boolean isRedprint(ItemStack stack) {
+	public static boolean isEndprint(ItemStack stack) {
 
-		return ItemHelper.itemsEqual(stack.getItem(), TFItems.itemDiagramRedprint);
+		return false;
+		// return ItemHelper.itemsEqual(stack.getItem(), TFItems.itemDiagramEndprint);
 	}
 
 }

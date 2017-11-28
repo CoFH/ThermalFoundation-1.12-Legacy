@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.item;
 
-import cofh.api.block.IConfigGui;
 import cofh.api.block.IBlockInfo;
+import cofh.api.block.IConfigGui;
 import cofh.api.tileentity.ITileInfo;
 import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;

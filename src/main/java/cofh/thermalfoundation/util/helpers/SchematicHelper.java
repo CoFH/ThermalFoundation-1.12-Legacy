@@ -4,7 +4,6 @@ import cofh.core.inventory.InventoryCraftingFalse;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.StringHelper;
 import cofh.core.util.oredict.OreDictionaryArbiter;
-import cofh.thermalfoundation.item.ItemDiagram;
 import gnu.trove.map.TMap;
 import gnu.trove.map.hash.THashMap;
 import net.minecraft.inventory.IInventory;
@@ -75,7 +74,8 @@ public class SchematicHelper {
 
 	public static boolean isSchematic(ItemStack stack) {
 
-		return ItemHelper.itemsEqualWithMetadata(stack, ItemDiagram.schematic);
+		return false;
+		//return ItemHelper.itemsEqualWithMetadata(stack, ItemDiagram.schematic);
 	}
 
 	private static void copyInventory(IInventory src, IInventory dest) {

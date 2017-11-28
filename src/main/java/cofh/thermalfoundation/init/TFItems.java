@@ -2,6 +2,11 @@ package cofh.thermalfoundation.init;
 
 import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.item.*;
+import cofh.thermalfoundation.item.diagram.ItemDiagram;
+import cofh.thermalfoundation.item.diagram.ItemDiagramRedprint;
+import cofh.thermalfoundation.item.tome.ItemTome;
+import cofh.thermalfoundation.item.tome.ItemTomeExperience;
+import cofh.thermalfoundation.item.tome.ItemTomeLexicon;
 import cofh.thermalfoundation.util.TFCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
@@ -27,9 +32,10 @@ public class TFItems {
 		itemWrench = new ItemWrench();
 		itemMeter = new ItemMeter();
 		itemUpgrade = new ItemUpgrade();
-		itemTome = new ItemTome();
 		itemSecurity = new ItemSecurity();
-		itemDiagram = new ItemDiagram();
+		itemDiagramRedprint = new ItemDiagramRedprint();
+		itemTomeLexicon = new ItemTomeLexicon();
+		itemTomeExperience = new ItemTomeExperience();
 		itemCoin = new ItemCoin();
 		itemFertilizer = new ItemFertilizer();
 		itemBait = new ItemBait();
@@ -39,9 +45,10 @@ public class TFItems {
 		initList.add(itemWrench);
 		initList.add(itemMeter);
 		initList.add(itemUpgrade);
-		initList.add(itemTome);
 		initList.add(itemSecurity);
-		initList.add(itemDiagram);
+		initList.add(itemDiagramRedprint);
+		initList.add(itemTomeLexicon);
+		initList.add(itemTomeExperience);
 		initList.add(itemCoin);
 		initList.add(itemFertilizer);
 		initList.add(itemBait);
@@ -70,6 +77,10 @@ public class TFItems {
 		for (MissingMappings.Mapping<Item> entry : event.getAllMappings()) {
 			if (entry.key.toString().equals("thermalexpansion:upgrade")) {
 				entry.remap(ForgeRegistries.ITEMS.getValue(new ResourceLocation("thermalfoundation:upgrade")));
+			} else if (entry.key.toString().equals("thermalfoundation:diagram")) {
+				entry.remap(ForgeRegistries.ITEMS.getValue(new ResourceLocation("thermalfoundation:diagram_redprint")));
+			} else if (entry.key.toString().equals("thermalfoundation:tome")) {
+				entry.remap(ForgeRegistries.ITEMS.getValue(new ResourceLocation("thermalfoundation:tome_lexicon")));
 			}
 		}
 	}
@@ -80,9 +91,10 @@ public class TFItems {
 	public static ItemWrench itemWrench;
 	public static ItemMeter itemMeter;
 	public static ItemUpgrade itemUpgrade;
-	public static ItemTome itemTome;
 	public static ItemSecurity itemSecurity;
-	public static ItemDiagram itemDiagram;
+	public static ItemDiagram itemDiagramRedprint;
+	public static ItemTome itemTomeLexicon;
+	public static ItemTome itemTomeExperience;
 	public static ItemCoin itemCoin;
 	public static ItemBait itemBait;
 	public static ItemFertilizer itemFertilizer;
