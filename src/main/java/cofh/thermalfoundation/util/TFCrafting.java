@@ -33,11 +33,11 @@ public class TFCrafting {
 		addShapelessOreRecipe(new ItemStack(Items.GUNPOWDER), "dustCharcoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
 
 		addShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globRosin, '#', "string");
-		addShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', ItemMaterial.globRosin, 'P', Blocks.PISTON);
+		addShapedRecipe(new ItemStack(Blocks.STICKY_PISTON), "S", "P", 'S', ItemMaterial.globRosin, 'P', Blocks.PISTON);
 		addShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globRosin);
 
 		addShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globTar, '#', "string");
-		addShapedRecipe(new ItemStack(Blocks.STICKY_PISTON, 1), "S", "P", 'S', ItemMaterial.globTar, 'P', Blocks.PISTON);
+		addShapedRecipe(new ItemStack(Blocks.STICKY_PISTON), "S", "P", 'S', ItemMaterial.globTar, 'P', Blocks.PISTON);
 		addShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globTar);
 
 		/* PYROTHEUM / PETROTHEUM CRAFTING */
@@ -108,30 +108,30 @@ public class TFCrafting {
 
 		/* HORSE ARMOR */
 		if (TFProps.enableHorseArmorCrafting) {
-			addShapedRecipe(new ItemStack(Items.IRON_HORSE_ARMOR, 1),
-					"  H",
-					"ICI",
-					"III",
+			addShapedRecipe(new ItemStack(Items.IRON_HORSE_ARMOR),
+					"I I",
+					"LCL",
+					"I I",
 					'C', "blockWool",
-					'H', Items.IRON_HELMET,
+					'L', Items.LEATHER,
 					'I', "ingotIron"
 			);
 
 			addShapedRecipe(new ItemStack(Items.GOLDEN_HORSE_ARMOR),
-					"  H",
-					"ICI",
-					"III",
+					"I I",
+					"LCL",
+					"I I",
 					'C', "blockWool",
-					'H', Items.GOLDEN_HELMET,
+					'L', Items.LEATHER,
 					'I', "ingotGold"
 			);
 
 			addShapedRecipe(new ItemStack(Items.DIAMOND_HORSE_ARMOR),
-					"  H",
-					"ICI",
-					"III",
+					"I I",
+					"LCL",
+					"I I",
 					'C', "blockWool",
-					'H', Items.DIAMOND_HELMET,
+					'L', Items.LEATHER,
 					'I', "gemDiamond"
 			);
 		}

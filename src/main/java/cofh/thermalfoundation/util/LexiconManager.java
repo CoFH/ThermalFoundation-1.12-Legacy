@@ -170,7 +170,7 @@ public class LexiconManager {
 
 	private static boolean validType(String oreName) {
 
-		return isWhitelist == listNames.contains(oreName);
+		return DEBUG || isWhitelist == listNames.contains(oreName);
 	}
 
 	/* PLAYER INTERACTION */
@@ -265,5 +265,7 @@ public class LexiconManager {
 	private static boolean alwaysWriteFile = false;
 
 	private static File filterList;
+
+	private static final boolean DEBUG = false;
 
 }
