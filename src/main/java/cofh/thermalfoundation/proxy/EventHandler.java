@@ -19,7 +19,6 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -45,7 +44,11 @@ public class EventHandler {
 	@SubscribeEvent (priority = EventPriority.HIGHEST)
 	public void handleEntityItemPickupEvent(EntityItemPickupEvent event) {
 
-		ItemStack stack = event.getItem().getItem();
+		if (event.isCanceled()) {
+			return;
+		}
+		EntityItem item = event.getItem();
+		ItemStack stack = item.getItem();
 		if (stack.isEmpty() || !LexiconManager.validOre(stack)) {
 			return;
 		}
@@ -55,17 +58,12 @@ public class EventHandler {
 			return;
 		}
 		ItemStack lexiconStack = LexiconManager.getPreferredStack(player, stack);
-		if (!player.inventory.addItemStackToInventory(lexiconStack)) {
-			stack.setCount(lexiconStack.getCount());
-			event.getItem().setItem(stack);
+		if (ItemHelper.itemsIdentical(stack, lexiconStack)) {
 			return;
 		}
-		stack.setCount(0);
-		FMLCommonHandler.instance().firePlayerItemPickupEvent(player, event.getItem());
-		if (stack.getCount() <= 0) {
-			event.getItem().setDead();
-		}
+		item.setItem(lexiconStack.copy());
 		event.setCanceled(true);
+		item.onCollideWithPlayer(player);
 	}
 
 	@SubscribeEvent (priority = EventPriority.HIGHEST)
