@@ -130,7 +130,13 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 				addExperienceToPlayer(player, exp);
 			}
 		} else {
-			if (player.experienceLevel > 0 && exp < getMaxExperience(stack)) {
+			int partialExp = player.experienceTotal - getTotalExpForLevel(player.experienceLevel);
+			System.out.println(partialExp);
+
+			if (partialExp > 0 && exp + partialExp < getMaxExperience(stack)) {
+				modifyExperience(stack, partialExp);
+				addExperienceToPlayer(player, -partialExp);
+			} else if (player.experienceLevel > 0 && exp + player.xpBarCap() < getMaxExperience(stack)) {
 				player.experienceLevel -= 1;
 				modifyExperience(stack, player.xpBarCap());
 			}
@@ -177,6 +183,16 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 			player.experience = (player.experience - 1.0F) * (float) player.xpBarCap();
 			player.addExperienceLevel(1);
 		}
+	}
+
+	public static int getTotalExpForLevel(int level) {
+
+		return level >= 32 ? (9 * level * level - 325 * level + 4440) / 2 : level >= 17 ? (5 * level * level - 81 * level + 720) / 2 : (level * level + 6 * level);
+	}
+
+	public static int xpBarCap(int level) {
+
+		return level >= 30 ? 112 + (level - 30) * 9 : level >= 15 ? 37 + (level - 15) * 5 : 7 + level * 2;
 	}
 
 	/* IFluidContainerItem */
