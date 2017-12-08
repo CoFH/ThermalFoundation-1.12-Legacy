@@ -34,7 +34,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.List;
 import java.util.Random;
 
 import static cofh.core.util.helpers.ItemHelper.registerWithHandlers;
@@ -202,12 +201,9 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
-	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 
-		List<ItemStack> ret = new java.util.ArrayList<>();
-		ret.add(ItemHelper.cloneStack(drops[damageDropped(state)], quantityDropped(state, fortune, world instanceof World ? ((World) world).rand : RANDOM)));
-
-		return ret;
+		drops.add(ItemHelper.cloneStack(this.drops[damageDropped(state)], quantityDropped(state, fortune, world instanceof World ? ((World) world).rand : RANDOM)));
 	}
 
 	@Override

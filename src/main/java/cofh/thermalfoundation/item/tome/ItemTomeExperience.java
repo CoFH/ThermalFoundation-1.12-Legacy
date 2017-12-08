@@ -92,7 +92,7 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 	}
 
 	@Override
-	public int getItemEnchantability() {
+	public int getItemEnchantability(ItemStack stack) {
 
 		return 10;
 	}
@@ -124,21 +124,25 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 		if (player.isSneaking()) {
 			if (exp >= player.xpBarCap()) {
 				modifyExperience(stack, -player.xpBarCap());
-				player.experienceLevel += 1;
+				addExperienceToPlayer(player, player.xpBarCap());
+				addExperienceLevelToPlayer(player, 1);
 			} else if (exp > 0) {
 				modifyExperience(stack, -exp);
 				addExperienceToPlayer(player, exp);
 			}
 		} else {
 			int partialExp = player.experienceTotal - getTotalExpForLevel(player.experienceLevel);
-			System.out.println(partialExp);
-
-			if (partialExp > 0 && exp + partialExp < getMaxExperience(stack)) {
-				modifyExperience(stack, partialExp);
-				addExperienceToPlayer(player, -partialExp);
-			} else if (player.experienceLevel > 0 && exp + player.xpBarCap() < getMaxExperience(stack)) {
-				player.experienceLevel -= 1;
-				modifyExperience(stack, player.xpBarCap());
+			if (partialExp > 0) {
+				int toAdd = Math.min(partialExp, getSpace(stack));
+				modifyExperience(stack, toAdd);
+				addExperienceToPlayer(player, -toAdd);
+			} else {
+				if (player.experienceLevel > 0) {
+					int toAdd = Math.min(xpBarCap(player.experienceLevel - 1), getSpace(stack));
+					modifyExperience(stack, toAdd);
+					addExperienceLevelToPlayer(player, -1);
+					addExperienceToPlayer(player, -toAdd);
+				}
 			}
 		}
 		return new ActionResult<>(EnumActionResult.FAIL, stack);
@@ -151,6 +155,11 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 			stack.setTagCompound(new NBTTagCompound());
 		}
 		return stack.getTagCompound().getInteger("Experience");
+	}
+
+	public static int getSpace(ItemStack stack) {
+
+		return getMaxExperience(stack) - getExperience(stack);
 	}
 
 	public static int getMaxExperience(ItemStack stack) {
@@ -182,6 +191,17 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 		for (player.experienceTotal += exp; player.experience >= 1.0F; player.experience /= (float) player.xpBarCap()) {
 			player.experience = (player.experience - 1.0F) * (float) player.xpBarCap();
 			player.addExperienceLevel(1);
+		}
+	}
+
+	public static void addExperienceLevelToPlayer(EntityPlayer player, int levels) {
+
+		player.experienceLevel += levels;
+
+		if (player.experienceLevel < 0) {
+			player.experienceLevel = 0;
+			player.experience = 0.0F;
+			player.experienceTotal = 0;
 		}
 	}
 
