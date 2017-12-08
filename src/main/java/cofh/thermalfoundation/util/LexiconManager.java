@@ -8,6 +8,7 @@ import cofh.core.util.oredict.OreDictionaryArbiter;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.OreDictionary;
@@ -75,16 +76,18 @@ public class LexiconManager {
 			}
 		}
 		if (writingDefaultFile) {
+			ComparableItemStackSafe instance = new ComparableItemStackSafe(new ItemStack(Items.DIAMOND));
+
 			String[] registeredOreNames = OreDictionary.getOreNames();
 			for (String oreName : registeredOreNames) {
-				if (isWhitelist && ComparableItemStackSafe.safeOreType(oreName)) {
+				if (isWhitelist && instance.safeOreType(oreName)) {
 					if (oreName.contains("blockCloth") || oreName.contains("blockGlass")) {
 						// ignore Cloth and Glass
 					} else {
 						listNames.add(oreName);
 						defaultList.add(oreName);
 					}
-				} else if (!isWhitelist && !ComparableItemStackSafe.safeOreType(oreName) || oreName.contains("blockCloth") || oreName.contains("blockGlass")) {
+				} else if (!isWhitelist && !instance.safeOreType(oreName) || oreName.contains("blockCloth") || oreName.contains("blockGlass")) {
 					listNames.add(oreName);
 					defaultList.add(oreName);
 				}

@@ -87,16 +87,22 @@ public class GuiLexiconTransmute extends GuiContainerCore {
 	@Override
 	public void handleElementButtonClick(String buttonName, int mouseButton) {
 
-		if (buttonName.equalsIgnoreCase("PrevOre")) {
-			PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.ORE_PREV);
-		} else if (buttonName.equalsIgnoreCase("NextOre")) {
-			PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.ORE_NEXT);
-		} else if (buttonName.equalsIgnoreCase("PrevName")) {
-			PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.NAME_PREV);
-		} else if (buttonName.equalsIgnoreCase("NextName")) {
-			PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.NAME_NEXT);
-		} else if (buttonName.equalsIgnoreCase("Transmute")) {
-			PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.TRANSMUTE);
+		switch (buttonName) {
+			case "PrevOre":
+				PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.ORE_PREV);
+				break;
+			case "NextOre":
+				PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.ORE_NEXT);
+				break;
+			case "PrevName":
+				PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.NAME_PREV);
+				break;
+			case "NextName":
+				PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.NAME_NEXT);
+				break;
+			case "Transmute":
+				PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.TRANSMUTE);
+				break;
 		}
 	}
 

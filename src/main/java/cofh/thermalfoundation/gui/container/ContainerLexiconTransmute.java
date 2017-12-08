@@ -87,7 +87,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		ArrayList<String> nameList1 = OreDictionaryArbiter.getAllOreNames(ore1);
 		ArrayList<String> nameList2 = OreDictionaryArbiter.getAllOreNames(ore2);
 
-		if (nameList1 == null || nameList2 == null) {
+		if (nameList1.isEmpty() || nameList2.isEmpty()) {
 			return false;
 		}
 		for (String name1 : nameList1) {
@@ -281,7 +281,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 			if (!equivalentOres(input, oreStack)) {
 				nameList = OreDictionaryArbiter.getAllOreNames(input);
 
-				if (nameList == null) {
+				if (nameList.isEmpty()) {
 					return;
 				}
 				// no existing/common types - start at 0
@@ -297,7 +297,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 			} else {
 				nameList = OreDictionaryArbiter.getAllOreNames(input);
 
-				if (nameList == null) {
+				if (nameList.isEmpty()) {
 					return;
 				}
 				// get the first common type
