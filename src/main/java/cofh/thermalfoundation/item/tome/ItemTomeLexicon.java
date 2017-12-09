@@ -43,15 +43,9 @@ public class ItemTomeLexicon extends ItemTome implements IInventoryContainerItem
 		if (!StringHelper.isShiftKeyDown()) {
 			return;
 		}
-		tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.a.0"));
-
-		if (isEmpowered(stack)) {
-			tooltip.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.c.0") + StringHelper.END);
-			tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.lexicon.c.1", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
-		} else {
-			tooltip.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.b.0") + StringHelper.END);
-			tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.lexicon.b.1", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
-		}
+		tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.0"));
+		tooltip.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.a." + (isEmpowered(stack) ? 1 : 0)) + StringHelper.END);
+		tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.lexicon.b." + (isEmpowered(stack) ? 1 : 0), StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
 	}
 
 	@Override

@@ -1,20 +1,17 @@
 package cofh.thermalfoundation.proxy;
 
 import cofh.core.util.helpers.ItemHelper;
-import cofh.core.util.helpers.MathHelper;
 import cofh.thermalfoundation.init.TFProps;
 import cofh.thermalfoundation.item.ItemMaterial;
 import cofh.thermalfoundation.item.tome.ItemTomeExperience;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.SoundCategory;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -88,35 +85,14 @@ public class EventHandler {
 		if (player.world.getTotalWorldTime() - tag.getLong(TFProps.EXPERIENCE_TIMER) > 20) {
 			return;
 		}
-		ItemStack tome = findExpTome(player);
-		if (tome.isEmpty()) {
-			return;
-		}
-		EntityXPOrb orb = event.getOrb();
-		ItemTomeExperience.modifyExperience(tome, orb.xpValue);
-		player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.1F, (MathHelper.RANDOM.nextFloat() - MathHelper.RANDOM.nextFloat()) * 0.35F + 0.9F);
-		orb.setDead();
-
-		event.setCanceled(true);
-	}
-
-	/* HELPERS */
-	public ItemStack findExpTome(EntityPlayer player) {
-
-		ItemStack offHand = player.getHeldItemOffhand();
-		ItemStack mainHand = player.getHeldItemMainhand();
-		if (ItemHelper.itemsEqualWithMetadata(offHand, ItemTomeExperience.tomeExperience) && ItemTomeExperience.getExperience(offHand) < ItemTomeExperience.getMaxExperience(offHand)) {
-			return offHand;
-		} else if (ItemHelper.itemsEqualWithMetadata(mainHand, ItemTomeExperience.tomeExperience) && ItemTomeExperience.getExperience(mainHand) < ItemTomeExperience.getMaxExperience(mainHand)) {
-			return mainHand;
-		}
-		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
-			ItemStack stack = player.inventory.getStackInSlot(i);
-			if (ItemHelper.itemsEqualWithMetadata(stack, ItemTomeExperience.tomeExperience) && ItemTomeExperience.getExperience(stack) < ItemTomeExperience.getMaxExperience(stack)) {
-				return stack;
+		InventoryPlayer inventory = player.inventory;
+		for (int i = 0; i < inventory.getSizeInventory(); i++) {
+			ItemStack stack = inventory.getStackInSlot(i);
+			if (stack.getItem() instanceof ItemTomeExperience && ItemTomeExperience.onXPPickup(event, stack)) {
+				event.setCanceled(true);
+				return;
 			}
 		}
-		return ItemStack.EMPTY;
 	}
 
 }

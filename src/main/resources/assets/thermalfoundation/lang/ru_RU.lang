@@ -60,11 +60,11 @@ info.thermalfoundation.diagram.redprint.1=Используйте на устро
 
 info.thermalfoundation.security.lock=Используйте на защищаемых блоках или комбинировать с защищаемыми предметами.
 
-info.thermalfoundation.tome.lexicon.a.0=Преобразует предметы в эквивалентные формы.
-info.thermalfoundation.tome.lexicon.b.0=Щелкните правой кнопкой мыши (открыть), чтобы изучить.
-info.thermalfoundation.tome.lexicon.b.1=§bНажмите (%s) чтобы обрести мудрость!§r
-info.thermalfoundation.tome.lexicon.c.0=Щелкните правой кнопкой мыши (открыть), чтобы преобразовать предметы.
-info.thermalfoundation.tome.lexicon.c.1=§eНажмите (%s) что бы отказаться от знаний.§r
+info.thermalfoundation.tome.lexicon.0=Преобразует предметы в эквивалентные формы.
+info.thermalfoundation.tome.lexicon.a.0=Щелкните правой кнопкой мыши (открыть), чтобы изучить.
+info.thermalfoundation.tome.lexicon.a.a=Щелкните правой кнопкой мыши (открыть), чтобы преобразовать предметы.
+info.thermalfoundation.tome.lexicon.b.0=§bНажмите (%s) чтобы обрести мудрость!§r
+info.thermalfoundation.tome.lexicon.b.1=§eНажмите (%s) что бы отказаться от знаний.§r
 
 info.thermalfoundation.util.multimeter.0=Предоставляет информацию о вещах.
 info.thermalfoundation.util.multimeter.1=Крадитесь и используйте что бы настроить некоторые устройства.

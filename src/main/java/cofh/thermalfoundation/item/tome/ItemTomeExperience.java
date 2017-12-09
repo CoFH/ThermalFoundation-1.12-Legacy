@@ -8,6 +8,8 @@ import cofh.core.key.KeyBindingItemMultiMode;
 import cofh.core.util.CoreUtils;
 import cofh.core.util.capabilities.FluidContainerItemWrapper;
 import cofh.core.util.helpers.ItemHelper;
+import cofh.core.util.helpers.MathHelper;
+import cofh.core.util.helpers.ServerHelper;
 import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
@@ -16,15 +18,19 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
 import net.minecraftforge.fluids.FluidStack;
 
 import javax.annotation.Nullable;
@@ -50,17 +56,11 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 		if (!StringHelper.isShiftKeyDown()) {
 			return;
 		}
-		tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tome.experience.a.0"));
-		tooltip.add(StringHelper.localize("info.thermalfoundation.tome.experience.a.1"));
-		tooltip.add(StringHelper.getNoticeText("info.thermalfoundation.tome.experience.a.2"));
-
-		if (isEmpowered(stack)) {
-			tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.experience.c.0", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
-		} else {
-			tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.experience.b.0", StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
-		}
+		tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tome.experience.0"));
+		tooltip.add(StringHelper.localize("info.thermalfoundation.tome.experience.1"));
+		tooltip.add(StringHelper.getNoticeText("info.thermalfoundation.tome.experience.2"));
+		tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.experience.a." + (isEmpowered(stack) ? 1 : 0), StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
 		tooltip.add(StringHelper.localize("info.cofh.experience") + ": " + StringHelper.formatNumber(getExperience(stack)) + " / " + StringHelper.formatNumber(getMaxExperience(stack)));
-
 	}
 
 	@Override
@@ -116,34 +116,17 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 
 		ItemStack stack = player.getHeldItem(hand);
-		if (CoreUtils.isFakePlayer(player) || hand != EnumHand.MAIN_HAND) {
+		if (CoreUtils.isFakePlayer(player) || hand != EnumHand.MAIN_HAND || ServerHelper.isClientWorld(world)) {
 			return new ActionResult<>(EnumActionResult.FAIL, stack);
 		}
-		int exp = getExperience(stack);
-
 		if (player.isSneaking()) {
-			if (exp >= player.xpBarCap()) {
-				modifyExperience(stack, -player.xpBarCap());
-				addExperienceToPlayer(player, player.xpBarCap());
-				addExperienceLevelToPlayer(player, 1);
-			} else if (exp > 0) {
-				modifyExperience(stack, -exp);
-				addExperienceToPlayer(player, exp);
-			}
+			int exp = getExperience(stack);
+			setPlayerExperience(player, player.experienceTotal + exp);
+			modifyExperience(stack, -exp);
 		} else {
-			int partialExp = player.experienceTotal - getTotalExpForLevel(player.experienceLevel);
-			if (partialExp > 0) {
-				int toAdd = Math.min(partialExp, getSpace(stack));
-				modifyExperience(stack, toAdd);
-				addExperienceToPlayer(player, -toAdd);
-			} else {
-				if (player.experienceLevel > 0) {
-					int toAdd = Math.min(xpBarCap(player.experienceLevel - 1), getSpace(stack));
-					modifyExperience(stack, toAdd);
-					addExperienceLevelToPlayer(player, -1);
-					addExperienceToPlayer(player, -toAdd);
-				}
-			}
+			int exp = Math.min(player.experienceTotal, getSpace(stack));
+			setPlayerExperience(player, player.experienceTotal - exp);
+			modifyExperience(stack, exp);
 		}
 		return new ActionResult<>(EnumActionResult.FAIL, stack);
 	}
@@ -180,6 +163,15 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 		return storedExp;
 	}
 
+	public static void setPlayerExperience(EntityPlayer player, int exp) {
+
+		player.experienceLevel = 0;
+		player.experience = 0.0F;
+		player.experienceTotal = 0;
+
+		addExperienceToPlayer(player, exp);
+	}
+
 	public static void addExperienceToPlayer(EntityPlayer player, int exp) {
 
 		int i = Integer.MAX_VALUE - player.experienceTotal;
@@ -190,7 +182,7 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 		player.experience += (float) exp / (float) player.xpBarCap();
 		for (player.experienceTotal += exp; player.experience >= 1.0F; player.experience /= (float) player.xpBarCap()) {
 			player.experience = (player.experience - 1.0F) * (float) player.xpBarCap();
-			player.addExperienceLevel(1);
+			addExperienceLevelToPlayer(player, 1);
 		}
 	}
 
@@ -210,9 +202,23 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 		return level >= 32 ? (9 * level * level - 325 * level + 4440) / 2 : level >= 17 ? (5 * level * level - 81 * level + 720) / 2 : (level * level + 6 * level);
 	}
 
-	public static int xpBarCap(int level) {
+	public static boolean onXPPickup(PlayerPickupXpEvent event, ItemStack stack) {
 
-		return level >= 30 ? 112 + (level - 30) * 9 : level >= 15 ? 37 + (level - 15) * 5 : 7 + level * 2;
+		EntityXPOrb orb = event.getOrb();
+		int toAdd = Math.min(getSpace(stack), orb.xpValue);
+
+		if (toAdd > 0) {
+			stack.setAnimationsToGo(5);
+			EntityPlayer player = event.getEntityPlayer();
+			player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.1F, (MathHelper.RANDOM.nextFloat() - MathHelper.RANDOM.nextFloat()) * 0.35F + 0.9F);
+
+			ItemTomeExperience.modifyExperience(stack, toAdd);
+			orb.xpValue -= toAdd;
+			if (orb.xpValue <= 0) {
+				orb.setDead();
+			}
+		}
+		return orb.isDead;
 	}
 
 	/* IFluidContainerItem */

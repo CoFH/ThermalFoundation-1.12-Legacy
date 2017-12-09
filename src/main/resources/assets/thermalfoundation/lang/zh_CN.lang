@@ -69,11 +69,11 @@ info.thermalfoundation.diagram.redprint.1=对着设备使用可快速应用该�
 
 info.thermalfoundation.security.lock=用在可被安全保护的方块上，或者与可被安全保护的物品合成。
 
-info.thermalfoundation.tome.lexicon.a.0=等价转换物品。
-info.thermalfoundation.tome.lexicon.b.0=右击打开以学习。
-info.thermalfoundation.tome.lexicon.b.1=§b§o按下 %s 以获得知识！§r
-info.thermalfoundation.tome.lexicon.c.0=右击打开以转换。
-info.thermalfoundation.tome.lexicon.c.1=§e§o按下 (%s) 以遗忘知识。§r
+info.thermalfoundation.tome.lexicon.0=等价转换物品。
+info.thermalfoundation.tome.lexicon.a.0=右击打开以学习。
+info.thermalfoundation.tome.lexicon.a.1=右击打开以转换。
+info.thermalfoundation.tome.lexicon.b.0=§b§o按下 %s 以获得知识！§r
+info.thermalfoundation.tome.lexicon.b.1=§e§o按下 (%s) 以遗忘知识。§r
 
 info.thermalfoundation.upgrade.creative.0=将目标方块直接升级至创造级。
 info.thermalfoundation.upgrade.creative.1=可在任何级别的方块上使用。

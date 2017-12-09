@@ -39,7 +39,7 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 
 	public ContainerLexiconTransmute(InventoryPlayer inventory) {
 
-		addPlayerSlotsToContainer(inventory, 23, 114);
+		bindPlayerInventory(inventory);
 
 		addSlotToContainer(new SlotValidated(this, lexiconInv, 0, 59, 61));
 		addSlotToContainer(new SlotRemoveOnly(lexiconInv, 1, 131, 61));
@@ -48,7 +48,10 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		onCraftMatrixChanged(lexiconInv);
 	}
 
-	private void addPlayerSlotsToContainer(InventoryPlayer inventory, int xOffset, int yOffset) {
+	protected void bindPlayerInventory(InventoryPlayer inventory) {
+
+		int xOffset = 23;
+		int yOffset = 114;
 
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 9; j++) {

@@ -69,17 +69,17 @@ info.thermalfoundation.diagram.redprint.1=Use on a device to transfer stored set
 
 info.thermalfoundation.security.lock=Use on securable blocks or combine with securable items.
 
-info.thermalfoundation.tome.experience.a.0=Stores experience within its pages.
-info.thermalfoundation.tome.experience.a.1=Use to store knowledge in the tome.
-info.thermalfoundation.tome.experience.a.2=Use while sneaking to retrieve stored knowledge.
-info.thermalfoundation.tome.experience.b.0=§bPress (%s) for the tome to automatically collect XP.§r
-info.thermalfoundation.tome.experience.c.0=§ePress (%s) for the tome to no longer collect XP.§r
+info.thermalfoundation.tome.experience.0=Stores experience within its pages.
+info.thermalfoundation.tome.experience.1=Use to store knowledge in the tome.
+info.thermalfoundation.tome.experience.2=Use while sneaking to retrieve stored knowledge.
+info.thermalfoundation.tome.experience.a.0=§bPress (%s) to enable auto-collect.§r
+info.thermalfoundation.tome.experience.a.1=§ePress (%s) to disable auto-collect.§r
 
-info.thermalfoundation.tome.lexicon.a.0=Converts items to equivalent forms.
-info.thermalfoundation.tome.lexicon.b.0=Right click (open) to study.
-info.thermalfoundation.tome.lexicon.b.1=§bPress (%s) to gain wisdom!§r
-info.thermalfoundation.tome.lexicon.c.0=Right click (open) to transmute items.
-info.thermalfoundation.tome.lexicon.c.1=§ePress (%s) to forsake knowledge.§r
+info.thermalfoundation.tome.lexicon.0=Converts items to equivalent forms.
+info.thermalfoundation.tome.lexicon.a.0=Right click (open) to study.
+info.thermalfoundation.tome.lexicon.a.1=Right click (open) to transmute items.
+info.thermalfoundation.tome.lexicon.b.0=§bPress (%s) to gain wisdom!§r
+info.thermalfoundation.tome.lexicon.b.1=§ePress (%s) to forsake knowledge.§r
 
 info.thermalfoundation.upgrade.creative.0=Converts a block to a Creative version.
 info.thermalfoundation.upgrade.creative.1=May be used on any tier of block.
