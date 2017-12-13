@@ -2,14 +2,15 @@ package cofh.thermalfoundation.item;
 
 import cofh.core.item.ItemMulti;
 import cofh.core.util.core.IInitializer;
-import cofh.lib.util.helpers.ItemHelper;
-import cofh.lib.util.helpers.ServerHelper;
+import cofh.core.util.helpers.ItemHelper;
+import cofh.core.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -17,9 +18,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.fml.common.Loader;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapelessRecipe;
-import static cofh.lib.util.helpers.ItemHelper.addRecipe;
+import static cofh.core.util.helpers.RecipeHelper.addShapelessOreRecipe;
+import static cofh.core.util.helpers.RecipeHelper.addShapelessRecipe;
 
 public class ItemFertilizer extends ItemMulti implements IInitializer {
 
@@ -28,10 +30,10 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 		super("thermalfoundation");
 
 		setUnlocalizedName("fertilizer");
-		setCreativeTab(ThermalFoundation.tabCommon);
+		setCreativeTab(ThermalFoundation.tabUtils);
 	}
 
-	private boolean growBlock(World world, BlockPos pos, IBlockState state, int potency) {
+	private boolean growBlock(World world, BlockPos pos, IBlockState state) {
 
 		if (state.getBlock() instanceof IGrowable) {
 			IGrowable growable = (IGrowable) state.getBlock();
@@ -39,9 +41,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 			if (growable.canGrow(world, pos, state, world.isRemote)) {
 				if (ServerHelper.isServerWorld(world)) {
 					if (growable.canUseBonemeal(world, world.rand, pos, state)) {
-						for (int i = 0; i < potency; i++) {
-							growable.grow(world, world.rand, pos, state);
-						}
+						growable.grow(world, world.rand, pos, state);
 						world.playEvent(2005, pos, 0);
 					}
 				}
@@ -51,11 +51,11 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 		return false;
 	}
 
-	private boolean onApplyBonemeal(ItemStack stack, World world, BlockPos pos, EntityPlayer player, int radius, int potency) {
+	private boolean onApplyBonemeal(ItemStack stack, World world, BlockPos pos, EntityPlayer player, EnumHand hand, int radius) {
 
 		IBlockState state = world.getBlockState(pos);
 
-		int hook = ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack);
+		int hook = ForgeEventFactory.onApplyBonemeal(player, world, pos, state, stack, hand);
 		if (hook != 0) {
 			return hook > 0;
 		}
@@ -69,7 +69,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 		for (int i = x - radius; i <= x + radius; i++) {
 			for (int k = z - radius; k <= z + radius; k++) {
 				pos2 = new BlockPos(i, y, k);
-				used |= growBlock(world, pos2, world.getBlockState(pos2), potency);
+				used |= growBlock(world, pos2, world.getBlockState(pos2));
 			}
 		}
 		if (used) {
@@ -86,9 +86,8 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 			return EnumActionResult.PASS;
 		}
 		int radius = 1 + ItemHelper.getItemDamage(stack);
-		int potency = 2 + ItemHelper.getItemDamage(stack);
 
-		if (onApplyBonemeal(stack, world, pos, player, radius, potency)) {
+		if (onApplyBonemeal(stack, world, pos, player, hand, radius)) {
 			return EnumActionResult.SUCCESS;
 		}
 		return EnumActionResult.PASS;
@@ -96,11 +95,11 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		fertilizerBasic = addItem(0, "fertilizerBasic");
 		fertilizerRich = addItem(1, "fertilizerRich");
-		fertilizerFlux = addItem(2, "fertilizerFlux");
+		fertilizerFlux = addItem(2, "fertilizerFlux", EnumRarity.UNCOMMON);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
@@ -108,20 +107,18 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlag"));
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 12), "dustCharcoal", "dustSaltpeter", "crystalSlag"));
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlagRich"));
-		addRecipe(ShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 12), "dustCharcoal", "dustSaltpeter", "crystalSlagRich"));
+		addShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlag");
+		addShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 12), "dustCharcoal", "dustSaltpeter", "crystalSlag");
 
-		addRecipe(ShapelessRecipe(fertilizerRich, fertilizerBasic, new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage())));
+		addShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlagRich");
+		addShapelessRecipe(ItemHelper.cloneStack(fertilizerRich, 12), "dustCharcoal", "dustSaltpeter", "crystalSlagRich");
 
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
+		if (!Loader.isModLoaded("thermalexpansion")) {
+			addShapelessRecipe(fertilizerRich, fertilizerBasic, new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()));
+			addShapelessOreRecipe(fertilizerFlux, fertilizerRich, "dustRedstone");
+		}
 
 		return true;
 	}

@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.entity.projectile;
 
 import cofh.core.init.CoreProps;
-import cofh.lib.util.helpers.ServerHelper;
+import cofh.core.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBasalz;
 import net.minecraft.entity.Entity;
@@ -74,7 +74,7 @@ public class EntityBasalzBolt extends EntityThrowable {
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public int getBrightnessForRender(float f) {
+	public int getBrightnessForRender() {
 
 		return 0xF000F0;
 	}

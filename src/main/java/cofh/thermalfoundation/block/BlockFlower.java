@@ -25,18 +25,17 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BlockFlower extends BlockCore implements IInitializer, IModelRegister, IPlantable {
 
-	protected static final AxisAlignedBB FLOWER_AABB = new AxisAlignedBB(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
-	public static final PropertyEnum<BlockFlower.Type> VARIANT = PropertyEnum.create("type", BlockFlower.Type.class);
+	protected static final AxisAlignedBB FLOWER_AABB = new AxisAlignedBB(0.3D, 0.0D, 0.3D, 0.7D, 0.6D, 0.7D);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockFlower() {
 
@@ -56,11 +55,10 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
 
-		for (int i = 0; i < BlockFlower.Type.METADATA_LOOKUP.length; i++) {
-			list.add(new ItemStack(item, 1, i));
+		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
@@ -68,7 +66,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, BlockFlower.Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
 	}
 
 	@Override
@@ -113,7 +111,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return BlockFlower.Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
@@ -187,14 +185,14 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("flower");
-		GameRegistry.register(this);
+		ForgeRegistries.BLOCKS.register(this);
 
 		ItemBlockFlower itemBlock = new ItemBlockFlower(this);
 		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
+		ForgeRegistries.ITEMS.register(itemBlock);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
@@ -202,13 +200,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	}
 
 	@Override
-	public boolean initialize() {
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
+	public boolean register() {
 
 		return true;
 	}
@@ -228,7 +220,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 		MANA(8, "mana");
 		// @formatter:on
 
-		private static final BlockFlower.Type[] METADATA_LOOKUP = new BlockFlower.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

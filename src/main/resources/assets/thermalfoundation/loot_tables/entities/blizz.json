@@ -1,0 +1,65 @@
+{
+	"pools": [
+		{
+			"name": "blizz_blizz_rod",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "thermalfoundation:material",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 0,
+								"max": 1
+							}
+						},
+						{
+							"function": "set_data",
+							"data": 2048
+						},
+						{
+							"function": "looting_enchant",
+							"count": {
+								"min": 0,
+								"max": 1
+							}
+						}
+					]
+				}
+			],
+			"conditions": [
+				{
+					"condition": "killed_by_player"
+				}
+			]
+		},
+		{
+			"name": "blizz_snowball",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:snowball",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 0,
+								"max": 4
+							}
+						}
+					]
+				}
+			],
+			"conditions": [
+				{
+					"condition": "killed_by_player"
+				}
+			]
+		}
+	]
+}

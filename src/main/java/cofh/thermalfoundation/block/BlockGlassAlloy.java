@@ -4,10 +4,10 @@ import cofh.api.block.IDismantleable;
 import cofh.core.block.BlockCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.util.CoreUtils;
+import cofh.core.util.RayTracer;
 import cofh.core.util.core.IInitializer;
-import cofh.lib.util.RayTracer;
-import cofh.lib.util.helpers.ServerHelper;
-import cofh.lib.util.helpers.WrenchHelper;
+import cofh.core.util.helpers.ServerHelper;
+import cofh.core.util.helpers.WrenchHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -16,6 +16,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
@@ -27,18 +28,17 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class BlockGlassAlloy extends BlockCore implements IDismantleable, IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockGlassAlloy.Type> VARIANT = PropertyEnum.create("type", BlockGlassAlloy.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockGlassAlloy() {
 
@@ -60,18 +60,17 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
-			list.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, BlockGlassAlloy.Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
 	}
 
 	@Override
@@ -89,7 +88,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	@Override
@@ -106,6 +105,12 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 
 	@Override
 	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type) {
+
+		return false;
+	}
+
+	@Override
+	public boolean canEntityDestroy(IBlockState state, IBlockAccess world, BlockPos pos, Entity entity) {
 
 		return false;
 	}
@@ -173,7 +178,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	@Override
 	public float[] getBeaconColorMultiplier(IBlockState state, World world, BlockPos pos, BlockPos beaconPos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).beaconMult;
+		return state.getValue(VARIANT).beaconMult;
 	}
 
 	/* IDismantleable */
@@ -218,14 +223,14 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("glass_alloy");
-		GameRegistry.register(this);
+		ForgeRegistries.BLOCKS.register(this);
 
 		ItemBlockGlassAlloy itemBlock = new ItemBlockGlassAlloy(this);
 		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
+		ForgeRegistries.ITEMS.register(itemBlock);
 
 		glassSteel = new ItemStack(this, 1, Type.STEEL.getMetadata());
 		glassElectrum = new ItemStack(this, 1, Type.ELECTRUM.getMetadata());
@@ -244,13 +249,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	}
 
 	@Override
-	public boolean initialize() {
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
+	public boolean register() {
 
 		return true;
 	}
@@ -269,7 +268,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 		ENDERIUM(7, "enderium", 4, new float[] { 0.165F, 0.459F, 0.459F }, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockGlassAlloy.Type[] METADATA_LOOKUP = new BlockGlassAlloy.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

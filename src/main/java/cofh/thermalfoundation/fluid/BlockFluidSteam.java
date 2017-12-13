@@ -6,7 +6,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class BlockFluidSteam extends BlockFluidCore {
 
@@ -26,13 +26,13 @@ public class BlockFluidSteam extends BlockFluidCore {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("fluid_steam");
-		GameRegistry.register(this);
+		ForgeRegistries.BLOCKS.register(this);
 		ItemBlock itemBlock = new ItemBlock(this);
 		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
+		ForgeRegistries.ITEMS.register(itemBlock);
 
 		return true;
 	}

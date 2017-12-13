@@ -6,11 +6,13 @@ import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
 import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.ChatHelper;
-import cofh.lib.util.helpers.ItemHelper;
-import cofh.lib.util.helpers.ServerHelper;
+import cofh.core.util.helpers.ItemHelper;
+import cofh.core.util.helpers.ServerHelper;
+import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -24,11 +26,11 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
-import static cofh.lib.util.helpers.ItemHelper.addRecipe;
+import static cofh.core.util.helpers.RecipeHelper.addShapedRecipe;
 
 public class ItemSecurity extends ItemMulti implements IInitializer {
 
@@ -37,7 +39,7 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 		super("thermalfoundation");
 
 		setUnlocalizedName("util", "security");
-		setCreativeTab(ThermalFoundation.tabCommon);
+		setCreativeTab(ThermalFoundation.tabUtils);
 
 		setHasSubtypes(true);
 	}
@@ -64,8 +66,19 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advanced) {
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 
+		if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
+			tooltip.add(StringHelper.shiftForDetails());
+		}
+		if (!StringHelper.isShiftKeyDown()) {
+			return;
+		}
+		switch (Type.values()[ItemHelper.getItemDamage(stack)]) {
+			case LOCK:
+				tooltip.add(StringHelper.getInfoText("info.thermalfoundation.security.lock"));
+			default:
+		}
 	}
 
 	public boolean isFull3D() {
@@ -111,7 +124,7 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		lock = addItem(Type.LOCK.ordinal(), "lock");
 
@@ -121,15 +134,9 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
-		addRecipe(ShapedRecipe(lock, " S ", "SBS", "SSS", 'B', "ingotBronze", 'S', "nuggetSignalum"));
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
+		addShapedRecipe(lock, " S ", "SBS", "SSS", 'B', "ingotBronze", 'S', "nuggetSignalum");
 
 		return true;
 	}

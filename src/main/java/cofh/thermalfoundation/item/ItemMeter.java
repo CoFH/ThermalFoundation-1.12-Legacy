@@ -1,20 +1,21 @@
 package cofh.thermalfoundation.item;
 
-import cofh.api.block.IBlockConfigGui;
 import cofh.api.block.IBlockInfo;
+import cofh.api.block.IConfigGui;
 import cofh.api.tileentity.ITileInfo;
 import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
 import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.ChatHelper;
-import cofh.lib.util.helpers.ItemHelper;
-import cofh.lib.util.helpers.ServerHelper;
-import cofh.lib.util.helpers.StringHelper;
+import cofh.core.util.helpers.ItemHelper;
+import cofh.core.util.helpers.ServerHelper;
+import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -29,12 +30,12 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
-import static cofh.lib.util.helpers.ItemHelper.addRecipe;
+import static cofh.core.util.helpers.RecipeHelper.addShapedRecipe;
 
 public class ItemMeter extends ItemMulti implements IInitializer {
 
@@ -43,7 +44,7 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 		super("thermalfoundation");
 
 		setUnlocalizedName("util", "meter");
-		setCreativeTab(ThermalFoundation.tabCommon);
+		setCreativeTab(ThermalFoundation.tabUtils);
 
 		setHasSubtypes(true);
 		setMaxStackSize(1);
@@ -57,31 +58,27 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 		ArrayList<ITextComponent> info = new ArrayList<>();
 
 		if (ServerHelper.isClientWorld(world)) {
-			if (block instanceof IBlockConfigGui || block instanceof IBlockInfo) {
-				ServerHelper.sendItemUsePacket(world, pos, side, hand, hitX, hitY, hitZ);
+			if (block instanceof IConfigGui || block instanceof IBlockInfo) {
 				return true;
 			}
 			TileEntity tile = world.getTileEntity(pos);
 			return tile instanceof ITileInfo;
 		}
-		if (player.isSneaking() && block instanceof IBlockConfigGui) {
-			if (((IBlockConfigGui) block).openConfigGui(world, pos, side, player)) {
+		if (player.isSneaking() && block instanceof IConfigGui) {
+			if (((IConfigGui) block).openConfigGui(world, pos, side, player)) {
 				return true;
 			}
 		}
 		if (block instanceof IBlockInfo) {
 			((IBlockInfo) (block)).getBlockInfo(info, world, pos, side, player, false);
-
 			ChatHelper.sendIndexedChatMessagesToPlayer(player, info);
 			info.clear();
 			return true;
 		} else {
 			TileEntity tile = world.getTileEntity(pos);
 			if (tile instanceof ITileInfo) {
-				if (ServerHelper.isServerWorld(world)) {
-					((ITileInfo) tile).getTileInfo(info, side, player, false);
-					ChatHelper.sendIndexedChatMessagesToPlayer(player, info);
-				}
+				((ITileInfo) tile).getTileInfo(info, side, player, false);
+				ChatHelper.sendIndexedChatMessagesToPlayer(player, info);
 				info.clear();
 				return true;
 			}
@@ -91,7 +88,7 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 
 		if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
 			tooltip.add(StringHelper.shiftForDetails());
@@ -163,7 +160,7 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		multimeter = addItem(Type.MULTIMETER.ordinal(), "multimeter");
 
@@ -173,15 +170,9 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
-		addRecipe(ShapedRecipe(multimeter, "C C", "LPL", " G ", 'C', "ingotCopper", 'L', "ingotLead", 'P', ItemMaterial.powerCoilElectrum, 'G', "gearElectrum"));
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
+		addShapedRecipe(multimeter, "C C", "LPL", " G ", 'C', "ingotCopper", 'L', "ingotLead", 'P', ItemMaterial.powerCoilElectrum, 'G', "gearElectrum");
 
 		return true;
 	}

@@ -1,5 +1,5 @@
 {
-	"parent": "item/generated",
+	"parent": "thermalfoundation:item/tool/bow",
 	"textures": {
 		"layer0": "thermalfoundation:items/tool/bow_nickel"
 	},

@@ -18,18 +18,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-import javax.annotation.Nonnull;
-
-import static cofh.lib.util.helpers.ItemHelper.*;
+import static cofh.core.util.helpers.RecipeHelper.addShapelessRecipe;
+import static cofh.core.util.helpers.RecipeHelper.addSmelting;
 
 public class BlockRockwool extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockRockwool.Type> VARIANT = PropertyEnum.create("type", BlockRockwool.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockRockwool() {
 
@@ -53,11 +52,10 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
-			list.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
@@ -65,7 +63,7 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, BlockRockwool.Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
 	}
 
 	@Override
@@ -92,14 +90,14 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("rockwool");
-		GameRegistry.register(this);
+		ForgeRegistries.BLOCKS.register(this);
 
 		ItemBlockRockwool itemBlock = new ItemBlockRockwool(this);
 		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
+		ForgeRegistries.ITEMS.register(itemBlock);
 
 		rockwoolBlack = new ItemStack(this, 1, Type.BLACK.getMetadata());
 		rockwoolRed = new ItemStack(this, 1, Type.RED.getMetadata());
@@ -126,19 +124,13 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
-		addSmelting(rockwoolSilver, ItemMaterial.crystalSlag, 0.0F);
+		addSmelting(ItemMaterial.crystalSlag, rockwoolSilver, 0.1F);
 
 		for (int i = 0; i < 16; i++) {
-			addRecipe(ShapelessRecipe(new ItemStack(this, 1, i), new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.DYE, 1, i)));
+			addShapelessRecipe(new ItemStack(this, 1, i), new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Items.DYE, 1, i));
 		}
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
-
 		return true;
 	}
 
@@ -164,7 +156,7 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 		WHITE(15, "white");
 		// @formatter:on
 
-		private static final BlockRockwool.Type[] METADATA_LOOKUP = new BlockRockwool.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 

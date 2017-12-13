@@ -23,18 +23,16 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nonnull;
-
-import static cofh.lib.util.helpers.ItemHelper.addStorageRecipe;
-import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
+import static cofh.core.util.helpers.ItemHelper.registerWithHandlers;
+import static cofh.core.util.helpers.RecipeHelper.addStorageRecipe;
 
 public class BlockStorageAlloy extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockStorageAlloy.Type> VARIANT = PropertyEnum.create("type", BlockStorageAlloy.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockStorageAlloy() {
 
@@ -59,11 +57,10 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
-			list.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
@@ -114,7 +111,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	@Override
@@ -126,14 +123,14 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	@Override
 	public float getBlockHardness(IBlockState state, World world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).hardness;
+		return state.getValue(VARIANT).getHardness();
 	}
 
 	@Override
 	public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion) {
 
 		IBlockState state = world.getBlockState(pos);
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).resistance;
+		return state.getValue(VARIANT).getResistance();
 	}
 
 	/* IModelRegister */
@@ -148,14 +145,14 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("storage_alloy");
-		GameRegistry.register(this);
+		ForgeRegistries.BLOCKS.register(this);
 
 		ItemBlockStorageAlloy itemBlock = new ItemBlockStorageAlloy(this);
 		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
+		ForgeRegistries.ITEMS.register(itemBlock);
 
 		blockSteel = new ItemStack(this, 1, Type.STEEL.getMetadata());
 		blockElectrum = new ItemStack(this, 1, Type.ELECTRUM.getMetadata());
@@ -181,13 +178,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	}
 
 	@Override
-	public boolean initialize() {
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
+	public boolean register() {
 
 		addStorageRecipe(blockSteel, "ingotSteel");
 		addStorageRecipe(blockElectrum, "ingotElectrum");
@@ -215,7 +206,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		ENDERIUM(7, "enderium", 4, 40.0F, 120.0F, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockStorageAlloy.Type[] METADATA_LOOKUP = new BlockStorageAlloy.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

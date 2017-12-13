@@ -18,7 +18,7 @@ public class ItemCoin extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		coinIron = addOreDictItem(0, "coinIron");
 		coinGold = addOreDictItem(1, "coinGold");
@@ -48,13 +48,7 @@ public class ItemCoin extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean initialize() {
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
+	public boolean register() {
 
 		return true;
 	}

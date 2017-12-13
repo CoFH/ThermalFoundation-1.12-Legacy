@@ -1,9 +1,9 @@
 package cofh.thermalfoundation.gui.container;
 
+import cofh.core.gui.container.ContainerInventoryItem;
+import cofh.core.gui.slot.SlotLocked;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.oredict.OreDictionaryArbiter;
-import cofh.lib.gui.container.ContainerInventoryItem;
-import cofh.lib.gui.slot.SlotLocked;
-import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.entity.player.EntityPlayer;
@@ -158,7 +158,7 @@ public class ContainerLexiconStudy extends ContainerInventoryItem {
 
 		for (IContainerListener listener : this.listeners) {
 			if (syncClient) {
-				listener.sendProgressBarUpdate(this, 0, hasPreferredStack ? 1 : 0);
+				listener.sendWindowProperty(this, 0, hasPreferredStack ? 1 : 0);
 				syncClient = false;
 			}
 		}

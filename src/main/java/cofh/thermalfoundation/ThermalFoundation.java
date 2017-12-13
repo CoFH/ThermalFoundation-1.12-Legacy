@@ -1,17 +1,16 @@
 package cofh.thermalfoundation;
 
 import cofh.CoFHCore;
+import cofh.cofhworld.CoFHWorld;
 import cofh.core.init.CoreProps;
 import cofh.core.util.ConfigHandler;
 import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.init.*;
 import cofh.thermalfoundation.network.PacketTFBase;
 import cofh.thermalfoundation.proxy.Proxy;
-import cofh.thermalfoundation.util.EventHandlerLexicon;
 import cofh.thermalfoundation.util.IMCHandler;
-import cofh.thermalfoundation.util.TFCraftingManager;
+import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -21,10 +20,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.event.FMLInterModComms.IMCEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.helpers.Loader;
 
 import java.io.File;
 
@@ -34,12 +31,12 @@ public class ThermalFoundation {
 	public static final String MOD_ID = "thermalfoundation";
 	public static final String MOD_NAME = "Thermal Foundation";
 
-	public static final String VERSION = "2.2.3";
-	public static final String VERSION_MAX = "2.3.0";
+	public static final String VERSION = "2.3.7";
+	public static final String VERSION_MAX = "2.4.0";
 	public static final String VERSION_GROUP = "required-after:" + MOD_ID + "@[" + VERSION + "," + VERSION_MAX + ");";
 	public static final String UPDATE_URL = "https://raw.github.com/cofh/version/master/" + MOD_ID + "_update.json";
 
-	public static final String DEPENDENCIES = CoFHCore.VERSION_GROUP;
+	public static final String DEPENDENCIES = CoFHCore.VERSION_GROUP + CoFHWorld.VERSION_GROUP;
 	public static final String MOD_GUI_FACTORY = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
 
 	@Instance (MOD_ID)
@@ -54,6 +51,7 @@ public class ThermalFoundation {
 	public static final GuiHandler GUI_HANDLER = new GuiHandler();
 
 	public static CreativeTabs tabCommon;
+	public static CreativeTabs tabUtils;
 	public static CreativeTabs tabTools;
 	public static CreativeTabs tabArmor;
 
@@ -74,10 +72,12 @@ public class ThermalFoundation {
 		CONFIG_CLIENT.setConfiguration(new Configuration(new File(CoreProps.configDir, "/cofh/" + MOD_ID + "/client.cfg"), true));
 
 		TFProps.preInit();
+
 		TFBlocks.preInit();
 		TFItems.preInit();
 		TFEquipment.preInit();
 		TFFluids.preInit();
+		TFSounds.preInit();
 		TFPlugins.preInit();
 
 		/* Register Handlers */
@@ -89,28 +89,13 @@ public class ThermalFoundation {
 	@EventHandler
 	public void initialize(FMLInitializationEvent event) {
 
-		TFBlocks.initialize();
-		TFItems.initialize();
-		TFEquipment.initialize();
-		TFFluids.initialize();
-		TFPlugins.initialize();
-
-		/* Add World Generation */
-		addWorldGeneration();
-
 		proxy.initialize(event);
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 
-		TFBlocks.postInit();
-		TFItems.postInit();
-		TFEquipment.postInit();
-		TFFluids.postInit();
 		TFPlugins.postInit();
-
-		TFCraftingManager.loadRecipes();
 
 		proxy.postInit(event);
 	}
@@ -118,9 +103,10 @@ public class ThermalFoundation {
 	@EventHandler
 	public void loadComplete(FMLLoadCompleteEvent event) {
 
-		IMCHandler.instance.handleIMC(FMLInterModComms.fetchRuntimeMessages(this));
+		IMCHandler.INSTANCE.handleIMC(FMLInterModComms.fetchRuntimeMessages(this));
 
-		TFProps.loadComplete();
+		LexiconManager.loadComplete();
+
 		CONFIG.cleanUp(false, true);
 		CONFIG_CLIENT.cleanUp(false, true);
 
@@ -128,63 +114,24 @@ public class ThermalFoundation {
 	}
 
 	@EventHandler
+	public void handleIdMappingEvent(FMLModIdMappingEvent event) {
+
+		TFFluids.refreshReferences();
+	}
+
+	@EventHandler
 	public void handleIMC(IMCEvent event) {
 
-		IMCHandler.instance.handleIMC(event.getMessages());
+		IMCHandler.INSTANCE.handleIMC(event.getMessages());
 	}
 
 	/* HELPERS */
 	private void registerHandlers() {
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, GUI_HANDLER);
-		MinecraftForge.EVENT_BUS.register(proxy);
 
-		EventHandlerLexicon.initialize();
+		LexiconManager.initialize();
 		PacketTFBase.initialize();
-	}
-
-	private void addWorldGeneration() {
-
-		File worldGenFile;
-		String worldGenPath = "assets/" + MOD_ID + "/world/";
-
-		String worldGenClathrates = "thermalfoundation_clathrates.json";
-		String worldGenOil = "thermalfoundation_oil.json";
-		String worldGenOre = "thermalfoundation_ores.json";
-
-		if (!CONFIG.getConfiguration().getBoolean("GenerateDefaultFiles", "World", true, "If TRUE, Thermal Foundation will create default world generation files if it cannot find existing ones. Only disable if you know what you are doing.")) {
-			return;
-		}
-
-		worldGenFile = new File(CoreProps.configDir, "/cofh/world/" + worldGenClathrates);
-		if (!worldGenFile.exists()) {
-			try {
-				worldGenFile.createNewFile();
-				FileUtils.copyInputStreamToFile(Loader.getResource(worldGenPath + worldGenClathrates, null).openStream(), worldGenFile);
-			} catch (Throwable t) {
-				t.printStackTrace();
-			}
-		}
-
-		worldGenFile = new File(CoreProps.configDir, "/cofh/world/" + worldGenOil);
-		if (!worldGenFile.exists()) {
-			try {
-				worldGenFile.createNewFile();
-				FileUtils.copyInputStreamToFile(Loader.getResource(worldGenPath + worldGenOil, null).openStream(), worldGenFile);
-			} catch (Throwable t) {
-				t.printStackTrace();
-			}
-		}
-
-		worldGenFile = new File(CoreProps.configDir, "/cofh/world/" + worldGenOre);
-		if (!worldGenFile.exists()) {
-			try {
-				worldGenFile.createNewFile();
-				FileUtils.copyInputStreamToFile(Loader.getResource(worldGenPath + worldGenOre, null).openStream(), worldGenFile);
-			} catch (Throwable t) {
-				t.printStackTrace();
-			}
-		}
 	}
 
 }

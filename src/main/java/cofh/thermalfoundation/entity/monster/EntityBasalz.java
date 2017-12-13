@@ -1,11 +1,9 @@
 package cofh.thermalfoundation.entity.monster;
 
 import cofh.core.init.CoreProps;
-import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.init.TFSounds;
-import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.ai.*;
@@ -15,10 +13,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
+import javax.annotation.Nullable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,6 +26,7 @@ public class EntityBasalz extends EntityElemental {
 
 	static boolean enable = true;
 	static boolean restrictLightLevel = true;
+	static ResourceLocation lootTable;
 
 	static int spawnLightLevel = 8;
 
@@ -39,6 +40,8 @@ public class EntityBasalz extends EntityElemental {
 
 		config();
 
+		lootTable = LootTableList.register(new ResourceLocation(ThermalFoundation.MOD_ID, "entities/basalz"));
+
 		if (!enable) {
 			return;
 		}
@@ -48,6 +51,7 @@ public class EntityBasalz extends EntityElemental {
 
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.MOUNTAIN));
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.WASTELAND));
+		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.NETHER));
 		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.END));
 
 		EntityRegistry.addSpawn(EntityBasalz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));
@@ -85,22 +89,13 @@ public class EntityBasalz extends EntityElemental {
 		super(world);
 
 		ambientParticle = EnumParticleTypes.TOWN_AURA;
-		ambientSound = TFSounds.BASALZ_AMBIENT;
+		ambientSound = TFSounds.basalzAmbient;
 	}
 
-	@Override
-	protected void dropFewItems(boolean wasHitByPlayer, int looting) {
+	@Nullable
+	protected ResourceLocation getLootTable() {
 
-		if (wasHitByPlayer) {
-			int items = this.rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				this.entityDropItem(ItemHelper.cloneStack(ItemMaterial.dustObsidian, 1), 0);
-			}
-			items = this.rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				this.entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBasalz, 1), 0);
-			}
-		}
+		return lootTable;
 	}
 
 	@Override
@@ -164,7 +159,7 @@ public class EntityBasalz extends EntityElemental {
 
 			--this.attackTime;
 			EntityLivingBase target = this.basalz.getAttackTarget();
-			double d0 = this.basalz.getDistanceSqToEntity(target);
+			double d0 = this.basalz.getDistance(target);
 
 			if (d0 < 4.0D) {
 				if (attackTime <= 0) {
@@ -194,16 +189,16 @@ public class EntityBasalz extends EntityElemental {
 
 						for (int i = 0; i < 1; ++i) {
 							EntityBasalzBolt bolt = new EntityBasalzBolt(basalz.world, basalz);
-							bolt.setThrowableHeading(target.posX - basalz.posX, target.posY - basalz.posY, target.posZ - basalz.posZ, 1.5F, 1.0F);
+							bolt.shoot(target.posX - basalz.posX, target.posY - basalz.posY, target.posZ - basalz.posZ, 1.5F, 1.0F);
 							bolt.posY = basalz.posY + basalz.height / 2.0F + 0.5D;
-							basalz.playSound(TFSounds.BASALZ_ATTACK, 2.0F, (basalz.rand.nextFloat() - basalz.rand.nextFloat()) * 0.2F + 1.0F);
+							basalz.playSound(TFSounds.basalzAttack, 2.0F, (basalz.rand.nextFloat() - basalz.rand.nextFloat()) * 0.2F + 1.0F);
 							basalz.world.spawnEntity(bolt);
 						}
 					}
 				}
 				basalz.getLookHelper().setLookPositionWithEntity(target, 10.0F, 10.0F);
 			} else {
-				basalz.getNavigator().clearPathEntity();
+				basalz.getNavigator().clearPath();
 				basalz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			}
 			super.updateTask();

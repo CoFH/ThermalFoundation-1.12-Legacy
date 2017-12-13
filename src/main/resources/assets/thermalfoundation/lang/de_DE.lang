@@ -1,5 +1,10 @@
 #de_DE
 
+chat.thermalfoundation.augment.install.failure=Verbesserung konnte nicht installiert werden.
+chat.thermalfoundation.augment.install.success=Verbesserung erfolgreich installiert!
+chat.thermalfoundation.upgrade.install.failure=Upgrade fehlgeschlagen.
+chat.thermalfoundation.upgrade.install.success=Upgrade erfolgreich!
+
 death.attack.basalz=%1$s wurde erschüttert!
 death.attack.blitz=%1$s wurde tragisch erleuchtet!
 death.attack.blizz=%1$s fand einen frostigen Tod!
@@ -20,7 +25,7 @@ fluid.creosote=Teeröl
 fluid.crude_oil=Rohöl
 fluid.cryotheum=Gelenes Kryotheum
 fluid.ender=Resonantes Ender
-fluid.fuel=Raffinierter Brennstoff
+fluid.refined_fuel=Raffinierter Brennstoff
 fluid.glowstone=Energetisiertes Glowstone
 fluid.mana=Primärmana
 fluid.petrotheum=Tektonisches Petrotheum
@@ -159,6 +164,8 @@ item.thermalfoundation.material.dustTin.name=Pulverisiertes Zinn
 item.thermalfoundation.material.dustWood.name=Sägemehl
 item.thermalfoundation.material.dustWoodCompressed.name=Komprimiertes Sägemehl
 
+item.thermalfoundation.material.fuelCoke.name=Koks
+
 item.thermalfoundation.material.gearAluminum.name=Aluminiumzahnrad
 item.thermalfoundation.material.gearBronze.name=Bronzezahnrad
 item.thermalfoundation.material.gearConstantan.name=Konstantanzahnrad
@@ -178,8 +185,6 @@ item.thermalfoundation.material.gearSignalum.name=Signalumzahnrad
 item.thermalfoundation.material.gearSilver.name=Silberzahnrad
 item.thermalfoundation.material.gearSteel.name=Stahlzahnrad
 item.thermalfoundation.material.gearTin.name=Zinnzahnrad
-
-item.thermalfoundation.material.gemCoke.name=Koks
 
 item.thermalfoundation.material.globRosin.name=Kolophonium
 item.thermalfoundation.material.globTar.name=Teer
@@ -207,6 +212,7 @@ item.thermalfoundation.material.nuggetBronze.name=Bronzenugget
 item.thermalfoundation.material.nuggetConstantan.name=Konstantannugget
 item.thermalfoundation.material.nuggetCopper.name=Kupfernugget
 item.thermalfoundation.material.nuggetDiamond.name=Diamantnugget
+item.thermalfoundation.material.nuggetEmerald.name=Smaragdnugget
 item.thermalfoundation.material.nuggetElectrum.name=Elektrumnugget
 item.thermalfoundation.material.nuggetEnderium.name=Enderiumnugget
 item.thermalfoundation.material.nuggetInvar.name=Invarnugget
@@ -394,6 +400,16 @@ item.thermalfoundation.tool.woodHammer.name=Holzhammer
 item.thermalfoundation.tool.woodShears.name=Holzschere
 item.thermalfoundation.tool.woodShield.name=Holzschild
 item.thermalfoundation.tool.woodSickle.name=Holzsichel
+
+item.thermalfoundation.upgrade.creative.name=Kreativ-Konversionsbausatz
+item.thermalfoundation.upgrade.full1.name=Gehärteter Konversionsbausatz
+item.thermalfoundation.upgrade.full2.name=Verstärkter Konversionsbausatz
+item.thermalfoundation.upgrade.full3.name=Signalumkonversionsbausatz
+item.thermalfoundation.upgrade.full4.name=Resonanter Konversionsbausatz
+item.thermalfoundation.upgrade.incremental1.name=Gehärteter Upgrade-Bausatz
+item.thermalfoundation.upgrade.incremental2.name=Verstärkter Upgrade-Bausatz
+item.thermalfoundation.upgrade.incremental3.name=Signalum-Upgrade-Bausatz
+item.thermalfoundation.upgrade.incremental4.name=Resonanter Upgrade-Bausatz
 
 item.thermalfoundation.util.lock.name=Signalumsicherheitsschloss
 item.thermalfoundation.util.multimeter.name=Multimeter

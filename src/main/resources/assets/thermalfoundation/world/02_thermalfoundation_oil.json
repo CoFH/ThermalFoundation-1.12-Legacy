@@ -1,8 +1,6 @@
 {
 	"dependencies": "thermalfoundation",
-
 	"populate": {
-
 		"oil_sand_clathrate": {
 			"distribution": "uniform",
 			"generator": {
@@ -18,6 +16,7 @@
 			"chunk-chance": 10,
 			"min-height": 10,
 			"max-height": 80,
+			"in-village": "false",
 			"retrogen": "true",
 			"biome": {
 				"restriction": "whitelist",
@@ -30,7 +29,6 @@
 			},
 			"dimension": "all"
 		},
-
 		"oil_shale_clathrate": {
 			"distribution": "uniform",
 			"generator": {
@@ -56,6 +54,7 @@
 			"chunk-chance": 10,
 			"min-height": 10,
 			"max-height": 80,
+			"in-village": "false",
 			"retrogen": "true",
 			"biome": {
 				"restriction": "whitelist",
@@ -80,7 +79,6 @@
 			},
 			"dimension": "all"
 		},
-
 		"oil_sand": {
 			"distribution": "uniform",
 			"generator": {
@@ -109,6 +107,7 @@
 			"chunk-chance": 40,
 			"min-height": 30,
 			"max-height": 60,
+			"in-village": "false",
 			"retrogen": "true",
 			"biome": {
 				"restriction": "whitelist",
@@ -127,7 +126,6 @@
 				]
 			}
 		},
-
 		"oil_shale": {
 			"distribution": "uniform",
 			"generator": {
@@ -156,6 +154,7 @@
 			"chunk-chance": 50,
 			"min-height": 20,
 			"max-height": 60,
+			"in-village": "false",
 			"retrogen": "true",
 			"biome": "all",
 			"dimension": {

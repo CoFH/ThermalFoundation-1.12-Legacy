@@ -1,0 +1,29 @@
+{
+	"type": "thermalfoundation:fluid_shapeless",
+	"result": {
+		"item": "minecraft:paper",
+		"count": 2
+	},
+	"ingredients": [
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustWood"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustWood"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustWood"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustWood"
+		},
+		{
+			"type": "thermalfoundation:fluid",
+			"fluid": "water"
+		}
+	]
+}

@@ -1,11 +1,9 @@
 package cofh.thermalfoundation.entity.monster;
 
 import cofh.core.init.CoreProps;
-import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.init.TFSounds;
-import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.ai.*;
@@ -15,10 +13,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
+import javax.annotation.Nullable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,6 +26,7 @@ public class EntityBlitz extends EntityElemental {
 
 	static boolean enable = true;
 	static boolean restrictLightLevel = true;
+	static ResourceLocation lootTable;
 
 	static int spawnLightLevel = 8;
 
@@ -39,6 +40,8 @@ public class EntityBlitz extends EntityElemental {
 
 		config();
 
+		lootTable = LootTableList.register(new ResourceLocation(ThermalFoundation.MOD_ID, "entities/blitz"));
+
 		if (!enable) {
 			return;
 		}
@@ -48,6 +51,7 @@ public class EntityBlitz extends EntityElemental {
 
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.SANDY));
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.SAVANNA));
+		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.NETHER));
 		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.END));
 
 		EntityRegistry.addSpawn(EntityBlitz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));
@@ -85,22 +89,13 @@ public class EntityBlitz extends EntityElemental {
 		super(world);
 
 		ambientParticle = EnumParticleTypes.CLOUD;
-		ambientSound = TFSounds.BLITZ_AMBIENT;
+		ambientSound = TFSounds.blitzAmbient;
 	}
 
-	@Override
-	protected void dropFewItems(boolean wasHitByPlayer, int looting) {
+	@Nullable
+	protected ResourceLocation getLootTable() {
 
-		if (wasHitByPlayer) {
-			int items = rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				entityDropItem(ItemHelper.cloneStack(ItemMaterial.dustNiter, 1), 0);
-			}
-			items = rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBlitz, 1), 0);
-			}
-		}
+		return lootTable;
 	}
 
 	@Override
@@ -164,7 +159,7 @@ public class EntityBlitz extends EntityElemental {
 
 			--attackTime;
 			EntityLivingBase target = blitz.getAttackTarget();
-			double d0 = blitz.getDistanceSqToEntity(target);
+			double d0 = blitz.getDistance(target);
 
 			if (d0 < 4.0D) {
 				if (attackTime <= 0) {
@@ -195,15 +190,15 @@ public class EntityBlitz extends EntityElemental {
 						for (int i = 0; i < 1; ++i) {
 							EntityBlitzBolt bolt = new EntityBlitzBolt(blitz.world, blitz);
 							bolt.posY = blitz.posY + blitz.height / 2.0F + 0.5D;
-							bolt.setThrowableHeading(target.posX - blitz.posX, target.posY - blitz.posY, target.posZ - blitz.posZ, 1.5F, 1.0F);
-							blitz.playSound(TFSounds.BLITZ_ATTACK, 2.0F, (blitz.rand.nextFloat() - blitz.rand.nextFloat()) * 0.2F + 1.0F);
+							bolt.shoot(target.posX - blitz.posX, target.posY - blitz.posY, target.posZ - blitz.posZ, 1.5F, 1.0F);
+							blitz.playSound(TFSounds.blitzAttack, 2.0F, (blitz.rand.nextFloat() - blitz.rand.nextFloat()) * 0.2F + 1.0F);
 							blitz.world.spawnEntity(bolt);
 						}
 					}
 				}
 				blitz.getLookHelper().setLookPositionWithEntity(target, 10.0F, 10.0F);
 			} else {
-				blitz.getNavigator().clearPathEntity();
+				blitz.getNavigator().clearPath();
 				blitz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			}
 			super.updateTask();

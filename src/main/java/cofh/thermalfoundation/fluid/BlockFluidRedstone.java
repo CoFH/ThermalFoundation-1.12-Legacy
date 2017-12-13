@@ -14,7 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class BlockFluidRedstone extends BlockFluidCore {
 
@@ -66,13 +66,13 @@ public class BlockFluidRedstone extends BlockFluidCore {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("fluid_redstone");
-		GameRegistry.register(this);
+		ForgeRegistries.BLOCKS.register(this);
 		ItemBlock itemBlock = new ItemBlock(this);
 		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
+		ForgeRegistries.ITEMS.register(itemBlock);
 
 		config();
 

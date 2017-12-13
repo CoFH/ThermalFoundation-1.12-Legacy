@@ -22,18 +22,16 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nonnull;
-
-import static cofh.lib.util.helpers.ItemHelper.addStorageRecipe;
-import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
+import static cofh.core.util.helpers.ItemHelper.registerWithHandlers;
+import static cofh.core.util.helpers.RecipeHelper.addStorageRecipe;
 
 public class BlockStorage extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockStorage.Type> VARIANT = PropertyEnum.create("type", BlockStorage.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockStorage() {
 
@@ -62,11 +60,10 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
-			list.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
@@ -111,20 +108,20 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	@Override
 	public float getBlockHardness(IBlockState state, World world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).hardness;
+		return state.getValue(VARIANT).getHardness();
 	}
 
 	@Override
 	public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion) {
 
 		IBlockState state = world.getBlockState(pos);
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).resistance;
+		return state.getValue(VARIANT).getResistance();
 	}
 
 	/* IModelRegister */
@@ -139,14 +136,14 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("storage");
-		GameRegistry.register(this);
+		ForgeRegistries.BLOCKS.register(this);
 
 		ItemBlockStorage itemBlock = new ItemBlockStorage(this);
 		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
+		ForgeRegistries.ITEMS.register(itemBlock);
 
 		blockCopper = new ItemStack(this, 1, Type.COPPER.getMetadata());
 		blockTin = new ItemStack(this, 1, Type.TIN.getMetadata());
@@ -174,7 +171,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		addStorageRecipe(blockCopper, "ingotCopper");
 		addStorageRecipe(blockTin, "ingotTin");
@@ -185,12 +182,6 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		addStorageRecipe(blockPlatinum, "ingotPlatinum");
 		addStorageRecipe(blockIridium, "ingotIridium");
 		addStorageRecipe(blockMithril, "ingotMithril");
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
 
 		return true;
 	}
@@ -210,7 +201,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		MITHRIL(8, "mithril", 8, 30.0F, 120.0F, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockStorage.Type[] METADATA_LOOKUP = new BlockStorage.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

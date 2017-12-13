@@ -3,41 +3,54 @@ package cofh.thermalfoundation.init;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class TFSounds {
+
+	public static final TFSounds INSTANCE = new TFSounds();
 
 	private TFSounds() {
 
 	}
 
-	public static void initialize() {
+	public static void preInit() {
 
-		BLIZZ_AMBIENT = getRegisteredSoundEvent("mob_blizz_ambient");
-		BLIZZ_ATTACK = getRegisteredSoundEvent("mob_blizz_attack");
-
-		BLITZ_AMBIENT = getRegisteredSoundEvent("mob_blitz_ambient");
-		BLITZ_ATTACK = getRegisteredSoundEvent("mob_blitz_attack");
-
-		BASALZ_AMBIENT = getRegisteredSoundEvent("mob_basalz_ambient");
-		BASALZ_ATTACK = getRegisteredSoundEvent("mob_basalz_attack");
+		MinecraftForge.EVENT_BUS.register(INSTANCE);
 	}
 
-	private static SoundEvent getRegisteredSoundEvent(String id) {
+	/* EVENT HANDLING */
+	@SubscribeEvent
+	public void registerSounds(RegistryEvent.Register<SoundEvent> event) {
+
+		blizzAmbient = registerSoundEvent("mob_blizz_ambient");
+		blizzAttack = registerSoundEvent("mob_blizz_attack");
+
+		blitzAmbient = registerSoundEvent("mob_blitz_ambient");
+		blitzAttack = registerSoundEvent("mob_blitz_attack");
+
+		basalzAmbient = registerSoundEvent("mob_basalz_ambient");
+		basalzAttack = registerSoundEvent("mob_basalz_attack");
+	}
+
+	/* HELPERS */
+	private static SoundEvent registerSoundEvent(String id) {
 
 		SoundEvent sound = new SoundEvent(new ResourceLocation(ThermalFoundation.MOD_ID + ":" + id));
 		sound.setRegistryName(id);
-		GameRegistry.register(sound);
+		ForgeRegistries.SOUND_EVENTS.register(sound);
 		return sound;
 	}
 
-	public static SoundEvent BLIZZ_AMBIENT;
-	public static SoundEvent BLIZZ_ATTACK;
+	public static SoundEvent blizzAmbient;
+	public static SoundEvent blizzAttack;
 
-	public static SoundEvent BLITZ_AMBIENT;
-	public static SoundEvent BLITZ_ATTACK;
+	public static SoundEvent blitzAmbient;
+	public static SoundEvent blitzAttack;
 
-	public static SoundEvent BASALZ_AMBIENT;
-	public static SoundEvent BASALZ_ATTACK;
+	public static SoundEvent basalzAmbient;
+	public static SoundEvent basalzAttack;
 
 }

@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidCore;
-import cofh.lib.util.helpers.ServerHelper;
+import cofh.core.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
 import net.minecraft.block.material.MapColor;
@@ -18,7 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import java.util.Random;
 
@@ -63,7 +63,8 @@ public class BlockFluidGlowstone extends BlockFluidCore {
 
 	private boolean shouldSourceBlockCondense(World world, BlockPos pos) {
 
-		return enableSourceCondense && (pos.getY() + densityDir > maxHeight || pos.getY() + densityDir > world.getHeight() || pos.getY() + densityDir > maxHeight * 0.8F && !canDisplace(world, pos.add(0, densityDir, 0)));
+		int y = pos.getY();
+		return enableSourceCondense && (y + densityDir > maxHeight || y + densityDir > world.getHeight() || y + densityDir > maxHeight * 0.8F && !canDisplace(world, pos.add(0, densityDir, 0)));
 	}
 
 	private boolean shouldSourceBlockFloat(World world, BlockPos pos) {
@@ -92,8 +93,9 @@ public class BlockFluidGlowstone extends BlockFluidCore {
 			return;
 		}
 		if (world.getTotalWorldTime() % 8 == 0 && entity instanceof EntityLivingBase && !((EntityLivingBase) entity).isEntityUndead()) {
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SPEED, 6 * 20, 0));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 6 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SPEED, 6 * 20));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 6 * 20));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.GLOWING, 30 * 20));
 		}
 	}
 
@@ -107,57 +109,42 @@ public class BlockFluidGlowstone extends BlockFluidCore {
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 
 		if (getMetaFromState(state) == 0) {
+			if (shouldSourceBlockCondense(world, pos)) {
+				world.setBlockState(pos, Blocks.GLOWSTONE.getDefaultState());
+				return;
+			}
 			if (rand.nextInt(3) == 0) {
-				if (shouldSourceBlockCondense(world, pos)) {
-					world.setBlockState(pos, Blocks.GLOWSTONE.getDefaultState());
-					return;
-				}
 				if (shouldSourceBlockFloat(world, pos)) {
 					world.setBlockState(pos.add(0, densityDir, 0), this.getDefaultState(), 3);
 					world.setBlockToAir(pos);
 					return;
 				}
 			}
-		} else if (pos.getY() + densityDir > maxHeight) {
-			int quantaRemaining = quantaPerBlock - getMetaFromState(state);
-			int expQuanta;
-			int y2 = pos.getY() - densityDir;
-
-			if (world.getBlockState(pos.add(0, y2, 0)).getBlock() == this || world.getBlockState(pos.add(-1, y2, 0)).getBlock() == this || world.getBlockState(pos.add(1, y2, 0)).getBlock() == this || world.getBlockState(pos.add(0, y2, -1)).getBlock() == this || world.getBlockState(pos.add(0, y2, 1)).getBlock() == this) {
-				expQuanta = quantaPerBlock - 1;
-			} else {
-				int maxQuanta = -100;
-				maxQuanta = getLargerQuanta(world, pos.add(-1, 0, 0), maxQuanta);
-				maxQuanta = getLargerQuanta(world, pos.add(1, 0, 0), maxQuanta);
-				maxQuanta = getLargerQuanta(world, pos.add(0, 0, -1), maxQuanta);
-				maxQuanta = getLargerQuanta(world, pos.add(0, 0, 1), maxQuanta);
-
-				expQuanta = maxQuanta - 1;
-			}
-			// decay calculation
-			if (expQuanta != quantaRemaining) {
-				if (expQuanta <= 0) {
-					world.setBlockToAir(pos);
-				} else {
-					world.setBlockState(pos, getDefaultState().withProperty(LEVEL, quantaPerBlock - expQuanta), 3);
-					world.scheduleBlockUpdate(pos, this, tickRate, 0);
-					world.notifyNeighborsOfStateChange(pos, this, false);
-				}
-			}
+		} else if (pos.getY() > maxHeight) {
+			world.setBlockToAir(pos);
 			return;
 		}
 		super.updateTick(world, pos, state, rand);
 	}
 
+	@Override
+	protected void flowIntoBlock(World world, BlockPos pos, int meta) {
+
+		if (pos.getY() > maxHeight) {
+			return;
+		}
+		super.flowIntoBlock(world, pos, meta);
+	}
+
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("fluid_glowstone");
-		GameRegistry.register(this);
+		ForgeRegistries.BLOCKS.register(this);
 		ItemBlock itemBlock = new ItemBlock(this);
 		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
+		ForgeRegistries.ITEMS.register(itemBlock);
 
 		config();
 

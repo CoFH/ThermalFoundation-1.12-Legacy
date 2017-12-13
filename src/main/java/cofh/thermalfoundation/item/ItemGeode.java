@@ -17,7 +17,7 @@ public class ItemGeode extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		geode = addItem(0, "geode");
 
@@ -27,13 +27,7 @@ public class ItemGeode extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean initialize() {
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
+	public boolean register() {
 
 		return true;
 	}

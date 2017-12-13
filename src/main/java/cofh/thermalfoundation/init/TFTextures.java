@@ -1,7 +1,8 @@
 package cofh.thermalfoundation.init;
 
+import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 
 public class TFTextures {
@@ -10,28 +11,50 @@ public class TFTextures {
 
 	}
 
-	public static void registerIcons(TextureStitchEvent.Pre event) {
+	public static void registerTextures(TextureMap map) {
 
-		TextureMap map = event.getMap();
+		textureMap = map;
 
-		registerFluidTextures(map, TFFluids.fluidSteam);
+		registerFluidTextures(TFFluids.fluidSteam);
 
-		registerFluidTextures(map, TFFluids.fluidCreosote);
-		registerFluidTextures(map, TFFluids.fluidCoal);
-		registerFluidTextures(map, TFFluids.fluidRefinedOil);
-		registerFluidTextures(map, TFFluids.fluidFuel);
+		registerFluidTextures(TFFluids.fluidCreosote);
+		registerFluidTextures(TFFluids.fluidCoal);
+		registerFluidTextures(TFFluids.fluidCrudeOil);
+		registerFluidTextures(TFFluids.fluidRefinedOil);
+		registerFluidTextures(TFFluids.fluidFuel);
 
-		registerFluidTextures(map, TFFluids.fluidSap);
-		registerFluidTextures(map, TFFluids.fluidSyrup);
-		registerFluidTextures(map, TFFluids.fluidResin);
-		registerFluidTextures(map, TFFluids.fluidTreeOil);
+		registerFluidTextures(TFFluids.fluidSap);
+		registerFluidTextures(TFFluids.fluidSyrup);
+		registerFluidTextures(TFFluids.fluidResin);
+		registerFluidTextures(TFFluids.fluidTreeOil);
+
+		registerFluidTextures(TFFluids.fluidMushroomStew);
+		registerFluidTextures(TFFluids.fluidExperience);
+
+		registerFluidTextures(TFFluids.fluidPotion);
+
+		registerFluidTextures(TFFluids.fluidRedstone);
+		registerFluidTextures(TFFluids.fluidGlowstone);
+		registerFluidTextures(TFFluids.fluidEnder);
+		registerFluidTextures(TFFluids.fluidPyrotheum);
+		registerFluidTextures(TFFluids.fluidCryotheum);
+		registerFluidTextures(TFFluids.fluidAerotheum);
+		registerFluidTextures(TFFluids.fluidPetrotheum);
+		registerFluidTextures(TFFluids.fluidMana);
 	}
 
-	// Bouncer to make the class readable.
-	private static void registerFluidTextures(TextureMap map, Fluid fluid) {
+	/* HELPERS */
+	private static TextureMap textureMap;
 
-		map.registerSprite(fluid.getStill());
-		map.registerSprite(fluid.getFlowing());
+	private static void registerFluidTextures(Fluid fluid) {
+
+		registerFluidTextures(fluid.getName());
+	}
+
+	private static void registerFluidTextures(String fluidName) {
+
+		textureMap.registerSprite(new ResourceLocation(ThermalFoundation.MOD_ID, "blocks/fluid/" + fluidName + "_still"));
+		textureMap.registerSprite(new ResourceLocation(ThermalFoundation.MOD_ID, "blocks/fluid/" + fluidName + "_flow"));
 	}
 
 }

@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidInteractive;
-import cofh.lib.util.helpers.ServerHelper;
+import cofh.core.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
 import net.minecraft.block.material.MapColor;
@@ -21,7 +21,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import java.util.Random;
 
@@ -73,9 +73,8 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 			return;
 		}
 		if (world.getTotalWorldTime() % 8 == 0 && entity instanceof EntityLivingBase && !((EntityLivingBase) entity).isEntityUndead()) {
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.HASTE, 30 * 20, 2));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 30 * 20, 0));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 30 * 20, 1));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.HASTE, 6 * 20, 0));
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 6 * 20, 0));
 		}
 	}
 
@@ -138,28 +137,27 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 		world.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 0.5F, 0.9F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F, false);
 	}
 
-	/* IInitializer */
-	@Override
-	public boolean preInit() {
-
-		this.setRegistryName("fluid_petrotheum");
-		GameRegistry.register(this);
-		ItemBlock itemBlock = new ItemBlock(this);
-		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
-
-		config();
-
-		return true;
-	}
-
-	@Override
-	public boolean initialize() {
+	/* HELPERS */
+	public void addInteractions() {
 
 		addInteraction(Blocks.STONE, Blocks.GRAVEL);
 		addInteraction(Blocks.COBBLESTONE, Blocks.GRAVEL);
 		addInteraction(Blocks.STONEBRICK, Blocks.GRAVEL);
 		addInteraction(Blocks.MOSSY_COBBLESTONE, Blocks.GRAVEL);
+	}
+
+	/* IInitializer */
+	@Override
+	public boolean initialize() {
+
+		this.setRegistryName("fluid_petrotheum");
+		ForgeRegistries.BLOCKS.register(this);
+		ItemBlock itemBlock = new ItemBlock(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		ForgeRegistries.ITEMS.register(itemBlock);
+
+		config();
+		addInteractions();
 
 		return true;
 	}

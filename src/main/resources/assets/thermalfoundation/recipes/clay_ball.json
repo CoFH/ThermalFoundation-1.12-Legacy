@@ -1,0 +1,25 @@
+{
+	"type": "thermalfoundation:fluid_shapeless",
+	"result": {
+		"item": "minecraft:clay_ball",
+		"count": 2
+	},
+	"ingredients": [
+		{
+			"type": "forge:ore_dict",
+			"ore": "crystalSlag"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "crystalSlag"
+		},
+		{
+			"item": "minecraft:dirt",
+			"data": 0
+		},
+		{
+			"type": "thermalfoundation:fluid",
+			"fluid": "water"
+		}
+	]
+}

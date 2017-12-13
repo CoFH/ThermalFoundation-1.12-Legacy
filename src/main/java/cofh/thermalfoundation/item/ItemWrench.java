@@ -2,13 +2,12 @@ package cofh.thermalfoundation.item;
 
 import cofh.api.block.IDismantleable;
 import cofh.api.item.IToolHammer;
-import cofh.asm.relauncher.Implementable;
 import cofh.core.item.ItemMulti;
 import cofh.core.util.StateMapper;
 import cofh.core.util.core.IInitializer;
-import cofh.lib.util.helpers.BlockHelper;
-import cofh.lib.util.helpers.ItemHelper;
-import cofh.lib.util.helpers.ServerHelper;
+import cofh.core.util.helpers.BlockHelper;
+import cofh.core.util.helpers.ItemHelper;
+import cofh.core.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -40,10 +39,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Map;
 
-import static cofh.lib.util.helpers.ItemHelper.ShapedRecipe;
-import static cofh.lib.util.helpers.ItemHelper.addRecipe;
+import static cofh.core.util.helpers.RecipeHelper.addShapedRecipe;
 
-@Implementable ({ "buildcraft.api.tools.IToolWrench", "com.brandon3055.draconicevolution.api.ICrystalBinder" })
+//TODO FIXME @Optional
+//@Implementable ({ "buildcraft.api.tools.IToolWrench", "com.brandon3055.draconicevolution.api.ICrystalBinder" })
 public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 	public ItemWrench() {
@@ -51,7 +50,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 		super("thermalfoundation");
 
 		setUnlocalizedName("util", "wrench");
-		setCreativeTab(ThermalFoundation.tabCommon);
+		setCreativeTab(ThermalFoundation.tabUtils);
 
 		setHarvestLevel("wrench", 1);
 		setHasSubtypes(true);
@@ -221,7 +220,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		wrenchBasic = addItem(0, "wrench0");
 		//		wrenchHardened = addItem(1, "wrench1");
@@ -235,17 +234,17 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		// @formatter:off
 
-		addRecipe(ShapedRecipe(wrenchBasic,
+		addShapedRecipe(wrenchBasic,
 				"I I",
 				" T ",
 				" I ",
 				'I', "ingotIron",
 				'T', "ingotTin"
-		));
+		);
 //		addRecipe(new RecipeUpgrade(wrenchHardened,
 //			"Y Y",
 //				"IXI",
@@ -280,12 +279,6 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 //		));
 
 		// @formatter:on
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
 
 		return true;
 	}

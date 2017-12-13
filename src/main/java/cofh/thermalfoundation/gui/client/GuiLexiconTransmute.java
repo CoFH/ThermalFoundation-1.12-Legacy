@@ -1,16 +1,16 @@
 package cofh.thermalfoundation.gui.client;
 
-import cofh.core.gui.GuiCore;
-import cofh.core.gui.element.TabInfo;
+import cofh.core.gui.GuiContainerCore;
+import cofh.core.gui.element.ElementButton;
+import cofh.core.gui.element.tab.TabInfo;
+import cofh.core.util.helpers.StringHelper;
 import cofh.core.util.oredict.OreDictionaryArbiter;
-import cofh.lib.gui.element.ElementButton;
-import cofh.lib.util.helpers.StringHelper;
 import cofh.thermalfoundation.gui.container.ContainerLexiconTransmute;
 import cofh.thermalfoundation.network.PacketTFBase;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
-public class GuiLexiconTransmute extends GuiCore {
+public class GuiLexiconTransmute extends GuiContainerCore {
 
 	private static final String TEX_PATH = "thermalfoundation:textures/gui/lexicon_transmute.png";
 	private static final ResourceLocation TEXTURE = new ResourceLocation(TEX_PATH);
@@ -87,28 +87,34 @@ public class GuiLexiconTransmute extends GuiCore {
 	@Override
 	public void handleElementButtonClick(String buttonName, int mouseButton) {
 
-		if (buttonName.equalsIgnoreCase("PrevOre")) {
-			PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.ORE_PREV);
-		} else if (buttonName.equalsIgnoreCase("NextOre")) {
-			PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.ORE_NEXT);
-		} else if (buttonName.equalsIgnoreCase("PrevName")) {
-			PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.NAME_PREV);
-		} else if (buttonName.equalsIgnoreCase("NextName")) {
-			PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.NAME_NEXT);
-		} else if (buttonName.equalsIgnoreCase("Transmute")) {
-			PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.TRANSMUTE);
+		switch (buttonName) {
+			case "PrevOre":
+				PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.ORE_PREV);
+				break;
+			case "NextOre":
+				PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.ORE_NEXT);
+				break;
+			case "PrevName":
+				PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.NAME_PREV);
+				break;
+			case "NextName":
+				PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.NAME_NEXT);
+				break;
+			case "Transmute":
+				PacketTFBase.sendLexiconTransmutePacketToServer(ContainerLexiconTransmute.TRANSMUTE);
+				break;
 		}
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y) {
 
-		fontRendererObj.drawString(StringHelper.localize(name), getCenteredOffset(StringHelper.localize(name)), 16, 0xddbb1d);
+		fontRenderer.drawString(StringHelper.localize(name), getCenteredOffset(StringHelper.localize(name)), 16, 0xddbb1d);
 		// 0xd2c0a3
 		if (lexicon != null) {
 			String oreName = lexicon.getOreName();
 			if (!oreName.equals(OreDictionaryArbiter.UNKNOWN)) {
-				fontRendererObj.drawString(oreName, getCenteredOffset(oreName), 88, 0xffffff);
+				fontRenderer.drawString(oreName, getCenteredOffset(oreName), 88, 0xffffff);
 			}
 		}
 		super.drawGuiContainerForegroundLayer(x, y);

@@ -3,17 +3,17 @@ package cofh.thermalfoundation.item;
 import cofh.core.energy.FurnaceFuelHandler;
 import cofh.core.item.ItemMulti;
 import cofh.core.util.core.IInitializer;
-import cofh.core.util.crafting.RecipeShapelessOreFluid;
 import cofh.thermalfoundation.ThermalFoundation;
-import cofh.thermalfoundation.init.TFFluids;
 import cofh.thermalfoundation.init.TFProps;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
 
-import static cofh.lib.util.helpers.ItemHelper.*;
+import static cofh.core.util.helpers.ItemHelper.cloneStack;
+import static cofh.core.util.helpers.RecipeHelper.*;
 
 public class ItemMaterial extends ItemMulti implements IInitializer {
 
@@ -27,12 +27,13 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		dustIron = addOreDictItem(0, "dustIron");
 		dustGold = addOreDictItem(1, "dustGold");
 		// dustDiamond = addOreDictItem(2, "dustDiamond");
 		nuggetDiamond = addOreDictItem(16, "nuggetDiamond");
+		nuggetEmerald = addOreDictItem(17, "nuggetEmerald");
 		gearIron = addOreDictItem(24, "gearIron");
 		gearGold = addOreDictItem(25, "gearGold");
 		plateIron = addOreDictItem(32, "plateIron");
@@ -153,7 +154,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 		dustWood = addOreDictItem(800, "dustWood");
 		dustWoodCompressed = addItem(801, "dustWoodCompressed");
-		gemCoke = addItem(802, "gemCoke");
+		fuelCoke = addItem(802, "fuelCoke");
 
 		globRosin = addItem(832, "globRosin");
 		globTar = addItem(833, "globTar");
@@ -186,19 +187,20 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// Rock Gel
 
 		OreDictionary.registerOre("dustSaltpeter", dustNiter);
-		OreDictionary.registerOre("fuelCoke", gemCoke);
+		OreDictionary.registerOre("fuelCoke", fuelCoke);
 
 		OreDictionary.registerOre("itemSlag", crystalSlag);
 		OreDictionary.registerOre("itemSlagRich", crystalSlagRich);
 		OreDictionary.registerOre("itemCinnabar", crystalCinnabar);
 
 		/* Vanilla References */
-		nuggetIron = new ItemStack(Items.field_191525_da);
+		nuggetIron = new ItemStack(Items.IRON_NUGGET);
 		nuggetGold = new ItemStack(Items.GOLD_NUGGET);
 
 		ingotIron = new ItemStack(Items.IRON_INGOT);
 		ingotGold = new ItemStack(Items.GOLD_INGOT);
 		gemDiamond = new ItemStack(Items.DIAMOND);
+		gemEmerald = new ItemStack(Items.EMERALD);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
@@ -206,49 +208,52 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		/* Smelting */
-		addSmelting(ingotIron, dustIron, 0.0F);
-		addSmelting(ingotGold, dustGold, 0.0F);
-		addSmelting(ingotCopper, dustCopper, 0.0F);
-		addSmelting(ingotTin, dustTin, 0.0F);
-		addSmelting(ingotSilver, dustSilver, 0.0F);
-		addSmelting(ingotLead, dustLead, 0.0F);
-		addSmelting(ingotAluminum, dustAluminum, 0.0F);
-		addSmelting(ingotNickel, dustNickel, 0.0F);
-		addSmelting(ingotPlatinum, dustPlatinum, 0.0F);
-		addSmelting(ingotIridium, dustIridium, 0.0F);
-		addSmelting(ingotMithril, dustMithril, 0.0F);
+		addSmelting(dustIron, ingotIron, 0.7F);
+		addSmelting(dustGold, ingotGold, 1.0F);
+		addSmelting(dustCopper, ingotCopper, 0.6F);
+		addSmelting(dustTin, ingotTin, 0.7F);
+		addSmelting(dustSilver, ingotSilver, 0.9F);
+		addSmelting(dustLead, ingotLead, 0.8F);
+		addSmelting(dustAluminum, ingotAluminum, 0.6F);
+		addSmelting(dustNickel, ingotNickel, 1.0F);
+		addSmelting(dustPlatinum, ingotPlatinum, 1.0F);
+		addSmelting(dustIridium, ingotIridium, 1.2F);
+		addSmelting(dustMithril, ingotMithril, 1.5F);
 
-		addSmelting(ingotSteel, dustSteel, 0.0F);
-		addSmelting(ingotElectrum, dustElectrum, 0.0F);
-		addSmelting(ingotInvar, dustInvar, 0.0F);
-		addSmelting(ingotBronze, dustBronze, 0.0F);
-		addSmelting(ingotConstantan, dustConstantan, 0.0F);
-		// No Signalum
-		// No Lumium
-		// No Enderium
+		// addSmelting(dustSteel, ingotSteel);
+		addSmelting(dustElectrum, ingotElectrum);
+		addSmelting(dustInvar, ingotInvar);
+		addSmelting(dustBronze, ingotBronze);
+		addSmelting(dustConstantan, ingotConstantan);
+		// addSmelting(dustSignalum, ingotSignalum);
+		// addSmelting(dustLumium, ingotLumium);
+		// addSmelting(dustEnderium, ingotEnderium);
 
 		if (!Loader.isModLoaded("thermalexpansion")) {
-			addSmelting(ingotEnderium, dustEnderium, 0.0F);
+			addSmelting(Blocks.GRAVEL, crystalSlag);
 
-			addSmelting(new ItemStack(Items.REDSTONE), crystalRedstone, 0.0F);
-			addSmelting(new ItemStack(Items.GLOWSTONE_DUST), crystalGlowstone, 0.0F);
-			addSmelting(new ItemStack(Items.ENDER_PEARL), crystalEnder, 0.0F);
+			addSmelting(dustSteel, ingotSteel);
+			addSmelting(dustSignalum, ingotSignalum);
+			addSmelting(dustLumium, ingotLumium);
+			addSmelting(dustEnderium, ingotEnderium);
+
+			addSmelting(crystalRedstone, new ItemStack(Items.REDSTONE), 0.5F);
+			addSmelting(crystalGlowstone, new ItemStack(Items.GLOWSTONE_DUST), 0.5F);
+			addSmelting(crystalEnder, new ItemStack(Items.ENDER_PEARL), 0.5F);
 		}
 
 		/* Alloy Recipes */
-		addRecipe(ShapelessRecipe(cloneStack(dustElectrum, 2), "dustGold", "dustSilver"));
-		addRecipe(ShapelessRecipe(cloneStack(dustInvar, 3), "dustIron", "dustIron", "dustNickel"));
-		addRecipe(ShapelessRecipe(cloneStack(dustBronze, 4), "dustCopper", "dustCopper", "dustCopper", "dustTin"));
-		addRecipe(ShapelessRecipe(cloneStack(dustConstantan, 2), "dustCopper", "dustNickel"));
-		addRecipe(new RecipeShapelessOreFluid(cloneStack(dustSignalum, 4), "dustCopper", "dustCopper", "dustCopper", "dustSilver", TFFluids.fluidRedstone));
-		addRecipe(new RecipeShapelessOreFluid(cloneStack(dustLumium, 4), "dustTin", "dustTin", "dustTin", "dustSilver", TFFluids.fluidGlowstone));
-		addRecipe(new RecipeShapelessOreFluid(cloneStack(dustEnderium, 4), "dustTin", "dustTin", "dustSilver", "dustPlatinum", TFFluids.fluidEnder));
+		addShapelessRecipe(cloneStack(dustElectrum, 2), "dustGold", "dustSilver");
+		addShapelessRecipe(cloneStack(dustInvar, 3), "dustIron", "dustIron", "dustNickel");
+		addShapelessRecipe(cloneStack(dustBronze, 4), "dustCopper", "dustCopper", "dustCopper", "dustTin");
+		addShapelessRecipe(cloneStack(dustConstantan, 2), "dustCopper", "dustNickel");
 
 		/* Storage */
 		addTwoWayStorageRecipe(gemDiamond, "gemDiamond", nuggetDiamond, "nuggetDiamond");
+		addTwoWayStorageRecipe(gemEmerald, "gemEmerald", nuggetEmerald, "nuggetEmerald");
 
 		addTwoWayStorageRecipe(ingotCopper, "ingotCopper", nuggetCopper, "nuggetCopper");
 		addTwoWayStorageRecipe(ingotTin, "ingotTin", nuggetTin, "nuggetTin");
@@ -311,33 +316,27 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addGearRecipe(gearEnderium, "ingotEnderium");
 
 		/* Parts */
-		addRecipe(ShapedRecipe(redstoneServo, "R R", " I ", "R R", 'R', "dustRedstone", 'I', "ingotIron"));
-		addRecipe(ShapedRecipe(powerCoilGold, "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotGold"));
-		addRecipe(ShapedRecipe(powerCoilSilver, "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotSilver"));
-		addRecipe(ShapedRecipe(powerCoilElectrum, "R  ", " G ", "  R", 'R', "dustRedstone", 'G', "ingotElectrum"));
+		addShapedRecipe(redstoneServo, "R R", " I ", "R R", 'R', "dustRedstone", 'I', "ingotIron");
+		addShapedRecipe(powerCoilGold, "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotGold");
+		addShapedRecipe(powerCoilSilver, "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotSilver");
+		addShapedRecipe(powerCoilElectrum, "R  ", " G ", "  R", 'R', "dustRedstone", 'G', "ingotElectrum");
 
 		/* Mob Drops */
-		addRecipe(ShapelessRecipe(cloneStack(dustPyrotheum, 2), "dustCoal", "dustSulfur", "dustRedstone", Items.BLAZE_POWDER));
-		addRecipe(ShapelessRecipe(cloneStack(dustCryotheum, 2), Items.SNOWBALL, "dustSaltpeter", "dustRedstone", "dustBlizz"));
-		addRecipe(ShapelessRecipe(cloneStack(dustAerotheum, 2), "sand", "dustSaltpeter", "dustRedstone", "dustBlitz"));
-		addRecipe(ShapelessRecipe(cloneStack(dustPetrotheum, 2), Items.CLAY_BALL, "dustObsidian", "dustRedstone", "dustBasalz"));
-		addRecipe(ShapelessRecipe(cloneStack(dustBlizz, 2), "rodBlizz"));
-		addRecipe(ShapelessRecipe(cloneStack(dustBlitz, 2), "rodBlitz"));
-		addRecipe(ShapelessRecipe(cloneStack(dustBasalz, 2), "rodBasalz"));
+		addShapelessRecipe(cloneStack(dustPyrotheum, 2), "dustCoal", "dustSulfur", "dustRedstone", Items.BLAZE_POWDER);
+		addShapelessRecipe(cloneStack(dustCryotheum, 2), Items.SNOWBALL, "dustSaltpeter", "dustRedstone", "dustBlizz");
+		addShapelessRecipe(cloneStack(dustAerotheum, 2), "sand", "dustSaltpeter", "dustRedstone", "dustBlitz");
+		addShapelessRecipe(cloneStack(dustPetrotheum, 2), Items.CLAY_BALL, "dustObsidian", "dustRedstone", "dustBasalz");
+		addShapelessRecipe(cloneStack(dustBlizz, 2), "rodBlizz");
+		addShapelessRecipe(cloneStack(dustBlitz, 2), "rodBlitz");
+		addShapelessRecipe(cloneStack(dustBasalz, 2), "rodBasalz");
 		// Cold Gel
 		// Air Gel
 		// Rock Gel
 
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
-
-		FurnaceFuelHandler.registerFuel(gemCoke, TFProps.gemCokeFuel);
+		FurnaceFuelHandler.registerFuel(fuelCoke, TFProps.fuelCokeFuel);
 		FurnaceFuelHandler.registerFuel(globRosin, TFProps.globRosinFuel);
 		FurnaceFuelHandler.registerFuel(globTar, TFProps.globTarFuel);
-		FurnaceFuelHandler.registerFuel(crystalCrudeOil, TFProps.gemCokeFuel);
+		FurnaceFuelHandler.registerFuel(crystalCrudeOil, TFProps.fuelCokeFuel);
 		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
 
 		return true;
@@ -350,11 +349,13 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack ingotIron;
 	public static ItemStack ingotGold;
 	public static ItemStack gemDiamond;
+	public static ItemStack gemEmerald;
 
 	public static ItemStack dustIron;
 	public static ItemStack dustGold;
 
 	public static ItemStack nuggetDiamond;
+	public static ItemStack nuggetEmerald;
 
 	public static ItemStack gearIron;
 	public static ItemStack gearGold;
@@ -470,7 +471,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 	public static ItemStack dustWood;
 	public static ItemStack dustWoodCompressed;
-	public static ItemStack gemCoke;
+	public static ItemStack fuelCoke;
 
 	public static ItemStack globRosin;
 	public static ItemStack globTar;

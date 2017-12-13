@@ -20,18 +20,16 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nonnull;
-
-import static cofh.lib.util.helpers.ItemHelper.addSmelting;
-import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
+import static cofh.core.util.helpers.ItemHelper.registerWithHandlers;
+import static cofh.core.util.helpers.RecipeHelper.addSmelting;
 
 public class BlockOre extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockOre.Type> VARIANT = PropertyEnum.create("type", BlockOre.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockOre() {
 
@@ -61,11 +59,10 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
-			list.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
@@ -91,7 +88,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	/* IModelRegister */
@@ -106,14 +103,14 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("ore");
-		GameRegistry.register(this);
+		ForgeRegistries.BLOCKS.register(this);
 
 		ItemBlockOre itemBlock = new ItemBlockOre(this);
 		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
+		ForgeRegistries.ITEMS.register(itemBlock);
 
 		oreCopper = new ItemStack(this, 1, Type.COPPER.getMetadata());
 		oreTin = new ItemStack(this, 1, Type.TIN.getMetadata());
@@ -141,23 +138,17 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
-		addSmelting(ItemMaterial.ingotCopper, oreCopper, 0.6F);
-		addSmelting(ItemMaterial.ingotTin, oreTin, 0.7F);
-		addSmelting(ItemMaterial.ingotSilver, oreSilver, 0.9F);
-		addSmelting(ItemMaterial.ingotLead, oreLead, 0.8F);
-		addSmelting(ItemMaterial.ingotAluminum, oreAluminum, 0.6F);
-		addSmelting(ItemMaterial.ingotNickel, oreNickel, 1.0F);
-		addSmelting(ItemMaterial.ingotPlatinum, orePlatinum, 1.0F);
-		addSmelting(ItemMaterial.ingotIridium, oreIridium, 1.2F);
-		addSmelting(ItemMaterial.ingotMithril, oreMithril, 1.5F);
-
-		return true;
-	}
-
-	@Override
-	public boolean postInit() {
+		addSmelting(oreCopper, ItemMaterial.ingotCopper, 0.6F);
+		addSmelting(oreTin, ItemMaterial.ingotTin, 0.7F);
+		addSmelting(oreSilver, ItemMaterial.ingotSilver, 0.9F);
+		addSmelting(oreLead, ItemMaterial.ingotLead, 0.8F);
+		addSmelting(oreAluminum, ItemMaterial.ingotAluminum, 0.6F);
+		addSmelting(oreNickel, ItemMaterial.ingotNickel, 1.0F);
+		addSmelting(orePlatinum, ItemMaterial.ingotPlatinum, 1.0F);
+		addSmelting(oreIridium, ItemMaterial.ingotIridium, 1.2F);
+		addSmelting(oreMithril, ItemMaterial.ingotMithril, 1.5F);
 
 		return true;
 	}
@@ -177,7 +168,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		MITHRIL(8, "mithril", 8, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockOre.Type[] METADATA_LOOKUP = new BlockOre.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

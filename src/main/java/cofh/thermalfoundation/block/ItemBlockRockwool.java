@@ -1,7 +1,8 @@
 package cofh.thermalfoundation.block;
 
 import cofh.core.block.ItemBlockCore;
-import cofh.lib.util.helpers.ItemHelper;
+import cofh.core.util.helpers.ItemHelper;
+import cofh.thermalfoundation.block.BlockRockwool.Type;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
@@ -17,7 +18,7 @@ public class ItemBlockRockwool extends ItemBlockCore {
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 
-		return "tile.thermalfoundation.rockwool." + BlockRockwool.Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
+		return "tile.thermalfoundation.rockwool." + Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
 	}
 
 }

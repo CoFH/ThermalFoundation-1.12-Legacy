@@ -5,7 +5,7 @@ import cofh.core.fluid.BlockFluidCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.render.particle.EntityDropParticleFX;
 import cofh.core.util.core.IInitializer;
-import cofh.lib.util.helpers.ItemHelper;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
 import cofh.thermalfoundation.item.ItemMaterial;
@@ -30,19 +30,17 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.FMLClientHandler;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nonnull;
-import java.util.List;
 import java.util.Random;
 
-import static cofh.lib.util.helpers.ItemHelper.registerWithHandlers;
+import static cofh.core.util.helpers.ItemHelper.registerWithHandlers;
 
 public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegister {
 
-	public static final PropertyEnum<BlockOreFluid.Type> VARIANT = PropertyEnum.create("type", BlockOreFluid.Type.class);
+	public static final PropertyEnum<Type> VARIANT = PropertyEnum.create("type", Type.class);
 
 	public BlockOreFluid() {
 
@@ -66,11 +64,10 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
-	@SideOnly (Side.CLIENT)
-	public void getSubBlocks(@Nonnull Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
 
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
-			list.add(new ItemStack(item, 1, i));
+			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
@@ -96,7 +93,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return Type.byMetadata(state.getBlock().getMetaFromState(state)).light;
+		return state.getValue(VARIANT).getLight();
 	}
 
 	/* BLOCK METHODS */
@@ -204,19 +201,14 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
-	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 
-		List<ItemStack> ret = new java.util.ArrayList<>();
-		ret.add(ItemHelper.cloneStack(drops[damageDropped(state)], quantityDropped(state, fortune, world instanceof World ? ((World) world).rand : RANDOM)));
-
-		return ret;
+		drops.add(ItemHelper.cloneStack(this.drops[damageDropped(state)], quantityDropped(state, fortune, world instanceof World ? ((World) world).rand : RANDOM)));
 	}
 
 	@Override
 	@SideOnly (Side.CLIENT)
 	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
-
-		super.randomDisplayTick(state, world, pos, rand);
 
 		double px = pos.getX() + rand.nextFloat();
 		double py = pos.getY() - 0.05D;
@@ -248,14 +240,14 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 	/* IInitializer */
 	@Override
-	public boolean preInit() {
+	public boolean initialize() {
 
 		this.setRegistryName("ore_fluid");
-		GameRegistry.register(this);
+		ForgeRegistries.BLOCKS.register(this);
 
 		ItemBlockOreFluid itemBlock = new ItemBlockOreFluid(this);
 		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
+		ForgeRegistries.ITEMS.register(itemBlock);
 
 		oreFluidCrudeOilSand = new ItemStack(this, 1, Type.CRUDE_OIL_SAND.getMetadata());
 		oreFluidCrudeOilGravel = new ItemStack(this, 1, Type.CRUDE_OIL_GRAVEL.getMetadata());
@@ -275,7 +267,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
-	public boolean initialize() {
+	public boolean register() {
 
 		fluidBlocks[Type.CRUDE_OIL_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;
 		fluidBlocks[Type.CRUDE_OIL_GRAVEL.getMetadata()] = TFFluids.blockFluidCrudeOil;
@@ -292,12 +284,6 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		return true;
 	}
 
-	@Override
-	public boolean postInit() {
-
-		return true;
-	}
-
 	/* TYPE */
 	public enum Type implements IStringSerializable {
 
@@ -309,7 +295,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		ENDER(4, "ender", TFFluids.blockFluidEnder, 3, EnumRarity.RARE);
 		// @formatter: on
 
-		private static final BlockOreFluid.Type[] METADATA_LOOKUP = new BlockOreFluid.Type[values().length];
+		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;

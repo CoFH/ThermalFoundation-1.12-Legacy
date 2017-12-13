@@ -1,8 +1,8 @@
 package cofh.thermalfoundation.fluid;
 
 import cofh.core.fluid.BlockFluidInteractive;
-import cofh.lib.util.helpers.DamageHelper;
-import cofh.lib.util.helpers.ServerHelper;
+import cofh.core.util.helpers.DamageHelper;
+import cofh.core.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cofh.thermalfoundation.init.TFFluids;
@@ -25,19 +25,17 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import java.util.Random;
 
 public class BlockFluidCryotheum extends BlockFluidInteractive {
 
-	Random random = new Random();
-
 	public static final int LEVELS = 5;
 	public static final Material materialFluidCryotheum = new MaterialLiquid(MapColor.ICE);
 
-	private static boolean enableSourceFall = true;
 	private static boolean effect = true;
+	private static boolean enableSourceFall = true;
 
 	public BlockFluidCryotheum(Fluid fluid) {
 
@@ -70,14 +68,14 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		if (!effect) {
 			return;
 		}
-		if (entity.motionY < -0.05 || entity.motionY > 0.05) {
-			entity.motionY *= 0.05;
+		if (entity.motionY < -0.25 || entity.motionY > 0.25) {
+			entity.motionY *= 0.25;
 		}
-		if (entity.motionZ < -0.05 || entity.motionZ > 0.05) {
-			entity.motionZ *= 0.05;
+		if (entity.motionZ < -0.25 || entity.motionZ > 0.25) {
+			entity.motionZ *= 0.25;
 		}
-		if (entity.motionX < -0.05 || entity.motionX > 0.05) {
-			entity.motionX *= 0.05;
+		if (entity.motionX < -0.25 || entity.motionX > 0.25) {
+			entity.motionX *= 0.25;
 		}
 		if (ServerHelper.isClientWorld(world)) {
 			return;
@@ -95,10 +93,10 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.SPEED, 6 * 20, 0));
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 6 * 20, 0));
 		} else if (entity instanceof EntityBlaze) {
-			entity.attackEntityFrom(DamageHelper.cryotheum, 10F);
+			entity.attackEntityFrom(DamageHelper.CRYOTHEUM, 10.0F);
 		} else {
 			boolean t = entity.velocityChanged;
-			entity.attackEntityFrom(DamageHelper.cryotheum, 2.0F);
+			entity.attackEntityFrom(DamageHelper.CRYOTHEUM, 2.0F);
 			entity.velocityChanged = t;
 		}
 	}
@@ -129,22 +127,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		super.updateTick(world, pos, state, rand);
 	}
 
-	protected void checkForInteraction(World world, BlockPos pos) {
-
-		if (world.getBlockState(pos) != this) {
-			return;
-		}
-
-		for (EnumFacing face : EnumFacing.VALUES) {
-			interactWithBlock(world, pos.offset(face));
-		}
-		//Corners
-		interactWithBlock(world, pos.add(-1, 0, -1));
-		interactWithBlock(world, pos.add(-1, 0, 1));
-		interactWithBlock(world, pos.add(1, 0, -1));
-		interactWithBlock(world, pos.add(1, 0, 1));
-	}
-
 	protected void interactWithBlock(World world, BlockPos pos) {
 
 		IBlockState state = world.getBlockState(pos);
@@ -152,7 +134,6 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		if (state.getBlock().isAir(state, world, pos) || state.getBlock() == this) {
 			return;
 		}
-		//TODO Unify block interactions in parent class.
 		if (hasInteraction(state)) {
 			world.setBlockState(pos, getInteraction(state), 3);
 		} else if (state.isSideSolid(world, pos, EnumFacing.UP) && world.isAirBlock(pos.offset(EnumFacing.UP))) {
@@ -160,23 +141,8 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		}
 	}
 
-	/* IInitializer */
-	@Override
-	public boolean preInit() {
-
-		this.setRegistryName("fluid_cryotheum");
-		GameRegistry.register(this);
-		ItemBlock itemBlock = new ItemBlock(this);
-		itemBlock.setRegistryName(this.getRegistryName());
-		GameRegistry.register(itemBlock);
-
-		config();
-
-		return true;
-	}
-
-	@Override
-	public boolean initialize() {
+	/* HELPERS */
+	public void addInteractions() {
 
 		addInteraction(Blocks.GRASS, Blocks.DIRT);
 		addInteraction(Blocks.WATER.getDefaultState(), Blocks.ICE);
@@ -185,13 +151,25 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 		addInteraction(Blocks.FLOWING_WATER, Blocks.SNOW);
 		addInteraction(Blocks.LAVA.getDefaultState(), Blocks.OBSIDIAN);
 		addInteraction(Blocks.LAVA, Blocks.STONE);
-		addInteraction(Blocks.FLOWING_WATER.getDefaultState(), Blocks.OBSIDIAN);
-		addInteraction(Blocks.FLOWING_WATER, Blocks.STONE);
 		addInteraction(Blocks.LEAVES, Blocks.AIR);
 		addInteraction(Blocks.LEAVES2, Blocks.AIR);
 		addInteraction(Blocks.TALLGRASS, Blocks.AIR);
 		addInteraction(Blocks.FIRE, Blocks.AIR);
 		addInteraction(TFFluids.blockFluidGlowstone.getDefaultState(), Blocks.GLOWSTONE);
+	}
+
+	/* IInitializer */
+	@Override
+	public boolean initialize() {
+
+		this.setRegistryName("fluid_cryotheum");
+		ForgeRegistries.BLOCKS.register(this);
+		ItemBlock itemBlock = new ItemBlock(this);
+		itemBlock.setRegistryName(this.getRegistryName());
+		ForgeRegistries.ITEMS.register(itemBlock);
+
+		config();
+		addInteractions();
 
 		return true;
 	}

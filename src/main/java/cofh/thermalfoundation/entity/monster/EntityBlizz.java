@@ -1,26 +1,24 @@
 package cofh.thermalfoundation.entity.monster;
 
 import cofh.core.init.CoreProps;
-import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
 import cofh.thermalfoundation.init.TFSounds;
-import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
+import javax.annotation.Nullable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,6 +26,7 @@ public class EntityBlizz extends EntityElemental {
 
 	static boolean enable = true;
 	static boolean restrictLightLevel = true;
+	static ResourceLocation lootTable;
 
 	static int spawnLightLevel = 8;
 
@@ -41,6 +40,8 @@ public class EntityBlizz extends EntityElemental {
 
 		config();
 
+		lootTable = LootTableList.register(new ResourceLocation(ThermalFoundation.MOD_ID, "entities/blizz"));
+
 		if (!enable) {
 			return;
 		}
@@ -50,6 +51,7 @@ public class EntityBlizz extends EntityElemental {
 
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.COLD));
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.SNOWY));
+		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.NETHER));
 		validBiomes.removeAll(BiomeDictionary.getBiomes(Type.END));
 
 		EntityRegistry.addSpawn(EntityBlizz.class, spawnWeight, spawnMin, spawnMax, EnumCreatureType.MONSTER, validBiomes.toArray(new Biome[validBiomes.size()]));
@@ -87,22 +89,13 @@ public class EntityBlizz extends EntityElemental {
 		super(world);
 
 		ambientParticle = EnumParticleTypes.SNOWBALL;
-		ambientSound = TFSounds.BLIZZ_AMBIENT;
+		ambientSound = TFSounds.blizzAmbient;
 	}
 
-	@Override
-	protected void dropFewItems(boolean wasHitByPlayer, int looting) {
+	@Nullable
+	protected ResourceLocation getLootTable() {
 
-		if (wasHitByPlayer) {
-			int items = rand.nextInt(4 + looting);
-			for (int i = 0; i < items; i++) {
-				entityDropItem(new ItemStack(Items.SNOWBALL), 0);
-			}
-			items = rand.nextInt(2 + looting);
-			for (int i = 0; i < items; i++) {
-				entityDropItem(ItemHelper.cloneStack(ItemMaterial.rodBlizz, 1), 0);
-			}
-		}
+		return lootTable;
 	}
 
 	@Override
@@ -166,7 +159,7 @@ public class EntityBlizz extends EntityElemental {
 
 			--attackTime;
 			EntityLivingBase target = blizz.getAttackTarget();
-			double d0 = blizz.getDistanceSqToEntity(target);
+			double d0 = blizz.getDistance(target);
 
 			if (d0 < 4.0D) {
 				if (attackTime <= 0) {
@@ -197,15 +190,15 @@ public class EntityBlizz extends EntityElemental {
 						for (int i = 0; i < 1; ++i) {
 							EntityBlizzBolt bolt = new EntityBlizzBolt(blizz.world, blizz);
 							bolt.posY = blizz.posY + blizz.height / 2.0F + 0.5D;
-							bolt.setThrowableHeading(target.posX - blizz.posX, target.posY - blizz.posY, target.posZ - blizz.posZ, 1.5F, 1.0F);
-							blizz.playSound(TFSounds.BLIZZ_ATTACK, 2.0F, (blizz.rand.nextFloat() - blizz.rand.nextFloat()) * 0.2F + 1.0F);
+							bolt.shoot(target.posX - blizz.posX, target.posY - blizz.posY, target.posZ - blizz.posZ, 1.5F, 1.0F);
+							blizz.playSound(TFSounds.blizzAttack, 2.0F, (blizz.rand.nextFloat() - blizz.rand.nextFloat()) * 0.2F + 1.0F);
 							blizz.world.spawnEntity(bolt);
 						}
 					}
 				}
 				blizz.getLookHelper().setLookPositionWithEntity(target, 10.0F, 10.0F);
 			} else {
-				blizz.getNavigator().clearPathEntity();
+				blizz.getNavigator().clearPath();
 				blizz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			}
 			super.updateTask();

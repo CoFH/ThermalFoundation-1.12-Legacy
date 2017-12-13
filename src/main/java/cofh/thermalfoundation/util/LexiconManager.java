@@ -1,13 +1,14 @@
 package cofh.thermalfoundation.util;
 
 import cofh.core.init.CoreProps;
+import cofh.core.inventory.ComparableItemStackSafe;
+import cofh.core.util.ItemWrapper;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.oredict.OreDictionaryArbiter;
-import cofh.lib.inventory.ComparableItemStackSafe;
-import cofh.lib.util.ItemWrapper;
-import cofh.lib.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.OreDictionary;
@@ -75,16 +76,18 @@ public class LexiconManager {
 			}
 		}
 		if (writingDefaultFile) {
+			ComparableItemStackSafe instance = new ComparableItemStackSafe(new ItemStack(Items.DIAMOND));
+
 			String[] registeredOreNames = OreDictionary.getOreNames();
 			for (String oreName : registeredOreNames) {
-				if (isWhitelist && ComparableItemStackSafe.safeOreType(oreName)) {
+				if (isWhitelist && instance.safeOreType(oreName)) {
 					if (oreName.contains("blockCloth") || oreName.contains("blockGlass")) {
 						// ignore Cloth and Glass
 					} else {
 						listNames.add(oreName);
 						defaultList.add(oreName);
 					}
-				} else if (!isWhitelist && !ComparableItemStackSafe.safeOreType(oreName) || oreName.contains("blockCloth") || oreName.contains("blockGlass")) {
+				} else if (!isWhitelist && !instance.safeOreType(oreName) || oreName.contains("blockCloth") || oreName.contains("blockGlass")) {
 					listNames.add(oreName);
 					defaultList.add(oreName);
 				}
@@ -170,7 +173,7 @@ public class LexiconManager {
 
 	private static boolean validType(String oreName) {
 
-		return isWhitelist == listNames.contains(oreName);
+		return DEBUG || isWhitelist == listNames.contains(oreName);
 	}
 
 	/* PLAYER INTERACTION */
@@ -265,5 +268,7 @@ public class LexiconManager {
 	private static boolean alwaysWriteFile = false;
 
 	private static File filterList;
+
+	private static final boolean DEBUG = false;
 
 }
