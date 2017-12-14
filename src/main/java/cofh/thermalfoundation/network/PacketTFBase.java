@@ -1,13 +1,13 @@
 package cofh.thermalfoundation.network;
 
-import cofh.core.network.PacketCoFHBase;
+import cofh.core.network.PacketBase;
 import cofh.core.network.PacketHandler;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.gui.container.ContainerLexiconStudy;
 import cofh.thermalfoundation.gui.container.ContainerLexiconTransmute;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class PacketTFBase extends PacketCoFHBase {
+public class PacketTFBase extends PacketBase {
 
 	public static void initialize() {
 
@@ -23,7 +23,6 @@ public class PacketTFBase extends PacketCoFHBase {
 
 		try {
 			int type = getByte();
-
 			switch (PacketTypes.values()[type]) {
 				case LEXICON_STUDY:
 					if (player.openContainer instanceof ContainerLexiconStudy) {
@@ -44,11 +43,6 @@ public class PacketTFBase extends PacketCoFHBase {
 		}
 	}
 
-	public static PacketCoFHBase getPacket(PacketTypes theType) {
-
-		return new PacketTFBase().addByte(theType.ordinal());
-	}
-
 	public static void sendLexiconStudyPacketToServer(int command) {
 
 		PacketHandler.sendToServer(getPacket(PacketTypes.LEXICON_STUDY).addByte(command));
@@ -62,6 +56,11 @@ public class PacketTFBase extends PacketCoFHBase {
 	public static void sendLexiconTransmutePacketToServer(int command) {
 
 		PacketHandler.sendToServer(getPacket(PacketTypes.LEXICON_TRANSMUTE).addByte(command));
+	}
+
+	public static PacketBase getPacket(PacketTypes type) {
+
+		return new PacketTFBase().addByte(type.ordinal());
 	}
 
 }

@@ -49,7 +49,7 @@ public class ItemTomeLexicon extends ItemTome implements IInventoryContainerItem
 	}
 
 	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isCurrentItem) {
+	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isSelected) {
 
 		if (!isEmpowered(stack)) {
 			return;

@@ -46,7 +46,7 @@ public class ItemDiagramRedprint extends ItemDiagram implements IInitializer {
 	}
 
 	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isCurrentItem) {
+	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isSelected) {
 
 		if (stack.getItemDamage() > 0) {
 			stack.setItemDamage(0);

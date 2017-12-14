@@ -92,8 +92,6 @@ public class TFCrafting {
 		addShapelessFluidRecipe(new ItemStack(Items.GLOWSTONE_DUST, 4), new FluidIngredient("glowstone"), "dustCryotheum");
 		addShapelessFluidRecipe(new ItemStack(Items.ENDER_PEARL, 4), new FluidIngredient("ender"), "dustCryotheum");
 
-		addShapelessRecipe(new ItemStack(Blocks.GRAVEL), new ItemStack(Blocks.COBBLESTONE), ToolSet.COPPER.itemHammer);
-
 		/* VANILLA RECIPES */
 		loadVanillaRecipes();
 

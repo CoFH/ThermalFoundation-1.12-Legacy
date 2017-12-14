@@ -64,7 +64,7 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 	}
 
 	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isCurrentItem) {
+	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isSelected) {
 
 		if (!isEmpowered(stack)) {
 			return;
@@ -238,7 +238,7 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 	@Override
 	public int fill(ItemStack container, FluidStack resource, boolean doFill) {
 
-		if (resource == null || resource.getFluid() != TFFluids.fluidExperience) {
+		if (resource == null || (resource.getFluid() != TFFluids.fluidExperience && !resource.getFluid().getName().equals("xpjuice"))) {
 			return 0;
 		}
 		int experience = getExperience(container);
