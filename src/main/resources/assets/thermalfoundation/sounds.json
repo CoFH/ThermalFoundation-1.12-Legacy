@@ -84,5 +84,14 @@
 				"stream": false
 			}
 		]
+	},
+	"player_magnet_use": {
+		"category": "player",
+		"sounds": [
+			{
+				"name": "minecraft:mob/endermen/portal2",
+				"stream": false
+			}
+		]
 	}
 }

@@ -33,6 +33,8 @@ public class TFSounds {
 
 		basalzAmbient = registerSoundEvent("mob_basalz_ambient");
 		basalzAttack = registerSoundEvent("mob_basalz_attack");
+
+		magnetUse = registerSoundEvent("player_magnet_use");
 	}
 
 	/* HELPERS */
@@ -52,5 +54,7 @@ public class TFSounds {
 
 	public static SoundEvent basalzAmbient;
 	public static SoundEvent basalzAttack;
+
+	public static SoundEvent magnetUse;
 
 }
