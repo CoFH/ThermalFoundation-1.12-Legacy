@@ -1,7 +1,7 @@
 #pt_BR
 
 chat.thermalfoundation.augment.install.failure=Incapaz de instalar melhoria.
-chat.thermalfoundation.augment.install.success=Melhoria instaladar!
+chat.thermalfoundation.augment.install.success=Melhoria instalada!
 chat.thermalfoundation.upgrade.install.failure=Incapaz de atualizar o bloco.
 chat.thermalfoundation.upgrade.install.success=Bloco atualizado!
 
