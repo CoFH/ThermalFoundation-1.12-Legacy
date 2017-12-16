@@ -6,16 +6,16 @@ chat.thermalfoundation.upgrade.install.failure=Incapaz de atualizar o bloco.
 chat.thermalfoundation.upgrade.install.success=Bloco atualizado!
 
 death.attack.basalz=%1$s foi petrificado(a)!
-death.attack.blitz=%1$s foi tragicamente iluminado!
+death.attack.blitz=%1$s foi tragicamente iluminado(a)!
 death.attack.blizz=%1$s encontrou um destino gelado!
 death.attack.cryotheum.player=%1$s congelou até a morte tentando escapar de %2$s!
 death.attack.cryotheum=%1$s congelou até a morte!
-death.attack.flux.player=%1$s foi 'Fluxado' até a morte por %2$s!
+death.attack.flux.player=%1$s foi Fluxado(a) até a morte por %2$s!
 death.attack.flux=%1$s teve sua realidade dilacerada por Flux!
 death.attack.mana.player=%1$s tentou escapar novamente de %2$s!
-death.attack.mana=%1$s foi esfacelado com Mana pura!
-death.attack.petrotheum.player=%1$s foi feito em pedaços tentando escapar %2$s!
-death.attack.petrotheum=%1$s ficou abalado!
+death.attack.mana=%1$s foi esfacelado(a) com Mana pura!
+death.attack.petrotheum.player=%1$s foi feito(a) em pedaços tentando escapar %2$s!
+death.attack.petrotheum=%1$s ficou abalado(a)!
 death.attack.pyrotheum.player=%1$s queimou vivo tentando escapar %2$s!
 death.attack.pyrotheum=%1$s confundiu Piróteum com água!
 
