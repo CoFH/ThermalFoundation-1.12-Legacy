@@ -1,23 +1,23 @@
 #ja_JP
 
-chat.thermalfoundation.augment.install.failure=Unable to install augment.
-chat.thermalfoundation.augment.install.success=Augment successfully installed!
-chat.thermalfoundation.upgrade.install.failure=Unable to upgrade block.
-chat.thermalfoundation.upgrade.install.success=Block successfully upgraded!
+chat.thermalfoundation.augment.install.failure=オーグメントの適用が出来ませんでした。
+chat.thermalfoundation.augment.install.success=オーグメントは正常に適用されました。
+chat.thermalfoundation.upgrade.install.failure=ブロックのアップグレードが出来ませんでした。
+chat.thermalfoundation.upgrade.install.success=ブロックは正常にアップグレードされました。
 
-death.attack.basalz=%1$s は己の世界を揺さぶられた!
-death.attack.blitz=%1$s は敢え無く光になってしまった!
-death.attack.blizz=%1$s は凍え死ぬ運命だった!
-death.attack.cryotheum.player=%1$s froze to death trying to escape %2$s!
-death.attack.cryotheum=%1$s は氷漬けになった!
-death.attack.flux.player=%1$s was Fluxed to death by %2$s!
+death.attack.basalz=%1$s は己の世界を揺さぶられた
+death.attack.blitz=%1$s は敢え無く光になってしまった
+death.attack.blizz=%1$s は凍え死ぬ運命だった
+death.attack.cryotheum.player=%1$s は %2$s から逃れようと氷漬けになった
+death.attack.cryotheum=%1$s は氷漬けになった
+death.attack.flux.player=%1$s は %2$s によってエネルギーの奔流となった
 death.attack.flux=%1$s はフラックスによってバラバラにされた
-death.attack.mana.player=%1$s ran into another state of being attempting to escape %2$s!
-death.attack.mana=%1$s はナマのマナによって引き裂かれた。
-death.attack.petrotheum.player=%1$s shattered while trying to escape %2$s!
-death.attack.petrotheum=%1$s は振盪を起こした。
-death.attack.pyrotheum.player=%1$s burned alive trying to escape %2$s!
-death.attack.pyrotheum=%1$s は水とパイロジウムを間違えた!
+death.attack.mana.player=%1$s は %2$s から逃れようと変質した
+death.attack.mana=%1$s はナマのマナによって引き裂かれた
+death.attack.petrotheum.player=%1$s は %2$s から逃れようとして砕け散った
+death.attack.petrotheum=%1$s は振盪を起こした
+death.attack.pyrotheum.player=%1$s は %2$sから逃れようとして燃え尽きた
+death.attack.pyrotheum=%1$s は水とパイロジウムを間違えた
 
 entity.thermalfoundation.basalz.name=バザルツ
 entity.thermalfoundation.blitz.name=ブリッツ
@@ -54,42 +54,42 @@ fluid.steam=蒸気
 fluid.syrup=シロップ
 fluid.tree_oil=木質油
 
-gui.thermalfoundation.lexicon.clearPreference=Clear Preference
-gui.thermalfoundation.lexicon.nextEntry=Next Entry
-gui.thermalfoundation.lexicon.prevEntry=Previous Entry
-gui.thermalfoundation.lexicon.search=Search
-gui.thermalfoundation.lexicon.setPreference=Set Preference
-gui.thermalfoundation.lexicon.singleEntry=Only One Entry
-gui.thermalfoundation.lexicon.study=Lexicon - Knowledge
-gui.thermalfoundation.lexicon.transmute=Lexicon - Transmutation
+gui.thermalfoundation.lexicon.clearPreference=優先アイテムの消去
+gui.thermalfoundation.lexicon.nextEntry=次のエントリ
+gui.thermalfoundation.lexicon.prevEntry=前のエントリ
+gui.thermalfoundation.lexicon.search=検索
+gui.thermalfoundation.lexicon.setPreference=優先アイテムの決定
+gui.thermalfoundation.lexicon.singleEntry=鉱石辞書のみ
+gui.thermalfoundation.lexicon.study=鍛冶目録 - 知識
+gui.thermalfoundation.lexicon.transmute=鍛冶目録 - 等価交換
 
-info.thermalfoundation.diagram.erase=Use while sneaking to erase.
-info.thermalfoundation.diagram.redprint.0=Use on a device to copy its settings.
-info.thermalfoundation.diagram.redprint.1=Use on a device to transfer stored settings.
+info.thermalfoundation.diagram.erase=スニーク中に使用すると設定を消去出来ます。
+info.thermalfoundation.diagram.redprint.0=デバイスに対して使用すると設定をコピーできます。
+info.thermalfoundation.diagram.redprint.1=デバイスに対して使用すると保持している設定をデバイスに適用できます。
 
-info.thermalfoundation.security.lock=Use on securable blocks or combine with securable items.
+info.thermalfoundation.security.lock=セキュリティを設定できる、ブロックに使用するかアイテムとクラフトしてください。
 
-info.thermalfoundation.tome.experience.0=Stores experience within its pages.
-info.thermalfoundation.tome.experience.1=Use to store knowledge in the tome.
-info.thermalfoundation.tome.experience.2=Use while sneaking to retrieve stored knowledge.
-info.thermalfoundation.tome.experience.a.0=§bPress (%s) to enable auto-collect.§r
-info.thermalfoundation.tome.experience.a.1=§ePress (%s) to disable auto-collect.§r
+info.thermalfoundation.tome.experience.0=ページに経験値を貯めることが出来ます。
+info.thermalfoundation.tome.experience.1=使用することでこの教典に知識を詰め込めます・
+info.thermalfoundation.tome.experience.2=スニーク中に使用すると溜めた知識を得ることが出来ます。
+info.thermalfoundation.tome.experience.a.0=§b %s キーを押下すると自動収集を有効化出来ます。§r
+info.thermalfoundation.tome.experience.a.1=§e %s キーを押下すると自動収集を無効化出来ます。§r
 
-info.thermalfoundation.tome.lexicon.0=Converts items to equivalent forms.
-info.thermalfoundation.tome.lexicon.a.0=Right click (open) to study.
-info.thermalfoundation.tome.lexicon.a.1=Right click (open) to transmute items.
-info.thermalfoundation.tome.lexicon.b.0=§bPress (%s) to gain wisdom!§r
-info.thermalfoundation.tome.lexicon.b.1=§ePress (%s) to forsake knowledge.§r
+info.thermalfoundation.tome.lexicon.0=アイテムを同等のものに変換できます。
+info.thermalfoundation.tome.lexicon.a.0=右クリックで調査できます。
+info.thermalfoundation.tome.lexicon.a.1=右クリックで変換の頁を開きます。
+info.thermalfoundation.tome.lexicon.b.0=§b %s キーで知識を得られます。§r
+info.thermalfoundation.tome.lexicon.b.1=§e %s キーで知識を忘却できます。§r
 
-info.thermalfoundation.upgrade.creative.0=Converts a block to a Creative version.
-info.thermalfoundation.upgrade.creative.1=May be used on any tier of block.
-info.thermalfoundation.upgrade.full.0=Fully upgrades a block to a given tier.
-info.thermalfoundation.upgrade.full.1=May be used on any lower tier.
-info.thermalfoundation.upgrade.incremental.0=Incrementally upgrades a block.
-info.thermalfoundation.upgrade.incremental.1=Requires tier immediately preceding.
+info.thermalfoundation.upgrade.creative.0=ブロックをクリエイティブ版にします。
+info.thermalfoundation.upgrade.creative.1=どのランクのブロックにも使用できます。
+info.thermalfoundation.upgrade.full.0=指定されたランクにアップグレードします。
+info.thermalfoundation.upgrade.full.1=下のランクならどれにでも使えます。
+info.thermalfoundation.upgrade.incremental.0=1つずつアップグレードさせます。
+info.thermalfoundation.upgrade.incremental.1=1つ前のランクであることが条件です。
 
-info.thermalfoundation.util.multimeter.0=Provides information about things.
-info.thermalfoundation.util.multimeter.1=Use while sneaking to configure some blocks.
+info.thermalfoundation.util.multimeter.0=物事についての情報を提供します。
+info.thermalfoundation.util.multimeter.1=スニーク中に使用することで幾つかのブロックの設定を変更できます。
 
 item.thermalfoundation.armor.aluminumBoots.name=アルミニウムのブーツ
 item.thermalfoundation.armor.aluminumHelmet.name=アルミニウムのヘルメット
