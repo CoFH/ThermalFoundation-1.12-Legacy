@@ -164,7 +164,6 @@ public class TFCrafting {
 		PotionHelper.addMix(CorePotions.resistance, Items.GLOWSTONE_DUST, CorePotions.resistanceStrong);
 		PotionHelper.addMix(CorePotions.absorption, Items.GLOWSTONE_DUST, CorePotions.absorptionStrong);
 		PotionHelper.addMix(CorePotions.wither, Items.GLOWSTONE_DUST, CorePotions.witherStrong);
-
 	}
 
 }
