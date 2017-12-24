@@ -1,138 +1,610 @@
-#en_US
+#pt_BR
 
+chat.thermalfoundation.augment.install.failure=Incapaz de instalar melhoria.
+chat.thermalfoundation.augment.install.success=Melhoria instalada!
+chat.thermalfoundation.upgrade.install.failure=Incapaz de atualizar o bloco.
+chat.thermalfoundation.upgrade.install.success=Bloco atualizado!
+
+death.attack.basalz=%1$s foi petrificado(a)!
+death.attack.blitz=%1$s foi tragicamente iluminado(a)!
 death.attack.blizz=%1$s encontrou um destino gelado!
 death.attack.cryotheum.player=%1$s congelou até a morte tentando escapar de %2$s!
 death.attack.cryotheum=%1$s congelou até a morte!
-death.attack.flux.player=%1$s foi 'Fluxado' até a morte por %2$s!
+death.attack.flux.player=%1$s foi Fluxado(a) até a morte por %2$s!
 death.attack.flux=%1$s teve sua realidade dilacerada por Flux!
-death.attack.mana.player=%1$s correu para outro estado na tentativa de escapar de %2$s!
-death.attack.mana=%1$s foi esfacelado com Mana pura!
+death.attack.mana.player=%1$s tentou escapar novamente de %2$s!
+death.attack.mana=%1$s foi esfacelado(a) com Mana pura!
+death.attack.petrotheum.player=%1$s foi feito(a) em pedaços tentando escapar %2$s!
+death.attack.petrotheum=%1$s ficou abalado(a)!
 death.attack.pyrotheum.player=%1$s queimou vivo tentando escapar %2$s!
-death.attack.pyrotheum=%1$s confundiu Pyrotheum com água!
+death.attack.pyrotheum=%1$s confundiu Piróteum com água!
 
-fluid.aerotheum=Zephyrean Aerotheum
+entity.thermalfoundation.basalz.name=Basalz
+entity.thermalfoundation.blitz.name=Blitz
+entity.thermalfoundation.blizz.name=Blizz
+
+fluid.aerotheum=Aeróteum Zefiriano
 fluid.coal=Carvão Liquefeito
-fluid.cryotheum=Cryotheum Gélido
-fluid.ender=Ender Ressonante
+fluid.constantan=Constantan Derretido
+fluid.creosote=Óleo Creosoto
+fluid.crude_oil=Petróleo
+fluid.cryotheum=Crióteum Gélido
+fluid.ender=Ender Resonante
+fluid.enderium=Endério Derretido
+fluid.experience=Essência de Conhecimento
 fluid.glowstone=Pedra Luminosa Energizada
-fluid.mana=Mana Primordial
-fluid.petrotheum=Tectonic Petrotheum
-fluid.pyrotheum=Pyrotheum Ardente
+fluid.lumium=Lúmio Derretido
+fluid.invar=Invar Derretido
+fluid.iridium=Irídio Derretido
+fluid.mana=Mithril Derretido
+fluid.mushroom_stew=Sopa de Cogumelo
+fluid.petrotheum=Petróteum Tectônico
+fluid.platinum=Platina Derretida
+fluid.potion=Poção
+fluid.potion_lingering=Poção Estendida
+fluid.potion_splash=Poção Arremessável
+fluid.pyrotheum=Piróteum Ardente
 fluid.redstone=Redstone Desestabilizada
+fluid.refined_fuel=Combustível Refinado
+fluid.refined_oil=Nafta
+fluid.resin=Resina
+fluid.sap=Seiva
+fluid.signalum=Signalo Derretido
 fluid.steam=Vapor
+fluid.syrup=Xarope
+fluid.tree_oil=Óleo de Árvore
 
-gui.thermalfoundation.lexicon.study=Lexicon – Conhecimento
-gui.thermalfoundation.lexicon.transmute=Lexicon – Transmutação
+gui.thermalfoundation.lexicon.clearPreference=Limpar Preferência
+gui.thermalfoundation.lexicon.nextEntry=Próxima Entrada
+gui.thermalfoundation.lexicon.prevEntry=Entrada Anterior
+gui.thermalfoundation.lexicon.search=Procurar
+gui.thermalfoundation.lexicon.setPreference=Preferência
+gui.thermalfoundation.lexicon.singleEntry=Só uma Entrada
+gui.thermalfoundation.lexicon.study=Léxicon – Conhecimento
+gui.thermalfoundation.lexicon.transmute=Léxicon – Transmutação
+
+info.thermalfoundation.diagram.erase=Shift+clique direito do mouse para apagar.
+info.thermalfoundation.diagram.redprint.0=Use em um dispositivo para copiar suas configurações.
+info.thermalfoundation.diagram.redprint.1=Use em um dispositivo para transferir as informações armazenadas.
+
+info.thermalfoundation.security.lock=Use em um bloco protegível, ou combine com um item protegível.
+
+info.thermalfoundation.tome.experience.a.0=Armazena experiência em suas páginas.
+info.thermalfoundation.tome.experience.a.1=Clique direito do mouse para armazenar conhecimento no tomo.
+info.thermalfoundation.tome.experience.a.2=Shift+clique direito do mouse para extrair o conhecimento.
+info.thermalfoundation.tome.experience.b.0=§bPressione (%s) para o tomo coletar XP automaticamente.§r
+info.thermalfoundation.tome.experience.c.0=§ePressione (%s) para não coletar mais XP.§r
+
+info.thermalfoundation.tome.lexicon.a.0=Converte itens em suas formas equivalentes.
+info.thermalfoundation.tome.lexicon.b.0=Clique direito (abra) para estudar.
+info.thermalfoundation.tome.lexicon.b.1=§bPressione (%s) para ganhar sabedoria!§r
+info.thermalfoundation.tome.lexicon.c.0=Clique direito (open) para transmutar itens.
+info.thermalfoundation.tome.lexicon.c.1=§ePressione (%s) para esquecer conhecimentos.§r
+
+info.thermalfoundation.upgrade.creative.0=Converte blocos para sua forma criativa.
+info.thermalfoundation.upgrade.creative.1=Pode ser usado em um bloco de qualquer nível.
+info.thermalfoundation.upgrade.full.0=Aumenta diretamente o nível de um bloco.
+info.thermalfoundation.upgrade.full.1=Pode ser usado em qualquer nível menor.
+info.thermalfoundation.upgrade.incremental.0=Melhora um bloco de maneira incrementável.
+info.thermalfoundation.upgrade.incremental.1=Requer o nível precedente imediato.
+
+info.thermalfoundation.util.multimeter.0=Mostra informações sobre as coisas.
+info.thermalfoundation.util.multimeter.1=Shift+clique direito do mouse para configurar alguns blocos.
+
+item.thermalfoundation.armor.aluminumBoots.name=Botas de Alumínio
+item.thermalfoundation.armor.aluminumHelmet.name=Elmo de Alumínio
+item.thermalfoundation.armor.aluminumLegs.name=Calças de Alumínio
+item.thermalfoundation.armor.aluminumChestplate.name=Armadura de Alumínio
+
+item.thermalfoundation.armor.bronzeBoots.name=Botas de Bronze
+item.thermalfoundation.armor.bronzeHelmet.name=Elmo de Bronze
+item.thermalfoundation.armor.bronzeLegs.name=Calças de Bronze
+item.thermalfoundation.armor.bronzeChestplate.name=Armadura de Bronze
+
+item.thermalfoundation.armor.constantanBoots.name=Botas de Constantan
+item.thermalfoundation.armor.constantanHelmet.name=Elmo de Constantan
+item.thermalfoundation.armor.constantanLegs.name=Calças de Constantan
+item.thermalfoundation.armor.constantanChestplate.name=Armadura de Constantan
+
+item.thermalfoundation.armor.copperBoots.name=Botas de Cobre
+item.thermalfoundation.armor.copperHelmet.name=Elmo de Cobre
+item.thermalfoundation.armor.copperLegs.name=Calças de Cobre
+item.thermalfoundation.armor.copperChestplate.name=Armadura de Cobre
+
+item.thermalfoundation.armor.electrumBoots.name=Botas de Electro
+item.thermalfoundation.armor.electrumHelmet.name=Elmo de Electro
+item.thermalfoundation.armor.electrumLegs.name=Calças de Electro
+item.thermalfoundation.armor.electrumChestplate.name=Armadura de Electro
+
+item.thermalfoundation.armor.invarBoots.name=Botas de Invar
+item.thermalfoundation.armor.invarHelmet.name=Elmo de Invar
+item.thermalfoundation.armor.invarLegs.name=Calças de Invar
+item.thermalfoundation.armor.invarChestplate.name=Armadura de Invar
+
+item.thermalfoundation.armor.leadBoots.name=Botas de Chumbo
+item.thermalfoundation.armor.leadHelmet.name=Elmo de Chumbo
+item.thermalfoundation.armor.leadLegs.name=Calças de Chumbo
+item.thermalfoundation.armor.leadChestplate.name=Armadura de Chumbo
+
+item.thermalfoundation.armor.nickelBoots.name=Botas de Níquel
+item.thermalfoundation.armor.nickelHelmet.name=Elmo de Níquel
+item.thermalfoundation.armor.nickelLegs.name=Calças de Níquel
+item.thermalfoundation.armor.nickelChestplate.name=Armadura de Níquel
+
+item.thermalfoundation.armor.platinumBoots.name=Botas de Platina
+item.thermalfoundation.armor.platinumHelmet.name=Elmo de Platina
+item.thermalfoundation.armor.platinumLegs.name=Calças de Platina
+item.thermalfoundation.armor.platinumChestplate.name=Armadura de Platina
+
+item.thermalfoundation.armor.silverBoots.name=Botas de Prata
+item.thermalfoundation.armor.silverHelmet.name=Elmo de Prata
+item.thermalfoundation.armor.silverLegs.name=Calças de Prata
+item.thermalfoundation.armor.silverChestplate.name=Armadura de Prata
+
+item.thermalfoundation.armor.steelBoots.name=Botas de Aço
+item.thermalfoundation.armor.steelHelmet.name=Elmo de Aço
+item.thermalfoundation.armor.steelLegs.name=Calças de Aço
+item.thermalfoundation.armor.steelChestplate.name=Armadura de Aço
+
+item.thermalfoundation.armor.tinBoots.name=Botas de Estanho
+item.thermalfoundation.armor.tinHelmet.name=Elmo de Estanho
+item.thermalfoundation.armor.tinLegs.name=Calças de Estanho
+item.thermalfoundation.armor.tinChestplate.name=Armadura de Estanho
+
+item.thermalfoundation.bait.baitBasic.name=Comida Chinesa
+item.thermalfoundation.bait.baitFlux.name=Comida Chinesa Fluxada
+item.thermalfoundation.bait.baitRich.name=Comida Chinesa Enriquecida
+
+item.thermalfoundation.coin.coinAluminum.name=Moeda de Alumínio
+item.thermalfoundation.coin.coinBronze.name=Moeda de Bronze
+item.thermalfoundation.coin.coinConstantan.name=Moeda de Constantan
+item.thermalfoundation.coin.coinCopper.name=Moeda de Cobre
+item.thermalfoundation.coin.coinElectrum.name=Moeda de Electro
+item.thermalfoundation.coin.coinEnderium.name=Moeda de Endério
+item.thermalfoundation.coin.coinGold.name=Moeda de Ouro
+item.thermalfoundation.coin.coinInvar.name=Moeda de Invar
+item.thermalfoundation.coin.coinIridium.name=Moeda de Irídio
+item.thermalfoundation.coin.coinIron.name=Moeda de Ferro
+item.thermalfoundation.coin.coinLead.name=Moeda de Chumbo
+item.thermalfoundation.coin.coinLumium.name=Moeda de Lúmio
+item.thermalfoundation.coin.coinMithril.name=Moeda de Mithril
+item.thermalfoundation.coin.coinNickel.name=Moeda de Níquel
+item.thermalfoundation.coin.coinPlatinum.name=Moeda de Platina
+item.thermalfoundation.coin.coinSignalum.name=Moeda de Signalo
+item.thermalfoundation.coin.coinSilver.name=Moeda de Prata
+item.thermalfoundation.coin.coinSteel.name=Moeda de Aço
+item.thermalfoundation.coin.coinTin.name=Moeda de Estanho
+
+item.thermalfoundation.diagram.formula.name=Fórmula
+item.thermalfoundation.diagram.pattern.name=Padrão
+item.thermalfoundation.diagram.redprint.name=Diagrama Vermelho
+item.thermalfoundation.diagram.schematic.name=Esquemático
+item.thermalfoundation.diagram.scroll.name=Pergaminho
+
+item.thermalfoundation.fertilizer.fertilizerBasic.name=Fito-Gosma
+item.thermalfoundation.fertilizer.fertilizerFlux.name=Fito-Gosma Fluxada
+item.thermalfoundation.fertilizer.fertilizerRich.name=Fito-Gosma Enriquecida
+
+item.thermalfoundation.geode.geode.name=Geodo
 
 item.thermalfoundation.material.crystalCinnabar.name=Cinábrio
+item.thermalfoundation.material.crystalCrudeOil.name=Betume
+item.thermalfoundation.material.crystalEnder.name=Clatrato Resonante
+item.thermalfoundation.material.crystalGlowstone.name=Clatrato Estabilizado
+item.thermalfoundation.material.crystalRedstone.name=Clatrato Desestabilizado
+item.thermalfoundation.material.crystalSlag.name=Escória
+item.thermalfoundation.material.crystalSlagRich.name=Escória Enriquecida
 
-item.thermalfoundation.material.dustBlizz.name=Pó de Blizz
+item.thermalfoundation.material.dustAerotheum.name=Pó de Aeróteum
+item.thermalfoundation.material.dustAluminum.name=Alumínio Pulverizado
+item.thermalfoundation.material.dustBasalz.name=Pó de Tectônico
+item.thermalfoundation.material.dustBlitz.name=Pó de Luminoso
+item.thermalfoundation.material.dustBlizz.name=Pó de Gelado
 item.thermalfoundation.material.dustBronze.name=Mistura de Bronze
 item.thermalfoundation.material.dustCharcoal.name=Carvão Vegetal Pulverizado
 item.thermalfoundation.material.dustCoal.name=Carvão Pulverizado
+item.thermalfoundation.material.dustConstantan.name=Mistura de Constantan
 item.thermalfoundation.material.dustCopper.name=Cobre Pulverizado
-item.thermalfoundation.material.dustCryotheum.name=Pó de Cryotheum
+item.thermalfoundation.material.dustCryotheum.name=Pó de Crióteum
 item.thermalfoundation.material.dustElectrum.name=Mistura de Electro
 item.thermalfoundation.material.dustEnderium.name=Mistura de Endério
 item.thermalfoundation.material.dustGold.name=Ouro Pulverizado
 item.thermalfoundation.material.dustInvar.name=Mistura de Invar
+item.thermalfoundation.material.dustIridium.name=Irídio Pulverizado
 item.thermalfoundation.material.dustIron.name=Ferro Pulverizado
 item.thermalfoundation.material.dustLead.name=Chumbo Pulverizado
 item.thermalfoundation.material.dustLumium.name=Mistura de Lúmio
-item.thermalfoundation.material.dustMana.name=Pó de Mana
-item.thermalfoundation.material.dustMithril.name=Metal Infundido em Mana Pulverizado
-item.thermalfoundation.material.dustNickel.name=Metal Ferroso Pulverizado
+item.thermalfoundation.material.dustMana.name=Pó de Mithril
+item.thermalfoundation.material.dustMithril.name=Mithril Pulverizado
+item.thermalfoundation.material.dustNickel.name=Níquel Pulverizado
 item.thermalfoundation.material.dustNiter.name=Salitre
 item.thermalfoundation.material.dustObsidian.name=Obsidiana Pulverizada
-item.thermalfoundation.material.dustPetrotheum.name=Petrotheum Dust
-item.thermalfoundation.material.dustPlatinum.name=Metal Brilhante Pulverizado
-item.thermalfoundation.material.dustPyrotheum.name=Pó de Pyrotheum
+item.thermalfoundation.material.dustPetrotheum.name=Pó de Petróteum
+item.thermalfoundation.material.dustPlatinum.name=Platina Pulverizada
+item.thermalfoundation.material.dustPyrotheum.name=Pó de Piróteum
 item.thermalfoundation.material.dustSignalum.name=Mistura de Signalo
 item.thermalfoundation.material.dustSilver.name=Prata Pulverizada
+item.thermalfoundation.material.dustSteel.name=Mistura de Aço
 item.thermalfoundation.material.dustSulfur.name=Enxofre
 item.thermalfoundation.material.dustTin.name=Estanho Pulverizado
+item.thermalfoundation.material.dustWood.name=Serragem
+item.thermalfoundation.material.dustWoodCompressed.name=Serragem Comprimida
 
+item.thermalfoundation.material.fuelCoke.name=Carvão Coque
+
+item.thermalfoundation.material.gearAluminum.name=Engrenagem de Alumínio
 item.thermalfoundation.material.gearBronze.name=Engrenagem de Bronze
+item.thermalfoundation.material.gearConstantan.name=Engrenagem de Constantan
 item.thermalfoundation.material.gearCopper.name=Engrenagem de Cobre
 item.thermalfoundation.material.gearElectrum.name=Engrenagem de Electro
 item.thermalfoundation.material.gearEnderium.name=Engrenagem de Endério
 item.thermalfoundation.material.gearGold.name=Engrenagem de Ouro
 item.thermalfoundation.material.gearInvar.name=Engrenagem de Invar
+item.thermalfoundation.material.gearIridium.name=Engrenagem de Irídio
 item.thermalfoundation.material.gearIron.name=Engrenagem de Ferro
 item.thermalfoundation.material.gearLead.name=Engrenagem de Chumbo
 item.thermalfoundation.material.gearLumium.name=Engrenagem de Lúmio
-item.thermalfoundation.material.gearMithril.name=Engrenagem Infundida em Mana
-item.thermalfoundation.material.gearNickel.name=Engrenagem Ferrosa
-item.thermalfoundation.material.gearPlatinum.name=Engrenagem Brilhante
+item.thermalfoundation.material.gearMithril.name=Engrenagem de Mithril
+item.thermalfoundation.material.gearNickel.name=Engrenagem de Níquel
+item.thermalfoundation.material.gearPlatinum.name=Engrenagem de Platina
 item.thermalfoundation.material.gearSignalum.name=Engrenagem de Signalo
 item.thermalfoundation.material.gearSilver.name=Engrenagem de Prata
+item.thermalfoundation.material.gearSteel.name=Engrenagem de Aço
 item.thermalfoundation.material.gearTin.name=Engrenagem de Estanho
 
-item.thermalfoundation.material.ingotBronze.name=Barra de Bronze
-item.thermalfoundation.material.ingotCopper.name=Barra de Cobre
-item.thermalfoundation.material.ingotElectrum.name=Barra de Electro
-item.thermalfoundation.material.ingotEnderium.name=Barra de Endério
-item.thermalfoundation.material.ingotInvar.name=Barra de Invar
-item.thermalfoundation.material.ingotLead.name=Barra de Chumbo
-item.thermalfoundation.material.ingotLumium.name=Barra de Lúmio
-item.thermalfoundation.material.ingotMithril.name=Barra Infundida em Mana
-item.thermalfoundation.material.ingotNickel.name=Barra Ferrosa
-item.thermalfoundation.material.ingotPlatinum.name=Barra Brilhante
-item.thermalfoundation.material.ingotSignalum.name=Barra de Signalo
-item.thermalfoundation.material.ingotSilver.name=Barra de Prata
-item.thermalfoundation.material.ingotTin.name=Barra de Estanho
+item.thermalfoundation.material.globRosin.name=Colofônia
+item.thermalfoundation.material.globTar.name=Alcatrão
 
+item.thermalfoundation.material.ingotAluminum.name=Lingote de Alumínio
+item.thermalfoundation.material.ingotBronze.name=Lingote de Bronze
+item.thermalfoundation.material.ingotConstantan.name=Lingote de Constantan
+item.thermalfoundation.material.ingotCopper.name=Lingote de Cobre
+item.thermalfoundation.material.ingotElectrum.name=Lingote de Electro
+item.thermalfoundation.material.ingotEnderium.name=Lingote de Endério
+item.thermalfoundation.material.ingotInvar.name=Lingote de Invar
+item.thermalfoundation.material.ingotIridium.name=Lingote de Irídio
+item.thermalfoundation.material.ingotLead.name=Lingote de Chumbo
+item.thermalfoundation.material.ingotLumium.name=Lingote de Lúmio
+item.thermalfoundation.material.ingotMithril.name=Lingote de Mithril
+item.thermalfoundation.material.ingotNickel.name=Lingote de Níquel
+item.thermalfoundation.material.ingotPlatinum.name=Lingote de Platina
+item.thermalfoundation.material.ingotSignalum.name=Lingote de Signalo
+item.thermalfoundation.material.ingotSilver.name=Lingote de Prata
+item.thermalfoundation.material.ingotSteel.name=Lingote de Aço
+item.thermalfoundation.material.ingotTin.name=Lingote de Estanho
+
+item.thermalfoundation.material.nuggetAluminum.name=Pepita de Alumínio
 item.thermalfoundation.material.nuggetBronze.name=Pepita de Bronze
+item.thermalfoundation.material.nuggetConstantan.name=Pepita de Constantan
 item.thermalfoundation.material.nuggetCopper.name=Pepita de Cobre
+item.thermalfoundation.material.nuggetDiamond.name=Pepita de Diamante
+item.thermalfoundation.material.nuggetEmerald.name=Pepita de Esmeralda
 item.thermalfoundation.material.nuggetElectrum.name=Pepita de Electro
 item.thermalfoundation.material.nuggetEnderium.name=Pepita de Endério
 item.thermalfoundation.material.nuggetInvar.name=Pepita de Invar
 item.thermalfoundation.material.nuggetIron.name=Pepita de Ferro
+item.thermalfoundation.material.nuggetIridium.name=Pepita de Irídio
 item.thermalfoundation.material.nuggetLead.name=Pepita de Chumbo
 item.thermalfoundation.material.nuggetLumium.name=Pepita de Lúmio
-item.thermalfoundation.material.nuggetMithril.name=Pepita Infundida em Mana
-item.thermalfoundation.material.nuggetNickel.name=Pepita Ferrosa
-item.thermalfoundation.material.nuggetPlatinum.name=Pepita Brilhante
+item.thermalfoundation.material.nuggetMithril.name=Pepita de Mithril
+item.thermalfoundation.material.nuggetNickel.name=Pepita de Níquel
+item.thermalfoundation.material.nuggetPlatinum.name=Pepita de Platina
 item.thermalfoundation.material.nuggetSignalum.name=Pepita de Signalo
 item.thermalfoundation.material.nuggetSilver.name=Pepita de Prata
+item.thermalfoundation.material.nuggetSteel.name=Pepita de Aço
 item.thermalfoundation.material.nuggetTin.name=Pepita de Estanho
 
-item.thermalfoundation.material.rodBlizz.name=Vara de Blizz
+item.thermalfoundation.material.plateAluminum.name=Placa de Alumínio
+item.thermalfoundation.material.plateBronze.name=Placa de Bronze
+item.thermalfoundation.material.plateConstantan.name=Placa de Constantan
+item.thermalfoundation.material.plateCopper.name=Placa de Cobre
+item.thermalfoundation.material.plateElectrum.name=Placa de Electro
+item.thermalfoundation.material.plateEnderium.name=Placa de Endério
+item.thermalfoundation.material.plateGold.name=Placa de Ouro
+item.thermalfoundation.material.plateInvar.name=Placa de Invar
+item.thermalfoundation.material.plateIridium.name=Placa de Irídio
+item.thermalfoundation.material.plateIron.name=Placa de Ferro
+item.thermalfoundation.material.plateLead.name=Placa de Chumbo
+item.thermalfoundation.material.plateLumium.name=Placa de Lúmio
+item.thermalfoundation.material.plateMithril.name=Placa de Mithril
+item.thermalfoundation.material.plateNickel.name=Placa de Níquel
+item.thermalfoundation.material.platePlatinum.name=Placa de Platina
+item.thermalfoundation.material.plateSignalum.name=Placa de Signalo
+item.thermalfoundation.material.plateSilver.name=Placa de Prata
+item.thermalfoundation.material.plateSteel.name=Placa de Aço
+item.thermalfoundation.material.plateTin.name=Placa de Estanho
 
-item.thermalfoundation.tome.lexicon.empowered.name=Forge Lexicon (Habilitado)
+item.thermalfoundation.material.powerCoilElectrum.name=Bobina Condutiva de Redstone
+item.thermalfoundation.material.powerCoilGold.name=Bobina de Recepção de Redstone
+item.thermalfoundation.material.powerCoilSilver.name=Bobina de Transmissão de Redstone
+item.thermalfoundation.material.redstoneServo.name=Servo de Redstone
 
+item.thermalfoundation.material.rodBasalz.name=Vara Tectônica
+item.thermalfoundation.material.rodBlitz.name=Vara Luminosa
+item.thermalfoundation.material.rodBlizz.name=Vara Congelante
+
+item.thermalfoundation.tome.experience.name=Tomo do Conhecimento
+item.thermalfoundation.tome.lexicon.name=Léxicon do Forge
+
+item.thermalfoundation.tool.aluminumAxe.name=Machado de Alumínio
+item.thermalfoundation.tool.aluminumBow.name=Arco Reforçado de Alumínio
+item.thermalfoundation.tool.aluminumFishingRod.name=Vara de Pesca de Alumínio
+item.thermalfoundation.tool.aluminumHammer.name=Martelo de Alumínio
+item.thermalfoundation.tool.aluminumHoe.name=Enxada de Alumínio
+item.thermalfoundation.tool.aluminumPickaxe.name=Picareta de Alumínio
+item.thermalfoundation.tool.aluminumShears.name=Tesoura de Alumínio
+item.thermalfoundation.tool.aluminumShield.name=Escudo de Alumínio
+item.thermalfoundation.tool.aluminumShovel.name=Pá de Alumínio
+item.thermalfoundation.tool.aluminumSickle.name=Foice de Alumínio
+item.thermalfoundation.tool.aluminumSword.name=Espada de Alumínio
+
+item.thermalfoundation.tool.bronzeAxe.name=Machado de Bronze
+item.thermalfoundation.tool.bronzeBow.name=Arco Reforçado de Bronze
+item.thermalfoundation.tool.bronzeFishingRod.name=Vara de Pesca de Bronze
+item.thermalfoundation.tool.bronzeHammer.name=Martelo de Bronze
+item.thermalfoundation.tool.bronzeHoe.name=Enxada de Bronze
+item.thermalfoundation.tool.bronzePickaxe.name=Picareta de Bronze
+item.thermalfoundation.tool.bronzeShears.name=Tesoura de Bronze
+item.thermalfoundation.tool.bronzeShield.name=Escudo de Bronze
+item.thermalfoundation.tool.bronzeShovel.name=Pá de Bronze
+item.thermalfoundation.tool.bronzeSickle.name=Foice de Bronze
+item.thermalfoundation.tool.bronzeSword.name=Espada de Bronze
+
+item.thermalfoundation.tool.constantanAxe.name=Machado de Constantan
+item.thermalfoundation.tool.constantanBow.name=Arco Reforçado de Constantan
+item.thermalfoundation.tool.constantanFishingRod.name=Vara de Pesca de Constantan
+item.thermalfoundation.tool.constantanHammer.name=Martelo de Constantan
+item.thermalfoundation.tool.constantanHoe.name=Enxada de Constantan
+item.thermalfoundation.tool.constantanPickaxe.name=Picareta de Constantan
+item.thermalfoundation.tool.constantanShears.name=Tesoura de Constantan
+item.thermalfoundation.tool.constantanShield.name=Escudo de Constantan
+item.thermalfoundation.tool.constantanShovel.name=Pá de Constantan
+item.thermalfoundation.tool.constantanSickle.name=Foice de Constantan
+item.thermalfoundation.tool.constantanSword.name=Espada de Constantan
+
+item.thermalfoundation.tool.copperAxe.name=Machado de Cobre
+item.thermalfoundation.tool.copperBow.name=Arco Reforçado de Cobre
+item.thermalfoundation.tool.copperFishingRod.name=Vara de Pesca de Cobre
+item.thermalfoundation.tool.copperHammer.name=Martelo de Cobre
+item.thermalfoundation.tool.copperHoe.name=Enxada de Cobre
+item.thermalfoundation.tool.copperPickaxe.name=Picareta de Cobre
+item.thermalfoundation.tool.copperShears.name=Tesoura de Cobre
+item.thermalfoundation.tool.copperShield.name=Escudo de Cobre
+item.thermalfoundation.tool.copperShovel.name=Pá de Cobre
+item.thermalfoundation.tool.copperSickle.name=Foice de Cobre
+item.thermalfoundation.tool.copperSword.name=Espada de Cobre
+
+item.thermalfoundation.tool.diamondBow.name=Arco Reforçado de Diamante
+item.thermalfoundation.tool.diamondFishingRod.name=Vara de Pesca de Diamante
+item.thermalfoundation.tool.diamondHammer.name=Martelo de Diamante
+item.thermalfoundation.tool.diamondShears.name=Tesoura de Diamante
+item.thermalfoundation.tool.diamondShield.name=Escudo de Diamante
+item.thermalfoundation.tool.diamondSickle.name=Foice de Diamante
+
+item.thermalfoundation.tool.electrumAxe.name=Machado de Electro
+item.thermalfoundation.tool.electrumBow.name=Arco Reforçado de Electro
+item.thermalfoundation.tool.electrumFishingRod.name=Vara de Pesca de Electro
+item.thermalfoundation.tool.electrumHammer.name=Martelo de Electro
+item.thermalfoundation.tool.electrumHoe.name=Enxada de Electro
+item.thermalfoundation.tool.electrumPickaxe.name=Picareta de Electro
+item.thermalfoundation.tool.electrumShears.name=Tesoura de Electro
+item.thermalfoundation.tool.electrumShield.name=Escudo de Electro
+item.thermalfoundation.tool.electrumShovel.name=Pá de Electro
+item.thermalfoundation.tool.electrumSickle.name=Foice de Electro
+item.thermalfoundation.tool.electrumSword.name=Espada de Electro
+
+item.thermalfoundation.tool.goldBow.name=Arco Reforçado de Ouro
+item.thermalfoundation.tool.goldFishingRod.name=Vara de Pesca de Ouro
+item.thermalfoundation.tool.goldHammer.name=Martelo de Ouro
+item.thermalfoundation.tool.goldShears.name=Tesoura de Ouro
+item.thermalfoundation.tool.goldShield.name=Escudo de Ouro
+item.thermalfoundation.tool.goldSickle.name=Foice de Ouro
+
+item.thermalfoundation.tool.invarAxe.name=Machado de Invar
+item.thermalfoundation.tool.invarBow.name=Arco Reforçado de Invar
+item.thermalfoundation.tool.invarFishingRod.name=Vara de Pesca de Invar
+item.thermalfoundation.tool.invarHammer.name=Martelo de Invar
+item.thermalfoundation.tool.invarHoe.name=Enxada de Invar
+item.thermalfoundation.tool.invarPickaxe.name=Picareta de Invar
+item.thermalfoundation.tool.invarShears.name=Tesoura de Invar
+item.thermalfoundation.tool.invarShield.name=Escudo de Invar
+item.thermalfoundation.tool.invarShovel.name=Pá de Invar
+item.thermalfoundation.tool.invarSickle.name=Foice de Invar
+item.thermalfoundation.tool.invarSword.name=Espada de Invar
+
+item.thermalfoundation.tool.ironBow.name=Arco Reforçado de Ferro
+item.thermalfoundation.tool.ironFishingRod.name=Vara de Pesca de Ferro
+item.thermalfoundation.tool.ironHammer.name=Martelo de Ferro
+item.thermalfoundation.tool.ironShears.name=Tesoura de Ferro
+item.thermalfoundation.tool.ironShield.name=Escudo de Ferro
+item.thermalfoundation.tool.ironSickle.name=Foice de Ferro
+
+item.thermalfoundation.tool.leadAxe.name=Machado de Chumbo
+item.thermalfoundation.tool.leadBow.name=Arco Reforçado de Chumbo
+item.thermalfoundation.tool.leadFishingRod.name=Vara de Pesca de Chumbo
+item.thermalfoundation.tool.leadHammer.name=Martelo de Chumbo
+item.thermalfoundation.tool.leadHoe.name=Enxada de Chumbo
+item.thermalfoundation.tool.leadPickaxe.name=Picareta de Chumbo
+item.thermalfoundation.tool.leadShears.name=Tesoura de Chumbo
+item.thermalfoundation.tool.leadShield.name=Escudo de Chumbo
+item.thermalfoundation.tool.leadShovel.name=Pá de Chumbo
+item.thermalfoundation.tool.leadSickle.name=Foice de Chumbo
+item.thermalfoundation.tool.leadSword.name=Espada de Chumbo
+
+item.thermalfoundation.tool.nickelAxe.name=Machado de Níquel
+item.thermalfoundation.tool.nickelBow.name=Arco Reforçado de Níquel
+item.thermalfoundation.tool.nickelFishingRod.name=Vara de Pesca de Níquel
+item.thermalfoundation.tool.nickelHammer.name=Martelo de Níquel
+item.thermalfoundation.tool.nickelHoe.name=Enxada de Níquel
+item.thermalfoundation.tool.nickelPickaxe.name=Picareta de Níquel
+item.thermalfoundation.tool.nickelShears.name=Tesoura de Níquel
+item.thermalfoundation.tool.nickelShield.name=Escudo de Níquel
+item.thermalfoundation.tool.nickelShovel.name=Pá de Níquel
+item.thermalfoundation.tool.nickelSickle.name=Foice de Níquel
+item.thermalfoundation.tool.nickelSword.name=Espada de Níquel
+
+item.thermalfoundation.tool.platinumAxe.name=Machado de Platina
+item.thermalfoundation.tool.platinumBow.name=Arco Reforçado de Platina
+item.thermalfoundation.tool.platinumFishingRod.name=Vara de Pesca de Platina
+item.thermalfoundation.tool.platinumHammer.name=Martelo de Platina
+item.thermalfoundation.tool.platinumHoe.name=Enxada de Platina
+item.thermalfoundation.tool.platinumPickaxe.name=Picareta de Platina
+item.thermalfoundation.tool.platinumShears.name=Tesoura de Platina
+item.thermalfoundation.tool.platinumShield.name=Escudo de Platina
+item.thermalfoundation.tool.platinumShovel.name=Pá de Platina
+item.thermalfoundation.tool.platinumSickle.name=Foice de Platina
+item.thermalfoundation.tool.platinumSword.name=Espada de Platina
+
+item.thermalfoundation.tool.silverAxe.name=Machado de Prata
+item.thermalfoundation.tool.silverBow.name=Arco Reforçado de Prata
+item.thermalfoundation.tool.silverFishingRod.name=Vara de Pesca de Prata
+item.thermalfoundation.tool.silverHammer.name=Martelo de Prata
+item.thermalfoundation.tool.silverHoe.name=Enxada de Prata
+item.thermalfoundation.tool.silverPickaxe.name=Picareta de Prata
+item.thermalfoundation.tool.silverShears.name=Tesoura de Prata
+item.thermalfoundation.tool.silverShield.name=Escudo de Prata
+item.thermalfoundation.tool.silverShovel.name=Pá de Prata
+item.thermalfoundation.tool.silverSickle.name=Foice de Prata
+item.thermalfoundation.tool.silverSword.name=Espada de Prata
+
+item.thermalfoundation.tool.steelAxe.name=Machado de Aço
+item.thermalfoundation.tool.steelBow.name=Arco Reforçado de Aço
+item.thermalfoundation.tool.steelFishingRod.name=Vara de Pesca de Aço
+item.thermalfoundation.tool.steelHammer.name=Martelo de Aço
+item.thermalfoundation.tool.steelHoe.name=Enxada de Aço
+item.thermalfoundation.tool.steelPickaxe.name=Picareta de Aço
+item.thermalfoundation.tool.steelShears.name=Tesoura de Aço
+item.thermalfoundation.tool.steelShield.name=Escudo de Aço
+item.thermalfoundation.tool.steelShovel.name=Pá de Aço
+item.thermalfoundation.tool.steelSickle.name=Foice de Aço
+item.thermalfoundation.tool.steelSword.name=Espada de Aço
+
+item.thermalfoundation.tool.stoneBow.name=Arco Reforçado de Pedra
+item.thermalfoundation.tool.stoneFishingRod.name=Vara de Pesca de Pedra
+item.thermalfoundation.tool.stoneHammer.name=Martelo de Pedra
+item.thermalfoundation.tool.stoneShears.name=Tesoura de Pedra
+item.thermalfoundation.tool.stoneShield.name=Escudo de Pedra
+item.thermalfoundation.tool.stoneSickle.name=Foice de Pedra
+
+item.thermalfoundation.tool.tinAxe.name=Machado de Estanho
+item.thermalfoundation.tool.tinBow.name=Arco Reforçado de Estanho
+item.thermalfoundation.tool.tinFishingRod.name=Vara de Pesca de Estanho
+item.thermalfoundation.tool.tinHammer.name=Martelo de Estanho
+item.thermalfoundation.tool.tinHoe.name=Enxada de Estanho
+item.thermalfoundation.tool.tinPickaxe.name=Picareta de Estanho
+item.thermalfoundation.tool.tinShears.name=Tesoura de Estanho
+item.thermalfoundation.tool.tinShield.name=Escudo de Estanho
+item.thermalfoundation.tool.tinShovel.name=Pá de Estanho
+item.thermalfoundation.tool.tinSickle.name=Foice de Estanho
+item.thermalfoundation.tool.tinSword.name=Espada de Estanho
+
+item.thermalfoundation.tool.woodHammer.name=Martelo de Madeira
+item.thermalfoundation.tool.woodShears.name=Tesoura de Madeira
+item.thermalfoundation.tool.woodShield.name=Escudo de Madeira
+item.thermalfoundation.tool.woodSickle.name=Foice de Madeira
+
+item.thermalfoundation.upgrade.creative.name=Kit de Conversão Criativo
+item.thermalfoundation.upgrade.full1.name=Kit de Conversão Endurecido
+item.thermalfoundation.upgrade.full2.name=Kit de Conversão Reforçado
+item.thermalfoundation.upgrade.full3.name=Kit de Conversão Signalo
+item.thermalfoundation.upgrade.full4.name=Kit de Conversão Resonante
+item.thermalfoundation.upgrade.incremental1.name=Kit de Melhoria Endurecido
+item.thermalfoundation.upgrade.incremental2.name=Kit de Melhoria Reforçado
+item.thermalfoundation.upgrade.incremental3.name=Kit de Melhoria Signalo
+item.thermalfoundation.upgrade.incremental4.name=Kit de Melhoria Resonante
+
+item.thermalfoundation.util.lock.name=Cadeado de Signalo
+item.thermalfoundation.util.multimeter.name=Multímetro
+item.thermalfoundation.util.wrench0.name=Chave Inglesa
+item.thermalfoundation.util.wrench1.name=Chave Inglesa (Endurecida)
+item.thermalfoundation.util.wrench2.name=Chave Inglesa (Reforçada)
+item.thermalfoundation.util.wrench3.name=Chave Inglesa (de Signalo)
+item.thermalfoundation.util.wrench4.name=Chave Inglesa (Resonante)
+
+itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armaduras
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Ferramentas
+itemGroup.thermalfoundation.creativeTabUtils=Thermal Foundation: Utilidades
 
-tab.thermalfoundation.lexicon.study.0=Consultar o conhecimento do mundo e mudará o seu destino.
-tab.thermalfoundation.lexicon.transmute.0=Transmutar itens equivalentes de acordo com um conjunto arcano de regras estabelecidas pelos mais altos poderes.
+tab.thermalfoundation.lexicon.study.0=Consulte o conhecimento e altere seu destino.
+tab.thermalfoundation.lexicon.study.1=Apodere-se do Léxicon para forçar as coisas a te obedecerem.
+tab.thermalfoundation.lexicon.transmute.0=Transforme itens equivalentes de acordo com um conjunto arcano de regras estabelecido por poderes superiores.
+tab.thermalfoundation.lexicon.transmute.1=Domine o Léxicon para liberar domínio sobre o mundo.
 
-tile.thermalfoundation.fluid.aerotheum.name=Zephyrean Aerotheum
-tile.thermalfoundation.fluid.cryotheum.name=Cryotheum Gélido
-tile.thermalfoundation.fluid.ender.name=Ender Ressoante
+tile.thermalfoundation.fluid.aerotheum.name=Aeróteum Zefiriano
+tile.thermalfoundation.fluid.crude_oil.name=Petróleo
+tile.thermalfoundation.fluid.cryotheum.name=Crióteum Gélido
+tile.thermalfoundation.fluid.ender.name=Ender Resonante
 tile.thermalfoundation.fluid.glowstone.name=Pedra Luminosa Energizada
-tile.thermalfoundation.fluid.mana.name=Mana Primordial
-tile.thermalfoundation.fluid.pyrotheum.name=Pyrotheum Ardente
+tile.thermalfoundation.fluid.mana.name=Mithril Derretido
+tile.thermalfoundation.fluid.petrotheum.name=Petróteum Tectônico
+tile.thermalfoundation.fluid.pyrotheum.name=Piróteum Ardente
 tile.thermalfoundation.fluid.redstone.name=Redstone Desestabilizada
 
+tile.thermalfoundation.glass.aluminum.name=Vidro de Chumbo com Alumínio
+tile.thermalfoundation.glass.bronze.name=Vidro de Chumbo com Bronze
+tile.thermalfoundation.glass.constantan.name=Vidro de Chumbo com Constantan
+tile.thermalfoundation.glass.copper.name=Vidro de Chumbo com Cobre
+tile.thermalfoundation.glass.electrum.name=Vidro de Chumbo com Electro
+tile.thermalfoundation.glass.enderium.name=Vidro de Chumbo com Endério
+tile.thermalfoundation.glass.invar.name=Vidro de Chumbo com Invar
+tile.thermalfoundation.glass.iridium.name=Vidro de Chumbo com Irídio
+tile.thermalfoundation.glass.lead.name=Vidro de Chumbo
+tile.thermalfoundation.glass.lumium.name=Vidro de Chumbo com Lúmio
+tile.thermalfoundation.glass.mithril.name=Vidro de Chumbo com Mithril
+tile.thermalfoundation.glass.nickel.name=Vidro de Chumbo com Níquel
+tile.thermalfoundation.glass.platinum.name=Vidro de Chumbo com Platina
+tile.thermalfoundation.glass.signalum.name=Vidro de Chumbo com Signalo
+tile.thermalfoundation.glass.silver.name=Vidro de Chumbo com Prata
+tile.thermalfoundation.glass.steel.name=Vidro de Chumbo com Aço
+tile.thermalfoundation.glass.tin.name=Vidro de Chumbo com Estanho
+
+tile.thermalfoundation.ore.aluminum.name=Minério de Alumínio
 tile.thermalfoundation.ore.copper.name=Minério de Cobre
+tile.thermalfoundation.ore.crude_oil_gravel.name=Xisto Oleoso
+tile.thermalfoundation.ore.crude_oil_sand.name=Areia Oleosa
+tile.thermalfoundation.ore.ender.name=Pedra Resonante do End
+tile.thermalfoundation.ore.glowstone.name=Rocha do Nether Energizada
 tile.thermalfoundation.ore.lead.name=Minério de Chumbo
-tile.thermalfoundation.ore.mithril.name=Minério Infundido em Mana
-tile.thermalfoundation.ore.nickel.name=Minério Ferroso
-tile.thermalfoundation.ore.platinum.name=Minério Brilhante
+tile.thermalfoundation.ore.iridium.name=Minério de Irídio
+tile.thermalfoundation.ore.mithril.name=Minério de Mithril
+tile.thermalfoundation.ore.nickel.name=Minério de Níquel
+tile.thermalfoundation.ore.platinum.name=Minério de Platina
+tile.thermalfoundation.ore.redstone.name=Minério de Redstone Desestabilizada
 tile.thermalfoundation.ore.silver.name=Minério de Prata
 tile.thermalfoundation.ore.tin.name=Minério de Estanho
 
+tile.thermalfoundation.rockwool.black.name=Lã Rochosa (Preto)
+tile.thermalfoundation.rockwool.blue.name=Lã Rochosa (Azul)
+tile.thermalfoundation.rockwool.brown.name=Lã Rochosa (Marrom)
+tile.thermalfoundation.rockwool.cyan.name=Lã Rochosa (Ciano)
+tile.thermalfoundation.rockwool.gray.name=Lã Rochosa (Cinza)
+tile.thermalfoundation.rockwool.green.name=Lã Rochosa (Verde)
+tile.thermalfoundation.rockwool.light_blue.name=Lã Rochosa (Azul Claro)
+tile.thermalfoundation.rockwool.lime.name=Lã Rochosa (Verde-limão)
+tile.thermalfoundation.rockwool.magenta.name=Lã Rochosa (Lilás)
+tile.thermalfoundation.rockwool.orange.name=Lã Rochosa (Laranjado)
+tile.thermalfoundation.rockwool.pink.name=Lã Rochosa (Rosa)
+tile.thermalfoundation.rockwool.purple.name=Lã Rochosa (Roxo)
+tile.thermalfoundation.rockwool.red.name=Lã Rochosa (Vermelho)
+tile.thermalfoundation.rockwool.silver.name=Lã Rochosa (Cinza Claro)
+tile.thermalfoundation.rockwool.white.name=Lã Rochosa (Branco)
+tile.thermalfoundation.rockwool.yellow.name=Lã Rochosa (Amarelo)
+
+tile.thermalfoundation.storage.aluminum.name=Bloco de Alumínio
 tile.thermalfoundation.storage.bronze.name=Bloco de Bronze
+tile.thermalfoundation.storage.constantan.name=Bloco de Constantan
 tile.thermalfoundation.storage.copper.name=Bloco de Cobre
 tile.thermalfoundation.storage.electrum.name=Bloco de Electro
 tile.thermalfoundation.storage.enderium.name=Bloco de Endério
 tile.thermalfoundation.storage.invar.name=Bloco de Invar
+tile.thermalfoundation.storage.iridium.name=Bloco de Irído
 tile.thermalfoundation.storage.lead.name=Bloco de Chumbo
 tile.thermalfoundation.storage.lumium.name=Bloco de Lúmio
-tile.thermalfoundation.storage.mithril.name=Bloco de Mana Infundida
-tile.thermalfoundation.storage.nickel.name=Bloco Ferroso
-tile.thermalfoundation.storage.platinum.name=Bloco Brilhante
+tile.thermalfoundation.storage.mithril.name=Bloco de Mithril
+tile.thermalfoundation.storage.nickel.name=Bloco de Níquel
+tile.thermalfoundation.storage.platinum.name=Bloco de Platina
 tile.thermalfoundation.storage.signalum.name=Bloco de Signalo
 tile.thermalfoundation.storage.silver.name=Bloco de Prata
+tile.thermalfoundation.storage.steel.name=Bloco de Aço
 tile.thermalfoundation.storage.tin.name=Bloco de Estanho
