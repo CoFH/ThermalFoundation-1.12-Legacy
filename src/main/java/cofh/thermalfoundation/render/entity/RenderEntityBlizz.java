@@ -28,7 +28,7 @@ public class RenderEntityBlizz extends RenderLiving<EntityBlizz> {
 	@Override
 	protected ResourceLocation getEntityTexture(EntityBlizz par1Entity) {
 
-		return HolidayHelper.isChristmas() ? textureXmas : texture;
+		return HolidayHelper.isChristmas(5, 3) ? textureXmas : texture;
 	}
 
 	@Override

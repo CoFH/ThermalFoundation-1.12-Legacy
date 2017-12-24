@@ -1,5 +1,6 @@
 package cofh.thermalfoundation.render.entity;
 
+import cofh.core.util.helpers.HolidayHelper;
 import cofh.thermalfoundation.entity.monster.EntityBlitz;
 import cofh.thermalfoundation.render.model.ModelElemental;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,9 +13,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RenderEntityBlitz extends RenderLiving<EntityBlitz> {
 
 	private static ResourceLocation texture;
+	private static ResourceLocation textureXmas;
 
 	static {
 		texture = new ResourceLocation("thermalfoundation:textures/entity/" + "blitz.png");
+		textureXmas = new ResourceLocation("thermalfoundation:textures/entity/" + "blitz_xmas.png");
 	}
 
 	public RenderEntityBlitz(RenderManager manager) {
@@ -25,7 +28,7 @@ public class RenderEntityBlitz extends RenderLiving<EntityBlitz> {
 	@Override
 	protected ResourceLocation getEntityTexture(EntityBlitz par1Entity) {
 
-		return texture;
+		return HolidayHelper.isChristmas(5, 3) ? textureXmas : texture;
 	}
 
 	@Override

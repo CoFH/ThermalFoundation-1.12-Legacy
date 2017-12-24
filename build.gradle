@@ -52,7 +52,7 @@ dependencies {
 	compile "cofh:CoFHCore:${config.mc_version}-${config.cofh_core_version}:deobf"
 }
 
-version = "${project.config.mod_version}." + (System.getenv("BUILD_NUMBER") ?: "19")
+version = "${project.config.mod_version}." + (System.getenv("BUILD_NUMBER") ?: "22")
 
 println config.mc_version + "-" + config.forge_version
 // Setup the Forge/Minecraft plugin data. Specify the preferred Forge/Minecraft version here.
