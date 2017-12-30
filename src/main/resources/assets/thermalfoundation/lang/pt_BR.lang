@@ -69,17 +69,17 @@ info.thermalfoundation.diagram.redprint.1=Use em um dispositivo para transferir 
 
 info.thermalfoundation.security.lock=Use em um bloco protegível, ou combine com um item protegível.
 
-info.thermalfoundation.tome.experience.a.0=Armazena experiência em suas páginas.
-info.thermalfoundation.tome.experience.a.1=Clique direito do mouse para armazenar conhecimento no tomo.
-info.thermalfoundation.tome.experience.a.2=Shift+clique direito do mouse para extrair o conhecimento.
-info.thermalfoundation.tome.experience.b.0=§bPressione (%s) para o tomo coletar XP automaticamente.§r
-info.thermalfoundation.tome.experience.c.0=§ePressione (%s) para não coletar mais XP.§r
+info.thermalfoundation.tome.experience.0=Armazena experiência em suas páginas.
+info.thermalfoundation.tome.experience.1=Clique direito do mouse para armazenar conhecimento no tomo.
+info.thermalfoundation.tome.experience.2=Shift+clique direito do mouse para extrair o conhecimento.
+info.thermalfoundation.tome.experience.a.0=§bPressione (%s) para o tomo coletar XP automaticamente.§r
+info.thermalfoundation.tome.experience.a.1=§ePressione (%s) para não coletar mais XP.§r
 
-info.thermalfoundation.tome.lexicon.a.0=Converte itens em suas formas equivalentes.
-info.thermalfoundation.tome.lexicon.b.0=Clique direito (abra) para estudar.
-info.thermalfoundation.tome.lexicon.b.1=§bPressione (%s) para ganhar sabedoria!§r
-info.thermalfoundation.tome.lexicon.c.0=Clique direito (open) para transmutar itens.
-info.thermalfoundation.tome.lexicon.c.1=§ePressione (%s) para esquecer conhecimentos.§r
+info.thermalfoundation.tome.lexicon.0=Converte itens em suas formas equivalentes.
+info.thermalfoundation.tome.lexicon.a.0=Clique direito (abra-o) para estudar o oreDict.
+info.thermalfoundation.tome.lexicon.a.1=§bPressione (%s) para ganhar sabedoria!§r
+info.thermalfoundation.tome.lexicon.b.0=Clique direito (abra-o) para transmutar itens.
+info.thermalfoundation.tome.lexicon.b.1=§ePressione (%s) para esquecer o que aprendeu.§r
 
 info.thermalfoundation.upgrade.creative.0=Converte blocos para sua forma criativa.
 info.thermalfoundation.upgrade.creative.1=Pode ser usado em um bloco de qualquer nível.
@@ -197,9 +197,9 @@ item.thermalfoundation.material.crystalSlagRich.name=Escória Enriquecida
 
 item.thermalfoundation.material.dustAerotheum.name=Pó de Aeróteum
 item.thermalfoundation.material.dustAluminum.name=Alumínio Pulverizado
-item.thermalfoundation.material.dustBasalz.name=Pó de Tectônico
-item.thermalfoundation.material.dustBlitz.name=Pó de Luminoso
-item.thermalfoundation.material.dustBlizz.name=Pó de Gelado
+item.thermalfoundation.material.dustBasalz.name=Pó Tectônico
+item.thermalfoundation.material.dustBlitz.name=Pó Luminoso
+item.thermalfoundation.material.dustBlizz.name=Pó Gelado
 item.thermalfoundation.material.dustBronze.name=Mistura de Bronze
 item.thermalfoundation.material.dustCharcoal.name=Carvão Vegetal Pulverizado
 item.thermalfoundation.material.dustCoal.name=Carvão Pulverizado
