@@ -17,7 +17,10 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Enchantments;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -26,6 +29,7 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
@@ -34,6 +38,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 import static cofh.core.util.helpers.ItemHelper.registerWithHandlers;
@@ -55,6 +60,8 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, Type.CRUDE_OIL_SAND));
 
 		setHarvestLevel("pickaxe", 1);
+		setHarvestLevel("shovel", 1, getDefaultState().withProperty(VARIANT, Type.CRUDE_OIL_SAND));
+		setHarvestLevel("shovel", 1, getDefaultState().withProperty(VARIANT, Type.CRUDE_OIL_GRAVEL));
 	}
 
 	@Override
@@ -122,6 +129,11 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public boolean removedByPlayer(IBlockState state, World world, BlockPos pos, EntityPlayer player, boolean willHarvest) {
 
+		ItemStack stack = player.getHeldItemMainhand();
+
+		if (player.capabilities.isCreativeMode || willHarvest && EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) > 0) {
+			return world.setBlockState(pos, net.minecraft.init.Blocks.AIR.getDefaultState(), world.isRemote ? 11 : 3);
+		}
 		this.onBlockHarvested(world, pos, state, player);
 		return world.setBlockState(new BlockPos(pos), fluidBlocks[state.getValue(VARIANT).getMetadata()].getDefaultState().withProperty(BlockFluidCore.LEVEL, 1), world.isRemote ? 11 : 3);
 	}
@@ -201,6 +213,19 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
+	public float getBlockHardness(IBlockState state, World world, BlockPos pos) {
+
+		return state.getValue(VARIANT).getHardness();
+	}
+
+	@Override
+	public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion) {
+
+		IBlockState state = world.getBlockState(pos);
+		return state.getValue(VARIANT).getResistance();
+	}
+
+	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 
 		drops.add(ItemHelper.cloneStack(this.drops[damageDropped(state)], quantityDropped(state, fortune, world instanceof World ? ((World) world).rand : RANDOM)));
@@ -225,6 +250,18 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		if (rand.nextInt(20) == 0 && !world.isSideSolid(pos.add(0, densityDir, 0), densityDir == -1 ? EnumFacing.UP : EnumFacing.DOWN) && !world.getBlockState(pos.add(0, densityDir, 0)).getMaterial().blocksMovement()) {
 			Particle fx = new EntityDropParticleFX(world, px, py, pz, fluid.getParticleRed(), fluid.getParticleGreen(), fluid.getParticleBlue(), densityDir);
 			FMLClientHandler.instance().getClient().effectRenderer.addEffect(fx);
+		}
+	}
+
+	public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
+
+		switch (state.getValue(VARIANT).getMetadata()) {
+			case 0:
+				return SoundType.SAND;
+			case 1:
+				return SoundType.GROUND;
+			default:
+				return SoundType.STONE;
 		}
 	}
 
@@ -288,35 +325,29 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	public enum Type implements IStringSerializable {
 
 		// @formatter:off
-		CRUDE_OIL_SAND(0, "crude_oil_sand", TFFluids.blockFluidCrudeOil),
-		CRUDE_OIL_GRAVEL(1, "crude_oil_gravel", TFFluids.blockFluidCrudeOil),
-		REDSTONE(2, "redstone", TFFluids.blockFluidRedstone, 7, EnumRarity.UNCOMMON),
-		GLOWSTONE(3, "glowstone", TFFluids.blockFluidGlowstone, 15, EnumRarity.UNCOMMON),
-		ENDER(4, "ender", TFFluids.blockFluidEnder, 3, EnumRarity.RARE);
+		CRUDE_OIL_SAND(0, "crude_oil_sand", 0, 0.5F, 2.0F, EnumRarity.COMMON),
+		CRUDE_OIL_GRAVEL(1, "crude_oil_gravel", 0, 0.6F, 2.5F, EnumRarity.COMMON),
+		REDSTONE(2, "redstone", 7, 5.0F, 3.0F, EnumRarity.UNCOMMON),
+		GLOWSTONE(3, "glowstone", 15, 0.4F, 2.0F, EnumRarity.UNCOMMON),
+		ENDER(4, "ender", 3, 3.0F, 9.0F, EnumRarity.RARE);
 		// @formatter: on
 
 		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;
+		private final float hardness;
+		private final float resistance;
 		private final EnumRarity rarity;
 
-		Type(int metadata, String name, BlockFluidCore fluid, int light, EnumRarity rarity) {
+		Type(int metadata, String name, int light, float hardness, float resistance, EnumRarity rarity) {
 
 			this.metadata = metadata;
 			this.name = name;
 			this.light = light;
+			this.hardness = hardness;
+			this.resistance = resistance;
 			this.rarity = rarity;
-		}
-
-		Type(int metadata, String name, BlockFluidCore fluid, int light) {
-
-			this(metadata, name, fluid, light, EnumRarity.COMMON);
-		}
-
-		Type(int metadata, String name, BlockFluidCore fluid) {
-
-			this(metadata, name, fluid, 0, EnumRarity.COMMON);
 		}
 
 		public int getMetadata() {
@@ -333,6 +364,16 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		public int getLight() {
 
 			return this.light;
+		}
+
+		public float getHardness() {
+
+			return this.hardness;
+		}
+
+		public float getResistance() {
+
+			return this.resistance;
 		}
 
 		public EnumRarity getRarity() {

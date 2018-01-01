@@ -119,14 +119,41 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 		if (CoreUtils.isFakePlayer(player) || hand != EnumHand.MAIN_HAND || ServerHelper.isClientWorld(world)) {
 			return new ActionResult<>(EnumActionResult.FAIL, stack);
 		}
+		int exp;
+		int curLevel = player.experienceLevel;
+
 		if (player.isSneaking()) {
-			int exp = getExperience(stack);
-			setPlayerExperience(player, player.experienceTotal + exp);
-			modifyExperience(stack, -exp);
+			if (getExtraPlayerExperience(player) > 0) {
+				exp = Math.min(getTotalExpForLevel(player.experienceLevel + 1) - getTotalExpForLevel(player.experienceLevel) - getExtraPlayerExperience(player), getExperience(stack));
+				setPlayerExperience(player, getPlayerExperience(player) + exp);
+				if (player.experienceLevel < curLevel + 1 && getPlayerExperience(player) >= getTotalExpForLevel(curLevel + 1)) {
+					setPlayerLevel(player, curLevel + 1);
+				}
+				modifyExperience(stack, -exp);
+			} else {
+				exp = Math.min(getTotalExpForLevel(player.experienceLevel + 1) - getTotalExpForLevel(player.experienceLevel), getExperience(stack));
+				setPlayerExperience(player, getPlayerExperience(player) + exp);
+				if (player.experienceLevel < curLevel + 1 && getPlayerExperience(player) >= getTotalExpForLevel(curLevel + 1)) {
+					setPlayerLevel(player, curLevel + 1);
+				}
+				modifyExperience(stack, -exp);
+			}
 		} else {
-			int exp = Math.min(player.experienceTotal, getSpace(stack));
-			setPlayerExperience(player, player.experienceTotal - exp);
-			modifyExperience(stack, exp);
+			if (getExtraPlayerExperience(player) > 0) {
+				exp = Math.min(getExtraPlayerExperience(player), getSpace(stack));
+				setPlayerExperience(player, getPlayerExperience(player) - exp);
+				if (player.experienceLevel < curLevel) {
+					setPlayerLevel(player, curLevel);
+				}
+				modifyExperience(stack, exp);
+			} else if (player.experienceLevel > 0) {
+				exp = Math.min(getTotalExpForLevel(player.experienceLevel) - getTotalExpForLevel(player.experienceLevel - 1), getSpace(stack));
+				setPlayerExperience(player, getPlayerExperience(player) - exp);
+				if (player.experienceLevel < curLevel - 1) {
+					setPlayerLevel(player, curLevel - 1);
+				}
+				modifyExperience(stack, exp);
+			}
 		}
 		return new ActionResult<>(EnumActionResult.FAIL, stack);
 	}
@@ -163,6 +190,21 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 		return storedExp;
 	}
 
+	public static int getPlayerExperience(EntityPlayer player) {
+
+		return getTotalExpForLevel(player.experienceLevel) + getExtraPlayerExperience(player);
+	}
+
+	public static int getLevelPlayerExperience(EntityPlayer player) {
+
+		return getTotalExpForLevel(player.experienceLevel);
+	}
+
+	public static int getExtraPlayerExperience(EntityPlayer player) {
+
+		return Math.round(player.experience * player.xpBarCap());
+	}
+
 	public static void setPlayerExperience(EntityPlayer player, int exp) {
 
 		player.experienceLevel = 0;
@@ -170,6 +212,12 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 		player.experienceTotal = 0;
 
 		addExperienceToPlayer(player, exp);
+	}
+
+	public static void setPlayerLevel(EntityPlayer player, int level) {
+
+		player.experienceLevel = level;
+		player.experience = 0.0F;
 	}
 
 	public static void addExperienceToPlayer(EntityPlayer player, int exp) {

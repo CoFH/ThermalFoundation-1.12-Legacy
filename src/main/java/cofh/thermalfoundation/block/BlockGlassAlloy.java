@@ -150,6 +150,10 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 
 		if (player.isSneaking()) {
 			RayTraceResult traceResult = RayTracer.retrace(player);
+
+			if (traceResult == null) {
+				return false;
+			}
 			if (WrenchHelper.isHoldingUsableWrench(player, traceResult)) {
 				if (ServerHelper.isServerWorld(world)) {
 					dismantleBlock(world, pos, state, player, false);

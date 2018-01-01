@@ -4,7 +4,6 @@ import cofh.core.init.CorePotions;
 import cofh.core.util.crafting.FluidIngredientFactory.FluidIngredient;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.StringHelper;
-import cofh.thermalfoundation.init.TFEquipment.ToolSet;
 import cofh.thermalfoundation.init.TFProps;
 import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.init.Blocks;

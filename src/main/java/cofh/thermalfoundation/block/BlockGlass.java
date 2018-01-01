@@ -138,6 +138,10 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 
 		if (player.isSneaking()) {
 			RayTraceResult traceResult = RayTracer.retrace(player);
+
+			if (traceResult == null) {
+				return false;
+			}
 			if (WrenchHelper.isHoldingUsableWrench(player, traceResult)) {
 				if (ServerHelper.isServerWorld(world)) {
 					dismantleBlock(world, pos, state, player, false);
