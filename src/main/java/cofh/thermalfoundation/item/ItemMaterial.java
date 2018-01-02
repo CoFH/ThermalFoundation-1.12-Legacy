@@ -293,6 +293,9 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addReverseStorageRecipe(ingotLumium, "blockLumium");
 		addReverseStorageRecipe(ingotEnderium, "blockEnderium");
 
+		addReverseStorageRecipe(new ItemStack(Items.COAL, 1,1), "blockCharcoal");
+		addReverseStorageRecipe(fuelCoke, "blockCoke");
+
 		/* Gears */
 		addGearRecipe(gearIron, "ingotIron");
 		addGearRecipe(gearGold, "ingotGold");

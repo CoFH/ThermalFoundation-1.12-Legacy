@@ -1,9 +1,11 @@
 package cofh.thermalfoundation.block;
 
 import cofh.core.block.BlockCore;
+import cofh.core.energy.FurnaceFuelHandler;
 import cofh.core.render.IModelRegister;
 import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -146,6 +148,9 @@ public class BlockStorageResource extends BlockCore implements IInitializer, IMo
 
 		addStorageRecipe(blockCharcoal, new ItemStack(Items.COAL, 1, 1));
 		addStorageRecipe(blockCoke, "fuelCoke");
+
+		FurnaceFuelHandler.registerFuel(blockCharcoal, 1600 * 10);
+		FurnaceFuelHandler.registerFuel(blockCoke, TFProps.fuelCokeFuel * 10);
 
 		return true;
 	}

@@ -6,6 +6,7 @@ import cofh.core.render.IModelRegister;
 import cofh.core.render.particle.EntityDropParticleFX;
 import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.ItemHelper;
+import cofh.core.util.helpers.ServerHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
 import cofh.thermalfoundation.item.ItemMaterial;
@@ -132,10 +133,12 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		ItemStack stack = player.getHeldItemMainhand();
 
 		if (player.capabilities.isCreativeMode || willHarvest && EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) > 0) {
-			return world.setBlockState(pos, net.minecraft.init.Blocks.AIR.getDefaultState(), world.isRemote ? 11 : 3);
+			return world.setBlockState(pos, net.minecraft.init.Blocks.AIR.getDefaultState(), 3);
 		}
-		this.onBlockHarvested(world, pos, state, player);
-		return world.setBlockState(new BlockPos(pos), fluidBlocks[state.getValue(VARIANT).getMetadata()].getDefaultState().withProperty(BlockFluidCore.LEVEL, 1), world.isRemote ? 11 : 3);
+		if (ServerHelper.isServerWorld(world)) {
+			this.onBlockHarvested(world, pos, state, player);
+		}
+		return world.setBlockState(new BlockPos(pos), fluidBlocks[state.getValue(VARIANT).getMetadata()].getDefaultState().withProperty(BlockFluidCore.LEVEL, 1), 3);
 	}
 
 	@Override
