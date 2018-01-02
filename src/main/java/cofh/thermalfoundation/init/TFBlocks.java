@@ -23,6 +23,7 @@ public class TFBlocks {
 		blockOreFluid = new BlockOreFluid();
 		blockStorage = new BlockStorage();
 		blockStorageAlloy = new BlockStorageAlloy();
+		blockStorageResource = new BlockStorageResource();
 		blockGlass = new BlockGlass();
 		blockGlassAlloy = new BlockGlassAlloy();
 		blockRockwool = new BlockRockwool();
@@ -31,6 +32,7 @@ public class TFBlocks {
 		initList.add(blockOreFluid);
 		initList.add(blockStorage);
 		initList.add(blockStorageAlloy);
+		initList.add(blockStorageResource);
 		initList.add(blockGlass);
 		initList.add(blockGlassAlloy);
 		initList.add(blockRockwool);
@@ -57,6 +59,7 @@ public class TFBlocks {
 	public static BlockOreFluid blockOreFluid;
 	public static BlockStorage blockStorage;
 	public static BlockStorageAlloy blockStorageAlloy;
+	public static BlockStorageResource blockStorageResource;
 	public static BlockGlass blockGlass;
 	public static BlockGlassAlloy blockGlassAlloy;
 	public static BlockRockwool blockRockwool;
