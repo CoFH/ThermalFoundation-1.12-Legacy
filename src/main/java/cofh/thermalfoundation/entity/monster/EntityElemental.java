@@ -19,7 +19,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public abstract class EntityElemental extends EntityMob {
 
-	private static final DataParameter<Boolean> ATTACK_MODE = EntityDataManager.createKey(EntityBlizz.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Boolean> ATTACK_MODE = EntityDataManager.createKey(EntityElemental.class, DataSerializers.BOOLEAN);
 
 	protected int SOUND_AMBIENT_FREQUENCY = 400; // How often it does ambient sound loop
 

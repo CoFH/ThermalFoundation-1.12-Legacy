@@ -136,7 +136,7 @@ public class BlockStorageResource extends BlockCore implements IInitializer, IMo
 		blockCoke = new ItemStack(this, 1, Type.COKE.getMetadata());
 
 		registerWithHandlers("blockCharcoal", blockCharcoal);
-		registerWithHandlers("blockCoke", blockCoke);
+		registerWithHandlers("blockFuelCoke", blockCoke);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
