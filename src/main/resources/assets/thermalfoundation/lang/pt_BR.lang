@@ -77,8 +77,8 @@ info.thermalfoundation.tome.experience.a.1=§ePressione (%s) para não coletar m
 
 info.thermalfoundation.tome.lexicon.0=Converte itens em suas formas equivalentes.
 info.thermalfoundation.tome.lexicon.a.0=Clique direito (abra-o) para estudar o oreDict.
-info.thermalfoundation.tome.lexicon.a.1=§bPressione (%s) para ganhar sabedoria!§r
-info.thermalfoundation.tome.lexicon.b.0=Clique direito (abra-o) para transmutar itens.
+info.thermalfoundation.tome.lexicon.a.1=Clique direito (abra-o) para transmutar itens.
+info.thermalfoundation.tome.lexicon.b.0=§bPressione (%s) para ganhar sabedoria!§r
 info.thermalfoundation.tome.lexicon.b.1=§ePressione (%s) para esquecer o que aprendeu.§r
 
 info.thermalfoundation.upgrade.creative.0=Converte blocos para sua forma criativa.
