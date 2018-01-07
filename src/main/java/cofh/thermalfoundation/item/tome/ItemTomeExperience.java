@@ -286,7 +286,7 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 	@Override
 	public int fill(ItemStack container, FluidStack resource, boolean doFill) {
 
-		if (resource == null || (resource.getFluid() != TFFluids.fluidExperience && !resource.getFluid().getName().equals("xpjuice"))) {
+		if (resource == null || (resource.getFluid() != TFFluids.fluidExperience && !resource.getFluid().getName().equals("essence") && !resource.getFluid().getName().equals("xpjuice"))) {
 			return 0;
 		}
 		int experience = getExperience(container);
