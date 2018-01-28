@@ -165,32 +165,32 @@ public class TFFluids {
 
 	public static void refreshReferences() {
 
-		fluidSteam = FluidRegistry.getFluid("steam");
+		fluidSteam = new FluidStack(fluidSteam, Fluid.BUCKET_VOLUME).getFluid();
 
-		fluidCreosote = FluidRegistry.getFluid("creosote");
-		fluidCoal = FluidRegistry.getFluid("coal");
-		fluidCrudeOil = FluidRegistry.getFluid("crude_oil");
-		fluidRefinedOil = FluidRegistry.getFluid("refined_oil");
-		fluidFuel = FluidRegistry.getFluid("refined_fuel");
+		fluidCreosote = new FluidStack(fluidCreosote, Fluid.BUCKET_VOLUME).getFluid();
+		fluidCoal = new FluidStack(fluidCoal, Fluid.BUCKET_VOLUME).getFluid();
+		fluidCrudeOil = new FluidStack(fluidCrudeOil, Fluid.BUCKET_VOLUME).getFluid();
+		fluidRefinedOil = new FluidStack(fluidRefinedOil, Fluid.BUCKET_VOLUME).getFluid();
+		fluidFuel = new FluidStack(fluidFuel, Fluid.BUCKET_VOLUME).getFluid();
 
-		fluidSap = FluidRegistry.getFluid("sap");
-		fluidSyrup = FluidRegistry.getFluid("syrup");
-		fluidResin = FluidRegistry.getFluid("resin");
-		fluidTreeOil = FluidRegistry.getFluid("tree_oil");
+		fluidSap = new FluidStack(fluidSap, Fluid.BUCKET_VOLUME).getFluid();
+		fluidSyrup = new FluidStack(fluidSyrup, Fluid.BUCKET_VOLUME).getFluid();
+		fluidResin = new FluidStack(fluidResin, Fluid.BUCKET_VOLUME).getFluid();
+		fluidTreeOil = new FluidStack(fluidTreeOil, Fluid.BUCKET_VOLUME).getFluid();
 
-		fluidMushroomStew = FluidRegistry.getFluid("mushroom_stew");
-		fluidExperience = FluidRegistry.getFluid("experience");
+		fluidMushroomStew = new FluidStack(fluidMushroomStew, Fluid.BUCKET_VOLUME).getFluid();
+		fluidExperience = new FluidStack(fluidExperience, Fluid.BUCKET_VOLUME).getFluid();
 
-		fluidPotion = FluidRegistry.getFluid("potion");
+		fluidPotion = new FluidStack(fluidPotion, Fluid.BUCKET_VOLUME).getFluid();
 
-		fluidRedstone = FluidRegistry.getFluid("redstone");
-		fluidGlowstone = FluidRegistry.getFluid("glowstone");
-		fluidEnder = FluidRegistry.getFluid("ender");
-		fluidPyrotheum = FluidRegistry.getFluid("pyrotheum");
-		fluidCryotheum = FluidRegistry.getFluid("cryotheum");
-		fluidAerotheum = FluidRegistry.getFluid("aerotheum");
-		fluidPetrotheum = FluidRegistry.getFluid("petrotheum");
-		fluidMana = FluidRegistry.getFluid("mana");
+		fluidRedstone = new FluidStack(fluidRedstone, Fluid.BUCKET_VOLUME).getFluid();
+		fluidGlowstone = new FluidStack(fluidGlowstone, Fluid.BUCKET_VOLUME).getFluid();
+		fluidEnder = new FluidStack(fluidEnder, Fluid.BUCKET_VOLUME).getFluid();
+		fluidPyrotheum = new FluidStack(fluidPyrotheum, Fluid.BUCKET_VOLUME).getFluid();
+		fluidCryotheum = new FluidStack(fluidCryotheum, Fluid.BUCKET_VOLUME).getFluid();
+		fluidAerotheum = new FluidStack(fluidAerotheum, Fluid.BUCKET_VOLUME).getFluid();
+		fluidPetrotheum = new FluidStack(fluidPetrotheum, Fluid.BUCKET_VOLUME).getFluid();
+		fluidMana = new FluidStack(fluidMana, Fluid.BUCKET_VOLUME).getFluid();
 	}
 
 	/* HELPERS */

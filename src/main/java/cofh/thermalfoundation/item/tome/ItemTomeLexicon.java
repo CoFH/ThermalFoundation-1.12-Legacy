@@ -86,6 +86,8 @@ public class ItemTomeLexicon extends ItemTome implements IInventoryContainerItem
 	@Override
 	public boolean initialize() {
 
+		config();
+
 		tomeLexicon = new ItemStack(this);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -96,10 +98,20 @@ public class ItemTomeLexicon extends ItemTome implements IInventoryContainerItem
 	@Override
 	public boolean register() {
 
-		addShapedRecipe(tomeLexicon, " L ", "GBI", " R ", 'B', Items.BOOK, 'G', "ingotGold", 'I', "ingotIron", 'L', "gemLapis", 'R', "dustRedstone");
-
+		if (enable) {
+			addShapedRecipe(tomeLexicon, " L ", "GBI", " R ", 'B', Items.BOOK, 'G', "ingotGold", 'I', "ingotIron", 'L', "gemLapis", 'R', "dustRedstone");
+		}
 		return true;
 	}
+
+	public static void config() {
+
+		String category = "Tome.Lexicon";
+		String comment = "If TRUE, the recipe for the Forge Lexicon is enabled. Set this to FALSE only if you know what you are doing and/or want to create needless inconvenience.";
+		enable = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnableRecipe", category, enable, comment);
+	}
+
+	public static boolean enable = true;
 
 	/* REFERENCES */
 	public static ItemStack tomeLexicon;

@@ -331,6 +331,8 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 	@Override
 	public boolean initialize() {
 
+		config();
+
 		tomeExperience = new ItemStack(this);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -341,12 +343,22 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 	@Override
 	public boolean register() {
 
-		addShapedRecipe(tomeExperience, " L ", "EBE", " L ", 'B', Items.BOOK, 'E', "gemEmerald", 'L', "gemLapis");
-
+		if (enable) {
+			addShapedRecipe(tomeExperience, " L ", "EBE", " L ", 'B', Items.BOOK, 'E', "gemEmerald", 'L', "gemLapis");
+		}
 		return true;
 	}
 
+	public static void config() {
+
+		String category = "Tome.Experience";
+		String comment = "If TRUE, the recipe for the Tome of Knowledge is enabled. Set this to FALSE only if you know what you are doing and/or want to create needless inconvenience.";
+		enable = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnableRecipe", category, enable, comment);
+	}
+
 	public static final int CAPACITY = 10000;
+
+	public static boolean enable = true;
 
 	/* REFERENCES */
 	public static ItemStack tomeExperience;
