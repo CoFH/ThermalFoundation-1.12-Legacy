@@ -1,14 +1,13 @@
 {
 	"parent":"thermalfoundation:item/tool/shield",
 	"textures": {
-		"layer0":"thermalfoundation:items/tool/shield_electrum"
+		"all":"thermalfoundation:items/tool/shield_electrum"
 	},
-	"overrides": [
-		{
-			"predicate": {
-				"blocking": 1
-			},
-			"model": "thermalfoundation:item/tool/shield_electrum_blocking"
-		}
-	]
+
+	"overrides": [ {
+		"predicate": {
+			"blocking": 1
+		},
+		"model": "thermalfoundation:item/tool/shield_electrum_blocking"
+	} ]
 }
