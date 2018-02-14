@@ -38,8 +38,7 @@ public class PacketTFBase extends PacketBase {
 					ThermalFoundation.LOG.error("Unknown Packet! Internal: TFPH, ID: " + type);
 			}
 		} catch (Exception e) {
-			ThermalFoundation.LOG.error("Packet payload failure! Please check your config files!");
-			e.printStackTrace();
+			ThermalFoundation.LOG.error("Packet payload failure! Please check your config files!", e);
 		}
 	}
 

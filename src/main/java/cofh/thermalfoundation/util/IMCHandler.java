@@ -29,8 +29,7 @@ public class IMCHandler {
 					ThermalFoundation.LOG.warn(ThermalFoundation.MOD_NAME + " received an invalid IMC from " + theMessage.getSender() + "! Key was " + theMessage.key);
 				}
 			} catch (Exception e) {
-				ThermalFoundation.LOG.warn(ThermalFoundation.MOD_NAME + " received a broken IMC from " + theMessage.getSender() + "!");
-				e.printStackTrace();
+				ThermalFoundation.LOG.error(ThermalFoundation.MOD_NAME + " received a broken IMC from " + theMessage.getSender() + "!", e);
 			}
 		}
 	}
