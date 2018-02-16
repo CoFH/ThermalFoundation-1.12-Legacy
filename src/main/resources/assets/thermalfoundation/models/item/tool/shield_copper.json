@@ -1,14 +1,12 @@
 {
 	"parent":"thermalfoundation:item/tool/shield",
 	"textures": {
-		"layer0":"thermalfoundation:items/tool/shield_copper"
+		"all":"thermalfoundation:items/tool/shield_copper"
 	},
-	"overrides": [
-		{
-			"predicate": {
-				"blocking": 1
-			},
-			"model": "thermalfoundation:item/tool/shield_copper_blocking"
-		}
-	]
+	"overrides": [ {
+		"predicate": {
+			"blocking": 1
+		},
+		"model": "thermalfoundation:item/tool/shield_copper_blocking"
+	} ]
 }

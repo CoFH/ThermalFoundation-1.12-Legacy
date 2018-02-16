@@ -1,6 +1,6 @@
 {
 	"parent":"thermalfoundation:item/tool/shield_blocking",
 	"textures": {
-		"layer0":"thermalfoundation:items/tool/shield_gold"
+		"all":"thermalfoundation:items/tool/shield_gold"
 	}
 }
