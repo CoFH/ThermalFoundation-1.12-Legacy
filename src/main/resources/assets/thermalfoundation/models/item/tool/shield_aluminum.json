@@ -1,13 +1,13 @@
 {
-	"parent":"thermalfoundation:item/tool/shield",
+	"parent": "thermalfoundation:item/tool/shield",
 	"textures": {
-		"all":"thermalfoundation:items/tool/shield_aluminum"
+		"all": "thermalfoundation:items/tool/shield_aluminum"
 	},
 
-	"overrides": [ {
+	"overrides": [{
 		"predicate": {
 			"blocking": 1
 		},
 		"model": "thermalfoundation:item/tool/shield_aluminum_blocking"
-	} ]
+	}]
 }

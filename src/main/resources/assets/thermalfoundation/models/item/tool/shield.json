@@ -3,82 +3,112 @@
 		"all":"thermalfoundation:items/tool/shield_aluminum"
 	},
 
-	"elements":[
-		{
-			"from":[0,0,11],
-			"to":[12,22,12],
-			"faces":{
-				"down":{"uv":[3.25,0,6.25,0.25], "texture": "#all"},
-				"up":{"uv":[0.25,0.00,3.25,0.25], "texture": "#all"},
-				"north":{"uv":[3.50,0.25,6.5,5.75], "texture": "#all"},
-				"south":{"uv":[0.25,0.25,3.25,5.75], "texture": "#all"},
-				"west":{"uv":[0,0.25,0.25,5.75], "texture": "#all"},
-				"east":{"uv":[3.25,0.25,3.5,5.75], "texture": "#all"}
+	"elements": [{
+			"from": [0, 0, 11],
+			"to": [12, 22, 12],
+			"faces": {
+				"down": {
+					"uv": [3.25, 0, 6.25, 0.25],
+					"texture": "#all"
+				},
+				"up": {
+					"uv": [0.25, 0.00, 3.25, 0.25],
+					"texture": "#all"
+				},
+				"north": {
+					"uv": [3.50, 0.25, 6.5, 5.75],
+					"texture": "#all"
+				},
+				"south": {
+					"uv": [0.25, 0.25, 3.25, 5.75],
+					"texture": "#all"
+				},
+				"west": {
+					"uv": [0, 0.25, 0.25, 5.75],
+					"texture": "#all"
+				},
+				"east": {
+					"uv": [3.25, 0.25, 3.5, 5.75],
+					"texture": "#all"
+				}
 			}
 		},
 
 		{
-			"from":[5,8,5],
-			"to":[7,14,11],
-			"faces":{
-				"down":{"uv":[8.5,0,9,1.5], "texture": "#all"},
-				"up":{"uv":[8,0,8.5,1.5], "texture": "#all"},
-				"north":{"uv":[8,1.5,8.5,3], "texture": "#all"},
-				"west":{"uv":[8.5,1.5,10,3], "texture": "#all"},
-				"east":{"uv":[6.5,1.5,8,3], "texture": "#all"}
+			"from": [5, 8, 5],
+			"to": [7, 14, 11],
+			"faces": {
+				"down": {
+					"uv": [8.5, 0, 9, 1.5],
+					"texture": "#all"
+				},
+				"up": {
+					"uv": [8, 0, 8.5, 1.5],
+					"texture": "#all"
+				},
+				"north": {
+					"uv": [8, 1.5, 8.5, 3],
+					"texture": "#all"
+				},
+				"west": {
+					"uv": [8.5, 1.5, 10, 3],
+					"texture": "#all"
+				},
+				"east": {
+					"uv": [6.5, 1.5, 8, 3],
+					"texture": "#all"
+				}
 			}
 		}
 	],
 
-
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [0, 90, 0 ],
+			"rotation": [0, 90, 0],
 			"translation": [0.5, -5.0, 2],
-			"scale": [ 1.00, 1.00, 1.00 ]
+			"scale": [1.00, 1.00, 1.00]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [ 0, 90, 0 ],
-			"translation": [ 0.50, -5, 6 ],
-			"scale": [ 1.00, 1.00, 1.00 ]
+			"rotation": [0, 90, 0],
+			"translation": [0.50, -5, 6],
+			"scale": [1.00, 1.00, 1.00]
 		},
 		"firstperson_righthand": {
-			"rotation": [ 0, 180, 5 ],
-			"translation": [ -2, -19, 0.00 ],
-			"scale": [ 1.65, 1.65, 1.65 ]
+			"rotation": [0, 180, 5],
+			"translation": [-2, -19, 0.00],
+			"scale": [1.65, 1.65, 1.65]
 		},
 		"firstperson_lefthand": {
-			"rotation": [ 0, 180, 5 ],
-			"translation": [ 4.5, -19.5, 2 ],
-			"scale": [ 1.65, 1.65, 1.65 ]
+			"rotation": [0, 180, 5],
+			"translation": [4.5, -19.5, 2],
+			"scale": [1.65, 1.65, 1.65]
 		},
 		"gui": {
-			"rotation": [ 15, -25, -5 ],
-			"translation": [ 2, -2, 0 ],
-			"scale": [ 0.65, 0.65, 0.65 ]
+			"rotation": [15, -25, -5],
+			"translation": [2, -2, 0],
+			"scale": [0.65, 0.65, 0.65]
 		},
 		"head": {
-			"rotation": [ 0, 0, 0 ],
-			"translation": [ 0.00, 0.00, 0.00 ],
-			"scale": [ 1.00, 1.00, 1.00 ]
+			"rotation": [0, 0, 0],
+			"translation": [0.00, 0.00, 0.00],
+			"scale": [1.00, 1.00, 1.00]
 		},
 		"fixed": {
-			"rotation": [ 0, 180, 0 ],
-			"translation": [ 1, -1.5, 0 ],
-			"scale": [ 0.5, 0.5, 0.5 ]
+			"rotation": [0, 180, 0],
+			"translation": [1, -1.5, 0],
+			"scale": [0.5, 0.5, 0.5]
 		},
 		"ground": {
-			"rotation": [ 0, 0, 0 ],
-			"translation": [ 0.00, 3.00, 0.00 ],
-			"scale": [ 0.25, 0.25, 0.25 ]
+			"rotation": [0, 0, 0],
+			"translation": [0.00, 3.00, 0.00],
+			"scale": [0.25, 0.25, 0.25]
 		}
 	},
-
-	"overrides": [ {
+	
+	"overrides": [{
 		"predicate": {
 			"blocking": 1
 		},
 		"model": "thermalfoundation:item/tool/shield_blocking"
-	} ]
-
+	}]
 }

@@ -1,13 +1,13 @@
 {
-	"parent":"thermalfoundation:item/tool/shield",
+	"parent": "thermalfoundation:item/tool/shield",
 	"textures": {
-		"all":"thermalfoundation:items/tool/shield_bronze"
+		"all": "thermalfoundation:items/tool/shield_bronze"
 	},
 
-	"overrides": [ {
+	"overrides": [{
 		"predicate": {
 			"blocking": 1
 		},
 		"model": "thermalfoundation:item/tool/shield_bronze_blocking"
-	} ]
+	}]
 }

@@ -3,24 +3,24 @@
 
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [40, 135, 5 ],
+			"rotation": [40, 135, 5],
 			"translation": [-1.0, -4.0, -2.0],
-			"scale": [ 1.00, 1.00, 1.00 ]
+			"scale": [1.00, 1.00, 1.00]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [ 45, 135, 0 ],
-			"translation": [ 1.5, -5.5, 0 ],
-			"scale": [ 1, 1, 1 ]
+			"rotation": [45, 135, 0],
+			"translation": [1.5, -5.5, 0],
+			"scale": [1, 1, 1]
 		},
 		"firstperson_righthand": {
-			"rotation": [ 0, 180, -5 ],
-			"translation": [ -6, -14, 0 ],
-			"scale": [ 1.65, 1.65, 1.65 ]
+			"rotation": [0, 180, -5],
+			"translation": [-6, -14, 0],
+			"scale": [1.65, 1.65, 1.65]
 		},
 		"firstperson_lefthand": {
-			"rotation": [ 0, 180, -5 ],
-			"translation": [ 4, -14, 0 ],
-			"scale": [ 1.65, 1.65, 1.65 ]
+			"rotation": [0, 180, -5],
+			"translation": [4, -14, 0],
+			"scale": [1.65, 1.65, 1.65]
 		}
 	}
 }

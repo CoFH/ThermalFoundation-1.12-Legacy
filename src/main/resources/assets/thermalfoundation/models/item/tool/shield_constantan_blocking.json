@@ -1,6 +1,6 @@
 {
-	"parent":"thermalfoundation:item/tool/shield_blocking",
+	"parent": "thermalfoundation:item/tool/shield_blocking",
 	"textures": {
-		"all":"thermalfoundation:items/tool/shield_constantan"
+		"all": "thermalfoundation:items/tool/shield_constantan"
 	}
 }
