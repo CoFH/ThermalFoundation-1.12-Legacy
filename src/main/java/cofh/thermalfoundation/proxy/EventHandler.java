@@ -24,7 +24,7 @@ public class EventHandler {
 	public static final EventHandler INSTANCE = new EventHandler();
 
 	/* MOB DROPS */
-	@SubscribeEvent
+	@SubscribeEvent (priority = EventPriority.NORMAL)
 	public void handleLivingDropsEvent(LivingDropsEvent event) {
 
 		Entity entity = event.getEntity();
@@ -63,7 +63,7 @@ public class EventHandler {
 		item.onCollideWithPlayer(player);
 	}
 
-	@SubscribeEvent (priority = EventPriority.HIGHEST)
+	@SubscribeEvent (priority = EventPriority.NORMAL)
 	public void handlePlayerCloneEvent(PlayerEvent.Clone event) {
 
 		NBTTagCompound newTag = event.getEntityPlayer().getEntityData();
