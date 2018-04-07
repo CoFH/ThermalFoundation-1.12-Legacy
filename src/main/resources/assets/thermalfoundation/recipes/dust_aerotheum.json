@@ -1,0 +1,22 @@
+{
+	"type": "forge:ore_shapeless",
+	"result": {
+		"item": "thermalfoundation:material",
+		"data": 1026,
+		"count": 2
+	},
+	"ingredients": [
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustBlitz"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustRedstone"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "dustSaltpeter"
+		}
+	]
+}

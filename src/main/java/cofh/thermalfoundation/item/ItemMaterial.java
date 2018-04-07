@@ -329,10 +329,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addShapedRecipe(powerCoilElectrum, "R  ", " G ", "  R", 'R', "dustRedstone", 'G', "ingotElectrum");
 
 		/* Mob Drops */
-		addShapelessRecipe(cloneStack(dustPyrotheum, 2), "dustCoal", "dustSulfur", "dustRedstone", Items.BLAZE_POWDER);
-		addShapelessRecipe(cloneStack(dustCryotheum, 2), Items.SNOWBALL, "dustSaltpeter", "dustRedstone", "dustBlizz");
-		addShapelessRecipe(cloneStack(dustAerotheum, 2), "sand", "dustSaltpeter", "dustRedstone", "dustBlitz");
-		addShapelessRecipe(cloneStack(dustPetrotheum, 2), Items.CLAY_BALL, "dustObsidian", "dustRedstone", "dustBasalz");
 		addShapelessRecipe(cloneStack(dustBlizz, 2), "rodBlizz");
 		addShapelessRecipe(cloneStack(dustBlitz, 2), "rodBlitz");
 		addShapelessRecipe(cloneStack(dustBasalz, 2), "rodBasalz");
