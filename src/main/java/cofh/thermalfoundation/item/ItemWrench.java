@@ -237,7 +237,6 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	public boolean register() {
 
 		// @formatter:off
-
 		addShapedRecipe(wrenchBasic,
 				"I I",
 				" T ",
@@ -277,9 +276,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 //				'X', wrenchSignalum,
 //				'Y', "nuggetSignalum"
 //		));
-
 		// @formatter:on
-
 		return true;
 	}
 

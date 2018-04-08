@@ -163,7 +163,6 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 	public boolean register() {
 
 		// @formatter:off
-
 		addShapedRecipe(upgradeIncremental[0],
 				" I ",
 				"IGI",
@@ -227,9 +226,7 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 				upgradeIncremental[2],
 				upgradeIncremental[3]
 		);
-
 		// @formatter:on
-
 		return true;
 	}
 
