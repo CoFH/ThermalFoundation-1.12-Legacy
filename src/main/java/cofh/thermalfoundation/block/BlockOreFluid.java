@@ -62,6 +62,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 		setHarvestLevel("pickaxe", 1);
 		setHarvestLevel("shovel", 1, getDefaultState().withProperty(VARIANT, Type.CRUDE_OIL_SAND));
+		setHarvestLevel("shovel", 1, getDefaultState().withProperty(VARIANT, Type.CRUDE_OIL_RED_SAND));
 		setHarvestLevel("shovel", 1, getDefaultState().withProperty(VARIANT, Type.CRUDE_OIL_GRAVEL));
 	}
 
@@ -156,13 +157,13 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face) {
 
-		return getMetaFromState(world.getBlockState(pos)) <= Type.CRUDE_OIL_GRAVEL.getMetadata();
+		return world.getBlockState(pos).getValue(VARIANT).getFlammability();
 	}
 
 	@Override
 	public boolean isFireSource(World world, BlockPos pos, EnumFacing face) {
 
-		return getMetaFromState(world.getBlockState(pos)) <= Type.CRUDE_OIL_GRAVEL.getMetadata();
+		return world.getBlockState(pos).getValue(VARIANT).getFlammability();
 	}
 
 	@Override
@@ -177,7 +178,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 		switch (Type.values()[metadata]) {
 			case CRUDE_OIL_SAND:
-				return MathHelper.getInt(rand, 0, 2);
+			case CRUDE_OIL_RED_SAND:
 			case CRUDE_OIL_GRAVEL:
 				return MathHelper.getInt(rand, 0, 2);
 			case REDSTONE:
@@ -194,13 +195,13 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
 
-		return getMetaFromState(world.getBlockState(pos)) <= Type.CRUDE_OIL_GRAVEL.getMetadata() ? 15 : 0;
+		return world.getBlockState(pos).getValue(VARIANT).getFlammability() ? 15 : 0;
 	}
 
 	@Override
 	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
 
-		return getMetaFromState(world.getBlockState(pos)) <= Type.CRUDE_OIL_GRAVEL.getMetadata() ? 1 : 0;
+		return world.getBlockState(pos).getValue(VARIANT).getFlammability() ? 1 : 0;
 	}
 
 	@Override
@@ -260,6 +261,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 		switch (state.getValue(VARIANT).getMetadata()) {
 			case 0:
+			case 5:
 				return SoundType.SAND;
 			case 1:
 				return SoundType.GROUND;
@@ -290,12 +292,14 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		ForgeRegistries.ITEMS.register(itemBlock);
 
 		oreFluidCrudeOilSand = new ItemStack(this, 1, Type.CRUDE_OIL_SAND.getMetadata());
+		oreFluidCrudeOilRedSand = new ItemStack(this, 1, Type.CRUDE_OIL_RED_SAND.getMetadata());
 		oreFluidCrudeOilGravel = new ItemStack(this, 1, Type.CRUDE_OIL_GRAVEL.getMetadata());
 		oreFluidRedstone = new ItemStack(this, 1, Type.REDSTONE.getMetadata());
 		oreFluidGlowstone = new ItemStack(this, 1, Type.GLOWSTONE.getMetadata());
 		oreFluidEnder = new ItemStack(this, 1, Type.ENDER.getMetadata());
 
 		registerWithHandlers("oreFluidCrudeOilSand", oreFluidCrudeOilSand);
+		registerWithHandlers("oreFluidCrudeOilSand", oreFluidCrudeOilRedSand);
 		registerWithHandlers("oreFluidCrudeOilShale", oreFluidCrudeOilGravel);
 		registerWithHandlers("oreFluidRedstone", oreFluidRedstone);
 		registerWithHandlers("oreFluidGlowstone", oreFluidGlowstone);
@@ -310,12 +314,14 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	public boolean register() {
 
 		fluidBlocks[Type.CRUDE_OIL_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;
+		fluidBlocks[Type.CRUDE_OIL_RED_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;
 		fluidBlocks[Type.CRUDE_OIL_GRAVEL.getMetadata()] = TFFluids.blockFluidCrudeOil;
 		fluidBlocks[Type.REDSTONE.getMetadata()] = TFFluids.blockFluidRedstone;
 		fluidBlocks[Type.GLOWSTONE.getMetadata()] = TFFluids.blockFluidGlowstone;
 		fluidBlocks[Type.ENDER.getMetadata()] = TFFluids.blockFluidEnder;
 
 		drops[Type.CRUDE_OIL_SAND.getMetadata()] = ItemMaterial.crystalCrudeOil;
+		drops[Type.CRUDE_OIL_RED_SAND.getMetadata()] = ItemMaterial.crystalCrudeOil;
 		drops[Type.CRUDE_OIL_GRAVEL.getMetadata()] = ItemMaterial.crystalCrudeOil;
 		drops[Type.REDSTONE.getMetadata()] = ItemMaterial.crystalRedstone;
 		drops[Type.GLOWSTONE.getMetadata()] = ItemMaterial.crystalGlowstone;
@@ -328,11 +334,12 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	public enum Type implements IStringSerializable {
 
 		// @formatter:off
-		CRUDE_OIL_SAND(0, "crude_oil_sand", 0, 0.5F, 2.0F, EnumRarity.COMMON),
-		CRUDE_OIL_GRAVEL(1, "crude_oil_gravel", 0, 0.6F, 2.5F, EnumRarity.COMMON),
-		REDSTONE(2, "redstone", 7, 5.0F, 3.0F, EnumRarity.UNCOMMON),
-		GLOWSTONE(3, "glowstone", 15, 0.4F, 2.0F, EnumRarity.UNCOMMON),
-		ENDER(4, "ender", 3, 3.0F, 9.0F, EnumRarity.RARE);
+		CRUDE_OIL_SAND(0, "crude_oil_sand", 0, 0.5F, 2.0F, true, EnumRarity.COMMON),
+		CRUDE_OIL_RED_SAND(5, "crude_oil_red_sand", 0, 0.5F, 2.0F, true, EnumRarity.COMMON),
+		CRUDE_OIL_GRAVEL(1, "crude_oil_gravel", 0, 0.6F, 2.5F, true, EnumRarity.COMMON),
+		REDSTONE(2, "redstone", 7, 5.0F, 3.0F, false, EnumRarity.UNCOMMON),
+		GLOWSTONE(3, "glowstone", 15, 0.4F, 2.0F, false, EnumRarity.UNCOMMON),
+		ENDER(4, "ender", 3, 3.0F, 9.0F, false, EnumRarity.RARE);
 		// @formatter: on
 
 		private static final Type[] METADATA_LOOKUP = new Type[values().length];
@@ -341,15 +348,17 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		private final int light;
 		private final float hardness;
 		private final float resistance;
+		private final boolean flammable;
 		private final EnumRarity rarity;
 
-		Type(int metadata, String name, int light, float hardness, float resistance, EnumRarity rarity) {
+		Type(int metadata, String name, int light, float hardness, float resistance, boolean flammable, EnumRarity rarity) {
 
 			this.metadata = metadata;
 			this.name = name;
 			this.light = light;
 			this.hardness = hardness;
 			this.resistance = resistance;
+			this.flammable = flammable;
 			this.rarity = rarity;
 		}
 
@@ -379,6 +388,11 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 			return this.resistance;
 		}
 
+		public boolean getFlammability() {
+
+			return this.flammable;
+		}
+
 		public EnumRarity getRarity() {
 
 			return this.rarity;
@@ -404,6 +418,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 	/* REFERENCES */
 	public static ItemStack oreFluidCrudeOilSand;
+	public static ItemStack oreFluidCrudeOilRedSand;
 	public static ItemStack oreFluidCrudeOilGravel;
 	public static ItemStack oreFluidRedstone;
 	public static ItemStack oreFluidGlowstone;
