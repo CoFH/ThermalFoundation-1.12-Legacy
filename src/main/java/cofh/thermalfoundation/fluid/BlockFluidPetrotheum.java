@@ -74,7 +74,6 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 		}
 		if (world.getTotalWorldTime() % 8 == 0 && entity instanceof EntityLivingBase && !((EntityLivingBase) entity).isEntityUndead()) {
 			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.HASTE, 6 * 20, 0));
-			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 6 * 20, 0));
 		}
 	}
 

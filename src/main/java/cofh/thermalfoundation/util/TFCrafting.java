@@ -6,14 +6,17 @@ import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.init.TFProps;
 import cofh.thermalfoundation.item.ItemMaterial;
+import cofh.thermalfoundation.util.crafting.ShapelessPotionFillRecipeFactory.ShapelessPotionFillRecipe;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.PotionHelper;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.registries.GameData;
 
 import java.util.List;
 
@@ -28,16 +31,16 @@ public class TFCrafting {
 
 		addStorageRecipe(ItemMaterial.dustWoodCompressed, "dustWood");
 
-		addShapelessOreRecipe(new ItemStack(Items.GUNPOWDER), "dustCoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
-		addShapelessOreRecipe(new ItemStack(Items.GUNPOWDER), "dustCharcoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
+		addShapelessOreRecipe(ItemHelper.cloneStack(Items.GUNPOWDER), "dustCoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
+		addShapelessOreRecipe(ItemHelper.cloneStack(Items.GUNPOWDER), "dustCharcoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
 
-		addShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globRosin, '#', "string");
-		addShapedRecipe(new ItemStack(Blocks.STICKY_PISTON), "S", "P", 'S', ItemMaterial.globRosin, 'P', Blocks.PISTON);
-		addShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globRosin);
+		addShapedRecipe(ItemHelper.cloneStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globRosin, '#', "string");
+		addShapedRecipe(ItemHelper.cloneStack(Blocks.STICKY_PISTON), "S", "P", 'S', ItemMaterial.globRosin, 'P', Blocks.PISTON);
+		addShapedRecipe(ItemHelper.cloneStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globRosin);
 
-		addShapedRecipe(new ItemStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globTar, '#', "string");
-		addShapedRecipe(new ItemStack(Blocks.STICKY_PISTON), "S", "P", 'S', ItemMaterial.globTar, 'P', Blocks.PISTON);
-		addShapedRecipe(new ItemStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globTar);
+		addShapedRecipe(ItemHelper.cloneStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globTar, '#', "string");
+		addShapedRecipe(ItemHelper.cloneStack(Blocks.STICKY_PISTON), "S", "P", 'S', ItemMaterial.globTar, 'P', Blocks.PISTON);
+		addShapedRecipe(ItemHelper.cloneStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globTar);
 
 		/* PYROTHEUM / PETROTHEUM CRAFTING */
 		String[] oreNameList = OreDictionary.getOreNames();
@@ -81,15 +84,15 @@ public class TFCrafting {
 		}
 
 		/* CRYOTHEUM CRAFTING */
-		addShapelessFluidRecipe(new ItemStack(Blocks.ICE), new FluidIngredient(FluidRegistry.WATER.getName()), "dustCryotheum");
-		addShapelessRecipe(new ItemStack(Blocks.PACKED_ICE), new ItemStack(Blocks.ICE), "dustCryotheum");
-		addShapelessRecipe(new ItemStack(Items.REDSTONE, 2), ItemMaterial.crystalRedstone, "dustCryotheum");
-		addShapelessRecipe(new ItemStack(Items.GLOWSTONE_DUST), ItemMaterial.crystalGlowstone, "dustCryotheum");
-		addShapelessRecipe(new ItemStack(Items.ENDER_PEARL), ItemMaterial.crystalEnder, "dustCryotheum");
+		addShapelessFluidRecipe(ItemHelper.cloneStack(Blocks.ICE), new FluidIngredient(FluidRegistry.WATER.getName()), "dustCryotheum");
+		addShapelessRecipe(ItemHelper.cloneStack(Blocks.PACKED_ICE), ItemHelper.cloneStack(Blocks.ICE), "dustCryotheum");
+		addShapelessRecipe(ItemHelper.cloneStack(Items.REDSTONE, 2), ItemMaterial.crystalRedstone, "dustCryotheum");
+		addShapelessRecipe(ItemHelper.cloneStack(Items.GLOWSTONE_DUST), ItemMaterial.crystalGlowstone, "dustCryotheum");
+		addShapelessRecipe(ItemHelper.cloneStack(Items.ENDER_PEARL), ItemMaterial.crystalEnder, "dustCryotheum");
 
-		addShapelessFluidRecipe(new ItemStack(Items.REDSTONE, 10), new FluidIngredient("redstone"), "dustCryotheum");
-		addShapelessFluidRecipe(new ItemStack(Items.GLOWSTONE_DUST, 4), new FluidIngredient("glowstone"), "dustCryotheum");
-		addShapelessFluidRecipe(new ItemStack(Items.ENDER_PEARL, 4), new FluidIngredient("ender"), "dustCryotheum");
+		addShapelessFluidRecipe(ItemHelper.cloneStack(Items.REDSTONE, 10), new FluidIngredient("redstone"), "dustCryotheum");
+		addShapelessFluidRecipe(ItemHelper.cloneStack(Items.GLOWSTONE_DUST, 4), new FluidIngredient("glowstone"), "dustCryotheum");
+		addShapelessFluidRecipe(ItemHelper.cloneStack(Items.ENDER_PEARL, 4), new FluidIngredient("ender"), "dustCryotheum");
 
 		/* VANILLA RECIPES */
 		loadVanillaRecipes();
@@ -98,13 +101,21 @@ public class TFCrafting {
 		loadPotions();
 	}
 
+	public static void addPotionFillRecipe(ItemStack output, Object... input) {
+
+		ResourceLocation location = getNameForRecipe(output);
+		ShapelessPotionFillRecipe recipe = new ShapelessPotionFillRecipe(location, output, input);
+		recipe.setRegistryName(location);
+		GameData.register_impl(recipe);
+	}
+
 	/* VANILLA RECIPES */
 	public static void loadVanillaRecipes() {
 
 		// @formatter:off
 		/* HORSE ARMOR */
 		if (TFProps.enableHorseArmorCrafting) {
-			addShapedRecipe(new ItemStack(Items.IRON_HORSE_ARMOR),
+			addShapedRecipe(ItemHelper.cloneStack(Items.IRON_HORSE_ARMOR),
 					"I I",
 					"LCL",
 					"I I",
@@ -113,7 +124,7 @@ public class TFCrafting {
 					'I', "ingotIron"
 			);
 
-			addShapedRecipe(new ItemStack(Items.GOLDEN_HORSE_ARMOR),
+			addShapedRecipe(ItemHelper.cloneStack(Items.GOLDEN_HORSE_ARMOR),
 					"I I",
 					"LCL",
 					"I I",
@@ -122,7 +133,7 @@ public class TFCrafting {
 					'I', "ingotGold"
 			);
 
-			addShapedRecipe(new ItemStack(Items.DIAMOND_HORSE_ARMOR),
+			addShapedRecipe(ItemHelper.cloneStack(Items.DIAMOND_HORSE_ARMOR),
 					"I I",
 					"LCL",
 					"I I",
@@ -132,7 +143,7 @@ public class TFCrafting {
 			);
 		}
 		if (TFProps.enableSaddleCrafting) {
-			addShapedRecipe(new ItemStack(Items.SADDLE),
+			addShapedRecipe(ItemHelper.cloneStack(Items.SADDLE),
 					"LLL",
 					"LIL",
 					"I I",

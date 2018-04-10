@@ -109,6 +109,9 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
 
+		if (!enableBreakFluid) {
+			return;
+		}
 		BlockPos north = pos.add(0, 0, -1);
 		BlockPos south = pos.add(0, 0, 1);
 		BlockPos west = pos.add(-1, 0, 0);
@@ -133,7 +136,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 		ItemStack stack = player.getHeldItemMainhand();
 
-		if (player.capabilities.isCreativeMode || willHarvest && EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) > 0) {
+		if (!enableBreakFluid || player.capabilities.isCreativeMode || willHarvest && EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) > 0) {
 			return world.setBlockState(pos, net.minecraft.init.Blocks.AIR.getDefaultState(), 3);
 		}
 		if (ServerHelper.isServerWorld(world)) {
@@ -291,6 +294,8 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		itemBlock.setRegistryName(this.getRegistryName());
 		ForgeRegistries.ITEMS.register(itemBlock);
 
+		config();
+
 		oreFluidCrudeOilSand = new ItemStack(this, 1, Type.CRUDE_OIL_SAND.getMetadata());
 		oreFluidCrudeOilRedSand = new ItemStack(this, 1, Type.CRUDE_OIL_RED_SAND.getMetadata());
 		oreFluidCrudeOilGravel = new ItemStack(this, 1, Type.CRUDE_OIL_GRAVEL.getMetadata());
@@ -328,6 +333,13 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		drops[Type.ENDER.getMetadata()] = ItemMaterial.crystalEnder;
 
 		return true;
+	}
+
+	public void config() {
+
+		String category = "Block.OreFluid";
+		String comment = "If TRUE, Clathrates will create fluid when broken.";
+		enableBreakFluid = ThermalFoundation.CONFIG.get(category, "FluidOnBreaking", enableBreakFluid, comment);
 	}
 
 	/* TYPE */
@@ -413,8 +425,9 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		}
 	}
 
-	private BlockFluidCore fluidBlocks[] = new BlockFluidCore[Type.values().length];
-	private ItemStack drops[] = new ItemStack[Type.values().length];
+	private static boolean enableBreakFluid = true;
+	private static BlockFluidCore fluidBlocks[] = new BlockFluidCore[Type.values().length];
+	private static ItemStack drops[] = new ItemStack[Type.values().length];
 
 	/* REFERENCES */
 	public static ItemStack oreFluidCrudeOilSand;

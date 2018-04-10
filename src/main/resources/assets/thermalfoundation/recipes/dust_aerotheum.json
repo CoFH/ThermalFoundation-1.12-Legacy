@@ -12,6 +12,10 @@
 		},
 		{
 			"type": "forge:ore_dict",
+			"ore": "dustBlitz"
+		},
+		{
+			"type": "forge:ore_dict",
 			"ore": "dustRedstone"
 		},
 		{

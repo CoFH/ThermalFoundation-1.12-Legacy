@@ -14,8 +14,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public abstract class EntityElemental extends EntityMob {
 
@@ -143,17 +141,17 @@ public abstract class EntityElemental extends EntityMob {
 		dataManager.set(ATTACK_MODE, mode);
 	}
 
-	@Override
-	@SideOnly (Side.CLIENT)
-	public int getBrightnessForRender() {
-
-		return 0xF000F0;
-	}
-
-	@Override
-	public float getBrightness() {
-
-		return 1.0F;
-	}
+	//	@Override
+	//	@SideOnly (Side.CLIENT)
+	//	public int getBrightnessForRender() {
+	//
+	//		return 0xF000F0;
+	//	}
+	//
+	//	@Override
+	//	public float getBrightness() {
+	//
+	//		return 1.0F;
+	//	}
 
 }
