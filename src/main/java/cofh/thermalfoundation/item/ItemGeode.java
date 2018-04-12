@@ -12,7 +12,7 @@ public class ItemGeode extends ItemMulti implements IInitializer {
 		super("thermalfoundation");
 
 		setUnlocalizedName("geode");
-		setCreativeTab(ThermalFoundation.tabCommon);
+		setCreativeTab(ThermalFoundation.tabItems);
 	}
 
 	/* IInitializer */

@@ -18,7 +18,7 @@ public class ItemDye extends ItemMulti implements IInitializer {
 		super("thermalfoundation");
 
 		setUnlocalizedName("dye");
-		setCreativeTab(ThermalFoundation.tabCommon);
+		setCreativeTab(ThermalFoundation.tabItems);
 	}
 
 	@Override

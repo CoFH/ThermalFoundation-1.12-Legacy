@@ -50,10 +50,15 @@ public class ThermalFoundation {
 	public static final ConfigHandler CONFIG_CLIENT = new ConfigHandler(VERSION);
 	public static final GuiHandler GUI_HANDLER = new GuiHandler();
 
-	public static CreativeTabs tabCommon;
-	public static CreativeTabs tabUtils;
-	public static CreativeTabs tabTools;
-	public static CreativeTabs tabArmor;
+	public static CreativeTabs tabCommon;       // Blocks and general stuff.
+	public static CreativeTabs tabItems;        // Non-usable items.
+	public static CreativeTabs tabUtils;        // Usable items, non-tiered.
+	public static CreativeTabs tabTools;        // Usable items, tiered.                (Unified Tabs Only)
+	public static CreativeTabs tabMisc;         // Items dependent on x-mod or NBT.     (Unified Tabs Only)
+
+	public static CreativeTabs tabBasicTools;   // Basic Tools, Non-Combat
+	public static CreativeTabs tabBasicCombat;  // Basic Tools, Combat
+	public static CreativeTabs tabBasicArmor;   // Basic Armor
 
 	static {
 		FluidRegistry.enableUniversalBucket();

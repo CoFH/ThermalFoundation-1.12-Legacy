@@ -4,6 +4,7 @@ import cofh.core.block.BlockCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -174,6 +175,9 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
+		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
+			TFProps.blockList.add(new ItemStack(this, 1, i));
+		}
 		return true;
 	}
 

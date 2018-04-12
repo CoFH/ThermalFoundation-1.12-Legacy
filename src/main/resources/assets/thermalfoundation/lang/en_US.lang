@@ -526,6 +526,12 @@ itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armor
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Tools
 itemGroup.thermalfoundation.creativeTabUtils=Thermal Foundation: Utilities
 
+itemGroup.thermalseries.creativeTabBlocks=Thermal Series: Blocks
+itemGroup.thermalseries.creativeTabItems=Thermal Series: Items
+itemGroup.thermalseries.creativeTabMisc=Thermal Series: Miscellaneous
+itemGroup.thermalseries.creativeTabTools=Thermal Series: Tools
+itemGroup.thermalseries.creativeTabUtils=Thermal Series: Utilities
+
 tab.thermalfoundation.lexicon.study.0=Consult the knowledge of the world and alter your personal destiny.
 tab.thermalfoundation.lexicon.study.1=Empower the Lexicon to force the world to obey your choices.
 tab.thermalfoundation.lexicon.transmute.0=Transmute equivalent items according to an arcane set of rules laid down by higher powers.

@@ -84,15 +84,17 @@ public class TFCrafting {
 		}
 
 		/* CRYOTHEUM CRAFTING */
-		addShapelessFluidRecipe(ItemHelper.cloneStack(Blocks.ICE), new FluidIngredient(FluidRegistry.WATER.getName()), "dustCryotheum");
-		addShapelessRecipe(ItemHelper.cloneStack(Blocks.PACKED_ICE), ItemHelper.cloneStack(Blocks.ICE), "dustCryotheum");
-		addShapelessRecipe(ItemHelper.cloneStack(Items.REDSTONE, 2), ItemMaterial.crystalRedstone, "dustCryotheum");
-		addShapelessRecipe(ItemHelper.cloneStack(Items.GLOWSTONE_DUST), ItemMaterial.crystalGlowstone, "dustCryotheum");
-		addShapelessRecipe(ItemHelper.cloneStack(Items.ENDER_PEARL), ItemMaterial.crystalEnder, "dustCryotheum");
+		if (TFProps.enableCryotheumCrafting) {
+			addShapelessFluidRecipe(ItemHelper.cloneStack(Blocks.ICE), new FluidIngredient(FluidRegistry.WATER.getName()), "dustCryotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(Blocks.PACKED_ICE), ItemHelper.cloneStack(Blocks.ICE), "dustCryotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(Items.REDSTONE, 2), ItemMaterial.crystalRedstone, "dustCryotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(Items.GLOWSTONE_DUST), ItemMaterial.crystalGlowstone, "dustCryotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(Items.ENDER_PEARL), ItemMaterial.crystalEnder, "dustCryotheum");
 
-		addShapelessFluidRecipe(ItemHelper.cloneStack(Items.REDSTONE, 10), new FluidIngredient("redstone"), "dustCryotheum");
-		addShapelessFluidRecipe(ItemHelper.cloneStack(Items.GLOWSTONE_DUST, 4), new FluidIngredient("glowstone"), "dustCryotheum");
-		addShapelessFluidRecipe(ItemHelper.cloneStack(Items.ENDER_PEARL, 4), new FluidIngredient("ender"), "dustCryotheum");
+			addShapelessFluidRecipe(ItemHelper.cloneStack(Items.REDSTONE, 10), new FluidIngredient("redstone"), "dustCryotheum");
+			addShapelessFluidRecipe(ItemHelper.cloneStack(Items.GLOWSTONE_DUST, 4), new FluidIngredient("glowstone"), "dustCryotheum");
+			addShapelessFluidRecipe(ItemHelper.cloneStack(Items.ENDER_PEARL, 4), new FluidIngredient("ender"), "dustCryotheum");
+		}
 
 		/* VANILLA RECIPES */
 		loadVanillaRecipes();

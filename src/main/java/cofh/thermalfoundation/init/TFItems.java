@@ -58,6 +58,11 @@ public class TFItems {
 		for (IInitializer init : initList) {
 			init.initialize();
 		}
+		TFProps.itemList.addAll(itemMaterial.getAllItems());
+		TFProps.utilList.add(ItemWrench.wrenchBasic);
+		TFProps.utilList.add(ItemDiagramRedprint.diagramRedprint);
+		TFProps.utilList.add(ItemTomeLexicon.tomeLexicon);
+
 		MinecraftForge.EVENT_BUS.register(INSTANCE);
 	}
 

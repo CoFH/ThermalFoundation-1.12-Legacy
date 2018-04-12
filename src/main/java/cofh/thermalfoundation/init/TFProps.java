@@ -1,19 +1,26 @@
 package cofh.thermalfoundation.init;
 
+import cofh.CoFHCore;
 import cofh.core.gui.CreativeTabCore;
 import cofh.core.init.CoreProps;
+import cofh.core.util.CoreUtils;
+import cofh.core.util.TimeTracker;
+import cofh.core.util.helpers.MathHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.block.BlockOre;
 import cofh.thermalfoundation.init.TFEquipment.ArmorSet;
 import cofh.thermalfoundation.init.TFEquipment.ToolSet;
-import cofh.thermalfoundation.item.ItemMaterial;
-import cofh.thermalfoundation.item.ItemWrench;
+import cofh.thermalfoundation.item.tome.ItemTomeLexicon;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.core.util.Loader;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class TFProps {
 
@@ -98,74 +105,257 @@ public class TFProps {
 		comment = "If TRUE, Ender devices will be a bit more Cagey year-round.";
 		renderStarfieldCage = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("CageyEnder", category, renderStarfieldCage, comment);
 
-		category = "Interface";
 		boolean utilTabCommon = false;
-		boolean armorTabCommon = false;
 		boolean toolTabCommon = false;
+		boolean armorTabCommon = false;
 
-		comment = "If TRUE, Thermal Foundation Utility Items appear under the general \"Thermal Foundation\" Creative Tab.";
-		utilTabCommon = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("UtilsInCommonTab", category, armorTabCommon, comment);
+		category = "Global";
 
-		comment = "If TRUE, Thermal Foundation Armor Sets appear under the general \"Thermal Foundation\" Creative Tab.";
-		armorTabCommon = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("ArmorInCommonTab", category, armorTabCommon, comment);
+		comment = "If TRUE, Creative versions of Items will show in Creative Tabs.";
+		showCreativeItems = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("ShowCreativeItems", category, showCreativeItems, comment);
 
-		comment = "If TRUE, Thermal Foundation Tools appear under the general \"Thermal Foundation\" Creative Tab.";
+		comment = "If TRUE, Empty versions of Items which contain a specific resource (such as RF or Water) will show in Creative Tabs.";
+		showEmptyItems = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("ShowEmptyItems", category, showEmptyItems, comment);
+
+		comment = "If TRUE, Full versions of Items which contain a specific resource (such as RF or Water) will show in Creative Tabs.";
+		showFullItems = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("ShowFullItems", category, showFullItems, comment);
+
+		comment = "If TRUE, all Thermal Series mods will be share common pre-configured \"Thermal Series\" Creative Tabs. Basic Armor and Basic Tools will go to appropriate vanilla Creative Tabs.";
+		useUnifiedTabs = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("ThermalSeriesTabs", category, useUnifiedTabs, comment);
+
+		category = "Interface";
+
+		comment = "If TRUE, Thermal Foundation Utility Items appear under the general \"Thermal Foundation\" Creative Tab. Does not work if \"Thermal Series\" Creative Tabs are in use.";
+		utilTabCommon = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("UtilsInCommonTab", category, utilTabCommon, comment);
+
+		comment = "If TRUE, Thermal Foundation Basic Tools appear under the general \"Thermal Foundation\" Creative Tab. Does not work if \"Thermal Series\" Creative Tabs are in use.";
 		toolTabCommon = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("ToolsInCommonTab", category, toolTabCommon, comment);
 
+		comment = "If TRUE, Thermal Foundation Basic Armor Sets appear under the general \"Thermal Foundation\" Creative Tab. Does not work if \"Thermal Series\" Creative Tabs are in use.";
+		armorTabCommon = ThermalFoundation.CONFIG_CLIENT.getConfiguration().getBoolean("ArmorInCommonTab", category, armorTabCommon, comment);
+
 		/* CREATIVE TABS */
-		ThermalFoundation.tabCommon = new CreativeTabCore("thermalfoundation") {
+		if (useUnifiedTabs) {
+			initCommonTab();
+			initItemTab();
+			initUtilTab();
+
+			ThermalFoundation.tabBasicTools = CreativeTabs.TOOLS;
+			ThermalFoundation.tabBasicCombat = CreativeTabs.COMBAT;
+			ThermalFoundation.tabBasicArmor = CreativeTabs.COMBAT;
+		} else {
+			ThermalFoundation.tabCommon = new CreativeTabCore("thermalfoundation") {
+
+				@Override
+				@SideOnly (Side.CLIENT)
+				public ItemStack getTabIconItem() {
+
+					return BlockOre.oreNickel;
+				}
+			};
+			if (utilTabCommon) {
+				ThermalFoundation.tabUtils = ThermalFoundation.tabCommon;
+			} else {
+				ThermalFoundation.tabUtils = new CreativeTabCore("thermalfoundation", "Utils") {
+
+					@Override
+					@SideOnly (Side.CLIENT)
+					public ItemStack getTabIconItem() {
+
+						return ItemTomeLexicon.tomeLexicon;
+					}
+				};
+				if (toolTabCommon) {
+					ThermalFoundation.tabBasicTools = ThermalFoundation.tabCommon;
+				} else {
+					ThermalFoundation.tabBasicTools = new CreativeTabCore("thermalfoundation", "Tools") {
+
+						@Override
+						@SideOnly (Side.CLIENT)
+						public ItemStack getTabIconItem() {
+
+							return ToolSet.INVAR.toolPickaxe;
+						}
+					};
+				}
+				if (armorTabCommon) {
+					ThermalFoundation.tabBasicArmor = ThermalFoundation.tabCommon;
+				} else {
+					ThermalFoundation.tabBasicArmor = new CreativeTabCore("thermalfoundation", "Armor") {
+
+						@Override
+						@SideOnly (Side.CLIENT)
+						public ItemStack getTabIconItem() {
+
+							return ArmorSet.INVAR.armorChestplate;
+						}
+					};
+				}
+				ThermalFoundation.tabItems = ThermalFoundation.tabCommon;
+				ThermalFoundation.tabMisc = ThermalFoundation.tabCommon;
+				ThermalFoundation.tabBasicCombat = ThermalFoundation.tabBasicTools;
+			}
+		}
+	}
+
+	public static void initCommonTab() {
+
+		if (!useUnifiedTabs || ThermalFoundation.tabCommon != null) {
+			return;
+		}
+		ThermalFoundation.tabCommon = new CreativeTabCore("thermalseries", "Blocks") {
+
+			int iconIndex = 0;
+			TimeTracker iconTracker = new TimeTracker();
+
+			public void updateIcon() {
+
+				World world = CoFHCore.proxy.getClientWorld();
+				if (CoreUtils.isClient() && iconTracker.hasDelayPassed(world, 80)) {
+					iconIndex = MathHelper.RANDOM.nextInt(blockList.size());
+					iconTracker.markTime(world);
+				}
+			}
 
 			@Override
 			@SideOnly (Side.CLIENT)
-			public ItemStack getIconItemStack() {
+			public ItemStack getTabIconItem() {
 
-				return ItemMaterial.ingotInvar;
+				if (blockList.isEmpty()) {
+					return ItemStack.EMPTY;
+				}
+				updateIcon();
+				return blockList.get(iconIndex);
+			}
+		};
+	}
+
+	public static void initItemTab() {
+
+		if (!useUnifiedTabs || ThermalFoundation.tabItems != null) {
+			return;
+		}
+		ThermalFoundation.tabItems = new CreativeTabCore("thermalseries", "Items") {
+
+			int iconIndex = 0;
+			TimeTracker iconTracker = new TimeTracker();
+
+			public void updateIcon() {
+
+				World world = CoFHCore.proxy.getClientWorld();
+				if (CoreUtils.isClient() && iconTracker.hasDelayPassed(world, 80)) {
+					iconIndex = MathHelper.RANDOM.nextInt(itemList.size());
+					iconTracker.markTime(world);
+				}
 			}
 
+			@Override
+			@SideOnly (Side.CLIENT)
+			public ItemStack getTabIconItem() {
+
+				if (itemList.isEmpty()) {
+					return ItemStack.EMPTY;
+				}
+				updateIcon();
+				return itemList.get(iconIndex);
+			}
 		};
+	}
 
-		if (utilTabCommon) {
-			ThermalFoundation.tabUtils = ThermalFoundation.tabCommon;
-		} else {
-			ThermalFoundation.tabUtils = new CreativeTabCore("thermalfoundation", "Utils") {
+	public static void initUtilTab() {
 
-				@Override
-				@SideOnly (Side.CLIENT)
-				public ItemStack getIconItemStack() {
-
-					return ItemWrench.wrenchBasic;
-				}
-
-			};
+		if (!useUnifiedTabs || ThermalFoundation.tabUtils != null) {
+			return;
 		}
-		if (armorTabCommon) {
-			ThermalFoundation.tabArmor = ThermalFoundation.tabCommon;
-		} else {
-			ThermalFoundation.tabArmor = new CreativeTabCore("thermalfoundation", "Armor") {
+		ThermalFoundation.tabUtils = new CreativeTabCore("thermalseries", "Utils") {
 
-				@Override
-				@SideOnly (Side.CLIENT)
-				public ItemStack getIconItemStack() {
+			int iconIndex = 0;
+			TimeTracker iconTracker = new TimeTracker();
 
-					return ArmorSet.INVAR.armorChestplate;
+			public void updateIcon() {
+
+				World world = CoFHCore.proxy.getClientWorld();
+				if (CoreUtils.isClient() && iconTracker.hasDelayPassed(world, 80)) {
+					iconIndex = MathHelper.RANDOM.nextInt(utilList.size());
+					iconTracker.markTime(world);
 				}
+			}
 
-			};
-		}
-		if (toolTabCommon) {
-			ThermalFoundation.tabTools = ThermalFoundation.tabCommon;
-		} else {
-			ThermalFoundation.tabTools = new CreativeTabCore("thermalfoundation", "Tools") {
+			@Override
+			@SideOnly (Side.CLIENT)
+			public ItemStack getTabIconItem() {
 
-				@Override
-				@SideOnly (Side.CLIENT)
-				public ItemStack getIconItemStack() {
-
-					return ToolSet.INVAR.toolPickaxe;
+				if (utilList.isEmpty()) {
+					return ItemStack.EMPTY;
 				}
+				updateIcon();
+				return utilList.get(iconIndex);
+			}
+		};
+	}
 
-			};
+	public static void initToolTab() {
+
+		if (!useUnifiedTabs || ThermalFoundation.tabTools != null) {
+			return;
 		}
+		ThermalFoundation.tabTools = new CreativeTabCore("thermalseries", "Tools") {
+
+			int iconIndex = 0;
+			TimeTracker iconTracker = new TimeTracker();
+
+			public void updateIcon() {
+
+				World world = CoFHCore.proxy.getClientWorld();
+				if (CoreUtils.isClient() && iconTracker.hasDelayPassed(world, 80)) {
+					iconIndex = MathHelper.RANDOM.nextInt(toolList.size());
+					iconTracker.markTime(world);
+				}
+			}
+
+			@Override
+			@SideOnly (Side.CLIENT)
+			public ItemStack getTabIconItem() {
+
+				if (toolList.isEmpty()) {
+					return ItemStack.EMPTY;
+				}
+				updateIcon();
+				return toolList.get(iconIndex);
+			}
+		};
+	}
+
+	public static void initMiscTab() {
+
+		if (!useUnifiedTabs || ThermalFoundation.tabMisc != null) {
+			return;
+		}
+		ThermalFoundation.tabMisc = new CreativeTabCore("thermalseries", "Misc") {
+
+			int iconIndex = 0;
+			TimeTracker iconTracker = new TimeTracker();
+
+			public void updateIcon() {
+
+				World world = CoFHCore.proxy.getClientWorld();
+				if (CoreUtils.isClient() && iconTracker.hasDelayPassed(world, 80)) {
+					iconIndex = MathHelper.RANDOM.nextInt(miscList.size());
+					iconTracker.markTime(world);
+				}
+			}
+
+			@Override
+			@SideOnly (Side.CLIENT)
+			public ItemStack getTabIconItem() {
+
+				if (miscList.isEmpty()) {
+					return ItemStack.EMPTY;
+				}
+				updateIcon();
+				return miscList.get(iconIndex);
+			}
+		};
 	}
 
 	private static void addWorldGeneration() {
@@ -223,6 +413,16 @@ public class TFProps {
 	public static boolean disableAllShields = false;
 
 	public static boolean showDisabledEquipment = false;
+	public static boolean showCreativeItems = true;
+	public static boolean showEmptyItems = false;
+	public static boolean showFullItems = true;
+	public static boolean useUnifiedTabs = true;
+
+	public static ArrayList<ItemStack> blockList = new ArrayList<>();
+	public static ArrayList<ItemStack> itemList = new ArrayList<>();
+	public static ArrayList<ItemStack> utilList = new ArrayList<>();
+	public static ArrayList<ItemStack> toolList = new ArrayList<>();
+	public static ArrayList<ItemStack> miscList = new ArrayList<>();
 
 	/* GENERAL */
 	public static final String EXPERIENCE_TIMER = "thermalfoundation.experience_timer";
