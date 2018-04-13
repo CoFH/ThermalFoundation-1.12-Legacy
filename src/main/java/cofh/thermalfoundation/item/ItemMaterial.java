@@ -159,7 +159,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 		dustWood = addOreDictItem(800, "dustWood");
 		dustWoodCompressed = addItem(801, "dustWoodCompressed");
-		fuelCoke = addItem(802, "fuelCoke");
+		fuelCoke = addOreDictItem(802, "fuelCoke");
 
 		globRosin = addItem(832, "globRosin");
 		globTar = addItem(833, "globTar");
@@ -192,7 +192,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// Rock Gel
 
 		OreDictionary.registerOre("dustSaltpeter", dustNiter);
-		OreDictionary.registerOre("fuelCoke", fuelCoke);
 
 		OreDictionary.registerOre("itemSlag", crystalSlag);
 		OreDictionary.registerOre("itemSlagRich", crystalSlagRich);

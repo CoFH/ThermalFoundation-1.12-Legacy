@@ -102,7 +102,7 @@ public class BlockFluidGlowstone extends BlockFluidCore {
 	@Override
 	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
 
-		return TFFluids.expFluid.getLuminosity();
+		return TFFluids.fluidGlowstone.getLuminosity();
 	}
 
 	@Override
