@@ -294,6 +294,10 @@ item.thermalfoundation.material.nuggetSilver.name=Silver Nugget
 item.thermalfoundation.material.nuggetSteel.name=Steel Nugget
 item.thermalfoundation.material.nuggetTin.name=Tin Nugget
 
+item.thermalfoundation.material.partDrillHead.name=Drill Head
+item.thermalfoundation.material.partSawBlade.name=Saw Blade
+item.thermalfoundation.material.partToolCasing.name=Tool Casing
+
 item.thermalfoundation.material.plateAluminum.name=Aluminum Plate
 item.thermalfoundation.material.plateBronze.name=Bronze Plate
 item.thermalfoundation.material.plateConstantan.name=Constantan Plate

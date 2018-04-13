@@ -145,6 +145,11 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		powerCoilSilver = addItem(514, "powerCoilSilver");
 		powerCoilElectrum = addItem(515, "powerCoilElectrum");
 
+		/* Tool Parts */
+		partToolCasing = addItem(640, "partToolCasing");
+		partDrillHead = addItem(656, "partDrillHead");
+		partSawBlade = addItem(657, "partSawBlade");
+
 		/* Process Items */
 		dustCoal = addOreDictItem(768, "dustCoal");
 		dustCharcoal = addOreDictItem(769, "dustCharcoal");
@@ -328,6 +333,10 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addShapedRecipe(powerCoilSilver, "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotSilver");
 		addShapedRecipe(powerCoilElectrum, "R  ", " G ", "  R", 'R', "dustRedstone", 'G', "ingotElectrum");
 
+		addShapedRecipe(partToolCasing, " R ", "GRG", "RIR", 'G', "ingotGold", 'R', "dustRedstone", 'I', "ingotIron");
+		addShapedRecipe(partDrillHead, " I ", "ICI", "III", 'C', "ingotCopper", 'I', "ingotIron");
+		addShapedRecipe(partSawBlade, "II ", "ICI", " II", 'C', "ingotCopper", 'I', "ingotIron");
+
 		/* Mob Drops */
 		addShapelessRecipe(cloneStack(dustBlizz, 2), "rodBlizz");
 		addShapelessRecipe(cloneStack(dustBlitz, 2), "rodBlitz");
@@ -465,6 +474,10 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack powerCoilGold;
 	public static ItemStack powerCoilSilver;
 	public static ItemStack powerCoilElectrum;
+
+	public static ItemStack partToolCasing;
+	public static ItemStack partDrillHead;
+	public static ItemStack partSawBlade;
 
 	public static ItemStack dustCoal;
 	public static ItemStack dustCharcoal;

@@ -16,7 +16,7 @@
 		},
 		{
 			"type": "forge:ore_dict",
-			"ore": "dustRedstone"
+			"ore": "dustGlowstone"
 		},
 		{
 			"type": "forge:ore_dict",

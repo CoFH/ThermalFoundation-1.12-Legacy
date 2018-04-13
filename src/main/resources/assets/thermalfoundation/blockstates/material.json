@@ -519,6 +519,21 @@
 					"layer0": "thermalfoundation:items/material/power_coil_electrum"
 				}
 			},
+			"parttoolcasing": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/part_tool_casing"
+				}
+			},
+			"partdrillhead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/part_drill_head"
+				}
+			},
+			"partsawblade": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/part_saw_blade"
+				}
+			},
 			"dustwood": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/dust_wood"
