@@ -12,6 +12,7 @@ public class ItemCoin extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
+		register("coin");
 		setUnlocalizedName("coin");
 		setCreativeTab(ThermalFoundation.tabItems);
 	}

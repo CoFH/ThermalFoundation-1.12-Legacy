@@ -41,6 +41,7 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 
 		super("thermalfoundation");
 
+		register("upgrade");
 		setUnlocalizedName("upgrade");
 		setCreativeTab(ThermalFoundation.tabUtils);
 	}

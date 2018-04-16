@@ -49,7 +49,8 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 		super("thermalfoundation");
 
-		setUnlocalizedName("util", "wrench");
+		register("wrench");
+		setUnlocalizedName("util");
 		setCreativeTab(ThermalFoundation.tabUtils);
 
 		setHarvestLevel("wrench", 1);

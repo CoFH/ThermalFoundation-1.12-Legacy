@@ -43,7 +43,8 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
-		setUnlocalizedName("util", "meter");
+		register("meter");
+		setUnlocalizedName("util");
 		setCreativeTab(ThermalFoundation.tabUtils);
 
 		setHasSubtypes(true);

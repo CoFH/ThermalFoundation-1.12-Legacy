@@ -29,6 +29,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
+		register("fertilizer");
 		setUnlocalizedName("fertilizer");
 		setCreativeTab(ThermalFoundation.tabUtils);
 	}

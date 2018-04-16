@@ -38,7 +38,8 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
-		setUnlocalizedName("util", "security");
+		register("security");
+		setUnlocalizedName("util");
 		setCreativeTab(ThermalFoundation.tabUtils);
 
 		setHasSubtypes(true);

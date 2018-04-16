@@ -21,6 +21,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
+		register("material");
 		setUnlocalizedName("material");
 		setCreativeTab(ThermalFoundation.tabItems);
 	}
