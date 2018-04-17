@@ -128,7 +128,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	//	@Override
 	//	public int getMode(ItemStack stack) {
 	//
-	//		return !stack.hasTagCompound() ? 0 : stack.getTagCompound().getInteger("Mode");
+	//		return !stack.hasTagCompound() ? 0 : stack.getTagCompound().getInteger(CoreProps.MODE);
 	//	}
 	//
 	//	@Override
@@ -137,7 +137,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	//		if (!stack.hasTagCompound()) {
 	//			stack.setTagCompound(new NBTTagCompound());
 	//		}
-	//		stack.getTagCompound().setInteger("Mode", mode);
+	//		stack.getTagCompound().setInteger(CoreProps.MODE, mode);
 	//		return false;
 	//	}
 	//
@@ -152,7 +152,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	//		if (curMode >= getNumModes(stack)) {
 	//			curMode = 0;
 	//		}
-	//		stack.getTagCompound().setInteger("Mode", curMode);
+	//		stack.getTagCompound().setInteger(CoreProps.MODE, curMode);
 	//		return true;
 	//	}
 	//
@@ -167,7 +167,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	//		if (curMode <= 0) {
 	//			curMode = getNumModes(stack) - 1;
 	//		}
-	//		stack.getTagCompound().setInteger("Mode", curMode);
+	//		stack.getTagCompound().setInteger(CoreProps.MODE, curMode);
 	//		return true;
 	//	}
 	//
