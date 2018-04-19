@@ -10,7 +10,6 @@ import cofh.thermalfoundation.util.helpers.RedprintHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
@@ -43,14 +42,6 @@ public class ItemDiagramRedprint extends ItemDiagram implements IInitializer {
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 
 		RedprintHelper.addInformation(stack, tooltip);
-	}
-
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isSelected) {
-
-		if (stack.getItemDamage() > 0) {
-			stack.setItemDamage(0);
-		}
 	}
 
 	@Override
