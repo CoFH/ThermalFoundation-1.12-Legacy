@@ -4,11 +4,14 @@ import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.List;
+
+import static cofh.core.util.helpers.RecipeHelper.addShapelessRecipe;
 
 public class ItemDiagramChromaprint extends ItemDiagram implements IInitializer {
 
@@ -53,7 +56,8 @@ public class ItemDiagramChromaprint extends ItemDiagram implements IInitializer 
 	@Override
 	public boolean register() {
 
-		// addShapelessRecipe(diagramChromaprint, Items.PAPER, Items.PAPER, "dustRedstone");
+		addShapelessRecipe(diagramChromaprint, Items.PAPER, Items.PAPER, "dyeRed", "dyeGreen", "dyeBlue");
+		addShapelessRecipe(diagramChromaprint, Items.PAPER, Items.PAPER, "dyeCyan", "dyeYellow", "dyeMagenta", "dyeBlack");
 
 		return true;
 	}
