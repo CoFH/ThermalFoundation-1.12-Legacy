@@ -296,19 +296,19 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 		config();
 
-		oreFluidCrudeOilSand = new ItemStack(this, 1, Type.CRUDE_OIL_SAND.getMetadata());
-		oreFluidCrudeOilRedSand = new ItemStack(this, 1, Type.CRUDE_OIL_RED_SAND.getMetadata());
-		oreFluidCrudeOilGravel = new ItemStack(this, 1, Type.CRUDE_OIL_GRAVEL.getMetadata());
-		oreFluidRedstone = new ItemStack(this, 1, Type.REDSTONE.getMetadata());
-		oreFluidGlowstone = new ItemStack(this, 1, Type.GLOWSTONE.getMetadata());
-		oreFluidEnder = new ItemStack(this, 1, Type.ENDER.getMetadata());
+		oreClathrateOilSand = new ItemStack(this, 1, Type.CRUDE_OIL_SAND.getMetadata());
+		oreClathrateOilRedSand = new ItemStack(this, 1, Type.CRUDE_OIL_RED_SAND.getMetadata());
+		oreClathrateOilShale = new ItemStack(this, 1, Type.CRUDE_OIL_GRAVEL.getMetadata());
+		oreClathrateRedstone = new ItemStack(this, 1, Type.REDSTONE.getMetadata());
+		oreClathrateGlowstone = new ItemStack(this, 1, Type.GLOWSTONE.getMetadata());
+		oreClathrateEnder = new ItemStack(this, 1, Type.ENDER.getMetadata());
 
-		registerWithHandlers("oreFluidCrudeOilSand", oreFluidCrudeOilSand);
-		registerWithHandlers("oreFluidCrudeOilSand", oreFluidCrudeOilRedSand);
-		registerWithHandlers("oreFluidCrudeOilShale", oreFluidCrudeOilGravel);
-		registerWithHandlers("oreFluidRedstone", oreFluidRedstone);
-		registerWithHandlers("oreFluidGlowstone", oreFluidGlowstone);
-		registerWithHandlers("oreFluidEnder", oreFluidEnder);
+		registerWithHandlers("oreClathrateOilSand", oreClathrateOilSand);
+		registerWithHandlers("oreClathrateOilSand", oreClathrateOilRedSand);
+		registerWithHandlers("oreClathrateOilShale", oreClathrateOilShale);
+		registerWithHandlers("oreClathrateRedstone", oreClathrateRedstone);
+		registerWithHandlers("oreClathrateGlowstone", oreClathrateGlowstone);
+		registerWithHandlers("oreClathrateEnder", oreClathrateEnder);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
@@ -430,11 +430,11 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	private static ItemStack drops[] = new ItemStack[Type.values().length];
 
 	/* REFERENCES */
-	public static ItemStack oreFluidCrudeOilSand;
-	public static ItemStack oreFluidCrudeOilRedSand;
-	public static ItemStack oreFluidCrudeOilGravel;
-	public static ItemStack oreFluidRedstone;
-	public static ItemStack oreFluidGlowstone;
-	public static ItemStack oreFluidEnder;
+	public static ItemStack oreClathrateOilSand;
+	public static ItemStack oreClathrateOilRedSand;
+	public static ItemStack oreClathrateOilShale;
+	public static ItemStack oreClathrateRedstone;
+	public static ItemStack oreClathrateGlowstone;
+	public static ItemStack oreClathrateEnder;
 
 }

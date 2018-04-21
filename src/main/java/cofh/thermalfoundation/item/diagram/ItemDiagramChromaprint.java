@@ -18,6 +18,7 @@ public class ItemDiagramChromaprint extends ItemDiagram implements IInitializer 
 	public ItemDiagramChromaprint() {
 
 		super();
+		setMaxDamage(8);
 
 		setUnlocalizedName("chromaprint");
 	}
