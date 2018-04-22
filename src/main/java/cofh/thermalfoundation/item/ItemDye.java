@@ -2,6 +2,8 @@ package cofh.thermalfoundation.item;
 
 import cofh.core.item.ItemMulti;
 import cofh.core.util.core.IInitializer;
+import cofh.core.util.helpers.ColorHelper;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -10,6 +12,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemDye extends ItemMulti implements IInitializer {
 
@@ -28,6 +31,12 @@ public class ItemDye extends ItemMulti implements IInitializer {
 		// These are gonna have some kind of "on use" action. Probably converting dyeable blocks in world. :)
 
 		return EnumActionResult.PASS;
+	}
+
+	/* IItemColor */
+	public int colorMultiplier(ItemStack stack, int tintIndex) {
+
+		return ColorHelper.getDyeColor(ItemHelper.getItemDamage(stack));
 	}
 
 	/* IInitializer */
@@ -50,6 +59,10 @@ public class ItemDye extends ItemMulti implements IInitializer {
 		dyeMagenta = addOreDictItem(13, "dyeMagenta");
 		dyeOrange = addOreDictItem(14, "dyeOrange");
 		dyeWhite = addOreDictItem(15, "dyeWhite");
+
+		OreDictionary.registerOre("dye", new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE));
+
+		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}

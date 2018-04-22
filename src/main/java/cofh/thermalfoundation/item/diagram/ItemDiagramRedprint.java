@@ -11,7 +11,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -118,7 +117,7 @@ public class ItemDiagramRedprint extends ItemDiagram implements IInitializer {
 	@Override
 	public boolean register() {
 
-		addShapelessRecipe(diagramRedprint, Items.PAPER, Items.PAPER, "dustRedstone");
+		addShapelessRecipe(diagramRedprint, "paper", "paper", "dustRedstone");
 
 		return true;
 	}

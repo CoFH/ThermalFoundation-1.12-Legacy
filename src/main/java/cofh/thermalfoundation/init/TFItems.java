@@ -39,6 +39,7 @@ public class TFItems {
 		itemCoin = new ItemCoin();
 		itemFertilizer = new ItemFertilizer();
 		itemBait = new ItemBait();
+		itemDye = new ItemDye();
 		itemMaterial = new ItemMaterial();
 		itemGeode = new ItemGeode();
 
@@ -52,6 +53,7 @@ public class TFItems {
 		initList.add(itemCoin);
 		initList.add(itemFertilizer);
 		initList.add(itemBait);
+		initList.add(itemDye);
 		initList.add(itemMaterial);
 		initList.add(itemGeode);
 
@@ -103,6 +105,7 @@ public class TFItems {
 	public static ItemCoin itemCoin;
 	public static ItemBait itemBait;
 	public static ItemFertilizer itemFertilizer;
+	public static ItemDye itemDye;
 	public static ItemMaterial itemMaterial;
 	public static ItemGeode itemGeode;
 

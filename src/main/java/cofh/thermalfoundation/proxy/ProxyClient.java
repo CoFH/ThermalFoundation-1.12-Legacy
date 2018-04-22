@@ -8,9 +8,11 @@ import cofh.thermalfoundation.entity.monster.EntityBlizz;
 import cofh.thermalfoundation.entity.projectile.EntityBasalzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.entity.projectile.EntityBlizzBolt;
+import cofh.thermalfoundation.init.TFItems;
 import cofh.thermalfoundation.render.entity.RenderEntityBasalz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlitz;
 import cofh.thermalfoundation.render.entity.RenderEntityBlizz;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -39,6 +41,8 @@ public class ProxyClient extends Proxy {
 	public void initialize(FMLInitializationEvent event) {
 
 		super.initialize(event);
+
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(TFItems.itemDye::colorMultiplier, TFItems.itemDye);
 	}
 
 	@Override

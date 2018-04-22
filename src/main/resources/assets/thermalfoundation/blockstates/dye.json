@@ -1,0 +1,94 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "builtin/generated",
+		"textures": {
+			"layer0": "blocks/dirt"
+		},
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"type": {
+			"dyeblack": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyered": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyegreen": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyebrown": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyeblue": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyepurple": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyecyan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyelightgray": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyegray": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyepink": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyelime": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyeyellow": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyelightblue": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyemagenta": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyeorange": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			},
+			"dyewhite": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dye"
+				}
+			}
+		}
+	}
+}

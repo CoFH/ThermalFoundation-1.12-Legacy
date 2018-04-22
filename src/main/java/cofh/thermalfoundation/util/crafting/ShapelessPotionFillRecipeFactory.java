@@ -3,7 +3,6 @@ package cofh.thermalfoundation.util.crafting;
 import cofh.core.init.CoreProps;
 import cofh.thermalfoundation.util.helpers.FluidPotionHelper;
 import com.google.gson.JsonObject;
-import gnu.trove.set.hash.THashSet;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
@@ -21,14 +20,6 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import javax.annotation.Nonnull;
 
 public class ShapelessPotionFillRecipeFactory implements IRecipeFactory {
-
-	private static final THashSet<Item> POTION_ITEMS = new THashSet<>();
-
-	static {
-		POTION_ITEMS.add(Items.POTIONITEM);
-		POTION_ITEMS.add(Items.SPLASH_POTION);
-		POTION_ITEMS.add(Items.LINGERING_POTION);
-	}
 
 	@Override
 	public IRecipe parse(JsonContext context, JsonObject json) {
@@ -48,7 +39,6 @@ public class ShapelessPotionFillRecipeFactory implements IRecipeFactory {
 
 		public boolean isPotion(ItemStack stack) {
 
-			//return POTION_ITEMS.contains(stack.getItem());
 			Item item = stack.getItem();
 			return item.equals(Items.POTIONITEM) || item.equals(Items.SPLASH_POTION) || item.equals(Items.LINGERING_POTION);
 		}
@@ -75,13 +65,15 @@ public class ShapelessPotionFillRecipeFactory implements IRecipeFactory {
 
 			for (int i = 0; i < inv.getSizeInventory(); ++i) {
 				ItemStack stack = inv.getStackInSlot(i);
-				if (isPotion(stack)) {
-					potionStack = stack.copy();
-				} else if (handler == null) {
-					handler = FluidUtil.getFluidHandler(stack.copy());
+				if (!stack.isEmpty()) {
+					if (isPotion(stack)) {
+						potionStack = stack.copy();
+					} else if (handler == null) {
+						handler = FluidUtil.getFluidHandler(stack.copy());
+					}
 				}
 			}
-			if (potionStack == ItemStack.EMPTY || handler == null) {
+			if (potionStack.isEmpty() || handler == null) {
 				return ItemStack.EMPTY;
 			}
 			FluidStack potionFluid = FluidPotionHelper.getFluidPotion(CoreProps.BOTTLE_VOLUME, potionStack);
