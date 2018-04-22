@@ -367,10 +367,14 @@ public class TFProps {
 		String worldGenOil = "02_thermalfoundation_oil.json";
 		String worldGenClathrates = "03_thermalfoundation_clathrates.json";
 
-		if (!ThermalFoundation.CONFIG.getConfiguration().getBoolean("GenerateDefaultFiles", "World", true, "If TRUE, Thermal Foundation will create default world generation files if it cannot find existing ones. Only disable if you know what you are doing.")) {
+		String category = "World";
+		String comment = "If TRUE, Thermal Foundation will create default world generation files if it cannot find existing ones. Only disable if you know what you are doing.";
+
+		boolean generateDefaultFiles = ThermalFoundation.CONFIG.getConfiguration().getBoolean("GenerateDefaultFiles", category, true, comment);
+
+		if (!generateDefaultFiles) {
 			return;
 		}
-
 		worldGenFile = new File(CoreProps.configDir, "/cofh/world/" + worldGenOre);
 		if (!worldGenFile.exists()) {
 			try {
