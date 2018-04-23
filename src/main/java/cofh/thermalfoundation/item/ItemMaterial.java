@@ -306,42 +306,44 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addReverseStorageRecipe(new ItemStack(Items.COAL, 1, 1), "blockCharcoal");
 		addReverseStorageRecipe(fuelCoke, "blockFuelCoke");
 
-		/* Gears */
-		addGearRecipe(gearIron, "ingotIron", "ingotCopper");
-		addGearRecipe(gearIron, "ingotIron", "ingotTin");
-		addGearRecipe(gearIron, "ingotIron", "ingotBronze");
+		if (!TFProps.disableBasicItems) {
 
-		addGearRecipe(gearIron, "ingotIron");
-		addGearRecipe(gearGold, "ingotGold");
-		addGearRecipe(gearCopper, "ingotCopper");
-		addGearRecipe(gearTin, "ingotTin");
-		addGearRecipe(gearSilver, "ingotSilver");
-		addGearRecipe(gearLead, "ingotLead");
-		addGearRecipe(gearAluminum, "ingotAluminum");
-		addGearRecipe(gearNickel, "ingotNickel");
-		addGearRecipe(gearPlatinum, "ingotPlatinum");
-		addGearRecipe(gearIridium, "ingotIridium");
-		addGearRecipe(gearMithril, "ingotMithril");
+			/* Gears */
+			addGearRecipe(gearIron, "ingotIron", "ingotCopper");
+			addGearRecipe(gearIron, "ingotIron", "ingotTin");
+			addGearRecipe(gearIron, "ingotIron", "ingotBronze");
 
-		addGearRecipe(gearSteel, "ingotSteel");
-		addGearRecipe(gearElectrum, "ingotElectrum");
-		addGearRecipe(gearInvar, "ingotInvar");
-		addGearRecipe(gearBronze, "ingotBronze");
-		addGearRecipe(gearConstantan, "ingotConstantan");
-		addGearRecipe(gearSignalum, "ingotSignalum");
-		addGearRecipe(gearLumium, "ingotLumium");
-		addGearRecipe(gearEnderium, "ingotEnderium");
+			addGearRecipe(gearIron, "ingotIron");
+			addGearRecipe(gearGold, "ingotGold");
+			addGearRecipe(gearCopper, "ingotCopper");
+			addGearRecipe(gearTin, "ingotTin");
+			addGearRecipe(gearSilver, "ingotSilver");
+			addGearRecipe(gearLead, "ingotLead");
+			addGearRecipe(gearAluminum, "ingotAluminum");
+			addGearRecipe(gearNickel, "ingotNickel");
+			addGearRecipe(gearPlatinum, "ingotPlatinum");
+			addGearRecipe(gearIridium, "ingotIridium");
+			addGearRecipe(gearMithril, "ingotMithril");
 
-		/* Parts */
-		addShapedRecipe(redstoneServo, " R ", " I ", " R ", 'R', "dustRedstone", 'I', "ingotIron");
-		addShapedRecipe(powerCoilGold, "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotGold");
-		addShapedRecipe(powerCoilSilver, "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotSilver");
-		addShapedRecipe(powerCoilElectrum, "R  ", " G ", "  R", 'R', "dustRedstone", 'G', "ingotElectrum");
+			addGearRecipe(gearSteel, "ingotSteel");
+			addGearRecipe(gearElectrum, "ingotElectrum");
+			addGearRecipe(gearInvar, "ingotInvar");
+			addGearRecipe(gearBronze, "ingotBronze");
+			addGearRecipe(gearConstantan, "ingotConstantan");
+			addGearRecipe(gearSignalum, "ingotSignalum");
+			addGearRecipe(gearLumium, "ingotLumium");
+			addGearRecipe(gearEnderium, "ingotEnderium");
 
-		addShapedRecipe(partToolCasing, " R ", "GRG", "RIR", 'G', "ingotGold", 'R', "dustRedstone", 'I', "ingotIron");
-		addShapedRecipe(partDrillHead, " I ", "ICI", "III", 'C', "ingotCopper", 'I', "ingotIron");
-		addShapedRecipe(partSawBlade, "II ", "ICI", " II", 'C', "ingotCopper", 'I', "ingotIron");
+			/* Parts */
+			addShapedRecipe(redstoneServo, " R ", " I ", " R ", 'R', "dustRedstone", 'I', "ingotIron");
+			addShapedRecipe(powerCoilGold, "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotGold");
+			addShapedRecipe(powerCoilSilver, "  R", " G ", "R  ", 'R', "dustRedstone", 'G', "ingotSilver");
+			addShapedRecipe(powerCoilElectrum, "R  ", " G ", "  R", 'R', "dustRedstone", 'G', "ingotElectrum");
 
+			addShapedRecipe(partToolCasing, " R ", "GRG", "RIR", 'G', "ingotGold", 'R', "dustRedstone", 'I', "ingotIron");
+			addShapedRecipe(partDrillHead, " I ", "ICI", "III", 'C', "ingotCopper", 'I', "ingotIron");
+			addShapedRecipe(partSawBlade, "II ", "ICI", " II", 'C', "ingotCopper", 'I', "ingotIron");
+		}
 		/* Mob Drops */
 		addShapelessRecipe(cloneStack(dustBlizz, 2), "rodBlizz");
 		addShapelessRecipe(cloneStack(dustBlitz, 2), "rodBlitz");

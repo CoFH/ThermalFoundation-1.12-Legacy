@@ -163,6 +163,9 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 	@Override
 	public boolean register() {
 
+		if (TFProps.disableUpgradeItems) {
+			return false;
+		}
 		// @formatter:off
 		addShapedRecipe(upgradeIncremental[0],
 				" I ",

@@ -63,7 +63,6 @@ public class TFCrafting {
 				}
 				if (TFProps.enablePetrotheumCrafting && !registeredDust.isEmpty()) {
 					addShapelessRecipe(ItemHelper.cloneStack(registeredDust.get(0), 2), oreName, "dustPetrotheum");
-
 					if (!registeredIngot.isEmpty()) {
 						addShapelessRecipe(ItemHelper.cloneStack(registeredDust.get(0), 1), ingotName, "dustPetrotheum");
 					}
@@ -73,7 +72,6 @@ public class TFCrafting {
 				}
 				if (TFProps.enablePyrotheumCrafting && !registeredIngot.isEmpty()) {
 					addShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 1), oreName, "dustPyrotheum");
-
 					if (!registeredDust.isEmpty()) {
 						addShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 1), dustName, "dustPyrotheum");
 					}
@@ -167,6 +165,9 @@ public class TFCrafting {
 
 	public static void loadPotions() {
 
+		if (!CorePotions.registered()) {
+			return;
+		}
 		PotionHelper.addMix(PotionTypes.AWKWARD, Ingredient.fromStacks(ItemMaterial.dustBasalz), CorePotions.haste);
 		PotionHelper.addMix(PotionTypes.AWKWARD, Ingredient.fromStacks(ItemMaterial.dustObsidian), CorePotions.resistance);
 		PotionHelper.addMix(PotionTypes.AWKWARD, Ingredient.fromStacks(ItemMaterial.dustBlitz), CorePotions.levitation);

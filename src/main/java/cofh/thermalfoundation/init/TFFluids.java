@@ -198,6 +198,9 @@ public class TFFluids {
 	/* HELPERS */
 	public static FluidStack getPotion(int amount, PotionType type) {
 
+		if (type == null || type == PotionTypes.EMPTY) {
+			return null;
+		}
 		if (type == PotionTypes.WATER) {
 			return new FluidStack(FluidRegistry.WATER, amount);
 		}
@@ -206,11 +209,17 @@ public class TFFluids {
 
 	public static FluidStack getSplashPotion(int amount, PotionType type) {
 
+		if (type == null || type == PotionTypes.EMPTY) {
+			return null;
+		}
 		return addPotionToFluidStack(new FluidStack(fluidPotionSplash, amount), type);
 	}
 
 	public static FluidStack getLingeringPotion(int amount, PotionType type) {
 
+		if (type == null || type == PotionTypes.EMPTY) {
+			return null;
+		}
 		return addPotionToFluidStack(new FluidStack(fluidPotionLingering, amount), type);
 	}
 
@@ -218,6 +227,10 @@ public class TFFluids {
 
 		ResourceLocation resourcelocation = PotionType.REGISTRY.getNameForObject(type);
 
+		/* NOTE: This can actually happen. */
+		if (resourcelocation == null) {
+			return null;
+		}
 		if (type == PotionTypes.EMPTY) {
 			if (stack.tag != null) {
 				stack.tag.removeTag("Potion");

@@ -49,6 +49,12 @@ public class TFProps {
 		dropSulfurFireImmuneMobs = ThermalFoundation.CONFIG.getConfiguration().getBoolean("FireImmuneMobsDropSulfur", category, dropSulfurFireImmuneMobs, comment);
 
 		/* CRAFTING */
+		comment = "If TRUE, recipes for Basic Craftable Items (Gears, Parts) are disabled. Only enable this option if you understand the consequences.";
+		disableBasicItems = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableBasicItemRecipes", category, disableBasicItems, comment);
+
+		comment = "If TRUE, recipes for Upgrade Items (Kits) are disabled. Only enable this option if you understand the consequences.";
+		disableUpgradeItems = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableUpgradeItemRecipes", category, disableUpgradeItems, comment);
+
 		comment = "If TRUE, Pyrotheum Dust can be used to smelt Ores into Ingots.";
 		enablePyrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePyrotheumCrafting", category, enablePyrotheumCrafting, comment);
 
@@ -368,7 +374,7 @@ public class TFProps {
 		String worldGenClathrates = "03_thermalfoundation_clathrates.json";
 
 		String category = "World";
-		String comment = "If TRUE, Thermal Foundation will create default world generation files if it cannot find existing ones. Only disable if you know what you are doing.";
+		String comment = "If TRUE, Thermal Foundation will create default world generation files if it cannot find existing ones. These files will only work if CoFH World is installed! Only disable this if you know what you are doing.";
 
 		boolean generateDefaultFiles = ThermalFoundation.CONFIG.getConfiguration().getBoolean("GenerateDefaultFiles", category, true, comment);
 
@@ -407,6 +413,9 @@ public class TFProps {
 	}
 
 	/* INTERFACE */
+	public static boolean disableBasicItems = false;
+	public static boolean disableUpgradeItems = false;
+
 	public static boolean disableAllTools = false;
 	public static boolean disableAllArmor = false;
 	public static boolean disableVanillaTools = false;
