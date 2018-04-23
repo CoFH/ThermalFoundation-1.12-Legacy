@@ -71,7 +71,7 @@ public class TFEquipment {
 	/* MATERIALS */
 	public static final ArmorMaterial ARMOR_MATERIAL_COPPER = EnumHelper.addArmorMaterial("TF:COPPER", "copper_armor", 10, new int[] { 1, 3, 3, 1 }, 8, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0F);
 	public static final ArmorMaterial ARMOR_MATERIAL_TIN = EnumHelper.addArmorMaterial("TF:TIN", "tin_armor", 8, new int[] { 1, 3, 4, 1 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0F);
-	public static final ArmorMaterial ARMOR_MATERIAL_SILVER = EnumHelper.addArmorMaterial("TF:SILVER", "silver_armor", 8, new int[] { 2, 4, 4, 1 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0F);
+	public static final ArmorMaterial ARMOR_MATERIAL_SILVER = EnumHelper.addArmorMaterial("TF:SILVER", "silver_armor", 8, new int[] { 2, 4, 4, 1 }, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0F);
 	public static final ArmorMaterial ARMOR_MATERIAL_LEAD = EnumHelper.addArmorMaterial("TF:LEAD", "lead_armor", 12, new int[] { 2, 4, 5, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0F);
 	public static final ArmorMaterial ARMOR_MATERIAL_ALUMINUM = EnumHelper.addArmorMaterial("TF:ALUMINUM", "aluminum_armor", 12, new int[] { 1, 3, 4, 2 }, 14, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0F);
 	public static final ArmorMaterial ARMOR_MATERIAL_NICKEL = EnumHelper.addArmorMaterial("TF:NICKEL", "nickel_armor", 15, new int[] { 2, 5, 5, 2 }, 18, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0F);
@@ -84,7 +84,7 @@ public class TFEquipment {
 
 	public static final ToolMaterial TOOL_MATERIAL_COPPER = EnumHelper.addToolMaterial("TF:COPPER", 1, 175, 4.0F, 1.0F, 7);
 	public static final ToolMaterial TOOL_MATERIAL_TIN = EnumHelper.addToolMaterial("TF:TIN", 1, 150, 4.5F, 1.0F, 7);
-	public static final ToolMaterial TOOL_MATERIAL_SILVER = EnumHelper.addToolMaterial("TF:SILVER", 1, 75, 6.0F, 1.0F, 20);
+	public static final ToolMaterial TOOL_MATERIAL_SILVER = EnumHelper.addToolMaterial("TF:SILVER", 1, 75, 6.0F, 1.0F, 25);
 	public static final ToolMaterial TOOL_MATERIAL_LEAD = EnumHelper.addToolMaterial("TF:LEAD", 1, 100, 5.0F, 1.0F, 9);
 	public static final ToolMaterial TOOL_MATERIAL_ALUMINUM = EnumHelper.addToolMaterial("TF:ALUMINUM", 1, 225, 10.0F, 1.0F, 14);
 	public static final ToolMaterial TOOL_MATERIAL_NICKEL = EnumHelper.addToolMaterial("TF:NICKEL", 2, 300, 6.5F, 2.5F, 18);

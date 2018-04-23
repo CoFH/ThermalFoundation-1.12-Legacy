@@ -67,16 +67,6 @@ public abstract class ItemTome extends ItemCore implements IInitializer, IModelR
 		return super.setUnlocalizedName(modName + ".tome." + name);
 	}
 
-	/* IModelRegister */
-	@Override
-	@SideOnly (Side.CLIENT)
-	public void registerModels() {
-
-		StateMapper mapper = new StateMapper(modName, "util", name);
-		ModelLoader.setCustomMeshDefinition(this, mapper);
-		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(modName + ":" + "util", "type=" + name));
-	}
-
 	/* IMultiModeItem */
 	@Override
 	public void onModeChange(EntityPlayer player, ItemStack stack) {
@@ -86,6 +76,16 @@ public abstract class ItemTome extends ItemCore implements IInitializer, IModelR
 		} else {
 			player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.2F, 0.6F);
 		}
+	}
+
+	/* IModelRegister */
+	@Override
+	@SideOnly (Side.CLIENT)
+	public void registerModels() {
+
+		StateMapper mapper = new StateMapper(modName, "util", name);
+		ModelLoader.setCustomMeshDefinition(this, mapper);
+		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(modName + ":" + "util", "type=" + name));
 	}
 
 }
