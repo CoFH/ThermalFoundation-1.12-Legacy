@@ -96,7 +96,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		ForgeRegistries.ITEMS.register(setRegistryName("fertilizer"));
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -109,7 +109,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		addShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 4), "dustWood", "dustWood", "dustSaltpeter", "crystalSlag");
 		addShapelessRecipe(ItemHelper.cloneStack(fertilizerBasic, 16), "dustCharcoal", "dustSaltpeter", "crystalSlag");

@@ -147,7 +147,7 @@ public class BlockFluidPetrotheum extends BlockFluidInteractive {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		this.setRegistryName("fluid_petrotheum");
 		ForgeRegistries.BLOCKS.register(this);

@@ -175,7 +175,7 @@ public class BlockFluidMana extends BlockFluidInteractive {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		this.setRegistryName("fluid_mana");
 		ForgeRegistries.BLOCKS.register(this);

@@ -58,7 +58,7 @@ public class TFItems {
 		initList.add(itemGeode);
 
 		for (IInitializer init : initList) {
-			init.initialize();
+			init.preInit();
 		}
 		TFProps.itemList.addAll(itemMaterial.getAllItems());
 		TFProps.utilList.add(ItemWrench.wrenchBasic);
@@ -73,7 +73,7 @@ public class TFItems {
 	public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
 
 		for (IInitializer init : initList) {
-			init.register();
+			init.initialize();
 		}
 		TFCrafting.loadRecipes();
 	}

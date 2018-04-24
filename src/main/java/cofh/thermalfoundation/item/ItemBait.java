@@ -47,7 +47,7 @@ public class ItemBait extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		ForgeRegistries.ITEMS.register(setRegistryName("bait"));
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -60,7 +60,7 @@ public class ItemBait extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		addShapelessRecipe(ItemHelper.cloneStack(baitBasic, 4), "dustWood", "slimeball", Items.BREAD);
 		addShapelessRecipe(ItemHelper.cloneStack(baitBasic, 4), "dustWood", ItemMaterial.globRosin, Items.BREAD);

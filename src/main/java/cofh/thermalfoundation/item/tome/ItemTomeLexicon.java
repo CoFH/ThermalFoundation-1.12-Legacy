@@ -85,7 +85,7 @@ public class ItemTomeLexicon extends ItemTome implements IInventoryContainerItem
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		ForgeRegistries.ITEMS.register(setRegistryName("tome_lexicon"));
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -98,7 +98,7 @@ public class ItemTomeLexicon extends ItemTome implements IInventoryContainerItem
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		if (enable) {
 			addShapedRecipe(tomeLexicon, " L ", "GBI", " R ", 'B', Items.BOOK, 'G', "ingotGold", 'I', "ingotIron", 'L', "gemLapis", 'R', "dustRedstone");

@@ -66,7 +66,7 @@ public class BlockFluidRedstone extends BlockFluidCore {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		this.setRegistryName("fluid_redstone");
 		ForgeRegistries.BLOCKS.register(this);

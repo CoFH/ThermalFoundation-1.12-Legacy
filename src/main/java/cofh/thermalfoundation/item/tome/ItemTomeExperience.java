@@ -330,7 +330,7 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		ForgeRegistries.ITEMS.register(setRegistryName("tome_experience"));
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -343,7 +343,7 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		if (enable) {
 			addShapedRecipe(tomeExperience, " L ", "EBE", " L ", 'B', Items.BOOK, 'E', "gemEmerald", 'L', "gemLapis");

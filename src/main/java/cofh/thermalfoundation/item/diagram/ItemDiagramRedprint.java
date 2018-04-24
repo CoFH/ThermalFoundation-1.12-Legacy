@@ -106,7 +106,7 @@ public class ItemDiagramRedprint extends ItemDiagram implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		ForgeRegistries.ITEMS.register(setRegistryName("diagram_redprint"));
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -117,7 +117,7 @@ public class ItemDiagramRedprint extends ItemDiagram implements IInitializer {
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		addShapelessRecipe(diagramRedprint, "paper", "paper", "dustRedstone");
 

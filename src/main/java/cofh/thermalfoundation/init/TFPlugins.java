@@ -18,14 +18,14 @@ public class TFPlugins {
 		initList.add(pluginTConstruct);
 
 		for (IInitializer init : initList) {
-			init.initialize();
+			init.preInit();
 		}
 	}
 
-	public static void postInit() {
+	public static void initialize() {
 
 		for (IInitializer init : initList) {
-			init.register();
+			init.initialize();
 		}
 	}
 

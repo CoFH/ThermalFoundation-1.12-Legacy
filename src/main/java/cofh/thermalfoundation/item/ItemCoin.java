@@ -19,7 +19,7 @@ public class ItemCoin extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		ForgeRegistries.ITEMS.register(setRegistryName("coin"));
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -50,7 +50,7 @@ public class ItemCoin extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		return true;
 	}

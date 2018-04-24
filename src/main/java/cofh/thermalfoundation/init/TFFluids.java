@@ -32,7 +32,7 @@ public class TFFluids {
 		refreshReferences();
 
 		for (IInitializer init : initList) {
-			init.initialize();
+			init.preInit();
 		}
 	}
 

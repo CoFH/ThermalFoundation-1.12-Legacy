@@ -160,7 +160,7 @@ public class BlockFluidCryotheum extends BlockFluidInteractive {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		this.setRegistryName("fluid_cryotheum");
 		ForgeRegistries.BLOCKS.register(this);

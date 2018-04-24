@@ -285,7 +285,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		this.setRegistryName("ore_fluid");
 		ForgeRegistries.BLOCKS.register(this);
@@ -316,7 +316,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		fluidBlocks[Type.CRUDE_OIL_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;
 		fluidBlocks[Type.CRUDE_OIL_RED_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;

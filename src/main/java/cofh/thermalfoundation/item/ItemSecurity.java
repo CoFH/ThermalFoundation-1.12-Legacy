@@ -125,7 +125,7 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		ForgeRegistries.ITEMS.register(setRegistryName("security"));
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -136,7 +136,7 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		addShapedRecipe(lock, " S ", "SBS", "SSS", 'B', "ingotBronze", 'S', "nuggetSignalum");
 

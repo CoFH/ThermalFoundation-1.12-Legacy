@@ -227,7 +227,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		this.setRegistryName("glass_alloy");
 		ForgeRegistries.BLOCKS.register(this);
@@ -253,7 +253,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		return true;
 	}

@@ -28,7 +28,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		ForgeRegistries.ITEMS.register(setRegistryName("material"));
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -219,7 +219,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		/* Smelting */
 		addSmelting(dustIron, ingotIron, 0.7F);

@@ -136,7 +136,7 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		ForgeRegistries.ITEMS.register(setRegistryName("upgrade"));
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -162,7 +162,7 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		if (TFProps.disableUpgradeItems) {
 			return false;

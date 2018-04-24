@@ -221,7 +221,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		ForgeRegistries.ITEMS.register(setRegistryName("wrench"));
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -236,7 +236,7 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		// @formatter:off
 		addShapedRecipe(wrenchBasic,

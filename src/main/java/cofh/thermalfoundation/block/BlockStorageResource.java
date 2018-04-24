@@ -123,7 +123,7 @@ public class BlockStorageResource extends BlockCore implements IInitializer, IMo
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		this.setRegistryName("storage_resource");
 		ForgeRegistries.BLOCKS.register(this);
@@ -144,7 +144,7 @@ public class BlockStorageResource extends BlockCore implements IInitializer, IMo
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		addStorageRecipe(blockCharcoal, new ItemStack(Items.COAL, 1, 1));
 		addStorageRecipe(blockCoke, "fuelCoke");

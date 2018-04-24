@@ -45,7 +45,7 @@ public class ItemDiagramSchematic extends ItemDiagram {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		diagramSchematic = new ItemStack(this);
 
@@ -55,7 +55,7 @@ public class ItemDiagramSchematic extends ItemDiagram {
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		addShapelessRecipe(diagramSchematic, Items.PAPER, Items.PAPER, "dyeBlue");
 

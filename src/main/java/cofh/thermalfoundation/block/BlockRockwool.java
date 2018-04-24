@@ -90,7 +90,7 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		this.setRegistryName("rockwool");
 		ForgeRegistries.BLOCKS.register(this);
@@ -124,7 +124,7 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		addSmelting(ItemMaterial.crystalSlag, rockwoolSilver, 0.1F);
 

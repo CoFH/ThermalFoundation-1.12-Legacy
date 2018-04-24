@@ -41,7 +41,7 @@ public class ItemDye extends ItemMulti implements IInitializer {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		ForgeRegistries.ITEMS.register(setRegistryName("dye"));
 		ThermalFoundation.proxy.addIModelRegister(this);
@@ -69,7 +69,7 @@ public class ItemDye extends ItemMulti implements IInitializer {
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		return true;
 	}

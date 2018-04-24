@@ -185,7 +185,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		this.setRegistryName("flower");
 		ForgeRegistries.BLOCKS.register(this);
@@ -200,7 +200,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	}
 
 	@Override
-	public boolean register() {
+	public boolean initialize() {
 
 		return true;
 	}

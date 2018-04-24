@@ -145,7 +145,7 @@ public class BlockFluidAerotheum extends BlockFluidCore {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		this.setRegistryName("fluid_aerotheum");
 		ForgeRegistries.BLOCKS.register(this);

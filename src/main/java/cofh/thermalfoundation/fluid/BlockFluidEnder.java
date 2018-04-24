@@ -72,7 +72,7 @@ public class BlockFluidEnder extends BlockFluidCore {
 
 	/* IInitializer */
 	@Override
-	public boolean initialize() {
+	public boolean preInit() {
 
 		this.setRegistryName("fluid_ender");
 		ForgeRegistries.BLOCKS.register(this);

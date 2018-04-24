@@ -104,8 +104,6 @@ public class ThermalFoundation {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 
-		TFPlugins.postInit();
-
 		proxy.postInit(event);
 	}
 
@@ -130,6 +128,8 @@ public class ThermalFoundation {
 
 	@EventHandler
 	public void handleIMC(IMCEvent event) {
+
+		TFPlugins.initialize();
 
 		IMCHandler.INSTANCE.handleIMC(event.getMessages());
 	}
