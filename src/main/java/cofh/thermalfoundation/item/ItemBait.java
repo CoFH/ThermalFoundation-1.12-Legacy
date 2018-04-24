@@ -14,6 +14,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import static cofh.core.util.helpers.RecipeHelper.addShapelessOreRecipe;
 import static cofh.core.util.helpers.RecipeHelper.addShapelessRecipe;
@@ -24,7 +25,6 @@ public class ItemBait extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
-		register("bait");
 		setUnlocalizedName("bait");
 		setCreativeTab(ThermalFoundation.tabUtils);
 	}
@@ -49,11 +49,12 @@ public class ItemBait extends ItemMulti implements IInitializer {
 	@Override
 	public boolean initialize() {
 
+		ForgeRegistries.ITEMS.register(setRegistryName("bait"));
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		baitBasic = addItem(0, "baitBasic");
 		baitRich = addItem(1, "baitRich");
 		baitFlux = addItem(2, "baitFlux", EnumRarity.UNCOMMON);
-
-		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}

@@ -10,6 +10,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
 
 import static cofh.core.util.helpers.ItemHelper.cloneStack;
@@ -21,7 +22,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
-		register("material");
 		setUnlocalizedName("material");
 		setCreativeTab(ThermalFoundation.tabItems);
 	}
@@ -29,6 +29,9 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	/* IInitializer */
 	@Override
 	public boolean initialize() {
+
+		ForgeRegistries.ITEMS.register(setRegistryName("material"));
+		ThermalFoundation.proxy.addIModelRegister(this);
 
 		dustIron = addOreDictItem(0, "dustIron");
 		dustGold = addOreDictItem(1, "dustGold");
@@ -211,8 +214,6 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		ingotGold = new ItemStack(Items.GOLD_INGOT);
 		gemDiamond = new ItemStack(Items.DIAMOND);
 		gemEmerald = new ItemStack(Items.EMERALD);
-
-		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}

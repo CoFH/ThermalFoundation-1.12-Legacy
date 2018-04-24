@@ -34,6 +34,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -49,7 +50,6 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 		super("thermalfoundation");
 
-		register("wrench");
 		setUnlocalizedName("util");
 		setCreativeTab(ThermalFoundation.tabUtils);
 
@@ -223,13 +223,14 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	@Override
 	public boolean initialize() {
 
+		ForgeRegistries.ITEMS.register(setRegistryName("wrench"));
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		wrenchBasic = addItem(0, "wrench0");
 		//		wrenchHardened = addItem(1, "wrench1");
 		//		wrenchReinforced = addItem(2, "wrench2", EnumRarity.UNCOMMON);
 		//		wrenchSignalum = addItem(3, "wrench3", EnumRarity.UNCOMMON);
 		//		wrenchResonant = addItem(4, "wrench4", EnumRarity.RARE);
-
-		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}

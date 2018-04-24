@@ -12,6 +12,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemDye extends ItemMulti implements IInitializer {
@@ -20,7 +21,6 @@ public class ItemDye extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
-		register("dye");
 		setUnlocalizedName("dye");
 		setCreativeTab(ThermalFoundation.tabItems);
 	}
@@ -43,6 +43,9 @@ public class ItemDye extends ItemMulti implements IInitializer {
 	@Override
 	public boolean initialize() {
 
+		ForgeRegistries.ITEMS.register(setRegistryName("dye"));
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		dyeBlack = addOreDictItem(0, "dyeBlack");
 		dyeRed = addOreDictItem(1, "dyeRed");
 		dyeGreen = addOreDictItem(2, "dyeGreen");
@@ -61,8 +64,6 @@ public class ItemDye extends ItemMulti implements IInitializer {
 		dyeWhite = addOreDictItem(15, "dyeWhite");
 
 		OreDictionary.registerOre("dye", new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE));
-
-		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}

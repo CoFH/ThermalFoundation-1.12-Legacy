@@ -4,10 +4,12 @@ import cofh.api.item.IToolDye;
 import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.item.ItemDye;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nullable;
@@ -80,11 +82,12 @@ public class ItemDiagramChromaprint extends ItemDiagram implements IInitializer,
 	@Override
 	public boolean initialize() {
 
+		ForgeRegistries.ITEMS.register(setRegistryName("diagram_chromaprint"));
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		diagramChromaprint = new ItemStack(this);
 
 		OreDictionary.registerOre("dye", diagramChromaprint);
-
-		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}
@@ -94,6 +97,23 @@ public class ItemDiagramChromaprint extends ItemDiagram implements IInitializer,
 
 		addShapelessRecipe(diagramChromaprint, "paper", "paper", "dyeRed", "dyeGreen", "dyeBlue");
 		addShapelessRecipe(diagramChromaprint, "paper", "paper", "dyeCyan", "dyeYellow", "dyeMagenta", "dyeBlack");
+
+		addShapelessRecipe(ItemDye.dyeBlack, diagramChromaprint, "dyeBlack");
+		addShapelessRecipe(ItemDye.dyeRed, diagramChromaprint, "dyeRed");
+		addShapelessRecipe(ItemDye.dyeGreen, diagramChromaprint, "dyeGreen");
+		addShapelessRecipe(ItemDye.dyeBrown, diagramChromaprint, "dyeBrown");
+		addShapelessRecipe(ItemDye.dyeBlue, diagramChromaprint, "dyeBlue");
+		addShapelessRecipe(ItemDye.dyePurple, diagramChromaprint, "dyePurple");
+		addShapelessRecipe(ItemDye.dyeCyan, diagramChromaprint, "dyeCyan");
+		addShapelessRecipe(ItemDye.dyeLightGray, diagramChromaprint, "dyeLightGray");
+		addShapelessRecipe(ItemDye.dyeGray, diagramChromaprint, "dyeGray");
+		addShapelessRecipe(ItemDye.dyePink, diagramChromaprint, "dyePink");
+		addShapelessRecipe(ItemDye.dyeLime, diagramChromaprint, "dyeLime");
+		addShapelessRecipe(ItemDye.dyeYellow, diagramChromaprint, "dyeYellow");
+		addShapelessRecipe(ItemDye.dyeLightBlue, diagramChromaprint, "dyeLightBlue");
+		addShapelessRecipe(ItemDye.dyeMagenta, diagramChromaprint, "dyeMagenta");
+		addShapelessRecipe(ItemDye.dyeOrange, diagramChromaprint, "dyeOrange");
+		addShapelessRecipe(ItemDye.dyeWhite, diagramChromaprint, "dyeWhite");
 
 		return true;
 	}

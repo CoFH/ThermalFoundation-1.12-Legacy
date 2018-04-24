@@ -63,7 +63,6 @@ public abstract class ItemTome extends ItemCore implements IInitializer, IModelR
 	public Item setUnlocalizedName(String name) {
 
 		this.name = name;
-		ForgeRegistries.ITEMS.register(setRegistryName("tome_" + this.name));
 		return super.setUnlocalizedName(modName + ".tome." + name);
 	}
 

@@ -61,7 +61,6 @@ public abstract class ItemDiagram extends ItemCore implements IInitializer, IMod
 	public Item setUnlocalizedName(String name) {
 
 		this.name = name;
-		ForgeRegistries.ITEMS.register(setRegistryName("diagram_" + this.name));
 		return super.setUnlocalizedName(modName + ".diagram." + name);
 	}
 

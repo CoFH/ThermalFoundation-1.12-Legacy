@@ -19,6 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import static cofh.core.util.helpers.RecipeHelper.addShapelessOreRecipe;
 import static cofh.core.util.helpers.RecipeHelper.addShapelessRecipe;
@@ -29,7 +30,6 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
-		register("fertilizer");
 		setUnlocalizedName("fertilizer");
 		setCreativeTab(ThermalFoundation.tabUtils);
 	}
@@ -98,11 +98,12 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 	@Override
 	public boolean initialize() {
 
+		ForgeRegistries.ITEMS.register(setRegistryName("fertilizer"));
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		fertilizerBasic = addItem(0, "fertilizerBasic");
 		fertilizerRich = addItem(1, "fertilizerRich");
 		fertilizerFlux = addItem(2, "fertilizerFlux", EnumRarity.UNCOMMON);
-
-		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}

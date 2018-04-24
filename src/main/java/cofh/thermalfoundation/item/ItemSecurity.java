@@ -23,6 +23,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -38,7 +39,6 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
-		register("security");
 		setUnlocalizedName("util");
 		setCreativeTab(ThermalFoundation.tabUtils);
 
@@ -127,9 +127,10 @@ public class ItemSecurity extends ItemMulti implements IInitializer {
 	@Override
 	public boolean initialize() {
 
-		lock = addItem(Type.LOCK.ordinal(), "lock");
-
+		ForgeRegistries.ITEMS.register(setRegistryName("security"));
 		ThermalFoundation.proxy.addIModelRegister(this);
+
+		lock = addItem(Type.LOCK.ordinal(), "lock");
 
 		return true;
 	}

@@ -27,6 +27,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -43,7 +44,6 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
-		register("meter");
 		setUnlocalizedName("util");
 		setCreativeTab(ThermalFoundation.tabUtils);
 
@@ -163,9 +163,10 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 	@Override
 	public boolean initialize() {
 
-		multimeter = addItem(Type.MULTIMETER.ordinal(), "multimeter");
-
+		ForgeRegistries.ITEMS.register(setRegistryName("meter"));
 		ThermalFoundation.proxy.addIModelRegister(this);
+
+		multimeter = addItem(Type.MULTIMETER.ordinal(), "multimeter");
 
 		return true;
 	}

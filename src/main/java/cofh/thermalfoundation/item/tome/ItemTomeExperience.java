@@ -32,6 +32,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -331,11 +332,12 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 	@Override
 	public boolean initialize() {
 
+		ForgeRegistries.ITEMS.register(setRegistryName("tome_experience"));
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		config();
 
 		tomeExperience = new ItemStack(this);
-
-		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}

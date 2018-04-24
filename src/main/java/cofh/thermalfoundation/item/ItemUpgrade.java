@@ -28,6 +28,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -41,7 +42,6 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 
 		super("thermalfoundation");
 
-		register("upgrade");
 		setUnlocalizedName("upgrade");
 		setCreativeTab(ThermalFoundation.tabUtils);
 	}
@@ -138,6 +138,9 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 	@Override
 	public boolean initialize() {
 
+		ForgeRegistries.ITEMS.register(setRegistryName("upgrade"));
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		upgradeIncremental = new ItemStack[4];
 		for (int i = 0; i < 4; i++) {
 			byte level = (byte) (i + 1);
@@ -154,8 +157,6 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 
 		upgradeCreative = addItem(256, "creative", EnumRarity.EPIC);
 		addUpgradeEntry(256, UpgradeType.CREATIVE, TFProps.LEVEL_MAX);
-
-		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}

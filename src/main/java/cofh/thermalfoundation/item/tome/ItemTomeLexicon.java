@@ -19,6 +19,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -86,11 +87,12 @@ public class ItemTomeLexicon extends ItemTome implements IInventoryContainerItem
 	@Override
 	public boolean initialize() {
 
+		ForgeRegistries.ITEMS.register(setRegistryName("tome_lexicon"));
+		ThermalFoundation.proxy.addIModelRegister(this);
+
 		config();
 
 		tomeLexicon = new ItemStack(this);
-
-		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}

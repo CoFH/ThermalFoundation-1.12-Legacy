@@ -4,6 +4,7 @@ import cofh.core.item.ItemMulti;
 import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ItemGeode extends ItemMulti implements IInitializer {
 
@@ -11,7 +12,6 @@ public class ItemGeode extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
-		register("geode");
 		setUnlocalizedName("geode");
 		setCreativeTab(ThermalFoundation.tabItems);
 	}
@@ -20,9 +20,10 @@ public class ItemGeode extends ItemMulti implements IInitializer {
 	@Override
 	public boolean initialize() {
 
-		geode = addItem(0, "geode");
-
+		ForgeRegistries.ITEMS.register(setRegistryName("geode"));
 		ThermalFoundation.proxy.addIModelRegister(this);
+
+		geode = addItem(0, "geode");
 
 		return true;
 	}

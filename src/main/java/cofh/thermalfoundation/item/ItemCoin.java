@@ -5,6 +5,7 @@ import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ItemCoin extends ItemMulti implements IInitializer {
 
@@ -12,7 +13,6 @@ public class ItemCoin extends ItemMulti implements IInitializer {
 
 		super("thermalfoundation");
 
-		register("coin");
 		setUnlocalizedName("coin");
 		setCreativeTab(ThermalFoundation.tabItems);
 	}
@@ -20,6 +20,9 @@ public class ItemCoin extends ItemMulti implements IInitializer {
 	/* IInitializer */
 	@Override
 	public boolean initialize() {
+
+		ForgeRegistries.ITEMS.register(setRegistryName("coin"));
+		ThermalFoundation.proxy.addIModelRegister(this);
 
 		coinIron = addOreDictItem(0, "coinIron");
 		coinGold = addOreDictItem(1, "coinGold");
@@ -42,8 +45,6 @@ public class ItemCoin extends ItemMulti implements IInitializer {
 		coinSignalum = addOreDictItem(101, "coinSignalum", EnumRarity.UNCOMMON);
 		coinLumium = addOreDictItem(102, "coinLumium", EnumRarity.UNCOMMON);
 		coinEnderium = addOreDictItem(103, "coinEnderium", EnumRarity.RARE);
-
-		ThermalFoundation.proxy.addIModelRegister(this);
 
 		return true;
 	}
