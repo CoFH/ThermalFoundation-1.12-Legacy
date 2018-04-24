@@ -173,7 +173,7 @@ public class ItemMeter extends ItemMulti implements IInitializer {
 	@Override
 	public boolean register() {
 
-		addShapedRecipe(multimeter, "C C", "LPL", " G ", 'C', "ingotCopper", 'L', "ingotLead", 'P', ItemMaterial.powerCoilElectrum, 'G', "gearElectrum");
+		addShapedRecipe(multimeter, "C C", "LPL", " G ", 'C', "ingotCopper", 'L', "ingotLead", 'P', ItemMaterial.powerCoilElectrum, 'G', "gearGold");
 
 		return true;
 	}
