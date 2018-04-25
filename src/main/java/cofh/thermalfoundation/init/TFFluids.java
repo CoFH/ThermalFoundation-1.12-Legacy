@@ -2,6 +2,7 @@ package cofh.thermalfoundation.init;
 
 import cofh.core.fluid.BlockFluidCore;
 import cofh.core.fluid.FluidCore;
+import cofh.core.init.CoreProps;
 import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.fluid.*;
@@ -245,6 +246,21 @@ public class TFFluids {
 			stack.tag.setString("Potion", resourcelocation.toString());
 		}
 		return stack;
+	}
+
+	public static FluidStack getXPFluid(FluidStack stack) {
+
+		if (stack == null) {
+			return null;
+		}
+		if (stack.getFluid().equals(fluidExperience)) {
+			return stack;
+		}
+		String name = stack.getFluid().getName();
+		if (name.equals(CoreProps.ESSENCE) || name.equals(CoreProps.XPJUICE)) {
+			return new FluidStack(TFFluids.fluidExperience, stack.amount);
+		}
+		return null;
 	}
 
 	private static ArrayList<IInitializer> initList = new ArrayList<>();
