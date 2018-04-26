@@ -181,6 +181,23 @@ item.thermalfoundation.diagram.redprint.name=Красная печать
 item.thermalfoundation.diagram.schematic.name=Схема
 item.thermalfoundation.diagram.scroll.name=Свиток
 
+item.thermalfoundation.dye.dyeBlack.name=Черный пигмент
+item.thermalfoundation.dye.dyeBlue.name=Синий пигмент
+item.thermalfoundation.dye.dyeBrown.name=Коричневый пигмент
+item.thermalfoundation.dye.dyeCyan.name=Голубой пигмент
+item.thermalfoundation.dye.dyeGray.name=Серый пигмент
+item.thermalfoundation.dye.dyeGreen.name=Зеленый пигмент
+item.thermalfoundation.dye.dyeLightBlue.name=Светло-синий пигмент
+item.thermalfoundation.dye.dyeLightGray.name=Светло-серый пигмент
+item.thermalfoundation.dye.dyeLime.name=Лаймовый пигмент
+item.thermalfoundation.dye.dyeMagenta.name=Пурпурный пигмент
+item.thermalfoundation.dye.dyeOrange.name=Оранжевый пигмент
+item.thermalfoundation.dye.dyePink.name=Розовый пигмент
+item.thermalfoundation.dye.dyePurple.name=Фиолетовый пигмент
+item.thermalfoundation.dye.dyeRed.name=Красный пигмент
+item.thermalfoundation.dye.dyeWhite.name=Белый пигмент
+item.thermalfoundation.dye.dyeYellow.name=Желтый пигмент
+
 item.thermalfoundation.fertilizer.fertilizerBasic.name=Фито-Гро
 item.thermalfoundation.fertilizer.fertilizerFlux.name=Флаксовый Фито-Гро
 item.thermalfoundation.fertilizer.fertilizerRich.name=Обогащённый Фито-Гро
@@ -293,6 +310,10 @@ item.thermalfoundation.material.nuggetSignalum.name=Синаловый само�
 item.thermalfoundation.material.nuggetSilver.name=Серебрянный самородок
 item.thermalfoundation.material.nuggetSteel.name=Стальной самородок
 item.thermalfoundation.material.nuggetTin.name=Оловянный самородок
+
+item.thermalfoundation.material.partDrillHead.name=Головка дрели
+item.thermalfoundation.material.partSawBlade.name=Лезвие пилы
+item.thermalfoundation.material.partToolCasing.name=Корпус инструмента
 
 item.thermalfoundation.material.plateAluminum.name=Алюминиевая пластина
 item.thermalfoundation.material.plateBronze.name=Бронзовая пластина
@@ -526,6 +547,12 @@ itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Броня
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Инструменты
 itemGroup.thermalfoundation.creativeTabUtils=Thermal Foundation: Утилиты
 
+itemGroup.thermalseries.creativeTabBlocks=Thermal Series: Блоки
+itemGroup.thermalseries.creativeTabItems=Thermal Series: Предметы
+itemGroup.thermalseries.creativeTabMisc=Thermal Series: Разное
+itemGroup.thermalseries.creativeTabTools=Thermal Series: Инструменты
+itemGroup.thermalseries.creativeTabUtils=Thermal Series: Утилиты
+
 tab.thermalfoundation.lexicon.study.0=Обратитесь к знаниям мира и измените Вашу личную судьбу.
 tab.thermalfoundation.lexicon.study.1=Запитайте лексикон, чтобы заставить мир повиноваться Вашим взглядам.
 tab.thermalfoundation.lexicon.transmute.0=Превращайте эквивалентные предметы согласно тайному набору правил, установленным высшими силам.
@@ -562,6 +589,7 @@ tile.thermalfoundation.glass.tin.name=Усиленное оловянное ст
 tile.thermalfoundation.ore.aluminum.name=Алюминиевая руда
 tile.thermalfoundation.ore.copper.name=Медная руда
 tile.thermalfoundation.ore.crude_oil_gravel.name=Нефтяной сланец
+tile.thermalfoundation.ore.crude_oil_red_sand.name=Нефтяной песок
 tile.thermalfoundation.ore.crude_oil_sand.name=Нефтяной песок
 tile.thermalfoundation.ore.ender.name=Резонирующий эндерняк
 tile.thermalfoundation.ore.glowstone.name=Заряженный адский камень нижнего мира
