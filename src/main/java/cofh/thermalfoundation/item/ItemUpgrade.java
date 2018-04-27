@@ -3,6 +3,7 @@ package cofh.thermalfoundation.item;
 import cofh.api.core.ISecurable;
 import cofh.api.item.IUpgradeItem;
 import cofh.api.tileentity.IUpgradeable;
+import cofh.core.init.CoreProps;
 import cofh.core.item.ItemMulti;
 import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.ChatHelper;
@@ -156,7 +157,7 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 		}
 
 		upgradeCreative = addItem(256, "creative", EnumRarity.EPIC);
-		addUpgradeEntry(256, UpgradeType.CREATIVE, TFProps.LEVEL_MAX);
+		addUpgradeEntry(256, UpgradeType.CREATIVE, CoreProps.LEVEL_MAX);
 
 		return true;
 	}
