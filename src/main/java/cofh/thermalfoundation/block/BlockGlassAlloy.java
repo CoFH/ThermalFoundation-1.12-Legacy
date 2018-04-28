@@ -270,7 +270,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 		SIGNALUM(5, "signalum", 7, new float[] { 0.788F, 0.345F, 0.133F }, EnumRarity.UNCOMMON),
 		LUMIUM(6, "lumium", 15, new float[] { 0.918F, 0.898F, 0.620F }, EnumRarity.UNCOMMON),
 		ENDERIUM(7, "enderium", 4, new float[] { 0.165F, 0.459F, 0.459F }, EnumRarity.RARE);
-		// @formatter: on
+		// @formatter:on
 
 		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
@@ -293,13 +293,13 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 			this(metadata, name, light, beaconMult, EnumRarity.COMMON);
 		}
 
-
 		Type(int metadata, String name, float[] beaconMult) {
 
 			this(metadata, name, 0, beaconMult, EnumRarity.COMMON);
 		}
 
 		public int getMetadata() {
+
 			return this.metadata;
 		}
 

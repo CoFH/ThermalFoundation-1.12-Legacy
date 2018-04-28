@@ -39,17 +39,21 @@ public class TFEquipment {
 	public static void preInit() {
 
 		for (ArmorSet e : ArmorSet.values()) {
-			e.initialize();
+			e.preInit();
 			ThermalFoundation.proxy.addIModelRegister(e);
 		}
 		for (ToolSet e : ToolSet.values()) {
-			e.initialize();
+			e.preInit();
 			ThermalFoundation.proxy.addIModelRegister(e);
 		}
 		for (ToolSetVanilla e : ToolSetVanilla.values()) {
-			e.initialize();
+			e.preInit();
 			ThermalFoundation.proxy.addIModelRegister(e);
 		}
+		//		for (HorseArmor e : HorseArmor.values()) {
+		//			e.preInit();
+		//			ThermalFoundation.proxy.addIModelRegister(e);
+		//		}
 		MinecraftForge.EVENT_BUS.register(INSTANCE);
 	}
 
@@ -58,14 +62,17 @@ public class TFEquipment {
 	public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
 
 		for (ArmorSet e : ArmorSet.values()) {
-			e.register();
+			e.initialize();
 		}
 		for (ToolSet e : ToolSet.values()) {
-			e.register();
+			e.initialize();
 		}
 		for (ToolSetVanilla e : ToolSetVanilla.values()) {
-			e.register();
+			e.initialize();
 		}
+		//		for (HorseArmor e : HorseArmor.values()) {
+		//			e.initialize();
+		//		}
 	}
 
 	/* MATERIALS */
@@ -95,6 +102,19 @@ public class TFEquipment {
 	public static final ToolMaterial TOOL_MATERIAL_BRONZE = EnumHelper.addToolMaterial("TF:BRONZE", 2, 325, 6.0F, 2.0F, 10);
 	public static final ToolMaterial TOOL_MATERIAL_CONSTANTAN = EnumHelper.addToolMaterial("TF:CONSTANTAN", 2, 275, 6.0F, 1.5F, 12);
 
+	//	public static final HorseArmorType HORSE_ARMOR_COPPER = EnumHelper.addHorseArmor("TF:COPPER", ThermalFoundation.MOD_ID + ":textures/horse_armor/" + "copper.png", 4);
+	//	public static final HorseArmorType HORSE_ARMOR_TIN = EnumHelper.addHorseArmor("TF:TIN", ThermalFoundation.MOD_ID + ":textures/horse_armor/" + "tin.png", 4);
+	//	public static final HorseArmorType HORSE_ARMOR_SILVER = EnumHelper.addHorseArmor("TF:SILVER", ThermalFoundation.MOD_ID + ":textures/horse_armor/" + "silver.png", 8);
+	//	public static final HorseArmorType HORSE_ARMOR_LEAD = EnumHelper.addHorseArmor("TF:LEAD", ThermalFoundation.MOD_ID + ":textures/horse_armor/" + "lead.png", 5);
+	//	public static final HorseArmorType HORSE_ARMOR_ALUMINUM = EnumHelper.addHorseArmor("TF:ALUMINUM", ThermalFoundation.MOD_ID + ":textures/horse_armor/" + "aluminum.png", 5);
+	//	public static final HorseArmorType HORSE_ARMOR_NICKEL = EnumHelper.addHorseArmor("TF:NICKEL", ThermalFoundation.MOD_ID + ":textures/horse_armor/" + "nickel.png", 9);
+	//	public static final HorseArmorType HORSE_ARMOR_PLATINUM = EnumHelper.addHorseArmor("TF:PLATINUM", ThermalFoundation.MOD_ID + ":textures/horse_armor/" + "platinum.png", 12);
+	//	public static final HorseArmorType HORSE_ARMOR_STEEL = EnumHelper.addHorseArmor("TF:STEEL", ThermalFoundation.MOD_ID + ":textures/horse_armor/" + "steel.png", 9);
+	//	public static final HorseArmorType HORSE_ARMOR_ELECTRUM = EnumHelper.addHorseArmor("TF:ELECTRUM", ThermalFoundation.MOD_ID + ":textures/horse_armor/" + "electrum.png", 8);
+	//	public static final HorseArmorType HORSE_ARMOR_INVAR = EnumHelper.addHorseArmor("TF:INVAR", ThermalFoundation.MOD_ID + ":textures/horse_armor/" + "invar.png", 9);
+	//	public static final HorseArmorType HORSE_ARMOR_BRONZE = EnumHelper.addHorseArmor("TF:BRONZE", ThermalFoundation.MOD_ID + ":textures/horse_armor/" + "bronze.png", 8);
+	//	public static final HorseArmorType HORSE_ARMOR_CONSTANTAN = EnumHelper.addHorseArmor("TF:CONSTANTAN", ThermalFoundation.MOD_ID + ":textures/horse_armor/" + "constantan.png", 8);
+
 	/* ARMOR */
 	public enum ArmorSet implements IModelRegister {
 
@@ -113,7 +133,7 @@ public class TFEquipment {
 		INVAR("invar", ARMOR_MATERIAL_INVAR, "ingotInvar"),
 		BRONZE("bronze", ARMOR_MATERIAL_BRONZE, "ingotBronze"),
 		CONSTANTAN("constantan", ARMOR_MATERIAL_CONSTANTAN, "ingotConstantan");
-		// @formatter: on
+		// @formatter:on
 
 		public final String name;
 		public final String ingot;
@@ -146,7 +166,7 @@ public class TFEquipment {
 			itemBoots = new ItemArmorCore(ARMOR_MATERIAL, EntityEquipmentSlot.FEET);
 		}
 
-		protected void initialize() {
+		protected void preInit() {
 
 			final String ARMOR = "thermalfoundation.armor." + name;
 			final String PATH_ARMOR = "thermalfoundation:textures/armor/";
@@ -195,7 +215,7 @@ public class TFEquipment {
 			armorBoots = new ItemStack(itemBoots);
 		}
 
-		protected void register() {
+		protected void initialize() {
 
 			if (enable[0]) {
 				addShapedRecipe(armorHelmet, "III", "I I", 'I', ingot);
@@ -248,7 +268,7 @@ public class TFEquipment {
 		INVAR("invar",TOOL_MATERIAL_INVAR, "ingotInvar"),
 		BRONZE("bronze", TOOL_MATERIAL_BRONZE, "ingotBronze"),
 		CONSTANTAN("constantan", TOOL_MATERIAL_CONSTANTAN, "ingotConstantan");
-		// @formatter: on
+		// @formatter:on
 
 		public final String name;
 		public final String ingot;
@@ -319,7 +339,7 @@ public class TFEquipment {
 			itemShield = new ItemShieldCore(material);
 		}
 
-		protected void initialize() {
+		protected void preInit() {
 
 			final String TOOL = "thermalfoundation.tool." + name;
 
@@ -425,7 +445,7 @@ public class TFEquipment {
 			toolShield = new ItemStack(itemShield);
 		}
 
-		protected void register() {
+		protected void initialize() {
 
 			if (enable[0]) {
 				addShapedRecipe(toolSword, "I", "I", "S", 'I', ingot, 'S', "stickWood");
@@ -591,7 +611,7 @@ public class TFEquipment {
 			return type != WOOD && type != STONE;
 		}
 
-		protected void initialize() {
+		protected void preInit() {
 
 			final String TOOL = "thermalfoundation.tool." + name;
 
@@ -674,7 +694,7 @@ public class TFEquipment {
 			toolShield = new ItemStack(itemShield);
 		}
 
-		protected void register() {
+		protected void initialize() {
 
 			if (enable[0]) {
 				addShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
@@ -731,5 +751,84 @@ public class TFEquipment {
 			}
 		}
 	}
+
+	//	/* HORSE ARMOR */
+	//	public enum HorseArmor implements IModelRegister {
+	//
+	//		// @formatter:off
+//		COPPER("copper", HORSE_ARMOR_COPPER, "ingotCopper"),
+//		TIN("tin", HORSE_ARMOR_TIN, "ingotTin"),
+//		SILVER("silver", HORSE_ARMOR_SILVER, "ingotSilver"),
+//		LEAD("lead", HORSE_ARMOR_LEAD, "ingotLead"),
+//		ALUMINUM("aluminum", HORSE_ARMOR_ALUMINUM, "ingotAluminum"),
+//		NICKEL("nickel", HORSE_ARMOR_NICKEL, "ingotNickel"),
+//		PLATINUM("platinum", HORSE_ARMOR_PLATINUM, "ingotPlatinum"),
+//		// IRIDIUM
+//		// MITHRIL
+//		STEEL("steel", HORSE_ARMOR_STEEL, "ingotSteel"),
+//		ELECTRUM("electrum", HORSE_ARMOR_ELECTRUM, "ingotElectrum"),
+//		INVAR("invar", HORSE_ARMOR_INVAR, "ingotInvar"),
+//		BRONZE("bronze", HORSE_ARMOR_BRONZE, "ingotBronze"),
+//		CONSTANTAN("constantan", HORSE_ARMOR_CONSTANTAN, "ingotConstantan");
+//		// @formatter:on
+	//
+	//		public final String name;
+	//		public final String ingot;
+	//		public final HorseArmorType ARMOR_TYPE;
+	//
+	//		public ItemHorseArmorCore itemArmor;
+	//
+	//		public ItemStack armor;
+	//
+	//		public boolean enable;
+	//
+	//		HorseArmor(String name, HorseArmorType type, String ingot) {
+	//
+	//			this.name = name.toLowerCase(Locale.US);
+	//			this.ingot = ingot;
+	//			ARMOR_TYPE = type;
+	//		}
+	//
+	//		protected void preInit() {
+	//
+	//			final String ARMOR = "thermalfoundation.horseArmor." + name;
+	//
+	//			String category = "Items.HorseArmor";
+	//
+	//			enable = ThermalFoundation.CONFIG.getConfiguration().get(category, StringHelper.titleCase(name), true).getBoolean(true);
+	//			enable &= TFProps.enableHorseArmorCrafting;
+	//			itemArmor = new ItemHorseArmorCore(ARMOR_TYPE);
+	//
+	//			itemArmor.setUnlocalizedName(ARMOR).setCreativeTab(ThermalFoundation.tabBasicArmor);
+	//			itemArmor.setShowInCreative(enable);
+	//			itemArmor.setRegistryName("horse_armor_" + name);
+	//			ForgeRegistries.ITEMS.register(itemArmor);
+	//
+	//			/* REFERENCES */
+	//			armor = new ItemStack(itemArmor);
+	//		}
+	//
+	//		protected void initialize() {
+	//
+	//			if (enable) {
+	//				addShapedRecipe(armor, "I I", "LCL", "I I", 'C', "blockWool", 'L', Items.LEATHER, 'I', ingot);
+	//			}
+	//		}
+	//
+	//		/* HELPERS */
+	//		@SideOnly (Side.CLIENT)
+	//		public void registerModel(Item item, String stackName) {
+	//
+	//			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(ThermalFoundation.MOD_ID + ":horse_armor", "type=" + stackName));
+	//		}
+	//
+	//		/* IModelRegister */
+	//		@Override
+	//		@SideOnly (Side.CLIENT)
+	//		public void registerModels() {
+	//
+	//			registerModel(itemArmor, "horse_armor_" + name);
+	//		}
+	//	}
 
 }

@@ -260,7 +260,7 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 		PLATINUM(6, "platinum", 4, new float[] { 0.537F, 0.808F, 0.910F }, EnumRarity.UNCOMMON),
 		IRIDIUM(7, "iridium", 4, new float[] { 0.800F, 0.804F, 0.890F }, EnumRarity.UNCOMMON),
 		MITHRIL(8, "mithril", 8, new float[] { 0.416F, 0.612F, 0.722F }, EnumRarity.RARE);
-		// @formatter: on
+		// @formatter:on
 
 		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
@@ -283,13 +283,13 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 			this(metadata, name, light, beaconMult, EnumRarity.COMMON);
 		}
 
-
 		Type(int metadata, String name, float[] beaconMult) {
 
 			this(metadata, name, 0, beaconMult, EnumRarity.COMMON);
 		}
 
 		public int getMetadata() {
+
 			return this.metadata;
 		}
 

@@ -170,7 +170,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		PLATINUM(6, "platinum", 4, EnumRarity.UNCOMMON),
 		IRIDIUM(7, "iridium", 4, EnumRarity.UNCOMMON),
 		MITHRIL(8, "mithril", 8, EnumRarity.RARE);
-		// @formatter: on
+		// @formatter:on
 
 		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;

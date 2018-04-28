@@ -1,0 +1,74 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "builtin/generated",
+		"textures": {
+			"layer0": "blocks/dirt"
+		},
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"type": {
+			"horse_armor_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/horse_armor_copper"
+				}
+			},
+			"horse_armor_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/horse_armor_tin"
+				}
+			},
+			"horse_armor_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/horse_armor_silver"
+				}
+			},
+			"horse_armor_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/horse_armor_lead"
+				}
+			},
+			"horse_armor_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/horse_armor_aluminum"
+				}
+			},
+			"horse_armor_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/horse_armor_nickel"
+				}
+			},
+			"horse_armor_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/horse_armor_platinum"
+				}
+			},
+			"horse_armor_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/horse_armor_steel"
+				}
+			},
+			"horse_armor_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/horse_armor_electrum"
+				}
+			},
+			"horse_armor_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/horse_armor_invar"
+				}
+			},
+			"horse_armor_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/horse_armor_bronze"
+				}
+			},
+			"horse_armor_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/armor/horse_armor_constantan"
+				}
+			}
+		}
+	}
+}

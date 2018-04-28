@@ -202,6 +202,19 @@ item.thermalfoundation.fertilizer.fertilizerBasic.name=Phyto-Gro
 item.thermalfoundation.fertilizer.fertilizerFlux.name=Fluxed Phyto-Gro
 item.thermalfoundation.fertilizer.fertilizerRich.name=Rich Phyto-Gro
 
+item.thermalfoundation.horseArmor.aluminum.name=Aluminum Horse Armor
+item.thermalfoundation.horseArmor.bronze.name=Bronze Horse Armor
+item.thermalfoundation.horseArmor.constantan.name=Constantan Horse Armor
+item.thermalfoundation.horseArmor.copper.name=Copper Horse Armor
+item.thermalfoundation.horseArmor.electrum.name=Electrum Horse Armor
+item.thermalfoundation.horseArmor.invar.name=Invar Horse Armor
+item.thermalfoundation.horseArmor.lead.name=Lead Horse Armor
+item.thermalfoundation.horseArmor.nickel.name=Nickel Horse Armor
+item.thermalfoundation.horseArmor.platinum.name=Platinum Horse Armor
+item.thermalfoundation.horseArmor.silver.name=Silver Horse Armor
+item.thermalfoundation.horseArmor.steel.name=Steel Horse Armor
+item.thermalfoundation.horseArmor.tin.name=Tin Horse Armor
+
 item.thermalfoundation.geode.geode.name=Geode
 
 item.thermalfoundation.material.crystalCinnabar.name=Cinnabar

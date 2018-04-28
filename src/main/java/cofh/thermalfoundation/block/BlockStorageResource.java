@@ -161,7 +161,7 @@ public class BlockStorageResource extends BlockCore implements IInitializer, IMo
 		// @formatter:off
 		CHARCOAL(0, "charcoal"),
 		COKE(1, "coke");
-		// @formatter: on
+		// @formatter:on
 
 		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
@@ -187,6 +187,7 @@ public class BlockStorageResource extends BlockCore implements IInitializer, IMo
 		}
 
 		Type(int metadata, String name, float hardness, float resistance) {
+
 			this(metadata, name, 0, hardness, resistance, EnumRarity.COMMON);
 		}
 
@@ -201,6 +202,7 @@ public class BlockStorageResource extends BlockCore implements IInitializer, IMo
 		}
 
 		public int getMetadata() {
+
 			return this.metadata;
 		}
 

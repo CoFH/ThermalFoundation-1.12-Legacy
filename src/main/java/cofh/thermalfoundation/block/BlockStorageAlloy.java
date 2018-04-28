@@ -208,7 +208,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		SIGNALUM(5, "signalum", 7, 5.0F, 6.0F, EnumRarity.UNCOMMON),
 		LUMIUM(6, "lumium", 15, 5.0F, 9.0F, EnumRarity.UNCOMMON),
 		ENDERIUM(7, "enderium", 4, 40.0F, 120.0F, EnumRarity.RARE);
-		// @formatter: on
+		// @formatter:on
 
 		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
@@ -234,6 +234,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		}
 
 		Type(int metadata, String name, float hardness, float resistance) {
+
 			this(metadata, name, 0, hardness, resistance, EnumRarity.COMMON);
 		}
 
@@ -248,6 +249,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		}
 
 		public int getMetadata() {
+
 			return this.metadata;
 		}
 

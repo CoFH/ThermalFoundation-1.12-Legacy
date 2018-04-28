@@ -203,7 +203,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		PLATINUM(6, "platinum", 4, 5.0F, 10.0F, EnumRarity.UNCOMMON),
 		IRIDIUM(7, "iridium", 4, 10.0F, 15.0F, EnumRarity.UNCOMMON),
 		MITHRIL(8, "mithril", 8, 30.0F, 120.0F, EnumRarity.RARE);
-		// @formatter: on
+		// @formatter:on
 
 		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
@@ -229,6 +229,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		}
 
 		Type(int metadata, String name, float hardness, float resistance) {
+
 			this(metadata, name, 0, hardness, resistance, EnumRarity.COMMON);
 		}
 
@@ -243,6 +244,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		}
 
 		public int getMetadata() {
+
 			return this.metadata;
 		}
 

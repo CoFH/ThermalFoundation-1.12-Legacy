@@ -352,7 +352,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		REDSTONE(2, "redstone", 7, 5.0F, 3.0F, false, EnumRarity.UNCOMMON),
 		GLOWSTONE(3, "glowstone", 15, 0.4F, 2.0F, false, EnumRarity.UNCOMMON),
 		ENDER(4, "ender", 3, 3.0F, 9.0F, false, EnumRarity.RARE);
-		// @formatter: on
+		// @formatter:on
 
 		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
