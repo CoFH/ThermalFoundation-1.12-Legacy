@@ -171,7 +171,7 @@ item.thermalfoundation.coin.coinMithril.name=Мифриловая монета
 item.thermalfoundation.coin.coinNickel.name=Никелевая монета
 item.thermalfoundation.coin.coinPlatinum.name=Платиновая монета
 item.thermalfoundation.coin.coinSignalum.name=Синаловая монета
-item.thermalfoundation.coin.coinSilver.name=Серебрянная монета
+item.thermalfoundation.coin.coinSilver.name=Серебряная монета
 item.thermalfoundation.coin.coinSteel.name=Стальная монета
 item.thermalfoundation.coin.coinTin.name=Оловянная монета
 
@@ -201,6 +201,19 @@ item.thermalfoundation.dye.dyeYellow.name=Желтый пигмент
 item.thermalfoundation.fertilizer.fertilizerBasic.name=Фито-Гро
 item.thermalfoundation.fertilizer.fertilizerFlux.name=Флаксовый Фито-Гро
 item.thermalfoundation.fertilizer.fertilizerRich.name=Обогащённый Фито-Гро
+
+item.thermalfoundation.horseArmor.aluminum.name=Алюминиевая броня лошади
+item.thermalfoundation.horseArmor.bronze.name=Бронзовая броня лошади
+item.thermalfoundation.horseArmor.constantan.name=Константановая броня лошади
+item.thermalfoundation.horseArmor.copper.name=Медная броня лошади
+item.thermalfoundation.horseArmor.electrum.name=Электрумовая броня лошади
+item.thermalfoundation.horseArmor.invar.name=Инваровая броня лошади
+item.thermalfoundation.horseArmor.lead.name=Свинцовая броня лошади
+item.thermalfoundation.horseArmor.nickel.name=Никелевая броня лошади
+item.thermalfoundation.horseArmor.platinum.name=Платиновая броня лошади
+item.thermalfoundation.horseArmor.silver.name=Серебряная броня лошади
+item.thermalfoundation.horseArmor.steel.name=Стальная броня лошади
+item.thermalfoundation.horseArmor.tin.name=Оловянная броня лошади
 
 item.thermalfoundation.geode.geode.name=Жеода
 
@@ -265,7 +278,7 @@ item.thermalfoundation.material.gearMithril.name=Мифриловая шесте
 item.thermalfoundation.material.gearNickel.name=Никелевая шестерня
 item.thermalfoundation.material.gearPlatinum.name=Платиновая шестерня
 item.thermalfoundation.material.gearSignalum.name=Синаловая шестерня
-item.thermalfoundation.material.gearSilver.name=Серебрянная шестерня
+item.thermalfoundation.material.gearSilver.name=Серебряная шестерня
 item.thermalfoundation.material.gearSteel.name=Стальная шестерня
 item.thermalfoundation.material.gearTin.name=Оловянная шестерня
 
@@ -331,7 +344,7 @@ item.thermalfoundation.material.plateMithril.name=Мифриловая плас�
 item.thermalfoundation.material.plateNickel.name=Никелевая пластина
 item.thermalfoundation.material.platePlatinum.name=Платиновая пластина
 item.thermalfoundation.material.plateSignalum.name=Синаловая пластина
-item.thermalfoundation.material.plateSilver.name=Серебрянная пластина
+item.thermalfoundation.material.plateSilver.name=Серебряная пластина
 item.thermalfoundation.material.plateSteel.name=Стальная пластина
 item.thermalfoundation.material.plateTin.name=Оловянная пластина
 
@@ -476,17 +489,17 @@ item.thermalfoundation.tool.platinumShovel.name=Платиновая лопат�
 item.thermalfoundation.tool.platinumSickle.name=Платиновый серп
 item.thermalfoundation.tool.platinumSword.name=Платиновый меч
 
-item.thermalfoundation.tool.silverAxe.name=Серебрянный топор
-item.thermalfoundation.tool.silverBow.name=Серебрянный укрепленный лук
-item.thermalfoundation.tool.silverFishingRod.name=Серебрянная удочка
-item.thermalfoundation.tool.silverHammer.name=Серебрянный молот
-item.thermalfoundation.tool.silverHoe.name=Серебрянная мотыга
-item.thermalfoundation.tool.silverPickaxe.name=Серебрянная кирка
-item.thermalfoundation.tool.silverShears.name=Серебрянные ножницы
-item.thermalfoundation.tool.silverShield.name=Серебрянный щит
-item.thermalfoundation.tool.silverShovel.name=Серебрянная лопата
-item.thermalfoundation.tool.silverSickle.name=Серебрянный серп
-item.thermalfoundation.tool.silverSword.name=Серебрянный меч
+item.thermalfoundation.tool.silverAxe.name=Серебряный топор
+item.thermalfoundation.tool.silverBow.name=Серебряный укрепленный лук
+item.thermalfoundation.tool.silverFishingRod.name=Серебряная удочка
+item.thermalfoundation.tool.silverHammer.name=Серебряный молот
+item.thermalfoundation.tool.silverHoe.name=Серебряная мотыга
+item.thermalfoundation.tool.silverPickaxe.name=Серебряная кирка
+item.thermalfoundation.tool.silverShears.name=Серебряные ножницы
+item.thermalfoundation.tool.silverShield.name=Серебряный щит
+item.thermalfoundation.tool.silverShovel.name=Серебряная лопата
+item.thermalfoundation.tool.silverSickle.name=Серебряный серп
+item.thermalfoundation.tool.silverSword.name=Серебряный меч
 
 item.thermalfoundation.tool.steelAxe.name=Стальной топор
 item.thermalfoundation.tool.steelBow.name=Стальной укрепленный лук
@@ -599,7 +612,7 @@ tile.thermalfoundation.ore.mithril.name=Мифриловая руда
 tile.thermalfoundation.ore.nickel.name=Никелевая руда
 tile.thermalfoundation.ore.platinum.name=Платиновая руда
 tile.thermalfoundation.ore.redstone.name=Руда дестабилизированного красного камня
-tile.thermalfoundation.ore.silver.name=Серебрянная руда
+tile.thermalfoundation.ore.silver.name=Серебряная руда
 tile.thermalfoundation.ore.tin.name=Оловянная руда
 
 tile.thermalfoundation.rockwool.black.name=Чёрный минеральная шерсть
