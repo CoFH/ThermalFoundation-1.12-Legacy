@@ -1,7 +1,7 @@
 package cofh.thermalfoundation.util.crafting;
 
 import cofh.core.init.CoreProps;
-import cofh.thermalfoundation.util.helpers.FluidPotionHelper;
+import cofh.thermalfoundation.init.TFFluids;
 import com.google.gson.JsonObject;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
@@ -76,7 +76,7 @@ public class ShapelessPotionFillRecipeFactory implements IRecipeFactory {
 			if (potionStack.isEmpty() || handler == null) {
 				return ItemStack.EMPTY;
 			}
-			FluidStack potionFluid = FluidPotionHelper.getFluidPotion(CoreProps.BOTTLE_VOLUME, potionStack);
+			FluidStack potionFluid = TFFluids.getPotionFluid(CoreProps.BOTTLE_VOLUME, potionStack);
 
 			if (handler.fill(potionFluid, false) < CoreProps.BOTTLE_VOLUME) {
 				return ItemStack.EMPTY;

@@ -6,15 +6,20 @@ import cofh.core.init.CoreProps;
 import cofh.core.util.core.IInitializer;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.fluid.*;
+import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionType;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 
 public class TFFluids {
@@ -197,6 +202,21 @@ public class TFFluids {
 	}
 
 	/* HELPERS */
+	public static boolean isPotion(@Nonnull FluidStack stack) {
+
+		return stack.getFluid().getName().equals(fluidPotion.getName());
+	}
+
+	public static boolean isSplashPotion(@Nonnull FluidStack stack) {
+
+		return stack.getFluid().getName().equals(fluidPotionSplash.getName());
+	}
+
+	public static boolean isLingeringPotion(@Nonnull FluidStack stack) {
+
+		return stack.getFluid().getName().equals(fluidPotionLingering.getName());
+	}
+
 	public static FluidStack getPotion(int amount, PotionType type) {
 
 		if (type == null || type == PotionTypes.EMPTY) {
@@ -246,6 +266,20 @@ public class TFFluids {
 			stack.tag.setString("Potion", resourcelocation.toString());
 		}
 		return stack;
+	}
+
+	public static FluidStack getPotionFluid(int amount, ItemStack stack) {
+
+		Item item = stack.getItem();
+
+		if (item.equals(Items.POTIONITEM)) {
+			return getPotion(amount, PotionUtils.getPotionFromItem(stack));
+		} else if (item.equals(Items.SPLASH_POTION)) {
+			return getSplashPotion(amount, PotionUtils.getPotionFromItem(stack));
+		} else if (item.equals(Items.LINGERING_POTION)) {
+			return getLingeringPotion(amount, PotionUtils.getPotionFromItem(stack));
+		}
+		return null;
 	}
 
 	public static FluidStack getXPFluid(FluidStack stack) {
