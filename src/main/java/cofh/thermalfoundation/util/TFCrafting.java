@@ -2,7 +2,6 @@ package cofh.thermalfoundation.util;
 
 import cofh.core.init.CorePotions;
 import cofh.core.util.crafting.FluidIngredientFactory.FluidIngredient;
-import cofh.core.util.crafting.ShapelessSecureRecipeFactory.ShapelessSecureRecipe;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.init.TFProps;
@@ -100,14 +99,6 @@ public class TFCrafting {
 
 		/* POTIONS */
 		loadPotions();
-	}
-
-	public static void addSecureRecipe(ItemStack output, Object... input) {
-
-		ResourceLocation location = getNameForRecipe(output);
-		ShapelessSecureRecipe recipe = new ShapelessSecureRecipe(location, output, input);
-		recipe.setRegistryName(location);
-		GameData.register_impl(recipe);
 	}
 
 	public static void addPotionFillRecipe(ItemStack output, Object... input) {
