@@ -21,7 +21,6 @@ import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-import static cofh.core.util.helpers.RecipeHelper.addShapelessOreRecipe;
 import static cofh.core.util.helpers.RecipeHelper.addShapelessRecipe;
 
 public class ItemFertilizer extends ItemMulti implements IInitializer {
@@ -119,7 +118,7 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 
 		if (!Loader.isModLoaded("thermalexpansion")) {
 			addShapelessRecipe(fertilizerRich, fertilizerBasic, new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()));
-			addShapelessOreRecipe(fertilizerFlux, fertilizerRich, "dustRedstone");
+			addShapelessRecipe(fertilizerFlux, fertilizerRich, "dustRedstone");
 		}
 
 		return true;

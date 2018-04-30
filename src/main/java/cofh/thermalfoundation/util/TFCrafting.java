@@ -32,8 +32,8 @@ public class TFCrafting {
 
 		addStorageRecipe(ItemMaterial.dustWoodCompressed, "dustWood");
 
-		addShapelessOreRecipe(ItemHelper.cloneStack(Items.GUNPOWDER), "dustCoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
-		addShapelessOreRecipe(ItemHelper.cloneStack(Items.GUNPOWDER), "dustCharcoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
+		addShapelessRecipe(ItemHelper.cloneStack(Items.GUNPOWDER), "dustCoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
+		addShapelessRecipe(ItemHelper.cloneStack(Items.GUNPOWDER), "dustCharcoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
 
 		addShapedRecipe(ItemHelper.cloneStack(Blocks.TORCH, 4), "X", "#", 'X', ItemMaterial.globRosin, '#', "string");
 		addShapedRecipe(ItemHelper.cloneStack(Blocks.STICKY_PISTON), "S", "P", 'S', ItemMaterial.globRosin, 'P', Blocks.PISTON);
