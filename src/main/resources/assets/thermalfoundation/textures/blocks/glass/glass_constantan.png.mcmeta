@@ -1,0 +1,14 @@
+{
+	"ctm": {
+		"ctm_version": 1,
+		"type": "ctm",
+		"layer": "CUTOUT",
+		"textures": [ "thermalfoundation:blocks/glass/glass_constantan_ctm" ],
+		"extra": {
+			"connect_to": [
+				{ "block": "thermalfoundation:glass" },
+				{ "block": "thermalfoundation:glass_alloy" }
+			]
+		}
+	}
+}
