@@ -22,7 +22,7 @@ public class BlockFluidCrudeOil extends BlockFluidCore {
 
 	public BlockFluidCrudeOil(Fluid fluid) {
 
-		super(fluid, Material.WATER, "thermalfoundation", "crude_oil");
+		super(fluid, materialFluidCrudeOil, "thermalfoundation", "crude_oil");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(10);
 

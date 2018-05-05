@@ -25,7 +25,7 @@ public class BlockFluidRedstone extends BlockFluidCore {
 
 	public BlockFluidRedstone(Fluid fluid) {
 
-		super(fluid, Material.WATER, "thermalfoundation", "redstone");
+		super(fluid, materialFluidRedstone, "thermalfoundation", "redstone");
 		setQuantaPerBlock(LEVELS);
 		setTickRate(5);
 
