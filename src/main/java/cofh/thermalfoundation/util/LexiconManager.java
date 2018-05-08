@@ -78,13 +78,13 @@ public class LexiconManager {
 			String[] registeredOreNames = OreDictionary.getOreNames();
 			for (String oreName : registeredOreNames) {
 				if (isWhitelist && ComparableItemStack.DEFAULT_VALIDATOR.validate(oreName)) {
-					if (oreName.contains("blockCloth") || oreName.contains("blockGlass")) {
-						// ignore Cloth and Glass
+					if (oreName.contains("blockWool") || oreName.contains("blockGlass")) {
+						// ignore Wool and Glass
 					} else {
 						listNames.add(oreName);
 						defaultList.add(oreName);
 					}
-				} else if (!isWhitelist && !ComparableItemStack.DEFAULT_VALIDATOR.validate(oreName) || oreName.contains("blockCloth") || oreName.contains("blockGlass")) {
+				} else if (!isWhitelist && !ComparableItemStack.DEFAULT_VALIDATOR.validate(oreName) || oreName.contains("blockWool") || oreName.contains("blockGlass")) {
 					listNames.add(oreName);
 					defaultList.add(oreName);
 				}
