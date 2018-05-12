@@ -1,7 +1,6 @@
 package cofh.thermalfoundation;
 
 import cofh.CoFHCore;
-import cofh.cofhworld.CoFHWorld;
 import cofh.core.init.CoreEnchantments;
 import cofh.core.init.CorePotions;
 import cofh.core.init.CoreProps;
@@ -38,7 +37,7 @@ public class ThermalFoundation {
 	public static final String VERSION_GROUP = "required-after:" + MOD_ID + "@[" + VERSION + "," + VERSION_MAX + ");";
 	public static final String UPDATE_URL = "https://raw.github.com/cofh/version/master/" + MOD_ID + "_update.json";
 
-	public static final String DEPENDENCIES = CoFHCore.VERSION_GROUP + CoFHWorld.VERSION_GROUP + "before:enderio;" + "before:immersiveengineering";
+	public static final String DEPENDENCIES = CoFHCore.VERSION_GROUP + "before:enderio;" + "before:immersiveengineering";
 	public static final String MOD_GUI_FACTORY = "cofh.thermalfoundation.gui.GuiConfigTFFactory";
 
 	@Instance (MOD_ID)

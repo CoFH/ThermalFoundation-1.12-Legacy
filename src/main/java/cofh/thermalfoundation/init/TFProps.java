@@ -14,6 +14,7 @@ import cofh.thermalfoundation.item.tome.ItemTomeLexicon;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.io.FileUtils;
@@ -379,6 +380,10 @@ public class TFProps {
 		boolean generateDefaultFiles = ThermalFoundation.CONFIG.getConfiguration().getBoolean("GenerateDefaultFiles", category, true, comment);
 
 		if (!generateDefaultFiles) {
+			return;
+		}
+		if(!net.minecraftforge.fml.common.Loader.isModLoaded("cofhworld")) {
+			ThermalFoundation.LOG.error("CoFH World is not enabled, no worldgen files will be generated!");
 			return;
 		}
 		worldGenFile = new File(CoreProps.configDir, "/cofh/world/" + worldGenOre);
