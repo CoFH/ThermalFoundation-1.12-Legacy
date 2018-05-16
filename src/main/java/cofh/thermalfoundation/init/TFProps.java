@@ -3,6 +3,7 @@ package cofh.thermalfoundation.init;
 import cofh.CoFHCore;
 import cofh.core.gui.CreativeTabCore;
 import cofh.core.init.CoreProps;
+import cofh.core.network.PacketBase;
 import cofh.core.util.CoreUtils;
 import cofh.core.util.TimeTracker;
 import cofh.core.util.helpers.MathHelper;
@@ -11,6 +12,8 @@ import cofh.thermalfoundation.block.BlockOre;
 import cofh.thermalfoundation.init.TFEquipment.ArmorSet;
 import cofh.thermalfoundation.init.TFEquipment.ToolSet;
 import cofh.thermalfoundation.item.tome.ItemTomeLexicon;
+import cofh.thermalfoundation.network.PacketTFBase;
+import cofh.thermalfoundation.network.PacketTFBase.PacketTypes;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -412,30 +415,16 @@ public class TFProps {
 		}
 	}
 
-	/* INTERFACE */
-	public static boolean disableBasicItems = false;
-	public static boolean disableUpgradeItems = false;
+	public static PacketBase getConfigSync() {
 
-	public static boolean disableAllTools = false;
-	public static boolean disableAllArmor = false;
-	public static boolean disableVanillaTools = false;
+		PacketBase payload = PacketTFBase.getPacket(PacketTypes.CONFIG_SYNC);
 
-	public static boolean disableAllBows = false;
-	public static boolean disableAllFishingRods = false;
-	public static boolean disableAllShears = false;
-	public static boolean disableAllShields = false;
+		return payload;
+	}
 
-	public static boolean showDisabledEquipment = false;
-	public static boolean showCreativeItems = true;
-	public static boolean showEmptyItems = false;
-	public static boolean showFullItems = true;
-	public static boolean useUnifiedTabs = true;
+	public static void handleConfigSync(PacketBase payload) {
 
-	public static ArrayList<ItemStack> blockList = new ArrayList<>();
-	public static ArrayList<ItemStack> itemList = new ArrayList<>();
-	public static ArrayList<ItemStack> utilList = new ArrayList<>();
-	public static ArrayList<ItemStack> toolList = new ArrayList<>();
-	public static ArrayList<ItemStack> miscList = new ArrayList<>();
+	}
 
 	/* GENERAL */
 	public static final String EXPERIENCE_TIMER = "thermalfoundation.experience_timer";
@@ -461,8 +450,32 @@ public class TFProps {
 	public static int globTarFuel = 800;
 	public static int dustPyrotheumFuel = 24000;
 
+	/* INTERFACE */
+	public static boolean disableBasicItems = false;
+	public static boolean disableUpgradeItems = false;
+
+	public static boolean disableAllTools = false;
+	public static boolean disableAllArmor = false;
+	public static boolean disableVanillaTools = false;
+
+	public static boolean disableAllBows = false;
+	public static boolean disableAllFishingRods = false;
+	public static boolean disableAllShears = false;
+	public static boolean disableAllShields = false;
+
+	public static boolean showDisabledEquipment = false;
+	public static boolean showCreativeItems = true;
+	public static boolean showEmptyItems = false;
+	public static boolean showFullItems = true;
+	public static boolean useUnifiedTabs = true;
+
+	public static ArrayList<ItemStack> blockList = new ArrayList<>();
+	public static ArrayList<ItemStack> itemList = new ArrayList<>();
+	public static ArrayList<ItemStack> utilList = new ArrayList<>();
+	public static ArrayList<ItemStack> toolList = new ArrayList<>();
+	public static ArrayList<ItemStack> miscList = new ArrayList<>();
+
 	/* RENDER */
-	public static boolean iconBlazePowder = true;
 	public static boolean renderStarfieldCage = false;
 
 }

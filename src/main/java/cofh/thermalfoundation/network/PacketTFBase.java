@@ -24,6 +24,8 @@ public class PacketTFBase extends PacketBase {
 		try {
 			int type = getByte();
 			switch (PacketTypes.values()[type]) {
+				case CONFIG_SYNC:
+					return;
 				case LEXICON_STUDY:
 					if (player.openContainer instanceof ContainerLexiconStudy) {
 						((ContainerLexiconStudy) player.openContainer).handlePacket(this);
@@ -35,7 +37,7 @@ public class PacketTFBase extends PacketBase {
 					}
 					return;
 				default:
-					ThermalFoundation.LOG.error("Unknown Packet! Internal: TFPH, ID: " + type);
+					ThermalFoundation.LOG.error("Unknown Packet! Internal: " + ThermalFoundation.MOD_ID + "; " + type);
 			}
 		} catch (Exception e) {
 			ThermalFoundation.LOG.error("Packet payload failure! Please check your config files!", e);
