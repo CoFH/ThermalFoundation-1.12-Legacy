@@ -2,6 +2,7 @@ package cofh.thermalfoundation.item.diagram;
 
 import cofh.api.core.IPortableData;
 import cofh.api.core.ISecurable;
+import cofh.api.item.IPlacementUtilItem;
 import cofh.core.util.core.IInitializer;
 import cofh.core.util.helpers.ServerHelper;
 import cofh.core.util.helpers.StringHelper;
@@ -29,7 +30,7 @@ import java.util.List;
 
 import static cofh.core.util.helpers.RecipeHelper.addShapelessRecipe;
 
-public class ItemDiagramRedprint extends ItemDiagram implements IInitializer {
+public class ItemDiagramRedprint extends ItemDiagram implements IInitializer, IPlacementUtilItem {
 
 	public ItemDiagramRedprint() {
 
@@ -102,6 +103,31 @@ public class ItemDiagramRedprint extends ItemDiagram implements IInitializer {
 	public EnumRarity getRarity(ItemStack stack) {
 
 		return RedprintHelper.getDisplayName(stack).isEmpty() ? EnumRarity.COMMON : EnumRarity.UNCOMMON;
+	}
+
+	/* IPlacementUtilItem */
+	@Override
+	public boolean onBlockPlacement(ItemStack stack, World world, BlockPos pos, IBlockState state, EntityPlayer player) {
+
+		TileEntity tile = world.getTileEntity(pos);
+
+		if (tile instanceof ISecurable && !((ISecurable) tile).canPlayerAccess(player)) {
+			return false;
+		}
+		if (tile instanceof IPortableData) {
+			if (ServerHelper.isServerWorld(world)) {
+				if (!stack.hasTagCompound()) {
+					return false;
+				} else {
+					if (stack.getTagCompound().getString("Type").equals(((IPortableData) tile).getDataType())) {
+						((IPortableData) tile).readPortableData(player, stack.getTagCompound());
+						player.world.playSound(null, player.getPosition(), SoundEvents.UI_BUTTON_CLICK, SoundCategory.PLAYERS, 0.5F, 0.8F);
+					}
+				}
+			}
+			return true;
+		}
+		return false;
 	}
 
 	/* IInitializer */

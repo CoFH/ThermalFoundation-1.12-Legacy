@@ -241,10 +241,10 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 		// @formatter:off
 		addShapedRecipe(wrenchBasic,
 				"I I",
-				" T ",
+				" X ",
 				" I ",
 				'I', "ingotIron",
-				'T', "ingotTin"
+				'X', "ingotTin"
 		);
 //		addRecipe(new RecipeUpgrade(wrenchHardened,
 //			"Y Y",

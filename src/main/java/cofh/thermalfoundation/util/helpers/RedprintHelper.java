@@ -29,6 +29,7 @@ public class RedprintHelper {
 		}
 		tooltip.add(StringHelper.getDeactivationText("info.thermalfoundation.diagram.erase"));
 		tooltip.add(StringHelper.getActivationText("info.thermalfoundation.diagram.redprint.1"));
+		tooltip.add(StringHelper.getNoticeText("info.thermalfoundation.offhandUse"));
 		RedstoneControlHelper.addRSControlInformation(stack, tooltip);
 	}
 

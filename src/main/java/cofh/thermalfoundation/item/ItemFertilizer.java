@@ -120,7 +120,6 @@ public class ItemFertilizer extends ItemMulti implements IInitializer {
 			addShapelessRecipe(fertilizerRich, fertilizerBasic, new ItemStack(Items.DYE, 1, EnumDyeColor.WHITE.getDyeDamage()));
 			addShapelessRecipe(fertilizerFlux, fertilizerRich, "dustRedstone");
 		}
-
 		return true;
 	}
 

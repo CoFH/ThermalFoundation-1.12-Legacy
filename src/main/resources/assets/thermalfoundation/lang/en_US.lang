@@ -67,6 +67,8 @@ info.thermalfoundation.diagram.erase=Use while sneaking to erase.
 info.thermalfoundation.diagram.redprint.0=Use on a block to copy its settings.
 info.thermalfoundation.diagram.redprint.1=Use on a block to transfer stored settings.
 
+info.thermalfoundation.offhandUse=Hold in offhand to automatically use when placing a block.
+
 info.thermalfoundation.security.lock=Use on securable blocks or combine with securable items.
 
 info.thermalfoundation.tome.experience.0=Stores experience within its pages.
