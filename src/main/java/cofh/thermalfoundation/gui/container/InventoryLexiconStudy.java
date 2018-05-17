@@ -18,6 +18,7 @@ public class InventoryLexiconStudy implements IInventory {
 		Arrays.fill(stackList, ItemStack.EMPTY);
 	}
 
+	/* IInventory */
 	@Override
 	public int getSizeInventory() {
 
@@ -109,6 +110,7 @@ public class InventoryLexiconStudy implements IInventory {
 
 	}
 
+	/* IWorldNameable */
 	@Override
 	public String getName() {
 
@@ -126,4 +128,5 @@ public class InventoryLexiconStudy implements IInventory {
 
 		return null;
 	}
+
 }

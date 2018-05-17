@@ -22,6 +22,7 @@ public class InventoryLexiconTransmute implements IInventory {
 		Arrays.fill(stackList, ItemStack.EMPTY);
 	}
 
+	/* IInventory */
 	@Override
 	public int getSizeInventory() {
 
@@ -87,24 +88,6 @@ public class InventoryLexiconTransmute implements IInventory {
 	}
 
 	@Override
-	public String getName() {
-
-		return null;
-	}
-
-	@Override
-	public boolean hasCustomName() {
-
-		return false;
-	}
-
-	@Override
-	public ITextComponent getDisplayName() {
-
-		return null;
-	}
-
-	@Override
 	public int getInventoryStackLimit() {
 
 		return 64;
@@ -158,6 +141,25 @@ public class InventoryLexiconTransmute implements IInventory {
 	@Override
 	public void clear() {
 
+	}
+
+	/* IWorldNameable */
+	@Override
+	public String getName() {
+
+		return null;
+	}
+
+	@Override
+	public boolean hasCustomName() {
+
+		return false;
+	}
+
+	@Override
+	public ITextComponent getDisplayName() {
+
+		return null;
 	}
 
 }
