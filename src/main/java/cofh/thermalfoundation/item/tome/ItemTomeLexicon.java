@@ -10,6 +10,7 @@ import cofh.thermalfoundation.gui.GuiHandler;
 import cofh.thermalfoundation.init.TFProps;
 import cofh.thermalfoundation.util.LexiconManager;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -18,6 +19,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -47,6 +49,14 @@ public class ItemTomeLexicon extends ItemTome implements IInventoryContainerItem
 		tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.0"));
 		tooltip.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.a." + (isEmpowered(stack) ? 1 : 0)) + StringHelper.END);
 		tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.lexicon.b." + (isEmpowered(stack) ? 1 : 0), StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
+	}
+
+	@Override
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+
+		if (enable) {
+			super.getSubItems(tab, items);
+		}
 	}
 
 	@Override

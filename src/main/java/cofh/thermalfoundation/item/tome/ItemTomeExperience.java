@@ -15,6 +15,7 @@ import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFFluids;
 import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -24,10 +25,7 @@ import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
@@ -62,6 +60,14 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 		tooltip.add(StringHelper.getNoticeText("info.thermalfoundation.tome.experience.2"));
 		tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.experience.a." + (isEmpowered(stack) ? 1 : 0), StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
 		tooltip.add(StringHelper.localize("info.cofh.experience") + ": " + StringHelper.formatNumber(getExperience(stack)) + " / " + StringHelper.formatNumber(getMaxExperience(stack)));
+	}
+
+	@Override
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+
+		if (enable) {
+			super.getSubItems(tab, items);
+		}
 	}
 
 	@Override
