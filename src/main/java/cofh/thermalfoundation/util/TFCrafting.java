@@ -4,6 +4,8 @@ import cofh.core.init.CorePotions;
 import cofh.core.util.crafting.FluidIngredientFactory.FluidIngredient;
 import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.StringHelper;
+import cofh.thermalfoundation.block.BlockGlass;
+import cofh.thermalfoundation.block.BlockGlassAlloy;
 import cofh.thermalfoundation.init.TFProps;
 import cofh.thermalfoundation.item.ItemMaterial;
 import cofh.thermalfoundation.util.crafting.ShapelessPotionFillRecipeFactory.ShapelessPotionFillRecipe;
@@ -43,9 +45,7 @@ public class TFCrafting {
 		addShapedRecipe(ItemHelper.cloneStack(Items.LEAD, 2), "~~ ", "~O ", "  ~", '~', "string", 'O', ItemMaterial.globTar);
 
 		/* PYROTHEUM / PETROTHEUM CRAFTING */
-		String[] oreNameList = OreDictionary.getOreNames();
-
-		for (String oreName : oreNameList) {
+		for (String oreName : OreDictionary.getOreNames()) {
 			if (oreName.length() > 3 && oreName.startsWith("ore")) {
 
 				String dustName = "dust" + StringHelper.titleCase(oreName.substring(3, oreName.length()));
@@ -79,6 +79,29 @@ public class TFCrafting {
 					addShapelessRecipe(ItemHelper.cloneStack(registeredIngot.get(0), 2), oreName, "dustPetrotheum", "dustPyrotheum");
 				}
 			}
+		}
+		/* PYROTHEUM CRAFTING */
+		if (TFProps.enablePyrotheumCrafting) {
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlass.glassLead), "dustLead", "dustObsidian", "dustObsidian", "dustPyrotheum");
+
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlass.glassCopper), "dustCopper", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlass.glassTin), "dustTin", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlass.glassSilver), "dustSilver", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlass.glassLead), "dustLead", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlass.glassAluminum), "dustAluminum", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlass.glassNickel), "dustNickel", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlass.glassPlatinum), "dustPlatinum", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlass.glassIridium), "dustIridium", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlass.glassMithril), "dustMithril", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlassAlloy.glassSteel), "dustSteel", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlassAlloy.glassElectrum), "dustElectrum", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlassAlloy.glassInvar), "dustInvar", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlassAlloy.glassBronze), "dustBronze", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlassAlloy.glassConstantan), "dustConstantan", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlassAlloy.glassSignalum), "dustSignalum", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlassAlloy.glassLumium), "dustLumium", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
+			addShapelessRecipe(ItemHelper.cloneStack(BlockGlassAlloy.glassEnderium), "dustEnderium", "blockGlassHardened", "dustObsidian", "dustPyrotheum");
 		}
 
 		/* CRYOTHEUM CRAFTING */
