@@ -12,7 +12,7 @@ import cofh.core.util.helpers.ServerHelper;
 import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFProps;
-import gnu.trove.map.hash.TIntObjectHashMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
@@ -254,7 +254,7 @@ public class ItemUpgrade extends ItemMulti implements IInitializer, IUpgradeItem
 		upgradeMap.put(metadata, new UpgradeEntry(type, level));
 	}
 
-	private TIntObjectHashMap<UpgradeEntry> upgradeMap = new TIntObjectHashMap<>();
+	private Int2ObjectOpenHashMap<UpgradeEntry> upgradeMap = new Int2ObjectOpenHashMap<>();
 
 	/* REFERENCES */
 	public static ItemStack[] upgradeIncremental;
