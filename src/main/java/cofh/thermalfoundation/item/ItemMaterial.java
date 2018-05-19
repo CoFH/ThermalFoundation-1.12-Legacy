@@ -165,6 +165,8 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		dustWoodCompressed = addItem(801, "dustWoodCompressed");
 		fuelCoke = addOreDictItem(802, "fuelCoke");
 
+		dustBiomass = addItem(816, "dustBiomass");
+
 		globRosin = addItem(832, "globRosin");
 		globTar = addItem(833, "globTar");
 
@@ -496,6 +498,8 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack dustWood;
 	public static ItemStack dustWoodCompressed;
 	public static ItemStack fuelCoke;
+
+	public static ItemStack dustBiomass;
 
 	public static ItemStack globRosin;
 	public static ItemStack globTar;

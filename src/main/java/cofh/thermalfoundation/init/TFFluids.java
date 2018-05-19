@@ -51,12 +51,16 @@ public class TFFluids {
 		fluidCoal = new FluidCore("coal", "thermalfoundation").setDensity(900).setViscosity(2000);
 		fluidCrudeOil = new FluidCore("crude_oil", "thermalfoundation").setDensity(900).setViscosity(2000);
 		fluidRefinedOil = new FluidCore("refined_oil", "thermalfoundation").setDensity(800).setViscosity(1400);
-		fluidFuel = new FluidCore("refined_fuel", "thermalfoundation").setDensity(700).setViscosity(800);
+		fluidFuel = new FluidCore("refined_fuel", "thermalfoundation").setDensity(750).setViscosity(800);
 
 		fluidSap = new FluidCore("sap", "thermalfoundation").setDensity(1050).setViscosity(1500);
 		fluidSyrup = new FluidCore("syrup", "thermalfoundation").setDensity(1400).setViscosity(2500);
 		fluidResin = new FluidCore("resin", "thermalfoundation").setDensity(900).setViscosity(3000);
 		fluidTreeOil = new FluidCore("tree_oil", "thermalfoundation").setDensity(900).setViscosity(1200);
+
+		fluidSeedOil = new FluidCore("seed_oil", "thermalfoundation").setDensity(950).setViscosity(1300);
+		fluidBiocrude = new FluidCore("biocrude", "thermalfoundation").setDensity(1500).setViscosity(2500);
+		fluidBiofuel = new FluidCore("refined_biofuel", "thermalfoundation").setDensity(750).setViscosity(800);
 
 		fluidMushroomStew = new FluidCore("mushroom_stew", "thermalfoundation").setDensity(2000).setViscosity(2000);
 		fluidExperience = new FluidCore("experience", "thermalfoundation").setLuminosity(12).setDensity(-200).setViscosity(200).setGaseous(true).setRarity(EnumRarity.UNCOMMON);
@@ -86,6 +90,10 @@ public class TFFluids {
 		FluidRegistry.registerFluid(fluidSyrup);
 		FluidRegistry.registerFluid(fluidResin);
 		FluidRegistry.registerFluid(fluidTreeOil);
+
+		FluidRegistry.registerFluid(fluidSeedOil);
+		FluidRegistry.registerFluid(fluidBiocrude);
+		FluidRegistry.registerFluid(fluidBiofuel);
 
 		FluidRegistry.registerFluid(fluidMushroomStew);
 		FluidRegistry.registerFluid(fluidExperience);
@@ -152,6 +160,10 @@ public class TFFluids {
 		FluidRegistry.addBucketForFluid(fluidResin);
 		FluidRegistry.addBucketForFluid(fluidTreeOil);
 
+		FluidRegistry.addBucketForFluid(fluidSeedOil);
+		FluidRegistry.addBucketForFluid(fluidBiocrude);
+		FluidRegistry.addBucketForFluid(fluidBiofuel);
+
 		FluidRegistry.addBucketForFluid(fluidMushroomStew);
 		FluidRegistry.addBucketForFluid(fluidExperience);
 
@@ -183,6 +195,9 @@ public class TFFluids {
 		fluidSyrup = FluidRegistry.getFluid("syrup");
 		fluidResin = FluidRegistry.getFluid("resin");
 		fluidTreeOil = FluidRegistry.getFluid("tree_oil");
+
+		fluidSeedOil = FluidRegistry.getFluid("seed_oil");
+		fluidBiofuel = FluidRegistry.getFluid("refined_biofuel");
 
 		fluidMushroomStew = FluidRegistry.getFluid("mushroom_stew");
 		fluidExperience = FluidRegistry.getFluid("experience");
@@ -312,6 +327,10 @@ public class TFFluids {
 	public static Fluid fluidSyrup;
 	public static Fluid fluidResin;
 	public static Fluid fluidTreeOil;
+
+	public static Fluid fluidSeedOil;
+	public static Fluid fluidBiocrude;
+	public static Fluid fluidBiofuel;
 
 	public static Fluid fluidMushroomStew;
 	public static Fluid fluidExperience;

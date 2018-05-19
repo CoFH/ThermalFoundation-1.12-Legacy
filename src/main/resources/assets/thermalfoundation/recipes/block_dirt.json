@@ -1,0 +1,30 @@
+{
+	"type": "thermalfoundation:fluid_shapeless",
+	"result": {
+		"item": "minecraft:dirt",
+		"data": 0,
+		"count": 2
+	},
+	"ingredients": [
+		{
+			"item": "thermalfoundation:material",
+			"data": 816
+		},
+		{
+			"item": "thermalfoundation:material",
+			"data": 816
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "sand"
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "gravel"
+		},
+		{
+			"type": "thermalfoundation:fluid",
+			"fluid": "water"
+		}
+	]
+}

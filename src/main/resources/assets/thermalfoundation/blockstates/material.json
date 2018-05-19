@@ -549,6 +549,11 @@
 					"layer0": "thermalfoundation:items/material/fuel_coke"
 				}
 			},
+			"dustbiomass": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_biomass"
+				}
+			},
 			"globrosin": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/glob_rosin"

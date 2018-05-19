@@ -28,6 +28,10 @@ public class TFTextures {
 		registerFluidTextures(TFFluids.fluidResin);
 		registerFluidTextures(TFFluids.fluidTreeOil);
 
+		registerFluidTextures(TFFluids.fluidSeedOil);
+		registerFluidTextures(TFFluids.fluidBiocrude);
+		registerFluidTextures(TFFluids.fluidBiofuel);
+
 		registerFluidTextures(TFFluids.fluidMushroomStew);
 		registerFluidTextures(TFFluids.fluidExperience);
 
