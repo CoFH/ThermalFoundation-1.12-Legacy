@@ -554,6 +554,21 @@
 					"layer0": "thermalfoundation:items/material/dust_biomass"
 				}
 			},
+			"dustbiomassrich": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_biomass_rich"
+				}
+			},
+			"dustbioblend": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_bioblend"
+				}
+			},
+			"dustbioblendrich": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/dust_bioblend_rich"
+				}
+			},
 			"globrosin": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/glob_rosin"

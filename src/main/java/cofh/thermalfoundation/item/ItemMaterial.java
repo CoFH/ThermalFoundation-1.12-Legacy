@@ -166,6 +166,9 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		fuelCoke = addOreDictItem(802, "fuelCoke");
 
 		dustBiomass = addItem(816, "dustBiomass");
+		dustBiomassRich = addItem(817, "dustBiomassRich");
+		dustBioblend = addItem(818, "dustBioblend");
+		dustBioblendRich = addItem(819, "dustBioblendRich");
 
 		globRosin = addItem(832, "globRosin");
 		globTar = addItem(833, "globTar");
@@ -198,6 +201,12 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// Rock Gel
 
 		OreDictionary.registerOre("dustSaltpeter", dustNiter);
+
+		OreDictionary.registerOre("itemSawdust", dustWood);
+		OreDictionary.registerOre("itemBiomass", dustBiomass);
+		OreDictionary.registerOre("itemBioblend", dustBioblend);
+		OreDictionary.registerOre("itemBiomassRich", dustBiomassRich);
+		OreDictionary.registerOre("itemBioblendRich", dustBioblendRich);
 
 		OreDictionary.registerOre("itemSlag", crystalSlag);
 		OreDictionary.registerOre("itemSlagRich", crystalSlagRich);
@@ -263,6 +272,7 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		addShapelessRecipe(cloneStack(dustInvar, 3), "dustIron", "dustIron", "dustNickel");
 		addShapelessRecipe(cloneStack(dustBronze, 4), "dustCopper", "dustCopper", "dustCopper", "dustTin");
 		addShapelessRecipe(cloneStack(dustConstantan, 2), "dustCopper", "dustNickel");
+		addShapelessRecipe(cloneStack(dustBioblend, 4), "itemBiomass", "itemBiomass", "itemBiomass", "dustWood");
 
 		/* Storage */
 		addTwoWayStorageRecipe(gemDiamond, "gemDiamond", nuggetDiamond, "nuggetDiamond");
@@ -500,6 +510,9 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack fuelCoke;
 
 	public static ItemStack dustBiomass;
+	public static ItemStack dustBiomassRich;
+	public static ItemStack dustBioblend;
+	public static ItemStack dustBioblendRich;
 
 	public static ItemStack globRosin;
 	public static ItemStack globTar;

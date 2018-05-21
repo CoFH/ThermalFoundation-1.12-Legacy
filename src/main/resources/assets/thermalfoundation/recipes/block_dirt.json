@@ -1,9 +1,8 @@
 {
-	"type": "thermalfoundation:fluid_shapeless",
+	"type": "forge:ore_shapeless",
 	"result": {
 		"item": "minecraft:dirt",
-		"data": 0,
-		"count": 2
+		"data": 0
 	},
 	"ingredients": [
 		{
@@ -16,15 +15,11 @@
 		},
 		{
 			"type": "forge:ore_dict",
-			"ore": "sand"
+			"ore": "crystalSlag"
 		},
 		{
 			"type": "forge:ore_dict",
-			"ore": "gravel"
-		},
-		{
-			"type": "thermalfoundation:fluid",
-			"fluid": "water"
+			"ore": "crystalSlag"
 		}
 	]
 }
