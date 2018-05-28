@@ -81,6 +81,7 @@ info.thermalfoundation.tome.experience.a.0=§bPress (%s) to enable auto-collect.
 info.thermalfoundation.tome.experience.a.1=§ePress (%s) to disable auto-collect.§r
 
 info.thermalfoundation.tome.lexicon.0=Converts items to equivalent forms.
+info.thermalfoundation.tome.lexicon.1=Also known as a Thesoreus.
 info.thermalfoundation.tome.lexicon.a.0=Right click (open) to study.
 info.thermalfoundation.tome.lexicon.a.1=Right click (open) to transmute items.
 info.thermalfoundation.tome.lexicon.b.0=§bPress (%s) to gain wisdom!§r
@@ -95,7 +96,8 @@ info.thermalfoundation.upgrade.incremental.1=Requires tier immediately preceding
 
 info.thermalfoundation.util.multimeter.0=Provides information about things.
 info.thermalfoundation.util.multimeter.1=Use while sneaking to configure some blocks.
-info.thermalfoundation.util.wrench.0=Actually a wrench, but anything is a hammer if you need it to be one.
+info.thermalfoundation.util.wrench.0=Rotates and dismantles blocks.
+info.thermalfoundation.util.wrench.1=Actually a wrench, but anything is a hammer if you need it to be one.
 
 item.thermalfoundation.armor.aluminumBoots.name=Aluminum Boots
 item.thermalfoundation.armor.aluminumHelmet.name=Aluminum Helmet

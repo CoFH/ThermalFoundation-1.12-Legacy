@@ -49,6 +49,7 @@ public class ItemTomeLexicon extends ItemTome implements IInventoryContainerItem
 		tooltip.add(StringHelper.getInfoText("info.thermalfoundation.tome.lexicon.0"));
 		tooltip.add(StringHelper.localize("info.thermalfoundation.tome.lexicon.a." + (isEmpowered(stack) ? 1 : 0)) + StringHelper.END);
 		tooltip.add(StringHelper.localizeFormat("info.thermalfoundation.tome.lexicon.b." + (isEmpowered(stack) ? 1 : 0), StringHelper.getKeyName(KeyBindingItemMultiMode.INSTANCE.getKey())));
+		tooltip.add(StringHelper.getFlavorText("info.thermalfoundation.tome.lexicon.1"));
 	}
 
 	@Override

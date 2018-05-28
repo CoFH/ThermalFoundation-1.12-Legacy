@@ -1,5 +1,6 @@
 package cofh.thermalfoundation.item;
 
+import buildcraft.api.tools.IToolWrench;
 import cofh.api.block.IDismantleable;
 import cofh.api.item.IToolHammer;
 import cofh.core.item.ItemMulti;
@@ -12,6 +13,7 @@ import cofh.core.util.helpers.StringHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import crazypants.enderio.api.tool.ITool;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -35,20 +37,21 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 
 import static cofh.core.util.helpers.RecipeHelper.addShapedRecipe;
 
-//TODO FIXME @Optional
-//@Implementable ({ "buildcraft.api.tools.IToolWrench", "com.brandon3055.draconicevolution.api.ICrystalBinder" })
-public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
+@Optional.InterfaceList ({ @Optional.Interface (iface = "buildcraft.api.tools.IToolWrench", modid = "buildcraftcore"), @Optional.Interface (iface = "crazypants.enderio.api.tool.ITool", modid = "enderio") })
+public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer, IToolWrench, ITool {
 
 	public ItemWrench() {
 
@@ -65,7 +68,14 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 
-		tooltip.add(StringHelper.getFlavorText("info.thermalfoundation.util.wrench.0"));
+		if (StringHelper.displayShiftForDetail && !StringHelper.isShiftKeyDown()) {
+			tooltip.add(StringHelper.shiftForDetails());
+		}
+		if (!StringHelper.isShiftKeyDown()) {
+			return;
+		}
+		tooltip.add(StringHelper.getInfoText("info.thermalfoundation.util.wrench.0"));
+		tooltip.add(StringHelper.getFlavorText("info.thermalfoundation.util.wrench.1"));
 	}
 
 	@Override
@@ -218,13 +228,32 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer {
 
 	/* IMPLEMENTABLES */
 
-	/* IToolWrench */
-	public boolean canWrench(EntityPlayer player, EnumHand hand, ItemStack wrench, RayTraceResult rayTrace) {
+	/* ITool */
+	@Override
+	public boolean shouldHideFacades(@Nonnull ItemStack stack, @Nonnull EntityPlayer player) {
 
-		ItemStack stack = player.getHeldItemMainhand();
+		return false;
+	}
+
+	@Override
+	public boolean canUse(@Nonnull EnumHand stack, @Nonnull EntityPlayer player, @Nonnull BlockPos pos) {
+
 		return true;
 	}
 
+	@Override
+	public void used(@Nonnull EnumHand stack, @Nonnull EntityPlayer player, @Nonnull BlockPos pos) {
+
+	}
+
+	/* IToolWrench */
+	@Override
+	public boolean canWrench(EntityPlayer player, EnumHand hand, ItemStack wrench, RayTraceResult rayTrace) {
+
+		return true;
+	}
+
+	@Override
 	public void wrenchUsed(EntityPlayer player, EnumHand hand, ItemStack wrench, RayTraceResult rayTrace) {
 
 	}
