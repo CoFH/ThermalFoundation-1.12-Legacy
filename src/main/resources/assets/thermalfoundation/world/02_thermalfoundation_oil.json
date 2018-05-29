@@ -4,7 +4,12 @@
 		"oil_sand_clathrate": {
 			"distribution": "uniform",
 			"generator": {
-				"block": "thermalfoundation:ore_fluid",
+				"block": {
+					"name": "thermalfoundation:ore_fluid",
+					"properties": {
+						"type": "crude_oil_sand"
+					}
+				},
 				"material": [
 					"minecraft:sand",
 					"minecraft:sandstone",
@@ -35,7 +40,9 @@
 				"block": [
 					{
 						"name": "thermalfoundation:ore_fluid",
-						"metadata": 1,
+						"properties": {
+							"type": "crude_oil_gravel"
+						},
 						"weight": 80
 					},
 					{
@@ -86,7 +93,9 @@
 				"block": [
 					{
 						"name": "thermalfoundation:ore_fluid",
-						"metadata": 0,
+						"properties": {
+							"type": "crude_oil_sand"
+						},
 						"weight": 80
 					},
 					{
@@ -133,7 +142,9 @@
 				"block": [
 					{
 						"name": "thermalfoundation:ore_fluid",
-						"metadata": 1,
+						"properties": {
+							"type": "crude_oil_gravel"
+						},
 						"weight": 80
 					},
 					{
