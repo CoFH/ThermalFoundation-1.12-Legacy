@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.block;
 
 import cofh.core.block.BlockCore;
+import cofh.core.block.ItemBlockCore;
 import cofh.core.fluid.BlockFluidCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.render.particle.EntityDropParticleFX;
@@ -81,6 +82,18 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	/* TYPE METHODS */
+	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+
+		return "tile.thermalfoundation.ore." + Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+
+		return Type.byMetadata(ItemHelper.getItemDamage(stack)).getRarity();
+	}
+
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
@@ -290,7 +303,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		this.setRegistryName("ore_fluid");
 		ForgeRegistries.BLOCKS.register(this);
 
-		ItemBlockOreFluid itemBlock = new ItemBlockOreFluid(this);
+		ItemBlockCore itemBlock = new ItemBlockCore(this);
 		itemBlock.setRegistryName(this.getRegistryName());
 		ForgeRegistries.ITEMS.register(itemBlock);
 

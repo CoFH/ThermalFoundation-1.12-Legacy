@@ -2,10 +2,12 @@ package cofh.thermalfoundation.block;
 
 import cofh.api.block.IDismantleable;
 import cofh.core.block.BlockCore;
+import cofh.core.block.ItemBlockCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.util.CoreUtils;
 import cofh.core.util.RayTracer;
 import cofh.core.util.core.IInitializer;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.core.util.helpers.ServerHelper;
 import cofh.core.util.helpers.WrenchHelper;
 import cofh.thermalfoundation.ThermalFoundation;
@@ -65,6 +67,19 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
 			items.add(new ItemStack(this, 1, i));
 		}
+	}
+
+	/* TYPE METHODS */
+	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+
+		return "tile.thermalfoundation.glass." + Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+
+		return Type.byMetadata(ItemHelper.getItemDamage(stack)).getRarity();
 	}
 
 	@Override
@@ -232,7 +247,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 		this.setRegistryName("glass_alloy");
 		ForgeRegistries.BLOCKS.register(this);
 
-		ItemBlockGlassAlloy itemBlock = new ItemBlockGlassAlloy(this);
+		ItemBlockCore itemBlock = new ItemBlockCore(this);
 		itemBlock.setRegistryName(this.getRegistryName());
 		ForgeRegistries.ITEMS.register(itemBlock);
 

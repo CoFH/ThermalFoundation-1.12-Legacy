@@ -1,9 +1,11 @@
 package cofh.thermalfoundation.block;
 
 import cofh.core.block.BlockCore;
+import cofh.core.block.ItemBlockCore;
 import cofh.core.energy.FurnaceFuelHandler;
 import cofh.core.render.IModelRegister;
 import cofh.core.util.core.IInitializer;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.block.SoundType;
@@ -68,6 +70,18 @@ public class BlockStorageResource extends BlockCore implements IInitializer, IMo
 
 	/* TYPE METHODS */
 	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+
+		return "tile.thermalfoundation.storage." + Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+
+		return Type.byMetadata(ItemHelper.getItemDamage(stack)).getRarity();
+	}
+
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
 		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
@@ -128,7 +142,7 @@ public class BlockStorageResource extends BlockCore implements IInitializer, IMo
 		this.setRegistryName("storage_resource");
 		ForgeRegistries.BLOCKS.register(this);
 
-		ItemBlockStorageResource itemBlock = new ItemBlockStorageResource(this);
+		ItemBlockCore itemBlock = new ItemBlockCore(this);
 		itemBlock.setRegistryName(this.getRegistryName());
 		ForgeRegistries.ITEMS.register(itemBlock);
 

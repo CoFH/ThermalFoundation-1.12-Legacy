@@ -1,8 +1,10 @@
 package cofh.thermalfoundation.block;
 
 import cofh.core.block.BlockCore;
+import cofh.core.block.ItemBlockCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.util.core.IInitializer;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.item.ItemMaterial;
 import net.minecraft.block.SoundType;
@@ -61,6 +63,12 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 
 	/* TYPE METHODS */
 	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+
+		return "tile.thermalfoundation.rockwool." + Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
+	}
+
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
 		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
@@ -95,7 +103,7 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 		this.setRegistryName("rockwool");
 		ForgeRegistries.BLOCKS.register(this);
 
-		ItemBlockRockwool itemBlock = new ItemBlockRockwool(this);
+		ItemBlockCore itemBlock = new ItemBlockCore(this);
 		itemBlock.setRegistryName(this.getRegistryName());
 		ForgeRegistries.ITEMS.register(itemBlock);
 

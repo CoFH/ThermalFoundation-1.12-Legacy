@@ -1,8 +1,10 @@
 package cofh.thermalfoundation.block;
 
 import cofh.core.block.BlockCore;
+import cofh.core.block.ItemBlockCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.util.core.IInitializer;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFProps;
 import cofh.thermalfoundation.item.ItemMaterial;
@@ -69,6 +71,18 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 
 	/* TYPE METHODS */
 	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+
+		return "tile.thermalfoundation.ore." + Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+
+		return Type.byMetadata(ItemHelper.getItemDamage(stack)).getRarity();
+	}
+
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
 		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
@@ -109,7 +123,7 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 		this.setRegistryName("ore");
 		ForgeRegistries.BLOCKS.register(this);
 
-		ItemBlockOre itemBlock = new ItemBlockOre(this);
+		ItemBlockCore itemBlock = new ItemBlockCore(this);
 		itemBlock.setRegistryName(this.getRegistryName());
 		ForgeRegistries.ITEMS.register(itemBlock);
 

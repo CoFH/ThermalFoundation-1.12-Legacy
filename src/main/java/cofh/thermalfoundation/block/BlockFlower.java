@@ -1,8 +1,10 @@
 package cofh.thermalfoundation.block;
 
 import cofh.core.block.BlockCore;
+import cofh.core.block.ItemBlockCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.util.core.IInitializer;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -63,6 +65,18 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 	}
 
 	/* TYPE METHODS */
+	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+
+		return "tile.thermalfoundation.flower." + Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+
+		return Type.byMetadata(ItemHelper.getItemDamage(stack)).getRarity();
+	}
+
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
@@ -190,7 +204,7 @@ public class BlockFlower extends BlockCore implements IInitializer, IModelRegist
 		this.setRegistryName("flower");
 		ForgeRegistries.BLOCKS.register(this);
 
-		ItemBlockFlower itemBlock = new ItemBlockFlower(this);
+		ItemBlockCore itemBlock = new ItemBlockCore(this);
 		itemBlock.setRegistryName(this.getRegistryName());
 		ForgeRegistries.ITEMS.register(itemBlock);
 
