@@ -5,25 +5,26 @@ chat.thermalfoundation.augment.install.success=オーグメントは正常に適
 chat.thermalfoundation.upgrade.install.failure=ブロックのアップグレードが出来ませんでした。
 chat.thermalfoundation.upgrade.install.success=ブロックは正常にアップグレードされました。
 
-death.attack.basalz=%1$s は己の世界を揺さぶられた
-death.attack.blitz=%1$s は敢え無く光になってしまった
-death.attack.blizz=%1$s は凍え死ぬ運命だった
-death.attack.cryotheum.player=%1$s は %2$s から逃れようと氷漬けになった
-death.attack.cryotheum=%1$s は氷漬けになった
-death.attack.flux.player=%1$s は %2$s によってエネルギーの奔流となった
-death.attack.flux=%1$s はフラックスによってバラバラにされた
-death.attack.mana.player=%1$s は %2$s から逃れようと変質した
-death.attack.mana=%1$s はナマのマナによって引き裂かれた
-death.attack.petrotheum.player=%1$s は %2$s から逃れようとして砕け散った
-death.attack.petrotheum=%1$s は振盪を起こした
-death.attack.pyrotheum.player=%1$s は %2$sから逃れようとして燃え尽きた
-death.attack.pyrotheum=%1$s は水とパイロジウムを間違えた
+death.attack.basalz=%1$s は己の世界を揺さぶられた！
+death.attack.blitz=%1$s は敢え無く光になってしまった！
+death.attack.blizz=%1$s は凍え死ぬ運命だった！
+death.attack.cryotheum.player=%1$s は %2$s から逃れようと氷漬けになった！
+death.attack.cryotheum=%1$s は氷漬けになった！
+death.attack.flux.player=%1$s は %2$s によってエネルギーの奔流となった！
+death.attack.flux=%1$s はフラックスによってバラバラにされた！
+death.attack.mana.player=%1$s は %2$s から逃れようと変質した！
+death.attack.mana=%1$s はナマのマナによって引き裂かれた！
+death.attack.petrotheum.player=%1$s は %2$s から逃れようとして砕け散った！
+death.attack.petrotheum=%1$s は振盪を起こした！
+death.attack.pyrotheum.player=%1$s は %2$sから逃れようとして燃え尽きた！
+death.attack.pyrotheum=%1$s は水とパイロジウムを間違えた！
 
 entity.thermalfoundation.basalz.name=バザルツ
 entity.thermalfoundation.blitz.name=ブリッツ
 entity.thermalfoundation.blizz.name=ブリーズ
 
 fluid.aerotheum=清風のエアロジウム
+fluid.biocrude=バイオクルード
 fluid.coal=液化石炭
 fluid.constantan=溶融コンスタンタン
 fluid.creosote=クレオソート
@@ -45,10 +46,12 @@ fluid.potion_lingering=残留ポーション
 fluid.potion_splash=スプラッシュポーション
 fluid.pyrotheum=燃え盛るパイロジウム
 fluid.redstone=励起レッドストーン
+fluid.refined_biofuel=グラソリン
 fluid.refined_fuel=改質燃料
 fluid.refined_oil=ナフサ
 fluid.resin=樹脂
 fluid.sap=樹液
+fluid.seed_oil=種油
 fluid.signalum=溶融シグナルム
 fluid.steam=蒸気
 fluid.syrup=シロップ
@@ -67,15 +70,18 @@ info.thermalfoundation.diagram.erase=スニーク中に使用すると設定を�
 info.thermalfoundation.diagram.redprint.0=デバイスに対して使用すると設定をコピーできます。
 info.thermalfoundation.diagram.redprint.1=デバイスに対して使用すると保持している設定をデバイスに適用できます。
 
-info.thermalfoundation.security.lock=セキュリティを設定できる、ブロックに使用するかアイテムとクラフトしてください。
+info.thermalfoundation.offhandUse=ブロックに置く際に自動的に使用するには、オフハンドに持ってください。
+
+info.thermalfoundation.security.lock=セキュリティを設定できるブロックに使用するかアイテムとクラフトしてください。
 
 info.thermalfoundation.tome.experience.0=ページに経験値を貯めることが出来ます。
-info.thermalfoundation.tome.experience.1=使用することでこの教典に知識を詰め込めます・
+info.thermalfoundation.tome.experience.1=使用することでこの教典に知識を詰め込めます。
 info.thermalfoundation.tome.experience.2=スニーク中に使用すると溜めた知識を得ることが出来ます。
-info.thermalfoundation.tome.experience.a.0=§b %s キーを押下すると自動収集を有効化出来ます。§r
-info.thermalfoundation.tome.experience.a.1=§e %s キーを押下すると自動収集を無効化出来ます。§r
+info.thermalfoundation.tome.experience.a.0=§b(%s)キーを押下すると自動収集を有効化出来ます。§r
+info.thermalfoundation.tome.experience.a.1=§e(%s)キーを押下すると自動収集を無効化出来ます。§r
 
 info.thermalfoundation.tome.lexicon.0=アイテムを同等のものに変換できます。
+info.thermalfoundation.tome.lexicon.1=シソーラスとも呼ばれます。
 info.thermalfoundation.tome.lexicon.a.0=右クリックで調査できます。
 info.thermalfoundation.tome.lexicon.a.1=右クリックで変換の頁を開きます。
 info.thermalfoundation.tome.lexicon.b.0=§b %s キーで知識を得られます。§r
@@ -90,6 +96,8 @@ info.thermalfoundation.upgrade.incremental.1=1つ前のランクであること�
 
 info.thermalfoundation.util.multimeter.0=物事についての情報を提供します。
 info.thermalfoundation.util.multimeter.1=スニーク中に使用することで幾つかのブロックの設定を変更できます。
+info.thermalfoundation.util.wrench.0=ブロックを回転させたり解体したりします。
+info.thermalfoundation.util.wrench.1=実際はレンチですが、必要とするならばハンマーになります。
 
 item.thermalfoundation.armor.aluminumBoots.name=アルミニウムのブーツ
 item.thermalfoundation.armor.aluminumHelmet.name=アルミニウムのヘルメット
@@ -151,9 +159,9 @@ item.thermalfoundation.armor.tinHelmet.name=錫のヘルメット
 item.thermalfoundation.armor.tinLegs.name=錫のレギンス
 item.thermalfoundation.armor.tinChestplate.name=錫のチェストプレート
 
-item.thermalfoundation.bait.baitBasic.name=アクア・チャウ
-item.thermalfoundation.bait.baitFlux.name=§4§lフラックス§r §eアクア・チャウ§r
-item.thermalfoundation.bait.baitRich.name=§6§oリッチ§r アクア・チャウ
+item.thermalfoundation.bait.baitBasic.name=魚類の餌
+item.thermalfoundation.bait.baitFlux.name=強力な魚類の餌
+item.thermalfoundation.bait.baitRich.name=豊かな魚類の餌
 
 item.thermalfoundation.coin.coinAluminum.name=アルミニウムのコイン
 item.thermalfoundation.coin.coinBronze.name=青銅のコイン
@@ -198,9 +206,22 @@ item.thermalfoundation.dye.dyeRed.name=赤色の顔料
 item.thermalfoundation.dye.dyeWhite.name=白色の顔料
 item.thermalfoundation.dye.dyeYellow.name=黄色の顔料
 
-item.thermalfoundation.fertilizer.fertilizerBasic.name=フィト・グロー
-item.thermalfoundation.fertilizer.fertilizerFlux.name=§4§lフラックス§r §eフィト・グロー§r
-item.thermalfoundation.fertilizer.fertilizerRich.name=§6§oリッチ§r フィト・グロー
+item.thermalfoundation.fertilizer.fertilizerBasic.name=植物栄養剤
+item.thermalfoundation.fertilizer.fertilizerFlux.name=強力な植物栄養剤
+item.thermalfoundation.fertilizer.fertilizerRich.name=豊かな植物栄養剤
+
+item.thermalfoundation.horseArmor.aluminum.name=アルミニウムの馬鎧
+item.thermalfoundation.horseArmor.bronze.name=青銅の馬鎧
+item.thermalfoundation.horseArmor.constantan.name=コンスタンタンの馬鎧
+item.thermalfoundation.horseArmor.copper.name=銅の馬鎧
+item.thermalfoundation.horseArmor.electrum.name=エレクトラムの馬鎧
+item.thermalfoundation.horseArmor.invar.name=インバーの馬鎧
+item.thermalfoundation.horseArmor.lead.name=鉛の馬鎧
+item.thermalfoundation.horseArmor.nickel.name=ニッケルの馬鎧
+item.thermalfoundation.horseArmor.platinum.name=プラチナの馬鎧
+item.thermalfoundation.horseArmor.silver.name=銀の馬鎧
+item.thermalfoundation.horseArmor.steel.name=鋼鉄の馬鎧
+item.thermalfoundation.horseArmor.tin.name=錫の馬鎧
 
 item.thermalfoundation.geode.geode.name=晶洞石
 
@@ -215,6 +236,10 @@ item.thermalfoundation.material.crystalSlagRich.name=濃い鉱滓
 item.thermalfoundation.material.dustAerotheum.name=エアロジウムの粉
 item.thermalfoundation.material.dustAluminum.name=アルミニウムの粉
 item.thermalfoundation.material.dustBasalz.name=バザルツパウダー
+item.thermalfoundation.material.dustBioblend.name=どろどろのバイオブレンド
+item.thermalfoundation.material.dustBioblendRich.name=豊かなバイオブレンド
+item.thermalfoundation.material.dustBiomass.name=どろどろのバイオマス
+item.thermalfoundation.material.dustBiomassRich.name=豊かなバイオマス
 item.thermalfoundation.material.dustBlitz.name=ブリッツパウダー
 item.thermalfoundation.material.dustBlizz.name=ブリーズパウダー
 item.thermalfoundation.material.dustBronze.name=青銅の粉
@@ -525,12 +550,12 @@ item.thermalfoundation.tool.woodShield.name=木の盾
 item.thermalfoundation.tool.woodSickle.name=木の草刈り鎌
 
 item.thermalfoundation.upgrade.creative.name=クリエイティブ化キット
-item.thermalfoundation.upgrade.full1.name=ハーデンド ランク化キット
-item.thermalfoundation.upgrade.full2.name=レインフォースト ランク化キット
-item.thermalfoundation.upgrade.full3.name=シグナルム ランク化キット
-item.thermalfoundation.upgrade.full4.name=レゾナント ランク化キット
+item.thermalfoundation.upgrade.full1.name=ハーデンドランク化キット
+item.thermalfoundation.upgrade.full2.name=レインフォースドランク化キット
+item.thermalfoundation.upgrade.full3.name=シグナルムランク化キット
+item.thermalfoundation.upgrade.full4.name=レゾナントランク化キット
 item.thermalfoundation.upgrade.incremental1.name=ハーデンドアップグレード
-item.thermalfoundation.upgrade.incremental2.name=レインフォーストアップグレード
+item.thermalfoundation.upgrade.incremental2.name=レインフォースドアップグレード
 item.thermalfoundation.upgrade.incremental3.name=シグナルムアップグレード
 item.thermalfoundation.upgrade.incremental4.name=レゾナントアップグレード
 
@@ -538,7 +563,7 @@ item.thermalfoundation.util.lock.name=シグナルム安全錠
 item.thermalfoundation.util.multimeter.name=マルチメータ
 item.thermalfoundation.util.wrench0.name=クレセントハンマー
 item.thermalfoundation.util.wrench1.name=クレセントハンマー (ハーデンド)
-item.thermalfoundation.util.wrench2.name=クレセントハンマー (レインフォースト)
+item.thermalfoundation.util.wrench2.name=クレセントハンマー (レインフォースド)
 item.thermalfoundation.util.wrench3.name=クレセントハンマー (シグナルム)
 item.thermalfoundation.util.wrench4.name=クレセントハンマー (レゾナント)
 
