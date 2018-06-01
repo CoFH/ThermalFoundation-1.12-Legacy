@@ -62,7 +62,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	@Override
 	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
 
-		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
+		for (int i = 0; i < Type.values().length; i++) {
 			items.add(new ItemStack(this, 1, i));
 		}
 	}
@@ -71,19 +71,19 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 
-		return "tile.thermalfoundation.storage." + Type.byMetadata(ItemHelper.getItemDamage(stack)).getName() + ".name";
+		return "tile.thermalfoundation.storage." + Type.values()[ItemHelper.getItemDamage(stack)].getName() + ".name";
 	}
 
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 
-		return Type.byMetadata(ItemHelper.getItemDamage(stack)).getRarity();
+		return Type.values()[ItemHelper.getItemDamage(stack)].getRarity();
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.values()[meta]);
 	}
 
 	@Override
@@ -154,7 +154,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	public void registerModels() {
 
 		for (int i = 0; i < Type.values().length; i++) {
-			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(modName + ":" + name + "_alloy", "type=" + Type.byMetadata(i).getName()));
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(modName + ":" + name + "_alloy", "type=" + Type.values()[i].getName()));
 		}
 	}
 
@@ -189,7 +189,7 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
-		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
+		for (int i = 0; i < Type.values().length; i++) {
 			TFProps.blockList.add(new ItemStack(this, 1, i));
 		}
 		return true;
@@ -224,7 +224,6 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		ENDERIUM(7, "enderium", 4, 40.0F, 120.0F, EnumRarity.RARE);
 		// @formatter:on
 
-		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;
@@ -291,20 +290,6 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 		public EnumRarity getRarity() {
 
 			return this.rarity;
-		}
-
-		public static Type byMetadata(int metadata) {
-
-			if (metadata < 0 || metadata >= METADATA_LOOKUP.length) {
-				metadata = 0;
-			}
-			return METADATA_LOOKUP[metadata];
-		}
-
-		static {
-			for (Type type : values()) {
-				METADATA_LOOKUP[type.getMetadata()] = type;
-			}
 		}
 	}
 
