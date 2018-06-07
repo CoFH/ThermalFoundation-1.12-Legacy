@@ -82,12 +82,16 @@ public class TFItems {
 	public void missingMapping(RegistryEvent.MissingMappings<Item> event) {
 
 		for (MissingMappings.Mapping<Item> entry : event.getAllMappings()) {
-			if (entry.key.toString().equals("thermalexpansion:upgrade")) {
-				entry.remap(ForgeRegistries.ITEMS.getValue(new ResourceLocation("thermalfoundation:upgrade")));
-			} else if (entry.key.toString().equals("thermalfoundation:diagram")) {
-				entry.remap(ForgeRegistries.ITEMS.getValue(new ResourceLocation("thermalfoundation:diagram_redprint")));
-			} else if (entry.key.toString().equals("thermalfoundation:tome")) {
-				entry.remap(ForgeRegistries.ITEMS.getValue(new ResourceLocation("thermalfoundation:tome_lexicon")));
+			switch (entry.key.toString()) {
+				case "thermalexpansion:upgrade":
+					entry.remap(ForgeRegistries.ITEMS.getValue(new ResourceLocation("thermalfoundation:upgrade")));
+					break;
+				case "thermalfoundation:diagram":
+					entry.remap(ForgeRegistries.ITEMS.getValue(new ResourceLocation("thermalfoundation:diagram_redprint")));
+					break;
+				case "thermalfoundation:tome":
+					entry.remap(ForgeRegistries.ITEMS.getValue(new ResourceLocation("thermalfoundation:tome_lexicon")));
+					break;
 			}
 		}
 	}

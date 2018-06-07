@@ -87,6 +87,8 @@ public class ThermalFoundation {
 		TFSounds.preInit();
 		TFPlugins.preInit();
 
+		// TFBiomes.preInit();
+
 		CoreEnchantments.register();
 		CorePotions.register();
 
@@ -104,6 +106,8 @@ public class ThermalFoundation {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
+
+		// TFBiomes.postInit();
 
 		proxy.postInit(event);
 	}
