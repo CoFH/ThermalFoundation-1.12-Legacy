@@ -6,7 +6,9 @@ import cofh.thermalfoundation.entity.projectile.EntityBlitzBolt;
 import cofh.thermalfoundation.init.TFSounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
@@ -159,7 +161,7 @@ public class EntityBlitz extends EntityElemental {
 
 			--attackTime;
 			EntityLivingBase target = blitz.getAttackTarget();
-			double d0 = blitz.getDistance(target);
+			double d0 = blitz.getDistanceSq(target);
 
 			if (d0 < 4.0D) {
 				if (attackTime <= 0) {
@@ -168,7 +170,7 @@ public class EntityBlitz extends EntityElemental {
 				}
 
 				blitz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
-			} else if (d0 < 256.0D) {
+			} else if (d0 < getFollowDistance() * getFollowDistance()) {
 
 				if (attackTime <= 0) {
 					++attackStep;
@@ -202,6 +204,12 @@ public class EntityBlitz extends EntityElemental {
 				blitz.getMoveHelper().setMoveTo(target.posX, target.posY, target.posZ, 1.0D);
 			}
 			super.updateTask();
+		}
+
+		private double getFollowDistance() {
+
+			IAttributeInstance attribute = this.blitz.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE);
+			return attribute == null ? 16.0D : attribute.getAttributeValue();
 		}
 	}
 
