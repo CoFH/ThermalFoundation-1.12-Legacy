@@ -126,6 +126,12 @@ public class ThermalFoundation {
 	}
 
 	@EventHandler
+	public void handleServerStartedEvent(FMLServerStartedEvent event) {
+
+		TFFluids.refreshReferences();
+	}
+
+	@EventHandler
 	public void handleIdMappingEvent(FMLModIdMappingEvent event) {
 
 		TFFluids.refreshReferences();
