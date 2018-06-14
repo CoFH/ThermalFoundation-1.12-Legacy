@@ -32,6 +32,6 @@ public class TFPlugins {
 	private static ArrayList<IInitializer> initList = new ArrayList<>();
 
 	/* REFERENCES */
-	public static PluginTConstruct pluginTConstruct;
+	private static PluginTConstruct pluginTConstruct;
 
 }
