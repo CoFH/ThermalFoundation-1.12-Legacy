@@ -270,6 +270,10 @@ public class ContainerLexiconTransmute extends Container implements ISlotValidat
 		if (!stack.isEmpty() && !mergeItemStack(stack, 0, 36, false)) {
 			player.dropItem(stack, false);
 		}
+		stack = this.lexiconInv.removeStackFromSlot(1);
+		if (!stack.isEmpty() && !mergeItemStack(stack, 0, 36, false)) {
+			player.dropItem(stack, false);
+		}
 	}
 
 	@Override

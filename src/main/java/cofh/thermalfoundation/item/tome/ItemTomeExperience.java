@@ -116,7 +116,7 @@ public class ItemTomeExperience extends ItemTome implements IFluidContainerItem,
 		if (!stack.hasTagCompound()) {
 			stack.setTagCompound(new NBTTagCompound());
 		}
-		return 1D - ((double) getExperience(stack) / (double) getMaxExperience(stack));
+		return MathHelper.clamp(1.0D - ((double) getExperience(stack) / (double) getMaxExperience(stack)), 0.0D, 1.0D);
 	}
 
 	@Override

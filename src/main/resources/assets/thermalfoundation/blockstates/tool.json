@@ -49,6 +49,11 @@
 					"layer0": "thermalfoundation:items/tool/hammer_copper"
 				}
 			},
+			"excavator_copper": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_copper"
+				}
+			},
 			"shield_copper": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/shield_copper"
@@ -92,6 +97,11 @@
 			"hammer_tin": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/hammer_tin"
+				}
+			},
+			"excavator_tin": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_tin"
 				}
 			},
 			"shield_tin": {
@@ -139,6 +149,11 @@
 					"layer0": "thermalfoundation:items/tool/hammer_silver"
 				}
 			},
+			"excavator_silver": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_silver"
+				}
+			},
 			"shield_silver": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/shield_silver"
@@ -182,6 +197,11 @@
 			"hammer_lead": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/hammer_lead"
+				}
+			},
+			"excavator_lead": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_lead"
 				}
 			},
 			"shield_lead": {
@@ -229,6 +249,11 @@
 					"layer0": "thermalfoundation:items/tool/hammer_aluminum"
 				}
 			},
+			"excavator_aluminum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_aluminum"
+				}
+			},
 			"shield_aluminum": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/shield_aluminum"
@@ -272,6 +297,11 @@
 			"hammer_nickel": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/hammer_nickel"
+				}
+			},
+			"excavator_nickel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_nickel"
 				}
 			},
 			"shield_nickel": {
@@ -319,6 +349,11 @@
 					"layer0": "thermalfoundation:items/tool/hammer_platinum"
 				}
 			},
+			"excavator_platinum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_platinum"
+				}
+			},
 			"shield_platinum": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/shield_platinum"
@@ -362,6 +397,11 @@
 			"hammer_steel": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/hammer_steel"
+				}
+			},
+			"excavator_steel": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_steel"
 				}
 			},
 			"shield_steel": {
@@ -409,6 +449,11 @@
 					"layer0": "thermalfoundation:items/tool/hammer_electrum"
 				}
 			},
+			"excavator_electrum": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_electrum"
+				}
+			},
 			"shield_electrum": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/shield_electrum"
@@ -452,6 +497,11 @@
 			"hammer_invar": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/hammer_invar"
+				}
+			},
+			"excavator_invar": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_invar"
 				}
 			},
 			"shield_invar": {
@@ -499,6 +549,11 @@
 					"layer0": "thermalfoundation:items/tool/hammer_bronze"
 				}
 			},
+			"excavator_bronze": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_bronze"
+				}
+			},
 			"shield_bronze": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/shield_bronze"
@@ -544,6 +599,11 @@
 					"layer0": "thermalfoundation:items/tool/hammer_constantan"
 				}
 			},
+			"excavator_constantan": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_constantan"
+				}
+			},
 			"shield_constantan": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/shield_constantan"
@@ -564,6 +624,11 @@
 					"layer0": "thermalfoundation:items/tool/hammer_wood"
 				}
 			},
+			"excavator_wood": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_wood"
+				}
+			},
 			"shears_stone": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/shears_stone"
@@ -579,6 +644,11 @@
 					"layer0": "thermalfoundation:items/tool/hammer_stone"
 				}
 			},
+			"excavator_stone": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_stone"
+				}
+			},
 			"shield_stone": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/shield_stone"
@@ -592,6 +662,11 @@
 			"hammer_iron": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/hammer_iron"
+				}
+			},
+			"excavator_iron": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_iron"
 				}
 			},
 			"shield_iron": {
@@ -614,6 +689,11 @@
 					"layer0": "thermalfoundation:items/tool/hammer_gold"
 				}
 			},
+			"excavator_gold": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_gold"
+				}
+			},
 			"shield_gold": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/shield_gold"
@@ -632,6 +712,11 @@
 			"hammer_diamond": {
 				"textures": {
 					"layer0": "thermalfoundation:items/tool/hammer_diamond"
+				}
+			},
+			"excavator_diamond": {
+				"textures": {
+					"layer0": "thermalfoundation:items/tool/excavator_diamond"
 				}
 			},
 			"shield_diamond": {

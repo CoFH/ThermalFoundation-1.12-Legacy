@@ -69,7 +69,7 @@ public class InventoryLexiconTransmute implements IInventory {
 	@Override
 	public ItemStack removeStackFromSlot(int slot) {
 
-		if (slot == 0 && !this.stackList[slot].isEmpty()) {
+		if (slot != 2 && !this.stackList[slot].isEmpty()) {
 			ItemStack stack = this.stackList[slot];
 			this.stackList[slot] = ItemStack.EMPTY;
 			return stack;
