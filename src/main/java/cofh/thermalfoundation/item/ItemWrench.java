@@ -99,8 +99,8 @@ public class ItemWrench extends ItemMulti implements IInitializer, IToolHammer, 
 		if (world.isAirBlock(pos)) {
 			return EnumActionResult.PASS;
 		}
-		PlayerInteractEvent event = new PlayerInteractEvent.RightClickBlock(player, hand, pos, side, new Vec3d(hitX, hitY, hitZ));
-		if (MinecraftForge.EVENT_BUS.post(event) || event.getResult() == Result.DENY) {
+		PlayerInteractEvent.RightClickBlock event = new PlayerInteractEvent.RightClickBlock(player, hand, pos, side, new Vec3d(hitX, hitY, hitZ));
+		if (MinecraftForge.EVENT_BUS.post(event) || event.getResult() == Result.DENY || event.getUseBlock() == Result.DENY || event.getUseItem() == Result.DENY) {
 			return EnumActionResult.PASS;
 		}
 		if (ServerHelper.isServerWorld(world) && player.isSneaking() && block instanceof IDismantleable && ((IDismantleable) block).canDismantle(world, pos, state, player)) {
