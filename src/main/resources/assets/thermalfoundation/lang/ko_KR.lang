@@ -64,7 +64,7 @@ gui.thermalfoundation.lexicon.search=검색
 gui.thermalfoundation.lexicon.setPreference=기본 설정 정하기
 gui.thermalfoundation.lexicon.singleEntry=한 장
 gui.thermalfoundation.lexicon.study=사전 - 지식
-gui.thermalfoundation.lexicon.transmute=사전 - 번환
+gui.thermalfoundation.lexicon.transmute=사전 - 변환
 
 info.thermalfoundation.diagram.erase=지우기 위해 사용합니다.
 info.thermalfoundation.diagram.redprint.0=설정 복사를 블럭에 적용합니다.
@@ -77,8 +77,8 @@ info.thermalfoundation.security.lock=보안 가능한 블록에 사용하거나 
 info.thermalfoundation.tome.experience.0=경험을 페이지 내에 저장합니다.
 info.thermalfoundation.tome.experience.1=지식을 책에 저장할 때 사용합니다.
 info.thermalfoundation.tome.experience.2=저장된 지식을 검색할 때 사용합니다.
-info.thermalfoundation.tome.experience.a.0=§b자동설정을 활성화하려면 (%s)을 누르세요.§r
-info.thermalfoundation.tome.experience.a.1=§e자동설정을 비활성화하려면 (%s)을 누르세요.§r
+info.thermalfoundation.tome.experience.a.0=§b자동수집을 활성화하려면 (%s)을 누르세요.§r
+info.thermalfoundation.tome.experience.a.1=§e자동수집을 비활성화하려면 (%s)을 누르세요.§r
 
 info.thermalfoundation.tome.lexicon.0=아이템을 동등한 형태로 변환합니다.
 info.thermalfoundation.tome.lexicon.1=테소레우스로도 알려져 있습니다.
@@ -374,6 +374,7 @@ item.thermalfoundation.tome.lexicon.name=포지 사전
 
 item.thermalfoundation.tool.aluminumAxe.name=알루미늄 도끼
 item.thermalfoundation.tool.aluminumBow.name=알루미늄 활
+item.thermalfoundation.tool.aluminumExcavator.name=알루미늄 굴착기
 item.thermalfoundation.tool.aluminumFishingRod.name=알루미늄 낚싯대
 item.thermalfoundation.tool.aluminumHammer.name=알루미늄 망치
 item.thermalfoundation.tool.aluminumHoe.name=알루미늄 괭이
@@ -386,6 +387,7 @@ item.thermalfoundation.tool.aluminumSword.name=알루미늄 검
 
 item.thermalfoundation.tool.bronzeAxe.name=청동 도끼
 item.thermalfoundation.tool.bronzeBow.name=청동 활
+item.thermalfoundation.tool.bronzeExcavator.name=청동 굴착기
 item.thermalfoundation.tool.bronzeFishingRod.name=청동 낚싯대
 item.thermalfoundation.tool.bronzeHammer.name=청동 망치
 item.thermalfoundation.tool.bronzeHoe.name=청동 괭이
@@ -398,6 +400,7 @@ item.thermalfoundation.tool.bronzeSword.name=청동 검
 
 item.thermalfoundation.tool.constantanAxe.name=콘스탄탄 도끼
 item.thermalfoundation.tool.constantanBow.name=콘스탄탄 활
+item.thermalfoundation.tool.constantanExcavator.name=콘스탄탄 굴착기
 item.thermalfoundation.tool.constantanFishingRod.name=콘스탄탄 낚싯대
 item.thermalfoundation.tool.constantanHammer.name=콘스탄탄 망치
 item.thermalfoundation.tool.constantanHoe.name=콘스탄탄 괭이
@@ -410,6 +413,7 @@ item.thermalfoundation.tool.constantanSword.name=콘스탄탄 검
 
 item.thermalfoundation.tool.copperAxe.name=구리 도끼
 item.thermalfoundation.tool.copperBow.name=구리 활
+item.thermalfoundation.tool.copperExcavator.name=구리 굴착기
 item.thermalfoundation.tool.copperFishingRod.name=구리 낚싯대
 item.thermalfoundation.tool.copperHammer.name=구리 망치
 item.thermalfoundation.tool.copperHoe.name=구리 괭이
@@ -421,6 +425,7 @@ item.thermalfoundation.tool.copperSickle.name=구리 낫
 item.thermalfoundation.tool.copperSword.name=구리 검
 
 item.thermalfoundation.tool.diamondBow.name=다이아몬드 활
+item.thermalfoundation.tool.diamondExcavator.name=다이아몬드 굴착기
 item.thermalfoundation.tool.diamondFishingRod.name=다이아몬드 낚싯대
 item.thermalfoundation.tool.diamondHammer.name=다이아몬드 망치
 item.thermalfoundation.tool.diamondShears.name=다이아몬드 가위
@@ -429,6 +434,7 @@ item.thermalfoundation.tool.diamondSickle.name=다이아몬드 낫
 
 item.thermalfoundation.tool.electrumAxe.name=일렉트륨 도끼
 item.thermalfoundation.tool.electrumBow.name=일렉트륨 활
+item.thermalfoundation.tool.electrumExcavator.name=일렉트륨 굴착기
 item.thermalfoundation.tool.electrumFishingRod.name=일렉트륨 낚싯대
 item.thermalfoundation.tool.electrumHammer.name=일렉트륨 망치
 item.thermalfoundation.tool.electrumHoe.name=일렉트륨 괭이
@@ -440,6 +446,7 @@ item.thermalfoundation.tool.electrumSickle.name=일렉트륨 낫
 item.thermalfoundation.tool.electrumSword.name=일렉트륨 검
 
 item.thermalfoundation.tool.goldBow.name=금 활
+item.thermalfoundation.tool.goldExcavator.name=금 굴착기
 item.thermalfoundation.tool.goldFishingRod.name=금 낚싯대
 item.thermalfoundation.tool.goldHammer.name=금 망치
 item.thermalfoundation.tool.goldShears.name=금 가위
@@ -448,6 +455,7 @@ item.thermalfoundation.tool.goldSickle.name=금 낫
 
 item.thermalfoundation.tool.invarAxe.name=인바 도끼
 item.thermalfoundation.tool.invarBow.name=인바 활
+item.thermalfoundation.tool.invarExcavator.name=인바 굴착기
 item.thermalfoundation.tool.invarFishingRod.name=인바 낚싯대
 item.thermalfoundation.tool.invarHammer.name=인바 망치
 item.thermalfoundation.tool.invarHoe.name=인바 괭이
@@ -459,6 +467,7 @@ item.thermalfoundation.tool.invarSickle.name=인바 낫
 item.thermalfoundation.tool.invarSword.name=인바 검
 
 item.thermalfoundation.tool.ironBow.name=철 활
+item.thermalfoundation.tool.ironExcavator.name=철 굴착기
 item.thermalfoundation.tool.ironFishingRod.name=철 낚싯대
 item.thermalfoundation.tool.ironHammer.name=철 망치
 item.thermalfoundation.tool.ironShears.name=철 가위
@@ -467,6 +476,7 @@ item.thermalfoundation.tool.ironSickle.name=철 낫
 
 item.thermalfoundation.tool.leadAxe.name=납 도끼
 item.thermalfoundation.tool.leadBow.name=납 활
+item.thermalfoundation.tool.leadExcavator.name=납 굴착기
 item.thermalfoundation.tool.leadFishingRod.name=납 낚싯대
 item.thermalfoundation.tool.leadHammer.name=납 망치
 item.thermalfoundation.tool.leadHoe.name=납 괭이
@@ -479,6 +489,7 @@ item.thermalfoundation.tool.leadSword.name=납 검
 
 item.thermalfoundation.tool.nickelAxe.name=니켈 도끼
 item.thermalfoundation.tool.nickelBow.name=니켈 활
+item.thermalfoundation.tool.nickelExcavator.name=니켈 굴착기
 item.thermalfoundation.tool.nickelFishingRod.name=니켈 낚싯대
 item.thermalfoundation.tool.nickelHammer.name=니켈 망치
 item.thermalfoundation.tool.nickelHoe.name=니켈 괭이
@@ -491,6 +502,7 @@ item.thermalfoundation.tool.nickelSword.name=니켈 검
 
 item.thermalfoundation.tool.platinumAxe.name=백금 도끼
 item.thermalfoundation.tool.platinumBow.name=백금 활
+item.thermalfoundation.tool.platinumExcavator.name=백금 굴착기
 item.thermalfoundation.tool.platinumFishingRod.name=백금 낚싯대
 item.thermalfoundation.tool.platinumHammer.name=백금 망치
 item.thermalfoundation.tool.platinumHoe.name=백금 괭이
@@ -503,6 +515,7 @@ item.thermalfoundation.tool.platinumSword.name=백금 검
 
 item.thermalfoundation.tool.silverAxe.name=은 도끼
 item.thermalfoundation.tool.silverBow.name=은 활
+item.thermalfoundation.tool.silverExcavator.name=은 굴착기
 item.thermalfoundation.tool.silverFishingRod.name=은 낚싯대
 item.thermalfoundation.tool.silverHammer.name=은 망치
 item.thermalfoundation.tool.silverHoe.name=은 괭이
@@ -515,6 +528,7 @@ item.thermalfoundation.tool.silverSword.name=은 검
 
 item.thermalfoundation.tool.steelAxe.name=강철 도끼
 item.thermalfoundation.tool.steelBow.name=강철 활
+item.thermalfoundation.tool.steelExcavator.name=강철 굴착기
 item.thermalfoundation.tool.steelFishingRod.name=강철 낚싯대
 item.thermalfoundation.tool.steelHammer.name=강철 망치
 item.thermalfoundation.tool.steelHoe.name=강철 괭이
@@ -526,6 +540,7 @@ item.thermalfoundation.tool.steelSickle.name=강철 낫
 item.thermalfoundation.tool.steelSword.name=강철 검
 
 item.thermalfoundation.tool.stoneBow.name=돌 활
+item.thermalfoundation.tool.stoneExcavator.name=돌 굴착기
 item.thermalfoundation.tool.stoneFishingRod.name=돌 낚싯대
 item.thermalfoundation.tool.stoneHammer.name=돌 망치
 item.thermalfoundation.tool.stoneShears.name=돌 가위
@@ -534,6 +549,7 @@ item.thermalfoundation.tool.stoneSickle.name=돌 낫
 
 item.thermalfoundation.tool.tinAxe.name=주석 도끼
 item.thermalfoundation.tool.tinBow.name=주석 활
+item.thermalfoundation.tool.tinExcavator.name=주석 굴착기
 item.thermalfoundation.tool.tinFishingRod.name=주석 낚싯대
 item.thermalfoundation.tool.tinHammer.name=주석 망치
 item.thermalfoundation.tool.tinHoe.name=주석 괭이
@@ -544,6 +560,7 @@ item.thermalfoundation.tool.tinShovel.name=주석 삽
 item.thermalfoundation.tool.tinSickle.name=주석 낫
 item.thermalfoundation.tool.tinSword.name=주석 검
 
+item.thermalfoundation.tool.woodExcavator.name=나무 굴착기
 item.thermalfoundation.tool.woodHammer.name=나무 망치
 item.thermalfoundation.tool.woodShears.name=나무 가위
 item.thermalfoundation.tool.woodShield.name=나무 방패

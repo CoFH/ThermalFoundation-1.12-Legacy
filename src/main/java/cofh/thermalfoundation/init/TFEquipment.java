@@ -475,10 +475,10 @@ public class TFEquipment {
 				addShapedRecipe(toolHoe, "II", " S", " S", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[5]) {
-				addShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
+				addShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', "string");
 			}
 			if (enable[6]) {
-				addShapedRecipe(toolFishingRod, "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
+				addShapedRecipe(toolFishingRod, "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', "string");
 			}
 			if (enable[7]) {
 				addShapedRecipe(toolShears, " I", "I ", 'I', ingot);
@@ -725,10 +725,10 @@ public class TFEquipment {
 		protected void initialize() {
 
 			if (enable[0]) {
-				addShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
+				addShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', "string");
 			}
 			if (enable[1]) {
-				addShapedRecipe(toolFishingRod, "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
+				addShapedRecipe(toolFishingRod, "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', "string");
 			}
 			if (enable[2]) {
 				addShapedRecipe(toolShears, " I", "I ", 'I', ingot);
