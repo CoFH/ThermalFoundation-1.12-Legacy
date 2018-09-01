@@ -2,6 +2,7 @@
 	"dependencies": "thermalfoundation",
 	"populate": {
 		"copper": {
+			"enabled": "true",
 			"distribution": "uniform",
 			"generator": {
 				"block": {
@@ -27,6 +28,7 @@
 			}
 		},
 		"tin": {
+			"enabled": "true",
 			"distribution": "uniform",
 			"generator": {
 				"block": {
@@ -52,6 +54,7 @@
 			}
 		},
 		"silver": {
+			"enabled": "true",
 			"distribution": "uniform",
 			"generator": {
 				"block": [
@@ -87,6 +90,7 @@
 			}
 		},
 		"lead": {
+			"enabled": "true",
 			"distribution": "uniform",
 			"generator": {
 				"block": [
@@ -122,6 +126,7 @@
 			}
 		},
 		"nickel": {
+			"enabled": "true",
 			"distribution": "uniform",
 			"generator": {
 				"block": {
@@ -146,7 +151,44 @@
 				]
 			}
 		},
+		"platinum": {
+			"enabled": "false",
+			"distribution": "uniform",
+			"generator": {
+				"block": [
+					{
+						"name": "thermalfoundation:ore",
+						"properties": {
+							"type": "platinum"
+						},
+						"weight": 40
+					},
+					{
+						"name": "thermalfoundation:ore",
+						"properties": {
+							"type": "nickel"
+						},
+						"weight": 60
+					}
+				],
+				"material": "minecraft:stone",
+				"cluster-size": 4
+			},
+			"cluster-count": 1,
+			"min-height": 5,
+			"max-height": 25,
+			"retrogen": "true",
+			"biome": "all",
+			"dimension": {
+				"restriction": "blacklist",
+				"value": [
+					-1,
+					1
+				]
+			}
+		},
 		"copper_ocean": {
+			"enabled": "true",
 			"distribution": "uniform",
 			"generator": {
 				"block": {
@@ -180,6 +222,7 @@
 			}
 		},
 		"copper_high": {
+			"enabled": "true",
 			"distribution": "uniform",
 			"generator": {
 				"block": {

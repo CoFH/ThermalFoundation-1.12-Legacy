@@ -38,8 +38,16 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		// dustDiamond = addOreDictItem(2, "dustDiamond");
 		nuggetDiamond = addOreDictItem(16, "nuggetDiamond");
 		nuggetEmerald = addOreDictItem(17, "nuggetEmerald");
+
+		gearWood = addOreDictItem(22, "gearWood");
+		gearStone = addOreDictItem(23, "gearStone");
+
 		gearIron = addOreDictItem(24, "gearIron");
 		gearGold = addOreDictItem(25, "gearGold");
+
+		gearDiamond = addOreDictItem(26, "gearDiamond");
+		gearEmerald = addOreDictItem(27, "gearEmerald");
+
 		plateIron = addOreDictItem(32, "plateIron");
 		plateGold = addOreDictItem(33, "plateGold");
 
@@ -326,8 +334,13 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 			addGearRecipe(gearIron, "ingotIron", "ingotTin");
 			addGearRecipe(gearIron, "ingotIron", "ingotBronze");
 
+			addGearRecipe(gearWood, "stick");
+			addGearRecipe(gearStone, "stone");
 			addGearRecipe(gearIron, "ingotIron");
 			addGearRecipe(gearGold, "ingotGold");
+			addGearRecipe(gearDiamond, "gemDiamond");
+			addGearRecipe(gearEmerald, "gemEmerald");
+
 			addGearRecipe(gearCopper, "ingotCopper");
 			addGearRecipe(gearTin, "ingotTin");
 			addGearRecipe(gearSilver, "ingotSilver");
@@ -389,8 +402,12 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 	public static ItemStack nuggetDiamond;
 	public static ItemStack nuggetEmerald;
 
+	public static ItemStack gearWood;
+	public static ItemStack gearStone;
 	public static ItemStack gearIron;
 	public static ItemStack gearGold;
+	public static ItemStack gearDiamond;
+	public static ItemStack gearEmerald;
 
 	public static ItemStack plateIron;
 	public static ItemStack plateGold;

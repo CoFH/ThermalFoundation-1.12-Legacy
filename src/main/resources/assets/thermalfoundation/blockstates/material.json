@@ -309,6 +309,16 @@
 					"layer0": "thermalfoundation:items/material/nugget_enderium"
 				}
 			},
+			"gearwood": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_wood"
+				}
+			},
+			"gearstone": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_stone"
+				}
+			},
 			"geariron": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/gear_iron"
@@ -317,6 +327,16 @@
 			"geargold": {
 				"textures": {
 					"layer0": "thermalfoundation:items/material/gear_gold"
+				}
+			},
+			"geardiamond": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_diamond"
+				}
+			},
+			"gearemerald": {
+				"textures": {
+					"layer0": "thermalfoundation:items/material/gear_emerald"
 				}
 			},
 			"gearcopper": {
