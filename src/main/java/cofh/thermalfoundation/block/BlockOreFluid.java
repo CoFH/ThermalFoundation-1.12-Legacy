@@ -261,8 +261,8 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 		BlockFluidCore fluid = fluidBlocks[state.getValue(VARIANT).getMetadata()];
 
-		int density = fluid.getDensity();
-		int densityDir = fluid.getDensityDir();
+		int density = fluid.getDensitySafe();
+		int densityDir = fluid.getDensityDirSafe();
 
 		if (density < 0) {
 			py = pos.getY() + 1.10D;
