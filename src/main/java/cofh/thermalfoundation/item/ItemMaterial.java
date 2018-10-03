@@ -330,12 +330,8 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		if (!TFProps.disableBasicItems) {
 
 			/* Gears */
-			addGearRecipe(gearIron, "ingotIron", "ingotCopper");
-			addGearRecipe(gearIron, "ingotIron", "ingotTin");
-			addGearRecipe(gearIron, "ingotIron", "ingotBronze");
-
-			addGearRecipe(gearWood, "stick");
-			addGearRecipe(gearStone, "stone");
+			addGearRecipe(gearWood, "stickWood");
+			addGearRecipe(gearStone, "stone", "gearWood");
 			addGearRecipe(gearIron, "ingotIron");
 			addGearRecipe(gearGold, "ingotGold");
 			addGearRecipe(gearDiamond, "gemDiamond");

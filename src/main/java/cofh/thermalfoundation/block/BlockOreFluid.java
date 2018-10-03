@@ -310,18 +310,18 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		config();
 
 		oreClathrateOilSand = new ItemStack(this, 1, Type.CRUDE_OIL_SAND.getMetadata());
-		oreClathrateOilRedSand = new ItemStack(this, 1, Type.CRUDE_OIL_RED_SAND.getMetadata());
 		oreClathrateOilShale = new ItemStack(this, 1, Type.CRUDE_OIL_GRAVEL.getMetadata());
 		oreClathrateRedstone = new ItemStack(this, 1, Type.REDSTONE.getMetadata());
 		oreClathrateGlowstone = new ItemStack(this, 1, Type.GLOWSTONE.getMetadata());
 		oreClathrateEnder = new ItemStack(this, 1, Type.ENDER.getMetadata());
+		oreClathrateOilRedSand = new ItemStack(this, 1, Type.CRUDE_OIL_RED_SAND.getMetadata());
 
 		registerWithHandlers("oreClathrateOilSand", oreClathrateOilSand);
-		registerWithHandlers("oreClathrateOilSand", oreClathrateOilRedSand);
 		registerWithHandlers("oreClathrateOilShale", oreClathrateOilShale);
 		registerWithHandlers("oreClathrateRedstone", oreClathrateRedstone);
 		registerWithHandlers("oreClathrateGlowstone", oreClathrateGlowstone);
 		registerWithHandlers("oreClathrateEnder", oreClathrateEnder);
+		registerWithHandlers("oreClathrateOilSand", oreClathrateOilRedSand);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
@@ -332,18 +332,18 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	public boolean initialize() {
 
 		fluidBlocks[Type.CRUDE_OIL_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;
-		fluidBlocks[Type.CRUDE_OIL_RED_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;
 		fluidBlocks[Type.CRUDE_OIL_GRAVEL.getMetadata()] = TFFluids.blockFluidCrudeOil;
 		fluidBlocks[Type.REDSTONE.getMetadata()] = TFFluids.blockFluidRedstone;
 		fluidBlocks[Type.GLOWSTONE.getMetadata()] = TFFluids.blockFluidGlowstone;
 		fluidBlocks[Type.ENDER.getMetadata()] = TFFluids.blockFluidEnder;
+		fluidBlocks[Type.CRUDE_OIL_RED_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;
 
 		drops[Type.CRUDE_OIL_SAND.getMetadata()] = ItemMaterial.crystalCrudeOil;
-		drops[Type.CRUDE_OIL_RED_SAND.getMetadata()] = ItemMaterial.crystalCrudeOil;
 		drops[Type.CRUDE_OIL_GRAVEL.getMetadata()] = ItemMaterial.crystalCrudeOil;
 		drops[Type.REDSTONE.getMetadata()] = ItemMaterial.crystalRedstone;
 		drops[Type.GLOWSTONE.getMetadata()] = ItemMaterial.crystalGlowstone;
 		drops[Type.ENDER.getMetadata()] = ItemMaterial.crystalEnder;
+		drops[Type.CRUDE_OIL_RED_SAND.getMetadata()] = ItemMaterial.crystalCrudeOil;
 
 		return true;
 	}
@@ -360,11 +360,11 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 		// @formatter:off
 		CRUDE_OIL_SAND(0, "crude_oil_sand", 0, 0.5F, 2.0F, true, EnumRarity.COMMON),
-		CRUDE_OIL_RED_SAND(5, "crude_oil_red_sand", 0, 0.5F, 2.0F, true, EnumRarity.COMMON),
 		CRUDE_OIL_GRAVEL(1, "crude_oil_gravel", 0, 0.6F, 2.5F, true, EnumRarity.COMMON),
 		REDSTONE(2, "redstone", 7, 5.0F, 3.0F, false, EnumRarity.UNCOMMON),
 		GLOWSTONE(3, "glowstone", 15, 0.4F, 2.0F, false, EnumRarity.UNCOMMON),
-		ENDER(4, "ender", 3, 3.0F, 9.0F, false, EnumRarity.RARE);
+		ENDER(4, "ender", 3, 3.0F, 9.0F, false, EnumRarity.RARE),
+		CRUDE_OIL_RED_SAND(5, "crude_oil_red_sand", 0, 0.5F, 2.0F, true, EnumRarity.COMMON);
 		// @formatter:on
 
 		private final int metadata;
