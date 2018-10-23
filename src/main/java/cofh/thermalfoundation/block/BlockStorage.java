@@ -1,8 +1,10 @@
 package cofh.thermalfoundation.block;
 
 import cofh.core.block.BlockCore;
+import cofh.core.block.ItemBlockCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.util.core.IInitializer;
+import cofh.core.util.helpers.ItemHelper;
 import cofh.thermalfoundation.ThermalFoundation;
 import cofh.thermalfoundation.init.TFProps;
 import net.minecraft.block.SoundType;
@@ -63,16 +65,28 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	@Override
 	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
 
-		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
+		for (int i = 0; i < Type.values().length; i++) {
 			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
 	/* TYPE METHODS */
 	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+
+		return "tile.thermalfoundation.storage." + Type.values()[ItemHelper.getItemDamage(stack)].getName() + ".name";
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+
+		return Type.values()[ItemHelper.getItemDamage(stack)].getRarity();
+	}
+
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.values()[meta]);
 	}
 
 	@Override
@@ -131,7 +145,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 	public void registerModels() {
 
 		for (int i = 0; i < Type.values().length; i++) {
-			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(modName + ":" + name, "type=" + Type.byMetadata(i).getName()));
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(modName + ":" + name, "type=" + Type.values()[i].getName()));
 		}
 	}
 
@@ -142,7 +156,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		this.setRegistryName("storage");
 		ForgeRegistries.BLOCKS.register(this);
 
-		ItemBlockStorage itemBlock = new ItemBlockStorage(this);
+		ItemBlockCore itemBlock = new ItemBlockCore(this);
 		itemBlock.setRegistryName(this.getRegistryName());
 		ForgeRegistries.ITEMS.register(itemBlock);
 
@@ -168,7 +182,7 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
-		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
+		for (int i = 0; i < Type.values().length; i++) {
 			TFProps.blockList.add(new ItemStack(this, 1, i));
 		}
 		return true;
@@ -205,7 +219,6 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		MITHRIL(8, "mithril", 8, 30.0F, 120.0F, EnumRarity.RARE);
 		// @formatter:on
 
-		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;
@@ -272,20 +285,6 @@ public class BlockStorage extends BlockCore implements IInitializer, IModelRegis
 		public EnumRarity getRarity() {
 
 			return this.rarity;
-		}
-
-		public static Type byMetadata(int metadata) {
-
-			if (metadata < 0 || metadata >= METADATA_LOOKUP.length) {
-				metadata = 0;
-			}
-			return METADATA_LOOKUP[metadata];
-		}
-
-		static {
-			for (Type type : values()) {
-				METADATA_LOOKUP[type.getMetadata()] = type;
-			}
 		}
 	}
 

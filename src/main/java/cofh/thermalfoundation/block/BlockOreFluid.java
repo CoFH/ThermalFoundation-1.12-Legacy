@@ -1,6 +1,7 @@
 package cofh.thermalfoundation.block;
 
 import cofh.core.block.BlockCore;
+import cofh.core.block.ItemBlockCore;
 import cofh.core.fluid.BlockFluidCore;
 import cofh.core.render.IModelRegister;
 import cofh.core.render.particle.EntityDropParticleFX;
@@ -75,16 +76,28 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
 
-		for (int i = 0; i < Type.METADATA_LOOKUP.length; i++) {
+		for (int i = 0; i < Type.values().length; i++) {
 			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
 	/* TYPE METHODS */
 	@Override
+	public String getUnlocalizedName(ItemStack stack) {
+
+		return "tile.thermalfoundation.ore." + Type.values()[ItemHelper.getItemDamage(stack)].getName() + ".name";
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+
+		return Type.values()[ItemHelper.getItemDamage(stack)].getRarity();
+	}
+
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 
-		return this.getDefaultState().withProperty(VARIANT, Type.byMetadata(meta));
+		return this.getDefaultState().withProperty(VARIANT, Type.values()[meta]);
 	}
 
 	@Override
@@ -248,8 +261,8 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 		BlockFluidCore fluid = fluidBlocks[state.getValue(VARIANT).getMetadata()];
 
-		int density = fluid.getDensity();
-		int densityDir = fluid.getDensityDir();
+		int density = fluid.getDensitySafe();
+		int densityDir = fluid.getDensityDirSafe();
 
 		if (density < 0) {
 			py = pos.getY() + 1.10D;
@@ -279,7 +292,7 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	public void registerModels() {
 
 		for (int i = 0; i < Type.values().length; i++) {
-			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(modName + ":" + name + "_fluid", "type=" + Type.byMetadata(i).getName()));
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), i, new ModelResourceLocation(modName + ":" + name + "_fluid", "type=" + Type.values()[i].getName()));
 		}
 	}
 
@@ -290,25 +303,25 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		this.setRegistryName("ore_fluid");
 		ForgeRegistries.BLOCKS.register(this);
 
-		ItemBlockOreFluid itemBlock = new ItemBlockOreFluid(this);
+		ItemBlockCore itemBlock = new ItemBlockCore(this);
 		itemBlock.setRegistryName(this.getRegistryName());
 		ForgeRegistries.ITEMS.register(itemBlock);
 
 		config();
 
 		oreClathrateOilSand = new ItemStack(this, 1, Type.CRUDE_OIL_SAND.getMetadata());
-		oreClathrateOilRedSand = new ItemStack(this, 1, Type.CRUDE_OIL_RED_SAND.getMetadata());
 		oreClathrateOilShale = new ItemStack(this, 1, Type.CRUDE_OIL_GRAVEL.getMetadata());
 		oreClathrateRedstone = new ItemStack(this, 1, Type.REDSTONE.getMetadata());
 		oreClathrateGlowstone = new ItemStack(this, 1, Type.GLOWSTONE.getMetadata());
 		oreClathrateEnder = new ItemStack(this, 1, Type.ENDER.getMetadata());
+		oreClathrateOilRedSand = new ItemStack(this, 1, Type.CRUDE_OIL_RED_SAND.getMetadata());
 
 		registerWithHandlers("oreClathrateOilSand", oreClathrateOilSand);
-		registerWithHandlers("oreClathrateOilSand", oreClathrateOilRedSand);
 		registerWithHandlers("oreClathrateOilShale", oreClathrateOilShale);
 		registerWithHandlers("oreClathrateRedstone", oreClathrateRedstone);
 		registerWithHandlers("oreClathrateGlowstone", oreClathrateGlowstone);
 		registerWithHandlers("oreClathrateEnder", oreClathrateEnder);
+		registerWithHandlers("oreClathrateOilSand", oreClathrateOilRedSand);
 
 		ThermalFoundation.proxy.addIModelRegister(this);
 
@@ -319,18 +332,18 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	public boolean initialize() {
 
 		fluidBlocks[Type.CRUDE_OIL_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;
-		fluidBlocks[Type.CRUDE_OIL_RED_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;
 		fluidBlocks[Type.CRUDE_OIL_GRAVEL.getMetadata()] = TFFluids.blockFluidCrudeOil;
 		fluidBlocks[Type.REDSTONE.getMetadata()] = TFFluids.blockFluidRedstone;
 		fluidBlocks[Type.GLOWSTONE.getMetadata()] = TFFluids.blockFluidGlowstone;
 		fluidBlocks[Type.ENDER.getMetadata()] = TFFluids.blockFluidEnder;
+		fluidBlocks[Type.CRUDE_OIL_RED_SAND.getMetadata()] = TFFluids.blockFluidCrudeOil;
 
 		drops[Type.CRUDE_OIL_SAND.getMetadata()] = ItemMaterial.crystalCrudeOil;
-		drops[Type.CRUDE_OIL_RED_SAND.getMetadata()] = ItemMaterial.crystalCrudeOil;
 		drops[Type.CRUDE_OIL_GRAVEL.getMetadata()] = ItemMaterial.crystalCrudeOil;
 		drops[Type.REDSTONE.getMetadata()] = ItemMaterial.crystalRedstone;
 		drops[Type.GLOWSTONE.getMetadata()] = ItemMaterial.crystalGlowstone;
 		drops[Type.ENDER.getMetadata()] = ItemMaterial.crystalEnder;
+		drops[Type.CRUDE_OIL_RED_SAND.getMetadata()] = ItemMaterial.crystalCrudeOil;
 
 		return true;
 	}
@@ -347,14 +360,13 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 
 		// @formatter:off
 		CRUDE_OIL_SAND(0, "crude_oil_sand", 0, 0.5F, 2.0F, true, EnumRarity.COMMON),
-		CRUDE_OIL_RED_SAND(5, "crude_oil_red_sand", 0, 0.5F, 2.0F, true, EnumRarity.COMMON),
 		CRUDE_OIL_GRAVEL(1, "crude_oil_gravel", 0, 0.6F, 2.5F, true, EnumRarity.COMMON),
 		REDSTONE(2, "redstone", 7, 5.0F, 3.0F, false, EnumRarity.UNCOMMON),
 		GLOWSTONE(3, "glowstone", 15, 0.4F, 2.0F, false, EnumRarity.UNCOMMON),
-		ENDER(4, "ender", 3, 3.0F, 9.0F, false, EnumRarity.RARE);
+		ENDER(4, "ender", 3, 3.0F, 9.0F, false, EnumRarity.RARE),
+		CRUDE_OIL_RED_SAND(5, "crude_oil_red_sand", 0, 0.5F, 2.0F, true, EnumRarity.COMMON);
 		// @formatter:on
 
-		private static final Type[] METADATA_LOOKUP = new Type[values().length];
 		private final int metadata;
 		private final String name;
 		private final int light;
@@ -408,20 +420,6 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 		public EnumRarity getRarity() {
 
 			return this.rarity;
-		}
-
-		public static Type byMetadata(int metadata) {
-
-			if (metadata < 0 || metadata >= METADATA_LOOKUP.length) {
-				metadata = 0;
-			}
-			return METADATA_LOOKUP[metadata];
-		}
-
-		static {
-			for (Type type : values()) {
-				METADATA_LOOKUP[type.getMetadata()] = type;
-			}
 		}
 	}
 

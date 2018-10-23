@@ -41,9 +41,6 @@ public class EventHandler {
 	@SubscribeEvent (priority = EventPriority.HIGHEST)
 	public void handleEntityItemPickupEvent(EntityItemPickupEvent event) {
 
-		if (event.isCanceled()) {
-			return;
-		}
 		EntityItem item = event.getItem();
 		ItemStack stack = item.getItem();
 		if (stack.isEmpty() || !LexiconManager.validOre(stack)) {
@@ -77,9 +74,6 @@ public class EventHandler {
 	@SubscribeEvent (priority = EventPriority.HIGH)
 	public void handlePlayerPickupXpEvent(PlayerPickupXpEvent event) {
 
-		if (event.isCanceled()) {
-			return;
-		}
 		EntityPlayer player = event.getEntityPlayer();
 		NBTTagCompound tag = player.getEntityData(); // Cannot be null
 		if (player.world.getTotalWorldTime() - tag.getLong(TFProps.EXPERIENCE_TIMER) > 20) {

@@ -33,8 +33,8 @@ public class ThermalFoundation {
 	public static final String MOD_ID = "thermalfoundation";
 	public static final String MOD_NAME = "Thermal Foundation";
 
-	public static final String VERSION = "2.5.0";
-	public static final String VERSION_MAX = "2.6.0";
+	public static final String VERSION = "2.6.1";
+	public static final String VERSION_MAX = "2.7.0";
 	public static final String VERSION_GROUP = "required-after:" + MOD_ID + "@[" + VERSION + "," + VERSION_MAX + ");";
 	public static final String UPDATE_URL = "https://raw.github.com/cofh/version/master/" + MOD_ID + "_update.json";
 
@@ -87,6 +87,8 @@ public class ThermalFoundation {
 		TFSounds.preInit();
 		TFPlugins.preInit();
 
+		// TFBiomes.preInit();
+
 		CoreEnchantments.register();
 		CorePotions.register();
 
@@ -105,6 +107,8 @@ public class ThermalFoundation {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 
+		// TFBiomes.postInit();
+
 		proxy.postInit(event);
 	}
 
@@ -119,6 +123,12 @@ public class ThermalFoundation {
 		CONFIG_CLIENT.cleanUp(false, true);
 
 		LOG.info(MOD_NAME + ": Load Complete.");
+	}
+
+	@EventHandler
+	public void handleServerStartedEvent(FMLServerStartedEvent event) {
+
+		TFFluids.refreshReferences();
 	}
 
 	@EventHandler

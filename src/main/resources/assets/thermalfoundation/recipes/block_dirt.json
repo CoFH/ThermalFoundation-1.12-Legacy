@@ -2,7 +2,8 @@
 	"type": "forge:ore_shapeless",
 	"result": {
 		"item": "minecraft:dirt",
-		"data": 0
+		"data": 0,
+		"count": 2
 	},
 	"ingredients": [
 		{

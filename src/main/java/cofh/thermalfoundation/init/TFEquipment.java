@@ -276,13 +276,13 @@ public class TFEquipment {
 		public final ToolMaterial material;
 
 		/* BOW */
-		private float arrowDamage = 0.0F;
-		private float arrowSpeed = 0.0F;
+		private float arrowDamage;
+		private float arrowSpeed;
 		private float zoomMultiplier = 0.15F;
 
 		/* FISHING ROD */
-		private int luckModifier = 0;
-		private int speedModifier = 0;
+		private int luckModifier;
+		private int speedModifier;
 
 		/* TOOLS */
 		public ItemSwordCore itemSword;
@@ -295,6 +295,7 @@ public class TFEquipment {
 		public ItemShearsCore itemShears;
 		public ItemSickleCore itemSickle;
 		public ItemHammerCore itemHammer;
+		public ItemExcavatorCore itemExcavator;
 		public ItemShieldCore itemShield;
 
 		public ItemStack toolSword;
@@ -307,9 +308,10 @@ public class TFEquipment {
 		public ItemStack toolShears;
 		public ItemStack toolSickle;
 		public ItemStack toolHammer;
+		public ItemStack toolExcavator;
 		public ItemStack toolShield;
 
-		public boolean[] enable = new boolean[11];
+		public boolean[] enable = new boolean[12];
 
 		ToolSet(String name, ToolMaterial materialIn, String ingot) {
 
@@ -337,6 +339,7 @@ public class TFEquipment {
 			itemShears = new ItemShearsCore(material);
 			itemSickle = new ItemSickleCore(material);
 			itemHammer = new ItemHammerCore(material);
+			itemExcavator = new ItemExcavatorCore(material);
 			itemShield = new ItemShieldCore(material);
 		}
 
@@ -356,7 +359,8 @@ public class TFEquipment {
 			enable[7] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shears", true).getBoolean(true) & !TFProps.disableAllShears;
 			enable[8] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", true).getBoolean(true);
 			enable[9] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", true).getBoolean(true);
-			enable[10] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true) & !TFProps.disableAllShields;
+			enable[10] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Excavator", true).getBoolean(true);
+			enable[11] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", true).getBoolean(true) & !TFProps.disableAllShields;
 
 			for (int i = 0; i < enable.length; i++) {
 				enable[i] &= !TFProps.disableAllTools;
@@ -425,9 +429,15 @@ public class TFEquipment {
 			itemHammer.setRegistryName("tool.hammer_" + name);
 			ForgeRegistries.ITEMS.register(itemHammer);
 
+			/* EXCAVATOR */
+			itemExcavator.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Excavator").setCreativeTab(ThermalFoundation.tabBasicTools);
+			itemExcavator.setShowInCreative(enable[10] | TFProps.showDisabledEquipment);
+			itemExcavator.setRegistryName("tool.excavator_" + name);
+			ForgeRegistries.ITEMS.register(itemExcavator);
+
 			/* SHIELD */
 			itemShield.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shield").setCreativeTab(ThermalFoundation.tabBasicCombat);
-			itemShield.setShowInCreative(enable[10] | TFProps.showDisabledEquipment);
+			itemShield.setShowInCreative(enable[11] | TFProps.showDisabledEquipment);
 			itemShield.setRegistryName("tool.shield_" + name);
 			ForgeRegistries.ITEMS.register(itemShield);
 
@@ -443,6 +453,7 @@ public class TFEquipment {
 			toolShears = new ItemStack(itemShears);
 			toolSickle = new ItemStack(itemSickle);
 			toolHammer = new ItemStack(itemHammer);
+			toolExcavator = new ItemStack(itemExcavator);
 			toolShield = new ItemStack(itemShield);
 		}
 
@@ -464,10 +475,10 @@ public class TFEquipment {
 				addShapedRecipe(toolHoe, "II", " S", " S", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[5]) {
-				addShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
+				addShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', "string");
 			}
 			if (enable[6]) {
-				addShapedRecipe(toolFishingRod, "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
+				addShapedRecipe(toolFishingRod, "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', "string");
 			}
 			if (enable[7]) {
 				addShapedRecipe(toolShears, " I", "I ", 'I', ingot);
@@ -479,6 +490,9 @@ public class TFEquipment {
 				addShapedRecipe(toolHammer, "III", "ISI", " S ", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[10]) {
+				addShapedRecipe(toolExcavator, " I ", "ISI", " S ", 'I', ingot, 'S', "stickWood");
+			}
+			if (enable[11]) {
 				addShapedRecipe(toolShield, "III", "ISI", " I ", 'I', ingot, 'S', Items.SHIELD);
 			}
 		}
@@ -511,6 +525,7 @@ public class TFEquipment {
 			registerModel(itemShears, "shears_" + name);
 			registerModel(itemSickle, "sickle_" + name);
 			registerModel(itemHammer, "hammer_" + name);
+			registerModel(itemExcavator, "excavator_" + name);
 			registerModelOverride(itemShield, "shield_" + name);
 		}
 	}
@@ -529,6 +544,7 @@ public class TFEquipment {
 				itemShears = new ItemShearsCore(material);
     			itemSickle = new ItemSickleCore(material);
     			itemHammer = new ItemHammerCore(material);
+    			itemExcavator = new ItemExcavatorCore(material);
     			itemShield = Items.SHIELD;
     		}
     	},
@@ -543,6 +559,7 @@ public class TFEquipment {
 				itemShears = Items.SHEARS;
     			itemSickle = new ItemSickleCore(material);
 				itemHammer = new ItemHammerCore(material);
+			    itemExcavator = new ItemExcavatorCore(material);
 				itemShield = new ItemShieldCore(material);
 
     		}
@@ -556,13 +573,13 @@ public class TFEquipment {
 		public final ToolMaterial material;
 
 		/* BOW */
-		private float arrowSpeed = 0.0F;
-		private float arrowDamage = 0.0F;
+		private float arrowSpeed;
+		private float arrowDamage;
 		private float zoomMultiplier = 0.15F;
 
 		/* FISHING ROD */
-		private int luckModifier = 0;
-		private int speedModifier = 0;
+		private int luckModifier;
+		private int speedModifier;
 
 		/* TOOLS */
 		public ItemBow itemBow;
@@ -570,6 +587,7 @@ public class TFEquipment {
 		public ItemShears itemShears;
 		public ItemSickleCore itemSickle;
 		public ItemHammerCore itemHammer;
+		public ItemExcavatorCore itemExcavator;
 		public Item itemShield;
 
 		public ItemStack toolBow;
@@ -577,9 +595,10 @@ public class TFEquipment {
 		public ItemStack toolShears;
 		public ItemStack toolSickle;
 		public ItemStack toolHammer;
+		public ItemStack toolExcavator;
 		public ItemStack toolShield;
 
-		public boolean[] enable = new boolean[6];
+		public boolean[] enable = new boolean[7];
 
 		ToolSetVanilla(String name, ToolMaterial materialIn, String ingot) {
 
@@ -590,7 +609,7 @@ public class TFEquipment {
 			/* BOW */
 			arrowDamage = material.getAttackDamage() / 4;
 			arrowSpeed = material.getEfficiency() / 20;
-			zoomMultiplier = MathHelper.clamp(material.getEfficiency() / 30, zoomMultiplier, zoomMultiplier * 2);
+			zoomMultiplier = MathHelper.clamp(material.getEfficiency() / 30, 0, zoomMultiplier * 2);
 
 			/* FISHING ROD */
 			luckModifier = material.getHarvestLevel() / 2;
@@ -604,6 +623,7 @@ public class TFEquipment {
 			itemShears = new ItemShearsCore(material);
 			itemSickle = new ItemSickleCore(material);
 			itemHammer = new ItemHammerCore(material);
+			itemExcavator = new ItemExcavatorCore(material);
 			itemShield = new ItemShieldCore(material);
 		}
 
@@ -627,11 +647,11 @@ public class TFEquipment {
 			}
 			enable[3] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Sickle", enableDefault(this)).getBoolean(enableDefault(this));
 			enable[4] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Hammer", enableDefault(this)).getBoolean(enableDefault(this));
+			enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Excavator", enableDefault(this)).getBoolean(enableDefault(this));
 
 			if (this != WOOD) {
-				enable[5] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", enableDefault(this)).getBoolean(enableDefault(this)) & !TFProps.disableAllShields;
+				enable[6] = ThermalFoundation.CONFIG.getConfiguration().get(category, "Shield", enableDefault(this)).getBoolean(enableDefault(this)) & !TFProps.disableAllShields;
 			}
-
 			for (int i = 0; i < enable.length; i++) {
 				enable[i] &= !TFProps.disableAllTools;
 				enable[i] &= !TFProps.disableVanillaTools;
@@ -679,10 +699,16 @@ public class TFEquipment {
 			itemHammer.setRegistryName("tool.hammer_" + name);
 			ForgeRegistries.ITEMS.register(itemHammer);
 
+			/* EXCAVATOR */
+			itemExcavator.setRepairIngot(ingot).setUnlocalizedName(TOOL + "Excavator").setCreativeTab(CreativeTabs.TOOLS);
+			itemExcavator.setShowInCreative(enable[5] | TFProps.showDisabledEquipment);
+			itemExcavator.setRegistryName("tool.excavator_" + name);
+			ForgeRegistries.ITEMS.register(itemExcavator);
+
 			/* SHIELD */
 			if (itemShield instanceof ItemShieldCore) {
 				((ItemShieldCore) itemShield).setRepairIngot(ingot).setUnlocalizedName(TOOL + "Shield").setCreativeTab(CreativeTabs.COMBAT);
-				((ItemShieldCore) itemShield).setShowInCreative(enable[5] | TFProps.showDisabledEquipment);
+				((ItemShieldCore) itemShield).setShowInCreative(enable[6] | TFProps.showDisabledEquipment);
 				itemShield.setRegistryName("tool.shield_" + name);
 				ForgeRegistries.ITEMS.register(itemShield);
 			}
@@ -692,16 +718,17 @@ public class TFEquipment {
 			toolShears = new ItemStack(itemShears);
 			toolSickle = new ItemStack(itemSickle);
 			toolHammer = new ItemStack(itemHammer);
+			toolExcavator = new ItemStack(itemExcavator);
 			toolShield = new ItemStack(itemShield);
 		}
 
 		protected void initialize() {
 
 			if (enable[0]) {
-				addShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
+				addShapedRecipe(toolBow, " I#", "S #", " I#", 'I', ingot, 'S', "stickWood", '#', "string");
 			}
 			if (enable[1]) {
-				addShapedRecipe(toolFishingRod, "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', Items.STRING);
+				addShapedRecipe(toolFishingRod, "  I", " I#", "S #", 'I', ingot, 'S', "stickWood", '#', "string");
 			}
 			if (enable[2]) {
 				addShapedRecipe(toolShears, " I", "I ", 'I', ingot);
@@ -713,6 +740,9 @@ public class TFEquipment {
 				addShapedRecipe(toolHammer, "III", "ISI", " S ", 'I', ingot, 'S', "stickWood");
 			}
 			if (enable[5]) {
+				addShapedRecipe(toolExcavator, " I ", "ISI", " S ", 'I', ingot, 'S', "stickWood");
+			}
+			if (enable[6]) {
 				addShapedRecipe(toolShield, "III", "ISI", " I ", 'I', ingot, 'S', Items.SHIELD);
 			}
 		}
@@ -746,6 +776,7 @@ public class TFEquipment {
 			}
 			registerModel(itemSickle, "sickle_" + name);
 			registerModel(itemHammer, "hammer_" + name);
+			registerModel(itemExcavator, "excavator_" + name);
 
 			if (itemShield instanceof ItemShieldCore) {
 				registerModelOverride(itemShield, "shield_" + name);
