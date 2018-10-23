@@ -33,9 +33,9 @@ item.forge.bucketFilled.ender=Ведро резонирующего эндери
 item.forge.bucketFilled.enderium=Ведро расплавленного эндериума
 item.forge.bucketFilled.experience=Ведро эссенции знаний
 item.forge.bucketFilled.glowstone=Ведро заряженного светящегося камня
-item.forge.bucketFilled.lumium=Ведро расплавленного ламиума
 item.forge.bucketFilled.invar=Ведро расплавленного инвара
 item.forge.bucketFilled.iridium=Ведро расплавленного иридия
+item.forge.bucketFilled.lumium=Ведро расплавленного ламиума
 item.forge.bucketFilled.mana=Ведро изначальной маны
 item.forge.bucketFilled.mushroom_stew=Ведро тушёных грибов
 item.forge.bucketFilled.petrotheum=Ведро тектонического петротеума
@@ -192,9 +192,9 @@ item.thermalfoundation.armor.tinHelmet.name=Оловянный шлем
 item.thermalfoundation.armor.tinLegs.name=Оловянные поножи
 item.thermalfoundation.armor.tinChestplate.name=Оловянный нагрудник
 
-item.thermalfoundation.bait.baitBasic.name=Аква-Чоу
-item.thermalfoundation.bait.baitFlux.name=Флаксовый Аква-Чоу
-item.thermalfoundation.bait.baitRich.name=Обогащённый Аква-Чоу
+item.thermalfoundation.bait.baitBasic.name=Приманка
+item.thermalfoundation.bait.baitFlux.name=Наполненная флаксом приманка
+item.thermalfoundation.bait.baitRich.name=Насыщенная приманка
 
 item.thermalfoundation.coin.coinAluminum.name=Алюминиевая монета
 item.thermalfoundation.coin.coinBronze.name=Бронзовая монета
@@ -311,8 +311,10 @@ item.thermalfoundation.material.gearAluminum.name=Алюминиевая шес�
 item.thermalfoundation.material.gearBronze.name=Бронзовая шестерня
 item.thermalfoundation.material.gearConstantan.name=Константановая шестерня
 item.thermalfoundation.material.gearCopper.name=Медная шестерня
-item.thermalfoundation.material.gearElectrum.name=Шестерня из электрума
-item.thermalfoundation.material.gearEnderium.name=Шестерня из эндериума
+item.thermalfoundation.material.gearDiamond.name=Алмазная шестерня
+item.thermalfoundation.material.gearElectrum.name=Электрумовая шестерня
+item.thermalfoundation.material.gearEmerald.name=Изумрудная шестерня
+item.thermalfoundation.material.gearEnderium.name=Эндериумная шестерня
 item.thermalfoundation.material.gearGold.name=Золотая шестерня
 item.thermalfoundation.material.gearInvar.name=Инваровая шестерня
 item.thermalfoundation.material.gearIridium.name=Иридиевая шестерня
@@ -325,7 +327,9 @@ item.thermalfoundation.material.gearPlatinum.name=Платиновая шест�
 item.thermalfoundation.material.gearSignalum.name=Синаловая шестерня
 item.thermalfoundation.material.gearSilver.name=Серебряная шестерня
 item.thermalfoundation.material.gearSteel.name=Стальная шестерня
+item.thermalfoundation.material.gearStone.name=Каменная шестерня
 item.thermalfoundation.material.gearTin.name=Оловянная шестерня
+item.thermalfoundation.material.gearWood.name=Деревянная шестерня
 
 item.thermalfoundation.material.globRosin.name=Канифоль
 item.thermalfoundation.material.globTar.name=Смола
@@ -407,6 +411,7 @@ item.thermalfoundation.tome.lexicon.name=Лексикон Forge
 
 item.thermalfoundation.tool.aluminumAxe.name=Алюминиевый топор
 item.thermalfoundation.tool.aluminumBow.name=Алюминиевый укрепленный лук
+item.thermalfoundation.tool.aluminumExcavator.name=Алюминиевый заступ
 item.thermalfoundation.tool.aluminumFishingRod.name=Алюминиевая удочка
 item.thermalfoundation.tool.aluminumHammer.name=Алюминиевый молот
 item.thermalfoundation.tool.aluminumHoe.name=Алюминиевая мотыга
@@ -419,6 +424,7 @@ item.thermalfoundation.tool.aluminumSword.name=Алюминиевый меч
 
 item.thermalfoundation.tool.bronzeAxe.name=Бронзовый топор
 item.thermalfoundation.tool.bronzeBow.name=Бронзовый укрепленный лук
+item.thermalfoundation.tool.bronzeExcavator.name=Бронзовый заступ
 item.thermalfoundation.tool.bronzeFishingRod.name=Бронзовая удочка
 item.thermalfoundation.tool.bronzeHammer.name=Бронзовый молот
 item.thermalfoundation.tool.bronzeHoe.name=Бронзовая мотыга
@@ -431,6 +437,7 @@ item.thermalfoundation.tool.bronzeSword.name=Бронзовый меч
 
 item.thermalfoundation.tool.constantanAxe.name=Константановый топор
 item.thermalfoundation.tool.constantanBow.name=Константановый укрепленный лук
+item.thermalfoundation.tool.constantanExcavator.name=Константановый заступ
 item.thermalfoundation.tool.constantanFishingRod.name=Константановая удочка
 item.thermalfoundation.tool.constantanHammer.name=Константановый молот
 item.thermalfoundation.tool.constantanHoe.name=Константановая мотыга
@@ -443,6 +450,7 @@ item.thermalfoundation.tool.constantanSword.name=Константановый м
 
 item.thermalfoundation.tool.copperAxe.name=Медный топор
 item.thermalfoundation.tool.copperBow.name=Медный укрепленный лук
+item.thermalfoundation.tool.copperExcavator.name=Медный заступ
 item.thermalfoundation.tool.copperFishingRod.name=Медная удочка
 item.thermalfoundation.tool.copperHammer.name=Медный молот
 item.thermalfoundation.tool.copperHoe.name=Медная мотыга
@@ -454,6 +462,7 @@ item.thermalfoundation.tool.copperSickle.name=Медный серп
 item.thermalfoundation.tool.copperSword.name=Медный меч
 
 item.thermalfoundation.tool.diamondBow.name=Алмазный укрепленный лук
+item.thermalfoundation.tool.diamondExcavator.name=Алмазный заступ
 item.thermalfoundation.tool.diamondFishingRod.name=Алмазная удочка
 item.thermalfoundation.tool.diamondHammer.name=Алмазный молот
 item.thermalfoundation.tool.diamondShears.name=Алмазные ножницы
@@ -462,6 +471,7 @@ item.thermalfoundation.tool.diamondSickle.name=Алмазный серп
 
 item.thermalfoundation.tool.electrumAxe.name=Электрумовый топор
 item.thermalfoundation.tool.electrumBow.name=Электрумовый укрепленный лук
+item.thermalfoundation.tool.electrumExcavator.name=Электрумовый заступ
 item.thermalfoundation.tool.electrumFishingRod.name=Электрумовая удочка
 item.thermalfoundation.tool.electrumHammer.name=Электрумовый молот
 item.thermalfoundation.tool.electrumHoe.name=Электрумовая мотыга
@@ -473,6 +483,7 @@ item.thermalfoundation.tool.electrumSickle.name=Электрумовый сер�
 item.thermalfoundation.tool.electrumSword.name=Электрумовый меч
 
 item.thermalfoundation.tool.goldBow.name=Золотой укрепленный лук
+item.thermalfoundation.tool.goldExcavator.name=Золотой заступ
 item.thermalfoundation.tool.goldFishingRod.name=Золотая удочка
 item.thermalfoundation.tool.goldHammer.name=Золотой молот
 item.thermalfoundation.tool.goldShears.name=Золотые ножницы
@@ -481,6 +492,7 @@ item.thermalfoundation.tool.goldSickle.name=Золотой серп
 
 item.thermalfoundation.tool.invarAxe.name=Инваровый топор
 item.thermalfoundation.tool.invarBow.name=Инваровый укрепленный лук
+item.thermalfoundation.tool.invarExcavator.name=Инваровый заступ
 item.thermalfoundation.tool.invarFishingRod.name=Инваровая удочка
 item.thermalfoundation.tool.invarHammer.name=Инваровый молот
 item.thermalfoundation.tool.invarHoe.name=Инваровая мотыга
@@ -492,6 +504,7 @@ item.thermalfoundation.tool.invarSickle.name=Инваровый серп
 item.thermalfoundation.tool.invarSword.name=Инваровый меч
 
 item.thermalfoundation.tool.ironBow.name=Железный укрепленный лук
+item.thermalfoundation.tool.ironExcavator.name=Железный заступ
 item.thermalfoundation.tool.ironFishingRod.name=Железная удочка
 item.thermalfoundation.tool.ironHammer.name=Железный молот
 item.thermalfoundation.tool.ironShears.name=Железные ножницы
@@ -500,6 +513,7 @@ item.thermalfoundation.tool.ironSickle.name=Железный серп
 
 item.thermalfoundation.tool.leadAxe.name=Свинцовый топор
 item.thermalfoundation.tool.leadBow.name=Свинцовый укрепленный лук
+item.thermalfoundation.tool.leadExcavator.name=Свинцовый заступ
 item.thermalfoundation.tool.leadFishingRod.name=Свинцовая удочка
 item.thermalfoundation.tool.leadHammer.name=Свинцовый молот
 item.thermalfoundation.tool.leadHoe.name=Свинцовая мотыга
@@ -512,6 +526,7 @@ item.thermalfoundation.tool.leadSword.name=Свинцовый меч
 
 item.thermalfoundation.tool.nickelAxe.name=Никелевый топор
 item.thermalfoundation.tool.nickelBow.name=Никелевый укрепленный лук
+item.thermalfoundation.tool.nickelExcavator.name=Никелевый заступ
 item.thermalfoundation.tool.nickelFishingRod.name=Никелевая удочка
 item.thermalfoundation.tool.nickelHammer.name=Никелевый молот
 item.thermalfoundation.tool.nickelHoe.name=Никелевая мотыга
@@ -524,6 +539,7 @@ item.thermalfoundation.tool.nickelSword.name=Никелевый меч
 
 item.thermalfoundation.tool.platinumAxe.name=Платиновый топор
 item.thermalfoundation.tool.platinumBow.name=Платиновый укрепленный лук
+item.thermalfoundation.tool.platinumExcavator.name=Платиновый заступ
 item.thermalfoundation.tool.platinumFishingRod.name=Платиновая удочка
 item.thermalfoundation.tool.platinumHammer.name=Платиновый молот
 item.thermalfoundation.tool.platinumHoe.name=Платиновая мотыга
@@ -536,6 +552,7 @@ item.thermalfoundation.tool.platinumSword.name=Платиновый меч
 
 item.thermalfoundation.tool.silverAxe.name=Серебряный топор
 item.thermalfoundation.tool.silverBow.name=Серебряный укрепленный лук
+item.thermalfoundation.tool.silverExcavator.name=Серебряный заступ
 item.thermalfoundation.tool.silverFishingRod.name=Серебряная удочка
 item.thermalfoundation.tool.silverHammer.name=Серебряный молот
 item.thermalfoundation.tool.silverHoe.name=Серебряная мотыга
@@ -548,6 +565,7 @@ item.thermalfoundation.tool.silverSword.name=Серебряный меч
 
 item.thermalfoundation.tool.steelAxe.name=Стальной топор
 item.thermalfoundation.tool.steelBow.name=Стальной укрепленный лук
+item.thermalfoundation.tool.steelExcavator.name=Стальной заступ
 item.thermalfoundation.tool.steelFishingRod.name=Стальная удочка
 item.thermalfoundation.tool.steelHammer.name=Стальной молот
 item.thermalfoundation.tool.steelHoe.name=Стальная мотыга
@@ -559,6 +577,7 @@ item.thermalfoundation.tool.steelSickle.name=Стальной серп
 item.thermalfoundation.tool.steelSword.name=Стальной меч
 
 item.thermalfoundation.tool.stoneBow.name=Каменный укрепленный лук
+item.thermalfoundation.tool.stoneExcavator.name=Каменный заступ
 item.thermalfoundation.tool.stoneFishingRod.name=Каменная удочка
 item.thermalfoundation.tool.stoneHammer.name=Каменный молот
 item.thermalfoundation.tool.stoneShears.name=Каменные ножницы
@@ -567,6 +586,7 @@ item.thermalfoundation.tool.stoneSickle.name=Каменный серп
 
 item.thermalfoundation.tool.tinAxe.name=Оловянный топор
 item.thermalfoundation.tool.tinBow.name=Оловянный укрепленный лук
+item.thermalfoundation.tool.tinExcavator.name=Оловянный заступ
 item.thermalfoundation.tool.tinFishingRod.name=Оловянная удочка
 item.thermalfoundation.tool.tinHammer.name=Оловянный молот
 item.thermalfoundation.tool.tinHoe.name=Оловянная мотыга
@@ -577,6 +597,7 @@ item.thermalfoundation.tool.tinShovel.name=Оловянная лопата
 item.thermalfoundation.tool.tinSickle.name=Оловянный серп
 item.thermalfoundation.tool.tinSword.name=Оловянный меч
 
+item.thermalfoundation.tool.woodExcavator.name=Деревянный заступ
 item.thermalfoundation.tool.woodHammer.name=Деревянный молот
 item.thermalfoundation.tool.woodShears.name=Деревянные ножницы
 item.thermalfoundation.tool.woodShield.name=Деревянный щит
