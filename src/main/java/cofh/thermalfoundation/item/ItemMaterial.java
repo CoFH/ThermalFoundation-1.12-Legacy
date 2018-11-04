@@ -330,31 +330,33 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		if (!TFProps.disableBasicItems) {
 
 			/* Gears */
-			addGearRecipe(gearWood, "stickWood");
-			addGearRecipe(gearStone, "stone", "gearWood");
-			addGearRecipe(gearIron, "ingotIron");
-			addGearRecipe(gearGold, "ingotGold");
-			addGearRecipe(gearDiamond, "gemDiamond");
-			addGearRecipe(gearEmerald, "gemEmerald");
+			if (TFProps.enableBasicGears) {
+				addGearRecipe(gearWood, "stickWood");
+				addGearRecipe(gearStone, "stone", "gearWood");
+			}
+			addConfigurableGearRecipe(gearIron, "ingotIron");
+			addConfigurableGearRecipe(gearGold, "ingotGold");
+			addConfigurableGearRecipe(gearDiamond, "gemDiamond");
+			addConfigurableGearRecipe(gearEmerald, "gemEmerald");
 
-			addGearRecipe(gearCopper, "ingotCopper");
-			addGearRecipe(gearTin, "ingotTin");
-			addGearRecipe(gearSilver, "ingotSilver");
-			addGearRecipe(gearLead, "ingotLead");
-			addGearRecipe(gearAluminum, "ingotAluminum");
-			addGearRecipe(gearNickel, "ingotNickel");
-			addGearRecipe(gearPlatinum, "ingotPlatinum");
-			addGearRecipe(gearIridium, "ingotIridium");
-			addGearRecipe(gearMithril, "ingotMithril");
+			addConfigurableGearRecipe(gearCopper, "ingotCopper");
+			addConfigurableGearRecipe(gearTin, "ingotTin");
+			addConfigurableGearRecipe(gearSilver, "ingotSilver");
+			addConfigurableGearRecipe(gearLead, "ingotLead");
+			addConfigurableGearRecipe(gearAluminum, "ingotAluminum");
+			addConfigurableGearRecipe(gearNickel, "ingotNickel");
+			addConfigurableGearRecipe(gearPlatinum, "ingotPlatinum");
+			addConfigurableGearRecipe(gearIridium, "ingotIridium");
+			addConfigurableGearRecipe(gearMithril, "ingotMithril");
 
-			addGearRecipe(gearSteel, "ingotSteel");
-			addGearRecipe(gearElectrum, "ingotElectrum");
-			addGearRecipe(gearInvar, "ingotInvar");
-			addGearRecipe(gearBronze, "ingotBronze");
-			addGearRecipe(gearConstantan, "ingotConstantan");
-			addGearRecipe(gearSignalum, "ingotSignalum");
-			addGearRecipe(gearLumium, "ingotLumium");
-			addGearRecipe(gearEnderium, "ingotEnderium");
+			addConfigurableGearRecipe(gearSteel, "ingotSteel");
+			addConfigurableGearRecipe(gearElectrum, "ingotElectrum");
+			addConfigurableGearRecipe(gearInvar, "ingotInvar");
+			addConfigurableGearRecipe(gearBronze, "ingotBronze");
+			addConfigurableGearRecipe(gearConstantan, "ingotConstantan");
+			addConfigurableGearRecipe(gearSignalum, "ingotSignalum");
+			addConfigurableGearRecipe(gearLumium, "ingotLumium");
+			addConfigurableGearRecipe(gearEnderium, "ingotEnderium");
 
 			/* Parts */
 			addShapedRecipe(redstoneServo, " R ", " I ", " R ", 'R', "dustRedstone", 'I', "ingotIron");
@@ -381,6 +383,15 @@ public class ItemMaterial extends ItemMulti implements IInitializer {
 		FurnaceFuelHandler.registerFuel(dustPyrotheum, TFProps.dustPyrotheumFuel);
 
 		return true;
+	}
+
+	public static void addConfigurableGearRecipe(ItemStack gear, String ingot) {
+
+		if (TFProps.enableAlternateGears) {
+			addGearRecipe(gear, ingot, "ingotIron");
+		} else {
+			addGearRecipe(gear, ingot);
+		}
 	}
 
 	/* REFERENCES */

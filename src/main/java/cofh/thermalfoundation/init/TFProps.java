@@ -58,6 +58,12 @@ public class TFProps {
 		comment = "If TRUE, recipes for Upgrade Items (Kits) are disabled. Only enable this option if you understand the consequences.";
 		disableUpgradeItems = ThermalFoundation.CONFIG.getConfiguration().getBoolean("DisableUpgradeItemRecipes", category, disableUpgradeItems, comment);
 
+		comment = "If TRUE, non-Basic Gears will require an additional Iron Ingot to craft";
+		enableAlternateGears = ThermalFoundation.CONFIG.getConfiguration().getBoolean("AlternateGears", category, enableAlternateGears, comment);
+
+		comment = "If TRUE, Basic (Wood and Stone) Gears will be craftable.";
+		enableBasicGears = ThermalFoundation.CONFIG.getConfiguration().getBoolean("BasicGears", category, enableBasicGears, comment);
+
 		comment = "If TRUE, Pyrotheum Dust can be used to smelt Ores into Ingots.";
 		enablePyrotheumCrafting = ThermalFoundation.CONFIG.getConfiguration().getBoolean("EnablePyrotheumCrafting", category, enablePyrotheumCrafting, comment);
 
@@ -441,6 +447,9 @@ public class TFProps {
 	public static boolean enablePyrotheumCrafting = true;
 	public static boolean enablePetrotheumCrafting = true;
 	public static boolean enableCryotheumCrafting = true;
+
+	public static boolean enableAlternateGears = false;
+	public static boolean enableBasicGears = true;
 
 	public static boolean enableHorseArmorCrafting = true;
 	public static boolean enableSaddleCrafting = true;

@@ -266,6 +266,6 @@ public class LexiconManager {
 
 	private static File filterList;
 
-	private static final boolean DEBUG = true;
+	private static final boolean DEBUG = false;
 
 }
