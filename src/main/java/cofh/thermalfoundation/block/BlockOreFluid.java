@@ -177,12 +177,6 @@ public class BlockOreFluid extends BlockCore implements IInitializer, IModelRegi
 	}
 
 	@Override
-	public boolean isFireSource(World world, BlockPos pos, EnumFacing face) {
-
-		return world.getBlockState(pos).getValue(VARIANT).getFlammability();
-	}
-
-	@Override
 	public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
 
 		int metadata = getMetaFromState(state);

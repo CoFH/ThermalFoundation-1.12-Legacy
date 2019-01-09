@@ -21,6 +21,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
@@ -123,6 +124,18 @@ public class BlockStorageResource extends BlockCore implements IInitializer, IMo
 
 		IBlockState state = world.getBlockState(pos);
 		return state.getValue(VARIANT).getResistance();
+	}
+
+	@Override
+	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+
+		return 5;
+	}
+
+	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+
+		return 5;
 	}
 
 	/* IModelRegister */
