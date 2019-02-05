@@ -87,7 +87,7 @@ public abstract class EntityElemental extends EntityMob {
 				i = this.world.getLightFromNeighbors(blockpos);
 				this.world.setSkylightSubtracted(j);
 			}
-			return i <= this.rand.nextInt(getSpawnLightLevel());
+			return i < this.rand.nextInt(1 + getSpawnLightLevel());
 		}
 	}
 

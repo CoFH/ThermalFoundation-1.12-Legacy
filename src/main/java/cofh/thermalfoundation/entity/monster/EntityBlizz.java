@@ -44,11 +44,11 @@ public class EntityBlizz extends EntityElemental {
 
 		lootTable = LootTableList.register(new ResourceLocation(ThermalFoundation.MOD_ID, "entities/blizz"));
 
+		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blizz"), EntityBlizz.class, "thermalfoundation.blizz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
+
 		if (!enable) {
 			return;
 		}
-		EntityRegistry.registerModEntity(new ResourceLocation("thermalfoundation:blizz"), EntityBlizz.class, "thermalfoundation.blizz", id, ThermalFoundation.instance, CoreProps.ENTITY_TRACKING_DISTANCE, 1, true, 0xE0FBFF, 0x6BE6FF);
-
 		Set<Biome> validBiomes = new HashSet<>();
 
 		validBiomes.addAll(BiomeDictionary.getBiomes(Type.COLD));
