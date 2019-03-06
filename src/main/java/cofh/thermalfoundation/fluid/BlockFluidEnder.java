@@ -11,6 +11,8 @@ import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
@@ -48,6 +50,9 @@ public class BlockFluidEnder extends BlockFluidCore {
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 
 		if (!effect || ServerHelper.isClientWorld(world)) {
+			return;
+		}
+		if (entity instanceof EntityItem || entity instanceof EntityXPOrb) {
 			return;
 		}
 		if (world.getTotalWorldTime() % 8 == 0) {
