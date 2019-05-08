@@ -74,9 +74,9 @@ info.thermalfoundation.offhandUse=Maintenir dans la main secondaire pour utilise
 
 info.thermalfoundation.security.lock=Utiliser sur des blocs sécurisables ou combiner avec des objets sécurisables.
 
-info.thermalfoundation.tome.experience.0=Emmagasine l'expérience dans ses pages.
-info.thermalfoundation.tome.experience.1=Utiliser pour emmagasiner du savoir dans le tome.
-info.thermalfoundation.tome.experience.2=Utiliser en s'accroupissant pour récupérer le savoir emmagasiné.
+info.thermalfoundation.tome.experience.0=Stocke de l'expérience dans ses pages.
+info.thermalfoundation.tome.experience.1=Utiliser pour stocker du savoir dans le livre.
+info.thermalfoundation.tome.experience.2=Utiliser en s'accroupissant pour récupérer l'expérience stockée.
 info.thermalfoundation.tome.experience.a.0=§bPresser (%s) pour activer l'auto-récupération.§r
 info.thermalfoundation.tome.experience.a.1=§ePresser (%s) pour désactiver l'auto-récupération.§r
 
