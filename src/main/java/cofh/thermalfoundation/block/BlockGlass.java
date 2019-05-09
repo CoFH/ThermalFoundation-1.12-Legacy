@@ -73,7 +73,11 @@ public class BlockGlass extends BlockCore implements IDismantleable, IInitialize
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 
-		return "tile.thermalfoundation.glass." + Type.values()[ItemHelper.getItemDamage(stack)].getName() + ".name";
+		int meta = ItemHelper.getItemDamage(stack);
+		if (meta >= Type.values().length) {
+			return "tile.thermalfoundation.glass.lead.name";
+		}
+		return "tile.thermalfoundation.glass." + Type.values()[meta].getName() + ".name";
 	}
 
 	@Override
