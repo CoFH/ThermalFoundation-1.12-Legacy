@@ -24,6 +24,7 @@ entity.thermalfoundation.blitz.name=Blitz
 entity.thermalfoundation.blizz.name=Blizz
 
 fluid.aerotheum=Aeróteum Zefiriano
+fluid.biocrude=Bio-Produto
 fluid.coal=Carvão Liquefeito
 fluid.constantan=Constantan Derretido
 fluid.creosote=Óleo Creosoto
@@ -45,10 +46,12 @@ fluid.potion_lingering=Poção Estendida
 fluid.potion_splash=Poção Arremessável
 fluid.pyrotheum=Piróteum Ardente
 fluid.redstone=Redstone Desestabilizada
+fluid.refined_biofuel=Gramolina
 fluid.refined_fuel=Combustível Refinado
 fluid.refined_oil=Nafta
 fluid.resin=Resina
 fluid.sap=Seiva
+fluid.seed_oil=Óleo Vegetal
 fluid.signalum=Signalo Derretido
 fluid.steam=Vapor
 fluid.syrup=Xarope
@@ -66,6 +69,8 @@ gui.thermalfoundation.lexicon.transmute=Léxicon – Transmutação
 info.thermalfoundation.diagram.erase=Shift+clique direito do mouse para apagar.
 info.thermalfoundation.diagram.redprint.0=Use em um dispositivo para copiar suas configurações.
 info.thermalfoundation.diagram.redprint.1=Use em um dispositivo para transferir as informações armazenadas.
+
+info.thermalfoundation.offhandUse=Coloque na mão esquerda para usar automaticamente ao colocar um bloco.
 
 info.thermalfoundation.security.lock=Use em um bloco protegível, ou combine com um item protegível.
 
@@ -90,6 +95,8 @@ info.thermalfoundation.upgrade.incremental.1=Requer o nível precedente imediato
 
 info.thermalfoundation.util.multimeter.0=Mostra informações sobre as coisas.
 info.thermalfoundation.util.multimeter.1=Shift+clique direito do mouse para configurar alguns blocos.
+info.thermalfoundation.util.wrench.0=Gira e dismantela blocos.
+info.thermalfoundation.util.wrench.1=Na verdade é uma chave, mas qualquer coisa pode ser um martelo, se você precisar que seja um.
 
 item.thermalfoundation.armor.aluminumBoots.name=Botas de Alumínio
 item.thermalfoundation.armor.aluminumHelmet.name=Elmo de Alumínio
@@ -181,9 +188,39 @@ item.thermalfoundation.diagram.redprint.name=Diagrama Vermelho
 item.thermalfoundation.diagram.schematic.name=Esquemático
 item.thermalfoundation.diagram.scroll.name=Pergaminho
 
+item.thermalfoundation.dye.dyeBlack.name=Pigmento Preto
+item.thermalfoundation.dye.dyeBlue.name=Pigmento Azul
+item.thermalfoundation.dye.dyeBrown.name=Pigmento Marrom
+item.thermalfoundation.dye.dyeCyan.name=Pigmento Ciano
+item.thermalfoundation.dye.dyeGray.name=Pigmento Cinza
+item.thermalfoundation.dye.dyeGreen.name=Pigmento Verde
+item.thermalfoundation.dye.dyeLightBlue.name=Pigmento Azul Claro
+item.thermalfoundation.dye.dyeLightGray.name=Pigmento Cinza Claro
+item.thermalfoundation.dye.dyeLime.name=Pigmento Verde Claro
+item.thermalfoundation.dye.dyeMagenta.name=Pigmento Lilás
+item.thermalfoundation.dye.dyeOrange.name=Pigmento Laranjado
+item.thermalfoundation.dye.dyePink.name=Pigmento Rosa
+item.thermalfoundation.dye.dyePurple.name=Pigmento Roxo
+item.thermalfoundation.dye.dyeRed.name=Pigmento Vermelho
+item.thermalfoundation.dye.dyeWhite.name=Pigmento Branco
+item.thermalfoundation.dye.dyeYellow.name=Pigmento Amarelo
+
 item.thermalfoundation.fertilizer.fertilizerBasic.name=Fito-Gosma
 item.thermalfoundation.fertilizer.fertilizerFlux.name=Fito-Gosma Fluxada
 item.thermalfoundation.fertilizer.fertilizerRich.name=Fito-Gosma Enriquecida
+
+item.thermalfoundation.horseArmor.aluminum.name=Armadura de Alumínio para Cavalos
+item.thermalfoundation.horseArmor.bronze.name=Armadura de Bronze para Cavalos
+item.thermalfoundation.horseArmor.constantan.name=Armadura de Constantan para Cavalos
+item.thermalfoundation.horseArmor.copper.name=Armadura de Cobre para Cavalos
+item.thermalfoundation.horseArmor.electrum.name=Armadura de Electro para Cavalos
+item.thermalfoundation.horseArmor.invar.name=Armadura de Invar para Cavalos
+item.thermalfoundation.horseArmor.lead.name=Armadura de Chumbo para Cavalos
+item.thermalfoundation.horseArmor.nickel.name=Armadura de Níquel para Cavalos
+item.thermalfoundation.horseArmor.platinum.name=Armadura de Platina para Cavalos
+item.thermalfoundation.horseArmor.silver.name=Armadura de Prata para Cavalos
+item.thermalfoundation.horseArmor.steel.name=Armadura de Aço para Cavalos
+item.thermalfoundation.horseArmor.tin.name=Armadura de Estanho para Cavalos
 
 item.thermalfoundation.geode.geode.name=Geodo
 
@@ -198,6 +235,10 @@ item.thermalfoundation.material.crystalSlagRich.name=Escória Enriquecida
 item.thermalfoundation.material.dustAerotheum.name=Pó de Aeróteum
 item.thermalfoundation.material.dustAluminum.name=Alumínio Pulverizado
 item.thermalfoundation.material.dustBasalz.name=Pó Tectônico
+item.thermalfoundation.material.dustBioblend.name=Bio-Mistura em Pó
+item.thermalfoundation.material.dustBioblendRich.name=Bio-Mistura em Pó Rica
+item.thermalfoundation.material.dustBiomass.name=Biomassa em Pó
+item.thermalfoundation.material.dustBiomassRich.name=Biomassa em Pó Rica
 item.thermalfoundation.material.dustBlitz.name=Pó Luminoso
 item.thermalfoundation.material.dustBlizz.name=Pó Gelado
 item.thermalfoundation.material.dustBronze.name=Mistura de Bronze
@@ -236,7 +277,9 @@ item.thermalfoundation.material.gearAluminum.name=Engrenagem de Alumínio
 item.thermalfoundation.material.gearBronze.name=Engrenagem de Bronze
 item.thermalfoundation.material.gearConstantan.name=Engrenagem de Constantan
 item.thermalfoundation.material.gearCopper.name=Engrenagem de Cobre
+item.thermalfoundation.material.gearDiamond.name=Engrenagem de Diamante
 item.thermalfoundation.material.gearElectrum.name=Engrenagem de Electro
+item.thermalfoundation.material.gearEmerald.name=Engrenagem de Esmeralda
 item.thermalfoundation.material.gearEnderium.name=Engrenagem de Endério
 item.thermalfoundation.material.gearGold.name=Engrenagem de Ouro
 item.thermalfoundation.material.gearInvar.name=Engrenagem de Invar
@@ -250,7 +293,9 @@ item.thermalfoundation.material.gearPlatinum.name=Engrenagem de Platina
 item.thermalfoundation.material.gearSignalum.name=Engrenagem de Signalo
 item.thermalfoundation.material.gearSilver.name=Engrenagem de Prata
 item.thermalfoundation.material.gearSteel.name=Engrenagem de Aço
+item.thermalfoundation.material.gearStone.name=Engrenagem de Aço
 item.thermalfoundation.material.gearTin.name=Engrenagem de Estanho
+item.thermalfoundation.material.gearWood.name=Engrenagem de Madeira
 
 item.thermalfoundation.material.globRosin.name=Colofônia
 item.thermalfoundation.material.globTar.name=Alcatrão
@@ -294,6 +339,10 @@ item.thermalfoundation.material.nuggetSilver.name=Pepita de Prata
 item.thermalfoundation.material.nuggetSteel.name=Pepita de Aço
 item.thermalfoundation.material.nuggetTin.name=Pepita de Estanho
 
+item.thermalfoundation.material.partDrillHead.name=Cabeça de Broca
+item.thermalfoundation.material.partSawBlade.name=Lâmina de Serra
+item.thermalfoundation.material.partToolCasing.name=Caixa de Ferramentas
+
 item.thermalfoundation.material.plateAluminum.name=Placa de Alumínio
 item.thermalfoundation.material.plateBronze.name=Placa de Bronze
 item.thermalfoundation.material.plateConstantan.name=Placa de Constantan
@@ -328,6 +377,7 @@ item.thermalfoundation.tome.lexicon.name=Léxicon do Forge
 
 item.thermalfoundation.tool.aluminumAxe.name=Machado de Alumínio
 item.thermalfoundation.tool.aluminumBow.name=Arco Reforçado de Alumínio
+item.thermalfoundation.tool.aluminumExcavator.name=Escavador de Alumínio
 item.thermalfoundation.tool.aluminumFishingRod.name=Vara de Pesca de Alumínio
 item.thermalfoundation.tool.aluminumHammer.name=Martelo de Alumínio
 item.thermalfoundation.tool.aluminumHoe.name=Enxada de Alumínio
@@ -340,6 +390,7 @@ item.thermalfoundation.tool.aluminumSword.name=Espada de Alumínio
 
 item.thermalfoundation.tool.bronzeAxe.name=Machado de Bronze
 item.thermalfoundation.tool.bronzeBow.name=Arco Reforçado de Bronze
+item.thermalfoundation.tool.bronzeExcavator.name=Escavador de Bronze
 item.thermalfoundation.tool.bronzeFishingRod.name=Vara de Pesca de Bronze
 item.thermalfoundation.tool.bronzeHammer.name=Martelo de Bronze
 item.thermalfoundation.tool.bronzeHoe.name=Enxada de Bronze
@@ -352,6 +403,7 @@ item.thermalfoundation.tool.bronzeSword.name=Espada de Bronze
 
 item.thermalfoundation.tool.constantanAxe.name=Machado de Constantan
 item.thermalfoundation.tool.constantanBow.name=Arco Reforçado de Constantan
+item.thermalfoundation.tool.constantanExcavator.name=Escavador de Constantan
 item.thermalfoundation.tool.constantanFishingRod.name=Vara de Pesca de Constantan
 item.thermalfoundation.tool.constantanHammer.name=Martelo de Constantan
 item.thermalfoundation.tool.constantanHoe.name=Enxada de Constantan
@@ -364,6 +416,7 @@ item.thermalfoundation.tool.constantanSword.name=Espada de Constantan
 
 item.thermalfoundation.tool.copperAxe.name=Machado de Cobre
 item.thermalfoundation.tool.copperBow.name=Arco Reforçado de Cobre
+item.thermalfoundation.tool.copperExcavator.name=Escavador de Cobre
 item.thermalfoundation.tool.copperFishingRod.name=Vara de Pesca de Cobre
 item.thermalfoundation.tool.copperHammer.name=Martelo de Cobre
 item.thermalfoundation.tool.copperHoe.name=Enxada de Cobre
@@ -375,6 +428,7 @@ item.thermalfoundation.tool.copperSickle.name=Foice de Cobre
 item.thermalfoundation.tool.copperSword.name=Espada de Cobre
 
 item.thermalfoundation.tool.diamondBow.name=Arco Reforçado de Diamante
+item.thermalfoundation.tool.diamondExcavator.name=Escavador de Diamante
 item.thermalfoundation.tool.diamondFishingRod.name=Vara de Pesca de Diamante
 item.thermalfoundation.tool.diamondHammer.name=Martelo de Diamante
 item.thermalfoundation.tool.diamondShears.name=Tesoura de Diamante
@@ -383,6 +437,7 @@ item.thermalfoundation.tool.diamondSickle.name=Foice de Diamante
 
 item.thermalfoundation.tool.electrumAxe.name=Machado de Electro
 item.thermalfoundation.tool.electrumBow.name=Arco Reforçado de Electro
+item.thermalfoundation.tool.electrumExcavator.name=Escavador de Electro
 item.thermalfoundation.tool.electrumFishingRod.name=Vara de Pesca de Electro
 item.thermalfoundation.tool.electrumHammer.name=Martelo de Electro
 item.thermalfoundation.tool.electrumHoe.name=Enxada de Electro
@@ -394,6 +449,7 @@ item.thermalfoundation.tool.electrumSickle.name=Foice de Electro
 item.thermalfoundation.tool.electrumSword.name=Espada de Electro
 
 item.thermalfoundation.tool.goldBow.name=Arco Reforçado de Ouro
+item.thermalfoundation.tool.goldExcavator.name=Escavador de Ouro
 item.thermalfoundation.tool.goldFishingRod.name=Vara de Pesca de Ouro
 item.thermalfoundation.tool.goldHammer.name=Martelo de Ouro
 item.thermalfoundation.tool.goldShears.name=Tesoura de Ouro
@@ -402,6 +458,7 @@ item.thermalfoundation.tool.goldSickle.name=Foice de Ouro
 
 item.thermalfoundation.tool.invarAxe.name=Machado de Invar
 item.thermalfoundation.tool.invarBow.name=Arco Reforçado de Invar
+item.thermalfoundation.tool.invarExcavator.name=Escavador de Invar
 item.thermalfoundation.tool.invarFishingRod.name=Vara de Pesca de Invar
 item.thermalfoundation.tool.invarHammer.name=Martelo de Invar
 item.thermalfoundation.tool.invarHoe.name=Enxada de Invar
@@ -413,6 +470,7 @@ item.thermalfoundation.tool.invarSickle.name=Foice de Invar
 item.thermalfoundation.tool.invarSword.name=Espada de Invar
 
 item.thermalfoundation.tool.ironBow.name=Arco Reforçado de Ferro
+item.thermalfoundation.tool.ironExcavator.name=Escavador de Ferro
 item.thermalfoundation.tool.ironFishingRod.name=Vara de Pesca de Ferro
 item.thermalfoundation.tool.ironHammer.name=Martelo de Ferro
 item.thermalfoundation.tool.ironShears.name=Tesoura de Ferro
@@ -421,6 +479,7 @@ item.thermalfoundation.tool.ironSickle.name=Foice de Ferro
 
 item.thermalfoundation.tool.leadAxe.name=Machado de Chumbo
 item.thermalfoundation.tool.leadBow.name=Arco Reforçado de Chumbo
+item.thermalfoundation.tool.leadExcavator.name=Escavador de Chumbo
 item.thermalfoundation.tool.leadFishingRod.name=Vara de Pesca de Chumbo
 item.thermalfoundation.tool.leadHammer.name=Martelo de Chumbo
 item.thermalfoundation.tool.leadHoe.name=Enxada de Chumbo
@@ -433,6 +492,7 @@ item.thermalfoundation.tool.leadSword.name=Espada de Chumbo
 
 item.thermalfoundation.tool.nickelAxe.name=Machado de Níquel
 item.thermalfoundation.tool.nickelBow.name=Arco Reforçado de Níquel
+item.thermalfoundation.tool.nickelExcavator.name=Escavador de Níquel
 item.thermalfoundation.tool.nickelFishingRod.name=Vara de Pesca de Níquel
 item.thermalfoundation.tool.nickelHammer.name=Martelo de Níquel
 item.thermalfoundation.tool.nickelHoe.name=Enxada de Níquel
@@ -445,6 +505,7 @@ item.thermalfoundation.tool.nickelSword.name=Espada de Níquel
 
 item.thermalfoundation.tool.platinumAxe.name=Machado de Platina
 item.thermalfoundation.tool.platinumBow.name=Arco Reforçado de Platina
+item.thermalfoundation.tool.platinumExcavator.name=Escavador de Platina
 item.thermalfoundation.tool.platinumFishingRod.name=Vara de Pesca de Platina
 item.thermalfoundation.tool.platinumHammer.name=Martelo de Platina
 item.thermalfoundation.tool.platinumHoe.name=Enxada de Platina
@@ -457,6 +518,7 @@ item.thermalfoundation.tool.platinumSword.name=Espada de Platina
 
 item.thermalfoundation.tool.silverAxe.name=Machado de Prata
 item.thermalfoundation.tool.silverBow.name=Arco Reforçado de Prata
+item.thermalfoundation.tool.silverExcavator.name=Escavador de Prata
 item.thermalfoundation.tool.silverFishingRod.name=Vara de Pesca de Prata
 item.thermalfoundation.tool.silverHammer.name=Martelo de Prata
 item.thermalfoundation.tool.silverHoe.name=Enxada de Prata
@@ -469,6 +531,7 @@ item.thermalfoundation.tool.silverSword.name=Espada de Prata
 
 item.thermalfoundation.tool.steelAxe.name=Machado de Aço
 item.thermalfoundation.tool.steelBow.name=Arco Reforçado de Aço
+item.thermalfoundation.tool.steelExcavator.name=Escavador de Aço
 item.thermalfoundation.tool.steelFishingRod.name=Vara de Pesca de Aço
 item.thermalfoundation.tool.steelHammer.name=Martelo de Aço
 item.thermalfoundation.tool.steelHoe.name=Enxada de Aço
@@ -480,6 +543,7 @@ item.thermalfoundation.tool.steelSickle.name=Foice de Aço
 item.thermalfoundation.tool.steelSword.name=Espada de Aço
 
 item.thermalfoundation.tool.stoneBow.name=Arco Reforçado de Pedra
+item.thermalfoundation.tool.stoneExcavator.name=Escavador de Pedra
 item.thermalfoundation.tool.stoneFishingRod.name=Vara de Pesca de Pedra
 item.thermalfoundation.tool.stoneHammer.name=Martelo de Pedra
 item.thermalfoundation.tool.stoneShears.name=Tesoura de Pedra
@@ -488,6 +552,7 @@ item.thermalfoundation.tool.stoneSickle.name=Foice de Pedra
 
 item.thermalfoundation.tool.tinAxe.name=Machado de Estanho
 item.thermalfoundation.tool.tinBow.name=Arco Reforçado de Estanho
+item.thermalfoundation.tool.tinExcavator.name=Excavador de Estanho
 item.thermalfoundation.tool.tinFishingRod.name=Vara de Pesca de Estanho
 item.thermalfoundation.tool.tinHammer.name=Martelo de Estanho
 item.thermalfoundation.tool.tinHoe.name=Enxada de Estanho
@@ -498,6 +563,7 @@ item.thermalfoundation.tool.tinShovel.name=Pá de Estanho
 item.thermalfoundation.tool.tinSickle.name=Foice de Estanho
 item.thermalfoundation.tool.tinSword.name=Espada de Estanho
 
+item.thermalfoundation.tool.woodExcavator.name=Excavador de Madeira
 item.thermalfoundation.tool.woodHammer.name=Martelo de Madeira
 item.thermalfoundation.tool.woodShears.name=Tesoura de Madeira
 item.thermalfoundation.tool.woodShield.name=Escudo de Madeira
@@ -525,6 +591,12 @@ itemGroup.thermalfoundation.creativeTab=Thermal Foundation
 itemGroup.thermalfoundation.creativeTabArmor=Thermal Foundation: Armaduras
 itemGroup.thermalfoundation.creativeTabTools=Thermal Foundation: Ferramentas
 itemGroup.thermalfoundation.creativeTabUtils=Thermal Foundation: Utilidades
+
+itemGroup.thermalseries.creativeTabBlocks=Da Série 'Thermal': Blocos
+itemGroup.thermalseries.creativeTabItems=Da Série 'Thermal': Itens
+itemGroup.thermalseries.creativeTabMisc=Da Série 'Thermal': Diversos
+itemGroup.thermalseries.creativeTabTools=Da Série 'Thermal': Ferramentas
+itemGroup.thermalseries.creativeTabUtils=Da Série 'Thermal': Utilidades
 
 tab.thermalfoundation.lexicon.study.0=Consulte o conhecimento e altere seu destino.
 tab.thermalfoundation.lexicon.study.1=Apodere-se do Léxicon para forçar as coisas a te obedecerem.
