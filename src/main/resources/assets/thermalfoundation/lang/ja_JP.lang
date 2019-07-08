@@ -278,7 +278,9 @@ item.thermalfoundation.material.gearAluminum.name=アルミニウムの歯車
 item.thermalfoundation.material.gearBronze.name=青銅の歯車
 item.thermalfoundation.material.gearConstantan.name=コンスタンタンの歯車
 item.thermalfoundation.material.gearCopper.name=銅の歯車
+item.thermalfoundation.material.gearDiamond.name=ダイヤの歯車
 item.thermalfoundation.material.gearElectrum.name=エレクトラムの歯車
+item.thermalfoundation.material.gearEmerald.name=エメラルドの歯車
 item.thermalfoundation.material.gearEnderium.name=エンダリウムの歯車
 item.thermalfoundation.material.gearGold.name=金の歯車
 item.thermalfoundation.material.gearInvar.name=インバーの歯車
@@ -292,7 +294,9 @@ item.thermalfoundation.material.gearPlatinum.name=プラチナの歯車
 item.thermalfoundation.material.gearSignalum.name=シグナルムの歯車
 item.thermalfoundation.material.gearSilver.name=銀の歯車
 item.thermalfoundation.material.gearSteel.name=鋼鉄の歯車
+item.thermalfoundation.material.gearStone.name=石の歯車
 item.thermalfoundation.material.gearTin.name=錫の歯車
+item.thermalfoundation.material.gearWood.name=木の歯車
 
 item.thermalfoundation.material.globRosin.name=樹脂
 item.thermalfoundation.material.globTar.name=タール
@@ -374,6 +378,7 @@ item.thermalfoundation.tome.lexicon.name=鍛冶目録
 
 item.thermalfoundation.tool.aluminumAxe.name=アルミニウムの斧
 item.thermalfoundation.tool.aluminumBow.name=アルミニウムの増強弓
+item.thermalfoundation.tool.aluminumExcavator.name=アルミニウムのエクスカベーター
 item.thermalfoundation.tool.aluminumFishingRod.name=アルミニウムの釣り竿
 item.thermalfoundation.tool.aluminumHammer.name=アルミニウムのハンマー
 item.thermalfoundation.tool.aluminumHoe.name=アルミニウムのクワ
@@ -386,6 +391,7 @@ item.thermalfoundation.tool.aluminumSword.name=アルミニウムの剣
 
 item.thermalfoundation.tool.bronzeAxe.name=青銅の斧
 item.thermalfoundation.tool.bronzeBow.name=青銅の増強弓
+item.thermalfoundation.tool.bronzeExcavator.name=青銅のエクスカベーター
 item.thermalfoundation.tool.bronzeFishingRod.name=青銅の釣り竿
 item.thermalfoundation.tool.bronzeHammer.name=青銅のハンマー
 item.thermalfoundation.tool.bronzeHoe.name=青銅のクワ
@@ -398,6 +404,7 @@ item.thermalfoundation.tool.bronzeSword.name=青銅の剣
 
 item.thermalfoundation.tool.constantanAxe.name=コンスタンタンの斧
 item.thermalfoundation.tool.constantanBow.name=コンスタンタンの増強弓
+item.thermalfoundation.tool.constantanExcavator.name=コンスタンタンのエクスカベーター
 item.thermalfoundation.tool.constantanFishingRod.name=コンスタンタンの釣り竿
 item.thermalfoundation.tool.constantanHammer.name=コンスタンタンのハンマー
 item.thermalfoundation.tool.constantanHoe.name=コンスタンタンのクワ
@@ -410,6 +417,7 @@ item.thermalfoundation.tool.constantanSword.name=コンスタンタンの剣
 
 item.thermalfoundation.tool.copperAxe.name=銅の斧
 item.thermalfoundation.tool.copperBow.name=銅の増強弓
+item.thermalfoundation.tool.copperExcavator.name=銅のエクスカベーター
 item.thermalfoundation.tool.copperFishingRod.name=銅の釣り竿
 item.thermalfoundation.tool.copperHammer.name=銅のハンマー
 item.thermalfoundation.tool.copperHoe.name=銅のクワ
@@ -421,6 +429,7 @@ item.thermalfoundation.tool.copperSickle.name=銅の草刈り鎌
 item.thermalfoundation.tool.copperSword.name=銅の剣
 
 item.thermalfoundation.tool.diamondBow.name=ダイヤの増強弓
+item.thermalfoundation.tool.diamondExcavator.name=ダイヤのエクスカベーター
 item.thermalfoundation.tool.diamondFishingRod.name=ダイヤの釣り竿
 item.thermalfoundation.tool.diamondHammer.name=ダイヤのハンマー
 item.thermalfoundation.tool.diamondShears.name=ダイヤのハサミ
@@ -429,6 +438,7 @@ item.thermalfoundation.tool.diamondSickle.name=ダイヤの草刈り鎌
 
 item.thermalfoundation.tool.electrumAxe.name=エレクトラムの斧
 item.thermalfoundation.tool.electrumBow.name=エレクトラムの増強弓
+item.thermalfoundation.tool.electrumExcavator.name=エレクトラムのエクスカベーター
 item.thermalfoundation.tool.electrumFishingRod.name=エレクトラムの釣り竿
 item.thermalfoundation.tool.electrumHammer.name=エレクトラムのハンマー
 item.thermalfoundation.tool.electrumHoe.name=エレクトラムのクワ
@@ -440,6 +450,7 @@ item.thermalfoundation.tool.electrumSickle.name=エレクトラムの草刈り�
 item.thermalfoundation.tool.electrumSword.name=エレクトラムの剣
 
 item.thermalfoundation.tool.goldBow.name=金の増強弓
+item.thermalfoundation.tool.goldExcavator.name=金のエクスカベーター
 item.thermalfoundation.tool.goldFishingRod.name=金の釣り竿
 item.thermalfoundation.tool.goldHammer.name=金のハンマー
 item.thermalfoundation.tool.goldShears.name=金のハサミ
@@ -448,6 +459,7 @@ item.thermalfoundation.tool.goldSickle.name=金の草刈り鎌
 
 item.thermalfoundation.tool.invarAxe.name=インバーの斧
 item.thermalfoundation.tool.invarBow.name=インバーの増強弓
+item.thermalfoundation.tool.invarExcavator.name=インバーのエクスカベーター
 item.thermalfoundation.tool.invarFishingRod.name=インバーの釣り竿
 item.thermalfoundation.tool.invarHammer.name=インバーのハンマー
 item.thermalfoundation.tool.invarHoe.name=インバーのクワ
@@ -459,6 +471,7 @@ item.thermalfoundation.tool.invarSickle.name=インバーの草刈り鎌
 item.thermalfoundation.tool.invarSword.name=インバーの剣
 
 item.thermalfoundation.tool.ironBow.name=鉄の増強弓
+item.thermalfoundation.tool.ironExcavator.name=鉄のエクスカベーター
 item.thermalfoundation.tool.ironFishingRod.name=鉄の釣り竿
 item.thermalfoundation.tool.ironHammer.name=鉄のハンマー
 item.thermalfoundation.tool.ironShears.name=鉄のハサミ
@@ -467,6 +480,7 @@ item.thermalfoundation.tool.ironSickle.name=鉄の草刈り鎌
 
 item.thermalfoundation.tool.leadAxe.name=鉛の斧
 item.thermalfoundation.tool.leadBow.name=鉛の増強弓
+item.thermalfoundation.tool.leadExcavator.name=鉛のエクスカベーター
 item.thermalfoundation.tool.leadFishingRod.name=鉛の釣り竿
 item.thermalfoundation.tool.leadHammer.name=鉛のハンマー
 item.thermalfoundation.tool.leadHoe.name=鉛のクワ
@@ -479,6 +493,7 @@ item.thermalfoundation.tool.leadSword.name=鉛の剣
 
 item.thermalfoundation.tool.nickelAxe.name=ニッケルの斧
 item.thermalfoundation.tool.nickelBow.name=ニッケルの増強弓
+item.thermalfoundation.tool.nickelExcavator.name=ニッケルのエクスカベーター
 item.thermalfoundation.tool.nickelFishingRod.name=ニッケルの釣り竿
 item.thermalfoundation.tool.nickelHammer.name=ニッケルのハンマー
 item.thermalfoundation.tool.nickelHoe.name=ニッケルのクワ
@@ -491,6 +506,7 @@ item.thermalfoundation.tool.nickelSword.name=ニッケルの剣
 
 item.thermalfoundation.tool.platinumAxe.name=プラチナの斧
 item.thermalfoundation.tool.platinumBow.name=プラチナの増強弓
+item.thermalfoundation.tool.platinumExcavator.name=プラチナのエクスカベーター
 item.thermalfoundation.tool.platinumFishingRod.name=プラチナの釣り竿
 item.thermalfoundation.tool.platinumHammer.name=プラチナのハンマー
 item.thermalfoundation.tool.platinumHoe.name=プラチナのクワ
@@ -503,6 +519,7 @@ item.thermalfoundation.tool.platinumSword.name=プラチナの剣
 
 item.thermalfoundation.tool.silverAxe.name=銀の斧
 item.thermalfoundation.tool.silverBow.name=銀の増強弓
+item.thermalfoundation.tool.silverExcavator.name=銀のエクスカベーター
 item.thermalfoundation.tool.silverFishingRod.name=銀の釣り竿
 item.thermalfoundation.tool.silverHammer.name=銀のハンマー
 item.thermalfoundation.tool.silverHoe.name=銀のクワ
@@ -515,6 +532,7 @@ item.thermalfoundation.tool.silverSword.name=銀の剣
 
 item.thermalfoundation.tool.steelAxe.name=鋼鉄の斧
 item.thermalfoundation.tool.steelBow.name=鋼鉄の増強弓
+item.thermalfoundation.tool.steelExcavator.name=鋼鉄のエクスカベーター
 item.thermalfoundation.tool.steelFishingRod.name=鋼鉄の釣り竿
 item.thermalfoundation.tool.steelHammer.name=鋼鉄のハンマー
 item.thermalfoundation.tool.steelHoe.name=鋼鉄のクワ
@@ -526,6 +544,7 @@ item.thermalfoundation.tool.steelSickle.name=鋼鉄の草刈り鎌
 item.thermalfoundation.tool.steelSword.name=鋼鉄の剣
 
 item.thermalfoundation.tool.stoneBow.name=石の増強弓
+item.thermalfoundation.tool.stoneExcavator.name=石のエクスカベーター
 item.thermalfoundation.tool.stoneFishingRod.name=石の釣り竿
 item.thermalfoundation.tool.stoneHammer.name=石のハンマー
 item.thermalfoundation.tool.stoneShears.name=石のハサミ
@@ -534,6 +553,7 @@ item.thermalfoundation.tool.stoneSickle.name=石の草刈り鎌
 
 item.thermalfoundation.tool.tinAxe.name=錫の斧
 item.thermalfoundation.tool.tinBow.name=錫の増強弓
+item.thermalfoundation.tool.tinExcavator.name=錫のエクスカベーター
 item.thermalfoundation.tool.tinFishingRod.name=錫の釣り竿
 item.thermalfoundation.tool.tinHammer.name=錫のハンマー
 item.thermalfoundation.tool.tinHoe.name=錫のクワ
@@ -544,6 +564,7 @@ item.thermalfoundation.tool.tinShovel.name=錫のシャベル
 item.thermalfoundation.tool.tinSickle.name=錫の草刈り鎌
 item.thermalfoundation.tool.tinSword.name=錫の剣
 
+item.thermalfoundation.tool.woodExcavator.name=木のエクスカベーター
 item.thermalfoundation.tool.woodHammer.name=木のハンマー
 item.thermalfoundation.tool.woodShears.name=木のハサミ
 item.thermalfoundation.tool.woodShield.name=木の盾
