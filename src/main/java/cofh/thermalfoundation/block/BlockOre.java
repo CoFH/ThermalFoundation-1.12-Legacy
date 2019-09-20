@@ -73,13 +73,21 @@ public class BlockOre extends BlockCore implements IInitializer, IModelRegister 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 
-		return "tile.thermalfoundation.ore." + Type.values()[ItemHelper.getItemDamage(stack)].getName() + ".name";
+		int meta = ItemHelper.getItemDamage(stack);
+		if (meta >= Type.values().length) {
+			meta = 0;
+		}
+		return "tile.thermalfoundation.ore." + Type.values()[meta].getName() + ".name";
 	}
 
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 
-		return Type.values()[ItemHelper.getItemDamage(stack)].getRarity();
+		int meta = ItemHelper.getItemDamage(stack);
+		if (meta >= Type.values().length) {
+			return EnumRarity.COMMON;
+		}
+		return Type.values()[meta].getRarity();
 	}
 
 	@Override

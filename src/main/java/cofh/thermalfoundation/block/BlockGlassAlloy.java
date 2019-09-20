@@ -75,7 +75,7 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 
 		int meta = ItemHelper.getItemDamage(stack);
 		if (meta >= Type.values().length) {
-			return "tile.thermalfoundation.glass.lead.name";
+			meta = 0;
 		}
 		return "tile.thermalfoundation.glass." + Type.values()[meta].getName() + ".name";
 	}
@@ -83,7 +83,11 @@ public class BlockGlassAlloy extends BlockCore implements IDismantleable, IIniti
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 
-		return Type.values()[ItemHelper.getItemDamage(stack)].getRarity();
+		int meta = ItemHelper.getItemDamage(stack);
+		if (meta >= Type.values().length) {
+			return EnumRarity.COMMON;
+		}
+		return Type.values()[meta].getRarity();
 	}
 
 	@Override

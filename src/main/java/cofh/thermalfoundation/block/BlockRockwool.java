@@ -65,7 +65,11 @@ public class BlockRockwool extends BlockCore implements IInitializer, IModelRegi
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 
-		return "tile.thermalfoundation.rockwool." + Type.values()[ItemHelper.getItemDamage(stack)].getName() + ".name";
+		int meta = ItemHelper.getItemDamage(stack);
+		if (meta >= Type.values().length) {
+			meta = 0;
+		}
+		return "tile.thermalfoundation.rockwool." + Type.values()[meta].getName() + ".name";
 	}
 
 	@Override

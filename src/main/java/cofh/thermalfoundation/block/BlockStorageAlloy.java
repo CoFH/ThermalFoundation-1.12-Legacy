@@ -71,13 +71,21 @@ public class BlockStorageAlloy extends BlockCore implements IInitializer, IModel
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 
-		return "tile.thermalfoundation.storage." + Type.values()[ItemHelper.getItemDamage(stack)].getName() + ".name";
+		int meta = ItemHelper.getItemDamage(stack);
+		if (meta >= Type.values().length) {
+			meta = 0;
+		}
+		return "tile.thermalfoundation.storage." + Type.values()[meta].getName() + ".name";
 	}
 
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 
-		return Type.values()[ItemHelper.getItemDamage(stack)].getRarity();
+		int meta = ItemHelper.getItemDamage(stack);
+		if (meta >= Type.values().length) {
+			return EnumRarity.COMMON;
+		}
+		return Type.values()[meta].getRarity();
 	}
 
 	@Override
