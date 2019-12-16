@@ -48,7 +48,11 @@ public class BlockOre extends Block implements IInitializer {
 	@Override
 	public int getLightValue(IBlockAccess world, int x, int y, int z) {
 
-		return LIGHT[world.getBlockMetadata(x, y, z)];
+		int metadata = world.getBlockMetadata(x, y, z);
+		if (metadata >= LIGHT.length || metadata < 0) {
+			return 0;
+		}
+		return LIGHT[metadata];
 	}
 
 	@Override
