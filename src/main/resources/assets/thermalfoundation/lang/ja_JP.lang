@@ -6,7 +6,7 @@ chat.thermalfoundation.upgrade.install.failure=ブロックのアップグレー
 chat.thermalfoundation.upgrade.install.success=ブロックは正常にアップグレードされました。
 
 death.attack.basalz=%1$s は己の世界を揺さぶられた！
-death.attack.blitz=%1$s は敢え無く光になってしまった！
+death.attack.blitz=%1$s は敢え無く成仏してしまった！
 death.attack.blizz=%1$s は凍え死ぬ運命だった！
 death.attack.cryotheum.player=%1$s は %2$s から逃れようと氷漬けになった！
 death.attack.cryotheum=%1$s は氷漬けになった！
@@ -29,7 +29,7 @@ fluid.coal=液化石炭
 fluid.constantan=溶けたコンスタンタン
 fluid.creosote=クレオソート
 fluid.crude_oil=原油
-fluid.cryotheum=氷結のクリオジウム
+fluid.cryotheum=極寒のクリオジウム
 fluid.ender=レゾナントエンダー
 fluid.enderium=溶けたエンダリウム
 fluid.experience=知識のエッセンス
@@ -39,12 +39,12 @@ fluid.invar=溶けたインバー
 fluid.iridium=溶けたイリジウム
 fluid.mana=原初のマナ
 fluid.mushroom_stew=キノコシチュー
-fluid.petrotheum=地殻のペトロジウム
+fluid.petrotheum=地動のペトロジウム
 fluid.platinum=溶けたプラチナ
 fluid.potion=ポーション
 fluid.potion_lingering=残留ポーション
 fluid.potion_splash=スプラッシュポーション
-fluid.pyrotheum=炎熱のパイロジウム
+fluid.pyrotheum=灼熱のパイロジウム
 fluid.redstone=不安定レッドストーン
 fluid.refined_biofuel=グラソリン
 fluid.refined_fuel=精製燃料
@@ -75,15 +75,15 @@ info.thermalfoundation.offhandUse=ブロックに置く際に自動的に使用�
 info.thermalfoundation.security.lock=セキュリティを設定できるブロックに使用するかアイテムとクラフトしてください。
 
 info.thermalfoundation.tome.experience.0=ページに経験値を貯めることが出来ます。
-info.thermalfoundation.tome.experience.1=使用することでこの教典に知識を詰め込めます。
+info.thermalfoundation.tome.experience.1=使用することでこの書に知識を詰め込めます。
 info.thermalfoundation.tome.experience.2=スニーク中に使用すると溜めた知識を得ることが出来ます。
 info.thermalfoundation.tome.experience.a.0=§b(%s)キーを押下すると自動収集を有効化出来ます。§r
 info.thermalfoundation.tome.experience.a.1=§e(%s)キーを押下すると自動収集を無効化出来ます。§r
 
 info.thermalfoundation.tome.lexicon.0=アイテムを同等のものに変換できます。
-info.thermalfoundation.tome.lexicon.1=シソーラスとも呼ばれます。
+info.thermalfoundation.tome.lexicon.1=類語辞典とも呼ばれます。
 info.thermalfoundation.tome.lexicon.a.0=右クリックで調査できます。
-info.thermalfoundation.tome.lexicon.a.1=右クリックで変換の頁を開きます。
+info.thermalfoundation.tome.lexicon.a.1=右クリックで変換のページを開きます。
 info.thermalfoundation.tome.lexicon.b.0=§b %s キーで知識を得られます。§r
 info.thermalfoundation.tome.lexicon.b.1=§e %s キーで知識を忘却できます。§r
 
@@ -606,12 +606,12 @@ tab.thermalfoundation.lexicon.transmute.1=語彙目録が世界中の覇権を�
 
 tile.thermalfoundation.fluid.aerotheum.name=清風のエアロジウム
 tile.thermalfoundation.fluid.crude_oil.name=原油
-tile.thermalfoundation.fluid.cryotheum.name=氷結のクリオジウム
+tile.thermalfoundation.fluid.cryotheum.name=極寒のクリオジウム
 tile.thermalfoundation.fluid.ender.name=レゾナントエンダー
 tile.thermalfoundation.fluid.glowstone.name=励起グローストーン
 tile.thermalfoundation.fluid.mana.name=原初のマナ
 tile.thermalfoundation.fluid.petrotheum.name=地動のペトロジウム
-tile.thermalfoundation.fluid.pyrotheum.name=炎熱のパイロジウム
+tile.thermalfoundation.fluid.pyrotheum.name=灼熱のパイロジウム
 tile.thermalfoundation.fluid.redstone.name=不安定レッドストーン
 
 tile.thermalfoundation.glass.aluminum.name=硬化アルミニウムガラス
