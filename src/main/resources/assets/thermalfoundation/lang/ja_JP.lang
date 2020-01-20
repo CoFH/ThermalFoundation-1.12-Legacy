@@ -160,7 +160,7 @@ item.thermalfoundation.armor.tinLegs.name=錫のレギンス
 item.thermalfoundation.armor.tinChestplate.name=錫のチェストプレート
 
 item.thermalfoundation.bait.baitBasic.name=アクア・チャウ
-item.thermalfoundation.bait.baitFlux.name=フラックス化したアクア・チャウ
+item.thermalfoundation.bait.baitFlux.name=フラックス化アクア・チャウ
 item.thermalfoundation.bait.baitRich.name=上質なアクア・チャウ
 
 item.thermalfoundation.coin.coinAluminum.name=アルミニウムのコイン
@@ -207,7 +207,7 @@ item.thermalfoundation.dye.dyeWhite.name=白色の色素
 item.thermalfoundation.dye.dyeYellow.name=黄色の色素
 
 item.thermalfoundation.fertilizer.fertilizerBasic.name=フィト・グロー
-item.thermalfoundation.fertilizer.fertilizerFlux.name=フラックス化したフィト・グロー
+item.thermalfoundation.fertilizer.fertilizerFlux.name=フラックス化フィト・グロー
 item.thermalfoundation.fertilizer.fertilizerRich.name=上質なフィト・グロー
 
 item.thermalfoundation.horseArmor.aluminum.name=アルミニウムの馬鎧
